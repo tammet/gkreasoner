@@ -1,0 +1,16 @@
+# Internal working notes: not part of the public repo.
+# (Follows the gkc habit, where Plans/ is likewise untracked.)
+Plans/
+
+# Editor / OS noise
+.vscode/
+.DS_Store
+*~
+*.swp
+
+# Nothing here is built from source: no object files should ever appear.
+# These are guards in case a source tree is ever copied in by accident.
+*.o
+*.a
+*.so
+*.dSYM/
