@@ -1,0 +1,9 @@
+% Solve X + 2 = 10 by bounded arithmetic instantiation. Expected answer: 8.
+% Needs the bounded numeric-instantiation strategy (see this folder's README):
+%   gk apples_answer.gkp -seconds 5 \
+%     -strategytext '{"strategy":["unit"],"query_preference":0,"arith_instantiation":1}'
+% GKP form of apples_answer.js. See Doc/input_languages.md.
+
+0.8::johnhad(X) :- X + 2 = 10.
+
+query(johnhad(X)).

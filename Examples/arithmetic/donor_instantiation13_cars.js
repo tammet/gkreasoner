@@ -1,0 +1,34 @@
+[
+  [
+    [
+      "more_expensive",
+      "mike"
+    ],
+    [
+      "-=",
+      [
+        "$product",
+        2,
+        "?:J"
+      ],
+      "?:M"
+    ],
+    [
+      "-$greater",
+      "?:J",
+      0
+    ],
+    [
+      "-$greater",
+      "?:M",
+      "?:J"
+    ]
+  ],
+  {
+    "@role": "question",
+    "@logic": [
+      "more_expensive",
+      "?:Who"
+    ]
+  }
+]

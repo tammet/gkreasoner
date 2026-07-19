@@ -1,0 +1,5 @@
+pacifist(X) -< quaker(X).
+~pacifist(X) -< republican(X).
+
+quaker(nixon).
+republican(nixon).

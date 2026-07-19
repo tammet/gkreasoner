@@ -1,0 +1,253 @@
+# Strategy Reference
+
+A strategy controls proof search: clause selection, inference restrictions,
+resource limits, and answer limits. It does not change the input logic.
+
+## Automatic strategy
+
+When neither `-strategy` nor `-strategytext` is given, GK constructs a strategy
+from the parsed problem. The first search of a query runs a short ladder of
+strategies, each with a no-proof give-up time: a run ends at that limit only
+while it has proved nothing; the first run that proves something continues to
+the end of the search budget, collecting further proofs and answers, and its
+strategy is then used for every later search of the same query, including
+blocker checks and the negative-evidence search.
+
+The ladder starts with a champion chosen from the problem size
+(negative-clause preference for small problems, query-focused selection for
+large ones), followed by a few alternatives: the other of those two, unit
+restriction, query focus with SINE filtering for larger axiom sets, and
+hardness preference. By default the champion's give-up time is half of the
+search budget and the alternatives share the rest. With `-explore`, or
+automatically when `-seconds` exceeds 30, every ladder entry instead gets an
+equal short give-up time, so many strategies are tried before committing.
+
+Automatic selection is the default interface and may change between versions.
+An explicit strategy is appropriate when a search must be reproducible or when
+the automatic search does not find a proof within its limit.
+
+```sh
+gk Examples/core/grandfather.gkp
+```
+
+## Multi-run strategies
+
+A strategy object may contain a `runs` array. Each element is a complete or
+partial strategy. GK tries the runs in order and stops when a run answers the
+query. Top-level values act as defaults for the individual runs.
+
+```json
+{
+  "total_seconds": 20,
+  "runs": [
+    {"max_seconds": 1, "strategy": ["unit"],
+     "query_preference": 0},
+    {"max_seconds": 4, "strategy": ["negative_pref"],
+     "query_preference": 1},
+    {"max_seconds": 15, "strategy": ["query_focus"],
+     "query_preference": 1, "sine": 1}
+  ]
+}
+```
+
+```sh
+gk Examples/core/grandfather.gkp \
+  -strategy Examples/strategy/runs.json
+```
+
+Short restricted searches belong first; broader searches belong later. A
+restricted run such as unit resolution is incomplete, so failure in one run
+does not imply that the problem has no proof.
+
+## Single-run strategies
+
+A single-run file is one JSON object:
+
+```json
+{
+  "max_seconds": 10,
+  "strategy": ["query_focus"],
+  "query_preference": 1,
+  "max_distinct_answers": 10
+}
+```
+
+Pass the file with `-strategy`:
+
+```sh
+gk Examples/core/grandfather.gkp \
+  -strategy Examples/strategy/query_focus.json
+```
+
+The same object can be supplied inline:
+
+```sh
+gk Examples/core/grandfather.gkp \
+  -strategytext '{"strategy":["query_focus"],"query_preference":1}'
+```
+
+Strategy files contain configuration only; running one as a logic problem
+produces a missing-question error.
+
+## Time limits
+
+### `max_seconds`
+
+Maximum time for one run, in seconds. The command-line `-seconds` value is used
+by the automatic strategy.
+
+### `total_seconds`
+
+Maximum cumulative time across all runs.
+
+### `giveup_dseconds`
+
+No-proof give-up limit for one run, in tenths of a second. The run ends at
+this limit only while it has proved nothing; once any proof is found, the run
+continues under the ordinary limits, collecting further proofs and answers.
+The automatic strategy ladder is built from this key; it can also be used in
+hand-written multi-run strategies.
+
+## Answer and proof limits
+
+### `max_answers`
+
+Legacy name for the maximum number of stored proofs in total. Several proofs
+of one answer each count. The automatic strategy commonly sets this to 10.
+
+### `max_total_proofs`
+
+Clearer synonym for `max_answers`.
+
+### `max_distinct_answers`
+
+Stop after this many distinct answer substitutions have been found. This
+corresponds to command-line `-maxanswers`.
+
+### `max_proofs`
+
+Retain at most this many proofs per distinct answer. This corresponds to
+command-line `-maxproofs` and does not stop search by itself.
+
+## Selection methods
+
+The `strategy` value is a string or an array of strings. Array entries enable
+several compatible preferences.
+
+```json
+{"strategy": ["query_focus", "positive_pref"]}
+```
+
+| Name | Effect |
+|---|---|
+| `negative_pref` | Prefer clauses containing negative literals |
+| `positive_pref` | Prefer clauses containing positive literals |
+| `query_focus` | Prefer clauses in the query/goal queues |
+| `hardness_pref` | Prefer clauses estimated to be easier to process |
+| `knuthbendix_pref` | Use a Knuth-Bendix-oriented preference for equational problems |
+| `hyper` | Enable hyperresolution |
+| `unit` | Restrict resolution arguments to unit clauses |
+| `double` | Allow resolution arguments of length at most 2 |
+| `triple` | Allow resolution arguments of length at most 3 |
+
+`unit`, `double`, and `triple` impose inference restrictions and can make the
+search incomplete.
+
+## Query and clause queues
+
+Clauses have goal, assumption, or axiom roles. `query_preference` determines
+how those roles map to selection queues:
+
+| Value | Treatment |
+|---:|---|
+| `0` | Put all clauses in one queue |
+| `1` | Keep the queues as marked by their roles |
+| `2` | Move positive goal units and non-included axioms to the assumption queue |
+| `3` | Keep only fully negative goal clauses in the goal queue |
+
+`query_focus` is the selection method that gives direct preference to the goal
+queue.
+
+### `weight_select_ratio`
+
+Set the ratio used when selecting from the clause queues. The accepted synonym
+is `given_queue_ratio`.
+
+## Derived-clause limits
+
+A zero value disables the corresponding limit.
+
+| Key | Limit |
+|---|---|
+| `max_size` | number of literals in a retained clause |
+| `max_depth` | term nesting depth |
+| `max_length` | term arity or length |
+| `max_weight` | calculated clause weight |
+
+Restrictive values reduce memory use but may remove all proofs of an answer.
+
+## Equality and relevance filtering
+
+### `equality`
+
+Use `1` to enable equality reasoning and paramodulation, or `0` to disable it.
+The automatic strategy enables it when required by the input.
+
+### `rewrite`
+
+Use `1` to rewrite terms with oriented equalities, or `0` to disable rewriting.
+
+### `sine`
+
+Apply SINE relevance filtering to the initial axioms:
+
+| Value | Meaning |
+|---:|---|
+| `0` | no SINE filtering |
+| `1` | weak filtering |
+| `2` | strong filtering |
+
+SINE is mainly useful for a small query against a large axiom set.
+
+## Confidence-related keys
+
+### `independence`
+
+Accepted range: 0 to 100. In the normal proof-support combiner, `0` disables
+cumulation and any nonzero value enables it. The overlap itself is measured
+from evidence-instance sets. Under the compatibility option `-oldcumulate`,
+the percentage controls the older heuristic interpolation.
+
+### `keepconfidence`
+
+Minimum confidence for retained derived clauses, as an integer percentage from
+0 to 100.
+
+### `raw_proofs`
+
+Set to `1` for raw-proof collection. The command-line form is `-rawproofs`.
+
+## Arithmetic instantiation
+
+### `arith_instantiation`
+
+| Value | Meaning |
+|---:|---|
+| `0` | disabled |
+| `1` | conservative one-variable instantiation |
+| `2` | extended mode, including selected two-variable conditions |
+
+The arithmetic README gives complete commands and examples. Additional
+`arith_inst_*` limit keys exist for controlled experiments, but the three modes
+above are the stable public interface.
+
+## Supplied strategy files
+
+| File | Contents |
+|---|---|
+| [`query_focus.json`](../Examples/strategy/query_focus.json) | query-focused single run |
+| [`negative_pref.json`](../Examples/strategy/negative_pref.json) | negative-clause-preference single run |
+| [`runs.json`](../Examples/strategy/runs.json) | three runs from restricted to broader search |
+
+The files are described and exercised in
+[`../Examples/strategy/README.md`](../Examples/strategy/README.md).

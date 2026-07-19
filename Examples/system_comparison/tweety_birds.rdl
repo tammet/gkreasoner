@@ -1,0 +1,10 @@
+Animal = {tweety, opus}
+
+type(Bird(Animal))
+type(Flies(Animal))
+
+Bird(tweety)
+Bird(opus)
+!Flies(opus)
+
+Bird(X)::Flies(X)/Flies(X)

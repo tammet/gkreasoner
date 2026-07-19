@@ -1,0 +1,338 @@
+# Command-Line Reference
+
+The examples below use `gk` as the executable name. In this repository on
+Linux, substitute `./bin/gk`.
+
+## Invocation
+
+```text
+gk [options] file1 [file2 ...]
+gk -jstext 'JSON-LD-LOGIC text' [options]
+gk -readkb file [options]
+gk -usekb [query-file] [options]
+gk -deletekb [options]
+```
+
+With ordinary input files, GK reads all files as one problem and proves the
+query they contain.
+
+```sh
+gk Examples/core/grandfather.gkp
+gk facts.js rules.js query.js
+```
+
+## Input and output formats
+
+### `-informat <json|prolog|tptp|simple>`
+
+Treat all input files as the selected format. `prolog` selects GKP and
+`simple` selects GKS. Without this option, GK checks recognizable content and
+then the file suffix.
+
+### `-outformat <json|prolog|tptp>`
+
+Select the result format. Native JSON input normally produces JSON output;
+GKP produces plain key-value output; TPTP produces TPTP/SZS-oriented output.
+
+### `-jstext '<json>'`
+
+Read JSON-LD-LOGIC directly from the command line:
+
+```sh
+gk -jstext '[["bird","tweety"],{"@question":["bird","tweety"]}]'
+```
+
+### `-writejson`
+
+Parse the input, print its JSON-LD-LOGIC representation, and exit without
+proving it.
+
+### `-detail`
+
+Add `support_for`, `support_against`, `conflict`, `ignorance`, conflict
+sources, and flags to each answer assessment.
+
+### `-print <n>`
+
+Set output verbosity. The default is 10. Each band includes everything from
+the bands below it; levels 0-11 print one valid JSON document, 12 and up
+interleave a human-readable trace with the reports.
+
+| Level | Content |
+|---|---|
+| 0-9 | answers with confidences and blockers; no proofs |
+| 10 | default: answers with positive and negative proofs |
+| 11 | adds the `detail` block and proof-step provenance |
+| 12 | adds the high-level search trace: positive/negative searches, blocker checks with depth and time budget, brief sub-search results |
+| 13-15 | adds full intermediate reports, the given-clause trace, and statistics |
+| 16-20 | adds kept derived clauses with clause metadata |
+| 21-30 | adds subsumed and pre-cut derived clauses and the initial clause lists |
+| 31-50 | adds given candidates with resolvability, active clauses, partial derivations, and parser dumps |
+| 51+ | adds literal/term selection and datastructure dumps |
+
+### `-derived`
+
+Print all derived clauses independently of `-print`.
+
+## Time and memory
+
+### `-seconds <n>`
+
+Set the total time limit in seconds. The default is 10.
+
+### `-mbsize <n>`
+
+Set the initially allocated database size in megabytes. The default is 5000.
+Shared-memory loading requires at least 1000 MB.
+
+### `-parallel <n>`
+
+Set the number of parallel Unix search processes. The default is 1. Use 0 for
+a single deterministic process. Raw-proof mode forces single-process search.
+
+## Answer and proof limits
+
+### `-confidence <n>`
+
+Set the minimum confidence margin for an accepted answer. The default is 0.1.
+The value may be a decimal from 0 to 1 or an integer percentage from 2 to 100.
+Derivations below the limit are reported under `evidence below limit`.
+
+### `-keepconfidence <n>`
+
+Discard derived clauses below this confidence. The value uses the same decimal
+or percentage forms as `-confidence`. The default is 0, which keeps all
+derived clauses.
+
+### `-firstanswer`
+
+Stop after the first answer rather than searching for alternative answers and
+proofs.
+
+### `-maxanswers <n>`
+
+Stop after finding `n` distinct answers. If `-maxproofs` is also set, stopping
+occurs after the retained answer classes have reached their proof limit.
+
+### `-maxproofs <n>`
+
+Retain at most `n` proofs for each distinct answer. The option does not by
+itself stop the search. Raw-proof mode uses 16 when no explicit value is given.
+
+## Confidence assessment
+
+The default mode reports a compact `confidence` and, with `-detail`, a
+four-part assessment. The algorithms and interpretation are described in
+[`how_gk_works.md`](how_gk_works.md).
+
+### `-nocumulate`
+
+Do not combine alternative proofs of the same answer.
+
+### `-nonegative`
+
+Do not search for negative evidence.
+
+### `-oldcumulate`
+
+Use the older heuristic proof-combination algorithm. In this mode the
+`independence` strategy value controls the degree of combination. The normal
+algorithm measures overlap from proof supports.
+
+### `-olduncertainty`
+
+Use the previous single-number positive-minus-negative pipeline instead of the
+default scrutiny assessment.
+
+### `-defworlds`
+
+Explicitly select the current scrutiny assessment. It is already the default
+for proof search. The explicit form matters with `-clausify`, which otherwise
+uses the classic clause export.
+
+### `-envelope`
+
+Compute minimum and maximum support when identified conflicts are resolved in
+each direction. The envelope is a sensitivity report, not a probability
+interval. It implies detailed output.
+
+### `-stake <F>`
+
+Compare support with threshold `F` and report `ACCEPT`, `DEFER`, or `REJECT`.
+With `-envelope`, acceptance requires the lower support bound to meet the
+threshold and rejection requires the upper bound to remain below it.
+
+### `-rawproofs`
+
+Return the retained positive and negative proofs without cumulation or
+positive-negative arithmetic. Output is JSON. `-confidence` does not filter
+this mode; use `-maxproofs` to limit proofs per answer.
+
+### `-plain`
+
+Ignore confidence annotations. If the input contains no blockers, the default
+machinery is also skipped.
+
+## Defaults and auxiliary data
+
+### `-nocheck`
+
+Do not run blocker checks. Default rules then fire without testing their
+exceptions.
+
+### `-softblock`
+
+Use graded blocker discounting with the legacy single-number report. A
+candidate confidence is multiplied by `1 - pb`, where `pb` is the noisy-or
+pool of firing blocker priorities. This mode selects the legacy pipeline unless
+the current scrutiny mode is explicitly requested.
+
+### `-defaults`
+
+Load taxonomy data used by `tax(...)` blocker priorities. GK reads:
+
+```text
+gk_name_number.txt
+gk_taxonomy_packed.txt
+```
+
+### `-similarities`
+
+Load `gk_similarity.txt` and enable similarity derivation.
+
+### `-nosimilarities`
+
+Disable similarity derivation, including when similarity data is present in a
+shared knowledge base.
+
+### `-relatedwords`
+
+Load `gk_relatedwords.txt`.
+
+### `-datafolder <path>`
+
+Read auxiliary `gk_...` files from `path` rather than the current directory.
+
+```sh
+gk Examples/exceptions/classify.gkp \
+  -defaults -datafolder Examples/exceptions
+```
+
+### `-task <name>`
+
+Select a build-specific auxiliary task. Task names are not part of the stable
+proof-search interface; an ordinary reasoning command does not use this option.
+
+## Search strategies
+
+### `-strategy <file>`
+
+Use a JSON strategy file:
+
+```sh
+gk Examples/core/grandfather.gkp \
+  -strategy Examples/strategy/query_focus.json
+```
+
+### `-strategytext '<json>'`
+
+Supply the strategy object directly:
+
+```sh
+gk Examples/core/grandfather.gkp \
+  -strategytext '{"strategy":["query_focus"],"query_preference":1}'
+```
+
+Without either option, GK constructs a strategy automatically: a short
+ladder of strategies with no-proof give-up times, described in
+[`strategy_reference.md`](strategy_reference.md). Strategy keys are listed
+there as well.
+
+### `-explore`
+
+Exploratory-first automatic selection: every ladder strategy gets an equal
+short no-proof give-up time, and the first one that proves something
+continues with the remaining budget and is used for the rest of the query.
+Selected automatically when `-seconds` exceeds 30.
+
+## Shared-memory knowledge bases
+
+A parsed knowledge base can be held in shared memory for repeated queries.
+Database number 1000 is used by default.
+
+### `-readkb <file>`
+
+Parse a file into shared memory. Use at least `-mbsize 1000`.
+
+### `-usekb`
+
+Use the shared knowledge base together with any query file on the command
+line.
+
+### `-deletekb`
+
+Delete the selected shared-memory database.
+
+### `-mbnr <n>`
+
+Select a shared-memory database number. Values of 10 or greater are suitable
+for ordinary use. Separate numbers allow several databases to coexist.
+
+### `-writekb <file>`
+
+Write the selected shared-memory database to a dump file.
+
+### `-loadkb <file>`
+
+Load a dump file into shared memory.
+
+### `-readwritekb <logic-file> <dump-file>`
+
+Parse a logic file and write the resulting database directly to a dump file.
+
+Typical sequence:
+
+```sh
+gk -readkb axioms.js -mbsize 2000
+gk -usekb query.js
+gk -deletekb
+```
+
+Shared-memory databases are host resources. Delete an unused database before
+reusing its number with a different size or configuration.
+
+## Conversion
+
+### `-clausify`
+
+Print the clausified problem instead of proving it. Plain `-clausify` emits the
+classic clause representation; `-defworlds -clausify` emits the
+confidence-aware clause representation.
+
+## Information
+
+### `-help`
+
+Print the built-in option summary.
+
+### `-version`
+
+Print the version, build date, word sizes, byte order, compiler, and database
+features.
+
+### `-licence`
+
+Print the licence embedded in the executable. `-license` is also accepted.
+
+## Result strings
+
+| Result | Meaning |
+|---|---|
+| `answer found` | at least one answer met the acceptance threshold |
+| `evidence below limit` | a proof was found but its assessed margin was below `-confidence` |
+| `no answers found` | no substitution was found for an open query |
+| `no information` | neither polarity of a ground query was proved |
+| `time limit, proof not found` | the search limit expired before a proof was found |
+
+An output may also contain rejected answers when negative evidence dominates.
+Use `-detail` to distinguish opposition, conflict, and ignorance.

@@ -1,0 +1,14 @@
+% Historical function-symbol variant for DLV 2.1.1. The positive recursive
+% f(X) rules require infinitely many ground terms; the recorded run did not finish.
+
+bird(b1).
+penguin(p1).
+
+bird(X) :- penguin(X).
+flies(X) :- bird(X), not -flies(X).
+-flies(X) :- penguin(X).
+
+bird(f(X)) :- bird(X).
+penguin(f(X)) :- penguin(X).
+
+flies(b1) ?
