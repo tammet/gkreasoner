@@ -17,7 +17,7 @@ With ordinary input files, GK reads all files as one problem and proves the
 query they contain.
 
 ```sh
-gk Examples/core/grandfather.gkp
+gk Examples/exceptions/penguin.gkp
 gk facts.js rules.js query.js
 ```
 
@@ -87,8 +87,11 @@ Shared-memory loading requires at least 1000 MB.
 
 ### `-parallel <n>`
 
-Set the number of parallel Unix search processes. The default is 1. Use 0 for
-a single deterministic process. Raw-proof mode forces single-process search.
+Run automatic search strategies in up to `n` concurrent processes (1 to 8;
+default 1). The default therefore uses one process and no parallel search.
+Unix only. Completion order does not affect the result. The option has no
+effect with `-strategy` or `-strategytext` and works with `-usekb`. Raw-proof
+mode remains single-process.
 
 ## Answer and proof limits
 
@@ -142,11 +145,11 @@ algorithm measures overlap from proof supports.
 ### `-olduncertainty`
 
 Use the previous single-number positive-minus-negative pipeline instead of the
-default scrutiny assessment.
+default four-part assessment.
 
 ### `-defworlds`
 
-Explicitly select the current scrutiny assessment. It is already the default
+Explicitly select the current four-part assessment. It is already the default
 for proof search. The explicit form matters with `-clausify`, which otherwise
 uses the classic clause export.
 
@@ -158,9 +161,8 @@ interval. It implies detailed output.
 
 ### `-stake <F>`
 
-Compare support with threshold `F` and report `ACCEPT`, `DEFER`, or `REJECT`.
-With `-envelope`, acceptance requires the lower support bound to meet the
-threshold and rejection requires the upper bound to remain below it.
+Set a decision threshold `F`, from 0 to 1, and report `ACCEPT`, `DEFER`, or
+`REJECT`. With `-envelope`, the verdict uses the support bounds.
 
 ### `-rawproofs`
 
@@ -185,7 +187,7 @@ exceptions.
 Use graded blocker discounting with the legacy single-number report. A
 candidate confidence is multiplied by `1 - pb`, where `pb` is the noisy-or
 pool of firing blocker priorities. This mode selects the legacy pipeline unless
-the current scrutiny mode is explicitly requested.
+the current four-part mode is explicitly requested.
 
 ### `-defaults`
 
@@ -195,15 +197,6 @@ Load taxonomy data used by `tax(...)` blocker priorities. GK reads:
 gk_name_number.txt
 gk_taxonomy_packed.txt
 ```
-
-### `-similarities`
-
-Load `gk_similarity.txt` and enable similarity derivation.
-
-### `-nosimilarities`
-
-Disable similarity derivation, including when similarity data is present in a
-shared knowledge base.
 
 ### `-relatedwords`
 
@@ -230,7 +223,7 @@ proof-search interface; an ordinary reasoning command does not use this option.
 Use a JSON strategy file:
 
 ```sh
-gk Examples/core/grandfather.gkp \
+gk Examples/exceptions/penguin.gkp \
   -strategy Examples/strategy/query_focus.json
 ```
 
@@ -239,21 +232,20 @@ gk Examples/core/grandfather.gkp \
 Supply the strategy object directly:
 
 ```sh
-gk Examples/core/grandfather.gkp \
+gk Examples/exceptions/penguin.gkp \
   -strategytext '{"strategy":["query_focus"],"query_preference":1}'
 ```
 
 Without either option, GK constructs a strategy automatically: a short
-ladder of strategies with no-proof give-up times, described in
+ordered sequence with initial proof-finding time limits, described in
 [`strategy_reference.md`](strategy_reference.md). Strategy keys are listed
 there as well.
 
 ### `-explore`
 
-Exploratory-first automatic selection: every ladder strategy gets an equal
-short no-proof give-up time, and the first one that proves something
-continues with the remaining budget and is used for the rest of the query.
-Selected automatically when `-seconds` exceeds 30.
+Give every automatically selected strategy the same short time to find its
+first proof. The first successful strategy receives the remaining query time.
+GK enables this mode automatically when `-seconds` exceeds 30.
 
 ## Shared-memory knowledge bases
 
@@ -262,12 +254,17 @@ Database number 1000 is used by default.
 
 ### `-readkb <file>`
 
-Parse a file into shared memory. Use at least `-mbsize 1000`.
+Parse a question-free file into shared memory. Use at least `-mbsize 1000`.
+Options that load auxiliary data, such as `-defaults -datafolder DIR`, belong
+on this command.
 
 ### `-usekb`
 
 Use the shared knowledge base together with any query file on the command
-line.
+line. The question must be in that file. Auxiliary data loaded with
+`-defaults`, `-datafolder`, or `-relatedwords` comes from the shared base; do
+not repeat those options. Search and report options, including `-parallel`,
+apply to each query. With `-usekb`, SINE relevance filtering is disabled.
 
 ### `-deletekb`
 
@@ -293,8 +290,8 @@ Parse a logic file and write the resulting database directly to a dump file.
 Typical sequence:
 
 ```sh
-gk -readkb axioms.js -mbsize 2000
-gk -usekb query.js
+gk -readkb axioms.js -mbsize 2000 -defaults -datafolder DIR
+gk -usekb query.js -parallel 3
 gk -deletekb
 ```
 

@@ -6,28 +6,29 @@ resource limits, and answer limits. It does not change the input logic.
 ## Automatic strategy
 
 When neither `-strategy` nor `-strategytext` is given, GK constructs a strategy
-from the parsed problem. The first search of a query runs a short ladder of
-strategies, each with a no-proof give-up time: a run ends at that limit only
-while it has proved nothing; the first run that proves something continues to
-the end of the search budget, collecting further proofs and answers, and its
-strategy is then used for every later search of the same query, including
-blocker checks and the negative-evidence search.
+sequence from the parsed problem. Each strategy has an initial time in which to
+find a proof. A strategy that finds none is stopped at that limit. The first
+successful strategy receives the remaining search time and is then used for
+the query's blocker checks and negative-evidence searches.
 
-The ladder starts with a champion chosen from the problem size
-(negative-clause preference for small problems, query-focused selection for
-large ones), followed by a few alternatives: the other of those two, unit
-restriction, query focus with SINE filtering for larger axiom sets, and
-hardness preference. By default the champion's give-up time is half of the
-search budget and the alternatives share the rest. With `-explore`, or
-automatically when `-seconds` exceeds 30, every ladder entry instead gets an
-equal short give-up time, so many strategies are tried before committing.
+The first strategy depends on the problem size: negative-clause preference for
+small problems and query-focused selection for large ones. Alternatives use
+the other selection method, unit restriction, query focus with SINE filtering
+for larger axiom sets, and hardness preference. By default the first strategy
+gets half of the search budget before it is abandoned without a proof; the
+alternatives share the rest. With `-explore`, or automatically when `-seconds`
+exceeds 30, every strategy gets the same short initial limit.
 
 Automatic selection is the default interface and may change between versions.
-An explicit strategy is appropriate when a search must be reproducible or when
-the automatic search does not find a proof within its limit.
+Use an explicit strategy when the search configuration must remain fixed.
+
+`-parallel <n>` uses `n` total processes (1 to 8, Unix) for automatic
+selection. The default is 1, with no parallel search. If several strategies
+succeed, GK uses the first one in the order above. Explicit strategies disable
+parallel search.
 
 ```sh
-gk Examples/core/grandfather.gkp
+gk Examples/exceptions/penguin.gkp
 ```
 
 ## Multi-run strategies
@@ -51,7 +52,7 @@ query. Top-level values act as defaults for the individual runs.
 ```
 
 ```sh
-gk Examples/core/grandfather.gkp \
+gk Examples/exceptions/penguin.gkp \
   -strategy Examples/strategy/runs.json
 ```
 
@@ -75,14 +76,14 @@ A single-run file is one JSON object:
 Pass the file with `-strategy`:
 
 ```sh
-gk Examples/core/grandfather.gkp \
+gk Examples/exceptions/penguin.gkp \
   -strategy Examples/strategy/query_focus.json
 ```
 
 The same object can be supplied inline:
 
 ```sh
-gk Examples/core/grandfather.gkp \
+gk Examples/exceptions/penguin.gkp \
   -strategytext '{"strategy":["query_focus"],"query_preference":1}'
 ```
 
@@ -105,7 +106,7 @@ Maximum cumulative time across all runs.
 No-proof give-up limit for one run, in tenths of a second. The run ends at
 this limit only while it has proved nothing; once any proof is found, the run
 continues under the ordinary limits, collecting further proofs and answers.
-The automatic strategy ladder is built from this key; it can also be used in
+The automatic strategy sequence uses this key. It can also be used in
 hand-written multi-run strategies.
 
 ## Answer and proof limits

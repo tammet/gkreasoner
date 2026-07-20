@@ -1,28 +1,24 @@
 # How GK Works
 
-GK combines a first-order resolution prover with confidence annotations and
-defeasible rules. The prover constructs ordinary logical derivations. A
-separate assessment stage examines the evidence used by those derivations,
-checks exceptions, combines alternative proofs, and compares positive and
-negative evidence.
+GK uses first-order resolution to construct proofs. It then checks exceptions,
+combines alternative evidence, and compares support for the answer and its
+negation.
 
 ## 1. From input to answers
 
-All supported input notations are converted to GK's internal clausal form.
-Rules are therefore available to the same resolution procedure regardless of
-whether they were written in GKP, JSON-LD-LOGIC, GKS, or TPTP.
+GK converts every supported input notation to the same internal clause form.
 
 A query with variables is converted to an answer clause. A proof of
-`grandfather(john, mark)`, for example, derives `$ans(mark)` and returns `mark`
-as the substitution. A ground query returns `true` when the query is proved
-and `false` when its negation is proved. If neither polarity is proved, the
-result is `no information`.
+`flies(b)`, for example, derives `$ans(b)` and returns `b` as the substitution.
+A ground query returns `true` when the query is proved and `false` when its
+negation is proved. If neither polarity is proved, the result is
+`no information`.
 
-Resolution is refutational. The prover combines clauses whose complementary
-literals unify, applies the resulting substitution, and continues until it
-derives an answer or contradiction clause. Simplification, equality reasoning,
-rewriting, and arithmetic evaluation are applied when enabled by the problem
-and strategy.
+GK proves a query by adding its negation as a goal and deriving a contradiction.
+It combines clauses whose complementary literals unify, applies the resulting
+substitution, and continues until it derives an answer or contradiction clause.
+Simplification, equality reasoning, rewriting, and arithmetic evaluation are
+applied when enabled by the problem and strategy.
 
 The proof printed with an answer records the input clauses and inference steps.
 Common step labels are:
@@ -38,10 +34,10 @@ Common step labels are:
 
 ## 2. Confidence annotations
 
-An input confidence is a value between 0 and 1. In the scrutiny
-model used by GK, it is interpreted as the probability that the item of
-evidence survives a test. It is not a learned statistical parameter and need
-not be a calibrated probability that the formula is objectively true.
+An input confidence is a value between 0 and 1. In GK's current confidence
+model, it is interpreted as the probability that the item of evidence survives
+a test. It is not a learned statistical parameter and need not be a calibrated
+probability that the formula is objectively true.
 
 An unannotated statement has confidence 1. In GKP:
 
@@ -137,17 +133,38 @@ conflict         0.4
 ignorance        0.3
 ```
 
-This division follows from a shared scrutiny threshold for each ground atom.
+This division follows from a shared threshold for each ground atom.
 Below both evidence confidences, the two sides conflict and neither is usable.
 Between the confidences, only the side with higher confidence is usable. Above
 both confidences, neither side is usable.
 
-For conclusions reached through rules, assessment proceeds from conditions to
-conclusions. A rule contributes evidence only in the worlds in which its body
-is usable and its blockers do not fire. Shared contested ancestors are treated
-jointly where the bounded evaluator can enumerate them. If structural
-assessment is incomplete, GK preserves the proof-derived assessment and marks
-the report with fallback flags rather than discarding a proof.
+The negative-evidence search looks for the explicit negation of the question
+or of each answer found for an open question. A separate search is needed
+because such evidence cannot close the original refutation. Opposition to an
+intermediate premise is handled instead by the premise assessment and does not
+require a proof of the negated answer.
+
+[`net_premise.js`](../Examples/confidences/net_premise.js) is equivalent to:
+
+```prolog
+0.5::bird(a).
+0.2::-bird(a).
+0.9::flies(X) :- bird(X).
+query(flies(a)).
+```
+
+The usable support for `bird(a)` is 0.3, so `flies(a)` receives
+`0.3 * 0.9 = 0.27`. The `-bird(a)` evidence contests the premise; it does not
+prove `-flies(a)`. With `-detail`, `bird(a)` is listed as a conflict source.
+
+For conclusions reached through rules, assessment proceeds from premises to
+conclusions. A rule contributes evidence only when its body is usable and its
+blockers do not fire. When several proof branches use the same contested
+premise, GK evaluates that premise once rather than treating the branches as
+independent. The recursion depth is limited to 16. If the depth limit is
+reached, GK falls back to proof-level assessment; opposition to a deep premise
+may then be omitted. `-detail` reports `SCRUTINY_INCOMPLETE`, `DEPTH_CUTOFF`,
+and `PROOF_FALLBACK`.
 
 The ordinary `confidence` field is retained for compact output and threshold
 compatibility. It is the magnitude of the dominant support margin; ties are
@@ -176,8 +193,8 @@ visible.
 
 Blockers have priorities. A blocking proof may itself depend on defaults, and
 priorities prevent a lower-priority default from defeating a higher-priority
-one. Priorities may be numbers or taxonomy terms such as `tax(penguin)`. Taxonomy terms require
-`-defaults` and the two auxiliary taxonomy files.
+one. Priorities may be numbers or taxonomy terms such as `tax(penguin)`.
+Taxonomy terms require `-defaults` and the two auxiliary taxonomy files.
 
 Opposed defaults need not have a forced winner. In the Nixon diamond,
 
@@ -204,9 +221,9 @@ problems and is not a general constraint solver.
 
 Resolution is complete only when it runs without restrictive strategy limits.
 Practical searches use time, clause-size, and selection controls. GK generates
-an automatic strategy from the input: a short ladder of candidate strategies
-with no-proof give-up times, where the first strategy that proves something
-keeps the remaining budget and is reused for the query's later searches (see
+an ordered sequence of strategies from the input. Each strategy gets an initial
+time in which to find a proof. The first successful strategy gets the remaining
+budget and is reused for the query's later searches (see
 [`strategy_reference.md`](strategy_reference.md)). A strategy file can instead
 specify:
 
@@ -216,42 +233,16 @@ specify:
 - equality, rewriting, and SINE relevance filtering;
 - several runs attempted in sequence.
 
+A fixed set of axioms can be parsed once into shared memory (`-readkb`) and
+reused across many queries (`-usekb`). `-parallel` runs automatically selected
+strategies concurrently. Both options are described in
+[`cli_reference.md`](cli_reference.md).
+
 Unit resolution and other short-argument restrictions can be fast but are
 incomplete. A timeout or a restrictive strategy therefore means only that no
 proof was found under those limits.
 
-## 9. Relation to other approaches
-
-### Classical first-order provers
-
-GK uses the resolution, equality, and term machinery of a classical prover,
-but adds explicit confidence and blocker semantics. Positive and negative
-proofs are retained as separate evidence instead of reducing an inconsistent
-answer to a single Boolean result.
-
-### Probabilistic logic programming
-
-For one-sided, disjoint evidence, GK's products and noisy-or combinations often
-match probabilistic logic-programming calculations. The general semantics are
-different: GK measures overlap between proof-instance sets, treats classical
-negative literals as evidence, and reports conflict and ignorance separately.
-Default blockers are proof searches, not negation as failure.
-
-### Answer set programming
-
-Answer set programs normally obtain defaults through nonmonotonic model
-semantics and negation as failure. GK instead derives first-order proofs and
-checks explicit blocker conditions. Function terms, equality, and confidence
-annotations remain part of the same proof process.
-
-### Bayesian networks and Markov logic
-
-GK does not learn weights or construct a complete joint distribution over the
-knowledge base. Its annotations are supplied with individual facts and rules,
-and answer assessment is derived from the resulting proofs. The confidence
-calculation uses proof provenance.
-
-## 10. Result states
+## 9. Result states
 
 Common result strings are:
 

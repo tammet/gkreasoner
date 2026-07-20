@@ -11,47 +11,61 @@ GK extends the resolution prover [GKC](https://github.com/tammet/gkc) with:
 - separate treatment of evidence for and against a conclusion;
 - default rules whose exceptions are checked by subsidiary proof searches;
 - numeric priorities and taxonomy-based priorities for competing defaults;
-- four-part reports of support, opposition, conflict, and ignorance.
-
-The bundled executable is beta software. The source code of GK is not part of
-this repository.
+- four-part reports of support, opposition, conflict, and ignorance;
+- shared-memory reuse of a fixed axiom set across queries;
+- concurrent execution of automatically selected search strategies.
 
 ## Running GK
 
-The current distribution contains a statically linked Linux x86-64 binary:
+The distribution contains ready-to-run binaries in `bin/`:
+
+| File | Platform |
+|---|---|
+| `bin/gk` | Linux x86-64, statically linked |
+| `bin/gk-macos-arm64` | macOS on Apple silicon |
+| `bin/gk-windows-x64.exe` | 64-bit Windows |
+| `bin/gkjs.wasm` + `bin/gkjs.js` | WebAssembly, for a browser page or Node.js |
 
 ```sh
 chmod +x bin/gk
-./bin/gk Examples/core/grandfather.gkp
+./bin/gk Examples/exceptions/penguin.gkp
 ```
 
-The command returns the substitution `mark`, a confidence of `0.684`, and the
-resolution proof. Run `./bin/gk -help` for the built-in option
-summary and `-version` for build information.
-
-The executable requires a 64-bit x86 Linux system. Binaries for other
-platforms are not included in this revision.
+The command returns the ordinary bird `b` as flying and rejects the penguin
+`p`. Run `./bin/gk -help` for the option summary and `-version` for build
+information. The macOS and Windows binaries take the same arguments. The
+WebAssembly build is loaded through the `gkjs.js` glue; the hosting page or
+script supplies the input and reads the output.
 
 ## Example
 
-`Examples/core/grandfather.gkp` contains:
+`Examples/exceptions/penguin.gkp` contains:
 
 ```prolog
-0.9::father(john, pete).
-0.8::father(pete, mark).
-0.95::grandfather(X, Z) :- father(X, Y), father(Y, Z).
-query(grandfather(john, X)).
+bird(b).
+penguin(p).
+
+bird(X)   :- penguin(X).
+object(X) :- bird(X).
+-flies(X) :- penguin(X).
+
+flies(X)  :- bird(X),   unless(-flies(X), 3).
+-flies(X) :- object(X), unless(flies(X), 2).
+
+query(flies(X)).
 ```
 
-The proof uses both facts and the rule. Their confidences multiply:
+The priority-3 bird default derives `flies(b)`. The lower-priority object
+default does not defeat it. The strict penguin rule derives `-flies(p)`, so
+`p` is rejected as an answer to `flies(X)`.
 
 ```text
-0.9 * 0.8 * 0.95 = 0.684
-```
+answer: b
+confidence: 1
 
-The same problem is available as `Examples/core/grandfather.gks` in the
-premise-to-consequence notation and as `Examples/core/grandfather.js` in GK's
-native JSON-LD-LOGIC representation.
+rejected answer: p
+confidence against: 1
+```
 
 ## Input formats
 
@@ -96,18 +110,13 @@ bin/         GK executables
 Doc/         user documentation
 Examples/    example problems grouped by feature
 montecarlo/  Monte-Carlo checks of the confidence numbers
-LICENSE      distribution and use terms
 ```
 
 The example categories are classical reasoning, confidence calculation,
 defaults and exceptions, arithmetic, proof-search strategy, and
 natural-language reasoning.
 
-## Licence
+## Development
 
-GK may be used, copied, and redistributed for experimentation, evaluation,
-research, and education, subject to the conditions in [`LICENSE`](LICENSE).
-Other uses require prior written permission from Tanel Tammet. The software is
-distributed without warranty.
-
-GK is developed by Tanel Tammet, with contributions by Priit Järv.
+GK is developed by Tanel Tammet, with database technology contributions by
+Priit Järv and conceptual ideas by Tanel Tammet, Priit Järv, and Dirk Draheim.
