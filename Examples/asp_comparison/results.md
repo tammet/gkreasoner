@@ -16,7 +16,7 @@ The host was an Intel Core i7-10875H with 8 cores, 16 hardware threads, and
 30 GiB of memory. The implementations were:
 
 - gk 1.0.0, SHA-256
-  `a639b29a8a9578bb8b01cd6b96614f1e93ada7b98fa7f26eec6f058393a716d1`;
+  `7a976fd38fdffcade87a67de9f30339ec3ebf4cca12d5b45045be418f6a7c5e2`;
 - [clingo](https://potassco.org/clingo/) 5.6.2;
 - [I-DLV](https://github.com/DeMaCS-UNICAL/I-DLV) 1.1.6, SHA-256
   `4fcf0dd01fae22b82e3b52a4421d3c5c0b2a377486450b6175d30b209ffec32a`;
@@ -28,9 +28,9 @@ The host was an Intel Core i7-10875H with 8 cores, 16 hardware threads, and
 
 | Constants | gk | clingo | DLV | I-DLV | s(CASP) |
 |---:|---|---|---|---|---|
-| 1,000 | `true`; 0.32 s; 181,672 KiB | `UNSATISFIABLE`; 10.34 s; 42,472 KiB | cautiously true; 27.80 s; 90,824 KiB | `flies(b1)`; `<0.01 s`; 5,668 KiB | 30 s limit; 716,468 KiB |
-| 2,000 | `true`; 0.33 s; 200,904 KiB | `UNSATISFIABLE`; 99.95 s; 146,288 KiB | 180 s limit; 256,108 KiB | `flies(b1)`; `<0.01 s`; 6,180 KiB | 1 GiB stack limit after 27.55 s; 1,337,852 KiB |
-| 100,000 | `true`; 4.92 s; 345,548 KiB | 30 s limit; 56,284 KiB | 30 s limit; 962,624 KiB | `flies(b1)`; 0.24 s; 52,172 KiB | 1 GiB stack limit after 19.70 s; 1,635,540 KiB |
+| 1,000 | `true`; 0.40 s; 176,724 KiB | `UNSATISFIABLE`; 10.34 s; 42,472 KiB | cautiously true; 27.80 s; 90,824 KiB | `flies(b1)`; `<0.01 s`; 5,668 KiB | 30 s limit; 716,468 KiB |
+| 2,000 | `true`; 0.39 s; 194,040 KiB | `UNSATISFIABLE`; 99.95 s; 146,288 KiB | 180 s limit; 256,108 KiB | `flies(b1)`; `<0.01 s`; 6,180 KiB | 1 GiB stack limit after 27.55 s; 1,337,852 KiB |
+| 100,000 | `true`; 5.83 s; 348,676 KiB | 30 s limit; 56,284 KiB | 30 s limit; 962,624 KiB | `flies(b1)`; 0.24 s; 52,172 KiB | 1 GiB stack limit after 19.70 s; 1,635,540 KiB |
 
 `/usr/bin/time` printed `0.00` for the two smaller I-DLV runs; the table records
 that at the command's hundredth-of-a-second resolution as `<0.01 s`.

@@ -1,4 +1,4 @@
-# Probabilistic and defeasible system examples
+# System comparison examples
 
 This directory contains small, executable comparisons with
 [TweetyProject](https://tweetyproject.org/),

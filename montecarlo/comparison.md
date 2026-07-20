@@ -20,6 +20,12 @@ Results were recorded with:
 - 10,000 trials and seed 1;
 - per-ground-instance rule draws for inclusion sampling.
 
+The gk columns were rechecked on 2026-07-20 with the current shipped binary,
+SHA-256
+`7a976fd38fdffcade87a67de9f30339ec3ebf4cca12d5b45045be418f6a7c5e2`;
+the values were unchanged. The hash above remains the provenance for the
+recorded sampling runs.
+
 Inclusion command:
 
 ```sh
@@ -54,7 +60,6 @@ alternative proofs with shared premises.
 | `coin1.js`, `c` | one proof using 0.5 and 0.6 | 0.2979 | [0.2889, 0.3069] | 0.3000 |
 | `overlap1.js`, `true` | two proofs sharing one premise | 0.8450 | [0.8379, 0.8521] | 0.8460 |
 | `overlap3.js`, `true` | three overlapping proof paths | 0.9596 | [0.9557, 0.9635] | 0.9590 |
-| `grandfather.js`, `mark` | three evidence instances in one proof | 0.6823 | [0.6732, 0.6914] | 0.6840 |
 | `net_direct.js`, `true` | opposing facts about the queried atom | 0.3107 | [0.2976, 0.3238] | 0.3000 |
 | `negation_conflict.js`, `a` | contested premise propagated through rules | 0.2487 | [0.2373, 0.2601] | 0.2520 |
 | `bird_exception.js`, `b` | unopposed default | 1.0000 | [1.0000, 1.0000] | 1.0000 |
@@ -116,7 +121,7 @@ model leaves their overlap as conflict. Current gk assigns the mass to support
 against for this direct query. Taxonomy/default priority behavior is therefore
 not claimed by the threshold model.
 
-## Appendix: examples not compared numerically
+## Coverage limits
 
 The result tables use examples for which the independent calculation has a
 clear interpretation. Other repository examples were excluded for the reasons
@@ -126,8 +131,8 @@ below. This appendix explains omissions; it is not another result table.
 
 `gkmc.py` reads JSON-LD-LOGIC `.js` files. Equivalent `.gkp`, `.gks`, TPTP,
 ASP, [DLV](https://www.dlvsystem.it/dlvsite/dlv/), and Prolog inputs are not
-sampled. Examples include the GKP and GKS versions of `grandfather`, the GKP
-versions of the confidence and default examples, `bird_penguin.p`, and the
+sampled. Examples include the GKP versions of the confidence and default
+examples, `bird_penguin.p`, and the
 files under `Examples/asp_comparison/other_systems/`.
 
 ### Function terms, equality, and arithmetic
@@ -135,7 +140,7 @@ files under `Examples/asp_comparison/other_systems/`.
 The samplers require a finite domain of named constants. They do not cover:
 
 - function-term examples such as `near2.js`, `rules4.js`, `rules5.js`,
-  `grandfather_equality.js`, `penguin4.js`, and `gbirds_funsymbs.js`;
+  `penguin4.js`, and `gbirds_funsymbs.js`;
 - equality examples such as `algebra*.js`, `equality*.js`, and the fluent
   equalities in `people_room.js`;
 - arithmetic evaluation and bounded instantiation under `Examples/arithmetic/`.

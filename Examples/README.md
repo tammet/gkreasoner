@@ -7,37 +7,38 @@ Most introductory problems are supplied in GKP (`.gkp`) and native
 JSON-LD-LOGIC (`.js`) forms. The logic is the same; only the surface notation
 and output format differ.
 
-## 1. Resolution and answer substitutions
+## 1. Defaults and answer substitutions
 
-[`core/grandfather.gkp`](core/grandfather.gkp) contains two facts, one rule,
-and a query with a variable:
+[`exceptions/penguin.gkp`](exceptions/penguin.gkp) asks which objects fly:
 
 ```prolog
-0.9::father(john, pete).
-0.8::father(pete, mark).
-0.95::grandfather(X, Z) :- father(X, Y), father(Y, Z).
-query(grandfather(john, X)).
+bird(b).
+penguin(p).
+bird(X)   :- penguin(X).
+object(X) :- bird(X).
+-flies(X) :- penguin(X).
+flies(X)  :- bird(X),   unless(-flies(X), 3).
+-flies(X) :- object(X), unless(flies(X), 2).
+query(flies(X)).
 ```
 
 ```sh
-./bin/gk Examples/core/grandfather.gkp
+./bin/gk Examples/exceptions/penguin.gkp
 ```
 
-The expected answer is:
+The ordinary bird default has priority 3 and the opposing object default has
+priority 2. The strict penguin rule supplies the exception:
 
 ```text
-answer: mark
-confidence: 0.684
+answer: b
+confidence: 1
+
+rejected answer: p
+confidence against: 1
 ```
 
-Resolution first combines the rule with `father(pete, mark)`, then with
-`father(john, pete)`. The query variable is bound to `mark`. The proof
-confidence is `0.95 * 0.8 * 0.9 = 0.684`.
-
 [`core/logic_chain.js`](core/logic_chain.js) shows a longer implication chain.
-[`core/algebra.js`](core/algebra.js) and
-[`core/grandfather_equality.js`](core/grandfather_equality.js) introduce
-equality reasoning.
+[`core/algebra.js`](core/algebra.js) introduces equality reasoning.
 
 ## 2. Several proofs for one answer
 
@@ -122,7 +123,7 @@ GK constructs a strategy automatically when none is supplied. An explicit
 strategy is useful for reproducing a search or changing clause selection:
 
 ```sh
-./bin/gk Examples/core/grandfather.gkp \
+./bin/gk Examples/exceptions/penguin.gkp \
   -strategy Examples/strategy/query_focus.json
 ```
 
@@ -130,7 +131,7 @@ A strategy may also contain a sequence of runs. GK tries the runs in order
 until one produces an answer or the total time limit is reached:
 
 ```sh
-./bin/gk Examples/core/grandfather.gkp \
+./bin/gk Examples/exceptions/penguin.gkp \
   -strategy Examples/strategy/runs.json
 ```
 

@@ -6,7 +6,7 @@ contain no logic and cannot be run as proof problems.
 GK normally creates a strategy automatically:
 
 ```sh
-./bin/gk Examples/core/grandfather.gkp
+./bin/gk Examples/exceptions/penguin.gkp
 ```
 
 The supplied files demonstrate the two main explicit selection styles and a
@@ -29,11 +29,11 @@ sequence of runs.
 `query_focus` gives preference to the goal queue.
 
 ```sh
-./bin/gk Examples/core/grandfather.gkp \
+./bin/gk Examples/exceptions/penguin.gkp \
   -strategy Examples/strategy/query_focus.json
 ```
 
-Expected result: `mark`, confidence `0.684`.
+Expected result: `b` is accepted and `p` is rejected, both with confidence 1.
 
 ## Negative-clause preference
 
@@ -41,13 +41,11 @@ Expected result: `mark`, confidence `0.684`.
 literals. It is a useful baseline for small resolution problems:
 
 ```sh
-./bin/gk Examples/core/grandfather.gkp \
+./bin/gk Examples/exceptions/penguin.gkp \
   -strategy Examples/strategy/negative_pref.json
 ```
 
-This example also returns `mark` with confidence `0.684`. Strategy differences
-usually become visible as differences in search time or clause count, not in
-the answer to a small problem.
+This strategy returns the same accepted and rejected answers.
 
 ## Several runs
 
@@ -58,12 +56,11 @@ the answer to a small problem.
 3. fifteen seconds of query-focused search with weak SINE filtering.
 
 ```sh
-./bin/gk Examples/core/grandfather.gkp \
+./bin/gk Examples/exceptions/penguin.gkp \
   -strategy Examples/strategy/runs.json
 ```
 
-The first run is sufficient for the grandfather problem. On a harder problem,
-later runs broaden the search.
+The first run is sufficient for this problem.
 
 ## Confidence combination
 

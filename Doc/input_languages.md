@@ -38,7 +38,6 @@ negative literal, not a failure to prove the positive literal.
 ```prolog
 bird(X) :- penguin(X).
 0.9::flies(X) :- bird(X), healthy(X).
-grandfather(X, Z) :- father(X, Y), father(Y, Z).
 ```
 
 The rule head is on the left of `:-`; the body contains comma-separated

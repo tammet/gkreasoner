@@ -1,42 +1,12 @@
-# Comparison with probabilistic and defeasible reasoning systems
+# Reasoner comparison
 
-gk and the systems below accept superficially similar rules, but they do not
-assign the same meaning to every program. The comparison begins with the
-result each system computes:
-
-- gk searches for first-order proofs of a query, checks default blockers, and
-  assesses the supporting and opposing proofs;
-- [ProbLog](https://dtai.cs.kuleuven.be/problog/editor.html) computes
-  probabilities induced by probabilistic choices in a logic program;
-- [PASTA](https://github.com/damianoazzolini/pasta) computes lower and upper
-  probabilities for probabilistic answer-set programs under credal semantics;
-- [TweetyProject](https://tweetyproject.org/) implements many knowledge
-  representation formalisms; the comparisons here use Reiter default logic
-  and Defeasible Logic Programming (DeLP);
-- [clingo](https://potassco.org/clingo/),
-  [DLV](https://www.dlvsystem.it/dlvsite/dlv/), and
-  [I-DLV](https://github.com/DeMaCS-UNICAL/I-DLV) evaluate ASP or Datalog
-  programs, using stable-model or stratified-query semantics as appropriate;
-- [s(CASP)](https://swish.swi-prolog.org/example/scasp.swinb) searches from a
-  query and returns a partial stable model with a justification, without
-  grounding the complete program first.
-
-Consequently, agreement on one example does not imply equivalent semantics.
-The sections below state the cases narrowly and distinguish historical results
-from current gk behavior.
-
-The papers *Confidences for Commonsense Reasoning* and *GK: Implementing Full
-First Order Default Logic for Commonsense Reasoning* describe earlier CONFER/gk
-versions. Their ProbLog and
-[Alchemy](https://doi.org/10.1145/1557019.1557025) confidence tables use the
-older confidence calculation, which differs from current gk.
-This document does not reuse those numbers as current results. Historical ASP
-measurements are kept separate from results produced from the current
-repository.
+This document records executable comparisons with ProbLog, PASTA,
+TweetyProject, clingo, DLV, I-DLV, and s(CASP). Each system uses its native
+semantics. Current measurements are kept separate from historical results.
 
 ## ProbLog
 
-### Comparable one-sided cases
+### Positive-only results
 
 A ProbLog probabilistic fact is an independent Boolean choice. Standard
 inference reports the probability that a query succeeds across those choices.
@@ -57,12 +27,10 @@ possible-world sampling: `overlap1.js` estimates 0.8450 with gk at 0.846, and
 reported 95% sampling intervals. The intervals and commands are in
 [`../montecarlo/comparison.md`](../montecarlo/comparison.md).
 
-The agreement is limited to these examples. The sampler supports constants
-only, the search must find the relevant proofs, and gk uses exact
-inclusion-exclusion only up to 20 reduced proof masks. Above that limit it uses
-a deterministic approximation and reports a warning.
+The sampler supports constants only. GK uses exact inclusion-exclusion for up
+to 20 reduced proof masks and a deterministic approximation above that limit.
 
-### Different treatment of opposing evidence
+### Opposing evidence
 
 gk treats a negative literal such as `-flies(a)` as explicit evidence with its
 own confidence. If the positive confidence is 0.7 and the negative confidence
@@ -75,32 +43,20 @@ conflict         0.4
 ignorance        0.3
 ```
 
-This four-part assessment is not a ProbLog success probability. A ProbLog model
-can introduce separate positive and negative atoms and rules for reconciling
-them, but the result then depends on that encoding. ProbLog does not give gk's
-conflict/ignorance report as part of its standard semantics.
+This four-part assessment is not a ProbLog success probability. ProbLog does
+not report gk's conflict and ignorance values.
 
 Defaults also differ. A gk blocker starts another proof search to determine
 whether an exception defeats a candidate proof, and priorities restrict which
 defaults may participate in that check. ProbLog's Prolog-style negation and
 probabilistic choices do not implement those blocker and priority rules.
 
-### Operations provided by ProbLog
+### Other ProbLog operations
 
-ProbLog's standard tools provide operations that gk does not:
-
-- conditioning a query on positive or negative observations with `evidence`;
-- exact inference by knowledge compilation for supported finite problems, and
-  sampling-based estimates as an alternative;
-- most-probable-explanation and MAP queries;
-- learning probabilities from examples;
-- annotated disjunctions and decision-theoretic extensions;
-- sampling from continuous distributions.
-
-See the official [ProbLog model documentation](https://problog.readthedocs.io/en/latest/modeling_basic.html)
-and [command-line modes](https://problog.readthedocs.io/en/latest/cli.html).
-gk assigns supplied confidences to proof evidence; it is not a general
-probabilistic conditioning or learning system.
+ProbLog provides evidence conditioning, MPE and MAP queries, probability
+learning, annotated disjunctions, and continuous distributions. GK does not
+provide these operations. See the
+[ProbLog documentation](https://problog.readthedocs.io/en/latest/cli.html).
 
 ## PASTA
 
@@ -109,7 +65,7 @@ selection of probabilistic facts can have one or more stable models. The lower
 query probability counts selections where the query holds in every stable
 model; the upper probability counts selections where it holds in at least one.
 
-Three current repository examples isolate the consequences:
+Recorded results:
 
 - independent facts with probabilities `0.5` and `0.6`, each sufficient for
   the query, give lower = upper = `0.8`;
@@ -163,25 +119,15 @@ expected query answer. The route to that answer is different: ASP uses stable
 models and negation as failure, whereas gk constructs a first-order proof and
 checks an explicit blocker.
 
-### Grounded ASP: clingo and DLV
+### clingo and DLV
 
-clingo and DLV ground and solve finite ASP programs. Their languages
-provide stable-model enumeration, integrity constraints, choice or disjunctive
-rules, aggregates, and optimization facilities. These operations support
-scheduling, configuration, and graph problems. gk does not enumerate
-stable models and has no corresponding ASP optimization language.
+clingo and DLV ground non-ground rules before stable-model search. Function
+terms are valid syntax, but positive recursion such as
+`bird(f(X)) :- bird(X)` needs infinitely many ground terms. The historical
+grounders in this repository's birds example did not finish that input. GK
+does not enumerate stable models or provide ASP optimization constructs.
 
-Both systems ground non-ground rules before stable-model search. Function terms
-are valid syntax, but positive recursion such as `bird(f(X)) :- bird(X)` needs
-infinitely many ground terms. The historical grounders in this repository's
-birds example did not finish that input. Large finite transitive closures can
-also make grounding expensive.
-
-The official [Potassco guide](https://potassco.org/guide/) documents clingo.
-The DLV system page describes DLV's disjunctive logic-programming and
-optimization use cases.
-
-### I-DLV: stratified query answering and ASP grounding
+### I-DLV
 
 I-DLV has two relevant roles. It can evaluate a disjunction-free program that
 is stratified under negation and answer a query using Magic Sets, or it can
@@ -197,85 +143,75 @@ I-DLV was also added to the normalized birds workload. Query rewriting does
 not evaluate the ancestor closure, which is not needed for `flies(b1)`. Single
 runs returned `flies(b1)` in less than 0.01 seconds at 1,000 and 2,000
 constants and 0.24 seconds at 100,000 constants.
-These timings measure query focus for this stratified program; they do not rank
-general ASP performance. The exact inputs, memory figures, command, and
-executable hash are in
+The exact inputs, memory figures, command, and executable hash are in
 [`../Examples/asp_comparison/`](../Examples/asp_comparison/README.md).
 
-### Query-directed ASP: s(CASP)
+### s(CASP)
 
 s(CASP) is not a grounding solver. It evaluates a query top-down and can return
 a partial stable model and a justification. clingo and DLV instead ground the
 complete finite program before stable-model search.
 
-Query-directed execution does not guarantee termination. On the normalized
-large input, s(CASP) 1.1.4 follows the left-recursive transitivity rule even
-though the query does not depend on it. The bounded runs either reached their
-time limit or the Prolog stack limit. These results apply to that encoding and
-version. Smaller historical inputs are retained in
-[`../Examples/asp_comparison/other_systems/`](../Examples/asp_comparison/other_systems/).
+On the normalized input, s(CASP) 1.1.4 follows the left-recursive transitivity
+rule although the query does not use it. The runs reached either the time limit
+or the Prolog stack limit.
 
-### What the birds benchmark establishes
+### Birds benchmark
 
-The current normalized benchmark uses the same facts and rules in each
-system's syntax. The systems handle the ancestor closure differently:
-
-- clingo and DLV materialize the ancestor closure before answering
-  `flies(b1)`, whose derivation does not use `anc`;
-- I-DLV uses Magic Sets to restrict its stratified evaluation to the query;
-- s(CASP) encounters deep recursive search while evaluating that closure;
-- gk answers `flies(b1)` without materializing the closure.
-
-The measurements characterize this workload, not general performance. The
-`flies(b1)` query does not depend on the ancestor closure. Commands, resource
-limits, current results, and the separate historical table are documented in
+The `flies(b1)` query does not use the recursive ancestor relation. clingo and
+DLV materialize that relation, I-DLV restricts evaluation with Magic Sets,
+s(CASP) enters deep recursive search, and gk proves the query directly.
+Commands and measurements are in
 [`../Examples/asp_comparison/README.md`](../Examples/asp_comparison/README.md).
+
+## First-order clause problems
+
+These three classical clause sets test non-Horn first-order reasoning with
+equality, disequality, and function terms.
+
+| Problem | Required features | gk result | Median wall time |
+|---|---|---:|---:|
+| NLP inconsistency | non-Horn clauses, equality and disequality, Skolem functions, cardinality axioms | theorem; 33 proof clauses | 0.01 s |
+| Dreadbury | non-Horn clauses, equality and disequality, nested Skolem functions | theorem; 35 proof clauses | 0.01 s |
+| set identity | non-Horn set axioms and four unrestricted witness functions | theorem; 74 proof clauses | 0.08 s |
+
+Commands and gk measurements are in
+[`../Examples/fol_comparison/`](../Examples/fol_comparison/README.md).
+
+NLP and Dreadbury require equality reasoning in non-Horn clauses and were not
+translated to the tested ASP languages. The set problem has an equality-free
+translation, but its recursive term closure has an infinite Herbrand universe.
+
+Results for the set translation:
+
+| System | Result |
+|---|---|
+| ProbLog | accepted the surface file but returned probability 0; its ground form reduces the query to `fail` because classical disjunctive clauses are not ProbLog rule heads |
+| PASTA | reached the run bound after using about 950 MiB while grounding; no interval was produced |
+| TweetyProject | the set input parses, but its simple FOL reasoner rejects signatures containing functors; its TPTP parser rejects the other two inputs at equality literals containing functions |
+| clingo | reached the grounding memory bound; no model was produced |
+| DLV | rejected the recursive term rule because termination is not guaranteed |
+| I-DLV | reached the grounding memory bound; no ground program was produced |
+| s(CASP) | returned no answer within the run bound |
+
+No tested run returned a proof. Commands, versions, resource bounds, and
+parser or grounding results are in
+[`../Examples/fol_comparison/other_systems/`](../Examples/fol_comparison/other_systems/README.md).
 
 ## English-language examples
 
-The repository's [`Examples/language/`](../Examples/language/README.md) are
-compiled outputs of the
-[llmpipe commonsense-reasoning system](https://github.com/tammet/nlpsolver/tree/main/llmpipe).
-llmpipe automatically translates English into gk logic and uses gk as its
-reasoning engine. The
-[nlformtasks collection](https://github.com/tammet/nlformtasks) provides a
-larger set of language-translation examples runnable by gk.
+[`Examples/language/`](../Examples/language/README.md) contains compiled output
+from the [llmpipe commonsense-reasoning system](https://github.com/tammet/nlpsolver/tree/main/llmpipe).
+llmpipe translates English into gk logic and uses gk for proof search.
 
 The compiled examples combine several features: first-order variables and
 function terms, existential witnesses, explicit negation, disjunction,
 contexts, question-answer bridges, defaults, confidence annotations, and a
 shared background theory for taxonomy, part-whole relations, degrees, events,
-and space. None of the systems compared above accepts this JSON-LD-LOGIC input
-and its conventions directly. Individual fragments could be rewritten for
-ProbLog, PASTA, TweetyProject, or an ASP system, but such a rewrite would need
-to select corresponding semantics for the unsupported features. Its result
-would test the hand-written translation as well as the reasoner.
+and space. The compared systems do not accept these JSON-LD-LOGIC conventions,
+so no cross-system results are listed for this group.
 
-For that reason, this document does not report cross-system runs of these
-compiled files. The narrower examples elsewhere in this document compare
-features that can be represented without removing material parts of the
-input.
-
-## Systems considered but not run
-
-[Fusemate](https://peba62.github.io/systems/) combines possible-model
-reasoning, default negation, and a probabilistic extension with query-guided
-grounding. Baumgartner's system page and the
-[probabilistic Fusemate paper](https://arxiv.org/abs/2308.15862) point to
-source distributions on CSIRO's Bitbucket. Those locations now lead to an
-authenticated sign-in, direct repository access also requires credentials,
-and no public mirror or source archive was found. Without a retrievable
-implementation, a current result would not be reproducible, so no Fusemate
-numbers are reported.
-
-[XSB](https://xsb.sourceforge.net/about.html) provides tabled logic programming
-with well-founded semantics. That includes nonmonotonic negation, but the core
-system does not provide probabilistic inference or a dedicated defeasible-rule
-formalism with conflict resolution or priorities. Its overlap with this
-comparison would therefore be ordinary logic-program negation already covered
-by the ASP systems, so XSB was not added.
-
-## Capability summary
+## Capabilities
 
 | Question | gk | ProbLog | PASTA | TweetyProject modules compared here | clingo / DLV | I-DLV | s(CASP) |
 |---|---|---|---|---|---|---|---|
@@ -287,7 +223,4 @@ by the ASP systems, so XSB was not added.
 | Evidence conditioning or learning | no | yes | conditioning and additional inference modes | separate TweetyProject modules, not these two | no | no | no |
 | Explanation object | gk proof | explanation modes | stable models and probability bounds | extensions or dialectical arguments | models; further tooling is needed for proof-style explanations | query answers or ground rules | justification tree |
 
-The table describes the named systems or modules. Capability entries are
-qualified when they depend on termination or an encoding choice. For gk's own
-algorithms, see
-[`how_gk_works.md`](how_gk_works.md).
+GK's algorithms are described in [`how_gk_works.md`](how_gk_works.md).

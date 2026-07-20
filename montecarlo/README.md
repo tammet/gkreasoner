@@ -13,7 +13,7 @@ function terms.
 Run the commands below from the repository root. The scripts require Python 3
 and the shipped `bin/gk`; they use only the Python standard library.
 
-## Two different sampling questions
+## Sampling modes
 
 The two modes test different readings. They agree on many simple examples but
 need not agree on recursive rules, contested premises, or defaults.
@@ -145,7 +145,7 @@ ordinary literal is the conclusion. It rejects function terms, arithmetic and
 other built-ins, equality, compact formula connectives, ambiguous clauses with
 several positive literals, and taxonomy-valued blocker priorities.
 
-## Why agreement is limited
+## Differences
 
 Agreement is expected when both calculations use the same independence and
 dependency structure. It supports the stated interpretation for that example.

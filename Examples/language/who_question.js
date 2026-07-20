@@ -1,5 +1,5 @@
 // Elephants are animals. Who is an animal?
-// Expected answer: An elephant
+// Expected answers: $some_elephant and $some_animal
 // Uses the shared background knowledge base axioms_std.js.
 // Run from the repository root:
 //   ./bin/gk Examples/language/axioms_std.js Examples/language/who_question.js \

@@ -84,8 +84,8 @@ the hierarchy. [`penguin4.js`](penguin4.js) applies the same pattern to nested
 function terms.
 
 [`penguin.gkp`](penguin.gkp) and [`penguin.js`](penguin.js) are compact cases
-with a strict penguin exception and two opposed defaults. The ordinary bird is
-fully contested; the penguin has full negative support.
+with a strict penguin exception and two opposed defaults. The stronger flight
+default prevails for the ordinary bird; the penguin has full negative support.
 
 ## Classification from parts
 
@@ -102,7 +102,7 @@ Principal results:
 
 ```text
 h1  accepted, confidence 0.44
-b1  accepted through the bird path, confidence 0.536
+b1  accepted through the bird path, confidence 0.5552
 a1  rejected with negative confidence 1
 ```
 

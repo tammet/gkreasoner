@@ -71,7 +71,7 @@ animal cannot fly?" returns `$ans($some_fox)` — a fox.
 | `disjunction.js` | Elephants have trunks or tails. John is an elephant. John has no trunk. John has a tail? | True |
 | `class_exclusion.js` | Elephants are not birds. John is an elephant. John is a bird? | False |
 | `no_information.js` | Elephants are big animals. John is an elephant. Who is nice? | Unknown |
-| `who_question.js` | Elephants are animals. Who is an animal? | An elephant |
+| `who_question.js` | Elephants are animals. Who is an animal? | `$some_elephant` and `$some_animal` |
 | `confidence.js` | Yellow and green elephants are nice. John is an elephant. John is yellow and green. John is nice? | Probably true |
 | `degree.js` | John is somewhat big. John is big? | True |
 | `conditional.js` | John is glad. If John is glad, then Mike is not glad. Is Mike glad? | False |

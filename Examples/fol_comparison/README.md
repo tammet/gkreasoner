@@ -1,55 +1,82 @@
-# First-order comparison candidates
+# First-order comparison
 
 These inputs were adapted from the
-[GKC](https://github.com/tammet/gkc) example collection to identify
-first-order problems that gk can solve before testing systems centered on
-probabilistic or defeasible logic.
+[GKC](https://github.com/tammet/gkc) example collection. They test the
+first-order prover underneath gk's confidence and default machinery.
 
-## Confirmed cases
+## Clause problems
 
-`set.p` is a set-theory identity with union, intersection, difference,
-extensional subset axioms, equality, and function terms used as witnesses.
-GKC clausified the source `Examples/set.txt`; the original negated conjecture
-was restored as the positive literal query required by gk.
+| Input | Main first-order features | gk result |
+|---|---|---|
+| [`nlp_query.p`](nlp_query.p) | non-Horn clauses, equality, disequality, Skolem functions, quantified cardinality axioms | theorem, 33 proof clauses |
+| [`dreadbury_safe_query.p`](dreadbury_safe_query.p) | non-Horn clauses, equality, disequality, nested Skolem functions | theorem, 35 proof clauses |
+| [`set.p`](set.p) | set-theory clauses, four witness functions, unrestricted term depth | theorem, 74 proof clauses |
+
+## gk commands
+
+NLP:
 
 ```sh
-./bin/gk Examples/fol_comparison/set.p -plain -nonegative -firstanswer \
-  -seconds 30 -mbsize 1000 \
+./bin/gk Examples/fol_comparison/nlp_query.p \
+  -plain -nonegative -firstanswer -seconds 30 -mbsize 1000 \
   -strategytext '{"strategy":["negative_pref","posunitpara"],"query_preference":1}'
 ```
 
-gk reports `SZS status Theorem` and gives a 77-step resolution proof.
+Dreadbury:
 
-`blocks.gkp` is a blocks-world planning problem with situation terms, action
-terms, frame axioms, explicit negative literals, and an unbounded query
-variable. The source used `$ans(State)` directly. The adapted input derives
-`goal(State)` and asks `query(goal(State))`, as required by gk's input
-interface.
+```sh
+./bin/gk Examples/fol_comparison/dreadbury_safe_query.p \
+  -plain -nonegative -firstanswer -seconds 30 -mbsize 1000 \
+  -strategytext '{"strategy":["unit"],"query_preference":1}'
+```
+
+Set theory:
+
+```sh
+./bin/gk Examples/fol_comparison/set.p \
+  -plain -nonegative -firstanswer -seconds 30 -mbsize 1000 \
+  -strategytext '{"strategy":["negative_pref","posunitpara"],"query_preference":1}'
+```
+
+Five runs of each command, including process startup, produced:
+
+| Input | Median wall time | Peak resident memory |
+|---|---:|---:|
+| NLP | 0.01 s | 25.6 MiB |
+| Dreadbury | 0.01 s | 23.6 MiB |
+| set theory | 0.08 s | 32.8 MiB |
+
+All three runs report confidence 1 in plain mode.
+The measured gk executable had SHA-256
+`7a976fd38fdffcade87a67de9f30339ec3ebf4cca12d5b45045be418f6a7c5e2`.
+
+## Results in other reasoners
+
+The translations, commands, resource bounds, and results for
+[ProbLog](https://dtai.cs.kuleuven.be/problog/editor.html),
+[PASTA](https://github.com/damianoazzolini/pasta),
+[TweetyProject](https://tweetyproject.org/),
+[clingo](https://potassco.org/clingo/),
+[DLV](https://www.dlvsystem.it/dlvsite/dlv/),
+[I-DLV](https://github.com/DeMaCS-UNICAL/I-DLV), and
+[s(CASP)](https://github.com/JanWielemaker/sCASP) are in
+[`other_systems/`](other_systems/README.md). The inputs retain unrestricted
+function depth.
+
+## Planning example
+
+[`blocks.gkp`](blocks.gkp) is a blocks-world planning problem with situation
+terms, action terms, frame axioms, explicit negative literals, and an
+unbounded query variable. GK returns this four-action situation term:
+
+```text
+do(putdown(c,b),do(pickup(c),do(putdown(b,a),do(pickup(b),s0))))
+```
+
+The command is:
 
 ```sh
 ./bin/gk Examples/fol_comparison/blocks.gkp -plain -nonegative \
   -firstanswer -seconds 30 -mbsize 1000 \
   -strategytext '{"strategy":["hardness_pref"],"weight_select_ratio":100,"query_preference":0}'
 ```
-
-gk returns this four-action situation term:
-
-```text
-do(putdown(c,b),do(pickup(c),do(putdown(b,a),do(pickup(b),s0))))
-```
-
-The set-theory and planning cases are the current candidates for comparison.
-Both require unrestricted function terms and non-Horn clauses. The planning
-case also asks the prover to construct a nested term rather than check a
-finite list of proposed plans.
-
-## Other inspected examples
-
-GKC proves the original `nlp.txt`, `medicine.txt`, and `dreadbury.txt`
-problems. Their conjectures were converted to gk queries and their FOF input
-was clausified with GKC. The current gk binary did not complete these adapted
-inputs: the quantified `nlp.txt` and `medicine.txt` conjectures need a fresh
-literal wrapper because gk rejects explicit quantifiers in a question, and
-the wrapped CNF inputs terminate with an internal `wg_decode_int` error.
-The clausified Dreadbury query terminates with the same error. These three are
-therefore not comparison candidates for the current gk binary.
