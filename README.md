@@ -17,25 +17,40 @@ GK extends the resolution prover [GKC](https://github.com/tammet/gkc) with:
 
 ## Running GK
 
-The distribution contains ready-to-run binaries in `bin/`:
+The binaries are in `bin/`:
 
 | File | Platform |
 |---|---|
 | `bin/gk` | Linux x86-64, statically linked |
 | `bin/gk-macos-arm64` | macOS on Apple silicon |
 | `bin/gk-windows-x64.exe` | 64-bit Windows |
-| `bin/gkjs.wasm` + `bin/gkjs.js` | WebAssembly, for a browser page or Node.js |
+| `bin/gkjs.wasm` + `bin/gkjs.js` | WebAssembly, for a browser page |
+
+Linux:
 
 ```sh
 chmod +x bin/gk
 ./bin/gk Examples/exceptions/penguin.gkp
 ```
 
+macOS:
+
+```sh
+chmod +x bin/gk-macos-arm64
+./bin/gk-macos-arm64 Examples/exceptions/penguin.gkp
+```
+
+Windows:
+
+```text
+bin\gk-windows-x64.exe Examples\exceptions\penguin.gkp
+```
+
 The command returns the ordinary bird `b` as flying and rejects the penguin
 `p`. Run `./bin/gk -help` for the option summary and `-version` for build
-information. The macOS and Windows binaries take the same arguments. The
-WebAssembly build is loaded through the `gkjs.js` glue; the hosting page or
-script supplies the input and reads the output.
+information. The macOS and Windows binaries take the same arguments. For
+WebAssembly, a browser page loads `gkjs.js`, which loads `gkjs.wasm`, and reads
+the problem from a text box rather than the host filesystem.
 
 ## Example
 
@@ -100,8 +115,9 @@ larger set of language-translation examples runnable by gk.
 | [`Doc/how_gk_works.md`](Doc/how_gk_works.md) | Resolution, proof confidence, evidence combination, contradictions, and defaults |
 | [`Doc/cli_reference.md`](Doc/cli_reference.md) | Command-line options |
 | [`Doc/strategy_reference.md`](Doc/strategy_reference.md) | Automatic search and strategy files |
-| [`Doc/comparison_with_other_systems.md`](Doc/comparison_with_other_systems.md) | Scoped comparison with [ProbLog](https://dtai.cs.kuleuven.be/problog/editor.html), [PASTA](https://github.com/damianoazzolini/pasta), [TweetyProject](https://tweetyproject.org/), [clingo](https://potassco.org/clingo/), [DLV](https://www.dlvsystem.it/dlvsite/dlv/), [I-DLV](https://github.com/DeMaCS-UNICAL/I-DLV), and [s(CASP)](https://swish.swi-prolog.org/example/scasp.swinb) |
-| [`montecarlo/README.md`](montecarlo/README.md) | Estimating the confidence numbers by Monte-Carlo sampling, as an independent check |
+| [`Doc/comparison_with_other_systems.md`](Doc/comparison_with_other_systems.md) | Comparisons with other reasoners |
+| [`Examples/language/README.md`](Examples/language/README.md) | Logic generated from English-language inputs |
+| [`montecarlo/README.md`](montecarlo/README.md) | Monte-Carlo checks of confidence results |
 
 ## Repository layout
 
