@@ -274,7 +274,10 @@ kept as independent checks precisely because their disagreements carry
 information.
 
 The detailed results and the coverage status of every example directory are in
-[`comparison.md`](comparison.md).
+[`comparison.md`](comparison.md). A three-way table over the 23 examples of
+the public logictools.org uncertainty page — gk against both samplers, with
+refusal reasons — is in
+[`uncertainty_page_comparison.md`](uncertainty_page_comparison.md).
 
 ## The settlement cells (2026-07-21)
 
