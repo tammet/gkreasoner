@@ -17,40 +17,18 @@ GK extends the resolution prover [GKC](https://github.com/tammet/gkc) with:
 
 ## Running GK
 
-The binaries are in `bin/`:
-
-| File | Platform |
-|---|---|
-| `bin/gk` | Linux x86-64, statically linked |
-| `bin/gk-macos-arm64` | macOS on Apple silicon |
-| `bin/gk-windows-x64.exe` | 64-bit Windows |
-| `bin/gkjs.wasm` + `bin/gkjs.js` | WebAssembly, for a browser page |
-
-Linux:
+Prebuilt binaries for Linux, macOS, Windows, and WebAssembly are in `bin/`.
+On Linux:
 
 ```sh
 chmod +x bin/gk
 ./bin/gk Examples/exceptions/penguin.gkp
 ```
 
-macOS:
-
-```sh
-chmod +x bin/gk-macos-arm64
-./bin/gk-macos-arm64 Examples/exceptions/penguin.gkp
-```
-
-Windows:
-
-```text
-bin\gk-windows-x64.exe Examples\exceptions\penguin.gkp
-```
-
 The command returns the ordinary bird `b` as flying and rejects the penguin
-`p`. Run `./bin/gk -help` for the option summary and `-version` for build
-information. The macOS and Windows binaries take the same arguments. For
-WebAssembly, a browser page loads `gkjs.js`, which loads `gkjs.wasm`, and reads
-the problem from a text box rather than the host filesystem.
+`p`. Run `./bin/gk -help` for the option summary. Every platform takes the same
+arguments; [`bin/README.md`](bin/README.md) covers the other platforms, the
+browser build, and where the binaries come from.
 
 ## Example
 
@@ -122,7 +100,7 @@ larger set of language-translation examples runnable by gk.
 ## Repository layout
 
 ```text
-bin/         GK executables
+bin/         GK executables for each platform
 Doc/         user documentation
 Examples/    example problems grouped by feature
 montecarlo/  Monte-Carlo checks of the confidence numbers
