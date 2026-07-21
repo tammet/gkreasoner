@@ -199,6 +199,11 @@ candidate survives when no blocking argument with sufficient priority is found.
 The blocker is retained in the printed proof, so the defeasible assumption is
 visible.
 
+When the blocking evidence is itself uncertain, the report divides accordingly
+(gk 1.0.4): with exception evidence at confidence 0.9 against a certain
+default, the answer carries support 0.1 for and 0.9 against, and is routed to
+the rejected side because the opposition dominates.
+
 Blockers have priorities. A blocking proof may itself depend on defaults, and
 priorities prevent a lower-priority default from defeating a higher-priority
 one. Priorities may be numbers or taxonomy terms such as `tax(penguin)`.
@@ -212,7 +217,11 @@ pacifist(X)  :- quaker(X),     unless(-pacifist(X), 1).
 ```
 
 equal-priority arguments support both polarities. GK reports the contest and a
-zero margin rather than choosing one conclusion by rule order.
+zero margin rather than choosing one conclusion by rule order. When two such
+opposed defaults carry confidences `a` and `b`, each side counts only where the
+other is absent (gk 1.0.4): support `a(1-b)` for and `b(1-a)` against, no
+conflict mass, and the remainder ignorance. With two certain defaults the whole
+mass is ignorance.
 
 ## 7. Arithmetic
 

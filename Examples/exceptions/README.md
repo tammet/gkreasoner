@@ -41,9 +41,16 @@ default, but it
 provides negative evidence against the answer:
 
 ```text
-b  confidence 1.0
-a  confidence 0.1, conflict 0.9
+b  accepted with confidence 1.0
+a  rejected with confidence 0.8
+   (detail: support_for 0.1, support_against 0.9)
 ```
+
+This is the gk 1.0.4 report. The previously shipped binary printed `a` at
+0.1 with the 0.9 filed under `conflict`; that came from a defect in the
+blocked-answer report, fixed on 2026-07-21. The `bin/gk` shipped in this
+repository predates the fix and still prints the old report until the next
+binary refresh.
 
 [`bird_hierarchy.js`](bird_hierarchy.js) uses an ordinary rule without a
 blocker, providing a control case for the same confidence calculation.

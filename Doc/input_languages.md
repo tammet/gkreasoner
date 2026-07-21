@@ -164,6 +164,12 @@ The principal correspondences are:
 JSON confidences may be decimals from 0 to 1 or integer percentages from 2 to
 100. Thus `"@confidence": 90` means `0.9`.
 
+A statement without a confidence prefix has confidence 1, and an explicit
+`1.0::` prefix means the same. Since gk 1.0.4 the converters treat the two
+identically; earlier binaries, including the `bin/gk` currently shipped here,
+mis-read an explicit `1.0` prefix as one percent, so with the shipped binary
+omit the prefix on certain statements.
+
 A blocker is a clause literal using `$block`. The negative exception in the
 GKP rule below is represented by `$not`:
 

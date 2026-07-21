@@ -97,8 +97,10 @@ support_for, support_against, conflict, ignorance.
 
 Suppose the pooled confidence of the positive evidence for one ground atom is
 `a`, and the pooled confidence of the negative evidence is `b`. The script
-draws one threshold `U` uniformly from 0 to 1 for that atom. The same threshold
-is used for both sides:
+draws two independent uniforms from 0 to 1 for each ground atom (revised
+2026-07-21 together with the gk 1.0.4 settlement; earlier versions drew one).
+For plain opposed evidence only the first draw `U` is used, as one shared
+acceptance bar for both sides:
 
 | Condition | Outcome |
 |---|---|
@@ -120,13 +122,26 @@ ignorance       = 1 - max(a, b)
 Multiple testimonies on one side are combined by noisy-or. Rules become
 available only when their body atoms are available in the required polarity.
 A blocker disables a rule when the blocking atom is available. Each ground
-atom has one threshold, so two downstream proofs that depend on the same atom
-remain correlated.
+atom has one fixed pair of draws per trial, so two downstream proofs that
+depend on the same atom remain correlated.
+
+Contests involving defaults use both draws, following gk's settled arithmetic
+(the settlement section below): with equal explicit ranks on both sides, each
+side fires on its own bar and survives only if the other missed (the symmetric
+gate); with unequal ranks, the higher-ranked side takes the overlap region of
+the shared bar (the priority award); when only one side is a gated default,
+the two outcome regions are exclusive and no conflict mass arises. The second,
+independent bar is what makes a product such as `a * (1 - b)` expressible; a
+single shared bar cannot produce it.
 
 Atoms are evaluated in dependency order. A cycle containing only one-sided,
-positive dependencies is evaluated by a least fixpoint in each trial. A cycle
-through a blocker or a contested atom is reported as `not scored`, because the
-small model does not define a reliable outcome for it.
+positive dependencies is evaluated by a least fixpoint in each trial. A
+blocker cycle that runs through the queried atom is resolved credulously for
+the query, matching gk's blocker check (the query is evaluated first with the
+in-cycle blockers against it voided, then the rest reach a fixpoint). Any
+other cycle through a blocker or a contested atom is reported as
+`not scored`, because the small model does not define a reliable outcome for
+it.
 
 Run a threshold calculation as follows:
 
@@ -136,12 +151,14 @@ montecarlo/gkmc.py --semantics threshold -n 10000 --seed 1 \
 ```
 
 `net_direct.js` has evidence 0.7 for `flies(a)` and 0.4 against it. With 10,000
-draws the sampler returned 0.2977 support for, 0 support against, 0.4041
-conflict, and 0.2982 ignorance. gk reports 0.3, 0, 0.4, and 0.3.
+draws the sampler returned 0.3018 support for, 0 support against, 0.3984
+conflict, and 0.2998 ignorance. gk reports 0.3, 0, 0.4, and 0.3.
 
 Threshold mode does not call gk. It accepts a smaller input fragment than
-inclusion mode: one ground predicate query and directional clauses whose final
-ordinary literal is the conclusion. It rejects function terms, arithmetic and
+inclusion mode: a single predicate query — ground, or open, in which case each
+closed instance over the named constants is evaluated separately (added
+2026-07-21) — and directional clauses whose final ordinary literal is the
+conclusion. It rejects function terms, arithmetic and
 other built-ins, equality, compact formula connectives, ambiguous clauses with
 several positive literals, and taxonomy-valued blocker priorities.
 
@@ -152,7 +169,10 @@ dependency structure. It supports the stated interpretation for that example.
 When the numbers differ, neither is a mistake: the calculations answer
 different questions, and the shape of a disagreement identifies which
 modelling decision the example turns on. This section works through the
-three known sources of difference on concrete examples.
+known sources of difference on concrete examples. One former difference
+family — the default with an uncertain exception — became an agreement with
+the gk 1.0.4 fix of 2026-07-21; it is kept first because the reconciliation
+shows the scenario split all three calculations share.
 
 The one-sentence summary of each reading:
 
@@ -165,42 +185,45 @@ The one-sentence summary of each reading:
   `--draws shared`, per input statement instead); a world is counted for an
   answer when the answer is provable in it, and against when its explicit
   negation is provable.
-- **Threshold sampling counts scenarios with one shared bar per atom.** Each
-  ground atom draws a single acceptance threshold; evidence counts when its
-  pooled strength clears the bar, and the evidence for and against the same
-  atom face the same bar.
+- **Threshold sampling counts scenarios with per-atom acceptance bars.**
+  Evidence counts when its pooled strength clears a bar. Plain opposed
+  evidence about one atom faces one shared bar (gk's netting); a default and
+  its counter-evidence gate each other through the atom's two independent
+  bars (gk's settled defaults arithmetic).
 
 The third reading is, on its documented fragment, a sampling semantics for
 gk's own arithmetic: gk's four-mass formulas are exactly the probabilities
-of the four threshold events for one uniform draw, chaining corresponds to
-independent thresholds of distinct atoms, and the shared bar reproduces both
+of the corresponding bar events, chaining corresponds to
+independent draws for distinct atoms, and the shared bar reproduces both
 the netting of contested atoms and the refusal to double-count shared
 support. That is why the threshold table in [`comparison.md`](comparison.md)
 tracks gk to sampling precision while inclusion sampling deviates exactly
 where a coin-per-statement reading and gk's netting part ways.
 
-### A default with an uncertain exception
+### A default with an uncertain exception (agreement since gk 1.0.4)
 
 [`bird_exception.js`](../Examples/exceptions/bird_exception.js): two birds,
 birds fly by default, and evidence at 0.9 that `a` does not fly.
 
 ```text
-gk (query flies(X)):    a with confidence 0.1
-                        detail: support_for 0.1, conflict 0.9
-inclusion sampling:     provable 0.10, negation provable 0.90,
-                        net -0.80
+gk 1.0.4 (query flies(X)):  b accepted at 1.0; a rejected at 0.8
+                            detail for a: support_for 0.1,
+                            support_against 0.9
+inclusion sampling:         provable 0.10, negation provable 0.90,
+                            net -0.80
 ```
 
-Both columns rest on the same split: in nine worlds of ten the contrary
-evidence exists, in one it does not. gk reports what survives of the flying
-default after subtracting the exception evidence, and files the contested
-0.9 under `conflict`. Inclusion sampling notices that in the nine worlds
-the exception fact makes `-flies(a)` itself provable, and scores those
-worlds as minus. The two headline numbers (+0.1 and -0.8) look
-contradictory, but the components reconcile: gk's 0.1 equals the sampler's
-positive column, and the sampled net is that column minus the 0.9 in which
-the opposite is provable. One number summarizes the surviving support, the
-other the overall balance of the scenarios.
+All columns rest on the same split: in nine worlds of ten the contrary
+evidence exists and makes `-flies(a)` itself provable; in one world of ten
+the flying default stands. gk's signed result for `a` is -0.8, matching the
+sampled net, and its 0.1 support-for equals the sampled positive column.
+
+Before gk 1.0.4 this family was a difference: gk printed `a` at 0.1 with the
+0.9 filed under `conflict`. That report came from a defect — the negated
+query was counted as evidence inside the blocker assessment, which erased
+the support-against mass — and was fixed on 2026-07-21. The `bin/gk`
+binary currently shipped in this repository predates the fix and still
+prints the old report until the next binary refresh.
 
 ### A contested premise
 
@@ -251,9 +274,12 @@ number, while a plain world count cannot express per-use multiplication.
 ### Defaults and priorities
 
 Evidence usability after clause inclusion is decided by gk's default and
-priority machinery. The samplers implement only the documented restricted
-cases and decline (`not scored`) or annotate rather than guess on other
-priority encodings; those refusals mark exactly the constructs for which a
+priority machinery. Since the settlement of 2026-07-21 the threshold sampler
+implements the settled defaults family — the exception gates, the equal-rank
+symmetric contest, the priority award, and blocker cycles through the queried
+atom. On the remaining priority encodings, such as taxonomy-valued priorities
+and multi-level default structures, the samplers decline (`not scored`) or
+annotate rather than guess; those refusals mark the constructs for which a
 clean world-counting story of gk's behavior has not been settled.
 
 ### Why gk does not simply adopt the inclusion numbers

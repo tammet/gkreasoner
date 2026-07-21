@@ -33,8 +33,22 @@ On 2026-07-21 the whole inclusion table was re-run with the shipped script
 Two rows had been mistranscribed at recording time and are corrected below:
 `bird_exception.js, a` had carried its positive column (0.1016) in the
 pos-neg cell, and `bird_penguin.js, p` had carried its negative column with
-an added sign (-0.0793). The corrected values move both rows from the
-agreeing group to the understood-difference group.
+an added sign (-0.0793).
+
+The threshold column was re-recorded on 2026-07-21 with the reworked
+`threshold_worlds.py` (two independent uniforms per atom and the settled
+defaults arithmetic; see [`README.md`](README.md)). The plain netting rows
+changed only by sampling variation; the `nixon_taxonomy.js` row changed by
+design and is discussed below the table.
+
+The gk columns record the shipped `bin/gk`. The gk 1.0.4 fixes of
+2026-07-21 change three recorded gk values: `bird_exception.js, a` becomes
+rejected at 0.8 (signed -0.80), `bird_penguin.js, p` becomes accepted at
+0.64, and `nixon_taxonomy.js` becomes the full-ignorance standoff
+(0 / 0 / 0 / 1). Each change moves its row into agreement with the
+samplers. The shipped binary predates these fixes and still prints the
+recorded values until the next binary refresh; the gk cells below keep what
+it prints.
 
 Inclusion command:
 
@@ -79,25 +93,28 @@ alternative proofs with shared premises.
 
 The first seven answer rows agree within their intervals. They cover the
 cases most closely related to independent probabilistic facts and definite
-rules. The last three are understood differences, not sampling error; each
-is one of the difference families of [`README.md`](README.md).
+rules. Of the last three, `net_premise.js` is an understood modelling
+difference (below); the two bird rows record defects of the shipped gk
+binary that were fixed in gk 1.0.4 (reproduction notes above), after which
+both agree with the sampler.
 
-`bird_exception.js`, `a` is the uncertain-exception family. The components
-reconcile even though the headlines look contradictory: gk's 0.1 is exactly
-the sampled positive column (the fraction of worlds in which the flying
-default goes through, 0.1016), while the sampled net also subtracts the
-0.8984 of worlds in which the exception fact makes `-flies(a)` itself
-provable. One number is the surviving support of the default, the other the
-overall balance of the scenarios.
+`bird_exception.js`, `a` is the uncertain-exception family. The recorded gk
+value 0.1 is the sampled positive column alone (the fraction of worlds in
+which the flying default goes through, 0.1016): the shipped binary filed
+the 0.8984 of worlds in which the exception fact makes `-flies(a)` itself
+provable under `conflict` instead of support against. gk 1.0.4 reports the
+answer rejected at 0.8 with support 0.1 for and 0.9 against — signed
+-0.80, in agreement with the sampled net.
 
 `bird_penguin.js`, `p` (query: who does NOT fly) is the same family from
 the refuting side. Sampling finds `-flies(p)` provable in the 0.72 of
 worlds where the penguin fact and the no-fly rule are both present, and
 `flies(p)` provable only in the 0.08 where the penguin is a bird but the
-no-fly rule is absent, netting +0.64. gk instead counts the flying default
-on the refuting side at its full strength (the blocked-refuter gate is
-declined by design in the current evaluator), reporting the answer rejected
-at 0.08 against with 0.72 conflict.
+no-fly rule is absent, netting +0.64. The recorded gk value comes from the
+shipped binary, which counted the flying default on the refuting side at
+its full strength and reported the answer rejected at 0.08 against with
+0.72 conflict; gk 1.0.4 reports 0.72 for, 0.08 against, and the accepted
+answer at 0.64, in agreement.
 
 `net_premise.js` is a counterexample to a general equivalence. Its premise has
 0.5 positive and 0.2 negative evidence, followed by a rule with confidence 0.9.
@@ -122,17 +139,17 @@ support for / support against / conflict / ignorance
 | File | Threshold MC | gk `-detail` | Assessment |
 |---|---:|---:|---|
 | `trivial.js` | 1.0000 / 0 / 0 / 0 | 1.0000 / 0 / 0 / 0 | deterministic agreement |
-| `cumulate.js` | 0.7980 / 0 / 0 / 0.2020 | 0.8000 / 0 / 0 / 0.2000 | agreement |
-| `net_lone.js` | 0.5023 / 0 / 0 / 0.4977 | 0.5000 / 0 / 0 / 0.5000 | agreement |
-| `net_direct.js` | 0.2977 / 0 / 0.4041 / 0.2982 | 0.3000 / 0 / 0.4000 / 0.3000 | agreement |
-| `net_fought.js` | 0.4926 / 0 / 0.4041 / 0.1033 | 0.5000 / 0 / 0.4000 / 0.1000 | agreement |
-| `net_against.js` | 0 / 0.4965 / 0.3015 / 0.2020 | 0 / 0.5000 / 0.3000 / 0.2000 | agreement |
-| `net_strong.js` | 0.5952 / 0 / 0.3015 / 0.1033 | 0.6000 / 0 / 0.3000 / 0.1000 | agreement |
-| `coin3.js` | 0.9734 / 0 / 0 / 0.0266 | 0.9744 / 0 / 0 / 0.0256 | agreement |
-| `coin4.js` | 0.9720 / 0 / 0 / 0.0280 | 0.9744 / 0 / 0 / 0.0256 | agreement |
-| `n2c.js` | 0.1205 / 0 / 0.7894 / 0.0901 | 0.1180 / 0 / 0.7900 / 0.0920 | agreement |
+| `cumulate.js` | 0.7984 / 0 / 0 / 0.2016 | 0.8000 / 0 / 0 / 0.2000 | agreement |
+| `net_lone.js` | 0.4972 / 0 / 0 / 0.5028 | 0.5000 / 0 / 0 / 0.5000 | agreement |
+| `net_direct.js` | 0.3018 / 0 / 0.3984 / 0.2998 | 0.3000 / 0 / 0.4000 / 0.3000 | agreement |
+| `net_fought.js` | 0.4965 / 0 / 0.3984 / 0.1051 | 0.5000 / 0 / 0.4000 / 0.1000 | agreement |
+| `net_against.js` | 0 / 0.5028 / 0.2956 / 0.2016 | 0 / 0.5000 / 0.3000 / 0.2000 | agreement |
+| `net_strong.js` | 0.5993 / 0 / 0.2956 / 0.1051 | 0.6000 / 0 / 0.3000 / 0.1000 | agreement |
+| `coin3.js` | 0.9759 / 0 / 0 / 0.0241 | 0.9744 / 0 / 0 / 0.0256 | agreement |
+| `coin4.js` | 0.9724 / 0 / 0 / 0.0276 | 0.9744 / 0 / 0 / 0.0256 | agreement |
+| `n2c.js` | 0.1157 / 0 / 0.7909 / 0.0934 | 0.1180 / 0 / 0.7900 / 0.0920 | agreement |
 | `near.js` | 1.0000 / 0 / 0 / 0 | 0.4305 / 0 / 0 / 0.5695 | different recursive-proof treatment |
-| `nixon_taxonomy.js` | 0 / 0 / 1.0000 / 0 | 0 / 1.0000 / 0 / 0 | priority/default case outside the model |
+| `nixon_taxonomy.js` | 0 / 0 / 0 / 1.0000 | 0 / 1.0000 / 0 / 0 | agreement with gk 1.0.4 (see below) |
 
 The cases with positive and negative facts about the queried atom reproduce the
 four masses because one shared threshold partitions the unit interval into the
@@ -145,10 +162,13 @@ decompositions of the same path. Every one of the 10,000 sampled evaluations
 found at least one proof. This is a semantic difference, not evidence that one
 of the two displayed numbers is an inaccurate Monte Carlo estimate.
 
-`nixon_taxonomy.js` has two opposed equal defaults. The restricted threshold
-model leaves their overlap as conflict. Current gk assigns the mass to support
-against for this direct query. Taxonomy/default priority behavior is therefore
-not claimed by the threshold model.
+`nixon_taxonomy.js` has two opposed equal defaults. Since the 2026-07-21
+rework the threshold model applies the settled symmetric gate: each certain
+default is cancelled by the other's presence, and the whole mass is
+ignorance. gk 1.0.4 reports the same standoff (0 / 0 / 0 / 1). The gk
+`-detail` cell above records the previously shipped binary, which assigned
+the mass to support against; that report was part of the equal-rank defect
+fixed in 1.0.4.
 
 ## Coverage limits
 
@@ -180,13 +200,15 @@ quantifier encodings, and built-in answer predicates. They must be run with
 
 ### Queries and clauses outside the threshold model
 
-Threshold mode requires one ground predicate query and directional clauses
-with an unambiguous conclusion. It therefore does not score open or conjunctive
-queries such as the `n1`, `n2`, `conf`, and `n3` families, or legacy clauses
-with several possible positive heads such as `rules1.js` through `rules3.js`.
-Some of these files can be used with inclusion mode, but they were not added as
-further numerical rows because the tables already contain simpler examples of
-the same pooling mechanisms.
+Threshold mode requires a single predicate query and directional clauses
+with an unambiguous conclusion. It does not score conjunctive queries (parts
+of the `n1`, `n2`, `conf`, and `n3` families) or legacy clauses with several
+possible positive heads such as `rules1.js` through `rules3.js`. Open
+queries are no longer excluded — since 2026-07-21 they are evaluated per
+closed instance over the named constants. Some of these files can be used
+with inclusion mode, but they were not added as further numerical rows
+because the tables already contain simpler examples of the same pooling
+mechanisms.
 
 ### Defaults and priorities outside the model
 
