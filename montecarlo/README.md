@@ -276,6 +276,29 @@ information.
 The detailed results and the coverage status of every example directory are in
 [`comparison.md`](comparison.md).
 
+## The settlement cells (2026-07-21)
+
+`settlement_checks/` holds ground-query probes for the defaults family
+settled by the gk 1.0.4 fixes -- the uncertain and certain exception, the
+equal-rank symmetric contest, the priority award, a default against plain
+evidence, the rank-restricted check in both directions, and the negated
+query -- with `expected.tsv` recording the four masses of the fixed native
+gk. The threshold sampler reproduces all ten:
+
+```sh
+montecarlo/gkmc.py --semantics threshold -n 100000 --seed 1 \
+  --check montecarlo/settlement_checks montecarlo/settlement_checks/sc_exc09.js
+```
+
+The threshold core mirrors the adjudicated arithmetic (each atom draws two
+independent uniforms; plain contests keep the shared-bar netting, gated
+defaults take the exclusive one-sided, symmetric equal-rank, or
+priority-award treatment), open queries are evaluated per closed instance,
+and a blocker cycle through the query atom resolves credulously for the
+query, as gk's blocker check does. Loop cases need an adequate `-seconds`
+budget on the gk side: with the default budget the check-of-check may not
+complete, and gk then reports ignorance for the loop.
+
 ## Other modes
 
 `--semantics provable` reports only `P(A is provable)`.

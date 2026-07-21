@@ -576,20 +576,58 @@ def run_threshold(args):
     pool, confs, questions = sr.ground_original(stmts)
     if not questions:
         raise SystemExit("threshold sampling needs exactly one @question")
-    qatom, qsign = _query_atom_sign(questions[0])
-    res = sr.evaluate(pool, confs, qatom, qsign, args.trials, seed)
-    qname = f"{qatom[0]}({','.join(map(str, qatom[1]))})" if qatom[1] else qatom[0]
-    if qsign == "-":
-        qname = "-" + qname
-    print(f"# gkmc threshold sampling: {os.path.basename(args.input)}  query {qname}  "
+    # P6 (settlement memo, 2026-07-21): an OPEN query is evaluated per closed
+    # instance over the Herbrand constants of the non-goal clauses -- the same
+    # per-answer instancing the inclusion sampler and gk's own open path use.
+    q = questions[0]["@question"]
+    qvars = []
+    def _walkvars(t):
+        if isinstance(t, str):
+            if t.startswith("?:") and t not in qvars:
+                qvars.append(t)
+        elif isinstance(t, list):
+            for x in t:
+                _walkvars(x)
+    _walkvars(q)
+    instances = [questions[0]]
+    if qvars:
+        consts = set()
+        for (is_q, _c, item) in stmts:
+            if is_q:
+                continue
+            clause_logic = item.get("@logic")
+            clause = sr._as_clause(clause_logic)
+            gkmc_mod = sys.modules[__name__]
+            gkmc_mod.clause_consts(clause, consts)
+        consts = sorted(consts, key=str) or ["c0"]
+        instances = []
+        for tup in product(consts, repeat=len(qvars)):
+            sub = dict(zip(qvars, tup))
+            instances.append({"@question": substitute(q, sub)})
+    print(f"# gkmc threshold sampling: {os.path.basename(args.input)}  "
           f"(n={args.trials}, seed={seed})")
-    if res.get("not_scored"):
-        print(f"not scored: {res['not_scored']}")
-        return 0
-    for f in MASS_FIELDS:
-        print(f"{f:16s} {res[f]:.4f}")
-    if res.get("priority_note"):
-        print(f"note: {res['priority_note']}")
+    shown = 0
+    for inst in instances:
+        qatom, qsign = _query_atom_sign(inst)
+        res = sr.evaluate(pool, confs, qatom, qsign, args.trials, seed)
+        qname = (f"{qatom[0]}({','.join(map(str, qatom[1]))})"
+                 if qatom[1] else qatom[0])
+        if qsign == "-":
+            qname = "-" + qname
+        if res.get("not_scored"):
+            print(f"query {qname}: not scored: {res['not_scored']}")
+            shown += 1
+            continue
+        if qvars and all(res[f] < 0.0005 for f in MASS_FIELDS[:3]):
+            continue    # an instance with no evidence either way: skip
+        print(f"query {qname}:")
+        for f in MASS_FIELDS:
+            print(f"  {f:16s} {res[f]:.4f}")
+        if res.get("priority_note"):
+            print(f"  note: {res['priority_note']}")
+        shown += 1
+    if not shown:
+        print("no instance has evidence on any side")
     return 0
 
 

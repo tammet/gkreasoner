@@ -5,6 +5,13 @@ threshold_worlds.py -- threshold sampling for the four gk masses.
 Estimates gk's four-part report (support_for, support_against, conflict,
 ignorance) for a ground query by random sampling, using no gk subprocess.
 
+2026-07-21 (settlement memo, gk 1.0.4): the netting core mirrors the
+adjudicated mutual-gate arithmetic. Each atom draws TWO independent
+uniforms: plain contests keep the single shared bar (subtraction netting);
+a gated (mutual-ranked) default against plain evidence takes the one-sided
+exclusive gate, two equal-rank defaults the symmetric mutual gate, and
+unequal ranks the Decision-5 award on the shared bar.
+
 Each ground atom that has evidence draws one acceptance threshold U in [0,1],
 independent across atoms. The evidence for the atom is combined (noisy-or) into
 one strength a, the evidence against it into one strength b. The same threshold
@@ -395,34 +402,6 @@ def _mark_pairs(testimonies):
 CONFLICT_SKIP = "mutual-block priority encoding not settled"
 
 
-def _has_unequal_mutual(testimonies):
-    """Detect an atom whose two sides are stated by mutual
-    blockers at UNEQUAL strengths — the reading (undercut-with-independence vs
-    priority-netting) is not settled, so we decline to score it. Equal
-    strengths, and one-sided mutual blockers with a plain other side, net
-    cleanly and are scored normally."""
-    by_atom = {}
-    for t in testimonies:
-        if t.mutual:
-            by_atom.setdefault(t.head_atom, {}).setdefault(t.head_sign, [])
-            for (prio, _) in t.mutual:
-                by_atom[t.head_atom][t.head_sign].append(prio)
-    for atom, sides in by_atom.items():
-        pro = max(sides.get("+", [0]), default=0)
-        con = max(sides.get("-", [0]), default=0)
-        both = ("+" in sides) and ("-" in sides)
-        if both and pro != con and min(pro, con) > 0:
-            # both sides mutually block at unequal strength: not settled.
-            # (a one-sided mutual block with a plain other side has the same
-            #  structural signature; it is intentionally covered by the priority
-            #  award below and scored normally. We only decline to score when BOTH sides carry a
-            #  mutual block AND the intended reading is undercut. We cannot tell
-            #  these apart from syntax alone; this model does not resolve it. Here we
-            #  score with the priority award and mark the answer 'priority_note'.)
-            return atom
-    return None
-
-
 def _has_rank_restricted_blocker(testimonies, by_head):
     """Detect the C2-blocker signature: a distinct-atom blocker check at rank r
     whose content atom's support flows through a rule SELF-protected at a rank
@@ -446,7 +425,7 @@ def evaluate(pool, confs, query_atom, query_sign, trials, seed):
     order = _topo_order(testimonies, atoms)
     plan = None
     if order is None:
-        plan, why = _scc_plan(testimonies, atoms)
+        plan, why = _scc_plan(testimonies, atoms, query_atom)
         if plan is None:
             return {"support_for": None, "support_against": None,
                     "conflict": None, "ignorance": None,
@@ -455,7 +434,11 @@ def evaluate(pool, confs, query_atom, query_sign, trials, seed):
     for t in testimonies:
         by_head.setdefault(t.head_atom, []).append(t)
 
-    priority_note = _has_unequal_mutual(testimonies)
+    # unequal mutual ranks are settled (Decision 5 / settlement memo of
+    # 2026-07-21): the award is the adjudicated reading, no annotation needed.
+    # The rank-restricted DISTINCT-atom check (C2) remains annotated: this
+    # model carries a testimony's own mutual rank, not a derivation-deep
+    # guard, so a lower-rank-protected support may still fire such a check.
     rank_note = _has_rank_restricted_blocker(testimonies, by_head)
     tally = {"for": 0, "against": 0, "conflict": 0, "ignorance": 0}
     rng = random.Random(seed)
@@ -463,7 +446,7 @@ def evaluate(pool, confs, query_atom, query_sign, trials, seed):
     # must fully determine each atom's U regardless of set hash randomization
     # (PYTHONHASHSEED) across processes -- else the table is not reproducible.
     for _ in range(trials):
-        u = {a: rng.random() for a in atoms_ordered}
+        u = {a: (rng.random(), rng.random()) for a in atoms_ordered}
         state = {}     # atom -> (pro_usable, con_usable)
         if order is not None:
             for atom in order:
@@ -474,6 +457,9 @@ def evaluate(pool, confs, query_atom, query_sign, trials, seed):
                     state[unit[0]] = _eval_atom(unit[0],
                                                 by_head.get(unit[0], []),
                                                 state, u)
+                elif unit[0] == "credulous":
+                    _eval_scc_credulous(unit[1:], query_atom, by_head,
+                                        state, u)
                 else:
                     _eval_scc_fixpoint(unit, by_head, state, u)
         pro_u, con_u, cflt = _classify(query_atom, query_sign,
@@ -491,12 +477,7 @@ def evaluate(pool, confs, query_atom, query_sign, trials, seed):
     out = {k2: tally[k1] / trials for k1, k2 in
            (("for", "support_for"), ("against", "support_against"),
             ("conflict", "conflict"), ("ignorance", "ignorance"))}
-    if priority_note:
-        out["priority_note"] = (
-            f"atom {priority_note[0]} uses a mutual-block priority encoding; "
-            f"scored with the higher-strength side taking the overlap; the other reading "
-            f"is not settled by this model")
-    elif rank_note:
+    if rank_note:
         out["priority_note"] = (
             f"blocker check at rank {rank_note[1]} targets {rank_note[0]}, whose "
             f"support is protected at lower rank {rank_note[2]}: gk's search-side "
@@ -520,25 +501,34 @@ def _present(t, state):
 
 
 def _pools(head_atom, ts, state):
-    """Return (a, b, filled, pri_pro, pri_con): pooled pro/con strengths of the
-    PRESENT testimonies, whether a paired-exception residual fill applies, and the
-    (mutual-block) priority of each side."""
+    """Return (a, b, filled, rank_pro, rank_con): pooled pro/con strengths of
+    the PRESENT testimonies, whether a paired-exception residual fill applies,
+    and each side's netting rank. A side's rank is the maximum mutual-block
+    rank of its present testimonies when EVERY present testimony on that side
+    carries one (a gated default); it is 0 when the side has any present
+    plain (unranked) testimony -- mirroring dw_net_ders' pro_r/con_r
+    convention after the 2026-07-21 settlement fixes."""
     pro, con = [], []
     filled = False
-    pri_pro = pri_con = 0
+    rank_pro = rank_con = -1          # -1 no present testimony
     main_pro_blocked = any(t.head_sign == "+" and (t.blockers) and not _present(t, state)
                            for t in ts)
     for t in ts:
         if not _present(t, state):
             continue
+        trank = max((prio for (prio, _s) in t.mutual), default=0)
         if t.head_sign == "+":
             pro.append(t.strength)
-            for (prio, _s) in t.mutual:
-                pri_pro = max(pri_pro, prio)
+            rank_pro = (0 if (trank < 1 or rank_pro == 0)
+                        else max(rank_pro, trank))
+            if trank < 1:
+                rank_pro = 0
         else:
             con.append(t.strength)
-            for (prio, _s) in t.mutual:
-                pri_con = max(pri_con, prio)
+            rank_con = (0 if (trank < 1 or rank_con == 0)
+                        else max(rank_con, trank))
+            if trank < 1:
+                rank_con = 0
             if t.paired_main and main_pro_blocked:
                 filled = True
     a = 1.0
@@ -549,23 +539,55 @@ def _pools(head_atom, ts, state):
     for w in con:
         b *= (1 - w)
     b = 1 - b
-    return a, b, filled, pri_pro, pri_con
+    return a, b, filled, rank_pro, rank_con
 
 
-def _net(a, b, ul, filled, pri_pro, pri_con):
-    """Return (pro_usable, con_usable, conflict) for one atom in one world."""
+def _net(a, b, u2, filled, rank_pro, rank_con):
+    """(pro_usable, con_usable, conflict) for one atom in one world.
+    u2 = (u_pro, u_con): two independent uniforms per atom. Plain contests
+    use the SHARED bar u_pro for both sides (Decision 1 netting); the
+    mutual-gate cases use both bars (settlement fix record, 2026-07-21):
+
+      both sides gated, unequal ranks -> the Decision-5 award on the shared
+        bar (winner takes the overlap, loser keeps its excess);
+      both sides gated, equal ranks   -> the symmetric mutual gate: each
+        side fires on its own bar and survives only if the other missed;
+      one side gated                  -> the one-sided exclusive gate: the
+        plain side fires on its own bar, the gated side survives only off
+        the plain side's mass; conflict 0 (exclusive regions).
+
+    The independent second bar is what makes for = a(1-b) a product; a
+    single shared bar cannot express it."""
+    ul, ur = u2
     lo = min(a, b)
-    # priority overlap award (decision 5): the strictly-higher side takes the
-    # conflict region U <= min(a,b); the lower keeps only its excess.
-    if pri_pro != pri_con and lo > 0:
-        if pri_pro > pri_con:
+    gated_pro = (rank_pro is not None and rank_pro >= 1)
+    gated_con = (rank_con is not None and rank_con >= 1)
+    if a > 0.0 and b > 0.0 and gated_pro and gated_con and rank_pro != rank_con:
+        # Decision 5 award (reading C), shared bar: the strictly-higher side
+        # takes the conflict region U <= min(a,b); the lower keeps its excess.
+        if rank_pro > rank_con:
             pro = ul <= a
             con = a < ul <= b
             return pro, con, False
-        else:
-            con = ul <= b
-            pro = b < ul <= a
-            return pro, con, False
+        con = ul <= b
+        pro = b < ul <= a
+        return pro, con, False
+    if a > 0.0 and b > 0.0 and gated_pro and gated_con:
+        # equal ranks: symmetric mutual gate; both-fire and neither-fire
+        # regions are ignorance (certain limit = the Nixon standoff)
+        fp = ul <= a
+        fc = ur <= b
+        return (fp and not fc), (fc and not fp), False
+    if a > 0.0 and b > 0.0 and gated_pro:
+        # one-sided: the con evidence fires the pro default's $not-self-gate
+        fc = ur <= b
+        pro = (ul <= a) and not fc
+        return pro, fc, False
+    if a > 0.0 and b > 0.0 and gated_con:
+        # mirror (the refuting-side case: bird_penguin, probe A7)
+        fp = ul <= a
+        con = (ur <= b) and not fp
+        return fp, con, False
     pro = (b < ul <= a)
     con = (a < ul <= b)
     conflict = (ul <= lo)
@@ -575,16 +597,14 @@ def _net(a, b, ul, filled, pri_pro, pri_con):
 
 
 def _eval_atom(atom, ts, state, u):
-    a, b, filled, pp, pc = _pools(atom, ts, state)
-    ul = u[atom]
-    pro, con, _ = _net(a, b, ul, filled, pp, pc)
+    a, b, filled, rp, rc = _pools(atom, ts, state)
+    pro, con, _ = _net(a, b, u[atom], filled, rp, rc)
     return (pro, con)
 
 
 def _classify(atom, sign, ts, state, u):
-    a, b, filled, pp, pc = _pools(atom, ts, state)
-    ul = u[atom]
-    return _net(a, b, ul, filled, pp, pc)
+    a, b, filled, rp, rc = _pools(atom, ts, state)
+    return _net(a, b, u[atom], filled, rp, rc)
 
 
 def _atom_deps(testimonies, atoms):
@@ -676,16 +696,21 @@ def _sccs(deps, atoms):
     return sccs
 
 
-def _scc_plan(testimonies, atoms):
+def _scc_plan(testimonies, atoms, query_atom=None):
     """Evaluation plan for a KB whose static atom graph is cyclic (equivalences,
     mutual rules): the SCC condensation in dependency-first order. Singleton SCCs
     evaluate exactly as on the acyclic path; each group of mutually dependent atoms is evaluated per
     world by least fixpoint (testimony presence = existence of a well-founded
     derivation in that world). The fixpoint is monotone -- hence unique and equal
     to the derivability reading -- ONLY when the cycle contains no blocker and no
-    contested atom, so any cyclic group with a CONTESTED atom (testimony on both
-    sides) or an internal BLOCKER edge is not settled and is not scored.
-    Returns (plan, None) with plan a list of atom tuples, or (None, reason)."""
+    contested atom. A cyclic group WITH an internal blocker edge is settled
+    when it contains the QUERY atom (settlement memo S4a, 2026-07-21): gk's
+    blocker check voids an exception argument whose own validity depends on
+    defeating the queried candidate, so the group evaluates credulously for
+    the query -- the query atom first with in-group blockers voided, then the
+    rest by fixpoint given it (plan entry ("credulous", atoms)). A blocker
+    cycle NOT containing the query, or any cyclic group with a CONTESTED
+    atom, stays unscored. Returns (plan, None) or (None, reason)."""
     deps = _atom_deps(testimonies, atoms)
     by_head = {}
     for t in testimonies:
@@ -699,14 +724,56 @@ def _scc_plan(testimonies, atoms):
         for a in comp:
             if len({t.head_sign for t in by_head.get(a, [])}) > 1:
                 return None, f"contested atom {a} inside a dependency cycle"
+        has_blocker = False
         for t in testimonies:
             if t.head_atom in cset:
                 for (ba, _bs, _p) in t.blockers:
                     if ba in cset:
-                        return None, (f"blocker on {ba} inside a "
-                                      f"dependency cycle")
+                        has_blocker = True
+        if has_blocker:
+            if query_atom is not None and query_atom in cset:
+                plan.append(("credulous",) + tuple(sorted(comp, key=repr)))
+                continue
+            return None, ("blocker cycle away from the query atom; the "
+                          "credulous resolution is defined relative to the "
+                          "query only")
         plan.append(tuple(sorted(comp, key=repr)))
     return plan, None
+
+
+def _eval_scc_credulous(comp, query_atom, by_head, state, u):
+    """Settlement memo S4a: a blocker cycle containing the query resolves
+    credulously for the query. Phase 1 evaluates the query atom with every
+    in-group blocker voided (gk voids the exception argument that depends on
+    defeating the queried candidate); phase 2 fixpoints the remaining atoms
+    normally given the committed query state, so the defeated side of the
+    loop comes out blocked exactly as gk reports it."""
+    cset = set(comp)
+    for a in comp:
+        state[a] = (False, False)
+    ts = by_head.get(query_atom, [])
+    stripped = []
+    for t in ts:
+        blk = [bl for bl in t.blockers if bl[0] not in cset]
+        if len(blk) == len(t.blockers):
+            stripped.append(t)
+        else:
+            t2 = Testimony(t.head_atom, t.head_sign, t.strength,
+                           t.body, blk, t.mutual, t.orig)
+            t2.paired_main = t.paired_main
+            stripped.append(t2)
+    state[query_atom] = _eval_atom(query_atom, stripped, state, u)
+    rest = [a for a in comp if a != query_atom]
+    for _ in range(2 * len(comp) + 2):
+        changed = False
+        for a in rest:
+            new = _eval_atom(a, by_head.get(a, []), state, u)
+            if new != state[a]:
+                state[a] = new
+                changed = True
+        if not changed:
+            return
+    raise AssertionError(f"credulous fixpoint failed to converge on {comp}")
 
 
 def _eval_scc_fixpoint(comp, by_head, state, u):
