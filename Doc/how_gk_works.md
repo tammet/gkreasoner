@@ -157,6 +157,14 @@ The usable support for `bird(a)` is 0.3, so `flies(a)` receives
 `0.3 * 0.9 = 0.27`. The `-bird(a)` evidence contests the premise; it does not
 prove `-flies(a)`. With `-detail`, `bird(a)` is listed as a conflict source.
 
+A reading of confidences as independent inclusion probabilities gives a
+different number for this example (0.45: the premise is provable in half the
+sampled worlds, and nothing derives the negated conclusion). The
+[Monte Carlo checkers](../montecarlo/README.md) compare both readings with
+GK's on the repository examples; their `Differences` section works through
+this example, the uncertain-exception case, and the recursive-rule case, and
+explains which modelling decision each disagreement turns on.
+
 For conclusions reached through rules, assessment proceeds from premises to
 conclusions. A rule contributes evidence only when its body is usable and its
 blockers do not fire. When several proof branches use the same contested

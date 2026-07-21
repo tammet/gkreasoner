@@ -26,6 +26,16 @@ SHA-256
 the values were unchanged. The hash above remains the provenance for the
 recorded sampling runs.
 
+On 2026-07-21 the whole inclusion table was re-run with the shipped script
+(gk 1.0.2, `bin/gk` SHA-256
+`8afc6c53ee24a2f3bcca4b9870f3aa63e81f6572c3bd95167f60f863dde60850`,
+10,000 trials, seed 1). Eight of the ten rows reproduced digit for digit.
+Two rows had been mistranscribed at recording time and are corrected below:
+`bird_exception.js, a` had carried its positive column (0.1016) in the
+pos-neg cell, and `bird_penguin.js, p` had carried its negative column with
+an added sign (-0.0793). The corrected values move both rows from the
+agreeing group to the understood-difference group.
+
 Inclusion command:
 
 ```sh
@@ -63,12 +73,31 @@ alternative proofs with shared premises.
 | `net_direct.js`, `true` | opposing facts about the queried atom | 0.3107 | [0.2976, 0.3238] | 0.3000 |
 | `negation_conflict.js`, `a` | contested premise propagated through rules | 0.2487 | [0.2373, 0.2601] | 0.2520 |
 | `bird_exception.js`, `b` | unopposed default | 1.0000 | [1.0000, 1.0000] | 1.0000 |
-| `bird_exception.js`, `a` | default with 0.9 contrary evidence | 0.1016 | [0.0957, 0.1075] | 0.1000 |
-| `bird_penguin.js`, `p` | opposing bird and penguin conclusions | -0.0793 | [-0.0846, -0.0740] | -0.0800 |
+| `bird_exception.js`, `a` | default with 0.9 contrary evidence | -0.7968 | [-0.8086, -0.7850] | 0.1000 |
+| `bird_penguin.js`, `p` | opposing bird and penguin conclusions | 0.6409 | [0.6287, 0.6531] | -0.0800 |
 | `net_premise.js`, `true` | contested premise followed by a 0.9 rule | 0.4543 | [0.4445, 0.4641] | 0.2700 |
 
-The first ten answer rows agree within their intervals. They cover the cases
-most closely related to independent probabilistic facts and definite rules.
+The first seven answer rows agree within their intervals. They cover the
+cases most closely related to independent probabilistic facts and definite
+rules. The last three are understood differences, not sampling error; each
+is one of the difference families of [`README.md`](README.md).
+
+`bird_exception.js`, `a` is the uncertain-exception family. The components
+reconcile even though the headlines look contradictory: gk's 0.1 is exactly
+the sampled positive column (the fraction of worlds in which the flying
+default goes through, 0.1016), while the sampled net also subtracts the
+0.8984 of worlds in which the exception fact makes `-flies(a)` itself
+provable. One number is the surviving support of the default, the other the
+overall balance of the scenarios.
+
+`bird_penguin.js`, `p` (query: who does NOT fly) is the same family from
+the refuting side. Sampling finds `-flies(p)` provable in the 0.72 of
+worlds where the penguin fact and the no-fly rule are both present, and
+`flies(p)` provable only in the 0.08 where the penguin is a bird but the
+no-fly rule is absent, netting +0.64. gk instead counts the flying default
+on the refuting side at its full strength (the blocked-refuter gate is
+declined by design in the current evaluator), reporting the answer rejected
+at 0.08 against with 0.72 conflict.
 
 `net_premise.js` is a counterexample to a general equivalence. Its premise has
 0.5 positive and 0.2 negative evidence, followed by a rule with confidence 0.9.

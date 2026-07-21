@@ -149,20 +149,129 @@ several positive literals, and taxonomy-valued blocker priorities.
 
 Agreement is expected when both calculations use the same independence and
 dependency structure. It supports the stated interpretation for that example.
+When the numbers differ, neither is a mistake: the calculations answer
+different questions, and the shape of a disagreement identifies which
+modelling decision the example turns on. This section works through the
+three known sources of difference on concrete examples.
 
-There are three sources of differences:
+The one-sentence summary of each reading:
 
-- A recursive rule may have many possible ground proof trees. Inclusion and
-  threshold sampling accept a world when any sampled tree succeeds. gk may
-  report the evidence product of a selected proof. `near.js` demonstrates this
-  difference.
-- If a premise has both positive and negative support, gk can net the premise's
-  support before using it in a rule. Inclusion sampling instead counts the
-  worlds in which the positive premise is provable, including worlds where its
-  negation is also provable. `net_premise.js` demonstrates this difference.
-- Defaults and priorities determine evidence usability after clause inclusion.
-  The samplers implement only the documented restricted cases and decline or
-  disagree on other priority encodings.
+- **gk weighs arguments.** It builds the best derivation for an answer and
+  the best derivation against it, and reports what remains of the support
+  once the opposition is subtracted, netting contested premises before they
+  are used.
+- **Inclusion sampling counts scenarios with one coin per ground clause.**
+  Each uncertain ground clause is independently present or absent (with
+  `--draws shared`, per input statement instead); a world is counted for an
+  answer when the answer is provable in it, and against when its explicit
+  negation is provable.
+- **Threshold sampling counts scenarios with one shared bar per atom.** Each
+  ground atom draws a single acceptance threshold; evidence counts when its
+  pooled strength clears the bar, and the evidence for and against the same
+  atom face the same bar.
+
+The third reading is, on its documented fragment, a sampling semantics for
+gk's own arithmetic: gk's four-mass formulas are exactly the probabilities
+of the four threshold events for one uniform draw, chaining corresponds to
+independent thresholds of distinct atoms, and the shared bar reproduces both
+the netting of contested atoms and the refusal to double-count shared
+support. That is why the threshold table in [`comparison.md`](comparison.md)
+tracks gk to sampling precision while inclusion sampling deviates exactly
+where a coin-per-statement reading and gk's netting part ways.
+
+### A default with an uncertain exception
+
+[`bird_exception.js`](../Examples/exceptions/bird_exception.js): two birds,
+birds fly by default, and evidence at 0.9 that `a` does not fly.
+
+```text
+gk (query flies(X)):    a with confidence 0.1
+                        detail: support_for 0.1, conflict 0.9
+inclusion sampling:     provable 0.10, negation provable 0.90,
+                        net -0.80
+```
+
+Both columns rest on the same split: in nine worlds of ten the contrary
+evidence exists, in one it does not. gk reports what survives of the flying
+default after subtracting the exception evidence, and files the contested
+0.9 under `conflict`. Inclusion sampling notices that in the nine worlds
+the exception fact makes `-flies(a)` itself provable, and scores those
+worlds as minus. The two headline numbers (+0.1 and -0.8) look
+contradictory, but the components reconcile: gk's 0.1 equals the sampler's
+positive column, and the sampled net is that column minus the 0.9 in which
+the opposite is provable. One number summarizes the surviving support, the
+other the overall balance of the scenarios.
+
+### A contested premise
+
+[`net_premise.js`](../Examples/confidences/net_premise.js): `bird(a)` at
+0.5, `-bird(a)` at 0.2, and birds fly at 0.9.
+
+```text
+gk:                  0.27   (nets the premise: (0.5 - 0.2) * 0.9)
+inclusion sampling:  0.45   (0.5 * 0.9; the negative evidence is invisible)
+threshold sampling:  0.27   (bird usable iff 0.2 < U <= 0.5, i.e. 0.3)
+```
+
+Here the coin and bar readings split. Under one coin per statement,
+`-bird(a)` never makes `-flies(a)` derivable, so it changes nothing: the
+positive premise is provable in half of the worlds — including worlds where
+its negation is provable alongside it — and the rule fires in 0.9 of those.
+Under one shared bar, the two bird statements compete for the same
+threshold: only the margin `0.2 < U <= 0.5` leaves the premise usable, and
+gk's netting is the closed form of exactly that. gk is the more cautious
+reading: doubt about a premise reduces every conclusion built on it, whether
+or not the doubt can be propagated to the conclusion's negation.
+
+### A recursive rule
+
+[`near.js`](../Examples/confidences/near.js): a chain of nine certain
+`near` links and a transitivity rule at 0.9.
+
+```text
+gk:                  0.4305   (0.9^8: eight applications of the rule)
+threshold sampling:  1.0000   (recorded; a draw counts if any
+                               decomposition works, and inclusion
+                               sampling behaves alike)
+```
+
+The difference is a third dependence convention, and gk's side of it is
+exact and stable (the same 0.4305 under different time limits and search
+strategies). Within one derivation gk multiplies a rule's confidence once
+per application — eight uses of the one transitivity statement give
+0.9^8 — and across derivations it combines with inclusion–exclusion at
+the level of input statements, so the many alternative decompositions of
+the chain, all standing on the same statement, add nothing. The samplers
+instead draw each ground instance of the rule once (one coin per ground
+clause), under which almost every sampled world assembles the chain some
+way. Neither convention is derivable from the other; a threshold-style
+evaluator extended with statement-level bookkeeping would reproduce gk's
+number, while a plain world count cannot express per-use multiplication.
+
+### Defaults and priorities
+
+Evidence usability after clause inclusion is decided by gk's default and
+priority machinery. The samplers implement only the documented restricted
+cases and decline (`not scored`) or annotate rather than guess on other
+priority encodings; those refusals mark exactly the constructs for which a
+clean world-counting story of gk's behavior has not been settled.
+
+### Why gk does not simply adopt the inclusion numbers
+
+Three reasons, in increasing order of weight. First, cost: the inclusion
+answer is a count over all combinations of the uncertain statements, and
+the number of combinations doubles with every statement — that is why this
+directory samples instead of counting, needs thousands of proof searches
+per estimate, and still returns numbers with sampling noise, while gk's
+arithmetic is deterministic and costs almost nothing per proof. Second,
+coverage: gk answers on inputs the samplers refuse (function terms,
+equality, arithmetic, taxonomy priorities). Third, and decisively, the
+inclusion reading is not uniformly better: on `net_premise.js` it ignores
+counter-evidence entirely, which is rarely what a knowledge author wants.
+The threshold model shows that gk's numbers already have a scenario
+semantics of their own on a well-defined fragment; the two samplers are
+kept as independent checks precisely because their disagreements carry
+information.
 
 The detailed results and the coverage status of every example directory are in
 [`comparison.md`](comparison.md).
