@@ -1,6 +1,7 @@
-# Uncertainty-weight examples
+# Confidence and support examples
 
-The examples in this directory isolate the main uncertainty-weight calculations:
+The examples in this directory show how input confidences produce answer
+support and a final confidence:
 
 1. multiply the distinct evidence instances used by one proof;
 2. combine alternative proofs from their evidence-instance sets;
@@ -25,8 +26,8 @@ The proof of `r(c)` uses both uncertain facts. Its support contribution is
 `0.5 * 0.6 = 0.3`, which GK reports in the `confidence` field.
 
 [`rulemult.js`](rulemult.js) gives the same calculation to a conjunctive rule.
-[`rules4.js`](rules4.js) and [`rules5.js`](rules5.js) use a rule of strength
-`0.8` three times after a fact with evidence strength `0.9`, producing
+[`rules4.js`](rules4.js) and [`rules5.js`](rules5.js) use a rule with confidence
+`0.8` three times after a fact with confidence `0.9`, producing
 `0.9 * 0.8^3 = 0.4608`.
 
 ## Alternative proofs
@@ -80,10 +81,10 @@ the conflict on a premise and then derives a conclusion from it.
 ## Chains and networks
 
 [`near.js`](near.js) and [`near2.js`](near2.js) apply a transitivity rule with
-strength `0.9` eight times, producing `0.9^8 = 0.4305`.
+confidence `0.9` eight times, producing `0.9^8 = 0.4305`.
 
 [`smokes.gkp`](smokes.gkp) and [`smokes.js`](smokes.js) contain several proofs
-of `smokes(sam)`. GK multiplies within each proof and combines the support
+of `smokes(sam)`. GK multiplies within each proof and combines the provenance
 sets, returning `0.3764`. The `alarm*.js` and `socialsmoking*.js` files
 provide larger networks and retain comparison material in their comments.
 
@@ -105,12 +106,12 @@ acceptance label, not the derivation:
 | `cumulate.gkp`, `cumulate.js` | two disjoint sources, noisy-or, result `0.8` |
 | `coin1.gkp`, `coin1.js` | product of two facts, result `0.3` |
 | `coin2.js` | two-coin disjunction, result `0.8` |
-| `coin3.js`, `coin4.js` | four sources with evidence strength `0.6`, result `0.9744` |
+| `coin3.js`, `coin4.js` | four sources with confidence `0.6`, result `0.9744` |
 | `coin4_err.js` | four sources plus an inequality constraint |
 | `coin4_err1.js`, `coin4_err2.js` | smaller constrained variants |
-| `overlap1.js`, `overlap3.js` | overlap between the proofs' support sets |
-| `near.js`, `near2.js` | repeated rule strength along a transitive chain |
-| `rulemult.js` | weight product for a conjunctive rule |
+| `overlap1.js`, `overlap3.js` | overlap between the proofs' provenance sets |
+| `near.js`, `near2.js` | repeated rule confidence along a transitive chain |
+| `rulemult.js` | confidence product for a conjunctive rule |
 | `rules1.js`, `rules2.js` | positive and negative rule evidence, open and ground query forms |
 | `rules3.js` | disjunctive evidence at the acceptance boundary |
 | `rules4.js`, `rules5.js` | repeated rule instances, open and ground query forms |

@@ -1,4 +1,4 @@
-# Monte Carlo interpretations of GK weights and results
+# Monte Carlo interpretations of GK confidences and support
 
 This directory contains two sampling calculations for small GK examples. They
 give each reported confidence value a concrete meaning. Their estimates can be
@@ -22,13 +22,13 @@ need not agree on recursive rules, contested premises, or defaults.
 
 The clause-activation sampler independently activates uncertain ground clause
 instances and invokes the unweighted prover in each sampled world. In this mode
-an input weight `c` is treated as an activation probability. For each trial:
+an input confidence `c` is treated as an activation probability. For each trial:
 
 1. gk clausifies the input.
 2. The script grounds the clauses over the constants in the file.
 3. Each uncertain ground clause is retained with probability `c` and otherwise
    removed. Certain clauses are always retained.
-4. The retained clauses, without their input weights, form one Boolean program.
+4. The retained clauses, without their confidence annotations, form one Boolean program.
 5. gk checks whether the query and its explicit negation are provable in that
    program.
 
@@ -119,7 +119,7 @@ conflict        = min(a, b)
 ignorance       = 1 - max(a, b)
 ```
 
-Same-polarity evidence strengths are combined by noisy-or. Rules become
+Same-polarity confidences are combined by noisy-or. Rules become
 available only when their body atoms are available in the required polarity.
 A blocker check disables a rule when its exception condition is supported.
 Each ground atom has one fixed pair of draws per trial, so two downstream proofs that
@@ -151,8 +151,8 @@ montecarlo/gkmc.py --semantics threshold -n 10000 --seed 1 \
   Examples/confidences/net_direct.js
 ```
 
-`net_direct.js` has positive evidence strength 0.7 for `flies(a)` and negative
-evidence strength 0.4 for its negation. With 10,000 draws the sampler returned
+`net_direct.js` has confidence 0.7 for `flies(a)` and confidence 0.4 for its
+negation. With 10,000 draws the sampler returned
 0.3018 positive support, 0 negative support, 0.3984 conflict, and 0.2998
 ignorance. GK reports 0.3, 0, 0.4, and 0.3.
 
@@ -259,7 +259,7 @@ shared-threshold sampling: 1.0000 (recorded; a draw counts if any
 
 The difference is a third dependence convention, and GK's calculation is
 exact and stable (the same 0.4305 under different time limits and search
-strategies). Within one derivation GK multiplies a rule's strength once
+strategies). Within one derivation GK multiplies a rule's confidence once
 per application — eight uses of the one transitivity statement give
 0.9^8 — and across derivations it combines with inclusion–exclusion at
 the level of input statements, so the many alternative decompositions of
@@ -285,7 +285,7 @@ available.
 
 ### Why GK does not simply adopt the clause-activation numbers
 
-Three reasons, in increasing order of weight. First, cost: the
+Three reasons, in increasing order of importance. First, cost: the
 clause-activation answer is a count over all combinations of the uncertain
 statements, and the number of combinations doubles with every statement —
 that is why this directory samples instead of counting, needs thousands of
@@ -380,7 +380,7 @@ Python process and is much faster.
   `.gks`, TPTP, ASP, and Prolog files are outside these scripts.
 - Both modes require a finite constant domain and reject nested function terms.
 - Clause-activation mode obtains clauses from GK and does not continue when it
-  cannot map the clauses back to input weights safely.
+  cannot map the clauses back to input confidences safely.
 - Shared-threshold mode has the narrower clause and query restrictions described
   above. It reports unresolved cyclic or priority cases instead of guessing.
 - Neither mode performs probabilistic conditioning on evidence or learning.

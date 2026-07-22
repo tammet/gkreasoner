@@ -97,7 +97,9 @@ mode remains single-process.
 
 ### `-confidence <n>`
 
-Set the minimum confidence margin for an accepted answer. The default is 0.1.
+Set the minimum verdict confidence for an accepted or rejected answer. The
+underlying signed confidence is `support_for - support_against`; the routed
+verdict uses its absolute value. The default is 0.1.
 The value may be a decimal from 0 to 1 or an integer percentage from 2 to 100.
 Derivations below the limit are reported under `evidence below limit`.
 
@@ -122,10 +124,12 @@ occurs after the retained answer classes have reached their proof limit.
 Retain at most `n` proofs for each distinct answer. The option does not by
 itself stop the search. Raw-proof mode uses 16 when no explicit value is given.
 
-## Support assessment
+## Confidence and support assessment
 
-The default mode reports a compact `confidence` and, with `-detail`, a
-four-component assessment. The algorithms and interpretation are described in
+The default mode reports a compact verdict `confidence` equal to
+`abs(support_for - support_against)` and, with `-detail`, the four components
+from which it is derived. Accepted and rejected answer lists carry the sign.
+The algorithms and interpretation are described in
 [`how_gk_works.md`](how_gk_works.md).
 
 ### `-nocumulate`
@@ -140,7 +144,7 @@ Do not search for support for the explicit negation.
 
 Use the older heuristic proof-combination algorithm. In this mode the
 `independence` strategy value controls the degree of combination. The normal
-algorithm measures overlap from the proofs' support sets.
+algorithm measures overlap from the proofs' provenance sets.
 
 ### `-olduncertainty`
 
@@ -172,7 +176,7 @@ this mode; use `-maxproofs` to limit proofs per answer.
 
 ### `-plain`
 
-Ignore input weights encoded as confidence annotations. If the input contains
+Ignore input confidences. If the input contains
 no blockers, the default machinery is also skipped.
 
 ## Defaults and auxiliary data
@@ -304,7 +308,7 @@ reusing its number with a different size or configuration.
 
 Print the clausified problem instead of proving it. Plain `-clausify` emits the
 classic clause representation; `-defworlds -clausify` emits the
-weight-aware clause representation.
+confidence-aware clause representation.
 
 ## Information
 

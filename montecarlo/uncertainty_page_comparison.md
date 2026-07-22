@@ -26,7 +26,7 @@ The three columns answer different questions:
 | # | Example | gk | Clause-activation (difference) | Shared-threshold (components) |
 |---|---|---|---|---|
 | 1 | facts and rules | polly at 1.0 | 1.000 | 1.0/0/0/0 |
-| 2 | input weights | 0.56 | 0.560 | 0.556/0/0/0.444 |
+| 2 | confidences | 0.56 | 0.560 | 0.556/0/0/0.444 |
 | 3 | several sources | 0.8 | 0.815 | 0.797/0/0/0.203 |
 | 4 | positive and negative support | 0.3 (0.3/0/0.4/0.3) | 0.295 | 0.298/0/0.401/0.301 |
 | 5 | rule chains | 0.3764 | 0.387 | 0.377/0/0/0.623 |

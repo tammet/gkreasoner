@@ -1,12 +1,12 @@
 # GK Reasoner
 
 GK is a first-order reasoner for knowledge bases containing uncertain facts,
-default rules, exceptions, and contradictions. It returns logical proofs and a
-support assessment for each answer.
+default rules, exceptions, and contradictions. It returns logical proofs, a
+confidence, and a detailed support assessment for each answer.
 
 GK extends the resolution prover [GKC](https://github.com/tammet/gkc) with:
 
-- numeric weights on facts and rules (encoded as `confidence` annotations);
+- confidence annotations on facts and rules;
 - combination of several proofs without double-counting shared evidence;
 - separate treatment of positive and negative support for a conclusion;
 - default rules whose exceptions are checked by subsidiary proof searches;
@@ -94,13 +94,13 @@ larger set of language-translation examples runnable by gk.
 | Document | Contents |
 |---|---|
 | [`Examples/README.md`](Examples/README.md) | Tutorial based on runnable examples |
-| [`Doc/input_languages.md`](Doc/input_languages.md) | Facts, rules, queries, defaults, and input weights in each notation |
-| [`Doc/how_gk_works.md`](Doc/how_gk_works.md) | Resolution, proof support, evidence combination, contradictions, and defaults |
+| [`Doc/input_languages.md`](Doc/input_languages.md) | Facts, rules, queries, defaults, and confidence annotations in each notation |
+| [`Doc/how_gk_works.md`](Doc/how_gk_works.md) | Resolution, input confidence, proof support, final confidence, contradictions, and defaults |
 | [`Doc/cli_reference.md`](Doc/cli_reference.md) | Command-line options |
 | [`Doc/strategy_reference.md`](Doc/strategy_reference.md) | Automatic search and strategy files |
 | [`Doc/comparison_with_other_systems.md`](Doc/comparison_with_other_systems.md) | Comparisons with other reasoners |
 | [`Examples/language/README.md`](Examples/language/README.md) | Logic generated from English-language inputs |
-| [`montecarlo/README.md`](montecarlo/README.md) | Monte Carlo checks of GK's support assessment |
+| [`montecarlo/README.md`](montecarlo/README.md) | Monte Carlo checks of GK's confidence and support assessment |
 
 ## Repository layout
 
@@ -108,10 +108,10 @@ larger set of language-translation examples runnable by gk.
 bin/         GK executables for each platform
 Doc/         user documentation
 Examples/    example problems grouped by feature
-montecarlo/  Monte Carlo checks of GK's support assessment
+montecarlo/  Monte Carlo checks of GK's confidence and support assessment
 ```
 
-The example categories are classical reasoning, uncertainty-weight calculation,
+The example categories are classical reasoning, confidence and support calculation,
 defaults and exceptions, arithmetic, proof-search strategy, and
 natural-language reasoning.
 

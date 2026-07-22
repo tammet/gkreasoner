@@ -32,34 +32,34 @@ Common step labels are:
 | `cumul` | combination of alternative proofs |
 | `arithinst` | bounded arithmetic instantiation |
 
-## 2. Input weights
+## 2. Input confidences
 
-An input weight is a value between 0 and 1, encoded as `confidence` in GK's
-input formats. For a fact it is an evidence strength; for a rule it is a rule
-strength. In GK's current model, the weight determines how much support the
-annotated input can contribute. It is not a learned statistical parameter and
-need not be a calibrated probability that the formula is objectively true.
+An input confidence is a value between 0 and 1. It is written with a numeric
+prefix in GKP and with the `confidence` annotation in GK's other input formats.
+Facts, source reports, and rules can all carry confidences. The confidence
+determines how much support the annotated input can contribute; it need not be
+a calibrated probability that the formula is objectively true.
 
-An unannotated statement has weight 1. In GKP:
+An unannotated statement has confidence 1. In GKP:
 
 ```prolog
 0.8::bird(tweety).
 flies(X) :- bird(X).
 ```
 
-The weight belongs to a ground use of the input clause. Two uses of the same
-rule with different substitutions count as different evidence instances.
+The confidence belongs to a ground use of the input clause. Two uses of the
+same rule with different substitutions count as different evidence instances.
 Repeated use of the same ground instance within one proof counts once.
 
-When one annotated formula is clausified into several clauses, its weight is
-distributed by taking an appropriate root. If a formula with weight `P`
+When one annotated formula is clausified into several clauses, its confidence
+is distributed by taking an appropriate root. If a formula with confidence `P`
 becomes `N` clauses, each clause receives `P^(1/N)`. This preserves the input
-weight `P` for a proof that requires all `N` clauses. The distinction matters
+confidence `P` for a proof that requires all `N` clauses. The distinction matters
 mainly for non-clausal formulas such as equivalences.
 
 ## 3. One proof
 
-The support contribution of one proof is the product of the weights of its
+The support contribution of one proof is the product of the confidences of its
 distinct evidence instances. Consider:
 
 ```prolog
@@ -69,7 +69,7 @@ r(c) :- p(heads1), p(heads2).
 query(r(X)).
 ```
 
-The only proof uses both uncertain facts and a rule of strength 1:
+The only proof uses both uncertain facts and a rule with confidence 1:
 
 ```text
 0.5 * 0.6 * 1 = 0.3
@@ -85,10 +85,10 @@ Alternative proofs may be independent, identical, nested, or partly
 overlapping. Treating every proof as independent would count shared facts and
 rules more than once.
 
-GK records the evidence-instance set for each proof and combines the sets by
-inclusion-exclusion:
+GK records the provenance set of evidence instances for each proof and combines
+the sets by inclusion-exclusion:
 
-- identical support sets are idempotent;
+- identical provenance sets are idempotent;
 - if one set contains another, the stronger proof determines the result;
 - disjoint sets combine by noisy-or;
 - partial overlap produces a value between those cases.
@@ -99,9 +99,9 @@ For two disjoint proofs with support contributions `a` and `b`, noisy-or gives:
 1 - (1 - a)(1 - b)
 ```
 
-Thus two independent facts with evidence strengths `0.5` and `0.6` supporting
+Thus two independent facts with confidences `0.5` and `0.6` supporting
 the same answer combine to `0.8`. The `overlap*.js` examples show why the
-support sets are required; final proof values alone are insufficient.
+provenance sets are required; final proof values alone are insufficient.
 
 Exact inclusion-exclusion is used for up to 20 reduced proof masks. Above that
 limit GK uses a deterministic greedy fold and prints a warning. This bounds the
@@ -134,6 +134,18 @@ conflict         0.4
 ignorance        0.3
 ```
 
+The signed confidence of a proposition is
+
+```text
+confidence = support_for - support_against
+```
+
+Its sign gives the favored polarity and its magnitude is the confidence in
+that verdict. Conflict and ignorance retain the information lost by this
+single number: strong balanced conflict and complete ignorance both have
+confidence zero, but very different four-component reports. In the example,
+the signed confidence of `flies(a)` is `0.3`.
+
 This division follows from a shared uniform threshold for each ground atom.
 Below both support levels, the two polarities conflict and neither is usable.
 Between the levels, only the polarity with stronger support is usable. Above
@@ -160,7 +172,7 @@ propagation through a rule — is 0.3, so `flies(a)` receives
 `0.3 * 0.9 = 0.27`. The `-bird(a)` evidence contests the premise; it does not
 prove `-flies(a)`. With `-detail`, `bird(a)` is listed as a conflict source.
 
-A reading of input weights as independent clause-activation probabilities
+A reading of input confidences as independent clause-activation probabilities
 gives a different number for this example (0.45: the premise is provable in
 half the sampled worlds, and nothing derives the negated conclusion). The
 [Monte Carlo checkers](../montecarlo/README.md) compare both readings with
@@ -177,11 +189,11 @@ reached, GK falls back to proof-level assessment; opposition to a deep premise
 may then be omitted. `-detail` reports the legacy-named implementation flag
 `SCRUTINY_INCOMPLETE`, as well as `DEPTH_CUTOFF` and `PROOF_FALLBACK`.
 
-The ordinary `confidence` field is retained for compact output and threshold
-compatibility. It is the magnitude of the dominant support margin; ties are
-reported as zero. The answer is routed as accepted or rejected according to
-the dominant polarity. `-detail` adds the four components, conflict sources,
-and flags.
+For compact output, GK routes a positive signed confidence to `answers` and a
+negative one to `rejected_answers`. The ordinary `confidence` field is
+therefore non-negative: it is the absolute value of the signed confidence, or
+the confidence in the verdict as printed. Ties are reported as zero. `-detail`
+adds the four components, conflict sources, and flags.
 
 The optional `-envelope` report varies the resolution of identified conflicts
 and returns minimum and maximum support. It is a sensitivity interval, not a
@@ -203,7 +215,7 @@ found. The blocker literal is retained in the printed proof, so the defeasible
 assumption is visible.
 
 When support for the exception condition is itself uncertain, the report
-divides accordingly: with evidence strength 0.9 for the exception
+divides accordingly: with confidence 0.9 for the exception
 condition of a certain default, the answer carries 0.1 positive support and
 0.9 negative support, and is rejected because the negative support dominates.
 
@@ -221,7 +233,7 @@ pacifist(X)  :- quaker(X),     unless(-pacifist(X), 1).
 
 equal-priority arguments support both polarities. GK reports the opposition and
 a zero margin rather than choosing one conclusion by rule order. When two such
-opposed defaults have rule strengths `a` and `b`, each polarity counts only
+opposed defaults have rule confidences `a` and `b`, each polarity counts only
 where the other is absent: positive support `a(1-b)` and negative support
 `b(1-a)`, no conflict component, and the remainder is ignorance. With two
 certain defaults the entire four-component report is ignorance.

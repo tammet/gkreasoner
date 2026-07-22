@@ -6,7 +6,7 @@ terms, and explicit negation. Run commands from the repository root.
 ## Resolution and function terms
 
 [`logic_chain.js`](logic_chain.js) encodes implication with function terms and
-proves `p(i(a,i(b,a)))`. It contains no input weights or defaults, so
+proves `p(i(a,i(b,a)))`. It contains no confidence annotations or defaults, so
 the result is a classical proof with confidence 1.
 
 [`algebra.js`](algebra.js) contains inverse, identity, and associativity axioms

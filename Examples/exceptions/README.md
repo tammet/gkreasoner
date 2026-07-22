@@ -36,8 +36,8 @@ which the answers depend.
 0.9::-flies(a).
 ```
 
-The fact supports both the default's exception condition and the negation of
-its conclusion. Because that support has strength 0.9, it does not eliminate
+The fact, with confidence 0.9, supports both the default's exception condition
+and the negation of its conclusion. It does not eliminate
 the default outright; GK instead reports the surviving positive support and
 the stronger negative support:
 

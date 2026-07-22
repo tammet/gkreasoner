@@ -13,9 +13,9 @@ inference reports the probability that a query succeeds across those choices.
 For a finite program with only positive support, gk's current proof-instance
 calculation often gives the same number:
 
-- two independent facts with evidence strengths 0.5 and 0.6 supporting one answer give
+- two independent facts with confidences 0.5 and 0.6 supporting one answer give
   `1 - (1 - 0.5)(1 - 0.6) = 0.8`;
-- one proof using facts with evidence strengths 0.5 and 0.6 gives
+- one proof using facts with confidences 0.5 and 0.6 gives
   `0.5 * 0.6 = 0.3`;
 - when proofs share a premise, gk records the ground evidence instances and
   uses that premise once when combining the proofs.
@@ -34,7 +34,7 @@ to 20 reduced proof masks and a deterministic approximation above that limit.
 ### Opposing evidence
 
 gk treats a negative literal such as `-flies(a)` as explicit evidence with its
-own strength. If the aggregated positive support is 0.7 and the aggregated
+own confidence. If the aggregated positive support is 0.7 and the aggregated
 negative support is 0.4, gk's detailed result is:
 
 ```text
@@ -207,7 +207,7 @@ llmpipe translates English into gk logic and uses gk for proof search.
 
 The compiled examples combine several features: first-order variables and
 function terms, existential witnesses, explicit negation, disjunction,
-contexts, question-answer bridges, defaults, input weights, and a
+contexts, question-answer bridges, defaults, confidence annotations, and a
 shared background theory for taxonomy, part-whole relations, degrees, events,
 and space. The compared systems do not accept these JSON-LD-LOGIC conventions,
 so no cross-system results are listed for this group.

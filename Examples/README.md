@@ -57,7 +57,7 @@ confidence: 0.8
 
 For disjoint evidence the combination is noisy-or:
 `1 - (1 - 0.5)(1 - 0.6) = 0.8`. When proofs share input instances, GK uses
-the recorded support sets to avoid counting the shared evidence twice.
+the recorded provenance sets to avoid counting the shared evidence twice.
 The overlap cases are in [`confidences/overlap1.js`](confidences/overlap1.js)
 and [`confidences/overlap3.js`](confidences/overlap3.js).
 
@@ -84,6 +84,10 @@ support: 0.3 for, 0 against
 conflict: 0.4   ignorance: 0.3
 ```
 
+The signed confidence is positive support minus negative support. GK places
+the result in the accepted or rejected list according to the sign and prints
+its magnitude as the verdict confidence.
+
 Conflict records the part supported in both polarities. Ignorance records the
 part supported in neither polarity. [`confidences/net_premise.js`](confidences/net_premise.js)
 shows how a contested premise affects a downstream conclusion.
@@ -102,8 +106,8 @@ query(flies(X)).
 
 With no evidence for either exception, both answers have confidence 1 and
 record their blocker. [`exceptions/bird_exception.gkp`](exceptions/bird_exception.gkp)
-adds `0.9::-flies(a).`; the confidence for `flies(a)` becomes `0.1`, while
-`flies(b)` remains at 1.
+adds `0.9::-flies(a).`; `flies(a)` has 0.1 positive support and 0.9 negative
+support, so it is rejected with confidence 0.8, while `flies(b)` remains at 1.
 
 [`exceptions/nixon.gkp`](exceptions/nixon.gkp) is the Nixon diamond. Equal
 defaults support `pacifist(n)` and its negation; its downstream candidate has

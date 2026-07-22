@@ -68,7 +68,7 @@ this file.
 ## Arithmetic combined with other reasoning
 
 [`blocker_apples.js`](blocker_apples.js) sends an instantiated value through a
-default rule and support calculation. The `donor_instantiation*.js` files
+default rule and confidence calculation. The `donor_instantiation*.js` files
 cover an additional equation, a comparison guard, selection between cars, and
 division into boxes.
 

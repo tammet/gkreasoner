@@ -54,7 +54,7 @@ alternative proofs with shared premises.
 | `net_direct.js`, `true` | opposing facts about the queried atom | 0.3107 | [0.2976, 0.3238] | 0.3000 |
 | `negation_conflict.js`, `a` | contested premise propagated through rules | 0.2487 | [0.2373, 0.2601] | 0.2520 |
 | `bird_exception.js`, `b` | unopposed default | 1.0000 | [1.0000, 1.0000] | 1.0000 |
-| `bird_exception.js`, `a` | default with exception evidence of strength 0.9 | -0.7968 | [-0.8086, -0.7850] | -0.8000 |
+| `bird_exception.js`, `a` | default with exception evidence at confidence 0.9 | -0.7968 | [-0.8086, -0.7850] | -0.8000 |
 | `bird_penguin.js`, `p` | opposing bird and penguin conclusions | 0.6409 | [0.6287, 0.6531] | 0.6400 |
 | `net_premise.js`, `true` | contested premise followed by a 0.9 rule | 0.4543 | [0.4445, 0.4641] | 0.2700 |
 
@@ -74,7 +74,7 @@ no-fly rule is absent, a difference of +0.64. GK reports 0.72 positive
 support, 0.08 negative support, and the accepted answer at 0.64, in agreement.
 
 `net_premise.js` is a counterexample to a general equivalence. Its premise has
-0.5 positive and 0.2 negative evidence, followed by a rule with strength 0.9.
+0.5 positive and 0.2 negative evidence, followed by a rule with confidence 0.9.
 gk first resolves the opposition on the premise, reducing it to 0.3, and
 obtains `0.3 * 0.9 = 0.27`. In clause-activation sampling, the positive premise
 is provable in about half the worlds, including worlds where its negation is
@@ -114,7 +114,7 @@ The cases with positive and negative facts about the queried atom reproduce the
 four components because one shared threshold partitions the unit interval into
 the same four regions as gk's opposition-resolution calculation for those facts.
 
-`near.js` contains nine certain links and a transitivity rule with strength
+`near.js` contains nine certain links and a transitivity rule with confidence
 0.9. gk reports the product of eight uses in one chain, `0.9^8 = 0.4305`. The
 shared-threshold model grounds the recursive rule and allows many alternative
 decompositions of the same path. Every one of the 10,000 sampled evaluations
@@ -175,7 +175,7 @@ variants from a claimed independent numerical comparison.
 
 ### Deterministic and auxiliary files
 
-Sampling adds no information when every statement has weight 1. Apart from
+Sampling adds no information when every statement has confidence 1. Apart from
 the small `trivial.js` baseline retained in the table, this includes the basic
 `gbirds`, `bird_default`, and large ASP timing inputs. The ASP encodings are
 compared in
