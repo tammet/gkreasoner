@@ -57,7 +57,7 @@ confidence: 0.8
 
 For disjoint evidence the combination is noisy-or:
 `1 - (1 - 0.5)(1 - 0.6) = 0.8`. When proofs share input instances, GK uses
-the recorded proof supports to avoid counting the shared evidence twice.
+the recorded support sets to avoid counting the shared evidence twice.
 The overlap cases are in [`confidences/overlap1.js`](confidences/overlap1.js)
 and [`confidences/overlap3.js`](confidences/overlap3.js).
 
@@ -84,8 +84,8 @@ support: 0.3 for, 0 against
 conflict: 0.4   ignorance: 0.3
 ```
 
-Conflict records the part supported on both sides. Ignorance records the part
-supported on neither side. [`confidences/net_premise.js`](confidences/net_premise.js)
+Conflict records the part supported in both polarities. Ignorance records the
+part supported in neither polarity. [`confidences/net_premise.js`](confidences/net_premise.js)
 shows how a contested premise affects a downstream conclusion.
 
 ## 4. Defaults and exceptions
@@ -159,7 +159,7 @@ This is bounded enumeration, not general equation solving.
 | Directory | Contents |
 |---|---|
 | [`core/`](core/README.md) | Resolution, substitutions, equality, and negation |
-| [`confidences/`](confidences/README.md) | Proof products, pooling, overlap, negative evidence, conflict, and ignorance |
+| [`confidences/`](confidences/README.md) | Proof products, pooling, overlap, negative support, conflict, and ignorance |
 | [`exceptions/`](exceptions/README.md) | Defaults, blockers, priorities, taxonomies, and persistence |
 | [`strategy/`](strategy/README.md) | Strategy files used with `-strategy` |
 | [`arithmetic/`](arithmetic/README.md) | Ground evaluation and bounded numeric instantiation |

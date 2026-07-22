@@ -2,7 +2,7 @@
 
 These inputs were adapted from the
 [GKC](https://github.com/tammet/gkc) example collection. They test the
-first-order prover underneath gk's confidence and default machinery.
+first-order prover underneath gk's uncertainty and default machinery.
 
 ## Clause problems
 

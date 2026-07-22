@@ -122,10 +122,10 @@ occurs after the retained answer classes have reached their proof limit.
 Retain at most `n` proofs for each distinct answer. The option does not by
 itself stop the search. Raw-proof mode uses 16 when no explicit value is given.
 
-## Confidence assessment
+## Support assessment
 
 The default mode reports a compact `confidence` and, with `-detail`, a
-four-part assessment. The algorithms and interpretation are described in
+four-component assessment. The algorithms and interpretation are described in
 [`how_gk_works.md`](how_gk_works.md).
 
 ### `-nocumulate`
@@ -134,24 +134,24 @@ Do not combine alternative proofs of the same answer.
 
 ### `-nonegative`
 
-Do not search for negative evidence.
+Do not search for support for the explicit negation.
 
 ### `-oldcumulate`
 
 Use the older heuristic proof-combination algorithm. In this mode the
 `independence` strategy value controls the degree of combination. The normal
-algorithm measures overlap from proof supports.
+algorithm measures overlap from the proofs' support sets.
 
 ### `-olduncertainty`
 
 Use the previous single-number positive-minus-negative pipeline instead of the
-default four-part assessment.
+default four-component assessment.
 
 ### `-defworlds`
 
-Explicitly select the current four-part assessment. It is already the default
-for proof search. The explicit form matters with `-clausify`, which otherwise
-uses the classic clause export.
+Explicitly select the current four-component assessment. It is already the
+default for proof search. The explicit form matters with `-clausify`, which
+otherwise uses the classic clause export.
 
 ### `-envelope`
 
@@ -172,8 +172,8 @@ this mode; use `-maxproofs` to limit proofs per answer.
 
 ### `-plain`
 
-Ignore confidence annotations. If the input contains no blockers, the default
-machinery is also skipped.
+Ignore input weights encoded as confidence annotations. If the input contains
+no blockers, the default machinery is also skipped.
 
 ## Defaults and auxiliary data
 
@@ -187,7 +187,7 @@ exceptions.
 Use graded blocker discounting with the legacy single-number report. A
 candidate confidence is multiplied by `1 - pb`, where `pb` is the noisy-or
 pool of firing blocker priorities. This mode selects the legacy pipeline unless
-the current four-part mode is explicitly requested.
+the current four-component mode is explicitly requested.
 
 ### `-defaults`
 
@@ -304,7 +304,7 @@ reusing its number with a different size or configuration.
 
 Print the clausified problem instead of proving it. Plain `-clausify` emits the
 classic clause representation; `-defworlds -clausify` emits the
-confidence-aware clause representation.
+weight-aware clause representation.
 
 ## Information
 
@@ -331,5 +331,5 @@ Print the licence embedded in the executable. `-license` is also accepted.
 | `no information` | neither polarity of a ground query was proved |
 | `time limit, proof not found` | the search limit expired before a proof was found |
 
-An output may also contain rejected answers when negative evidence dominates.
-Use `-detail` to distinguish opposition, conflict, and ignorance.
+An output may also contain rejected answers when negative support dominates.
+Use `-detail` to distinguish negative support, conflict, and ignorance.

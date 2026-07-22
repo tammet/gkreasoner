@@ -30,7 +30,7 @@ found in first-order proofs and reports an assessment of support and conflict.
 The Nixon results express the same ambiguity in three different result types:
 two DeLP arguments remain undecided, PASTA reports the lower and upper
 probability across stable models, and I-DLV with a solver enumerates the two
-stable models. None is a numeric equivalent of gk's confidence calculation.
+stable models. None is a numeric equivalent of gk's support calculation.
 
 ## TweetyProject inputs
 

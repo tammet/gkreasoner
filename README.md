@@ -2,18 +2,23 @@
 
 GK is a first-order reasoner for knowledge bases containing uncertain facts,
 default rules, exceptions, and contradictions. It returns logical proofs and a
-confidence assessment for each answer.
+support assessment for each answer.
 
 GK extends the resolution prover [GKC](https://github.com/tammet/gkc) with:
 
-- confidence annotations on facts and rules;
+- numeric weights on facts and rules (encoded as `confidence` annotations);
 - combination of several proofs without double-counting shared evidence;
-- separate treatment of evidence for and against a conclusion;
+- separate treatment of positive and negative support for a conclusion;
 - default rules whose exceptions are checked by subsidiary proof searches;
 - numeric priorities and taxonomy-based priorities for competing defaults;
-- four-part reports of support, opposition, conflict, and ignorance;
+- four-component reports of positive support, negative support, conflict, and
+  ignorance;
 - shared-memory reuse of a fixed axiom set across queries;
 - concurrent execution of automatically selected search strategies.
+
+A live web version of GK, with examples and documentation, runs in the browser
+at [https://logictools.org/commonsense.html](https://logictools.org/commonsense.html);
+no installation is needed.
 
 ## Running GK
 
@@ -89,13 +94,13 @@ larger set of language-translation examples runnable by gk.
 | Document | Contents |
 |---|---|
 | [`Examples/README.md`](Examples/README.md) | Tutorial based on runnable examples |
-| [`Doc/input_languages.md`](Doc/input_languages.md) | Facts, rules, queries, defaults, and confidence annotations in each input notation |
-| [`Doc/how_gk_works.md`](Doc/how_gk_works.md) | Resolution, proof confidence, evidence combination, contradictions, and defaults |
+| [`Doc/input_languages.md`](Doc/input_languages.md) | Facts, rules, queries, defaults, and input weights in each notation |
+| [`Doc/how_gk_works.md`](Doc/how_gk_works.md) | Resolution, proof support, evidence combination, contradictions, and defaults |
 | [`Doc/cli_reference.md`](Doc/cli_reference.md) | Command-line options |
 | [`Doc/strategy_reference.md`](Doc/strategy_reference.md) | Automatic search and strategy files |
 | [`Doc/comparison_with_other_systems.md`](Doc/comparison_with_other_systems.md) | Comparisons with other reasoners |
 | [`Examples/language/README.md`](Examples/language/README.md) | Logic generated from English-language inputs |
-| [`montecarlo/README.md`](montecarlo/README.md) | Monte-Carlo checks of confidence results |
+| [`montecarlo/README.md`](montecarlo/README.md) | Monte Carlo checks of GK's support assessment |
 
 ## Repository layout
 
@@ -103,10 +108,10 @@ larger set of language-translation examples runnable by gk.
 bin/         GK executables for each platform
 Doc/         user documentation
 Examples/    example problems grouped by feature
-montecarlo/  Monte-Carlo checks of the confidence numbers
+montecarlo/  Monte Carlo checks of GK's support assessment
 ```
 
-The example categories are classical reasoning, confidence calculation,
+The example categories are classical reasoning, uncertainty-weight calculation,
 defaults and exceptions, arithmetic, proof-search strategy, and
 natural-language reasoning.
 

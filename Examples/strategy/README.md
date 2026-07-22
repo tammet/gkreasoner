@@ -64,8 +64,8 @@ The first run is sufficient for this problem.
 
 ## Confidence combination
 
-The current combiner reconstructs evidence-instance sets and measures overlap
-between proofs. Strategy value `independence: 0` disables cumulation; nonzero
+The current combiner reconstructs evidence-instance sets and computes the
+overlap between proofs. Strategy value `independence: 0` disables cumulation; nonzero
 values enable the normal combiner. Intermediate percentages affect results
 only with the compatibility option `-oldcumulate`.
 

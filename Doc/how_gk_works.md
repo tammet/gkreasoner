@@ -32,34 +32,35 @@ Common step labels are:
 | `cumul` | combination of alternative proofs |
 | `arithinst` | bounded arithmetic instantiation |
 
-## 2. Confidence annotations
+## 2. Input weights
 
-An input confidence is a value between 0 and 1. In GK's current confidence
-model, it is interpreted as the probability that the item of evidence survives
-a test. It is not a learned statistical parameter and need not be a calibrated
-probability that the formula is objectively true.
+An input weight is a value between 0 and 1, encoded as `confidence` in GK's
+input formats. For a fact it is an evidence strength; for a rule it is a rule
+strength. In GK's current model, the weight determines how much support the
+annotated input can contribute. It is not a learned statistical parameter and
+need not be a calibrated probability that the formula is objectively true.
 
-An unannotated statement has confidence 1. In GKP:
+An unannotated statement has weight 1. In GKP:
 
 ```prolog
 0.8::bird(tweety).
 flies(X) :- bird(X).
 ```
 
-The confidence belongs to a ground use of the input clause. Two uses of the
-same rule with different substitutions count as different evidence instances.
+The weight belongs to a ground use of the input clause. Two uses of the same
+rule with different substitutions count as different evidence instances.
 Repeated use of the same ground instance within one proof counts once.
 
-When one annotated formula is clausified into several clauses, the confidence
-is divided by taking an appropriate root. If a formula of confidence `P`
-becomes `N` clauses, each clause receives `P^(1/N)`. This preserves confidence
-`P` for a proof that requires all `N` clauses. The distinction matters mainly
-for non-clausal formulas such as equivalences.
+When one annotated formula is clausified into several clauses, its weight is
+distributed by taking an appropriate root. If a formula with weight `P`
+becomes `N` clauses, each clause receives `P^(1/N)`. This preserves the input
+weight `P` for a proof that requires all `N` clauses. The distinction matters
+mainly for non-clausal formulas such as equivalences.
 
 ## 3. One proof
 
-The confidence of one proof is the product of the confidences of its distinct
-evidence instances. Consider:
+The support contribution of one proof is the product of the weights of its
+distinct evidence instances. Consider:
 
 ```prolog
 0.5::p(heads1).
@@ -68,7 +69,7 @@ r(c) :- p(heads1), p(heads2).
 query(r(X)).
 ```
 
-The only proof uses both uncertain facts and a rule of confidence 1:
+The only proof uses both uncertain facts and a rule of strength 1:
 
 ```text
 0.5 * 0.6 * 1 = 0.3
@@ -92,15 +93,15 @@ inclusion-exclusion:
 - disjoint sets combine by noisy-or;
 - partial overlap produces a value between those cases.
 
-For two disjoint proofs with confidences `a` and `b`, noisy-or gives:
+For two disjoint proofs with support contributions `a` and `b`, noisy-or gives:
 
 ```text
 1 - (1 - a)(1 - b)
 ```
 
-Thus two independent facts of confidence `0.5` and `0.6` supporting the same
-answer combine to `0.8`. The `overlap*.js` examples show why the proof supports
-are required; final proof confidences alone are insufficient.
+Thus two independent facts with evidence strengths `0.5` and `0.6` supporting
+the same answer combine to `0.8`. The `overlap*.js` examples show why the
+support sets are required; final proof values alone are insufficient.
 
 Exact inclusion-exclusion is used for up to 20 reduced proof masks. Above that
 limit GK uses a deterministic greedy fold and prints a warning. This bounds the
@@ -111,11 +112,11 @@ The normal combiner measures overlap directly. In a strategy file,
 value enables the normal exact combiner. Intermediate percentages affect only
 the older heuristic selected with `-oldcumulate`.
 
-## 5. Positive and negative evidence
+## 5. Positive and negative support
 
 GK searches separately for proofs of a conclusion and its explicit negation.
-Suppose the pooled positive confidence is `a` and the pooled negative confidence is
-`b`. The basic four-part division is:
+Suppose the aggregated positive support is `a` and the aggregated negative
+support is `b`. The basic four-component decomposition is:
 
 ```text
 support_for     = max(a - b, 0)
@@ -133,12 +134,12 @@ conflict         0.4
 ignorance        0.3
 ```
 
-This division follows from a shared threshold for each ground atom.
-Below both evidence confidences, the two sides conflict and neither is usable.
-Between the confidences, only the side with higher confidence is usable. Above
-both confidences, neither side is usable.
+This division follows from a shared uniform threshold for each ground atom.
+Below both support levels, the two polarities conflict and neither is usable.
+Between the levels, only the polarity with stronger support is usable. Above
+both levels, neither polarity is usable.
 
-The negative-evidence search looks for the explicit negation of the question
+The negative-support search looks for the explicit negation of the question
 or of each answer found for an open question. A separate search is needed
 because such evidence cannot close the original refutation. Opposition to an
 intermediate premise is handled instead by the premise assessment and does not
@@ -153,32 +154,34 @@ require a proof of the negated answer.
 query(flies(a)).
 ```
 
-The usable support for `bird(a)` is 0.3, so `flies(a)` receives
+The usable support for `bird(a)` — the support that remains once opposition
+and exception conditions have been evaluated, and is therefore available for
+propagation through a rule — is 0.3, so `flies(a)` receives
 `0.3 * 0.9 = 0.27`. The `-bird(a)` evidence contests the premise; it does not
 prove `-flies(a)`. With `-detail`, `bird(a)` is listed as a conflict source.
 
-A reading of confidences as independent inclusion probabilities gives a
-different number for this example (0.45: the premise is provable in half the
-sampled worlds, and nothing derives the negated conclusion). The
+A reading of input weights as independent clause-activation probabilities
+gives a different number for this example (0.45: the premise is provable in
+half the sampled worlds, and nothing derives the negated conclusion). The
 [Monte Carlo checkers](../montecarlo/README.md) compare both readings with
 GK's on the repository examples; their `Differences` section works through
 this example, the uncertain-exception case, and the recursive-rule case, and
 explains which modelling decision each disagreement turns on.
 
 For conclusions reached through rules, assessment proceeds from premises to
-conclusions. A rule contributes evidence only when its body is usable and its
+conclusions. A rule contributes support only when its body is usable and its
 blockers do not fire. When several proof branches use the same contested
 premise, GK evaluates that premise once rather than treating the branches as
 independent. The recursion depth is limited to 16. If the depth limit is
 reached, GK falls back to proof-level assessment; opposition to a deep premise
-may then be omitted. `-detail` reports `SCRUTINY_INCOMPLETE`, `DEPTH_CUTOFF`,
-and `PROOF_FALLBACK`.
+may then be omitted. `-detail` reports the legacy-named implementation flag
+`SCRUTINY_INCOMPLETE`, as well as `DEPTH_CUTOFF` and `PROOF_FALLBACK`.
 
 The ordinary `confidence` field is retained for compact output and threshold
 compatibility. It is the magnitude of the dominant support margin; ties are
 reported as zero. The answer is routed as accepted or rejected according to
-the dominant polarity. `-detail` adds the four masses, conflict sources, and
-flags.
+the dominant polarity. `-detail` adds the four components, conflict sources,
+and flags.
 
 The optional `-envelope` report varies the resolution of identified conflicts
 and returns minimum and maximum support. It is a sensitivity interval, not a
@@ -193,16 +196,16 @@ A default rule has an exception condition. In GKP:
 flies(X) :- bird(X), unless(-flies(X), 2).
 ```
 
-The rule first derives a candidate conclusion containing a blocker. GK then
-starts a bounded subsidiary proof search for the blocking condition. The
-candidate survives when no blocking argument with sufficient priority is found.
-The blocker is retained in the printed proof, so the defeasible assumption is
-visible.
+The rule first derives a candidate conclusion containing a blocker literal. GK
+then starts a bounded subsidiary proof search for the exception condition. The
+candidate survives when no blocking argument with sufficient priority is
+found. The blocker literal is retained in the printed proof, so the defeasible
+assumption is visible.
 
-When the blocking evidence is itself uncertain, the report divides accordingly
-(gk 1.0.4): with exception evidence at confidence 0.9 against a certain
-default, the answer carries support 0.1 for and 0.9 against, and is routed to
-the rejected side because the opposition dominates.
+When support for the exception condition is itself uncertain, the report
+divides accordingly: with evidence strength 0.9 for the exception
+condition of a certain default, the answer carries 0.1 positive support and
+0.9 negative support, and is rejected because the negative support dominates.
 
 Blockers have priorities. A blocking proof may itself depend on defaults, and
 priorities prevent a lower-priority default from defeating a higher-priority
@@ -216,12 +219,12 @@ pacifist(X)  :- quaker(X),     unless(-pacifist(X), 1).
 -pacifist(X) :- republican(X), unless(pacifist(X), 1).
 ```
 
-equal-priority arguments support both polarities. GK reports the contest and a
-zero margin rather than choosing one conclusion by rule order. When two such
-opposed defaults carry confidences `a` and `b`, each side counts only where the
-other is absent (gk 1.0.4): support `a(1-b)` for and `b(1-a)` against, no
-conflict mass, and the remainder ignorance. With two certain defaults the whole
-mass is ignorance.
+equal-priority arguments support both polarities. GK reports the opposition and
+a zero margin rather than choosing one conclusion by rule order. When two such
+opposed defaults have rule strengths `a` and `b`, each polarity counts only
+where the other is absent: positive support `a(1-b)` and negative support
+`b(1-a)`, no conflict component, and the remainder is ignorance. With two
+certain defaults the entire four-component report is ignorance.
 
 ## 7. Arithmetic
 

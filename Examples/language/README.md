@@ -94,6 +94,6 @@ animal cannot fly?" returns `$ans($some_fox)` — a fox.
 example; it is not an example itself.
 
 See [`../../Doc/how_gk_works.md`](../../Doc/how_gk_works.md) for the reasoning
-and confidence model, and
+and uncertainty-support model, and
 [`../../Doc/input_languages.md`](../../Doc/input_languages.md) for the
 JSON-LD-LOGIC notation these files use.

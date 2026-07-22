@@ -19,7 +19,8 @@ running the prover.
 
 GKP is intended for hand-written examples. It uses Prolog notation for terms
 and rules, a [ProbLog](https://dtai.cs.kuleuven.be/problog/editor.html)-style
-confidence prefix, and `unless` for exceptions.
+weight prefix, and `unless` for exceptions. The corresponding field is named
+`confidence` in GK's JSON and TPTP syntaxes.
 
 ### Facts and negation
 
@@ -29,9 +30,9 @@ bird(robin).
 -bird(airplane).
 ```
 
-An omitted confidence means 1. GKP confidences are decimals from 0 to 1. A
-leading `-` or `~` is classical negation: `-bird(airplane)` is evidence for the
-negative literal, not a failure to prove the positive literal.
+An omitted weight means 1. GKP weights are decimals from 0 to 1. A leading `-`
+or `~` is classical negation: `-bird(airplane)` is evidence for the negative
+literal, not a failure to prove the positive literal.
 
 ### Rules
 
@@ -157,18 +158,15 @@ The principal correspondences are:
 | Fact | `bird(tweety).` | `["bird", "tweety"]` |
 | Negative fact | `-bird(a).` | `["-bird", "a"]` |
 | Variable | `X` | `"?:X"` |
-| Confidence | `0.9::bird(a).` | `{"@logic":["bird","a"], "@confidence":0.9}` |
+| Weight | `0.9::bird(a).` | `{"@logic":["bird","a"], "@confidence":0.9}` |
 | Rule | `flies(X) :- bird(X).` | `{"@logic":[["bird","?:X"],"=>",["flies","?:X"]]}` |
 | Query | `query(flies(X)).` | `{"@question":["flies","?:X"]}` |
 
-JSON confidences may be decimals from 0 to 1 or integer percentages from 2 to
-100. Thus `"@confidence": 90` means `0.9`.
+JSON weights in the `@confidence` field may be decimals from 0 to 1 or integer
+percentages from 2 to 100. Thus `"@confidence": 90` means `0.9`.
 
-A statement without a confidence prefix has confidence 1, and an explicit
-`1.0::` prefix means the same. Since gk 1.0.4 the converters treat the two
-identically; earlier binaries, including the `bin/gk` currently shipped here,
-mis-read an explicit `1.0` prefix as one percent, so with the shipped binary
-omit the prefix on certain statements.
+A statement without a weight prefix has weight 1, and an explicit `1.0::`
+prefix means the same.
 
 A blocker is a clause literal using `$block`. The negative exception in the
 GKP rule below is represented by `$not`:
@@ -217,7 +215,7 @@ cnf(birds_fly, axiom, (~bird(X) | flies(X))).
 cnf(question, negated_conjecture, ~flies(tux)).
 ```
 
-Confidence and blocker information can be carried in the annotation field:
+Weight and blocker information can be carried in the annotation field:
 
 ```tptp
 cnf(birds_fly, axiom, (~bird(X) | flies(X)),,
@@ -263,6 +261,6 @@ cnf(birds_fly, axiom, (~bird(X) | flies(X)),,
     [confidence(0.9), unless(~flies(X), 2)]).
 ```
 
-See [`how_gk_works.md`](how_gk_works.md) for the interpretation of confidence
-and blockers, and [`cli_reference.md`](cli_reference.md) for format-selection
-options.
+See [`how_gk_works.md`](how_gk_works.md) for the interpretation of input
+weights and blockers, and [`cli_reference.md`](cli_reference.md) for
+format-selection options.

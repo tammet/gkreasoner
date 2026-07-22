@@ -13,9 +13,10 @@ inference reports the probability that a query succeeds across those choices.
 For a finite program with only positive support, gk's current proof-instance
 calculation often gives the same number:
 
-- two independent facts with confidences 0.5 and 0.6 supporting one answer give
+- two independent facts with evidence strengths 0.5 and 0.6 supporting one answer give
   `1 - (1 - 0.5)(1 - 0.6) = 0.8`;
-- one proof using facts with confidences 0.5 and 0.6 gives `0.5 * 0.6 = 0.3`;
+- one proof using facts with evidence strengths 0.5 and 0.6 gives
+  `0.5 * 0.6 = 0.3`;
 - when proofs share a premise, gk records the ground evidence instances and
   uses that premise once when combining the proofs.
 
@@ -33,8 +34,8 @@ to 20 reduced proof masks and a deterministic approximation above that limit.
 ### Opposing evidence
 
 gk treats a negative literal such as `-flies(a)` as explicit evidence with its
-own confidence. If the positive confidence is 0.7 and the negative confidence
-is 0.4, gk's detailed result is:
+own strength. If the aggregated positive support is 0.7 and the aggregated
+negative support is 0.4, gk's detailed result is:
 
 ```text
 support_for      0.3
@@ -43,8 +44,8 @@ conflict         0.4
 ignorance        0.3
 ```
 
-This four-part assessment is not a ProbLog success probability. ProbLog does
-not report gk's conflict and ignorance values.
+This four-component assessment is not a ProbLog success probability. ProbLog
+does not report gk's conflict and ignorance values.
 
 Defaults also differ. A gk blocker starts another proof search to determine
 whether an exception defeats a candidate proof, and priorities restrict which
@@ -206,7 +207,7 @@ llmpipe translates English into gk logic and uses gk for proof search.
 
 The compiled examples combine several features: first-order variables and
 function terms, existential witnesses, explicit negation, disjunction,
-contexts, question-answer bridges, defaults, confidence annotations, and a
+contexts, question-answer bridges, defaults, input weights, and a
 shared background theory for taxonomy, part-whole relations, degrees, events,
 and space. The compared systems do not accept these JSON-LD-LOGIC conventions,
 so no cross-system results are listed for this group.
@@ -216,7 +217,7 @@ so no cross-system results are listed for this group.
 | Question | gk | ProbLog | PASTA | TweetyProject modules compared here | clingo / DLV | I-DLV | s(CASP) |
 |---|---|---|---|---|---|---|---|
 | Primary result | first-order query proof and assessment | query probability | lower and upper query probability | default extensions or DeLP query status | stable models | stratified query answers or a ground ASP program | query-directed partial stable model |
-| Numeric uncertainty | proof confidences and four-part assessment | distribution-semantics probability | credal probability interval | none in the two compared modules | none in the base systems | none | none in the base system |
+| Numeric uncertainty | proof support and four-component assessment | distribution-semantics probability | credal probability interval | none in the two compared modules | none in the base systems | none | none in the base system |
 | Exceptions and conflict | blockers, priorities, opposing evidence | encoding-dependent | stable-model variation | Reiter justifications or dialectical arguments | negation as failure | stratified negation or stable models with a solver | negation as failure |
 | Query focus | yes | finite proof/formula construction | finite grounding and model analysis | library algorithm depends on the formalism | complete grounding | Magic Sets for stratified queries | top-down evaluation |
 | Multiple alternatives | proof alternatives combine into an assessment | summed possible worlds | lower/upper bounds over stable models | extensions or competing arguments | stable-model enumeration | solver-dependent outside stratified mode | query-relevant partial models |

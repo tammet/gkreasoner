@@ -1,11 +1,11 @@
 # Default and exception examples
 
-A default rule derives a candidate conclusion together with a blocker. GK then
-searches for the blocking condition. Numeric or taxonomy priorities determine
-which defaults may defeat other defaults.
+A default rule derives a candidate conclusion together with a blocker literal.
+GK then searches for the exception condition. Numeric or taxonomy priorities
+determine which defaults may defeat other defaults.
 
-Run commands from the repository root. `-detail` prints support, opposition,
-conflict, ignorance, conflict sources, and report flags.
+Run commands from the repository root. `-detail` prints positive support,
+negative support, conflict, ignorance, conflict sources, and report flags.
 
 ## An unopposed default
 
@@ -27,7 +27,7 @@ Both `a` and `b` are returned with confidence 1. Their proofs retain
 `unless(-flies(a), 2)` and `unless(-flies(b), 2)`, recording the exceptions on
 which the answers depend.
 
-## Negative evidence against a default
+## Uncertain support for an exception condition
 
 [`bird_exception.gkp`](bird_exception.gkp) and
 [`bird_exception.js`](bird_exception.js) add:
@@ -36,9 +36,10 @@ which the answers depend.
 0.9::-flies(a).
 ```
 
-The exception does not have enough priority to eliminate the priority-2
-default, but it
-provides negative evidence against the answer:
+The fact supports both the default's exception condition and the negation of
+its conclusion. Because that support has strength 0.9, it does not eliminate
+the default outright; GK instead reports the surviving positive support and
+the stronger negative support:
 
 ```text
 b  accepted with confidence 1.0
@@ -46,14 +47,8 @@ a  rejected with confidence 0.8
    (detail: support_for 0.1, support_against 0.9)
 ```
 
-This is the gk 1.0.4 report. The previously shipped binary printed `a` at
-0.1 with the 0.9 filed under `conflict`; that came from a defect in the
-blocked-answer report, fixed on 2026-07-21. The `bin/gk` shipped in this
-repository predates the fix and still prints the old report until the next
-binary refresh.
-
 [`bird_hierarchy.js`](bird_hierarchy.js) uses an ordinary rule without a
-blocker, providing a control case for the same confidence calculation.
+blocker, providing a control case for the same support calculation.
 
 ## Equal defaults
 
@@ -110,7 +105,7 @@ Principal results:
 ```text
 h1  accepted, confidence 0.44
 b1  accepted through the bird path, confidence 0.5552
-a1  rejected with negative confidence 1
+a1  rejected with negative support 1
 ```
 
 The `b1` assessment also contains an opposed airplane path. The detailed proof
@@ -122,7 +117,7 @@ evidence.
 [`people_room.js`](people_room.js) represents entry and exit events across
 three situations. Frame rules use blockers to carry `in` and `-in` forward
 unless an event changes them. The example contains contested states; use
-`-detail -confidence 0` to inspect the positive and negative event
+`-detail -confidence 0` to inspect the positive- and negative-support
 paths:
 
 ```sh
@@ -148,5 +143,5 @@ format differences.
 | `trivial.js` | plain facts and one closed query, with no defaults |
 | `gk_name_number.txt`, `gk_taxonomy_packed.txt` | data loaded by `-defaults` |
 
-The blocker and confidence algorithms are described in
+The blocker and support-calculation algorithms are described in
 [`../../Doc/how_gk_works.md`](../../Doc/how_gk_works.md).
