@@ -159,10 +159,12 @@ ignorance. GK reports 0.3, 0, 0.4, and 0.3.
 Shared-threshold mode does not call GK. It supports a smaller input fragment
 than clause-activation mode: a single predicate query — ground, or open, in which
 case each closed instance over the named constants is evaluated separately —
-and directional clauses whose final ordinary literal is
-the conclusion. It reports function terms, arithmetic and other built-ins,
-equality, compact formula connectives, ambiguous clauses with several positive
-literals, and taxonomy-valued blocker priorities as unsupported.
+and directional clauses whose implied conclusions can be recovered by GK's
+head-selection rules: a blocker complement, positive implied literals, or an
+explicit head marker for an all-negative clause. A marker-less all-negative
+clause is refused rather than guessed. It reports function terms, arithmetic
+and other built-ins, equality, compact formula connectives, and taxonomy-valued
+blocker priorities as unsupported.
 
 ## Differences
 
@@ -176,10 +178,13 @@ world split shared by all three calculations.
 
 The one-sentence summary of each reading:
 
-- **GK evaluates argument support.** It builds the best derivation for an
-  answer and the best derivation for its negation, then reports the support
-  that remains after opposition resolution. Opposing support on contested
-  premises is resolved before the premises are used.
+- **GK evaluates argument support.** It pools the retained derivations for an
+  answer and its negation. When a relevant predicate is contested, a separate
+  report-time backward search over the input clauses collects directed
+  derivations of the answer and its premises; numerical evaluation then
+  resolves that opposition before usable premise support is propagated. This
+  assessment is neither a best-proof calculation nor a calculation derived
+  only from the retained answer proof.
 - **Clause-activation sampling counts ground-instance activation worlds.**
   Each uncertain ground clause is independently present or absent
   (with `--draws shared`, per input statement instead); a world is counted for
@@ -259,16 +264,14 @@ shared-threshold sampling: 1.0000 (recorded; a draw counts if any
 
 The difference is a third dependence convention, and GK's calculation is
 exact and stable (the same 0.4305 under different time limits and search
-strategies). Within one derivation GK multiplies a rule's confidence once
-per application — eight uses of the one transitivity statement give
-0.9^8 — and across derivations it combines with inclusion–exclusion at
-the level of input statements, so the many alternative decompositions of
-the chain, all standing on the same statement, add nothing. The samplers
-instead activate each ground instance of the rule independently, under which
-almost every sampled world assembles the chain some
-way. Neither convention is derivable from the other; a provenance-aware
-evaluator extended with statement-level bookkeeping would reproduce GK's
-number, while a plain clause-activation count cannot express per-use multiplication.
+strategies). The retained answer proof shown by GK is one chain using eight
+distinct ground instances of the transitivity rule, hence `0.9^8`. GK's event
+model distinguishes different ground instances, but same-polarity pooling can
+use only the proof family retained by bounded search. The threshold sampler
+instead grounds the finite graph before sampling and applies every reachable
+ground rule instance in every world, so alternative decompositions make the
+query usable in every recorded draw. The difference here is retained-proof
+coverage versus exhaustive grounded evaluation, not statement-level sharing.
 
 ### Defaults and priorities
 
@@ -290,7 +293,11 @@ clause-activation answer is a count over all combinations of the uncertain
 statements, and the number of combinations doubles with every statement —
 that is why this directory samples instead of counting, needs thousands of
 proof searches per estimate, and still returns numbers with sampling noise,
-while GK's arithmetic is deterministic and costs almost nothing per proof.
+while GK uses bounded report-time calculations rather than world enumeration.
+Its separate premise-opposition search can itself be expensive, which is why it
+has explicit
+depth, width, and deadline limits and visibly falls back when flagged limits
+are reached.
 Second, coverage: GK answers on inputs the samplers do not support (function
 terms, equality, arithmetic, taxonomy priorities). Third, and decisively, the
 clause-activation reading is not uniformly better: on `net_premise.js` it does

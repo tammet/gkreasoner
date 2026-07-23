@@ -8,9 +8,10 @@ reason wherever a sampler does not apply.
 
 The three columns answer different questions:
 
-- **gk** evaluates argument support: the best derivation for an answer and the
-  best derivation for its negation, with opposition on contested premises
-  resolved before use.
+- **gk** evaluates argument support by pooling retained derivations for an
+  answer and its negation. For relevant contested predicates, a separate
+  report-time directed search over the input clauses assesses opposition on
+  the answer and its premises before usable premise support is propagated.
   Column: native gk run with each example's own page settings;
   answers as `value at confidence`, with the four components
   (positive/negative/conflict/ignorance) where they add information.

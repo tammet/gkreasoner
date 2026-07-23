@@ -10,8 +10,8 @@ semantics. Current measurements are kept separate from historical results.
 
 A ProbLog probabilistic fact is an independent Boolean choice. Standard
 inference reports the probability that a query succeeds across those choices.
-For a finite program with only positive support, gk's current proof-instance
-calculation often gives the same number:
+For a finite program with only positive support, gk's current calculation over
+its retained proof family often gives the same number:
 
 - two independent facts with confidences 0.5 and 0.6 supporting one answer give
   `1 - (1 - 0.5)(1 - 0.6) = 0.8`;
@@ -30,6 +30,12 @@ reported 95% sampling intervals. The intervals and commands are in
 
 The sampler supports constants only. GK uses exact inclusion-exclusion for up
 to 20 reduced proof masks and a deterministic approximation above that limit.
+ProbLog's probability ranges over all explanations represented by its compiled
+formula, whereas GK pools only proofs retained by bounded search. Under the
+shared ground-event interpretation, and where retained-family pooling is
+exact, GK therefore agrees when the retained family covers all minimal
+explanations; otherwise its retained-family value is a lower bound on the
+corresponding full ProbLog success probability.
 
 ### Opposing evidence
 

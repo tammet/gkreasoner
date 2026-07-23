@@ -84,8 +84,9 @@ subtraction does not remove those contested-premise worlds.
 
 This distinction also explains why clause-activation sampling alone is
 insufficient for general default programs. It classifies provability of the
-final literal; gk can propagate conflict and priority information from
-intermediate atoms.
+final literal; GK can reduce usable support at an intermediate atom before
+propagating it. Conflict and ignorance describe why support was withheld; they
+are not themselves propagated as arithmetic state.
 
 ## Shared-threshold sampling
 
@@ -115,11 +116,13 @@ four components because one shared threshold partitions the unit interval into
 the same four regions as gk's opposition-resolution calculation for those facts.
 
 `near.js` contains nine certain links and a transitivity rule with confidence
-0.9. gk reports the product of eight uses in one chain, `0.9^8 = 0.4305`. The
-shared-threshold model grounds the recursive rule and allows many alternative
-decompositions of the same path. Every one of the 10,000 sampled evaluations
-found at least one proof. This is the documented recursive-proof semantic
-difference; both displayed Monte Carlo estimates are internally consistent.
+0.9. GK's retained answer proof is one chain using eight distinct ground rule
+instances, so it reports `0.9^8 = 0.4305`. The shared-threshold model grounds
+the recursive rule and evaluates every reachable ground instance, allowing
+many alternative decompositions of the same path. Every one of the 10,000
+sampled evaluations made the query usable. This is a retained-proof-coverage
+versus exhaustive-grounded-evaluation difference; it is not caused by treating
+all instances of one input rule as a single evidence event.
 
 `nixon_taxonomy.js` has two opposed equal-priority defaults. The
 shared-threshold model applies mutual blocking: each certain default is

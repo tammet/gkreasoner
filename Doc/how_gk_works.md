@@ -154,8 +154,14 @@ both levels, neither polarity is usable.
 The negative-support search looks for the explicit negation of the question
 or of each answer found for an open question. A separate search is needed
 because such evidence cannot close the original refutation. Opposition to an
-intermediate premise is handled instead by the premise assessment and does not
-require a proof of the negated answer.
+intermediate premise is handled instead by a second, report-time backward
+search over the loaded input clauses; it is not read off the retained answer
+proof. This search matches directed rule conclusions against ground targets
+and recursively collects derivations of both polarities, within explicit
+resource caps. The collected derivation graph is then combined numerically.
+The retained proof is used to decide whether this assessment is relevant and
+supported, and supplies the fallback proof pools if the assessment cannot be
+completed.
 
 [`net_premise.js`](../Examples/confidences/net_premise.js) is equivalent to:
 
@@ -182,12 +188,16 @@ explains which modelling decision each disagreement turns on.
 
 For conclusions reached through rules, assessment proceeds from premises to
 conclusions. A rule contributes support only when its body is usable and its
-blockers do not fire. When several proof branches use the same contested
-premise, GK evaluates that premise once rather than treating the branches as
-independent. The recursion depth is limited to 16. If the depth limit is
-reached, GK falls back to proof-level assessment; opposition to a deep premise
-may then be omitted. `-detail` reports the legacy-named implementation flag
-`SCRUTINY_INCOMPLETE`, as well as `DEPTH_CUTOFF` and `PROOF_FALLBACK`.
+blockers do not fire. The premise search is not memoized: the same atom reached
+through different branches is evaluated again. Dependence is handled instead
+by recording shared ancestor footprints and, within the joint-enumeration cap,
+conditioning the affected branches together rather than treating them as
+independent. The search has depth, derivation-count, body-width, joint-width,
+and time limits. A flagged incomplete assessment is discarded as a whole and
+GK falls back to proof-level assessment, where opposition to an intermediate
+premise has no channel. `-detail` reports `PROOF_FALLBACK` together with cause
+flags such as `DEPTH_CUTOFF`, `DERIVATION_CAP`, or
+`SCRUTINY_INCOMPLETE`.
 
 For compact output, GK routes a positive signed confidence to `answers` and a
 negative one to `rejected_answers`. The ordinary `confidence` field is
