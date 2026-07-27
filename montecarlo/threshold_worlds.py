@@ -436,10 +436,25 @@ def evaluate(pool, confs, query_atom, query_sign, trials, seed):
 
     # unequal mutual ranks are settled (Decision 5 / settlement memo of
     # 2026-07-21): the award is the adjudicated reading, no annotation needed.
-    # The rank-restricted DISTINCT-atom check (C2) remains annotated: this
-    # model carries a testimony's own mutual rank, not a derivation-deep
-    # guard, so a lower-rank-protected support may still fire such a check.
+    # The rank-restricted DISTINCT-atom check (C2/Test 8) is NOT modelled here:
+    # this sampler carries a testimony's own mutual rank, not a derivation-deep
+    # guard evaluated under an enclosing check priority, so it would let a
+    # lower-rank-protected support fire such a check and would silently return
+    # the ADMISSIBLE-exception value for the INADMISSIBLE case (Test 9's answer
+    # for Test 8).  It must decline instead: an oracle that quietly scores a
+    # case it does not implement is worse than one that abstains
+    # (2026-07-27, fix plan step 8 gate 10).
     rank_note = _has_rank_restricted_blocker(testimonies, by_head)
+    if rank_note:
+        return {"support_for": None, "support_against": None,
+                "conflict": None, "ignorance": None,
+                "not_scored": (
+                    f"blocker check at rank {rank_note[1]} targets "
+                    f"{rank_note[0]}, whose support is protected at the "
+                    f"strictly weaker rank {rank_note[2]}: gk's search-side "
+                    f"rank restriction excludes that support inside the check, "
+                    f"and this model does not carry the enclosing check "
+                    f"priority; not scored")}
     tally = {"for": 0, "against": 0, "conflict": 0, "ignorance": 0}
     rng = random.Random(seed)
     atoms_ordered = sorted(atoms, key=repr)   # canonical draw order: the seed
@@ -477,12 +492,6 @@ def evaluate(pool, confs, query_atom, query_sign, trials, seed):
     out = {k2: tally[k1] / trials for k1, k2 in
            (("for", "support_for"), ("against", "support_against"),
             ("conflict", "conflict"), ("ignorance", "ignorance"))}
-    if rank_note:
-        out["priority_note"] = (
-            f"blocker check at rank {rank_note[1]} targets {rank_note[0]}, whose "
-            f"support is protected at lower rank {rank_note[2]}: gk's search-side "
-            f"rank restriction applies here, which this model does "
-            f"not implement , so it is scored without that restriction")
     return out
 
 
@@ -500,15 +509,28 @@ def _present(t, state):
     return True
 
 
+def _is_cycle_member(t):
+    """A RECIPROCAL priority-zero default: its mutual block's content is the
+    COMPLEMENT of its own head (`p :- ..., unless(-p)`) and carries no priority
+    bid.  Priority zero means INCOMPARABLE, so such a block makes no claim that
+    can be adjudicated by rank; the two blocker edges of a same-atom pair are the
+    internal edges of a cycle.  A block whose content EQUALS the head
+    (`p :- ..., unless(p)`) is the self-defeating form, not this."""
+    return any(prio < 1 and bsign == complement(t.head_sign)
+               for (prio, bsign) in t.mutual)
+
+
 def _pools(head_atom, ts, state):
-    """Return (a, b, filled, rank_pro, rank_con): pooled pro/con strengths of
-    the PRESENT testimonies, whether a paired-exception residual fill applies,
-    and each side's netting rank. A side's rank is the maximum mutual-block
-    rank of its present testimonies when EVERY present testimony on that side
-    carries one (a gated default); it is 0 when the side has any present
-    plain (unranked) testimony -- mirroring dw_net_ders' pro_r/con_r
-    convention after the 2026-07-21 settlement fixes."""
+    """Return (a, b, a_cyc, b_cyc, a_ext, b_ext, filled, rank_pro, rank_con):
+    pooled pro/con strengths of the PRESENT testimonies, the same pools split
+    into reciprocal priority-zero CYCLE members and EXTERNAL evidence, whether a
+    paired-exception residual fill applies, and each side's netting rank. A
+    side's rank is the maximum mutual-block rank of its present testimonies when
+    EVERY present testimony on that side carries one (a gated default); it is 0
+    when the side has any present plain (unranked) testimony -- mirroring
+    dw_net_ders' pro_r/con_r convention after the 2026-07-21 settlement fixes."""
     pro, con = [], []
+    pro_cyc, con_cyc, pro_ext, con_ext = [], [], [], []
     filled = False
     rank_pro = rank_con = -1          # -1 no present testimony
     main_pro_blocked = any(t.head_sign == "+" and (t.blockers) and not _present(t, state)
@@ -517,32 +539,36 @@ def _pools(head_atom, ts, state):
         if not _present(t, state):
             continue
         trank = max((prio for (prio, _s) in t.mutual), default=0)
+        cyc = _is_cycle_member(t)
         if t.head_sign == "+":
             pro.append(t.strength)
+            (pro_cyc if cyc else pro_ext).append(t.strength)
             rank_pro = (0 if (trank < 1 or rank_pro == 0)
                         else max(rank_pro, trank))
             if trank < 1:
                 rank_pro = 0
         else:
             con.append(t.strength)
+            (con_cyc if cyc else con_ext).append(t.strength)
             rank_con = (0 if (trank < 1 or rank_con == 0)
                         else max(rank_con, trank))
             if trank < 1:
                 rank_con = 0
             if t.paired_main and main_pro_blocked:
                 filled = True
-    a = 1.0
-    for w in pro:
-        a *= (1 - w)
-    a = 1 - a
-    b = 1.0
-    for w in con:
-        b *= (1 - w)
-    b = 1 - b
-    return a, b, filled, rank_pro, rank_con
+
+    def pool(ws):
+        r = 1.0
+        for w in ws:
+            r *= (1 - w)
+        return 1 - r
+
+    return (pool(pro), pool(con), pool(pro_cyc), pool(con_cyc),
+            pool(pro_ext), pool(con_ext), filled, rank_pro, rank_con)
 
 
-def _net(a, b, u2, filled, rank_pro, rank_con):
+def _net(a, b, u2, filled, rank_pro, rank_con,
+         a_cyc=0.0, b_cyc=0.0, a_ext=None, b_ext=None):
     """(pro_usable, con_usable, conflict) for one atom in one world.
     u2 = (u_pro, u_con): two independent uniforms per atom. Plain contests
     use the SHARED bar u_pro for both sides (Decision 1 netting); the
@@ -588,6 +614,27 @@ def _net(a, b, u2, filled, rank_pro, rank_con):
         fp = ul <= a
         con = (ur <= b) and not fp
         return fp, con, False
+    if a_cyc > 0.0 or b_cyc > 0.0:
+        # ---- the PRIORITY-ZERO layer (2026-07-27) -------------------------
+        # Priority zero is INCOMPARABLE, not the lowest rank, so a reciprocal
+        # rank-0 pair cannot be adjudicated by the ranked branches above.  The
+        # internal edges of the cycle are dependencies, not undercutters: the
+        # cycle pools meet by ordinary opposition on their own bar.  Evidence
+        # from OUTSIDE the cycle keeps undercutting -- it suppresses the cycle
+        # side it attacks exactly where it is itself usable -- which is what
+        # makes a lone rank-0 default against an ordinary contrary fact keep the
+        # exclusive F4 split a(1-b) / b / 0 instead of becoming an opposition.
+        ae = a if a_ext is None else a_ext
+        be = b if b_ext is None else b_ext
+        ext_pro = (be < ul <= ae)
+        ext_con = (ae < ul <= be)
+        ext_cfl = (ul <= min(ae, be))
+        cyc_pro = (b_cyc < ur <= a_cyc)
+        cyc_con = (a_cyc < ur <= b_cyc)
+        cyc_cfl = (ur <= min(a_cyc, b_cyc))
+        pro = ext_pro or (cyc_pro and not ext_con)
+        con = ext_con or (cyc_con and not ext_pro)
+        return pro, con, ((not pro and not con) and (ext_cfl or cyc_cfl))
     pro = (b < ul <= a)
     con = (a < ul <= b)
     conflict = (ul <= lo)
@@ -597,14 +644,14 @@ def _net(a, b, u2, filled, rank_pro, rank_con):
 
 
 def _eval_atom(atom, ts, state, u):
-    a, b, filled, rp, rc = _pools(atom, ts, state)
-    pro, con, _ = _net(a, b, u[atom], filled, rp, rc)
+    a, b, ac, bc, ae, be, filled, rp, rc = _pools(atom, ts, state)
+    pro, con, _ = _net(a, b, u[atom], filled, rp, rc, ac, bc, ae, be)
     return (pro, con)
 
 
 def _classify(atom, sign, ts, state, u):
-    a, b, filled, rp, rc = _pools(atom, ts, state)
-    return _net(a, b, u[atom], filled, rp, rc)
+    a, b, ac, bc, ae, be, filled, rp, rc = _pools(atom, ts, state)
+    return _net(a, b, u[atom], filled, rp, rc, ac, bc, ae, be)
 
 
 def _atom_deps(testimonies, atoms):

@@ -10,3 +10,8 @@
 *.a
 *.so
 *.dSYM/
+
+# Local backups of the shipped binaries and Python caches.
+bin_backup_*/
+__pycache__/
+*.pyc
