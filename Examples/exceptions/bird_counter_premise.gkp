@@ -1,0 +1,11 @@
+% The same counter-evidence, but the 0.58 sits on the PREMISE of a certain
+% rule instead of on the rule itself. Premise confidence selects the
+% configurations in which the counter-derivation exists at all, while rule
+% confidence scales strength inside a present derivation, so this is NOT
+% equal to bird_counter.gkp: confidence 0.748 instead of 0.98.
+bird(a).
+0.6::injured(a).
+0.58::vet(a).
+-injured(X) :- vet(X).
+flies(X) :- bird(X), unless(injured(X), 2).
+query(flies(a)).

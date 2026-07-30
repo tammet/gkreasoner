@@ -1,0 +1,11 @@
+% Counter-evidence to an exception, arriving through a derivation.
+% The 0.6 injury exception gates the flight default; the vet rule derives
+% evidence AGAINST the exception with strength 0.58. The derived counter is
+% netted into the exception's own support exactly like the equivalent fact
+% 0.58::-injured(a) would be: confidence 0.98.
+bird(a).
+0.6::injured(a).
+vet(a).
+0.58::-injured(X) :- vet(X).
+flies(X) :- bird(X), unless(injured(X), 2).
+query(flies(a)).

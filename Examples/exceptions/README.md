@@ -50,6 +50,32 @@ a  rejected with confidence 0.8
 [`bird_hierarchy.js`](bird_hierarchy.js) uses an ordinary rule without a
 blocker, providing a control case for the same support calculation.
 
+## Counter-evidence to an exception
+
+Evidence *against* an exception condition weakens the exception's grip on the
+default, whether that evidence is a fact or is itself derived.
+[`bird_counter.gkp`](bird_counter.gkp) derives the counter-evidence through a
+rule carrying strength 0.58:
+
+```prolog
+bird(a).
+0.6::injured(a).
+vet(a).
+0.58::-injured(X) :- vet(X).
+flies(X) :- bird(X), unless(injured(X), 2).
+query(flies(a)).
+```
+
+The derived counter is netted into the exception's own support before the
+blocker is applied, giving confidence 0.98 — exactly the value the fact
+`0.58::-injured(a)` would give. Moving the 0.58 onto the rule's premise
+instead ([`bird_counter_premise.gkp`](bird_counter_premise.gkp)) gives 0.748,
+not 0.98: premise confidence selects the configurations in which the
+counter-derivation exists at all, while rule confidence scales strength
+inside a present derivation. Counter-evidence is not accepted blindly — a
+counter whose own derivation is blocked by a certain exception contributes
+nothing.
+
 ## Equal defaults
 
 [`nixon.gkp`](nixon.gkp) and [`nixon.js`](nixon.js) encode the Nixon diamond:
