@@ -1,0 +1,95 @@
+command: ["/opt/gk/gk", "/opt/gk/experiments/comparisons/table_extensions/gk/n2_study10.gkp", "-detail", "-outformat", "json"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+{"result": "answer found",
+
+"answers": [
+{
+"answer": [["$ans","ann"]],
+"confidence": 0.8000,
+"detail": {"support_for": 0.8000,
+"support_against": 0.0000,
+"conflict": 0.0000,
+"ignorance": 0.2000,
+"calculation": "flat",
+"coverage_status": "complete",
+"polarity_status": "not_guaranteed",
+"conflict_sources": [],
+"flags": [],
+"recursive_checks": 0},
+"positive proof":
+[
+[1, ["in", "frm_5", "axiom", 1], [["-stress","?:X"], ["smokes","?:X"]]],
+[2, ["in", "frm_1", "axiom", 0.8], [["stress","ann"]]],
+[3, ["mp", 1, 2, "fromaxiom", 0.8], [["smokes","ann"]]],
+[4, ["in", "frm_7", "goal", 1], [["-smokes","?:X"], ["$ans","?:X"]]],
+[5, ["mp", 3, 4, "fromgoal", 0.8], [["$ans","ann"]]]
+]},
+{
+"answer": [["$ans","bob"]],
+"confidence": 0.6880,
+"detail": {"support_for": 0.6880,
+"support_against": 0.0000,
+"conflict": 0.0000,
+"ignorance": 0.3120,
+"calculation": "flat",
+"coverage_status": "complete",
+"polarity_status": "not_guaranteed",
+"conflict_sources": [],
+"flags": [],
+"recursive_checks": 0},
+"positive proof":
+[
+[1, ["in", "frm_5", "axiom", 1], [["-stress","?:X"], ["smokes","?:X"]]],
+[2, ["in", "frm_2", "axiom", 0.4], [["stress","bob"]]],
+[3, ["mp", 1, 2, "fromaxiom", 0.4], [["smokes","bob"]]],
+[4, ["in", "frm_7", "goal", 1], [["-smokes","?:X"], ["$ans","?:X"]]],
+[5, ["mp", 3, 4, "fromgoal", 0.4], [["$ans","bob"]]],
+[6, ["in", "frm_6", "axiom", 1], [["-influences","?:X","?:Y"], ["-smokes","?:X"], ["smokes","?:Y"]]],
+[7, ["in", "frm_3", "axiom", 0.6], [["influences","ann","bob"]]],
+[8, ["mp", 6, 7, "fromaxiom", 0.6], [["-smokes","ann"], ["smokes","bob"]]],
+[9, ["in", "frm_1", "axiom", 0.8], [["stress","ann"]]],
+[10, ["mp", 1, 9, "fromaxiom", 0.8], [["smokes","ann"]]],
+[11, ["simp", 8, 10, "fromaxiom", 0.48], [["smokes","bob"]]],
+[12, ["mp", 11, 4, "fromgoal", 0.48], [["$ans","bob"]]],
+[13, ["cumul", 5, 12, "fromgoal", 0.688], [["$ans","bob"]]]
+]},
+{
+"answer": [["$ans","carl"]],
+"confidence": 0.1376,
+"detail": {"support_for": 0.1376,
+"support_against": 0.0000,
+"conflict": 0.0000,
+"ignorance": 0.8624,
+"calculation": "flat",
+"coverage_status": "complete",
+"polarity_status": "not_guaranteed",
+"conflict_sources": [],
+"flags": [],
+"recursive_checks": 0},
+"positive proof":
+[
+[1, ["in", "frm_6", "axiom", 1], [["-influences","?:X","?:Y"], ["-smokes","?:X"], ["smokes","?:Y"]]],
+[2, ["in", "frm_4", "axiom", 0.2], [["influences","bob","carl"]]],
+[3, ["mp", 1, 2, "fromaxiom", 0.2], [["-smokes","bob"], ["smokes","carl"]]],
+[4, ["in", "frm_5", "axiom", 1], [["-stress","?:X"], ["smokes","?:X"]]],
+[5, ["in", "frm_2", "axiom", 0.4], [["stress","bob"]]],
+[6, ["mp", 4, 5, "fromaxiom", 0.4], [["smokes","bob"]]],
+[7, ["simp", 3, 6, "fromaxiom", 0.08], [["smokes","carl"]]],
+[8, ["in", "frm_7", "goal", 1], [["-smokes","?:X"], ["$ans","?:X"]]],
+[9, ["mp", 7, 8, "fromgoal", 0.08], [["$ans","carl"]]],
+[10, ["in", "frm_3", "axiom", 0.6], [["influences","ann","bob"]]],
+[11, ["mp", 1, 10, "fromaxiom", 0.6], [["-smokes","ann"], ["smokes","bob"]]],
+[12, ["in", "frm_1", "axiom", 0.8], [["stress","ann"]]],
+[13, ["mp", 4, 12, "fromaxiom", 0.8], [["smokes","ann"]]],
+[14, ["simp", 11, 13, "fromaxiom", 0.48], [["smokes","bob"]]],
+[15, ["mp", 3, 14, "fromaxiom", 0.096], [["smokes","carl"]]],
+[16, ["mp", 15, 8, "fromgoal", 0.096], [["$ans","carl"]]],
+[17, ["cumul", 9, 16, "fromgoal", 0.1376], [["$ans","carl"]]]
+]}
+]}
+
+[stderr]

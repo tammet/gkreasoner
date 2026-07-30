@@ -1,0 +1,13 @@
+command: ["/home/tanel/.local/bin/scasp", "--query=d2_h", "/opt/gk/experiments/comparisons/table_extensions/scasp_cases.pl"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+% Query
+?- d2_h.
+
+[stderr]
+Warning: scasp_predicate `d6_injured/0' does not exist
+Warning: scasp_predicate `d6_neg/0' does not exist
+Warning: s(CASP): No models (0.000 seconds)

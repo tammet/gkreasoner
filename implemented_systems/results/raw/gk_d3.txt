@@ -1,0 +1,32 @@
+command: ["/opt/gk/gk", "/opt/gk/experiments/comparisons/table_extensions/gk/d3.gkp", "-detail", "-outformat", "json"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+{"result": "evidence below limit",
+
+"answers": [
+{
+"answer": true,
+"confidence": 0.0000,
+"detail": {"support_for": 0.0000,
+"support_against": 0.0000,
+"conflict": 0.0000,
+"ignorance": 1.0000,
+"calculation": "canonical_atom",
+"coverage_status": "complete",
+"polarity_status": "guaranteed",
+"conflict_sources": [{"atom": ["b"], "conflict": 0.5000}],
+"flags": ["CONTESTED"],
+"recursive_checks": 1},
+"positive proof":
+[
+[1, ["in", "frm_3", "axiom", 0.9], [["-b"], ["h"]]],
+[2, ["in", "frm_1", "axiom", 0.5], [["b"]]],
+[3, ["in", "frm_4", "goal", 1], [["-h"]]],
+[4, ["mp", 1, 2, 3, "fromgoal", 0.45], false]
+]}
+]}
+
+[stderr]

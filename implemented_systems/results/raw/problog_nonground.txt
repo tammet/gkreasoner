@@ -1,0 +1,15 @@
+command: ["/opt/provers/problog-2.2.10/bin/problog", "/opt/gk/experiments/comparisons/table_extensions/problog_nonground.pl"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+n1_twobirds(a,a):	0.5       
+n1_twobirds(a,b):	0.3       
+n1_twobirds(b,a):	0.3       
+n1_twobirds(b,b):	0.6       
+  n2_smokes(ann):	0.8       
+  n2_smokes(bob):	0.688     
+ n2_smokes(carl):	0.1376    
+
+[stderr]

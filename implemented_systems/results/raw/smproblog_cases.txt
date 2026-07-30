@@ -1,0 +1,39 @@
+command: ["/opt/provers/smproblog-bfbc542/bin/problog", "-k", "ddnnf", "/opt/gk/experiments/comparisons/table_extensions/smproblog_cases.pl"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+Total: 0.006s
+	t		f		i
+       c1_a:	0.5       	0.5       	0         
+       c1_b:	0.6       	0.4       	0         
+       c1_q:	0.8       	0.2       	0         
+       c2_a:	0.5       	0.5       	0         
+       c2_b:	0.6       	0.4       	0         
+       c2_q:	0.3       	0.7       	0         
+     d1_neg:	0.9       	0.1       	0         
+     d1_pos:	0.1       	0.9       	0         
+       d2_b:	0.7       	0.3       	0         
+    d2_gate:	0.9       	0.1       	0         
+       d2_h:	0.27      	0.73      	0         
+   d2_neg_b:	0.3       	0.7       	0         
+       d3_b:	0.5       	0.5       	0         
+    d3_gate:	0.9       	0.1       	0         
+       d3_h:	0.225     	0.775     	0         
+   d3_neg_b:	0.5       	0.5       	0         
+    d5_high:	0.3       	0.7       	0         
+     d5_low:	0.9       	0.1       	0         
+     d5_neg:	0.3       	0.7       	0         
+     d5_pos:	0.63      	0.37      	0         
+ d6_injured:	0         	1         	0         
+     d6_neg:	0         	1         	0         
+   d6_rebut:	1         	0         	0         
+d6_undercut:	1         	0         	0         
+     d7_neg:	0.48      	0.52      	0         
+d7_neg_gate:	0.8       	0.2       	0         
+       d7_p:	0.6       	0.4       	0         
+     d7_pos:	0.48      	0.52      	0         
+d7_pos_gate:	0.9       	0.1       	0         
+
+[stderr]

@@ -76,7 +76,7 @@ query(flies(a)).
 ./bin/gk Examples/confidences/net_direct.gkp -detail
 ```
 
-The result has confidence `0.3`. The detailed report separates the unit mass
+The result has confidence `0.3`. The detailed report splits the total of 1
 as follows:
 
 ```text

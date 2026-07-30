@@ -1,0 +1,4 @@
+0.5::bird(a).
+0.6::bird(b).
+twobirds(X,Y) :- bird(X), bird(Y).
+query(twobirds(X,Y)).

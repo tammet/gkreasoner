@@ -49,8 +49,10 @@ proving it.
 
 ### `-detail`
 
-Add `support_for`, `support_against`, `conflict`, `ignorance`, conflict
-sources, and flags to each answer assessment.
+Add a `detail` block to each answer: `support_for`, `support_against`,
+`conflict`, `ignorance`, the `calculation`/`coverage_status`/`polarity_status`
+fields naming which calculation produced the numbers and whether both query
+orientations give mirrored reports, conflict sources, and flags.
 
 ### `-print <n>`
 
@@ -108,6 +110,14 @@ Derivations below the limit are reported under `evidence below limit`.
 Discard derived clauses below this confidence. The value uses the same decimal
 or percentage forms as `-confidence`. The default is 0, which keeps all
 derived clauses.
+
+### `-blockerconfidence <n>`
+
+Acceptance threshold for an exception proof in the recursive default check;
+same decimal or percentage forms as `-confidence`, default 0.5. An exception
+proof below the threshold is ignored, so the reported confidence can jump when
+the combined evidence for an exception crosses it. Lower the threshold, or
+use `-softblock`, for graded behaviour below 0.5.
 
 ### `-firstanswer`
 

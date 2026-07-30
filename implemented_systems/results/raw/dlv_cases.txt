@@ -1,0 +1,10 @@
+command: ["/opt/provers/default/dlv-2.1.1-linux-x86_64", "--silent", "-n=0", "/opt/gk/experiments/comparisons/table_extensions/asp_cases.lp"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+{d4_neg, d5_neg, d6_undercut, d6_rebut, d1_neg}
+{d4_pos, d5_neg, d6_undercut, d6_rebut, d1_neg}
+
+[stderr]

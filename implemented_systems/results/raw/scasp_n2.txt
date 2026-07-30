@@ -1,0 +1,58 @@
+command: ["/home/tanel/.local/bin/scasp", "-n", "0", "--query=n2_smokes(X)", "/opt/gk/experiments/comparisons/table_extensions/scasp_nonground.pl"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+% Query
+?- n2_smokes(X).
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+%                         Answer 1 (0.000 sec)                          
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+% Model
+{ n2_smokes(ann),  n2_stress(ann)
+}
+% Bindings
+X = ann
+
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+%                         Answer 2 (0.000 sec)                          
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+% Model
+{ n2_smokes(bob),  n2_stress(bob)
+}
+% Bindings
+X = bob
+
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+%                         Answer 3 (0.000 sec)                          
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+% Model
+{ n2_smokes(ann),          n2_stress(ann),
+  n2_smokes(bob),          n2_influences(ann,bob)
+}
+% Bindings
+X = bob
+
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+%                         Answer 4 (0.000 sec)                          
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+% Model
+{ n2_smokes(bob),           n2_stress(bob),
+  n2_smokes(carl),          n2_influences(bob,carl)
+}
+% Bindings
+X = carl
+
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+%                         Answer 5 (0.000 sec)                          
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+% Model
+{ n2_smokes(ann),           n2_smokes(carl),          n2_influences(ann,bob),
+  n2_smokes(bob),           n2_stress(ann),           n2_influences(bob,carl)
+}
+% Bindings
+X = carl
+
+
+[stderr]

@@ -1,0 +1,9 @@
+command: ["/opt/provers/default/dlv-2.1.1-linux-x86_64", "--silent", "-n=0", "/opt/gk/experiments/comparisons/table_extensions/asp_nonground.lp"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+{n2_smokes(ann), n2_smokes(bob), n2_smokes(carl), n1_twobirds(a,a), n1_twobirds(a,b), n1_twobirds(b,a), n1_twobirds(b,b)}
+
+[stderr]

@@ -1,0 +1,41 @@
+command: ["/opt/gk/gk", "/opt/gk/experiments/comparisons/table_extensions/gk/d7.gkp", "-detail", "-outformat", "json"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+{"result": "evidence below limit",
+
+"answers": [
+{
+"answer": true,
+"blockers": [["$block",0,["penguin","a"]]],
+"confidence": 0.0000,
+"detail": {"support_for": 0.4800,
+"support_against": 0.4800,
+"conflict": 0.0000,
+"ignorance": 0.0400,
+"calculation": "blocked_flat",
+"coverage_status": "complete",
+"polarity_status": "not_guaranteed",
+"conflict_sources": [],
+"flags": [],
+"recursive_checks": 1},
+"positive proof":
+[
+[1, ["in", "frm_3", "axiom", 0.9], [["$block",0,["penguin","?:X"]], ["-bird","?:X"], ["flies","?:X"]]],
+[2, ["in", "frm_1", "axiom", 1], [["bird","a"]]],
+[3, ["in", "frm_5", "goal", 1], [["-flies","a"]]],
+[4, ["mp", [1,1], 2, 3, "fromgoal", 0.9], [["$block",0,["penguin","a"]]]]
+],
+"negative proof":
+[
+[1, ["in", "frm_4", "axiom", 0.8], [["-flies","?:X"], ["-penguin","?:X"]]],
+[2, ["in", "$auto_negated_question", "goal", 1], [["flies","a"]]],
+[3, ["mp", 1, 2, "fromgoal", 0.8], [["-penguin","a"]]],
+[4, ["in", "frm_2", "axiom", 0.6], [["penguin","a"]]],
+[5, ["mp", 3, 4, "fromgoal", 0.48], false]
+]}
+]}
+
+[stderr]

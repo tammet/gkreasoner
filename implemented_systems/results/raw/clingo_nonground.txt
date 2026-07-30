@@ -1,0 +1,19 @@
+command: ["/usr/bin/clingo", "/opt/gk/experiments/comparisons/table_extensions/asp_nonground.lp", "0"]
+exit_code: 30
+accepted_exit_codes: [0, 10, 30]
+missing_checks: []
+
+[stdout]
+clingo version 5.6.2
+Reading from ...sons/table_extensions/asp_nonground.lp
+Solving...
+Answer: 1
+n2_smokes(ann) n2_smokes(bob) n2_smokes(carl) n1_twobirds(a,a) n1_twobirds(b,a) n1_twobirds(a,b) n1_twobirds(b,b)
+SATISFIABLE
+
+Models       : 1
+Calls        : 1
+Time         : 0.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.000s
+
+[stderr]

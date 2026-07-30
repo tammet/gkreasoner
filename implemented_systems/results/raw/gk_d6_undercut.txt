@@ -1,0 +1,32 @@
+command: ["/opt/gk/gk", "/opt/gk/experiments/comparisons/table_extensions/gk/d6_undercut.gkp", "-detail", "-outformat", "json"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+{"result": "answer found",
+
+"answers": [
+{
+"answer": true,
+"blockers": [["$block",0,["injured","a"]]],
+"confidence": 1.0000,
+"detail": {"support_for": 1.0000,
+"support_against": 0.0000,
+"conflict": 0.0000,
+"ignorance": 0.0000,
+"calculation": "flat",
+"coverage_status": "complete",
+"polarity_status": "not_guaranteed",
+"conflict_sources": [],
+"flags": [],
+"recursive_checks": 0},
+"positive proof":
+[
+[1, ["in", "frm_1", "axiom", 1], [["$block",0,["injured","a"]], ["flies","a"]]],
+[2, ["in", "frm_2", "goal", 1], [["-flies","a"]]],
+[3, ["mp", [1,1], 2, "fromgoal", 1], [["$block",0,["injured","a"]]]]
+]}
+]}
+
+[stderr]

@@ -1,0 +1,20 @@
+command: ["/opt/provers/problog-2.2.10/bin/problog", "/opt/gk/experiments/comparisons/table_extensions/problog_cases.pl"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+       c1_q:	0.8       
+       c2_q:	0.3       
+     d1_neg:	0.9       
+     d1_pos:	0.1       
+       d2_h:	0.27      
+       d3_h:	0.225     
+     d5_neg:	0.3       
+     d5_pos:	0.63      
+   d6_rebut:	1         
+d6_undercut:	1         
+     d7_neg:	0.48      
+     d7_pos:	0.48      
+
+[stderr]

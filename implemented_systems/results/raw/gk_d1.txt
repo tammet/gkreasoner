@@ -1,0 +1,39 @@
+command: ["/opt/gk/gk", "/opt/gk/experiments/comparisons/table_extensions/gk/d1.gkp", "-detail", "-outformat", "json"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+{"result": "answer found",
+
+"answers": [
+{
+"answer": false,
+"blockers": [["$block",0,["$not",["flies","a"]]]],
+"confidence": 0.8000,
+"detail": {"support_for": 0.1000,
+"support_against": 0.9000,
+"conflict": 0.0000,
+"ignorance": 0.0000,
+"calculation": "canonical_atom",
+"coverage_status": "complete",
+"polarity_status": "guaranteed",
+"conflict_sources": [],
+"flags": ["CONTESTED"],
+"recursive_checks": 1},
+"positive proof":
+[
+[1, ["in", "frm_3", "axiom", 1], [["$block",0,["$not",["flies","?:X"]]], ["-bird","?:X"], ["flies","?:X"]]],
+[2, ["in", "frm_1", "axiom", 1], [["bird","a"]]],
+[3, ["in", "frm_4", "goal", 1], [["-flies","a"]]],
+[4, ["mp", [1,1], 2, 3, "fromgoal", 1], [["$block",0,["$not",["flies","a"]]]]]
+],
+"negative proof":
+[
+[1, ["in", "frm_2", "axiom", 0.9], [["-flies","a"]]],
+[2, ["in", "$auto_negated_question", "goal", 1], [["flies","a"]]],
+[3, ["simp", 1, 2, "fromgoal", 0.9], false]
+]}
+]}
+
+[stderr]

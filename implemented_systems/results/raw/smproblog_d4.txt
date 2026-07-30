@@ -1,0 +1,14 @@
+command: ["/opt/provers/smproblog-bfbc542/bin/problog", "-k", "ddnnf", "/opt/gk/experiments/comparisons/table_extensions/smproblog_d4.pl"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+Total: 0.0s
+	t		f		i
+d4_neg:	0.5       	0.5       	0         
+d4_pos:	0.5       	0.5       	0         
+  d4_q:	1         	0         	0         
+  d4_r:	1         	0         	0         
+
+[stderr]

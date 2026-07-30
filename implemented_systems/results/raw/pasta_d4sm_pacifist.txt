@@ -1,0 +1,10 @@
+command: ["/opt/provers/pasta-1.0.1/bin/pastasolver", "/opt/gk/experiments/comparisons/table_extensions/pasta_d4sm.lp", "--query=pacifist"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+Lower probability for the query: 0.32000000000000006
+Upper probability for the query: 0.8
+
+[stderr]

@@ -1,0 +1,21 @@
+command: ["/home/tanel/.local/bin/scasp", "--query=d6_rebut", "/opt/gk/experiments/comparisons/table_extensions/scasp_cases.pl"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+% Query
+?- d6_rebut.
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+%                         Answer 1 (0.000 sec)                          
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+% Model
+{ d6_rebut
+}
+% No bindings
+true ? 
+
+
+[stderr]
+Warning: scasp_predicate `d6_injured/0' does not exist
+Warning: scasp_predicate `d6_neg/0' does not exist

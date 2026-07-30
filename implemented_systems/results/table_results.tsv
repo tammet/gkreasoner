@@ -1,0 +1,109 @@
+row	example	system	relation	displayed_result	inputs	queries	run_ids	reason
+C1	independent causes	GK	N	.80	gk/c1.gkp	c1_q	gk_c1	
+C1	independent causes	ProbLog	E	.80	problog_cases.pl	c1_q	problog_cases	
+C1	independent causes	PASTA	E	[.80,.80]	pasta_cases.lp	c1_q	pasta_c1_q	
+C1	independent causes	plingo	E	.80	plingo_cases.lp	c1_q	plingo_cases	
+C1	independent causes	smProbLog	E	.80	smproblog_cases.pl	c1_q	smproblog_cases	
+C1	independent causes	Tweety	U	U				The selected system does not return the confidence object tested by this row.
+C1	independent causes	clingo	U	U				The selected system does not return the confidence object tested by this row.
+C1	independent causes	DLV/I-DLV	U	U				The selected system does not return the confidence object tested by this row.
+C1	independent causes	s(CASP)	U	U				The selected system does not return the confidence object tested by this row.
+C2	conjunctive causes	GK	N	.30	gk/c2.gkp	c2_q	gk_c2	
+C2	conjunctive causes	ProbLog	E	.30	problog_cases.pl	c2_q	problog_cases	
+C2	conjunctive causes	PASTA	E	[.30,.30]	pasta_cases.lp	c2_q	pasta_c2_q	
+C2	conjunctive causes	plingo	E	.30	plingo_cases.lp	c2_q	plingo_cases	
+C2	conjunctive causes	smProbLog	E	.30	smproblog_cases.pl	c2_q	smproblog_cases	
+C2	conjunctive causes	Tweety	U	U				The selected system does not return the confidence object tested by this row.
+C2	conjunctive causes	clingo	U	U				The selected system does not return the confidence object tested by this row.
+C2	conjunctive causes	DLV/I-DLV	U	U				The selected system does not return the confidence object tested by this row.
+C2	conjunctive causes	s(CASP)	U	U				The selected system does not return the confidence object tested by this row.
+D1	uncertain contrary exception	GK	N	-.80	gk/d1.gkp	d1_pos	gk_d1	
+D1	uncertain contrary exception	ProbLog	A	.10/.90	problog_cases.pl	d1_pos;d1_neg	problog_cases	
+D1	uncertain contrary exception	PASTA	A	[.10,.10]/[.90,.90]	pasta_cases.lp	d1_pos;d1_neg	pasta_d1_pos;pasta_d1_neg	
+D1	uncertain contrary exception	plingo	A	.10/.90	plingo_cases.lp	d1_pos;d1_neg	plingo_cases	
+D1	uncertain contrary exception	smProbLog	A	.10/.90	smproblog_cases.pl	d1_pos;d1_neg	smproblog_cases	
+D1	uncertain contrary exception	Tweety	U	U				No faithful encoding of the row's GK construct is claimed.
+D1	uncertain contrary exception	clingo	A	no/yes	asp_cases.lp	d1_pos;d1_neg	clingo_cases	
+D1	uncertain contrary exception	DLV/I-DLV	A	no/yes	asp_cases.lp	d1_pos;d1_neg	dlv_cases	
+D1	uncertain contrary exception	s(CASP)	A	no/yes	scasp_cases.pl	d1_pos;d1_neg	scasp_d1_pos;scasp_d1_neg	
+D2	weighted facts and default	GK	N	.54	gk/d2.gkp	d2_h	gk_d2	
+D2	weighted facts and default	ProbLog	A	.27	problog_cases.pl	d2_h	problog_cases	
+D2	weighted facts and default	PASTA	A	[.27,.27]	pasta_cases.lp	d2_h	pasta_d2_h	
+D2	weighted facts and default	plingo	A	.27	plingo_cases.lp	d2_h	plingo_cases	
+D2	weighted facts and default	smProbLog	A	.27	smproblog_cases.pl	d2_h	smproblog_cases	
+D2	weighted facts and default	Tweety	U	U				No faithful encoding of the row's GK construct is claimed.
+D2	weighted facts and default	clingo	A	no	asp_cases.lp	d2_h	clingo_cases	
+D2	weighted facts and default	DLV/I-DLV	A	no	asp_cases.lp	d2_h	dlv_cases	
+D2	weighted facts and default	s(CASP)	A	no	scasp_cases.pl	d2_h	scasp_d2_h	
+D3	contested premise	GK	N	0_i	gk/d3.gkp	d3_h	gk_d3	
+D3	contested premise	ProbLog	A	.225	problog_cases.pl	d3_h	problog_cases	
+D3	contested premise	PASTA	A	[.225,.225]	pasta_cases.lp	d3_h	pasta_d3_h	
+D3	contested premise	plingo	A	.225	plingo_cases.lp	d3_h	plingo_cases	
+D3	contested premise	smProbLog	A	.225	smproblog_cases.pl	d3_h	smproblog_cases	
+D3	contested premise	Tweety	U	U				No faithful encoding of the row's GK construct is claimed.
+D3	contested premise	clingo	A	no	asp_cases.lp	d3_h	clingo_cases	
+D3	contested premise	DLV/I-DLV	A	no	asp_cases.lp	d3_h	dlv_cases	
+D3	contested premise	s(CASP)	A	no	scasp_cases.pl	d3_h	scasp_d3_h	
+D4	Nixon defaults	GK	N	0_i	gk/d4.gkp	d4_pos	gk_d4	
+D4	Nixon defaults	ProbLog	U	U				The selected semantics does not represent the row's stable-model choice.
+D4	Nixon defaults	PASTA	N	[0,1]/[0,1]	pasta_cases.lp	d4_pos;d4_neg	pasta_d4_pos;pasta_d4_neg	
+D4	Nixon defaults	plingo	N	.50/.50	plingo_cases.lp	d4_pos;d4_neg	plingo_cases	
+D4	Nixon defaults	smProbLog	N	.50/.50	smproblog_d4.pl	d4_pos;d4_neg	smproblog_d4	
+D4	Nixon defaults	Tweety	N	undec./undec.	tweety/d4_nixon.delp	pacifist(nixon);~pacifist(nixon)	tweety_reference	
+D4	Nixon defaults	clingo	N	2 models	asp_cases.lp	d4_pos;d4_neg	clingo_cases	
+D4	Nixon defaults	DLV/I-DLV	N	2 models	asp_cases.lp;idlv/d4_nixon.lp	d4_pos;d4_neg	dlv_cases;idlv_reference	
+D4	Nixon defaults	s(CASP)	N	yes/yes	scasp_cases.pl	d4_pos;d4_neg	scasp_d4_pos;scasp_d4_neg	
+D4-P	probabilistic Nixon premises	GK	A	+.20/-.20	gk/d4sm_pos.gkp;gk/d4sm_neg.gkp	pacifist(n);-pacifist(n)	gk_d4sm_pos;gk_d4sm_neg	
+D4-P	probabilistic Nixon premises	ProbLog	U	U				The selected semantics does not represent the row's stable-model choice.
+D4-P	probabilistic Nixon premises	PASTA	N	[.32,.80]/[.12,.60]	pasta_d4sm.lp	pacifist;nonpacifist	pasta_d4sm_pacifist;pasta_d4sm_nonpacifist	
+D4-P	probabilistic Nixon premises	plingo	N	.54054/.40540	plingo_d4sm.lp	pacifist;nonpacifist	plingo_d4sm	
+D4-P	probabilistic Nixon premises	smProbLog	N	.56/.36	smproblog_d4sm.pl	pacifist;nonpacifist	smproblog_d4sm	
+D4-P	probabilistic Nixon premises	Tweety	U	U				The selected semantics does not represent the row's stable-model choice.
+D4-P	probabilistic Nixon premises	clingo	U	U				The selected semantics does not represent the row's stable-model choice.
+D4-P	probabilistic Nixon premises	DLV/I-DLV	U	U				The selected semantics does not represent the row's stable-model choice.
+D4-P	probabilistic Nixon premises	s(CASP)	U	U				The selected semantics does not represent the row's stable-model choice.
+D5	strict priority	GK	N	.30	gk/d5.gkp	d5_pos	gk_d5	
+D5	strict priority	ProbLog	A	.63/.30	problog_cases.pl	d5_pos;d5_neg	problog_cases	
+D5	strict priority	PASTA	A	[.63,.63]/[.30,.30]	pasta_cases.lp	d5_pos;d5_neg	pasta_d5_pos;pasta_d5_neg	
+D5	strict priority	plingo	A	.63/.30	plingo_cases.lp	d5_pos;d5_neg	plingo_cases	
+D5	strict priority	smProbLog	A	.63/.30	smproblog_cases.pl	d5_pos;d5_neg	smproblog_cases	
+D5	strict priority	Tweety	A	no/yes	tweety/d5_specificity.delp	Flies(opus);~Flies(opus)	tweety_reference	
+D5	strict priority	clingo	A	no/yes	asp_cases.lp	d5_pos;d5_neg	clingo_cases	
+D5	strict priority	DLV/I-DLV	A	no/yes	asp_cases.lp	d5_pos;d5_neg	dlv_cases	
+D5	strict priority	s(CASP)	A	no/yes	scasp_cases.pl	d5_pos;d5_neg	scasp_d5_pos;scasp_d5_neg	
+D6	undercut vs. rebut	GK	N	1/1	gk/d6_undercut.gkp;gk/d6_rebut.gkp	d6_undercut;d6_rebut	gk_d6_undercut;gk_d6_rebut	
+D6	undercut vs. rebut	ProbLog	A	1/1	problog_cases.pl	d6_undercut;d6_rebut	problog_cases	
+D6	undercut vs. rebut	PASTA	A	[1,1]/[1,1]	pasta_cases.lp	d6_undercut;d6_rebut	pasta_d6_undercut;pasta_d6_rebut	
+D6	undercut vs. rebut	plingo	A	1/1	plingo_cases.lp	d6_undercut;d6_rebut	plingo_cases	
+D6	undercut vs. rebut	smProbLog	A	1/1	smproblog_cases.pl	d6_undercut;d6_rebut	smproblog_cases	
+D6	undercut vs. rebut	Tweety	U	U				No faithful encoding of the row's GK construct is claimed.
+D6	undercut vs. rebut	clingo	A	yes/yes	asp_cases.lp	d6_undercut;d6_rebut	clingo_cases	
+D6	undercut vs. rebut	DLV/I-DLV	A	yes/yes	asp_cases.lp	d6_undercut;d6_rebut	dlv_cases	
+D6	undercut vs. rebut	s(CASP)	A	yes/yes	scasp_cases.pl	d6_undercut;d6_rebut	scasp_d6_undercut;scasp_d6_rebut	
+D7	paired exception	GK	N	0_m	gk/d7.gkp	d7_pos	gk_d7	
+D7	paired exception	ProbLog	A	.48/.48	problog_cases.pl	d7_pos;d7_neg	problog_cases	
+D7	paired exception	PASTA	A	[.48,.48]/[.48,.48]	pasta_cases.lp	d7_pos;d7_neg	pasta_d7_pos;pasta_d7_neg	
+D7	paired exception	plingo	A	.48/.48	plingo_cases.lp	d7_pos;d7_neg	plingo_cases	
+D7	paired exception	smProbLog	A	.48/.48	smproblog_cases.pl	d7_pos;d7_neg	smproblog_cases	
+D7	paired exception	Tweety	U	U				No faithful encoding of the paired reference-class construction is claimed.
+D7	paired exception	clingo	U	U				No faithful encoding of the paired reference-class construction is claimed.
+D7	paired exception	DLV/I-DLV	U	U				No faithful encoding of the paired reference-class construction is claimed.
+D7	paired exception	s(CASP)	U	U				No faithful encoding of the paired reference-class construction is claimed.
+N1	Study 4: open join query	GK	N	(.50,.30,.30,.60)	gk/n1_study4.gkp	twobirds(X,Y)	gk_n1	
+N1	Study 4: open join query	ProbLog	E	(.50,.30,.30,.60)	problog_nonground.pl	n1_twobirds(X,Y)	problog_nonground	
+N1	Study 4: open join query	PASTA	E	([.50,.50],[.30,.30],[.30,.30],[.60,.60])	pasta_nonground.lp	n1_twobirds(a,a);n1_twobirds(a,b);n1_twobirds(b,a);n1_twobirds(b,b)	pasta_n1_aa;pasta_n1_ab;pasta_n1_ba;pasta_n1_bb	
+N1	Study 4: open join query	plingo	E	(.50,.30,.30,.60)	plingo_nonground.lp	n1_twobirds(a,a);n1_twobirds(a,b);n1_twobirds(b,a);n1_twobirds(b,b)	plingo_nonground	
+N1	Study 4: open join query	smProbLog	E	(.50,.30,.30,.60)	smproblog_nonground.pl	n1_twobirds(X,Y)	smproblog_nonground	
+N1	Study 4: open join query	Tweety	U	U				No faithful encoding of the row's GK construct is claimed.
+N1	Study 4: open join query	clingo	A	{aa,ab,ba,bb}	asp_nonground.lp	n1_twobirds(X,Y)	clingo_nonground	
+N1	Study 4: open join query	DLV/I-DLV	A	{aa,ab,ba,bb}	asp_nonground.lp	n1_twobirds(X,Y)	dlv_nonground	
+N1	Study 4: open join query	s(CASP)	A	{aa,ab,ba,bb}	scasp_nonground.pl	n1_twobirds(X,Y)	scasp_n1	
+N2	Study 10: open recursive query	GK	N	(.80,.688,.1376)	gk/n2_study10.gkp	smokes(X)	gk_n2	
+N2	Study 10: open recursive query	ProbLog	E	(.80,.688,.1376)	problog_nonground.pl	n2_smokes(X)	problog_nonground	
+N2	Study 10: open recursive query	PASTA	E	([.80,.80],[.688,.688],[.1376,.1376])	pasta_nonground.lp	n2_smokes(ann);n2_smokes(bob);n2_smokes(carl)	pasta_n2_ann;pasta_n2_bob;pasta_n2_carl	
+N2	Study 10: open recursive query	plingo	E	(.80,.688,.1376)	plingo_nonground.lp	n2_smokes(ann);n2_smokes(bob);n2_smokes(carl)	plingo_nonground	
+N2	Study 10: open recursive query	smProbLog	E	(.80,.688,.1376)	smproblog_nonground.pl	n2_smokes(X)	smproblog_nonground	
+N2	Study 10: open recursive query	Tweety	U	U				No faithful encoding of the row's GK construct is claimed.
+N2	Study 10: open recursive query	clingo	A	{ann,bob,carl}	asp_nonground.lp	n2_smokes(X)	clingo_nonground	
+N2	Study 10: open recursive query	DLV/I-DLV	A	{ann,bob,carl}	asp_nonground.lp	n2_smokes(X)	dlv_nonground	
+N2	Study 10: open recursive query	s(CASP)	A	{ann,bob,carl}	scasp_nonground.pl	n2_smokes(X)	scasp_n2	

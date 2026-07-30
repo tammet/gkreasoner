@@ -30,7 +30,7 @@ The returned confidence is `0.252`. The detailed report names the contested
 | File | Main feature |
 |---|---|
 | `algebra.js` | equational reasoning |
-| `logic_chain.js` | propositional resolution |
+| `logic_chain.js` | Hilbert-style implication axioms with function terms |
 | `negation.js` | positive and negative sources |
 | `negation_conflict.js` | a contested premise propagated into a conclusion |
 

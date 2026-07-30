@@ -221,13 +221,20 @@ flies(X) :- bird(X), unless(-flies(X), 2).
 The rule first derives a candidate conclusion containing a blocker literal. GK
 then starts a bounded subsidiary proof search for the exception condition. The
 candidate survives when no blocking argument with sufficient priority is
-found. The blocker literal is retained in the printed proof, so the defeasible
-assumption is visible.
+found. An exception proof must also reach confidence 0.5 to count;
+`-blockerconfidence` changes that threshold. The blocker literal is retained
+in the printed proof, so the defeasible assumption is visible.
 
 When support for the exception condition is itself uncertain, the report
 divides accordingly: with confidence 0.9 for the exception
 condition of a certain default, the answer carries 0.1 positive support and
 0.9 negative support, and is rejected because the negative support dominates.
+
+Evidence against an exception condition — a fact or a derived conclusion —
+is subtracted from the exception's support before the exception can block.
+The `bird_counter*` examples in
+[`../Examples/exceptions/README.md`](../Examples/exceptions/README.md) show
+the calculation.
 
 Blockers have priorities. A blocking proof may itself depend on defaults, and
 priorities prevent a lower-priority default from defeating a higher-priority
@@ -247,6 +254,12 @@ opposed defaults have rule confidences `a` and `b`, each polarity counts only
 where the other is absent: positive support `a(1-b)` and negative support
 `b(1-a)`, no conflict component, and the remainder is ignorance. With two
 certain defaults the entire four-component report is ignorance.
+
+The explicit priorities matter here. With the priority omitted, an exception
+reference makes no priority claim, and two such rules about opposite
+polarities of one atom are treated as ordinary opposing evidence instead of
+mutually blocking defaults: the region where both supports hold is then
+reported as conflict, not ignorance.
 
 ## 7. Arithmetic
 

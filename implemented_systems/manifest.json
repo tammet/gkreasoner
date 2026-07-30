@@ -1,0 +1,2598 @@
+{
+  "purpose": "Cell-level provenance for the implemented-system master table in gk_uncertainty.tex",
+  "relation_codes": {
+    "N": "native input/result in the selected formalism",
+    "E": "exact translation on the stated fragment",
+    "A": "non-equivalent analogue",
+    "U": "no faithful encoding claimed"
+  },
+  "systems": {
+    "GK": "gk",
+    "ProbLog": "ProbLog 2.2.10",
+    "PASTA": "PASTA 1.0.1",
+    "plingo": "plingo 1.1.0",
+    "smProbLog": "smProbLog 2.1.0.42",
+    "Tweety": "TweetyProject 1.31",
+    "clingo": "clingo 5.6.2",
+    "DLV/I-DLV": "DLV 2.1.1 / I-DLV 1.1.6",
+    "s(CASP)": "s(CASP) 1.1.4"
+  },
+  "rows": {
+    "C1": "independent causes",
+    "C2": "conjunctive causes",
+    "D1": "uncertain contrary exception",
+    "D2": "weighted facts and default",
+    "D3": "contested premise",
+    "D4": "Nixon defaults",
+    "D4-P": "probabilistic Nixon premises",
+    "D5": "strict priority",
+    "D6": "undercut vs. rebut",
+    "D7": "paired exception",
+    "N1": "Study 4: open join query",
+    "N2": "Study 10: open recursive query"
+  },
+  "cells": {
+    "C1": {
+      "GK": {
+        "displayed_result": ".80",
+        "relation": "N",
+        "inputs": [
+          "gk/c1.gkp"
+        ],
+        "queries": [
+          "c1_q"
+        ],
+        "run_ids": [
+          "gk_c1"
+        ]
+      },
+      "ProbLog": {
+        "displayed_result": ".80",
+        "relation": "E",
+        "inputs": [
+          "problog_cases.pl"
+        ],
+        "queries": [
+          "c1_q"
+        ],
+        "run_ids": [
+          "problog_cases"
+        ]
+      },
+      "PASTA": {
+        "displayed_result": "[.80,.80]",
+        "relation": "E",
+        "inputs": [
+          "pasta_cases.lp"
+        ],
+        "queries": [
+          "c1_q"
+        ],
+        "run_ids": [
+          "pasta_c1_q"
+        ]
+      },
+      "plingo": {
+        "displayed_result": ".80",
+        "relation": "E",
+        "inputs": [
+          "plingo_cases.lp"
+        ],
+        "queries": [
+          "c1_q"
+        ],
+        "run_ids": [
+          "plingo_cases"
+        ]
+      },
+      "smProbLog": {
+        "displayed_result": ".80",
+        "relation": "E",
+        "inputs": [
+          "smproblog_cases.pl"
+        ],
+        "queries": [
+          "c1_q"
+        ],
+        "run_ids": [
+          "smproblog_cases"
+        ]
+      },
+      "Tweety": {
+        "displayed_result": "U",
+        "relation": "U",
+        "inputs": [],
+        "queries": [],
+        "run_ids": [],
+        "reason": "The selected system does not return the confidence object tested by this row."
+      },
+      "clingo": {
+        "displayed_result": "U",
+        "relation": "U",
+        "inputs": [],
+        "queries": [],
+        "run_ids": [],
+        "reason": "The selected system does not return the confidence object tested by this row."
+      },
+      "DLV/I-DLV": {
+        "displayed_result": "U",
+        "relation": "U",
+        "inputs": [],
+        "queries": [],
+        "run_ids": [],
+        "reason": "The selected system does not return the confidence object tested by this row."
+      },
+      "s(CASP)": {
+        "displayed_result": "U",
+        "relation": "U",
+        "inputs": [],
+        "queries": [],
+        "run_ids": [],
+        "reason": "The selected system does not return the confidence object tested by this row."
+      }
+    },
+    "C2": {
+      "GK": {
+        "displayed_result": ".30",
+        "relation": "N",
+        "inputs": [
+          "gk/c2.gkp"
+        ],
+        "queries": [
+          "c2_q"
+        ],
+        "run_ids": [
+          "gk_c2"
+        ]
+      },
+      "ProbLog": {
+        "displayed_result": ".30",
+        "relation": "E",
+        "inputs": [
+          "problog_cases.pl"
+        ],
+        "queries": [
+          "c2_q"
+        ],
+        "run_ids": [
+          "problog_cases"
+        ]
+      },
+      "PASTA": {
+        "displayed_result": "[.30,.30]",
+        "relation": "E",
+        "inputs": [
+          "pasta_cases.lp"
+        ],
+        "queries": [
+          "c2_q"
+        ],
+        "run_ids": [
+          "pasta_c2_q"
+        ]
+      },
+      "plingo": {
+        "displayed_result": ".30",
+        "relation": "E",
+        "inputs": [
+          "plingo_cases.lp"
+        ],
+        "queries": [
+          "c2_q"
+        ],
+        "run_ids": [
+          "plingo_cases"
+        ]
+      },
+      "smProbLog": {
+        "displayed_result": ".30",
+        "relation": "E",
+        "inputs": [
+          "smproblog_cases.pl"
+        ],
+        "queries": [
+          "c2_q"
+        ],
+        "run_ids": [
+          "smproblog_cases"
+        ]
+      },
+      "Tweety": {
+        "displayed_result": "U",
+        "relation": "U",
+        "inputs": [],
+        "queries": [],
+        "run_ids": [],
+        "reason": "The selected system does not return the confidence object tested by this row."
+      },
+      "clingo": {
+        "displayed_result": "U",
+        "relation": "U",
+        "inputs": [],
+        "queries": [],
+        "run_ids": [],
+        "reason": "The selected system does not return the confidence object tested by this row."
+      },
+      "DLV/I-DLV": {
+        "displayed_result": "U",
+        "relation": "U",
+        "inputs": [],
+        "queries": [],
+        "run_ids": [],
+        "reason": "The selected system does not return the confidence object tested by this row."
+      },
+      "s(CASP)": {
+        "displayed_result": "U",
+        "relation": "U",
+        "inputs": [],
+        "queries": [],
+        "run_ids": [],
+        "reason": "The selected system does not return the confidence object tested by this row."
+      }
+    },
+    "D1": {
+      "GK": {
+        "displayed_result": "-.80",
+        "relation": "N",
+        "inputs": [
+          "gk/d1.gkp"
+        ],
+        "queries": [
+          "d1_pos"
+        ],
+        "run_ids": [
+          "gk_d1"
+        ]
+      },
+      "ProbLog": {
+        "displayed_result": ".10/.90",
+        "relation": "A",
+        "inputs": [
+          "problog_cases.pl"
+        ],
+        "queries": [
+          "d1_pos",
+          "d1_neg"
+        ],
+        "run_ids": [
+          "problog_cases"
+        ]
+      },
+      "PASTA": {
+        "displayed_result": "[.10,.10]/[.90,.90]",
+        "relation": "A",
+        "inputs": [
+          "pasta_cases.lp"
+        ],
+        "queries": [
+          "d1_pos",
+          "d1_neg"
+        ],
+        "run_ids": [
+          "pasta_d1_pos",
+          "pasta_d1_neg"
+        ]
+      },
+      "plingo": {
+        "displayed_result": ".10/.90",
+        "relation": "A",
+        "inputs": [
+          "plingo_cases.lp"
+        ],
+        "queries": [
+          "d1_pos",
+          "d1_neg"
+        ],
+        "run_ids": [
+          "plingo_cases"
+        ]
+      },
+      "smProbLog": {
+        "displayed_result": ".10/.90",
+        "relation": "A",
+        "inputs": [
+          "smproblog_cases.pl"
+        ],
+        "queries": [
+          "d1_pos",
+          "d1_neg"
+        ],
+        "run_ids": [
+          "smproblog_cases"
+        ]
+      },
+      "clingo": {
+        "displayed_result": "no/yes",
+        "relation": "A",
+        "inputs": [
+          "asp_cases.lp"
+        ],
+        "queries": [
+          "d1_pos",
+          "d1_neg"
+        ],
+        "run_ids": [
+          "clingo_cases"
+        ]
+      },
+      "DLV/I-DLV": {
+        "displayed_result": "no/yes",
+        "relation": "A",
+        "inputs": [
+          "asp_cases.lp"
+        ],
+        "queries": [
+          "d1_pos",
+          "d1_neg"
+        ],
+        "run_ids": [
+          "dlv_cases"
+        ]
+      },
+      "s(CASP)": {
+        "displayed_result": "no/yes",
+        "relation": "A",
+        "inputs": [
+          "scasp_cases.pl"
+        ],
+        "queries": [
+          "d1_pos",
+          "d1_neg"
+        ],
+        "run_ids": [
+          "scasp_d1_pos",
+          "scasp_d1_neg"
+        ]
+      },
+      "Tweety": {
+        "displayed_result": "U",
+        "relation": "U",
+        "inputs": [],
+        "queries": [],
+        "run_ids": [],
+        "reason": "No faithful encoding of the row's GK construct is claimed."
+      }
+    },
+    "D2": {
+      "GK": {
+        "displayed_result": ".54",
+        "relation": "N",
+        "inputs": [
+          "gk/d2.gkp"
+        ],
+        "queries": [
+          "d2_h"
+        ],
+        "run_ids": [
+          "gk_d2"
+        ]
+      },
+      "ProbLog": {
+        "displayed_result": ".27",
+        "relation": "A",
+        "inputs": [
+          "problog_cases.pl"
+        ],
+        "queries": [
+          "d2_h"
+        ],
+        "run_ids": [
+          "problog_cases"
+        ]
+      },
+      "PASTA": {
+        "displayed_result": "[.27,.27]",
+        "relation": "A",
+        "inputs": [
+          "pasta_cases.lp"
+        ],
+        "queries": [
+          "d2_h"
+        ],
+        "run_ids": [
+          "pasta_d2_h"
+        ]
+      },
+      "plingo": {
+        "displayed_result": ".27",
+        "relation": "A",
+        "inputs": [
+          "plingo_cases.lp"
+        ],
+        "queries": [
+          "d2_h"
+        ],
+        "run_ids": [
+          "plingo_cases"
+        ]
+      },
+      "smProbLog": {
+        "displayed_result": ".27",
+        "relation": "A",
+        "inputs": [
+          "smproblog_cases.pl"
+        ],
+        "queries": [
+          "d2_h"
+        ],
+        "run_ids": [
+          "smproblog_cases"
+        ]
+      },
+      "clingo": {
+        "displayed_result": "no",
+        "relation": "A",
+        "inputs": [
+          "asp_cases.lp"
+        ],
+        "queries": [
+          "d2_h"
+        ],
+        "run_ids": [
+          "clingo_cases"
+        ]
+      },
+      "DLV/I-DLV": {
+        "displayed_result": "no",
+        "relation": "A",
+        "inputs": [
+          "asp_cases.lp"
+        ],
+        "queries": [
+          "d2_h"
+        ],
+        "run_ids": [
+          "dlv_cases"
+        ]
+      },
+      "s(CASP)": {
+        "displayed_result": "no",
+        "relation": "A",
+        "inputs": [
+          "scasp_cases.pl"
+        ],
+        "queries": [
+          "d2_h"
+        ],
+        "run_ids": [
+          "scasp_d2_h"
+        ]
+      },
+      "Tweety": {
+        "displayed_result": "U",
+        "relation": "U",
+        "inputs": [],
+        "queries": [],
+        "run_ids": [],
+        "reason": "No faithful encoding of the row's GK construct is claimed."
+      }
+    },
+    "D3": {
+      "GK": {
+        "displayed_result": "0_i",
+        "relation": "N",
+        "inputs": [
+          "gk/d3.gkp"
+        ],
+        "queries": [
+          "d3_h"
+        ],
+        "run_ids": [
+          "gk_d3"
+        ]
+      },
+      "ProbLog": {
+        "displayed_result": ".225",
+        "relation": "A",
+        "inputs": [
+          "problog_cases.pl"
+        ],
+        "queries": [
+          "d3_h"
+        ],
+        "run_ids": [
+          "problog_cases"
+        ]
+      },
+      "PASTA": {
+        "displayed_result": "[.225,.225]",
+        "relation": "A",
+        "inputs": [
+          "pasta_cases.lp"
+        ],
+        "queries": [
+          "d3_h"
+        ],
+        "run_ids": [
+          "pasta_d3_h"
+        ]
+      },
+      "plingo": {
+        "displayed_result": ".225",
+        "relation": "A",
+        "inputs": [
+          "plingo_cases.lp"
+        ],
+        "queries": [
+          "d3_h"
+        ],
+        "run_ids": [
+          "plingo_cases"
+        ]
+      },
+      "smProbLog": {
+        "displayed_result": ".225",
+        "relation": "A",
+        "inputs": [
+          "smproblog_cases.pl"
+        ],
+        "queries": [
+          "d3_h"
+        ],
+        "run_ids": [
+          "smproblog_cases"
+        ]
+      },
+      "clingo": {
+        "displayed_result": "no",
+        "relation": "A",
+        "inputs": [
+          "asp_cases.lp"
+        ],
+        "queries": [
+          "d3_h"
+        ],
+        "run_ids": [
+          "clingo_cases"
+        ]
+      },
+      "DLV/I-DLV": {
+        "displayed_result": "no",
+        "relation": "A",
+        "inputs": [
+          "asp_cases.lp"
+        ],
+        "queries": [
+          "d3_h"
+        ],
+        "run_ids": [
+          "dlv_cases"
+        ]
+      },
+      "s(CASP)": {
+        "displayed_result": "no",
+        "relation": "A",
+        "inputs": [
+          "scasp_cases.pl"
+        ],
+        "queries": [
+          "d3_h"
+        ],
+        "run_ids": [
+          "scasp_d3_h"
+        ]
+      },
+      "Tweety": {
+        "displayed_result": "U",
+        "relation": "U",
+        "inputs": [],
+        "queries": [],
+        "run_ids": [],
+        "reason": "No faithful encoding of the row's GK construct is claimed."
+      }
+    },
+    "D4": {
+      "GK": {
+        "displayed_result": "0_i",
+        "relation": "N",
+        "inputs": [
+          "gk/d4.gkp"
+        ],
+        "queries": [
+          "d4_pos"
+        ],
+        "run_ids": [
+          "gk_d4"
+        ]
+      },
+      "PASTA": {
+        "displayed_result": "[0,1]/[0,1]",
+        "relation": "N",
+        "inputs": [
+          "pasta_cases.lp"
+        ],
+        "queries": [
+          "d4_pos",
+          "d4_neg"
+        ],
+        "run_ids": [
+          "pasta_d4_pos",
+          "pasta_d4_neg"
+        ]
+      },
+      "plingo": {
+        "displayed_result": ".50/.50",
+        "relation": "N",
+        "inputs": [
+          "plingo_cases.lp"
+        ],
+        "queries": [
+          "d4_pos",
+          "d4_neg"
+        ],
+        "run_ids": [
+          "plingo_cases"
+        ]
+      },
+      "smProbLog": {
+        "displayed_result": ".50/.50",
+        "relation": "N",
+        "inputs": [
+          "smproblog_d4.pl"
+        ],
+        "queries": [
+          "d4_pos",
+          "d4_neg"
+        ],
+        "run_ids": [
+          "smproblog_d4"
+        ]
+      },
+      "Tweety": {
+        "displayed_result": "undec./undec.",
+        "relation": "N",
+        "inputs": [
+          "tweety/d4_nixon.delp"
+        ],
+        "queries": [
+          "pacifist(nixon)",
+          "~pacifist(nixon)"
+        ],
+        "run_ids": [
+          "tweety_reference"
+        ]
+      },
+      "clingo": {
+        "displayed_result": "2 models",
+        "relation": "N",
+        "inputs": [
+          "asp_cases.lp"
+        ],
+        "queries": [
+          "d4_pos",
+          "d4_neg"
+        ],
+        "run_ids": [
+          "clingo_cases"
+        ]
+      },
+      "DLV/I-DLV": {
+        "displayed_result": "2 models",
+        "relation": "N",
+        "inputs": [
+          "asp_cases.lp",
+          "idlv/d4_nixon.lp"
+        ],
+        "queries": [
+          "d4_pos",
+          "d4_neg"
+        ],
+        "run_ids": [
+          "dlv_cases",
+          "idlv_reference"
+        ]
+      },
+      "s(CASP)": {
+        "displayed_result": "yes/yes",
+        "relation": "N",
+        "inputs": [
+          "scasp_cases.pl"
+        ],
+        "queries": [
+          "d4_pos",
+          "d4_neg"
+        ],
+        "run_ids": [
+          "scasp_d4_pos",
+          "scasp_d4_neg"
+        ]
+      },
+      "ProbLog": {
+        "displayed_result": "U",
+        "relation": "U",
+        "inputs": [],
+        "queries": [],
+        "run_ids": [],
+        "reason": "The selected semantics does not represent the row's stable-model choice."
+      }
+    },
+    "D4-P": {
+      "GK": {
+        "displayed_result": "+.20/-.20",
+        "relation": "A",
+        "inputs": [
+          "gk/d4sm_pos.gkp",
+          "gk/d4sm_neg.gkp"
+        ],
+        "queries": [
+          "pacifist(n)",
+          "-pacifist(n)"
+        ],
+        "run_ids": [
+          "gk_d4sm_pos",
+          "gk_d4sm_neg"
+        ]
+      },
+      "PASTA": {
+        "displayed_result": "[.32,.80]/[.12,.60]",
+        "relation": "N",
+        "inputs": [
+          "pasta_d4sm.lp"
+        ],
+        "queries": [
+          "pacifist",
+          "nonpacifist"
+        ],
+        "run_ids": [
+          "pasta_d4sm_pacifist",
+          "pasta_d4sm_nonpacifist"
+        ]
+      },
+      "plingo": {
+        "displayed_result": ".54054/.40540",
+        "relation": "N",
+        "inputs": [
+          "plingo_d4sm.lp"
+        ],
+        "queries": [
+          "pacifist",
+          "nonpacifist"
+        ],
+        "run_ids": [
+          "plingo_d4sm"
+        ]
+      },
+      "smProbLog": {
+        "displayed_result": ".56/.36",
+        "relation": "N",
+        "inputs": [
+          "smproblog_d4sm.pl"
+        ],
+        "queries": [
+          "pacifist",
+          "nonpacifist"
+        ],
+        "run_ids": [
+          "smproblog_d4sm"
+        ]
+      },
+      "ProbLog": {
+        "displayed_result": "U",
+        "relation": "U",
+        "inputs": [],
+        "queries": [],
+        "run_ids": [],
+        "reason": "The selected semantics does not represent the row's stable-model choice."
+      },
+      "Tweety": {
+        "displayed_result": "U",
+        "relation": "U",
+        "inputs": [],
+        "queries": [],
+        "run_ids": [],
+        "reason": "The selected semantics does not represent the row's stable-model choice."
+      },
+      "clingo": {
+        "displayed_result": "U",
+        "relation": "U",
+        "inputs": [],
+        "queries": [],
+        "run_ids": [],
+        "reason": "The selected semantics does not represent the row's stable-model choice."
+      },
+      "DLV/I-DLV": {
+        "displayed_result": "U",
+        "relation": "U",
+        "inputs": [],
+        "queries": [],
+        "run_ids": [],
+        "reason": "The selected semantics does not represent the row's stable-model choice."
+      },
+      "s(CASP)": {
+        "displayed_result": "U",
+        "relation": "U",
+        "inputs": [],
+        "queries": [],
+        "run_ids": [],
+        "reason": "The selected semantics does not represent the row's stable-model choice."
+      }
+    },
+    "D5": {
+      "GK": {
+        "displayed_result": ".30",
+        "relation": "N",
+        "inputs": [
+          "gk/d5.gkp"
+        ],
+        "queries": [
+          "d5_pos"
+        ],
+        "run_ids": [
+          "gk_d5"
+        ]
+      },
+      "ProbLog": {
+        "displayed_result": ".63/.30",
+        "relation": "A",
+        "inputs": [
+          "problog_cases.pl"
+        ],
+        "queries": [
+          "d5_pos",
+          "d5_neg"
+        ],
+        "run_ids": [
+          "problog_cases"
+        ]
+      },
+      "PASTA": {
+        "displayed_result": "[.63,.63]/[.30,.30]",
+        "relation": "A",
+        "inputs": [
+          "pasta_cases.lp"
+        ],
+        "queries": [
+          "d5_pos",
+          "d5_neg"
+        ],
+        "run_ids": [
+          "pasta_d5_pos",
+          "pasta_d5_neg"
+        ]
+      },
+      "plingo": {
+        "displayed_result": ".63/.30",
+        "relation": "A",
+        "inputs": [
+          "plingo_cases.lp"
+        ],
+        "queries": [
+          "d5_pos",
+          "d5_neg"
+        ],
+        "run_ids": [
+          "plingo_cases"
+        ]
+      },
+      "smProbLog": {
+        "displayed_result": ".63/.30",
+        "relation": "A",
+        "inputs": [
+          "smproblog_cases.pl"
+        ],
+        "queries": [
+          "d5_pos",
+          "d5_neg"
+        ],
+        "run_ids": [
+          "smproblog_cases"
+        ]
+      },
+      "Tweety": {
+        "displayed_result": "no/yes",
+        "relation": "A",
+        "inputs": [
+          "tweety/d5_specificity.delp"
+        ],
+        "queries": [
+          "Flies(opus)",
+          "~Flies(opus)"
+        ],
+        "run_ids": [
+          "tweety_reference"
+        ]
+      },
+      "clingo": {
+        "displayed_result": "no/yes",
+        "relation": "A",
+        "inputs": [
+          "asp_cases.lp"
+        ],
+        "queries": [
+          "d5_pos",
+          "d5_neg"
+        ],
+        "run_ids": [
+          "clingo_cases"
+        ]
+      },
+      "DLV/I-DLV": {
+        "displayed_result": "no/yes",
+        "relation": "A",
+        "inputs": [
+          "asp_cases.lp"
+        ],
+        "queries": [
+          "d5_pos",
+          "d5_neg"
+        ],
+        "run_ids": [
+          "dlv_cases"
+        ]
+      },
+      "s(CASP)": {
+        "displayed_result": "no/yes",
+        "relation": "A",
+        "inputs": [
+          "scasp_cases.pl"
+        ],
+        "queries": [
+          "d5_pos",
+          "d5_neg"
+        ],
+        "run_ids": [
+          "scasp_d5_pos",
+          "scasp_d5_neg"
+        ]
+      }
+    },
+    "D6": {
+      "GK": {
+        "displayed_result": "1/1",
+        "relation": "N",
+        "inputs": [
+          "gk/d6_undercut.gkp",
+          "gk/d6_rebut.gkp"
+        ],
+        "queries": [
+          "d6_undercut",
+          "d6_rebut"
+        ],
+        "run_ids": [
+          "gk_d6_undercut",
+          "gk_d6_rebut"
+        ]
+      },
+      "ProbLog": {
+        "displayed_result": "1/1",
+        "relation": "A",
+        "inputs": [
+          "problog_cases.pl"
+        ],
+        "queries": [
+          "d6_undercut",
+          "d6_rebut"
+        ],
+        "run_ids": [
+          "problog_cases"
+        ]
+      },
+      "PASTA": {
+        "displayed_result": "[1,1]/[1,1]",
+        "relation": "A",
+        "inputs": [
+          "pasta_cases.lp"
+        ],
+        "queries": [
+          "d6_undercut",
+          "d6_rebut"
+        ],
+        "run_ids": [
+          "pasta_d6_undercut",
+          "pasta_d6_rebut"
+        ]
+      },
+      "plingo": {
+        "displayed_result": "1/1",
+        "relation": "A",
+        "inputs": [
+          "plingo_cases.lp"
+        ],
+        "queries": [
+          "d6_undercut",
+          "d6_rebut"
+        ],
+        "run_ids": [
+          "plingo_cases"
+        ]
+      },
+      "smProbLog": {
+        "displayed_result": "1/1",
+        "relation": "A",
+        "inputs": [
+          "smproblog_cases.pl"
+        ],
+        "queries": [
+          "d6_undercut",
+          "d6_rebut"
+        ],
+        "run_ids": [
+          "smproblog_cases"
+        ]
+      },
+      "clingo": {
+        "displayed_result": "yes/yes",
+        "relation": "A",
+        "inputs": [
+          "asp_cases.lp"
+        ],
+        "queries": [
+          "d6_undercut",
+          "d6_rebut"
+        ],
+        "run_ids": [
+          "clingo_cases"
+        ]
+      },
+      "DLV/I-DLV": {
+        "displayed_result": "yes/yes",
+        "relation": "A",
+        "inputs": [
+          "asp_cases.lp"
+        ],
+        "queries": [
+          "d6_undercut",
+          "d6_rebut"
+        ],
+        "run_ids": [
+          "dlv_cases"
+        ]
+      },
+      "s(CASP)": {
+        "displayed_result": "yes/yes",
+        "relation": "A",
+        "inputs": [
+          "scasp_cases.pl"
+        ],
+        "queries": [
+          "d6_undercut",
+          "d6_rebut"
+        ],
+        "run_ids": [
+          "scasp_d6_undercut",
+          "scasp_d6_rebut"
+        ]
+      },
+      "Tweety": {
+        "displayed_result": "U",
+        "relation": "U",
+        "inputs": [],
+        "queries": [],
+        "run_ids": [],
+        "reason": "No faithful encoding of the row's GK construct is claimed."
+      }
+    },
+    "D7": {
+      "GK": {
+        "displayed_result": "0_m",
+        "relation": "N",
+        "inputs": [
+          "gk/d7.gkp"
+        ],
+        "queries": [
+          "d7_pos"
+        ],
+        "run_ids": [
+          "gk_d7"
+        ]
+      },
+      "ProbLog": {
+        "displayed_result": ".48/.48",
+        "relation": "A",
+        "inputs": [
+          "problog_cases.pl"
+        ],
+        "queries": [
+          "d7_pos",
+          "d7_neg"
+        ],
+        "run_ids": [
+          "problog_cases"
+        ]
+      },
+      "PASTA": {
+        "displayed_result": "[.48,.48]/[.48,.48]",
+        "relation": "A",
+        "inputs": [
+          "pasta_cases.lp"
+        ],
+        "queries": [
+          "d7_pos",
+          "d7_neg"
+        ],
+        "run_ids": [
+          "pasta_d7_pos",
+          "pasta_d7_neg"
+        ]
+      },
+      "plingo": {
+        "displayed_result": ".48/.48",
+        "relation": "A",
+        "inputs": [
+          "plingo_cases.lp"
+        ],
+        "queries": [
+          "d7_pos",
+          "d7_neg"
+        ],
+        "run_ids": [
+          "plingo_cases"
+        ]
+      },
+      "smProbLog": {
+        "displayed_result": ".48/.48",
+        "relation": "A",
+        "inputs": [
+          "smproblog_cases.pl"
+        ],
+        "queries": [
+          "d7_pos",
+          "d7_neg"
+        ],
+        "run_ids": [
+          "smproblog_cases"
+        ]
+      },
+      "Tweety": {
+        "displayed_result": "U",
+        "relation": "U",
+        "inputs": [],
+        "queries": [],
+        "run_ids": [],
+        "reason": "No faithful encoding of the paired reference-class construction is claimed."
+      },
+      "clingo": {
+        "displayed_result": "U",
+        "relation": "U",
+        "inputs": [],
+        "queries": [],
+        "run_ids": [],
+        "reason": "No faithful encoding of the paired reference-class construction is claimed."
+      },
+      "DLV/I-DLV": {
+        "displayed_result": "U",
+        "relation": "U",
+        "inputs": [],
+        "queries": [],
+        "run_ids": [],
+        "reason": "No faithful encoding of the paired reference-class construction is claimed."
+      },
+      "s(CASP)": {
+        "displayed_result": "U",
+        "relation": "U",
+        "inputs": [],
+        "queries": [],
+        "run_ids": [],
+        "reason": "No faithful encoding of the paired reference-class construction is claimed."
+      }
+    },
+    "N1": {
+      "GK": {
+        "displayed_result": "(.50,.30,.30,.60)",
+        "relation": "N",
+        "inputs": [
+          "gk/n1_study4.gkp"
+        ],
+        "queries": [
+          "twobirds(X,Y)"
+        ],
+        "run_ids": [
+          "gk_n1"
+        ]
+      },
+      "ProbLog": {
+        "displayed_result": "(.50,.30,.30,.60)",
+        "relation": "E",
+        "inputs": [
+          "problog_nonground.pl"
+        ],
+        "queries": [
+          "n1_twobirds(X,Y)"
+        ],
+        "run_ids": [
+          "problog_nonground"
+        ]
+      },
+      "PASTA": {
+        "displayed_result": "([.50,.50],[.30,.30],[.30,.30],[.60,.60])",
+        "relation": "E",
+        "inputs": [
+          "pasta_nonground.lp"
+        ],
+        "queries": [
+          "n1_twobirds(a,a)",
+          "n1_twobirds(a,b)",
+          "n1_twobirds(b,a)",
+          "n1_twobirds(b,b)"
+        ],
+        "run_ids": [
+          "pasta_n1_aa",
+          "pasta_n1_ab",
+          "pasta_n1_ba",
+          "pasta_n1_bb"
+        ]
+      },
+      "plingo": {
+        "displayed_result": "(.50,.30,.30,.60)",
+        "relation": "E",
+        "inputs": [
+          "plingo_nonground.lp"
+        ],
+        "queries": [
+          "n1_twobirds(a,a)",
+          "n1_twobirds(a,b)",
+          "n1_twobirds(b,a)",
+          "n1_twobirds(b,b)"
+        ],
+        "run_ids": [
+          "plingo_nonground"
+        ]
+      },
+      "smProbLog": {
+        "displayed_result": "(.50,.30,.30,.60)",
+        "relation": "E",
+        "inputs": [
+          "smproblog_nonground.pl"
+        ],
+        "queries": [
+          "n1_twobirds(X,Y)"
+        ],
+        "run_ids": [
+          "smproblog_nonground"
+        ]
+      },
+      "clingo": {
+        "displayed_result": "{aa,ab,ba,bb}",
+        "relation": "A",
+        "inputs": [
+          "asp_nonground.lp"
+        ],
+        "queries": [
+          "n1_twobirds(X,Y)"
+        ],
+        "run_ids": [
+          "clingo_nonground"
+        ]
+      },
+      "DLV/I-DLV": {
+        "displayed_result": "{aa,ab,ba,bb}",
+        "relation": "A",
+        "inputs": [
+          "asp_nonground.lp"
+        ],
+        "queries": [
+          "n1_twobirds(X,Y)"
+        ],
+        "run_ids": [
+          "dlv_nonground"
+        ]
+      },
+      "s(CASP)": {
+        "displayed_result": "{aa,ab,ba,bb}",
+        "relation": "A",
+        "inputs": [
+          "scasp_nonground.pl"
+        ],
+        "queries": [
+          "n1_twobirds(X,Y)"
+        ],
+        "run_ids": [
+          "scasp_n1"
+        ]
+      },
+      "Tweety": {
+        "displayed_result": "U",
+        "relation": "U",
+        "inputs": [],
+        "queries": [],
+        "run_ids": [],
+        "reason": "No faithful encoding of the row's GK construct is claimed."
+      }
+    },
+    "N2": {
+      "GK": {
+        "displayed_result": "(.80,.688,.1376)",
+        "relation": "N",
+        "inputs": [
+          "gk/n2_study10.gkp"
+        ],
+        "queries": [
+          "smokes(X)"
+        ],
+        "run_ids": [
+          "gk_n2"
+        ]
+      },
+      "ProbLog": {
+        "displayed_result": "(.80,.688,.1376)",
+        "relation": "E",
+        "inputs": [
+          "problog_nonground.pl"
+        ],
+        "queries": [
+          "n2_smokes(X)"
+        ],
+        "run_ids": [
+          "problog_nonground"
+        ]
+      },
+      "PASTA": {
+        "displayed_result": "([.80,.80],[.688,.688],[.1376,.1376])",
+        "relation": "E",
+        "inputs": [
+          "pasta_nonground.lp"
+        ],
+        "queries": [
+          "n2_smokes(ann)",
+          "n2_smokes(bob)",
+          "n2_smokes(carl)"
+        ],
+        "run_ids": [
+          "pasta_n2_ann",
+          "pasta_n2_bob",
+          "pasta_n2_carl"
+        ]
+      },
+      "plingo": {
+        "displayed_result": "(.80,.688,.1376)",
+        "relation": "E",
+        "inputs": [
+          "plingo_nonground.lp"
+        ],
+        "queries": [
+          "n2_smokes(ann)",
+          "n2_smokes(bob)",
+          "n2_smokes(carl)"
+        ],
+        "run_ids": [
+          "plingo_nonground"
+        ]
+      },
+      "smProbLog": {
+        "displayed_result": "(.80,.688,.1376)",
+        "relation": "E",
+        "inputs": [
+          "smproblog_nonground.pl"
+        ],
+        "queries": [
+          "n2_smokes(X)"
+        ],
+        "run_ids": [
+          "smproblog_nonground"
+        ]
+      },
+      "clingo": {
+        "displayed_result": "{ann,bob,carl}",
+        "relation": "A",
+        "inputs": [
+          "asp_nonground.lp"
+        ],
+        "queries": [
+          "n2_smokes(X)"
+        ],
+        "run_ids": [
+          "clingo_nonground"
+        ]
+      },
+      "DLV/I-DLV": {
+        "displayed_result": "{ann,bob,carl}",
+        "relation": "A",
+        "inputs": [
+          "asp_nonground.lp"
+        ],
+        "queries": [
+          "n2_smokes(X)"
+        ],
+        "run_ids": [
+          "dlv_nonground"
+        ]
+      },
+      "s(CASP)": {
+        "displayed_result": "{ann,bob,carl}",
+        "relation": "A",
+        "inputs": [
+          "scasp_nonground.pl"
+        ],
+        "queries": [
+          "n2_smokes(X)"
+        ],
+        "run_ids": [
+          "scasp_n2"
+        ]
+      },
+      "Tweety": {
+        "displayed_result": "U",
+        "relation": "U",
+        "inputs": [],
+        "queries": [],
+        "run_ids": [],
+        "reason": "No faithful encoding of the row's GK construct is claimed."
+      }
+    }
+  },
+  "run_definitions": [
+    {
+      "run_id": "gk_c1",
+      "system": "GK",
+      "command": [
+        "/opt/gk/gk",
+        "/opt/gk/experiments/comparisons/table_extensions/gk/c1.gkp",
+        "-detail",
+        "-outformat",
+        "json"
+      ],
+      "checks": [
+        "\"answer\": true",
+        "\"confidence\": 0.8000"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "gk_c2",
+      "system": "GK",
+      "command": [
+        "/opt/gk/gk",
+        "/opt/gk/experiments/comparisons/table_extensions/gk/c2.gkp",
+        "-detail",
+        "-outformat",
+        "json"
+      ],
+      "checks": [
+        "\"answer\": true",
+        "\"confidence\": 0.3000"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "gk_d1",
+      "system": "GK",
+      "command": [
+        "/opt/gk/gk",
+        "/opt/gk/experiments/comparisons/table_extensions/gk/d1.gkp",
+        "-detail",
+        "-outformat",
+        "json"
+      ],
+      "checks": [
+        "\"answer\": false",
+        "\"confidence\": 0.8000"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "gk_d2",
+      "system": "GK",
+      "command": [
+        "/opt/gk/gk",
+        "/opt/gk/experiments/comparisons/table_extensions/gk/d2.gkp",
+        "-detail",
+        "-outformat",
+        "json"
+      ],
+      "checks": [
+        "\"answer\": true",
+        "\"confidence\": 0.5400"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "gk_d3",
+      "system": "GK",
+      "command": [
+        "/opt/gk/gk",
+        "/opt/gk/experiments/comparisons/table_extensions/gk/d3.gkp",
+        "-detail",
+        "-outformat",
+        "json"
+      ],
+      "checks": [
+        "\"result\": \"evidence below limit\"",
+        "\"confidence\": 0.0000"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "gk_d4",
+      "system": "GK",
+      "command": [
+        "/opt/gk/gk",
+        "/opt/gk/experiments/comparisons/table_extensions/gk/d4.gkp",
+        "-detail",
+        "-outformat",
+        "json"
+      ],
+      "checks": [
+        "\"result\": \"evidence below limit\"",
+        "\"confidence\": 0.0000"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "gk_d4sm_pos",
+      "system": "GK",
+      "command": [
+        "/opt/gk/gk",
+        "/opt/gk/experiments/comparisons/table_extensions/gk/d4sm_pos.gkp",
+        "-detail",
+        "-outformat",
+        "json"
+      ],
+      "checks": [
+        "\"answer\": true",
+        "\"confidence\": 0.2000"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "gk_d4sm_neg",
+      "system": "GK",
+      "command": [
+        "/opt/gk/gk",
+        "/opt/gk/experiments/comparisons/table_extensions/gk/d4sm_neg.gkp",
+        "-detail",
+        "-outformat",
+        "json"
+      ],
+      "checks": [
+        "\"answer\": false",
+        "\"confidence\": 0.2000"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "gk_d5",
+      "system": "GK",
+      "command": [
+        "/opt/gk/gk",
+        "/opt/gk/experiments/comparisons/table_extensions/gk/d5.gkp",
+        "-detail",
+        "-outformat",
+        "json"
+      ],
+      "checks": [
+        "\"answer\": true",
+        "\"confidence\": 0.3000"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "gk_d6_undercut",
+      "system": "GK",
+      "command": [
+        "/opt/gk/gk",
+        "/opt/gk/experiments/comparisons/table_extensions/gk/d6_undercut.gkp",
+        "-detail",
+        "-outformat",
+        "json"
+      ],
+      "checks": [
+        "\"answer\": true",
+        "\"confidence\": 1.0000"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "gk_d6_rebut",
+      "system": "GK",
+      "command": [
+        "/opt/gk/gk",
+        "/opt/gk/experiments/comparisons/table_extensions/gk/d6_rebut.gkp",
+        "-detail",
+        "-outformat",
+        "json"
+      ],
+      "checks": [
+        "\"answer\": true",
+        "\"confidence\": 1.0000"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "gk_d7",
+      "system": "GK",
+      "command": [
+        "/opt/gk/gk",
+        "/opt/gk/experiments/comparisons/table_extensions/gk/d7.gkp",
+        "-detail",
+        "-outformat",
+        "json"
+      ],
+      "checks": [
+        "\"result\": \"evidence below limit\"",
+        "\"confidence\": 0.0000"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "gk_n1",
+      "system": "GK",
+      "command": [
+        "/opt/gk/gk",
+        "/opt/gk/experiments/comparisons/table_extensions/gk/n1_study4.gkp",
+        "-detail",
+        "-outformat",
+        "json"
+      ],
+      "checks": [
+        "\"\\$ans\",\"a\",\"a\".*?\"confidence\": 0\\.5000",
+        "\"\\$ans\",\"a\",\"b\".*?\"confidence\": 0\\.3000",
+        "\"\\$ans\",\"b\",\"a\".*?\"confidence\": 0\\.3000",
+        "\"\\$ans\",\"b\",\"b\".*?\"confidence\": 0\\.6000"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "gk_n2",
+      "system": "GK",
+      "command": [
+        "/opt/gk/gk",
+        "/opt/gk/experiments/comparisons/table_extensions/gk/n2_study10.gkp",
+        "-detail",
+        "-outformat",
+        "json"
+      ],
+      "checks": [
+        "\"\\$ans\",\"ann\".*?\"confidence\": 0\\.8000",
+        "\"\\$ans\",\"bob\".*?\"confidence\": 0\\.6880",
+        "\"\\$ans\",\"carl\".*?\"confidence\": 0\\.1376"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "problog_cases",
+      "system": "ProbLog",
+      "command": [
+        "/opt/provers/problog-2.2.10/bin/problog",
+        "/opt/gk/experiments/comparisons/table_extensions/problog_cases.pl"
+      ],
+      "checks": [
+        "c1_q:\\s+0\\.8",
+        "c2_q:\\s+0\\.3",
+        "d1_pos:\\s+0\\.1",
+        "d1_neg:\\s+0\\.9",
+        "d2_h:\\s+0\\.27",
+        "d3_h:\\s+0\\.225",
+        "d5_pos:\\s+0\\.63",
+        "d5_neg:\\s+0\\.3",
+        "d6_undercut:\\s+1",
+        "d6_rebut:\\s+1",
+        "d7_pos:\\s+0\\.48",
+        "d7_neg:\\s+0\\.48"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "problog_nonground",
+      "system": "ProbLog",
+      "command": [
+        "/opt/provers/problog-2.2.10/bin/problog",
+        "/opt/gk/experiments/comparisons/table_extensions/problog_nonground.pl"
+      ],
+      "checks": [
+        "n1_twobirds\\(a,a\\):\\s+0\\.5",
+        "n1_twobirds\\(a,b\\):\\s+0\\.3",
+        "n1_twobirds\\(b,a\\):\\s+0\\.3",
+        "n1_twobirds\\(b,b\\):\\s+0\\.6",
+        "n2_smokes\\(ann\\):\\s+0\\.8",
+        "n2_smokes\\(bob\\):\\s+0\\.688",
+        "n2_smokes\\(carl\\):\\s+0\\.1376"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "pasta_c1_q",
+      "system": "PASTA",
+      "command": [
+        "/opt/provers/pasta-1.0.1/bin/pastasolver",
+        "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
+        "--query=c1_q"
+      ],
+      "checks": [
+        "query: 0\\.7999"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "pasta_c2_q",
+      "system": "PASTA",
+      "command": [
+        "/opt/provers/pasta-1.0.1/bin/pastasolver",
+        "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
+        "--query=c2_q"
+      ],
+      "checks": [
+        "query: 0\\.2999"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "pasta_d1_pos",
+      "system": "PASTA",
+      "command": [
+        "/opt/provers/pasta-1.0.1/bin/pastasolver",
+        "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
+        "--query=d1_pos"
+      ],
+      "checks": [
+        "query: 0\\.1000"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "pasta_d1_neg",
+      "system": "PASTA",
+      "command": [
+        "/opt/provers/pasta-1.0.1/bin/pastasolver",
+        "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
+        "--query=d1_neg"
+      ],
+      "checks": [
+        "query: 0\\.8999"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "pasta_d2_h",
+      "system": "PASTA",
+      "command": [
+        "/opt/provers/pasta-1.0.1/bin/pastasolver",
+        "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
+        "--query=d2_h"
+      ],
+      "checks": [
+        "query: 0\\.2700"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "pasta_d3_h",
+      "system": "PASTA",
+      "command": [
+        "/opt/provers/pasta-1.0.1/bin/pastasolver",
+        "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
+        "--query=d3_h"
+      ],
+      "checks": [
+        "query: 0\\.2249"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "pasta_d4_pos",
+      "system": "PASTA",
+      "command": [
+        "/opt/provers/pasta-1.0.1/bin/pastasolver",
+        "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
+        "--query=d4_pos"
+      ],
+      "checks": [
+        "Lower probability for the query: 0\\.0.*Upper probability for the query: 0\\.999"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "pasta_d4_neg",
+      "system": "PASTA",
+      "command": [
+        "/opt/provers/pasta-1.0.1/bin/pastasolver",
+        "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
+        "--query=d4_neg"
+      ],
+      "checks": [
+        "Lower probability for the query: 0\\.0.*Upper probability for the query: 0\\.999"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "pasta_d5_pos",
+      "system": "PASTA",
+      "command": [
+        "/opt/provers/pasta-1.0.1/bin/pastasolver",
+        "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
+        "--query=d5_pos"
+      ],
+      "checks": [
+        "query: 0\\.6299"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "pasta_d5_neg",
+      "system": "PASTA",
+      "command": [
+        "/opt/provers/pasta-1.0.1/bin/pastasolver",
+        "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
+        "--query=d5_neg"
+      ],
+      "checks": [
+        "query: 0\\.3000"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "pasta_d6_undercut",
+      "system": "PASTA",
+      "command": [
+        "/opt/provers/pasta-1.0.1/bin/pastasolver",
+        "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
+        "--query=d6_undercut"
+      ],
+      "checks": [
+        "query: 0\\.9999"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "pasta_d6_rebut",
+      "system": "PASTA",
+      "command": [
+        "/opt/provers/pasta-1.0.1/bin/pastasolver",
+        "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
+        "--query=d6_rebut"
+      ],
+      "checks": [
+        "query: 0\\.9999"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "pasta_d7_pos",
+      "system": "PASTA",
+      "command": [
+        "/opt/provers/pasta-1.0.1/bin/pastasolver",
+        "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
+        "--query=d7_pos"
+      ],
+      "checks": [
+        "query: 0\\.4800"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "pasta_d7_neg",
+      "system": "PASTA",
+      "command": [
+        "/opt/provers/pasta-1.0.1/bin/pastasolver",
+        "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
+        "--query=d7_neg"
+      ],
+      "checks": [
+        "query: 0\\.4800"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "pasta_d4sm_pacifist",
+      "system": "PASTA",
+      "command": [
+        "/opt/provers/pasta-1.0.1/bin/pastasolver",
+        "/opt/gk/experiments/comparisons/table_extensions/pasta_d4sm.lp",
+        "--query=pacifist"
+      ],
+      "checks": [
+        "Lower probability for the query: 0.3200",
+        "Upper probability for the query: 0.8"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "pasta_d4sm_nonpacifist",
+      "system": "PASTA",
+      "command": [
+        "/opt/provers/pasta-1.0.1/bin/pastasolver",
+        "/opt/gk/experiments/comparisons/table_extensions/pasta_d4sm.lp",
+        "--query=nonpacifist"
+      ],
+      "checks": [
+        "Lower probability for the query: 0.1199",
+        "Upper probability for the query: 0.6"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "pasta_n1_aa",
+      "system": "PASTA",
+      "command": [
+        "/opt/provers/pasta-1.0.1/bin/pastasolver",
+        "/opt/gk/experiments/comparisons/table_extensions/pasta_nonground.lp",
+        "--query=n1_twobirds(a,a)"
+      ],
+      "checks": [
+        "query: 0.5000"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "pasta_n1_ab",
+      "system": "PASTA",
+      "command": [
+        "/opt/provers/pasta-1.0.1/bin/pastasolver",
+        "/opt/gk/experiments/comparisons/table_extensions/pasta_nonground.lp",
+        "--query=n1_twobirds(a,b)"
+      ],
+      "checks": [
+        "query: 0.3000"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "pasta_n1_ba",
+      "system": "PASTA",
+      "command": [
+        "/opt/provers/pasta-1.0.1/bin/pastasolver",
+        "/opt/gk/experiments/comparisons/table_extensions/pasta_nonground.lp",
+        "--query=n1_twobirds(b,a)"
+      ],
+      "checks": [
+        "query: 0.3000"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "pasta_n1_bb",
+      "system": "PASTA",
+      "command": [
+        "/opt/provers/pasta-1.0.1/bin/pastasolver",
+        "/opt/gk/experiments/comparisons/table_extensions/pasta_nonground.lp",
+        "--query=n1_twobirds(b,b)"
+      ],
+      "checks": [
+        "query: 0.6"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "pasta_n2_ann",
+      "system": "PASTA",
+      "command": [
+        "/opt/provers/pasta-1.0.1/bin/pastasolver",
+        "/opt/gk/experiments/comparisons/table_extensions/pasta_nonground.lp",
+        "--query=n2_smokes(ann)"
+      ],
+      "checks": [
+        "query: 0.8000"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "pasta_n2_bob",
+      "system": "PASTA",
+      "command": [
+        "/opt/provers/pasta-1.0.1/bin/pastasolver",
+        "/opt/gk/experiments/comparisons/table_extensions/pasta_nonground.lp",
+        "--query=n2_smokes(bob)"
+      ],
+      "checks": [
+        "query: 0.6880"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "pasta_n2_carl",
+      "system": "PASTA",
+      "command": [
+        "/opt/provers/pasta-1.0.1/bin/pastasolver",
+        "/opt/gk/experiments/comparisons/table_extensions/pasta_nonground.lp",
+        "--query=n2_smokes(carl)"
+      ],
+      "checks": [
+        "query: 0.1376"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "plingo_cases",
+      "system": "plingo",
+      "command": [
+        "/opt/provers/plingo-1.1.0/bin/plingo",
+        "/opt/gk/experiments/comparisons/table_extensions/plingo_cases.lp",
+        "--frontend=problog",
+        "--quiet=2"
+      ],
+      "checks": [
+        "c1_q: 0\\.80000",
+        "c2_q: 0\\.30000",
+        "d1_pos: 0\\.10000",
+        "d1_neg: 0\\.90000",
+        "d2_h: 0\\.27000",
+        "d3_h: 0\\.22500",
+        "d4_pos: 0\\.50000",
+        "d4_neg: 0\\.50000",
+        "d5_pos: 0\\.63000",
+        "d5_neg: 0\\.30000",
+        "d6_undercut: 1\\.00000",
+        "d6_rebut: 1\\.00000",
+        "d7_pos: 0\\.48000",
+        "d7_neg: 0\\.48000"
+      ],
+      "accepted_exit_codes": [
+        0,
+        30
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "plingo_d4sm",
+      "system": "plingo",
+      "command": [
+        "/opt/provers/plingo-1.1.0/bin/plingo",
+        "/opt/gk/experiments/comparisons/table_extensions/plingo_d4sm.lp",
+        "--frontend=problog",
+        "--quiet=2"
+      ],
+      "checks": [
+        "pacifist: 0\\.54054",
+        "nonpacifist: 0\\.40540"
+      ],
+      "accepted_exit_codes": [
+        0,
+        30
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "plingo_nonground",
+      "system": "plingo",
+      "command": [
+        "/opt/provers/plingo-1.1.0/bin/plingo",
+        "/opt/gk/experiments/comparisons/table_extensions/plingo_nonground.lp",
+        "--frontend=problog",
+        "--quiet=2"
+      ],
+      "checks": [
+        "n1_twobirds\\(a,a\\): 0\\.50000",
+        "n1_twobirds\\(a,b\\): 0\\.30000",
+        "n1_twobirds\\(b,a\\): 0\\.30000",
+        "n1_twobirds\\(b,b\\): 0\\.60000",
+        "n2_smokes\\(ann\\): 0\\.80000",
+        "n2_smokes\\(bob\\): 0\\.68800",
+        "n2_smokes\\(carl\\): 0\\.13760"
+      ],
+      "accepted_exit_codes": [
+        0,
+        30
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "smproblog_cases",
+      "system": "smProbLog",
+      "command": [
+        "/opt/provers/smproblog-bfbc542/bin/problog",
+        "-k",
+        "ddnnf",
+        "/opt/gk/experiments/comparisons/table_extensions/smproblog_cases.pl"
+      ],
+      "checks": [
+        "c1_q:\\s+0\\.8",
+        "c2_q:\\s+0\\.3",
+        "d1_pos:\\s+0\\.1",
+        "d1_neg:\\s+0\\.9",
+        "d2_h:\\s+0\\.27",
+        "d3_h:\\s+0\\.225",
+        "d5_pos:\\s+0\\.63",
+        "d5_neg:\\s+0\\.3",
+        "d6_undercut:\\s+1",
+        "d6_rebut:\\s+1",
+        "d7_pos:\\s+0\\.48",
+        "d7_neg:\\s+0\\.48"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {
+        "PATH": "/opt/provers/smproblog-bfbc542/bin:/home/tanel/.local/bin:/home/tanel/.codex/packages/standalone/releases/0.146.0-x86_64-unknown-linux-musl/codex-path:/home/tanel/.codex/tmp/arg0/codex-arg01ZAWQo:/home/tanel/.ciao/build/bin:/opt/provers/ciao/ciao/build/bin:/home/tanel/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin"
+      }
+    },
+    {
+      "run_id": "smproblog_d4",
+      "system": "smProbLog",
+      "command": [
+        "/opt/provers/smproblog-bfbc542/bin/problog",
+        "-k",
+        "ddnnf",
+        "/opt/gk/experiments/comparisons/table_extensions/smproblog_d4.pl"
+      ],
+      "checks": [
+        "d4_pos:\\s+0\\.5",
+        "d4_neg:\\s+0\\.5"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {
+        "PATH": "/opt/provers/smproblog-bfbc542/bin:/home/tanel/.local/bin:/home/tanel/.codex/packages/standalone/releases/0.146.0-x86_64-unknown-linux-musl/codex-path:/home/tanel/.codex/tmp/arg0/codex-arg01ZAWQo:/home/tanel/.ciao/build/bin:/opt/provers/ciao/ciao/build/bin:/home/tanel/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin"
+      }
+    },
+    {
+      "run_id": "smproblog_d4sm",
+      "system": "smProbLog",
+      "command": [
+        "/opt/provers/smproblog-bfbc542/bin/problog",
+        "-k",
+        "ddnnf",
+        "/opt/gk/experiments/comparisons/table_extensions/smproblog_d4sm.pl"
+      ],
+      "checks": [
+        "pacifist:\\s+0\\.56",
+        "nonpacifist:\\s+0\\.36"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {
+        "PATH": "/opt/provers/smproblog-bfbc542/bin:/home/tanel/.local/bin:/home/tanel/.codex/packages/standalone/releases/0.146.0-x86_64-unknown-linux-musl/codex-path:/home/tanel/.codex/tmp/arg0/codex-arg01ZAWQo:/home/tanel/.ciao/build/bin:/opt/provers/ciao/ciao/build/bin:/home/tanel/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin"
+      }
+    },
+    {
+      "run_id": "smproblog_nonground",
+      "system": "smProbLog",
+      "command": [
+        "/opt/provers/smproblog-bfbc542/bin/problog",
+        "-k",
+        "ddnnf",
+        "/opt/gk/experiments/comparisons/table_extensions/smproblog_nonground.pl"
+      ],
+      "checks": [
+        "n1_twobirds\\(a,a\\):\\s+0\\.5",
+        "n1_twobirds\\(a,b\\):\\s+0\\.3",
+        "n1_twobirds\\(b,a\\):\\s+0\\.3",
+        "n1_twobirds\\(b,b\\):\\s+0\\.6",
+        "n2_smokes\\(ann\\):\\s+0\\.8",
+        "n2_smokes\\(bob\\):\\s+0\\.688",
+        "n2_smokes\\(carl\\):\\s+0\\.1376"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {
+        "PATH": "/opt/provers/smproblog-bfbc542/bin:/home/tanel/.local/bin:/home/tanel/.codex/packages/standalone/releases/0.146.0-x86_64-unknown-linux-musl/codex-path:/home/tanel/.codex/tmp/arg0/codex-arg01ZAWQo:/home/tanel/.ciao/build/bin:/opt/provers/ciao/ciao/build/bin:/home/tanel/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin"
+      }
+    },
+    {
+      "run_id": "clingo_cases",
+      "system": "clingo",
+      "command": [
+        "/usr/bin/clingo",
+        "/opt/gk/experiments/comparisons/table_extensions/asp_cases.lp",
+        "0"
+      ],
+      "checks": [
+        "Models\\s+:\\s+2",
+        "Answer: 1.*d4_neg",
+        "Answer: 2.*d4_pos",
+        "d1_neg",
+        "d5_neg",
+        "d6_undercut",
+        "d6_rebut"
+      ],
+      "accepted_exit_codes": [
+        0,
+        10,
+        30
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "dlv_cases",
+      "system": "DLV",
+      "command": [
+        "/opt/provers/default/dlv-2.1.1-linux-x86_64",
+        "--silent",
+        "-n=0",
+        "/opt/gk/experiments/comparisons/table_extensions/asp_cases.lp"
+      ],
+      "checks": [
+        "\\{[^}]*d4_neg[^}]*\\}",
+        "\\{[^}]*d4_pos[^}]*\\}",
+        "d1_neg",
+        "d5_neg",
+        "d6_undercut",
+        "d6_rebut"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "clingo_nonground",
+      "system": "clingo",
+      "command": [
+        "/usr/bin/clingo",
+        "/opt/gk/experiments/comparisons/table_extensions/asp_nonground.lp",
+        "0"
+      ],
+      "checks": [
+        "n1_twobirds\\(a,a\\)",
+        "n1_twobirds\\(a,b\\)",
+        "n1_twobirds\\(b,a\\)",
+        "n1_twobirds\\(b,b\\)",
+        "n2_smokes\\(ann\\)",
+        "n2_smokes\\(bob\\)",
+        "n2_smokes\\(carl\\)",
+        "Models\\s+:\\s+1"
+      ],
+      "accepted_exit_codes": [
+        0,
+        10,
+        30
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "dlv_nonground",
+      "system": "DLV",
+      "command": [
+        "/opt/provers/default/dlv-2.1.1-linux-x86_64",
+        "--silent",
+        "-n=0",
+        "/opt/gk/experiments/comparisons/table_extensions/asp_nonground.lp"
+      ],
+      "checks": [
+        "n1_twobirds\\(a,a\\)",
+        "n1_twobirds\\(a,b\\)",
+        "n1_twobirds\\(b,a\\)",
+        "n1_twobirds\\(b,b\\)",
+        "n2_smokes\\(ann\\)",
+        "n2_smokes\\(bob\\)",
+        "n2_smokes\\(carl\\)"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "scasp_d1_pos",
+      "system": "s(CASP)",
+      "command": [
+        "/home/tanel/.local/bin/scasp",
+        "--query=d1_pos",
+        "/opt/gk/experiments/comparisons/table_extensions/scasp_cases.pl"
+      ],
+      "checks": [
+        "\\?- d1_pos\\.",
+        "No models"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "scasp_d1_neg",
+      "system": "s(CASP)",
+      "command": [
+        "/home/tanel/.local/bin/scasp",
+        "--query=d1_neg",
+        "/opt/gk/experiments/comparisons/table_extensions/scasp_cases.pl"
+      ],
+      "checks": [
+        "\\?- d1_neg\\.",
+        "Answer 1"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "scasp_d2_h",
+      "system": "s(CASP)",
+      "command": [
+        "/home/tanel/.local/bin/scasp",
+        "--query=d2_h",
+        "/opt/gk/experiments/comparisons/table_extensions/scasp_cases.pl"
+      ],
+      "checks": [
+        "\\?- d2_h\\.",
+        "No models"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "scasp_d3_h",
+      "system": "s(CASP)",
+      "command": [
+        "/home/tanel/.local/bin/scasp",
+        "--query=d3_h",
+        "/opt/gk/experiments/comparisons/table_extensions/scasp_cases.pl"
+      ],
+      "checks": [
+        "\\?- d3_h\\.",
+        "No models"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "scasp_d4_pos",
+      "system": "s(CASP)",
+      "command": [
+        "/home/tanel/.local/bin/scasp",
+        "--query=d4_pos",
+        "/opt/gk/experiments/comparisons/table_extensions/scasp_cases.pl"
+      ],
+      "checks": [
+        "\\?- d4_pos\\.",
+        "Answer 1"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "scasp_d4_neg",
+      "system": "s(CASP)",
+      "command": [
+        "/home/tanel/.local/bin/scasp",
+        "--query=d4_neg",
+        "/opt/gk/experiments/comparisons/table_extensions/scasp_cases.pl"
+      ],
+      "checks": [
+        "\\?- d4_neg\\.",
+        "Answer 1"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "scasp_d5_pos",
+      "system": "s(CASP)",
+      "command": [
+        "/home/tanel/.local/bin/scasp",
+        "--query=d5_pos",
+        "/opt/gk/experiments/comparisons/table_extensions/scasp_cases.pl"
+      ],
+      "checks": [
+        "\\?- d5_pos\\.",
+        "No models"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "scasp_d5_neg",
+      "system": "s(CASP)",
+      "command": [
+        "/home/tanel/.local/bin/scasp",
+        "--query=d5_neg",
+        "/opt/gk/experiments/comparisons/table_extensions/scasp_cases.pl"
+      ],
+      "checks": [
+        "\\?- d5_neg\\.",
+        "Answer 1"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "scasp_d6_undercut",
+      "system": "s(CASP)",
+      "command": [
+        "/home/tanel/.local/bin/scasp",
+        "--query=d6_undercut",
+        "/opt/gk/experiments/comparisons/table_extensions/scasp_cases.pl"
+      ],
+      "checks": [
+        "\\?- d6_undercut\\.",
+        "Answer 1"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "scasp_d6_rebut",
+      "system": "s(CASP)",
+      "command": [
+        "/home/tanel/.local/bin/scasp",
+        "--query=d6_rebut",
+        "/opt/gk/experiments/comparisons/table_extensions/scasp_cases.pl"
+      ],
+      "checks": [
+        "\\?- d6_rebut\\.",
+        "Answer 1"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "scasp_n1",
+      "system": "s(CASP)",
+      "command": [
+        "/home/tanel/.local/bin/scasp",
+        "-n",
+        "0",
+        "--query=n1_twobirds(X,Y)",
+        "/opt/gk/experiments/comparisons/table_extensions/scasp_nonground.pl"
+      ],
+      "checks": [
+        "X = a,\\s*Y = a",
+        "X = a,\\s*Y = b",
+        "X = b,\\s*Y = a",
+        "X = b,\\s*Y = b"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    },
+    {
+      "run_id": "scasp_n2",
+      "system": "s(CASP)",
+      "command": [
+        "/home/tanel/.local/bin/scasp",
+        "-n",
+        "0",
+        "--query=n2_smokes(X)",
+        "/opt/gk/experiments/comparisons/table_extensions/scasp_nonground.pl"
+      ],
+      "checks": [
+        "X = ann",
+        "X = bob",
+        "X = carl"
+      ],
+      "accepted_exit_codes": [
+        0
+      ],
+      "environment": {}
+    }
+  ],
+  "captured_reference_runs": [
+    {
+      "run_id": "tweety_reference",
+      "system": "Tweety",
+      "source": "fixtures/tweety_1.31.txt",
+      "status": "captured_reference",
+      "inputs": [
+        "tweety/d5_specificity.delp",
+        "tweety/d4_nixon.delp"
+      ],
+      "reproduction": "Set TWEETY_CLASSPATH to the TweetyProject 1.31 classpath and rerun this script."
+    },
+    {
+      "run_id": "idlv_reference",
+      "system": "I-DLV",
+      "source": "fixtures/idlv_1.1.6_d4.txt",
+      "status": "captured_reference",
+      "inputs": [
+        "idlv/d4_nixon.lp"
+      ],
+      "reproduction": "Set IDLV to the I-DLV 1.1.6 executable and rerun this script."
+    }
+  ]
+}

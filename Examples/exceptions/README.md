@@ -50,12 +50,13 @@ a  rejected with confidence 0.8
 [`bird_hierarchy.js`](bird_hierarchy.js) uses an ordinary rule without a
 blocker, providing a control case for the same support calculation.
 
-## Counter-evidence to an exception
+## Evidence against an exception
 
-Evidence *against* an exception condition weakens the exception's grip on the
-default, whether that evidence is a fact or is itself derived.
-[`bird_counter.gkp`](bird_counter.gkp) derives the counter-evidence through a
-rule carrying strength 0.58:
+Before an exception blocks a default, gk resolves the opposing evidence on
+the exception atom itself. Evidence against the exception may be a fact or
+may be derived by a rule; both count.
+In [`bird_counter.gkp`](bird_counter.gkp) a rule with confidence 0.58
+derives evidence against the exception:
 
 ```prolog
 bird(a).
@@ -66,15 +67,23 @@ flies(X) :- bird(X), unless(injured(X), 2).
 query(flies(a)).
 ```
 
-The derived counter is netted into the exception's own support before the
-blocker is applied, giving confidence 0.98 — exactly the value the fact
-`0.58::-injured(a)` would give. Moving the 0.58 onto the rule's premise
-instead ([`bird_counter_premise.gkp`](bird_counter_premise.gkp)) gives 0.748,
-not 0.98: premise confidence selects the configurations in which the
-counter-derivation exists at all, while rule confidence scales strength
-inside a present derivation. Counter-evidence is not accepted blindly — a
-counter whose own derivation is blocked by a certain exception contributes
-nothing.
+The exception `injured(a)` has positive support 0.6 and, through the rule,
+negative support 0.58. Subtracting leaves 0.02, so the default is blocked
+with strength 0.02 and `flies(a)` is reported with confidence
+1 − 0.02 = 0.98 — the same value the fact `0.58::-injured(a)` would give.
+
+[`bird_counter_premise.gkp`](bird_counter_premise.gkp) moves the 0.58 from
+the rule to its premise (`0.58::vet(a)` with a certain rule). The result is
+0.748, not 0.98. The two placements mean different things: a confidence on
+the rule lowers the strength of what the rule derives, so `-injured(a)` gets
+negative support 0.58 as above. A confidence on the premise is the
+probability that the rule applies at all: with probability 0.58 the rule
+derives a certain `-injured(a)` and the exception is cancelled completely;
+with probability 0.42 the rule does not apply and the exception keeps its
+full 0.6. The average is 0.58 · 1 + 0.42 · (1 − 0.6) = 0.748.
+
+Evidence against an exception is itself checked: if its own derivation is
+blocked by a certain exception, it contributes nothing.
 
 ## Equal defaults
 

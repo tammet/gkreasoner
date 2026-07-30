@@ -1,0 +1,14 @@
+command: ["/opt/provers/smproblog-bfbc542/bin/problog", "-k", "ddnnf", "/opt/gk/experiments/comparisons/table_extensions/smproblog_d4sm.pl"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+Total: 0.0s
+	t		f		i
+nonpacifist:	0.36      	0.64      	0         
+   pacifist:	0.56      	0.44      	0         
+     quaker:	0.8       	0.2       	0         
+ republican:	0.6       	0.4       	0         
+
+[stderr]

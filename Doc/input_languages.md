@@ -95,8 +95,11 @@ A taxonomy can supply the priority:
 
 Taxonomy priorities require `-defaults` and the auxiliary files
 `gk_name_number.txt` and `gk_taxonomy_packed.txt`. `tax(name, N)` supplies a
-numeric fallback. An `unless` expression without a priority is incomparable
-with explicitly ordered defaults.
+numeric fallback. An `unless` expression without a priority makes no priority
+claim: it neither defeats nor is defeated by an explicitly ranked default,
+and two such rules about opposite polarities of one atom count as ordinary
+opposing evidence (see the defaults section of
+[`how_gk_works.md`](how_gk_works.md)).
 
 ### Equality and arithmetic
 
@@ -186,6 +189,15 @@ flies(X) :- bird(X), unless(-flies(X), 2).
 The example files use predicate arrays of this form. JSON-LD-LOGIC also
 supports graph-oriented objects, but those are not needed for the introductory
 examples.
+
+Write an atom with no arguments as a one-element array everywhere it occurs:
+the fact `["raining"]`, the clause `[["-raining"], ["wet"]]` for
+`-raining | wet`, the question `["raining"]`. An array that starts with a
+string is a predicate application, so `["-raining", "wet"]` would be the
+single atom `-raining(wet)`, not a clause. A bare string such as `"raining"`
+is also accepted as a fact, but it does not match the array form of the same
+name, so one file must not mix the two spellings. The GKP and GKS converters
+produce the array form consistently.
 
 ## GKS
 

@@ -1,0 +1,24 @@
+command: ["/opt/provers/plingo-1.1.0/bin/plingo", "/opt/gk/experiments/comparisons/table_extensions/plingo_d4sm.lp", "--frontend=problog", "--quiet=2"]
+exit_code: 30
+accepted_exit_codes: [0, 30]
+missing_checks: []
+
+[stdout]
+plingo version 1.1.0
+Reading from ...risons/table_extensions/plingo_d4sm.lp
+Solving...
+OPTIMUM FOUND
+
+Models       : 5
+  Optimum    : yes
+Calls        : 1
+Time         : 0.002s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.002s
+
+
+nonpacifist: 0.40540
+pacifist: 0.54054
+
+
+
+[stderr]

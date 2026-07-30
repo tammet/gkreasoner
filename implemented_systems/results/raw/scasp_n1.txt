@@ -1,0 +1,50 @@
+command: ["/home/tanel/.local/bin/scasp", "-n", "0", "--query=n1_twobirds(X,Y)", "/opt/gk/experiments/comparisons/table_extensions/scasp_nonground.pl"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+% Query
+?- n1_twobirds(X, Y).
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+%                         Answer 1 (0.000 sec)                          
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+% Model
+{ n1_bird(a),        n1_twobirds(a,a)
+}
+% Bindings
+X = a,
+Y = a
+
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+%                         Answer 2 (0.000 sec)                          
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+% Model
+{ n1_bird(a),        n1_bird(b),        n1_twobirds(a,b)
+}
+% Bindings
+X = a,
+Y = b
+
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+%                         Answer 3 (0.000 sec)                          
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+% Model
+{ n1_bird(a),        n1_bird(b),        n1_twobirds(b,a)
+}
+% Bindings
+X = b,
+Y = a
+
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+%                         Answer 4 (0.000 sec)                          
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+% Model
+{ n1_bird(b),        n1_twobirds(b,b)
+}
+% Bindings
+X = b,
+Y = b
+
+
+[stderr]

@@ -1,0 +1,42 @@
+command: ["/opt/provers/plingo-1.1.0/bin/plingo", "/opt/gk/experiments/comparisons/table_extensions/plingo_cases.lp", "--frontend=problog", "--quiet=2"]
+exit_code: 30
+accepted_exit_codes: [0, 30]
+missing_checks: []
+
+[stdout]
+plingo version 1.1.0
+Reading from ...isons/table_extensions/plingo_cases.lp
+Solving...
+OPTIMUM FOUND
+
+Models       : 131072
+  Optimum    : yes
+Calls        : 1
+Time         : 2.462s (Solving: 2.45s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 2.460s
+
+
+d7_neg: 0.48000
+d7_pos: 0.48000
+d6_rebut: 1.00000
+d6_undercut: 1.00000
+d5_neg: 0.30000
+d5_pos: 0.63000
+d4_neg: 0.50000
+d4_pos: 0.50000
+d3_h: 0.22500
+d2_h: 0.27000
+d1_neg: 0.90000
+d1_pos: 0.10000
+c2_q: 0.30000
+c1_q: 0.80000
+
+
+
+[stderr]
+/opt/gk/experiments/comparisons/table_extensions/plingo_cases.lp:35:20-30: info: atom does not occur in any rule head:
+  d6_injured
+
+/opt/gk/experiments/comparisons/table_extensions/plingo_cases.lp:36:17-23: info: atom does not occur in any rule head:
+  d6_neg
+

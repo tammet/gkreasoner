@@ -6,7 +6,7 @@ support and a final confidence:
 1. multiply the distinct evidence instances used by one proof;
 2. combine alternative proofs from their evidence-instance sets;
 3. calculate positive and negative support separately;
-4. report the remaining mass as conflict or ignorance.
+4. report the remainder as conflict or ignorance.
 
 Run commands from the repository root. `-detail` adds the four-component
 report; `-confidence 0` retains results below the default acceptance threshold.

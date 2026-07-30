@@ -1,0 +1,32 @@
+command: ["/opt/gk/gk", "/opt/gk/experiments/comparisons/table_extensions/gk/d2.gkp", "-detail", "-outformat", "json"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+{"result": "answer found",
+
+"answers": [
+{
+"answer": true,
+"blockers": [["$block",0,["b"]]],
+"confidence": 0.5400,
+"detail": {"support_for": 0.5400,
+"support_against": 0.0000,
+"conflict": 0.0000,
+"ignorance": 0.4600,
+"calculation": "canonical_atom",
+"coverage_status": "complete",
+"polarity_status": "guaranteed",
+"conflict_sources": [{"atom": ["b"], "conflict": 0.3000}],
+"flags": ["OVERLAP_JOINT", "CONTESTED"],
+"recursive_checks": 1},
+"positive proof":
+[
+[1, ["in", "frm_3", "axiom", 0.9], [["$block",0,["b"]], ["h"]]],
+[2, ["in", "frm_4", "goal", 1], [["-h"]]],
+[3, ["mp", [1,1], 2, "fromgoal", 0.9], [["$block",0,["b"]]]]
+]}
+]}
+
+[stderr]

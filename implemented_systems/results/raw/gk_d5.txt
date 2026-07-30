@@ -1,0 +1,38 @@
+command: ["/opt/gk/gk", "/opt/gk/experiments/comparisons/table_extensions/gk/d5.gkp", "-detail", "-outformat", "json"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+{"result": "answer found",
+
+"answers": [
+{
+"answer": true,
+"blockers": [["$block",2,["$not",["l"]]]],
+"confidence": 0.3000,
+"detail": {"support_for": 0.6000,
+"support_against": 0.3000,
+"conflict": 0.0000,
+"ignorance": 0.1000,
+"calculation": "canonical_atom",
+"coverage_status": "complete",
+"polarity_status": "guaranteed",
+"conflict_sources": [],
+"flags": ["CONTESTED"],
+"recursive_checks": 1},
+"positive proof":
+[
+[1, ["in", "frm_1", "axiom", 0.9], [["$block",2,["$not",["l"]]], ["l"]]],
+[2, ["in", "frm_3", "goal", 1], [["-l"]]],
+[3, ["mp", [1,1], 2, "fromgoal", 0.9], [["$block",2,["$not",["l"]]]]]
+],
+"negative proof":
+[
+[1, ["in", "frm_2", "axiom", 0.3], [["-l"], ["$block",3,["l"]]]],
+[2, ["in", "$auto_negated_question", "goal", 1], [["l"]]],
+[3, ["mp", 1, 2, "fromgoal", 0.3], [["$block",3,["l"]]]]
+]}
+]}
+
+[stderr]

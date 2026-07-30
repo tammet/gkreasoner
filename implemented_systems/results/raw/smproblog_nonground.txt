@@ -1,0 +1,23 @@
+command: ["/opt/provers/smproblog-bfbc542/bin/problog", "-k", "ddnnf", "/opt/gk/experiments/comparisons/table_extensions/smproblog_nonground.pl"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+Total: 0.002s
+	t		f		i
+             n1_bird(a):	0.5       	0.5       	0         
+             n1_bird(b):	0.6       	0.4       	0         
+       n1_twobirds(a,a):	0.5       	0.5       	0         
+       n1_twobirds(a,b):	0.3       	0.7       	0         
+       n1_twobirds(b,a):	0.3       	0.7       	0         
+       n1_twobirds(b,b):	0.6       	0.4       	0         
+ n2_influences(ann,bob):	0.6       	0.4       	0         
+n2_influences(bob,carl):	0.2       	0.8       	0         
+         n2_smokes(ann):	0.8       	0.2       	0         
+         n2_smokes(bob):	0.688     	0.312     	0         
+        n2_smokes(carl):	0.1376    	0.8624    	0         
+         n2_stress(ann):	0.8       	0.2       	0         
+         n2_stress(bob):	0.4       	0.6       	0         
+
+[stderr]

@@ -1,0 +1,36 @@
+command: ["/opt/gk/gk", "/opt/gk/experiments/comparisons/table_extensions/gk/c1.gkp", "-detail", "-outformat", "json"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+{"result": "answer found",
+
+"answers": [
+{
+"answer": true,
+"confidence": 0.8000,
+"detail": {"support_for": 0.8000,
+"support_against": 0.0000,
+"conflict": 0.0000,
+"ignorance": 0.2000,
+"calculation": "flat",
+"coverage_status": "complete",
+"polarity_status": "not_guaranteed",
+"conflict_sources": [],
+"flags": [],
+"recursive_checks": 0},
+"positive proof":
+[
+[1, ["in", "frm_3", "axiom", 1], [["-a"], ["q"]]],
+[2, ["in", "frm_1", "axiom", 0.5], [["a"]]],
+[3, ["in", "frm_5", "goal", 1], [["-q"]]],
+[4, ["mp", 1, 2, 3, "fromgoal", 0.5], false],
+[5, ["in", "frm_4", "axiom", 1], [["-b"], ["q"]]],
+[6, ["in", "frm_2", "axiom", 0.6], [["b"]]],
+[7, ["mp", 5, 6, 3, "fromgoal", 0.6], false],
+[8, ["cumul", 4, 7, "fromgoal", 0.8], false]
+]}
+]}
+
+[stderr]

@@ -1,0 +1,3 @@
+flies(a) :- unless(-flies(a)).
+
+query(flies(a)).

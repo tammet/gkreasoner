@@ -1,0 +1,9 @@
+command: ["/opt/provers/pasta-1.0.1/bin/pastasolver", "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp", "--query=c1_q"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+Lower probability == upper probability for the query: 0.7999999999999861
+
+[stderr]
