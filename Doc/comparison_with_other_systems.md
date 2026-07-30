@@ -5,10 +5,9 @@ TweetyProject, clingo, DLV, I-DLV, and s(CASP). Each system uses its native
 semantics. Current measurements are kept separate from historical results.
 
 The comparison table of the gk uncertainty paper is a separate, per-cell
-package: [`../implemented_systems/`](../implemented_systems/README.md) holds
-its inputs, the classification and reason for every cell, the recorded
-commands, and the captured outputs, and adds plingo and smProbLog to the
-systems listed above.
+package: [`../comparisons/`](../comparisons/README.md) holds its inputs, the
+classification and reason for every cell, the recorded commands, and the
+captured outputs, and adds plingo and smProbLog to the systems listed above.
 
 ## ProbLog
 

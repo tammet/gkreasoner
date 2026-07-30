@@ -101,16 +101,16 @@ larger set of language-translation examples runnable by gk.
 | [`Doc/comparison_with_other_systems.md`](Doc/comparison_with_other_systems.md) | Comparisons with other reasoners |
 | [`Examples/language/README.md`](Examples/language/README.md) | Logic generated from English-language inputs |
 | [`montecarlo/README.md`](montecarlo/README.md) | Monte Carlo checks of GK's confidence and support assessment |
-| [`implemented_systems/README.md`](implemented_systems/README.md) | Inputs, classifications, and captured outputs for the implemented-system comparison table |
+| [`comparisons/README.md`](comparisons/README.md) | Inputs, classifications, and captured outputs for the implemented-system comparison table |
 
 ## Repository layout
 
 ```text
-bin/                  GK executables for each platform
-Doc/                  user documentation
-Examples/             example problems grouped by feature
-montecarlo/           Monte Carlo checks of GK's confidence and support assessment
-implemented_systems/  comparison table inputs, classifications, and outputs
+bin/          GK executables for each platform
+Doc/          user documentation
+Examples/     example problems grouped by feature
+montecarlo/   Monte Carlo checks of GK's confidence and support assessment
+comparisons/  comparison table inputs, classifications, and outputs
 ```
 
 The example categories are classical reasoning, confidence and support calculation,

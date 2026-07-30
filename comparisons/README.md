@@ -57,7 +57,7 @@ re-run from this repository, substitute the repository's own binary and this
 directory for those paths. A gk cell can be run as follows:
 
 ```sh
-./bin/gk implemented_systems/gk/c1.gkp -detail -outformat json
+./bin/gk comparisons/gk/c1.gkp -detail -outformat json
 ```
 
 and likewise for `c2`, `d1`, `d2`, `d3`, `d4`, `d4sm_pos`, `d4sm_neg`, `d5`,
@@ -70,8 +70,8 @@ confidence displayed in the table is `support_for - support_against` from the
 The external-system cells need the corresponding system installed. Take the
 command from its `run_records.json` entry and replace the input path with the
 matching file in this directory — for example
-`problog implemented_systems/problog_cases.pl`, or
-`clingo implemented_systems/asp_cases.lp 0`. Versions are listed above; other
+`problog comparisons/problog_cases.pl`, or
+`clingo comparisons/asp_cases.lp 0`. Versions are listed above; other
 versions may return different results. The two `fixtures/` files are used in
 place of a rerun for TweetyProject and I-DLV, which need a Java or C++ toolchain
 rather than a single executable.
