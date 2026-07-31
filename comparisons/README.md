@@ -62,7 +62,7 @@ directory for those paths. A gk cell can be run as follows:
 
 and likewise for `c2`, `d1`, `d2`, `d3`, `d4`, `d4sm_pos`, `d4sm_neg`, `d5`,
 `d6_undercut`, `d6_rebut`, `d7`, `n1_study4`, and `n2_study10`. These inputs
-reproduce their recorded table cells with the gk 1.0.8 binary in
+reproduce their recorded table cells with the gk 1.0.9 binary in
 [`../bin/`](../bin/README.md); the signed
 confidence displayed in the table is `support_for - support_against` from the
 `detail` block.
