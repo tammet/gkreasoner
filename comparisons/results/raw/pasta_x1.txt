@@ -1,0 +1,9 @@
+command: ["pastasolver", "inputs/pasta/pasta_x1.lp", "--query=q(b)"]
+exit_code: 255
+accepted_exit_codes: [255]
+missing_checks: []
+
+[stdout]
+[91mError: Found 1 worlds without answer sets.[0m
+
+[stderr]

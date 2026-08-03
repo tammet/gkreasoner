@@ -1,7 +1,6 @@
-% Historical function-symbol variant for clingo.
-% The positive recursive f(X) rules require infinitely many ground terms. The
-% The clingo 5.4.0 run did not finish; clingo 5.6.2 was also still grounding
-% when a local reproduction was interrupted after five seconds.
+% Function-symbol variant for clingo.
+% The positive recursive f(X) rules require infinitely many ground terms,
+% so grounding does not finish.
 
 bird(b1).
 penguin(p1).

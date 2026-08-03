@@ -1,0 +1,23 @@
+command: ["plingo", "inputs/plingo/plingo_e1.lp", "--frontend=problog", "--quiet=2"]
+exit_code: 30
+accepted_exit_codes: [0, 30]
+missing_checks: []
+
+[stdout]
+plingo version 1.1.0
+Reading from ...parisons/table_extensions/plingo_e1.lp
+Solving...
+OPTIMUM FOUND
+
+Models       : 7
+  Optimum    : yes
+Calls        : 1
+Time         : 0.004s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.004s
+
+
+p(a): 0.79839
+
+
+
+[stderr]

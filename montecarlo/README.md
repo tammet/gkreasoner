@@ -1,106 +1,76 @@
-# Monte Carlo interpretations of GK confidences and support
+# Monte Carlo checks for GK confidences
 
-This directory contains two sampling calculations for small GK examples. They
-give each reported confidence value a concrete meaning. Their estimates can be
-compared with GK's results without reusing GK's support arithmetic.
+## Purpose and scope
 
-The calculations are diagnostic tools, not alternative theorem provers. The
-clause-activation calculation repeatedly calls gk as an unweighted prover. The
-shared-threshold calculation evaluates a restricted, directional clause model
-in [Python 3](https://www.python.org/). Both are limited to finite inputs without
-function terms.
+This directory contains two sampling calculations for small GK examples.
+Each estimates a defined reference model, so GK results can be compared
+with model-level numbers computed without GK's support arithmetic. The two
+models measure different quantities; they need not agree with each other
+or with every GK report, and their disagreements identify the modelling
+decision an example turns on.
 
-Run the commands below from the repository root. The scripts require Python 3
-and the shipped `bin/gk`; they use only the Python standard library.
+The calculations are diagnostic tools rather than theorem provers. Both
+are limited to finite inputs with named constants and no function terms. Run
+the commands below from the repository root; the scripts require
+[Python 3](https://www.python.org/) (standard library only) and the
+shipped `bin/gk`.
 
-## Sampling modes
+## The two reference models
 
-The two modes test different readings. They agree on many simple examples but
-need not agree on recursive rules, contested premises, or defaults.
+### Clause-activation sampling
 
-### Clause-activation sampling: random Boolean programs
-
-The clause-activation sampler independently activates uncertain ground clause
-instances and invokes the unweighted prover in each sampled world. In this mode
-an input confidence `c` is treated as an activation probability. For each trial:
+Clause-activation sampling implements the ground-instance activation
+semantics: each ground instance of an uncertain input clause is an
+independent activation event whose probability is the input confidence.
+For each trial:
 
 1. gk clausifies the input.
 2. The script grounds the clauses over the constants in the file.
-3. Each uncertain ground clause is retained with probability `c` and otherwise
-   removed. Certain clauses are always retained.
-4. The retained clauses, without their confidence annotations, form one Boolean program.
-5. gk checks whether the query and its explicit negation are provable in that
-   program.
+3. Each uncertain ground clause is active with probability `c` and absent
+   otherwise. Certain clauses are always active.
+4. The active clauses, without their confidence annotations, form one
+   Boolean program.
+5. gk checks whether the query and its explicit negation are provable in
+   that program.
 
 For an answer `A`, the reported estimate is
 
 ```text
-P(A is provable) - P(-A is provable).
+P(A is provable) - P(-A is provable),
 ```
 
-The two probabilities are measured in the same sampled worlds. A world in
-which both polarities are provable contributes zero to the difference. This permits
-contradictory worlds; it is not conditioning on consistent worlds.
+the signed derivability measure of the activation-world sampler, measured
+in the same sampled worlds. A world in which both polarities are provable
+contributes zero to the difference; contradictory worlds are permitted,
+without conditioning on consistency. The measure agrees with GK's signed
+confidence on the stated common fragment; premise-level opposition,
+defaults, retained-proof coverage, and calculation fallbacks can separate
+the two values ([`comparison.md`](comparison.md)).
 
-This construction is close to the usual independent-fact reading used by
-[ProbLog](https://dtai.cs.kuleuven.be/problog/editor.html) when
-the program contains independent facts and definite rules. A shared uncertain
-premise is drawn once per world, so proofs that use it are correlated. Explicit
-support for explicit negation and defaults add behavior that is not a standard
-ProbLog query probability.
+By default, separate ground instances of an uncertain rule receive
+separate draws; this is the ground-instance activation setting. `--draws
+shared` instead activates all instances originating from one input
+statement together. That is a statement-level sensitivity calculation, and
+it is not GK's event identity: GK distinguishes ground instances and
+counts repeated use of the same ground instance once. State the draw
+setting with any result.
 
-Run a clause-activation calculation as follows:
+An uncertain input statement that clausifies into more than one clause is
+rejected: its activation events are not defined by this sampler.
 
-```sh
-montecarlo/gkmc.py -n 10000 --seed 1 Examples/confidences/cumulate.js
-```
+### Shared-threshold sampling
 
-`cumulate.js` contains two independent sources, 0.5 and 0.6, for `bird(a)`.
-The exact probability is
+Shared-threshold sampling, run by the threshold-world sampler, estimates
+the shared-threshold reference construction on a restricted fragment. It
+does not call gk, and it estimates the reference model, not every GK
+report: a GK report whose `calculation` field is `flat`, `blocked_flat`,
+or `proof_fallback` is a proof-pool decomposition, not a completed
+shared-threshold atom partition.
 
-```text
-1 - (1 - 0.5)(1 - 0.6) = 0.8.
-```
-
-A representative run gives:
-
-```text
-| answer | MC pos | MC neg | MC pos-neg | 95% CI | gk exact |
-| yes    | 0.8013 | 0.0000 | 0.8013     | [0.7935, 0.8091] | 0.8 |
-```
-
-The columns mean:
-
-- `MC pos`: fraction of valid trials in which the answer is provable;
-- `MC neg`: fraction in which its explicit negation is provable;
-- `MC pos-neg`: their paired difference;
-- `95% CI`: sampling interval for that difference;
-- `gk exact`: the number from one ordinary gk run on the original file.
-
-Open queries are supported. The script first discovers answer bindings and
-then checks each closed answer and its closed negation in the same worlds. This
-extra pass avoids losing a binding when an open query is simplified in a
-contradictory world.
-
-By default, separate ground instances of an uncertain rule receive separate
-draws. `--draws shared` instead gives all instances originating from one input
-statement the same draw. The choice matters for rules with variables and
-should be stated with any result.
-
-### Shared-threshold sampling: the four-component report
-
-Shared-threshold mode, run by the threshold-world sampler, estimates GK's
-four-component report:
-
-```text
-support_for, support_against, conflict, ignorance.
-```
-
-Suppose the aggregated positive support for one ground atom is `a`, and the
-aggregated negative support is `b`. The script draws two independent uniforms
-from 0 to 1 for each ground atom.
-For ordinary opposition only the first draw `U` is used, as one shared uniform
-threshold for both polarities:
+Suppose the pooled positive support for one ground atom is `a` and the
+pooled negative support is `b`. The sampler draws two independent uniforms
+from 0 to 1 for each ground atom. Ordinary opposition uses the first draw
+`U` as one shared uniform threshold for both polarities:
 
 | Condition | Outcome |
 |---|---|
@@ -109,252 +79,55 @@ threshold for both polarities:
 | `U <= min(a,b)` | conflict |
 | `U > max(a,b)` | ignorance |
 
-When the input contains only positive and negative facts for the queried atom,
-this gives the four values exactly in the limit:
+Same-polarity confidences are pooled by noisy-or. A ground rule instance
+holds in a draw when its body atoms are usable in the required polarity
+and no exception condition fires. Each ground atom has one fixed pair of
+draws per trial, so downstream derivations that depend on the same atom
+remain correlated.
 
-```text
-support_for     = max(a - b, 0)
-support_against = max(b - a, 0)
-conflict        = min(a, b)
-ignorance       = 1 - max(a, b)
-```
-
-Same-polarity confidences are combined by noisy-or. Rules become
-available only when their body atoms are available in the required polarity.
-A blocker check disables a rule when its exception condition is supported.
-Each ground atom has one fixed pair of draws per trial, so two downstream proofs that
-depend on the same atom remain correlated.
-
-Opposition involving defaults uses both draws, following GK's defined local
-combination rules: with equal explicit ranks, each polarity fires on its own
-threshold and survives only if the other misses (mutual blocking); with unequal
-ranks, the higher-ranked default takes the overlap region of the shared
-threshold (the strict-priority override); when only one polarity is supported
-by a default with an exception condition, the two outcome regions are exclusive
-and no conflict component arises. The second, independent threshold is what
-makes a product such as `a * (1 - b)` expressible; a single shared threshold
-cannot produce it.
+Opposition involving defaults uses both draws, following the local
+combination rules: with equal explicit ranks, each polarity fires on its
+own threshold and survives only if the other misses (mutual blocking);
+with unequal ranks, the higher-ranked default takes the overlap region of
+the shared threshold (the strict-priority override); a default opposed by
+ordinary evidence takes the exclusive split, with no conflict component.
 
 Atoms are evaluated in dependency order. A cycle containing only
-single-polarity positive dependencies is evaluated by a least fixpoint in each
-trial. A blocker cycle that runs through the queried atom is resolved credulously for
-the query, matching gk's blocker check (the query is evaluated first with the
-in-cycle blockers against it voided, then the rest reach a fixpoint). Any
-other cycle through a blocker or a contested atom is reported as
-`not scored`, because the small model does not define a reliable outcome for
-it.
+single-polarity positive dependencies is evaluated by a least fixpoint in
+each trial. A blocker cycle through the queried atom is resolved
+credulously for the query, matching GK's blocker check. Any other cycle
+through an exception condition or a contested atom, and a rank-restricted
+exception check, is reported as `not scored`.
 
-Run a shared-threshold calculation as follows:
+## Commands
+
+Clause-activation sampling:
+
+```sh
+montecarlo/gkmc.py -n 10000 --seed 1 Examples/confidences/cumulate.js
+```
+
+Shared-threshold sampling:
 
 ```sh
 montecarlo/gkmc.py --semantics threshold -n 10000 --seed 1 \
   Examples/confidences/net_direct.js
 ```
 
-`net_direct.js` has confidence 0.7 for `flies(a)` and confidence 0.4 for its
-negation. With 10,000 draws the sampler returned
-0.3018 positive support, 0 negative support, 0.3984 conflict, and 0.2998
-ignorance. GK reports 0.3, 0, 0.4, and 0.3.
-
-Shared-threshold mode does not call GK. It supports a smaller input fragment
-than clause-activation mode: a single predicate query — ground, or open, in which
-case each closed instance over the named constants is evaluated separately —
-and directional clauses whose implied conclusions can be recovered by GK's
-head-selection rules: a blocker complement, positive implied literals, or an
-explicit head marker for an all-negative clause. A marker-less all-negative
-clause is refused rather than guessed. It reports function terms, arithmetic
-and other built-ins, equality, compact formula connectives, and taxonomy-valued
-blocker priorities as unsupported.
-
-## Differences
-
-Agreement is expected when both calculations use the same independence and
-dependency structure. It supports the stated interpretation for that example.
-When the numbers differ persistently, that indicates an implementation or
-semantic discrepancy. The cases below are known semantic differences, and the
-shape of each difference identifies which modelling decision the example turns
-on. The uncertain-exception case is included because it clearly shows the
-world split shared by all three calculations.
-
-The one-sentence summary of each reading:
-
-- **GK evaluates argument support.** It pools the retained derivations for an
-  answer and its negation. When a relevant predicate is contested, a separate
-  report-time backward search over the input clauses collects directed
-  derivations of the answer and its premises; numerical evaluation then
-  resolves that opposition before usable premise support is propagated. This
-  assessment is neither a best-proof calculation nor a calculation derived
-  only from the retained answer proof.
-- **Clause-activation sampling counts ground-instance activation worlds.**
-  Each uncertain ground clause is independently present or absent
-  (with `--draws shared`, per input statement instead); a world is counted for
-  an answer when the answer is provable in it, and for the negation when its
-  explicit negation is provable.
-- **Shared-threshold sampling counts worlds with per-atom thresholds.**
-  Evidence counts when its pooled strength clears a threshold. Ordinary
-  opposition about one atom faces one shared threshold (gk's opposition
-  resolution); when the negated conclusion is also a default's exception
-  condition, the default and support for that condition interact through the
-  atom's two independent thresholds (GK's local default-combination rules).
-
-The third reading is, on its documented fragment, a sampling semantics for
-gk's own arithmetic: gk's four-component formulas are exactly the probabilities
-of the corresponding threshold events, chaining corresponds to
-independent draws for distinct atoms, and the shared threshold reproduces both
-the opposition resolution on contested atoms and the decision not to
-double-count shared support. That is why the shared-threshold table in
-[`comparison.md`](comparison.md) tracks gk to sampling precision while
-clause-activation sampling deviates exactly where independent statement activation
-and gk's opposition resolution part ways.
-
-### A default with an uncertain exception condition
-
-[`bird_exception.js`](../Examples/exceptions/bird_exception.js): two birds,
-birds fly by default, and evidence at 0.9 that `a` does not fly.
-
-```text
-gk (query flies(X)):        b accepted at 1.0; a rejected at 0.8
-                            detail for a: support_for 0.1,
-                            support_against 0.9
-clause-activation sampling: provable 0.10, negation provable 0.90,
-                            difference -0.80
-```
-
-All columns rest on the same split: in nine worlds of ten, support for the
-exception condition is active and makes `-flies(a)` itself provable; in one
-world of ten the flying default stands. GK's signed result for `a` is -0.8, matching the
-sampled difference, and its 0.1 positive support equals the sampled positive
-column.
-
-### A contested premise
-
-[`net_premise.js`](../Examples/confidences/net_premise.js): `bird(a)` at
-0.5, `-bird(a)` at 0.2, and birds fly at 0.9.
-
-```text
-gk:                          0.27   (resolves the opposition on the premise:
-                                     (0.5 - 0.2) * 0.9)
-clause-activation sampling:  0.45   (0.5 * 0.9; support for the explicit
-                                     negation does not reach the query)
-shared-threshold sampling:   0.27   (bird usable iff 0.2 < U <= 0.5, i.e. 0.3)
-```
-
-Here the clause-activation and shared-threshold readings split. Under one
-independent activation decision per statement,
-`-bird(a)` never makes `-flies(a)` derivable, so it changes nothing: the
-positive premise is provable in half of the worlds — including worlds where
-its negation is provable alongside it — and the rule fires in 0.9 of those.
-Under one shared threshold, the two bird statements are evaluated against the
-same draw: only the margin `0.2 < U <= 0.5` leaves the premise usable, and
-GK's subtraction is the closed form of exactly that. In GK's dependency-aware
-evaluation, doubt about a premise reduces every conclusion built on it,
-whether or not the doubt can be propagated to the conclusion's negation.
-
-### A recursive rule
-
-[`near.js`](../Examples/confidences/near.js): a chain of nine certain
-`near` links and a transitivity rule at 0.9.
-
-```text
-gk:                  0.4305   (0.9^8: eight applications of the rule)
-shared-threshold sampling: 1.0000 (recorded; a draw counts if any
-                               decomposition works, and clause-activation
-                               sampling behaves alike)
-```
-
-The difference is a third dependence convention, and GK's calculation is
-exact and stable (the same 0.4305 under different time limits and search
-strategies). The retained answer proof shown by GK is one chain using eight
-distinct ground instances of the transitivity rule, hence `0.9^8`. GK's event
-model distinguishes different ground instances, but same-polarity pooling can
-use only the proof family retained by bounded search. The threshold sampler
-instead grounds the finite graph before sampling and applies every reachable
-ground rule instance in every world, so alternative decompositions make the
-query usable in every recorded draw. The difference here is retained-proof
-coverage versus exhaustive grounded evaluation, not statement-level sharing.
-
-### Defaults and priorities
-
-Evidence usability after clause activation is decided by GK's default and
-priority machinery. The threshold-world sampler implements the defined local
-combination rules for defaults and
-opposing evidence — exception conditions, equal-rank mutual blocking, the
-strict-priority override, and blocker cycles through the queried atom. On the
-remaining priority encodings, such as taxonomy-valued priorities
-and multi-level default structures, the samplers report the case as unsupported
-(`not scored`) or annotate rather than guess; those unsupported cases mark the
-constructs for which a defined world-counting account of GK's behavior is not
-available.
-
-### Why GK does not simply adopt the clause-activation numbers
-
-Three reasons, in increasing order of importance. First, cost: the
-clause-activation answer is a count over all combinations of the uncertain
-statements, and the number of combinations doubles with every statement —
-that is why this directory samples instead of counting, needs thousands of
-proof searches per estimate, and still returns numbers with sampling noise,
-while GK uses bounded report-time calculations rather than world enumeration.
-Its separate premise-opposition search can itself be expensive, which is why it
-has explicit
-depth, width, and deadline limits and visibly falls back when flagged limits
-are reached.
-Second, coverage: GK answers on inputs the samplers do not support (function
-terms, equality, arithmetic, taxonomy priorities). Third, and decisively, the
-clause-activation reading is not uniformly better: on `net_premise.js` it does
-not propagate negative support on the premise to the conclusion. The
-shared-threshold model shows that GK's numbers already have a world-based
-semantics of their own on a well-defined fragment; the two samplers are
-kept as independent checks precisely because their disagreements carry
-information.
-
-The detailed results and the coverage status of every example directory are in
-[`comparison.md`](comparison.md). A three-way table over the 23 examples of
-the public logictools.org uncertainty page — gk against both samplers, with a
-reason for every unsupported case — is in
-[`uncertainty_page_comparison.md`](uncertainty_page_comparison.md).
-
-## Reference checks
-
-`settlement_checks/` holds ground-query probes for the defaults family — the
-uncertain and certain exception, the
-equal-rank mutual blocking, the strict-priority override, a default opposed by
-ordinary evidence, the rank-restricted check in both directions, and the
-negated query — with `expected.tsv` recording the four components of native
-GK. The threshold-world sampler reproduces all ten:
+Batch reference check (no input file needed):
 
 ```sh
 montecarlo/gkmc.py --semantics threshold -n 100000 --seed 1 \
-  --check montecarlo/settlement_checks montecarlo/settlement_checks/sc_exc09.js
+  --check montecarlo/reference_checks
 ```
 
-The shared-threshold core mirrors the hand-derived reference arithmetic (each atom
-draws two independent uniforms; ordinary opposition keeps the shared-threshold
-subtraction, defaults with exception conditions take the exclusive treatment
-for a default opposed by ordinary support, the symmetric equal-rank treatment,
-or the strict-priority treatment), open queries are evaluated per closed
-instance, and a blocker cycle through the query atom resolves
-credulously for the query, as gk's blocker check does. Loop cases need an
-adequate `-seconds` budget on the gk side: with the default budget the
-check-of-check may not complete, and gk then reports ignorance for the loop.
+Other modes: `--semantics provable` reports only `P(A is provable)`;
+`--semantics gkdefault` samples the same Boolean worlds but runs gk's
+default acceptance on each closed answer; `--classify` (ground
+single-literal query) prints the A-only / not-A-only / both / neither
+world frequencies.
 
-## Other modes
-
-`--semantics provable` reports only `P(A is provable)`.
-
-`--semantics gkdefault` samples the same Boolean worlds but runs GK's default
-acceptance calculation on each closed answer. It estimates how often gk would
-accept that answer in a sampled world; it is not the four-component threshold
-model.
-
-For a ground, single-literal query, `--classify` prints four world frequencies:
-
-```text
-A only, -A only, both, neither.
-```
-
-This is useful for seeing the information hidden by the signed difference.
-
-## Options and reproducibility
+Options:
 
 ```text
 montecarlo/gkmc.py [-n TRIALS] [--seed SEED]
@@ -363,31 +136,88 @@ montecarlo/gkmc.py [-n TRIALS] [--seed SEED]
                    [--classify] [--jobs N] [--gk PATH]
                    [--gk-args "..."] [--gk-timeout SECONDS]
                    [--max-ground N] [--keep-worlds DIR]
-                   [--json FILE] input.js
+                   [--json FILE] [--check DIR] [input.js]
 ```
 
-- The default is 10,000 trials. State the count and seed with every result.
-- `--seed` makes the sampled worlds repeatable.
+- `--seed` makes the sampled worlds repeatable; integer and string seeds
+  are both stable across processes.
 - `--jobs` controls concurrent gk calls in clause-activation mode.
-- `--gk` defaults to the repository's `bin/gk`.
-- `--gk-timeout` applies to each Boolean world, not to the complete run.
-- `--max-ground` stops grounding when it reaches the configured limit.
-- `--keep-worlds` retains generated Boolean inputs for inspection.
-- `--json` writes the clause-activation result in machine-readable form.
+- `--gk` defaults to the repository's `bin/gk`; `--gk-timeout` applies to
+  each Boolean world.
+- `--max-ground` stops grounding at the configured limit in both modes.
+- `--keep-worlds` retains generated Boolean inputs; `--json` writes the
+  clause-activation result in machine-readable form.
 
-At 10,000 trials, the largest approximate 95% half-width for one sampled
-proportion is about 0.01. Smaller differences require more trials.
-Clause-activation mode can be slow because subtraction normally requires at
-least two GK runs per world. Shared-threshold mode performs its trials in one
-Python process and is much faster.
+## Output fields
 
-## Input limits
+Clause-activation output is a table per answer: `MC pos`, `MC neg`, their
+paired difference `MC pos-neg` with a 95% sampling interval, and
+`GK result` — the signed confidence from one ordinary `gk -detail` run on
+the original file, negative for a rejected answer. Below the table, one
+line per answer reports GK's `calculation`, `coverage_status`,
+`polarity_status`, and flags; these say what kind of GK result the number
+is (see the report-status tables in
+[`../Doc/how_gk_works.md`](../Doc/how_gk_works.md)). A numeric agreement
+is meaningful only together with those fields.
 
-- The command-line input must be a JSON-LD-LOGIC `.js` file. Equivalent `.gkp`,
-  `.gks`, TPTP, ASP, and Prolog files are outside these scripts.
-- Both modes require a finite constant domain and reject nested function terms.
-- Clause-activation mode obtains clauses from GK and does not continue when it
-  cannot map the clauses back to input confidences safely.
-- Shared-threshold mode has the narrower clause and query restrictions described
-  above. It reports unresolved cyclic or priority cases instead of guessing.
-- Neither mode performs probabilistic conditioning on evidence or learning.
+Shared-threshold output is the four components `support_for`,
+`support_against`, `conflict`, and `ignorance` per query instance, or
+`not scored` with a reason for an unsupported case.
+
+## Exactness and support limits
+
+At 10,000 trials the largest approximate 95% half-width for one sampled
+proportion is about 0.01; smaller differences require more trials.
+Clause-activation mode is slow because subtraction normally needs at least
+two gk runs per world; shared-threshold mode runs its trials in one Python
+process.
+
+On the GK side, a retained-proof value is the exact union probability of
+the retained proof set only when the activation-event identifiers are
+ground, replay succeeds, and the proof-union calculation stays within its
+bounds; retained proofs need not cover every possible proof. A completed
+shared-threshold report is marked `calculation: canonical_atom`. The
+comparison tables therefore record GK's calculation and status next to
+each number.
+
+Input limits of the samplers:
+
+- the input must be a JSON-LD-LOGIC `.js` file;
+- both modes require a finite constant domain and reject function terms;
+- clause-activation mode rejects an uncertain statement that clausifies
+  into several clauses;
+- shared-threshold mode needs a single predicate query (ground, or open
+  and then evaluated per closed instance over the named constants) and
+  directional clauses: the head is the last ordinary literal, or the
+  consequent of the implication form `[antecedent, "=>", consequent]`; a
+  clause with more than one positive literal is rejected as ambiguous;
+- shared-threshold mode reports function terms, arithmetic and other
+  built-ins, equality, formula connectives, non-integer blocker
+  priorities, and the cycle and rank-restriction cases above as
+  unsupported;
+- neither mode performs probabilistic conditioning on evidence or
+  learning.
+
+## Results and checks
+
+Result tables, the worked difference cases, and the coverage status of the
+example directories are in [`comparison.md`](comparison.md).
+
+[`reference_checks/`](reference_checks/) holds ten ground-query reference
+inputs for the defaults family — uncertain and certain exception
+conditions, equal-rank mutual blocking, the strict-priority override with
+uncertain strengths, strict-priority ordering in both rank directions, a
+default opposed by ordinary evidence, and a negated query.
+`expected.tsv` records the four
+components derived analytically from the local combination rules; the
+batch check above reproduces all ten. gk `-detail` returns the same
+values for these cases; that parity is an observation recorded in
+`expected.tsv`, and gk output is not the source of the expected numbers.
+
+[`test_threshold_rank0.py`](test_threshold_rank0.py) checks the
+priority-zero cases and the contextual rank-restriction cases of the
+threshold sampler against hand-derived closed forms, without gk:
+
+```sh
+python3 montecarlo/test_threshold_rank0.py
+```

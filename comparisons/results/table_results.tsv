@@ -1,109 +1,145 @@
 row	example	system	relation	displayed_result	inputs	queries	run_ids	reason
-C1	independent causes	GK	N	.80	gk/c1.gkp	c1_q	gk_c1	
-C1	independent causes	ProbLog	E	.80	problog_cases.pl	c1_q	problog_cases	
-C1	independent causes	PASTA	E	[.80,.80]	pasta_cases.lp	c1_q	pasta_c1_q	
-C1	independent causes	plingo	E	.80	plingo_cases.lp	c1_q	plingo_cases	
-C1	independent causes	smProbLog	E	.80	smproblog_cases.pl	c1_q	smproblog_cases	
+C1	independent causes	GK	N	.80	inputs/gk/c1.gkp	c1_q	gk_c1	
+C1	independent causes	ProbLog	E	.80	inputs/problog/problog_cases.pl	c1_q	problog_cases	
+C1	independent causes	PASTA	E	[.80,.80]	inputs/pasta/pasta_cases.lp	c1_q	pasta_c1_q	
+C1	independent causes	plingo	E	.80	inputs/plingo/plingo_cases.lp	c1_q	plingo_cases	
+C1	independent causes	smProbLog	E	.80	inputs/smproblog/smproblog_cases.pl	c1_q	smproblog_cases	
 C1	independent causes	Tweety	U	U				The selected system does not return the confidence object tested by this row.
 C1	independent causes	clingo	U	U				The selected system does not return the confidence object tested by this row.
 C1	independent causes	DLV/I-DLV	U	U				The selected system does not return the confidence object tested by this row.
 C1	independent causes	s(CASP)	U	U				The selected system does not return the confidence object tested by this row.
-C2	conjunctive causes	GK	N	.30	gk/c2.gkp	c2_q	gk_c2	
-C2	conjunctive causes	ProbLog	E	.30	problog_cases.pl	c2_q	problog_cases	
-C2	conjunctive causes	PASTA	E	[.30,.30]	pasta_cases.lp	c2_q	pasta_c2_q	
-C2	conjunctive causes	plingo	E	.30	plingo_cases.lp	c2_q	plingo_cases	
-C2	conjunctive causes	smProbLog	E	.30	smproblog_cases.pl	c2_q	smproblog_cases	
+C2	conjunctive causes	GK	N	.30	inputs/gk/c2.gkp	c2_q	gk_c2	
+C2	conjunctive causes	ProbLog	E	.30	inputs/problog/problog_cases.pl	c2_q	problog_cases	
+C2	conjunctive causes	PASTA	E	[.30,.30]	inputs/pasta/pasta_cases.lp	c2_q	pasta_c2_q	
+C2	conjunctive causes	plingo	E	.30	inputs/plingo/plingo_cases.lp	c2_q	plingo_cases	
+C2	conjunctive causes	smProbLog	E	.30	inputs/smproblog/smproblog_cases.pl	c2_q	smproblog_cases	
 C2	conjunctive causes	Tweety	U	U				The selected system does not return the confidence object tested by this row.
 C2	conjunctive causes	clingo	U	U				The selected system does not return the confidence object tested by this row.
 C2	conjunctive causes	DLV/I-DLV	U	U				The selected system does not return the confidence object tested by this row.
 C2	conjunctive causes	s(CASP)	U	U				The selected system does not return the confidence object tested by this row.
-D1	uncertain contrary exception	GK	N	-.80	gk/d1.gkp	d1_pos	gk_d1	
-D1	uncertain contrary exception	ProbLog	A	.10/.90	problog_cases.pl	d1_pos;d1_neg	problog_cases	
-D1	uncertain contrary exception	PASTA	A	[.10,.10]/[.90,.90]	pasta_cases.lp	d1_pos;d1_neg	pasta_d1_pos;pasta_d1_neg	
-D1	uncertain contrary exception	plingo	A	.10/.90	plingo_cases.lp	d1_pos;d1_neg	plingo_cases	
-D1	uncertain contrary exception	smProbLog	A	.10/.90	smproblog_cases.pl	d1_pos;d1_neg	smproblog_cases	
+D1	uncertain contrary exception	GK	N	-.80	inputs/gk/d1.gkp	d1_pos	gk_d1	
+D1	uncertain contrary exception	ProbLog	A	.10/.90	inputs/problog/problog_cases.pl	d1_pos;d1_neg	problog_cases	
+D1	uncertain contrary exception	PASTA	A	[.10,.10]/[.90,.90]	inputs/pasta/pasta_cases.lp	d1_pos;d1_neg	pasta_d1_pos;pasta_d1_neg	
+D1	uncertain contrary exception	plingo	A	.10/.90	inputs/plingo/plingo_cases.lp	d1_pos;d1_neg	plingo_cases	
+D1	uncertain contrary exception	smProbLog	A	.10/.90	inputs/smproblog/smproblog_cases.pl	d1_pos;d1_neg	smproblog_cases	
 D1	uncertain contrary exception	Tweety	U	U				No faithful encoding of the row's GK construct is claimed.
-D1	uncertain contrary exception	clingo	A	no/yes	asp_cases.lp	d1_pos;d1_neg	clingo_cases	
-D1	uncertain contrary exception	DLV/I-DLV	A	no/yes	asp_cases.lp	d1_pos;d1_neg	dlv_cases	
-D1	uncertain contrary exception	s(CASP)	A	no/yes	scasp_cases.pl	d1_pos;d1_neg	scasp_d1_pos;scasp_d1_neg	
-D2	weighted facts and default	GK	N	.54	gk/d2.gkp	d2_h	gk_d2	
-D2	weighted facts and default	ProbLog	A	.27	problog_cases.pl	d2_h	problog_cases	
-D2	weighted facts and default	PASTA	A	[.27,.27]	pasta_cases.lp	d2_h	pasta_d2_h	
-D2	weighted facts and default	plingo	A	.27	plingo_cases.lp	d2_h	plingo_cases	
-D2	weighted facts and default	smProbLog	A	.27	smproblog_cases.pl	d2_h	smproblog_cases	
-D2	weighted facts and default	Tweety	U	U				No faithful encoding of the row's GK construct is claimed.
-D2	weighted facts and default	clingo	A	no	asp_cases.lp	d2_h	clingo_cases	
-D2	weighted facts and default	DLV/I-DLV	A	no	asp_cases.lp	d2_h	dlv_cases	
-D2	weighted facts and default	s(CASP)	A	no	scasp_cases.pl	d2_h	scasp_d2_h	
-D3	contested premise	GK	N	0_i	gk/d3.gkp	d3_h	gk_d3	
-D3	contested premise	ProbLog	A	.225	problog_cases.pl	d3_h	problog_cases	
-D3	contested premise	PASTA	A	[.225,.225]	pasta_cases.lp	d3_h	pasta_d3_h	
-D3	contested premise	plingo	A	.225	plingo_cases.lp	d3_h	plingo_cases	
-D3	contested premise	smProbLog	A	.225	smproblog_cases.pl	d3_h	smproblog_cases	
+D1	uncertain contrary exception	clingo	A	no/yes	inputs/asp/asp_cases.lp	d1_pos;d1_neg	clingo_cases	
+D1	uncertain contrary exception	DLV/I-DLV	A	no/yes	inputs/asp/asp_cases.lp	d1_pos;d1_neg	dlv_cases	
+D1	uncertain contrary exception	s(CASP)	A	no/yes	inputs/scasp/scasp_cases.pl	d1_pos;d1_neg	scasp_d1_pos;scasp_d1_neg	
+D2	facts and a default, all with confidences	GK	N	.54	inputs/gk/d2.gkp	d2_h	gk_d2	
+D2	facts and a default, all with confidences	ProbLog	A	.27	inputs/problog/problog_cases.pl	d2_h	problog_cases	
+D2	facts and a default, all with confidences	PASTA	A	[.27,.27]	inputs/pasta/pasta_cases.lp	d2_h	pasta_d2_h	
+D2	facts and a default, all with confidences	plingo	A	.27	inputs/plingo/plingo_cases.lp	d2_h	plingo_cases	
+D2	facts and a default, all with confidences	smProbLog	A	.27	inputs/smproblog/smproblog_cases.pl	d2_h	smproblog_cases	
+D2	facts and a default, all with confidences	Tweety	U	U				No faithful encoding of the row's GK construct is claimed.
+D2	facts and a default, all with confidences	clingo	A	no	inputs/asp/asp_cases.lp	d2_h	clingo_cases	
+D2	facts and a default, all with confidences	DLV/I-DLV	A	no	inputs/asp/asp_cases.lp	d2_h	dlv_cases	
+D2	facts and a default, all with confidences	s(CASP)	A	no	inputs/scasp/scasp_cases.pl	d2_h	scasp_d2_h	
+D3	contested premise	GK	N	0_i	inputs/gk/d3.gkp	d3_h	gk_d3	
+D3	contested premise	ProbLog	A	.225	inputs/problog/problog_cases.pl	d3_h	problog_cases	
+D3	contested premise	PASTA	A	[.225,.225]	inputs/pasta/pasta_cases.lp	d3_h	pasta_d3_h	
+D3	contested premise	plingo	A	.225	inputs/plingo/plingo_cases.lp	d3_h	plingo_cases	
+D3	contested premise	smProbLog	A	.225	inputs/smproblog/smproblog_cases.pl	d3_h	smproblog_cases	
 D3	contested premise	Tweety	U	U				No faithful encoding of the row's GK construct is claimed.
-D3	contested premise	clingo	A	no	asp_cases.lp	d3_h	clingo_cases	
-D3	contested premise	DLV/I-DLV	A	no	asp_cases.lp	d3_h	dlv_cases	
-D3	contested premise	s(CASP)	A	no	scasp_cases.pl	d3_h	scasp_d3_h	
-D4	Nixon defaults	GK	N	0_i	gk/d4.gkp	d4_pos	gk_d4	
+D3	contested premise	clingo	A	no	inputs/asp/asp_cases.lp	d3_h	clingo_cases	
+D3	contested premise	DLV/I-DLV	A	no	inputs/asp/asp_cases.lp	d3_h	dlv_cases	
+D3	contested premise	s(CASP)	A	no	inputs/scasp/scasp_cases.pl	d3_h	scasp_d3_h	
+D4	Nixon defaults	GK	N	0_i	inputs/gk/d4.gkp	d4_pos	gk_d4	
 D4	Nixon defaults	ProbLog	U	U				The selected semantics does not represent the row's stable-model choice.
-D4	Nixon defaults	PASTA	N	[0,1]/[0,1]	pasta_cases.lp	d4_pos;d4_neg	pasta_d4_pos;pasta_d4_neg	
-D4	Nixon defaults	plingo	N	.50/.50	plingo_cases.lp	d4_pos;d4_neg	plingo_cases	
-D4	Nixon defaults	smProbLog	N	.50/.50	smproblog_d4.pl	d4_pos;d4_neg	smproblog_d4	
-D4	Nixon defaults	Tweety	N	undec./undec.	tweety/d4_nixon.delp	pacifist(nixon);~pacifist(nixon)	tweety_reference	
-D4	Nixon defaults	clingo	N	2 models	asp_cases.lp	d4_pos;d4_neg	clingo_cases	
-D4	Nixon defaults	DLV/I-DLV	N	2 models	asp_cases.lp;idlv/d4_nixon.lp	d4_pos;d4_neg	dlv_cases;idlv_reference	
-D4	Nixon defaults	s(CASP)	N	yes/yes	scasp_cases.pl	d4_pos;d4_neg	scasp_d4_pos;scasp_d4_neg	
-D4-P	probabilistic Nixon premises	GK	A	+.20/-.20	gk/d4sm_pos.gkp;gk/d4sm_neg.gkp	pacifist(n);-pacifist(n)	gk_d4sm_pos;gk_d4sm_neg	
+D4	Nixon defaults	PASTA	N	[0,1]/[0,1]	inputs/pasta/pasta_cases.lp	d4_pos;d4_neg	pasta_d4_pos;pasta_d4_neg	
+D4	Nixon defaults	plingo	N	.50/.50	inputs/plingo/plingo_cases.lp	d4_pos;d4_neg	plingo_cases	
+D4	Nixon defaults	smProbLog	N	.50/.50	inputs/smproblog/smproblog_d4.pl	d4_pos;d4_neg	smproblog_d4	
+D4	Nixon defaults	Tweety	N	undec./undec.	inputs/tweety/d4_nixon.delp	pacifist(nixon);~pacifist(nixon)	tweety_reference	
+D4	Nixon defaults	clingo	N	2 models	inputs/asp/asp_cases.lp	d4_pos;d4_neg	clingo_cases	
+D4	Nixon defaults	DLV/I-DLV	N	2 models	inputs/asp/asp_cases.lp;inputs/idlv/d4_nixon.lp	d4_pos;d4_neg	dlv_cases;idlv_reference	
+D4	Nixon defaults	s(CASP)	N	yes/yes	inputs/scasp/scasp_cases.pl	d4_pos;d4_neg	scasp_d4_pos;scasp_d4_neg	
+D4-P	probabilistic Nixon premises	GK	A	+.20/-.20	inputs/gk/d4sm_pos.gkp;inputs/gk/d4sm_neg.gkp	pacifist(n);-pacifist(n)	gk_d4sm_pos;gk_d4sm_neg	
 D4-P	probabilistic Nixon premises	ProbLog	U	U				The selected semantics does not represent the row's stable-model choice.
-D4-P	probabilistic Nixon premises	PASTA	N	[.32,.80]/[.12,.60]	pasta_d4sm.lp	pacifist;nonpacifist	pasta_d4sm_pacifist;pasta_d4sm_nonpacifist	
-D4-P	probabilistic Nixon premises	plingo	N	.54054/.40540	plingo_d4sm.lp	pacifist;nonpacifist	plingo_d4sm	
-D4-P	probabilistic Nixon premises	smProbLog	N	.56/.36	smproblog_d4sm.pl	pacifist;nonpacifist	smproblog_d4sm	
+D4-P	probabilistic Nixon premises	PASTA	N	[.32,.80]/[.12,.60]	inputs/pasta/pasta_d4sm.lp	pacifist;nonpacifist	pasta_d4sm_pacifist;pasta_d4sm_nonpacifist	
+D4-P	probabilistic Nixon premises	plingo	N	.54054/.40540	inputs/plingo/plingo_d4sm.lp	pacifist;nonpacifist	plingo_d4sm	
+D4-P	probabilistic Nixon premises	smProbLog	N	.56/.36	inputs/smproblog/smproblog_d4sm.pl	pacifist;nonpacifist	smproblog_d4sm	
 D4-P	probabilistic Nixon premises	Tweety	U	U				The selected semantics does not represent the row's stable-model choice.
 D4-P	probabilistic Nixon premises	clingo	U	U				The selected semantics does not represent the row's stable-model choice.
 D4-P	probabilistic Nixon premises	DLV/I-DLV	U	U				The selected semantics does not represent the row's stable-model choice.
 D4-P	probabilistic Nixon premises	s(CASP)	U	U				The selected semantics does not represent the row's stable-model choice.
-D5	strict priority	GK	N	.30	gk/d5.gkp	d5_pos	gk_d5	
-D5	strict priority	ProbLog	A	.63/.30	problog_cases.pl	d5_pos;d5_neg	problog_cases	
-D5	strict priority	PASTA	A	[.63,.63]/[.30,.30]	pasta_cases.lp	d5_pos;d5_neg	pasta_d5_pos;pasta_d5_neg	
-D5	strict priority	plingo	A	.63/.30	plingo_cases.lp	d5_pos;d5_neg	plingo_cases	
-D5	strict priority	smProbLog	A	.63/.30	smproblog_cases.pl	d5_pos;d5_neg	smproblog_cases	
-D5	strict priority	Tweety	A	no/yes	tweety/d5_specificity.delp	Flies(opus);~Flies(opus)	tweety_reference	
-D5	strict priority	clingo	A	no/yes	asp_cases.lp	d5_pos;d5_neg	clingo_cases	
-D5	strict priority	DLV/I-DLV	A	no/yes	asp_cases.lp	d5_pos;d5_neg	dlv_cases	
-D5	strict priority	s(CASP)	A	no/yes	scasp_cases.pl	d5_pos;d5_neg	scasp_d5_pos;scasp_d5_neg	
-D6	undercut vs. rebut	GK	N	1/1	gk/d6_undercut.gkp;gk/d6_rebut.gkp	d6_undercut;d6_rebut	gk_d6_undercut;gk_d6_rebut	
-D6	undercut vs. rebut	ProbLog	A	1/1	problog_cases.pl	d6_undercut;d6_rebut	problog_cases	
-D6	undercut vs. rebut	PASTA	A	[1,1]/[1,1]	pasta_cases.lp	d6_undercut;d6_rebut	pasta_d6_undercut;pasta_d6_rebut	
-D6	undercut vs. rebut	plingo	A	1/1	plingo_cases.lp	d6_undercut;d6_rebut	plingo_cases	
-D6	undercut vs. rebut	smProbLog	A	1/1	smproblog_cases.pl	d6_undercut;d6_rebut	smproblog_cases	
+D5	strict priority	GK	N	.30	inputs/gk/d5.gkp	d5_pos	gk_d5	
+D5	strict priority	ProbLog	A	.63/.30	inputs/problog/problog_cases.pl	d5_pos;d5_neg	problog_cases	
+D5	strict priority	PASTA	A	[.63,.63]/[.30,.30]	inputs/pasta/pasta_cases.lp	d5_pos;d5_neg	pasta_d5_pos;pasta_d5_neg	
+D5	strict priority	plingo	A	.63/.30	inputs/plingo/plingo_cases.lp	d5_pos;d5_neg	plingo_cases	
+D5	strict priority	smProbLog	A	.63/.30	inputs/smproblog/smproblog_cases.pl	d5_pos;d5_neg	smproblog_cases	
+D5	strict priority	Tweety	A	no/yes	inputs/tweety/d5_specificity.delp	Flies(opus);~Flies(opus)	tweety_reference	
+D5	strict priority	clingo	A	no/yes	inputs/asp/asp_cases.lp	d5_pos;d5_neg	clingo_cases	
+D5	strict priority	DLV/I-DLV	A	no/yes	inputs/asp/asp_cases.lp	d5_pos;d5_neg	dlv_cases	
+D5	strict priority	s(CASP)	A	no/yes	inputs/scasp/scasp_cases.pl	d5_pos;d5_neg	scasp_d5_pos;scasp_d5_neg	
+D6	undercut vs. rebut	GK	N	1/1	inputs/gk/d6_undercut.gkp;inputs/gk/d6_rebut.gkp	d6_undercut;d6_rebut	gk_d6_undercut;gk_d6_rebut	
+D6	undercut vs. rebut	ProbLog	A	1/1	inputs/problog/problog_cases.pl	d6_undercut;d6_rebut	problog_cases	
+D6	undercut vs. rebut	PASTA	A	[1,1]/[1,1]	inputs/pasta/pasta_cases.lp	d6_undercut;d6_rebut	pasta_d6_undercut;pasta_d6_rebut	
+D6	undercut vs. rebut	plingo	A	1/1	inputs/plingo/plingo_cases.lp	d6_undercut;d6_rebut	plingo_cases	
+D6	undercut vs. rebut	smProbLog	A	1/1	inputs/smproblog/smproblog_cases.pl	d6_undercut;d6_rebut	smproblog_cases	
 D6	undercut vs. rebut	Tweety	U	U				No faithful encoding of the row's GK construct is claimed.
-D6	undercut vs. rebut	clingo	A	yes/yes	asp_cases.lp	d6_undercut;d6_rebut	clingo_cases	
-D6	undercut vs. rebut	DLV/I-DLV	A	yes/yes	asp_cases.lp	d6_undercut;d6_rebut	dlv_cases	
-D6	undercut vs. rebut	s(CASP)	A	yes/yes	scasp_cases.pl	d6_undercut;d6_rebut	scasp_d6_undercut;scasp_d6_rebut	
-D7	paired exception	GK	N	0_m	gk/d7.gkp	d7_pos	gk_d7	
-D7	paired exception	ProbLog	A	.48/.48	problog_cases.pl	d7_pos;d7_neg	problog_cases	
-D7	paired exception	PASTA	A	[.48,.48]/[.48,.48]	pasta_cases.lp	d7_pos;d7_neg	pasta_d7_pos;pasta_d7_neg	
-D7	paired exception	plingo	A	.48/.48	plingo_cases.lp	d7_pos;d7_neg	plingo_cases	
-D7	paired exception	smProbLog	A	.48/.48	smproblog_cases.pl	d7_pos;d7_neg	smproblog_cases	
+D6	undercut vs. rebut	clingo	A	yes/yes	inputs/asp/asp_cases.lp	d6_undercut;d6_rebut	clingo_cases	
+D6	undercut vs. rebut	DLV/I-DLV	A	yes/yes	inputs/asp/asp_cases.lp	d6_undercut;d6_rebut	dlv_cases	
+D6	undercut vs. rebut	s(CASP)	A	yes/yes	inputs/scasp/scasp_cases.pl	d6_undercut;d6_rebut	scasp_d6_undercut;scasp_d6_rebut	
+D7	paired exception	GK	N	0_m	inputs/gk/d7.gkp	d7_pos	gk_d7	
+D7	paired exception	ProbLog	A	.48/.48	inputs/problog/problog_cases.pl	d7_pos;d7_neg	problog_cases	
+D7	paired exception	PASTA	A	[.48,.48]/[.48,.48]	inputs/pasta/pasta_cases.lp	d7_pos;d7_neg	pasta_d7_pos;pasta_d7_neg	
+D7	paired exception	plingo	A	.48/.48	inputs/plingo/plingo_cases.lp	d7_pos;d7_neg	plingo_cases	
+D7	paired exception	smProbLog	A	.48/.48	inputs/smproblog/smproblog_cases.pl	d7_pos;d7_neg	smproblog_cases	
 D7	paired exception	Tweety	U	U				No faithful encoding of the paired reference-class construction is claimed.
 D7	paired exception	clingo	U	U				No faithful encoding of the paired reference-class construction is claimed.
 D7	paired exception	DLV/I-DLV	U	U				No faithful encoding of the paired reference-class construction is claimed.
 D7	paired exception	s(CASP)	U	U				No faithful encoding of the paired reference-class construction is claimed.
-N1	Study 4: open join query	GK	N	(.50,.30,.30,.60)	gk/n1_study4.gkp	twobirds(X,Y)	gk_n1	
-N1	Study 4: open join query	ProbLog	E	(.50,.30,.30,.60)	problog_nonground.pl	n1_twobirds(X,Y)	problog_nonground	
-N1	Study 4: open join query	PASTA	E	([.50,.50],[.30,.30],[.30,.30],[.60,.60])	pasta_nonground.lp	n1_twobirds(a,a);n1_twobirds(a,b);n1_twobirds(b,a);n1_twobirds(b,b)	pasta_n1_aa;pasta_n1_ab;pasta_n1_ba;pasta_n1_bb	
-N1	Study 4: open join query	plingo	E	(.50,.30,.30,.60)	plingo_nonground.lp	n1_twobirds(a,a);n1_twobirds(a,b);n1_twobirds(b,a);n1_twobirds(b,b)	plingo_nonground	
-N1	Study 4: open join query	smProbLog	E	(.50,.30,.30,.60)	smproblog_nonground.pl	n1_twobirds(X,Y)	smproblog_nonground	
-N1	Study 4: open join query	Tweety	U	U				No faithful encoding of the row's GK construct is claimed.
-N1	Study 4: open join query	clingo	A	{aa,ab,ba,bb}	asp_nonground.lp	n1_twobirds(X,Y)	clingo_nonground	
-N1	Study 4: open join query	DLV/I-DLV	A	{aa,ab,ba,bb}	asp_nonground.lp	n1_twobirds(X,Y)	dlv_nonground	
-N1	Study 4: open join query	s(CASP)	A	{aa,ab,ba,bb}	scasp_nonground.pl	n1_twobirds(X,Y)	scasp_n1	
-N2	Study 10: open recursive query	GK	N	(.80,.688,.1376)	gk/n2_study10.gkp	smokes(X)	gk_n2	
-N2	Study 10: open recursive query	ProbLog	E	(.80,.688,.1376)	problog_nonground.pl	n2_smokes(X)	problog_nonground	
-N2	Study 10: open recursive query	PASTA	E	([.80,.80],[.688,.688],[.1376,.1376])	pasta_nonground.lp	n2_smokes(ann);n2_smokes(bob);n2_smokes(carl)	pasta_n2_ann;pasta_n2_bob;pasta_n2_carl	
-N2	Study 10: open recursive query	plingo	E	(.80,.688,.1376)	plingo_nonground.lp	n2_smokes(ann);n2_smokes(bob);n2_smokes(carl)	plingo_nonground	
-N2	Study 10: open recursive query	smProbLog	E	(.80,.688,.1376)	smproblog_nonground.pl	n2_smokes(X)	smproblog_nonground	
-N2	Study 10: open recursive query	Tweety	U	U				No faithful encoding of the row's GK construct is claimed.
-N2	Study 10: open recursive query	clingo	A	{ann,bob,carl}	asp_nonground.lp	n2_smokes(X)	clingo_nonground	
-N2	Study 10: open recursive query	DLV/I-DLV	A	{ann,bob,carl}	asp_nonground.lp	n2_smokes(X)	dlv_nonground	
-N2	Study 10: open recursive query	s(CASP)	A	{ann,bob,carl}	scasp_nonground.pl	n2_smokes(X)	scasp_n2	
+N1	open join query	GK	N	(.50,.30,.30,.60)	inputs/gk/n1_study4.gkp	twobirds(X,Y)	gk_n1	
+N1	open join query	ProbLog	E	(.50,.30,.30,.60)	inputs/problog/problog_nonground.pl	n1_twobirds(X,Y)	problog_nonground	
+N1	open join query	PASTA	E	([.50,.50],[.30,.30],[.30,.30],[.60,.60])	inputs/pasta/pasta_nonground.lp	n1_twobirds(a,a);n1_twobirds(a,b);n1_twobirds(b,a);n1_twobirds(b,b)	pasta_n1_aa;pasta_n1_ab;pasta_n1_ba;pasta_n1_bb	
+N1	open join query	plingo	E	(.50,.30,.30,.60)	inputs/plingo/plingo_nonground.lp	n1_twobirds(a,a);n1_twobirds(a,b);n1_twobirds(b,a);n1_twobirds(b,b)	plingo_nonground	
+N1	open join query	smProbLog	E	(.50,.30,.30,.60)	inputs/smproblog/smproblog_nonground.pl	n1_twobirds(X,Y)	smproblog_nonground	
+N1	open join query	Tweety	U	U				No faithful encoding of the row's GK construct is claimed.
+N1	open join query	clingo	A	{aa,ab,ba,bb}	inputs/asp/asp_nonground.lp	n1_twobirds(X,Y)	clingo_nonground	
+N1	open join query	DLV/I-DLV	A	{aa,ab,ba,bb}	inputs/asp/asp_nonground.lp	n1_twobirds(X,Y)	dlv_nonground	
+N1	open join query	s(CASP)	A	{aa,ab,ba,bb}	inputs/scasp/scasp_nonground.pl	n1_twobirds(X,Y)	scasp_n1	
+N2	open recursive query	GK	N	(.80,.688,.1376)	inputs/gk/n2_study10.gkp	smokes(X)	gk_n2	
+N2	open recursive query	ProbLog	E	(.80,.688,.1376)	inputs/problog/problog_nonground.pl	n2_smokes(X)	problog_nonground	
+N2	open recursive query	PASTA	E	([.80,.80],[.688,.688],[.1376,.1376])	inputs/pasta/pasta_nonground.lp	n2_smokes(ann);n2_smokes(bob);n2_smokes(carl)	pasta_n2_ann;pasta_n2_bob;pasta_n2_carl	
+N2	open recursive query	plingo	E	(.80,.688,.1376)	inputs/plingo/plingo_nonground.lp	n2_smokes(ann);n2_smokes(bob);n2_smokes(carl)	plingo_nonground	
+N2	open recursive query	smProbLog	E	(.80,.688,.1376)	inputs/smproblog/smproblog_nonground.pl	n2_smokes(X)	smproblog_nonground	
+N2	open recursive query	Tweety	U	U				No faithful encoding of the row's GK construct is claimed.
+N2	open recursive query	clingo	A	{ann,bob,carl}	inputs/asp/asp_nonground.lp	n2_smokes(X)	clingo_nonground	
+N2	open recursive query	DLV/I-DLV	A	{ann,bob,carl}	inputs/asp/asp_nonground.lp	n2_smokes(X)	dlv_nonground	
+N2	open recursive query	s(CASP)	A	{ann,bob,carl}	inputs/scasp/scasp_nonground.pl	n2_smokes(X)	scasp_n2	
+EQ1	uncertain equality, opposed evidence	GK	N	.34	inputs/gk/e1.gkp	p(a)	gk_e1	
+EQ1	uncertain equality, opposed evidence	ProbLog	U	U				The selected syntax cannot state the opposed literal; the recorded fresh-atom simulation (problog_e1.pl) returns two disconnected numbers and no combined verdict.
+EQ1	uncertain equality, opposed evidence	PASTA	A	error	inputs/pasta/pasta_e1.lp	p(a)	pasta_e1	
+EQ1	uncertain equality, opposed evidence	plingo	A	.79839	inputs/plingo/plingo_e1.lp	p(a)	plingo_e1	
+EQ1	uncertain equality, opposed evidence	smProbLog	A	.82, inc .504	inputs/smproblog/smproblog_e1.pl	p(a)	smproblog_e1	
+EQ1	uncertain equality, opposed evidence	Tweety	U	U				No faithful encoding of the row's GK construct is claimed.
+EQ1	uncertain equality, opposed evidence	clingo	A	no models	inputs/asp/asp_e1.lp		clingo_e1	
+EQ1	uncertain equality, opposed evidence	DLV/I-DLV	A	no models	inputs/asp/asp_e1.lp		dlv_e1	
+EQ1	uncertain equality, opposed evidence	s(CASP)	A	no models	inputs/scasp/scasp_e1.pl	p(a)	scasp_e1	
+X1	unrelated contradiction tolerance	GK	N	1.0	inputs/gk/x1.gkp	q(b)	gk_x1	
+X1	unrelated contradiction tolerance	ProbLog	U	U				The selected syntax has no classical negation, so the contradictory pair cannot be stated.
+X1	unrelated contradiction tolerance	PASTA	A	error	inputs/pasta/pasta_x1.lp	q(b)	pasta_x1	
+X1	unrelated contradiction tolerance	plingo	A	1.0	inputs/plingo/plingo_x1.lp	q(b)	plingo_x1	
+X1	unrelated contradiction tolerance	smProbLog	A	1.0, inc .42	inputs/smproblog/smproblog_x1.pl	q(b)	smproblog_x1	
+X1	unrelated contradiction tolerance	Tweety	U	U				No faithful encoding of the row's GK construct is claimed.
+X1	unrelated contradiction tolerance	clingo	A	no models	inputs/asp/asp_x1.lp		clingo_x1	
+X1	unrelated contradiction tolerance	DLV/I-DLV	A	no models	inputs/asp/asp_x1.lp		dlv_x1	
+X1	unrelated contradiction tolerance	s(CASP)	A	no models	inputs/scasp/scasp_x1.pl	q(b)	scasp_x1	
+F1	recursion over function terms	GK	N	.576	inputs/gk/f1.gkp	bird(f(f(a)))	gk_f1	
+F1	recursion over function terms	ProbLog	E	.576	inputs/problog/problog_f1.pl	bird(f(f(a)))	problog_f1	
+F1	recursion over function terms	PASTA	A	grounding timeout	inputs/pasta/pasta_f1.lp	bird(f(f(a)))	pasta_f1	
+F1	recursion over function terms	plingo	A	grounding timeout	inputs/plingo/plingo_f1.lp	bird(f(f(a)))	plingo_f1	
+F1	recursion over function terms	smProbLog	E	grounding timeout	inputs/smproblog/smproblog_f1.pl	bird(f(f(a)))	smproblog_f1	
+F1	recursion over function terms	Tweety	U	U				No faithful encoding of the row's GK construct is claimed.
+F1	recursion over function terms	clingo	A	grounding timeout	inputs/asp/asp_f1.lp		clingo_f1	
+F1	recursion over function terms	DLV/I-DLV	A	grounding timeout	inputs/asp/asp_f1.lp		dlv_f1	
+F1	recursion over function terms	s(CASP)	A	yes	inputs/scasp/scasp_f1.pl	bird(f(f(a)))	scasp_f1	
+DJ1	uncertain classical disjunction	GK	N	.72	inputs/gk/dj1.gkp	q(a)	gk_dj1	
+DJ1	uncertain classical disjunction	ProbLog	U	U				The selected syntax has no classical disjunction; an annotated disjunction distributes the probability among the disjuncts instead.
+DJ1	uncertain classical disjunction	PASTA	E	[.72,.80]	inputs/pasta/pasta_dj1.lp	q(a)	pasta_dj1	
+DJ1	uncertain classical disjunction	plingo	E	error	inputs/plingo/plingo_dj1.lp	q(a)	plingo_dj1	
+DJ1	uncertain classical disjunction	smProbLog	A	.76	inputs/smproblog/smproblog_dj1.pl	q(a)	smproblog_dj1	
+DJ1	uncertain classical disjunction	Tweety	U	U				No faithful encoding of the row's GK construct is claimed.
+DJ1	uncertain classical disjunction	clingo	A	yes	inputs/asp/asp_dj1.lp		clingo_dj1	
+DJ1	uncertain classical disjunction	DLV/I-DLV	A	yes	inputs/asp/asp_dj1.lp		dlv_dj1	
+DJ1	uncertain classical disjunction	s(CASP)	A	yes	inputs/scasp/scasp_dj1.pl	q(a)	scasp_dj1	

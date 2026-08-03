@@ -1,0 +1,31 @@
+command: ["gk", "inputs/gk/x1.gkp", "-detail", "-outformat", "json"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+{"result": "answer found",
+
+"answers": [
+{
+"answer": true,
+"confidence": 1.0000,
+"detail": {"support_for": 1.0000,
+"support_against": 0.0000,
+"conflict": 0.0000,
+"ignorance": 0.0000,
+"calculation": "flat",
+"coverage_status": "complete",
+"polarity_status": "not_guaranteed",
+"conflict_sources": [],
+"flags": [],
+"recursive_checks": 0},
+"positive proof":
+[
+[1, ["in", "frm_4", "goal", 1], [["-q","b"]]],
+[2, ["in", "frm_3", "axiom", 1], [["q","b"]]],
+[3, ["simp", 1, 2, "fromgoal", 1], false]
+]}
+]}
+
+[stderr]

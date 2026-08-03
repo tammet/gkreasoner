@@ -4,7 +4,7 @@
 // Run from the repository root:
 //   ./bin/gk Examples/language/axioms_std.js Examples/language/penguin_default.js \
 //     -strategytext '{"strategy": ["negative_pref", "posunitpara"], "query_preference": 1}' \
-//     -seconds 3 -confidence 0.1 -keepconfidence 0.1
+//     -seconds 3 -confidence 0.1 -keepconfidence 0.1 -taxonomy -datafolder data
 [
 {"@name": "sent_S1", "@logic": [["-isa", "penguin", "?:X"], ["isa", "bird", "?:X"]], "@nl": "Penguins are birds."},
 {"@name": "sent_S2", "@logic": [["-isa", "penguin", "?:X"], ["-isa", "activity", "?:E"], ["-has type", "?:E", "fly", ["$ctxt", "?:Fv8", "?:Fv7", "?:Fv5", "?:Fv6"]], ["-has actor", "?:E", "?:X", ["$ctxt", "?:Fv8", "?:Fv7", "?:Fv5", "?:Fv6"]], ["-capability", "?:E"]], "@nl": "Penguins cannot fly."},

@@ -1,15 +1,15 @@
 # Input Languages
 
 GK reads four notations and converts them to the same internal clause
-representation. This document describes the common forms through examples; it
-is not a formal grammar.
+representation. This reference covers the common input forms through
+examples.
 
-| Notation | Suffixes | Description |
-|---|---|---|
-| GKP | `.gkp`, `.pl`, `.pro`, `.prolog` | Prolog-style surface notation |
-| JSON-LD-LOGIC | `.js` | Native JSON representation |
-| GKS | `.gks` | Premise-to-consequence notation |
-| TPTP CNF | `.p`, `.ax`, `.tptp`, `.cnf` | TPTP clauses with GK annotations |
+| Notation | Suffixes | Description | Example file |
+|---|---|---|---|
+| GKP | `.gkp`, `.pl`, `.pro`, `.prolog` | Prolog-style surface notation | [`penguin.gkp`](../Examples/exceptions/penguin.gkp) |
+| JSON-LD-LOGIC | `.js` | Native JSON representation | [`coin1.js`](../Examples/confidences/coin1.js) |
+| GKS | `.gks` | Premise-to-consequence notation | [`grandfather.gks`](../Examples/core/grandfather.gks) |
+| TPTP CNF | `.p`, `.ax`, `.tptp`, `.cnf` | TPTP clauses with GK annotations | [`bird_penguin.p`](../Examples/exceptions/bird_penguin.p) |
 
 Use `-informat json`, `prolog`, `simple`, or `tptp` to override automatic
 detection. `-writejson` prints the converted JSON-LD-LOGIC input without
@@ -30,9 +30,11 @@ bird(robin).
 -bird(airplane).
 ```
 
-An omitted confidence means 1. GKP confidences are decimals from 0 to 1. A leading `-`
+An omitted confidence means 1. GKP confidences are decimals from 0 to 1. An
+input confidence is a calculation parameter; it is not by itself a
+probability that the statement is true. A leading `-`
 or `~` is classical negation: `-bird(airplane)` is evidence for the negative
-literal, not a failure to prove the positive literal.
+literal rather than a failure to prove the positive literal.
 
 ### Rules
 
@@ -65,8 +67,8 @@ query(flies(X)).
 query(-flies(tux)).
 ```
 
-A ground query asks for a truth assessment. A query containing variables asks
-for substitutions. A normal proof task contains one query.
+A ground query asks for a support assessment. A query containing variables
+asks for substitutions. A normal proof task contains one query.
 
 ### Defaults
 
@@ -93,9 +95,10 @@ A taxonomy can supply the priority:
                      unless(-isa(X, bird), tax(bird)).
 ```
 
-Taxonomy priorities require `-defaults` and the auxiliary files
-`gk_name_number.txt` and `gk_taxonomy_packed.txt`. `tax(name, N)` supplies a
-numeric fallback. An `unless` expression without a priority makes no priority
+Taxonomy priorities require `-taxonomy` (synonym `-defaults`) and the
+data files in [`../data/`](../data/README.md); without them GK stops with
+an error. `tax(name, N)` adds a numeric tie-breaker used when the
+taxonomy does not order the two classes. An `unless` expression without a priority makes no priority
 claim: it neither defeats nor is defeated by an explicitly ranked default,
 and two such rules about opposite polarities of one atom count as ordinary
 opposing evidence (see the defaults section of
@@ -154,7 +157,7 @@ literals and a positive head form a disjunction:
 {"@logic": [["-bird", "?:X"], ["flies", "?:X"]]}
 ```
 
-The principal correspondences are:
+The main correspondences are:
 
 | Construct | GKP | JSON-LD-LOGIC |
 |---|---|---|
@@ -190,14 +193,18 @@ The example files use predicate arrays of this form. JSON-LD-LOGIC also
 supports graph-oriented objects, but those are not needed for the introductory
 examples.
 
-Write an atom with no arguments as a one-element array everywhere it occurs:
-the fact `["raining"]`, the clause `[["-raining"], ["wet"]]` for
-`-raining | wet`, the question `["raining"]`. An array that starts with a
-string is a predicate application, so `["-raining", "wet"]` would be the
-single atom `-raining(wet)`, not a clause. A bare string such as `"raining"`
-is also accepted as a fact, but it does not match the array form of the same
-name, so one file must not mix the two spellings. The GKP and GKS converters
-produce the array form consistently.
+Three conventions for atoms and clauses:
+
+- An atom with no arguments is a one-element array everywhere it occurs:
+  the fact `["raining"]`, the question `["raining"]`.
+- A clause is an array of literal arrays: `[["-raining"], ["wet"]]` is
+  `-raining | wet`. An array that starts with a string is a predicate
+  application, so `["-raining", "wet"]` is the single atom
+  `-raining(wet)`.
+- A bare string such as `"raining"` is also accepted as a fact, but it does
+  not match the array form of the same name; one file must not mix the two
+  spellings. The GKP and GKS converters produce the array form
+  consistently.
 
 ## GKS
 
@@ -238,7 +245,7 @@ TPTP input uses the plain TPTP/SZS-oriented result format by default. Use
 `-outformat json` when JSON output is required.
 
 TPTP `fof(...)` input is recognized but rejected with an instruction to
-clausify it first. The current GK surface accepts `cnf(...)` problems only.
+clausify it first. GK accepts `cnf(...)` problems only.
 
 ## Equivalent default rule
 

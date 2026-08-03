@@ -1,0 +1,23 @@
+{
+ "purpose": "Taxonomy data pair for GK's taxonomy-form default priorities; load with -taxonomy (-defaults is a synonym) and -datafolder.",
+ "pair": "The two data files are one generated pair with run-specific numbering; always replace both together.",
+ "files": [
+  {
+   "name": "gk_name_number.txt",
+   "bytes": 1905726,
+   "sha256": "41b8a37e330820d352c2436365c2d07e02c6d85109929c83d1ab975cdfdabba4"
+  },
+  {
+   "name": "gk_taxonomy_packed.txt",
+   "bytes": 1399619,
+   "sha256": "d206f28565f97007ffaff383626a5a0546ad0d658450f28061826aed9f69fc6b"
+  }
+ ],
+ "source": "WordNet noun hypernym graph via the NLTK interface",
+ "builder": [
+  "builder/wngraph.py",
+  "builder/name_sort_from_graph.py",
+  "builder/taxonomy.py",
+  "builder/taxonomy.c"
+ ]
+}

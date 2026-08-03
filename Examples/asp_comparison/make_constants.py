@@ -6,10 +6,8 @@ the constants form a b-chain and half form a p-chain. The generated programs
 use the same facts and rules in the syntax of gk, clingo, DLV, I-DLV, or
 s(CASP).
 
-These normalized programs make the system inputs directly comparable. They do
-not reproduce every detail of the historical files: those files commented out some
-propagation rules for clingo and used slightly different chain lengths for gk.
-See README.md and results.md before comparing timings.
+These normalized programs make the system inputs directly comparable. See
+README.md and results.md for the measurement protocol.
 """
 
 import argparse

@@ -1,0 +1,49 @@
+# Reference checks for the shared-threshold sampler: expected four
+# components per example. Category "analytic": the value is hand-derived
+# from the local combination rules (a default opposed by ordinary evidence:
+# the exclusive split a(1-b) / b; equal ranks: mutual blocking a(1-b) /
+# b(1-a); unequal ranks: the strict-priority override on the shared
+# threshold). GK parity for these cases is a separate observation: gk
+# -detail returns the same values; it is not the source of the expected
+# numbers. Check with
+#   montecarlo/gkmc.py --semantics threshold -n 100000 --seed 1 --check montecarlo/reference_checks
+sc_exc09	support_for	0.1000	analytic
+sc_exc09	support_against	0.9000	analytic
+sc_exc09	conflict	0.0000	analytic
+sc_exc09	ignorance	0.0000	analytic
+sc_exc05	support_for	0.5000	analytic
+sc_exc05	support_against	0.5000	analytic
+sc_exc05	conflict	0.0000	analytic
+sc_exc05	ignorance	0.0000	analytic
+sc_exc_certain	support_for	0.0000	analytic
+sc_exc_certain	support_against	1.0000	analytic
+sc_exc_certain	conflict	0.0000	analytic
+sc_exc_certain	ignorance	0.0000	analytic
+sc_eq_69	support_for	0.0600	analytic
+sc_eq_69	support_against	0.3600	analytic
+sc_eq_69	conflict	0.0000	analytic
+sc_eq_69	ignorance	0.5800	analytic
+sc_eq_96	support_for	0.3600	analytic
+sc_eq_96	support_against	0.0600	analytic
+sc_eq_96	conflict	0.0000	analytic
+sc_eq_96	ignorance	0.5800	analytic
+sc_award_32	support_for	0.6000	analytic
+sc_award_32	support_against	0.3000	analytic
+sc_award_32	conflict	0.0000	analytic
+sc_award_32	ignorance	0.1000	analytic
+sc_dflt_vs_fact	support_for	0.0600	analytic
+sc_dflt_vs_fact	support_against	0.9000	analytic
+sc_dflt_vs_fact	conflict	0.0000	analytic
+sc_dflt_vs_fact	ignorance	0.0400	analytic
+sc_rank_e1	support_for	1.0000	analytic
+sc_rank_e1	support_against	0.0000	analytic
+sc_rank_e1	conflict	0.0000	analytic
+sc_rank_e1	ignorance	0.0000	analytic
+sc_rank_e2	support_for	0.1000	analytic
+sc_rank_e2	support_against	0.9000	analytic
+sc_rank_e2	conflict	0.0000	analytic
+sc_rank_e2	ignorance	0.0000	analytic
+sc_negq_09	support_for	0.9000	analytic
+sc_negq_09	support_against	0.1000	analytic
+sc_negq_09	conflict	0.0000	analytic
+sc_negq_09	ignorance	0.0000	analytic

@@ -1,0 +1,11 @@
+command: ["scasp", "--query=p(a)", "inputs/scasp/scasp_e1.pl"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+% Query
+?- p(a).
+
+[stderr]
+Warning: s(CASP): No models (0.001 seconds)

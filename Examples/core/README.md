@@ -22,8 +22,10 @@ conflicting support on `bird(a)` and propagates it through rules for `flies(a)`.
 ./bin/gk Examples/core/negation_conflict.js -detail
 ```
 
-The returned confidence is `0.252`. The detailed report names the contested
-`bird(a)` premise as a conflict source.
+The returned verdict confidence is `0.252`. The detailed report names the
+contested `bird(a)` premise as a conflict source; its `calculation` and
+status fields are explained in
+[`../../Doc/how_gk_works.md`](../../Doc/how_gk_works.md).
 
 ## Selected files
 

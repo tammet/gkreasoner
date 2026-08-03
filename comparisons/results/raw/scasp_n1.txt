@@ -1,4 +1,4 @@
-command: ["/home/tanel/.local/bin/scasp", "-n", "0", "--query=n1_twobirds(X,Y)", "/opt/gk/experiments/comparisons/table_extensions/scasp_nonground.pl"]
+command: ["scasp", "-n", "0", "--query=n1_twobirds(X,Y)", "inputs/scasp/scasp_nonground.pl"]
 exit_code: 0
 accepted_exit_codes: [0]
 missing_checks: []

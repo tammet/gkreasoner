@@ -1,0 +1,9 @@
+command: ["dlv", "--silent", "-n=0", "inputs/asp/asp_dj1.lp"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+{q(a), -p(a)}
+
+[stderr]

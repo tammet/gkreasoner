@@ -1,0 +1,33 @@
+command: ["gk", "inputs/gk/f1.gkp", "-detail", "-outformat", "json"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+{"result": "answer found",
+
+"answers": [
+{
+"answer": true,
+"confidence": 0.5760,
+"detail": {"support_for": 0.5760,
+"support_against": 0.0000,
+"conflict": 0.0000,
+"ignorance": 0.4240,
+"calculation": "flat",
+"coverage_status": "complete",
+"polarity_status": "not_guaranteed",
+"conflict_sources": [],
+"flags": [],
+"recursive_checks": 0},
+"positive proof":
+[
+[1, ["in", "frm_2", "axiom", 0.8], [["bird",["f","?:X"]], ["-bird","?:X"]]],
+[2, ["in", "frm_1", "axiom", 0.9], [["bird","a"]]],
+[3, ["mp", [1,1], 2, "fromaxiom", 0.72], [["bird",["f","a"]]]],
+[4, ["in", "frm_3", "goal", 1], [["-bird",["f",["f","a"]]]]],
+[5, ["mp", 3, [1,1], 4, "fromgoal", 0.576], false]
+]}
+]}
+
+[stderr]

@@ -1,50 +1,61 @@
 #!/usr/bin/env python3
 """
-gkmc.py -- estimate gk confidences by random sampling.
+gkmc.py -- sampling checks for GK confidences.
 
-Read a confidence c on a fact or rule as the probability that the statement
-holds. In one trial, include each uncertain statement with probability equal
-to its confidence and drop it otherwise; the included clauses (confidences
-removed, their $block literals kept), together with the question, are decided
-by a plain boolean run of gk. Over many trials, the fraction in which an answer
-is provable estimates its confidence. This is inclusion sampling.
+Clause-activation sampling (--semantics subtract, provable, gkdefault)
+implements the ground-instance activation semantics: each ground instance of
+an uncertain input clause is an independent activation event whose
+probability is the input confidence. In one trial, the active ground clauses
+(confidences removed, $block literals kept), together with the question, are
+decided by an unweighted gk run. Frequencies over many trials estimate
+probabilities under this model.
 
---draws per-instance (default): each ground instance of a clause is included by
-its own draw. --draws shared: all instances of one input statement share a
-single draw, matching how gk counts one statement as a single piece of
-evidence.
+--draws per-instance (default) is the ground-instance activation setting:
+each ground instance is activated by its own draw, matching how GK
+distinguishes activation events. --draws shared activates all instances of
+one input statement together; it is a statement-level sensitivity
+calculation, not GK's event identity.
 
 --semantics subtract (default): per answer a, the fraction of trials with a
-provable minus the fraction with the negation of a provable. This matches gk's
-reported confidence, which also subtracts the support against an answer. With
-no negative evidence the second term is zero and the number is plain
-provability.
+provable minus the fraction with the negation of a provable -- the signed
+derivability measure of the activation-world sampler. It agrees with GK's
+signed confidence only on the stated common fragment; premise-level
+opposition, defaults, retained-proof coverage, and calculation fallbacks can
+separate the two values.
 --semantics provable: the positive fraction (a provable) only.
---semantics gkdefault: the fraction of trials where a plain default gk run
-accepts the closed answer instance.
---semantics threshold: a separate method (threshold_worlds.py), threshold
-sampling. Each ground atom draws one random acceptance threshold in [0,1]; a
-piece of evidence counts only if its confidence is above that threshold, and
-the same threshold applies to evidence for and against the atom. It reports the
-four masses support_for, support_against, conflict and ignorance for a ground
-query and runs no gk subprocess.
+--semantics gkdefault: the fraction of trials where a default gk run accepts
+the closed answer instance.
 
---classify (ground single-literal question): also proves the negated question
-per trial and prints the A-only / not-A-only / both / neither table.
+Shared-threshold sampling (--semantics threshold) estimates the
+shared-threshold reference construction on a restricted fragment
+(threshold_worlds.py); it runs no gk subprocess. Each ground atom draws a
+shared uniform threshold, and the four components support_for,
+support_against, conflict, and ignorance are the frequencies of the
+threshold regions. It estimates the reference model, not every GK report: a
+GK report whose calculation is flat, blocked_flat, or proof_fallback is a
+proof-pool decomposition, not a completed shared-threshold atom partition.
+
+--classify (ground single-literal question): also proves the negated
+question per trial and prints the A-only / not-A-only / both / neither
+table.
 
 usage: ./gkmc.py [-n TRIALS] [--seed S] [--draws per-instance|shared]
                  [--semantics subtract|provable|gkdefault|threshold]
                  [--classify] [--gk PATH] [--gk-args "..."]
                  [--gk-timeout SEC] [--jobs J] [--max-ground M]
-                 [--keep-worlds DIR] [--json OUT] input.js
+                 [--keep-worlds DIR] [--json OUT] [--check DIR] [input.js]
 
-Limits: constants only (no function symbols). Threshold sampling and
---classify need a ground, single-literal question; ordinary inclusion sampling
-also supports variables in a single-literal question. Results are estimates
-with a sampling interval.
+Limits: constants only (no function terms). Threshold sampling and
+--classify need a single-literal question; an open question in threshold
+mode is evaluated per closed instance over the named constants -- finite
+named-constant instantiation, not general first-order answer discovery. An
+uncertain input statement that clausifies into more than one clause is
+rejected, because its activation events are not defined by this sampler.
+Results are estimates with a sampling interval.
 """
 
 import argparse
+import hashlib
 import json
 import math
 import os
@@ -146,29 +157,6 @@ def clausify(gk, path):
     except json.JSONDecodeError:
         raise SystemExit(f"gk -clausify failed on {path}:\n{p.stdout[:500]}{p.stderr[:500]}")
 
-def load_clausified(gk, path):
-    """Run `gk FILE -defworlds -clausify` and return the gk_clauses_v1 clause items
-    (the array minus its leading meta object). ASSERTS the format header and fails
-    loudly on drift (gk owns the clausifier and the root-split; this tool
-    only consumes that serialization). Each item is a dict with
-    @logic and, on the defworlds-side export, @confidence (post-split), @head
-    (implied-literal index; fact 0, marker-less rule clause -1) and, on goals,
-    @role:'goal'. Returns (items, meta)."""
-    p = subprocess.run([gk, path, "-defworlds", "-clausify"],
-                       capture_output=True, text=True, timeout=120)
-    try:
-        arr = json.loads(p.stdout)
-    except json.JSONDecodeError:
-        raise SystemExit(f"gk -defworlds -clausify failed on {path}:\n"
-                         f"{p.stdout[:400]}{p.stderr[:400]}")
-    if not (isinstance(arr, list) and arr and isinstance(arr[0], dict)
-            and arr[0].get("format") == "gk_clauses_v1"):
-        head = arr[0] if isinstance(arr, list) and arr else arr
-        raise SystemExit(f"gk_clauses_v1 format header missing on {path}: "
-                         f"got {head!r} -- this tool requires the versioned "
-                         f"export (gk -defworlds -clausify)")
-    return arr[1:], arr[0]
-
 # ---------------------------------------------------------------- term walking
 
 def walk_atom_args(term, on_const, on_var, depth=0):
@@ -268,10 +256,11 @@ def ground_pool(clausified, stmts, max_ground):
             continue
         conf = stmts[n - 1][1]
         if len(by_name[n]) > 1 and conf < 1.0:
-            warnings.append(
-                f"frm_{n} (confidence {conf}) clausifies into {len(by_name[n])} "
-                f"clauses; per-instance draws include each of its ground "
-                f"clauses separately")
+            raise SystemExit(
+                f"frm_{n} (confidence {conf}) clausifies into "
+                f"{len(by_name[n])} clauses; the activation events of a "
+                f"multi-clause uncertain statement are not defined by this "
+                f"sampler -- rejected")
         seen = set()
         for st in by_name[n]:
             clause = st["@logic"]
@@ -289,7 +278,7 @@ def ground_pool(clausified, stmts, max_ground):
                     raise SystemExit(f"ground pool exceeds --max-ground "
                                      f"{max_ground}; refusing to truncate")
     if not questions:
-        raise SystemExit("no @question found: the oracle requires a goal")
+        raise SystemExit("no @question found: a question is required")
     return pool, questions, warnings
 
 # ---------------------------------------------------------------- world running
@@ -412,11 +401,11 @@ class Runner:
         # limit) - the world-level A-only verdict. -plain alone cannot do
         # this: use_confidence=0 zeroes all confidences and the 0.1 threshold
         # then rejects EVERYTHING, contradictory or not.
-        # gkdefault emulates the LEGACY accepted-answer functional (pos-neg
-        # with the threshold), so because gk now defaults to
-        # the four-mass report, it must pin -olduncertainty explicitly. The
-        # provable/subtract mode keeps -plain, which auto-disables the
-        # four-mass machinery anyway.
+        # gkdefault uses the single-number accepted-answer calculation
+        # (positive minus negative support with the acceptance threshold),
+        # so it pins -olduncertainty explicitly; gk otherwise produces the
+        # four-component report. The provable/subtract mode keeps -plain,
+        # which disables that machinery anyway.
         flags = ["-olduncertainty"] if gk_default else ["-nonegative", "-plain"]
         try:
             p = subprocess.run([self.args.gk, path] + flags
@@ -472,26 +461,93 @@ def paired_diff_ci(pos_only, neg_only, n, z=1.96):
     se = math.sqrt(max(0.0, p1 + p2 - diff * diff) / n)
     return diff, (diff - z * se, diff + z * se)
 
-def gk_own_confidences(gk, path, extra):
+MASS_FIELDS = ("support_for", "support_against", "conflict", "ignorance")
+STATUS_FIELDS = ("calculation", "coverage_status", "polarity_status", "flags")
+
+
+def _answer_key_json(ans):
+    """Answer key and sign flip for one JSON answer value. True -> the
+    closed question proved; False -> its negation proved (sign flips)."""
+    if ans is True:
+        return "yes", 1
+    if ans is False:
+        return "yes", -1
+    if isinstance(ans, list) and ans:
+        lit = ans[0] if isinstance(ans[0], list) else ans
+        if isinstance(lit, list) and lit and lit[0] == "$ans":
+            return ",".join(str(x) for x in lit[1:]), 1
+    return None, 1
+
+
+def gk_results(gk, path, extra):
+    """One ordinary gk -detail run on the original file. Returns
+    {answer_key: info}: 'signed' is the signed confidence (negative for a
+    rejected answer or a negative verdict), 'confidence' the printed verdict
+    confidence; when the detail block is present the info also carries the
+    four components, calculation, coverage_status, polarity_status, and
+    flags. A numeric confidence alone does not establish exactness; the
+    calculation and status fields say what kind of result it is."""
     try:
-        p = subprocess.run([gk, path] + extra, capture_output=True, text=True,
-                           timeout=120)
+        p = subprocess.run([gk, path, "-detail"] + extra, capture_output=True,
+                           text=True, timeout=120)
     except subprocess.TimeoutExpired:
         return {}
-    pairs = {}
-    cur = None
+    try:
+        doc = json.loads(p.stdout)
+    except json.JSONDecodeError:
+        doc = None
+    res = {}
+    if isinstance(doc, dict):
+        for route, rsign in (("answers", 1), ("rejected_answers", -1)):
+            for a in doc.get(route) or []:
+                if not isinstance(a, dict):
+                    continue
+                k, flip = _answer_key_json(a.get("answer"))
+                if k is None:
+                    continue
+                conf = float(a.get("confidence", 0.0))
+                info = {"signed": rsign * flip * conf, "confidence": conf,
+                        "route": route}
+                det = a.get("detail") or {}
+                for f in MASS_FIELDS + STATUS_FIELDS:
+                    if f in det:
+                        info[f] = det[f]
+                res.setdefault(k, info)
+        return res
+    # plain-text output: answer/confidence pairs only, no detail fields
+    cur, rejected = None, False
     for line in p.stdout.splitlines():
-        m = re.search(r'"answer":\s*(.+?),?\s*$', line)
+        m = re.match(r"\s*(rejected answer|answer):\s*(.+?)\s*$", line)
         if m:
-            cur = norm_key(m.group(1))
+            rejected = m.group(1).startswith("rejected")
+            k = norm_key(m.group(2))
+            cur = k
             continue
-        m = re.search(r'"confidence":\s*(-?[0-9.eE+]+)', line)
+        m = re.search(r"confidence(?: against)?:\s*(-?[0-9.eE+]+)", line)
         if m and cur is not None:
-            pairs.setdefault(cur, float(m.group(1)))
+            c = float(m.group(1))
+            res.setdefault(cur, {"signed": -c if rejected else c,
+                                 "confidence": c})
             cur = None
-    return pairs
+    return res
 
-MASS_FIELDS = ("support_for", "support_against", "conflict", "ignorance")
+
+def gk_signed_str(info):
+    return "" if not info else f"{info['signed']:.4f}"
+
+
+def print_gk_status(results):
+    for k in sorted(results):
+        info = results[k]
+        if "calculation" not in info:
+            continue
+        flags = info.get("flags") or []
+        line = (f"GK {k}: calculation={info['calculation']}, "
+                f"coverage={info.get('coverage_status','?')}, "
+                f"polarity={info.get('polarity_status','?')}")
+        if flags:
+            line += ", flags=" + ",".join(flags)
+        print(line)
 
 
 def _query_atom_sign(qitem):
@@ -527,14 +583,15 @@ def _load_expected_tsv(path):
 
 
 def run_threshold(args):
-    """Threshold sampling. Prints the four masses (support_for,
+    """Shared-threshold sampling. Prints the four components (support_for,
     support_against, conflict, ignorance) for the query."""
     import threshold_worlds as sr
-    seed = 0
     try:
         seed = int(args.seed)
     except (TypeError, ValueError):
-        seed = hash(args.seed) & 0x7fffffff
+        # stable digest: Python's hash() is randomized between processes
+        seed = int.from_bytes(
+            hashlib.sha256(str(args.seed).encode()).digest()[:8], "big")
 
     if args.check:
         expected = _load_expected_tsv(os.path.join(args.check, "expected.tsv"))
@@ -544,7 +601,8 @@ def run_threshold(args):
             if not os.path.exists(kb):
                 continue
             stmts = load_original(kb)
-            pool, confs, questions = sr.ground_original(stmts)
+            pool, confs, questions = sr.ground_original(
+                stmts, args.max_ground)
             qatom, qsign = _query_atom_sign(questions[0])
             res = sr.evaluate(pool, confs, qatom, qsign, args.trials, seed)
             if res.get("not_scored"):
@@ -556,29 +614,26 @@ def run_threshold(args):
                    for f in MASS_FIELDS
                    if f in exp and (res.get(f) is None
                                     or abs(res[f] - exp[f]) > 0.005)]
-            note = f"  [{res['priority_note']}]" if res.get("priority_note") else ""
-            if bad and res.get("priority_note"):
-                print(f"NOT-SCORED {ex}: " + "; ".join(bad) + note)
-                ndefer += 1
-            elif bad:
-                print(f"FAIL  {ex}: " + "; ".join(bad) + note)
+            if bad:
+                print(f"FAIL  {ex}: " + "; ".join(bad))
                 nfail += 1
             else:
                 print(f"OK    {ex}  " + " ".join(
                     f"{f.split('_')[-1][:3]}={res[f]:.4f}"
-                    for f in MASS_FIELDS) + note)
+                    for f in MASS_FIELDS))
                 npass += 1
         print(f"\n{npass} pass, {nfail} fail, {ndefer} not scored "
               f"(n={args.trials}, seed={seed})")
         return 1 if nfail else 0
 
     stmts = load_original(args.input)
-    pool, confs, questions = sr.ground_original(stmts)
+    pool, confs, questions = sr.ground_original(stmts, args.max_ground)
     if not questions:
         raise SystemExit("threshold sampling needs exactly one @question")
-    # P6 (settlement memo, 2026-07-21): an OPEN query is evaluated per closed
-    # instance over the Herbrand constants of the non-goal clauses -- the same
-    # per-answer instancing the inclusion sampler and gk's own open path use.
+    # An open query is evaluated per closed instance over the named
+    # constants of the non-goal clauses (finite named-constant
+    # instantiation) -- the same per-answer instancing the clause-activation
+    # sampler and gk's own open path use.
     q = questions[0]["@question"]
     qvars = []
     def _walkvars(t):
@@ -623,8 +678,6 @@ def run_threshold(args):
         print(f"query {qname}:")
         for f in MASS_FIELDS:
             print(f"  {f:16s} {res[f]:.4f}")
-        if res.get("priority_note"):
-            print(f"  note: {res['priority_note']}")
         shown += 1
     if not shown:
         print("no instance has evidence on any side")
@@ -634,7 +687,7 @@ def run_threshold(args):
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("input")
+    ap.add_argument("input", nargs="?", default=None)
     ap.add_argument("-n", "--trials", type=int, default=10000)
     ap.add_argument("--seed", default="0")
     ap.add_argument("--draws", dest="coins", choices=["per-instance", "shared"],
@@ -643,17 +696,21 @@ def main():
                     choices=["subtract", "provable", "gkdefault", "threshold"],
                     default="subtract",
                     help="subtract (default): per answer, P(a provable) minus "
-                         "P(the negated answer provable), matching gk's "
-                         "reported confidence; provable: the positive frequency "
-                         "only; gkdefault: the fraction of trials where a plain "
-                         "default gk run accepts the closed answer; threshold: "
-                         "the four masses support_for/against/conflict/ignorance "
-                         "for a ground query, from a separate method that runs "
-                         "no gk subprocess")
+                         "P(the negated answer provable) -- the signed "
+                         "derivability measure of the activation-world "
+                         "sampler; it agrees with GK's signed confidence only "
+                         "on the stated common fragment; provable: the "
+                         "positive frequency only; gkdefault: the fraction of "
+                         "trials where a default gk run accepts the closed "
+                         "answer; threshold: the four components support_for/"
+                         "support_against/conflict/ignorance for the query, "
+                         "from the shared-threshold reference model, with no "
+                         "gk subprocess")
     ap.add_argument("--check", default=None,
-                    help="threshold sampling only: a directory of knowledge bases "
-                         "each with an expected.tsv; batch-check every one and "
-                         "print OK/FAIL/NOT-SCORED per example instead of a single run")
+                    help="threshold sampling only: a directory of reference "
+                         "knowledge bases with an expected.tsv; batch-check "
+                         "every one and print OK/FAIL/NOT-SCORED per example "
+                         "instead of a single run; no input file is needed")
     ap.add_argument("--classify", action="store_true")
     ap.add_argument("--gk",
                     default=os.path.join(
@@ -667,6 +724,11 @@ def main():
     ap.add_argument("--json", default=None, help="write machine-readable results here")
     args = ap.parse_args()
     args.gk_args = args.gk_args.split() if args.gk_args else []
+
+    if args.check and args.semantics != "threshold":
+        ap.error("--check requires --semantics threshold")
+    if args.input is None and not args.check:
+        ap.error("an input file is required unless --check is given")
 
     if args.semantics == "threshold":
         return run_threshold(args)
@@ -764,7 +826,7 @@ def main():
     # below the confidence limit), so the frequency estimates P(a provable and
     # not refuted) = the A-only functional. Closed instances per answer avoid
     # both the open-question artifact in contradictory worlds and gk default's
-    # legacy 10-total-proofs stop in multi-answer worlds; discovery via the
+    # 10-total-proofs stop in multi-answer worlds; discovery via the
     # provability phase is complete since accepted implies provable.
     gkdef = {}
     if args.semantics == "gkdefault" and counts:
@@ -793,29 +855,29 @@ def main():
                             acc += 1
                 gkdef[k] = (acc, nk)
 
-    own_new = gk_own_confidences(args.gk, args.input, [])
+    own_new = gk_results(args.gk, args.input, [])
 
     print(f"\nvalid trials: {n_ok} (timeouts/errors: {timeouts})\n")
     if gkdef:
-        print("| answer | MC gk-default | 95% CI | gk exact |")
+        print("| answer | MC gk-default | 95% CI | GK result |")
         print("|---|---|---|---|")
         for k in sorted(counts, key=lambda k: -counts[k]):
             if k in gkdef:
                 acc, nk = gkdef[k]
                 lo, hi = wilson(acc, nk)
                 print(f"| {k} | {acc/max(1,nk):.4f} | [{lo:.4f}, {hi:.4f}] "
-                      f"| {own_new.get(k, '')} |")
+                      f"| {gk_signed_str(own_new.get(k))} |")
             else:
                 lo, hi = wilson(counts[k], n_ok)
                 print(f"| {k} | {counts[k]/n_ok:.4f} (provability) "
                       f"| [{lo:.4f}, {hi:.4f}] "
-                      f"| {own_new.get(k, '')} |")
+                      f"| {gk_signed_str(own_new.get(k))} |")
         for k in sorted(set(own_new) - set(counts)):
             print(f"| {k} | 0.0000 | [0.0000, {wilson(0, n_ok)[1]:.4f}] "
-                  f"| {own_new.get(k, '')} |")
+                  f"| {gk_signed_str(own_new.get(k))} |")
     elif pairs:
         print("| answer | MC pos | MC neg | MC pos-neg | 95% CI "
-              "| gk exact |")
+              "| GK result |")
         print("|---|---|---|---|---|---|")
         for k in sorted(counts, key=lambda k: -counts[k]):
             if k in pairs:
@@ -826,30 +888,33 @@ def main():
                                                 cells["neg_only"], nk)
                 print(f"| {k} | {pp:.4f} | {pn:.4f} | {diff:.4f} "
                       f"| [{lo:.4f}, {hi:.4f}] "
-                      f"| {own_new.get(k, '')} |")
+                      f"| {gk_signed_str(own_new.get(k))} |")
             else:
                 lo, hi = wilson(counts[k], n_ok)
                 print(f"| {k} | {counts[k]/n_ok:.4f} |  | (provability) "
                       f"| [{lo:.4f}, {hi:.4f}] "
-                      f"| {own_new.get(k, '')} |")
+                      f"| {gk_signed_str(own_new.get(k))} |")
         for k in sorted(set(own_new) - set(counts)):
             print(f"| {k} | 0.0000 |  |  | [0.0000, {wilson(0, n_ok)[1]:.4f}] "
-                  f"| {own_new.get(k, '')} |")
+                  f"| {gk_signed_str(own_new.get(k))} |")
     else:
-        print("| answer | MC freq | 95% CI | gk exact |")
+        print("| answer | MC freq | 95% CI | GK result |")
         print("|---|---|---|---|")
         for k in sorted(counts, key=lambda k: -counts[k]):
             lo, hi = wilson(counts[k], n_ok)
             print(f"| {k} | {counts[k]/n_ok:.4f} | [{lo:.4f}, {hi:.4f}] "
-                  f"| {own_new.get(k, '')} |")
+                  f"| {gk_signed_str(own_new.get(k))} |")
         for k in sorted(set(own_new) - set(counts)):
             print(f"| {k} | 0.0000 | [0.0000, {wilson(0, n_ok)[1]:.4f}] "
-                  f"| {own_new.get(k, '')} |")
+                  f"| {gk_signed_str(own_new.get(k))} |")
+
+    print()
+    print_gk_status(own_new)
 
     result = {"input": args.input, "trials": args.trials, "valid": n_ok,
               "seed": args.seed, "draws": args.coins,
               "semantics": args.semantics,
-              "counts": counts, "gk_exact": own_new}
+              "counts": counts, "gk_result": own_new}
     if pairs:
         result["pairs"] = {k: {"cells": c, "n": nk}
                            for k, (c, nk) in pairs.items()}
@@ -880,4 +945,4 @@ def main():
         print(f"\n(json written to {args.json})")
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

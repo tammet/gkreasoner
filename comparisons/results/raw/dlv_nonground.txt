@@ -1,4 +1,4 @@
-command: ["/opt/provers/default/dlv-2.1.1-linux-x86_64", "--silent", "-n=0", "/opt/gk/experiments/comparisons/table_extensions/asp_nonground.lp"]
+command: ["dlv", "--silent", "-n=0", "inputs/asp/asp_nonground.lp"]
 exit_code: 0
 accepted_exit_codes: [0]
 missing_checks: []

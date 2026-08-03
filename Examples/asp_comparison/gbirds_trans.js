@@ -1,8 +1,7 @@
-// Retained historical gk transitivity input. It combines an
-// ancestor relation, two propagation rules, and one function-symbol rule.
-// The s(CASP) transitivity input in other_systems/ is different: it has no
-// function-symbol rule and only propagates penguin. Do not compare these two
-// files as an otherwise identical pair.
+// gk transitivity input combining an ancestor relation, two propagation
+// rules, and one function-symbol rule. The s(CASP) transitivity input in
+// other_systems/ is different: it has no function-symbol rule and only
+// propagates penguin, so the two files are not an identical pair.
 //
 // Run: ./bin/gk Examples/asp_comparison/gbirds_trans.js -seconds 5
 // Expected: flies(b1) is true.

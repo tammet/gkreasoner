@@ -1,15 +1,26 @@
 # Confidence and support examples
 
 The examples in this directory show how input confidences produce answer
-support and a final confidence:
+support and confidences. Each ground instance of an uncertain input clause
+is an independent activation event whose probability is the input
+confidence: the ground-instance activation semantics.
 
-1. multiply the distinct evidence instances used by one proof;
-2. combine alternative proofs from their evidence-instance sets;
-3. calculate positive and negative support separately;
-4. report the remainder as conflict or ignorance.
+GK selects between calculations automatically:
 
-Run commands from the repository root. `-detail` adds the four-component
-report; `-confidence 0` retains results below the default acceptance threshold.
+- same-polarity retained proofs are combined through their
+  activation-event sets (the provenance-aware retained-proof calculation);
+- an answer with contested atoms may get a dependency-aware
+  shared-threshold calculation;
+- direct retained-proof and fallback results also carry the four report
+  fields, as proof-pool decompositions rather than completed atom-level
+  partitions.
+
+With `-detail`, the `calculation`, `coverage_status`, and
+`polarity_status` fields identify the selected calculation and its status
+([`../../Doc/how_gk_works.md`](../../Doc/how_gk_works.md)).
+
+Run commands from the repository root. `-confidence 0` retains results
+below the default acceptance threshold.
 
 ## Product along a proof
 
@@ -23,7 +34,8 @@ query(r(X)).
 ```
 
 The proof of `r(c)` uses both uncertain facts. Its support contribution is
-`0.5 * 0.6 = 0.3`, which GK reports in the `confidence` field.
+`0.5 * 0.6 = 0.3`. In this one-sided case the verdict confidence equals
+the proof contribution, and GK reports it in the `confidence` field.
 
 [`rulemult.js`](rulemult.js) gives the same calculation to a conjunctive rule.
 [`rules4.js`](rules4.js) and [`rules5.js`](rules5.js) use a rule with confidence
@@ -49,9 +61,15 @@ The evidence sources are disjoint, so noisy-or gives
 `1 - (1 - 0.5)(1 - 0.6) = 0.8`.
 
 [`overlap1.js`](overlap1.js) and [`overlap3.js`](overlap3.js) contain proofs
-with shared premises. GK reconstructs each proof's ground evidence instances
-and uses the shared instances only once. The reported `confidence` values are
+with shared premises. GK reconstructs each proof's ground activation events
+and uses the shared events only once. The reported `confidence` values are
 `0.846` and `0.959`, respectively.
+
+The retained-proof value is the exact union probability of the retained
+proof set when the activation-event identifiers are ground, replay
+succeeds, and the proof-union calculation stays within its bounds. Retained
+proofs need not cover every possible proof; the value is then a lower
+bound of the full activation-model value.
 
 ## Positive and negative support
 
@@ -92,8 +110,8 @@ provide larger networks and retain comparison material in their comments.
 
 The default `-confidence` threshold is `0.1`. A derivation at or below the
 effective limit may be printed with `result: evidence below limit`. This occurs
-in `n3.js`, `rules3.js`, and `equality3.js`. Lowering the threshold changes the
-acceptance label, not the derivation:
+in `n3.js`, `rules3.js`, and `equality3.js`. Lowering the threshold changes
+the acceptance label; the derivation stays the same:
 
 ```sh
 ./bin/gk Examples/confidences/n3.js -confidence 0

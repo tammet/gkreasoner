@@ -1,4 +1,4 @@
-command: ["/opt/provers/problog-2.2.10/bin/problog", "/opt/gk/experiments/comparisons/table_extensions/problog_nonground.pl"]
+command: ["problog", "inputs/problog/problog_nonground.pl"]
 exit_code: 0
 accepted_exit_codes: [0]
 missing_checks: []

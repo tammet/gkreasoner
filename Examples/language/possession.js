@@ -4,7 +4,7 @@
 // Run from the repository root:
 //   ./bin/gk Examples/language/axioms_std.js Examples/language/possession.js \
 //     -strategytext '{"strategy": ["negative_pref", "posunitpara"], "query_preference": 1}' \
-//     -seconds 3 -confidence 0.1 -keepconfidence 0.1
+//     -seconds 3 -confidence 0.1 -keepconfidence 0.1 -taxonomy -datafolder data
 [
 {"@name": "entity_S1", "@logic": ["isa", "roof", "#:roof 1"], "@nl": "The roof 1 of John 2's house 3 is green."},
 {"@name": "sent_S1", "@logic": ["isa", "roof", ["$theof1", "roof", "#:house 3", ["$ctxt", "present", "W0", "?:Fv1", "?:Fv2"]]], "@nl": "The roof 1 of John 2's house 3 is green."},

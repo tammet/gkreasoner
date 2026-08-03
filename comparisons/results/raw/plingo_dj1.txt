@@ -1,0 +1,48 @@
+command: ["plingo", "inputs/plingo/plingo_dj1.lp", "--frontend=problog", "--quiet=2"]
+exit_code: 65
+accepted_exit_codes: [65]
+missing_checks: []
+
+[stdout]
+plingo version 1.1.0
+Reading from ...arisons/table_extensions/plingo_dj1.lp
+UNKNOWN
+
+Models       : 0+
+Calls        : 1
+Time         : 0.005s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.005s
+
+[stderr]
+Traceback (most recent call last):
+  File "plingo-1.1.0/lib/python3.12/site-packages/clingo/application.py", line 377, in _pyclingo_application_main
+    app.main(Control(control), [_to_str(files[i]) for i in range(size)])
+  File "plingo-1.1.0/lib/python3.12/site-packages/plingo/plingo_app.py", line 319, in main
+    obs = self._preprocessing(ctl, files)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "plingo-1.1.0/lib/python3.12/site-packages/plingo/plingo_app.py", line 244, in _preprocessing
+    self._convert(ctl, files)
+  File "plingo-1.1.0/lib/python3.12/site-packages/plingo/plingo_app.py", line 216, in _convert
+    parse_files(
+  File "plingo-1.1.0/lib/python3.12/site-packages/clingo/ast.py", line 1300, in parse_files
+    _handle_error(
+  File "plingo-1.1.0/lib/python3.12/site-packages/clingo/_internal.py", line 77, in _handle_error
+    raise handler.error[0](handler.error[1]).with_traceback(handler.error[2])
+  File "plingo-1.1.0/lib/python3.12/site-packages/clingo/ast.py", line 1247, in _pyclingo_ast_callback
+    callback(AST(ast))
+  File "plingo-1.1.0/lib/python3.12/site-packages/plingo/plingo_app.py", line 218, in <lambda>
+    lambda stm: b.add(cast(AST, pt.visit(stm, builder=b))))
+                                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "plingo-1.1.0/lib/python3.12/site-packages/plingo/transformer.py", line 46, in visit
+    return getattr(self, attr)(ast, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "plingo-1.1.0/lib/python3.12/site-packages/plingo/transformer.py", line 213, in visit_Rule
+    asp_rules = self._convert_rule(head, body)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "plingo-1.1.0/lib/python3.12/site-packages/plingo/transformer.py", line 103, in _convert_rule
+    not_head = ast.Literal(loc, ast.Sign.Negation, head.atom)
+                                                   ^^^^^^^^^
+  File "plingo-1.1.0/lib/python3.12/site-packages/clingo/ast.py", line 1007, in __getattr__
+    raise AttributeError(f"no attribute: {name}")
+AttributeError: no attribute: atom
+*** ERROR: (plingo): no attribute: atom

@@ -1,0 +1,8 @@
+command: ["timeout", "10", "pastasolver", "inputs/pasta/pasta_f1.lp", "--query=bird(f(f(a)))"]
+exit_code: 124
+accepted_exit_codes: [124]
+missing_checks: []
+
+[stdout]
+
+[stderr]

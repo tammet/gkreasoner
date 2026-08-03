@@ -4,7 +4,7 @@
 // Run from the repository root:
 //   ./bin/gk Examples/language/axioms_std.js Examples/language/who_question.js \
 //     -strategytext '{"strategy": ["negative_pref", "posunitpara"], "query_preference": 1}' \
-//     -seconds 3 -confidence 0.1 -keepconfidence 0.1
+//     -seconds 3 -confidence 0.1 -keepconfidence 0.1 -taxonomy -datafolder data
 [
 {"@name": "sent_S1", "@logic": [["-isa", "elephant", "?:X"], ["isa", "animal", "?:X"]], "@nl": "Elephants are animals."},
 {"@name": "sent_S2", "@question": ["isa", "animal", "?:X"]},

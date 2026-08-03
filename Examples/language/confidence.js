@@ -4,7 +4,7 @@
 // Run from the repository root:
 //   ./bin/gk Examples/language/axioms_std.js Examples/language/confidence.js \
 //     -strategytext '{"strategy": ["negative_pref", "posunitpara"], "query_preference": 1}' \
-//     -seconds 3 -confidence 0.1 -keepconfidence 0.1
+//     -seconds 3 -confidence 0.1 -keepconfidence 0.1 -taxonomy -datafolder data
 [
 {"@name": "sent_S1", "@logic": [["-isa", "elephant", "?:X"], ["-has property", "yellow", "?:X", ["$ctxt", "?:Fv4", "?:Fv3", "?:Fv1", "?:Fv2"]], ["-has property", "green", "?:X", ["$ctxt", "?:Fv4", "?:Fv3", "?:Fv1", "?:Fv2"]], ["has degree property", "good", "?:X", "none", "?:Fv53", ["$ctxt", "?:Fv4", "?:Fv3", "?:Fv1", "?:Fv2"]], ["$block", ["$", "elephant", 3], ["$not", ["has degree property", "good", "?:X", "none", "?:Fv54", ["$ctxt", "?:Fv4", "?:Fv3", "?:Fv1", "?:Fv2"]]]]], "@confidence": 0.9, "@nl": "Elephants that are yellow and green are nice."},
 {"@name": "sent_S2", "@logic": ["isa", "elephant", "#:John 1"], "@nl": "John 1 is an elephant."},

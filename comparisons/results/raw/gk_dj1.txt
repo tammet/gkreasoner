@@ -1,0 +1,32 @@
+command: ["gk", "inputs/gk/dj1.gkp", "-detail", "-outformat", "json"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+{"result": "answer found",
+
+"answers": [
+{
+"answer": true,
+"confidence": 0.7200,
+"detail": {"support_for": 0.7200,
+"support_against": 0.0000,
+"conflict": 0.0000,
+"ignorance": 0.2800,
+"calculation": "canonical_atom",
+"coverage_status": "complete",
+"polarity_status": "guaranteed",
+"conflict_sources": [],
+"flags": ["CONTESTED"],
+"recursive_checks": 1},
+"positive proof":
+[
+[1, ["in", "frm_1", "axiom", 0.8], [["q","a"], ["p","a"]]],
+[2, ["in", "frm_2", "axiom", 0.9], [["-p","a"]]],
+[3, ["in", "frm_3", "goal", 1], [["-q","a"]]],
+[4, ["mp", [1,1], 2, 3, "fromgoal", 0.72], false]
+]}
+]}
+
+[stderr]

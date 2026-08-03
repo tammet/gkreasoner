@@ -1,7 +1,0 @@
-TweetyProject 1.31
-D5 specificity analogue
-Flies(opus)             The answer is: NO
-~Flies(opus)            The answer is: YES
-D4 native Nixon
-pacifist(nixon)         The answer is: UNDECIDED
-~pacifist(nixon)        The answer is: UNDECIDED

@@ -1,4 +1,4 @@
-command: ["/opt/provers/plingo-1.1.0/bin/plingo", "/opt/gk/experiments/comparisons/table_extensions/plingo_cases.lp", "--frontend=problog", "--quiet=2"]
+command: ["plingo", "inputs/plingo/plingo_cases.lp", "--frontend=problog", "--quiet=2"]
 exit_code: 30
 accepted_exit_codes: [0, 30]
 missing_checks: []
@@ -34,9 +34,9 @@ c1_q: 0.80000
 
 
 [stderr]
-/opt/gk/experiments/comparisons/table_extensions/plingo_cases.lp:35:20-30: info: atom does not occur in any rule head:
+inputs/plingo/plingo_cases.lp:35:20-30: info: atom does not occur in any rule head:
   d6_injured
 
-/opt/gk/experiments/comparisons/table_extensions/plingo_cases.lp:36:17-23: info: atom does not occur in any rule head:
+inputs/plingo/plingo_cases.lp:36:17-23: info: atom does not occur in any rule head:
   d6_neg
 

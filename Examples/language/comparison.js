@@ -4,7 +4,7 @@
 // Run from the repository root:
 //   ./bin/gk Examples/language/axioms_std.js Examples/language/comparison.js \
 //     -strategytext '{"strategy": ["negative_pref", "posunitpara"], "query_preference": 1}' \
-//     -seconds 3 -confidence 0.1 -keepconfidence 0.1
+//     -seconds 3 -confidence 0.1 -keepconfidence 0.1 -taxonomy -datafolder data
 [
 {"@name": "sent_S1", "@logic": ["isa", "mountain", "#:mountain 1"], "@nl": "The mountain 1 is higher than the hill 2."},
 {"@name": "sent_S1", "@logic": ["isa", "hill", "#:hill 2"], "@nl": "The mountain 1 is higher than the hill 2."},

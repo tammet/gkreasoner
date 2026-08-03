@@ -1,0 +1,18 @@
+command: ["timeout", "10", "clingo", "inputs/asp/asp_f1.lp", "0"]
+exit_code: 124
+accepted_exit_codes: [124]
+missing_checks: []
+
+[stdout]
+clingo version 5.6.2
+Reading from ...comparisons/table_extensions/asp_f1.lp
+UNKNOWN
+
+INTERRUPTED  : 1
+Models       : 0+
+Calls        : 1
+Time         : 9.999s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 9.993s
+
+[stderr]
+*** Info : (clingo): INTERRUPTED by signal!

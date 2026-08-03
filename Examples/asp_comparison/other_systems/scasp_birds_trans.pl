@@ -1,5 +1,5 @@
-% Historical transitivity variant for s(CASP) 0.21.10.09. The recorded run did not
-% finish. Unlike gbirds_trans.js, this input contains no function-symbol rule.
+% Transitivity variant for s(CASP); the recorded run did not finish. This
+% input contains no function-symbol rule; gbirds_trans.js has one.
 
 father(b1,b2).
 father(p1,p2).

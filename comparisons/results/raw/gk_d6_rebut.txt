@@ -1,4 +1,4 @@
-command: ["/opt/gk/gk", "/opt/gk/experiments/comparisons/table_extensions/gk/d6_rebut.gkp", "-detail", "-outformat", "json"]
+command: ["gk", "inputs/gk/d6_rebut.gkp", "-detail", "-outformat", "json"]
 exit_code: 0
 accepted_exit_codes: [0]
 missing_checks: []

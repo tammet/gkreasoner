@@ -1,5 +1,5 @@
 // Expanded form of the first social-smoking network. The expected confidence
-// of smokes(sam) is 0.3764 under the current proof-support combiner.
+// of smokes(sam) is 0.3764 under the provenance-aware retained-proof calculation.
 [
   {"@confidence": 0.3, "@logic": ["smokes", "?:X"]},
   {"@confidence": 0.1, "@logic": ["friends", "?:X", "?:Y"]},

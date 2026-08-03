@@ -4,7 +4,7 @@
 // Run from the repository root:
 //   ./bin/gk Examples/language/axioms_std.js Examples/language/relative_clause.js \
 //     -strategytext '{"strategy": ["negative_pref", "posunitpara"], "query_preference": 1}' \
-//     -seconds 3 -confidence 0.1 -keepconfidence 0.1
+//     -seconds 3 -confidence 0.1 -keepconfidence 0.1 -taxonomy -datafolder data
 [
 {"@name": "sent_S1", "@logic": ["isa", "person", "#:John 1"], "@nl": "John 1 has a nice red car 2."},
 {"@name": "sent_S1", "@logic": ["isa", "car", "#:car 2"], "@nl": "John 1 has a nice red car 2."},

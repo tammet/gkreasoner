@@ -42,7 +42,7 @@ condition `X + 2 = 10`; the `arithinst` inference tests bounded candidates and
 retains 8.
 
 [`boundary_comparison.js`](boundary_comparison.js) asks for a value satisfying
-`X > 7`. Mode 1 returns the first retained candidate, 8:
+`X > 7`. Mode 1 returns the first candidate that satisfies the condition, 8:
 
 ```sh
 ./bin/gk Examples/arithmetic/boundary_comparison.js -seconds 5 \
@@ -62,7 +62,7 @@ two variables occur in the condition:
   -strategytext '{"strategy":["unit"],"query_preference":0,"arith_instantiation":2}'
 ```
 
-Expected retained answer: `(6, 1)`, confidence 1. Mode 1 finds no answer for
+Returned answer: `(6, 1)`, confidence 1. Mode 1 finds no answer for
 this file.
 
 ## Arithmetic combined with other reasoning
@@ -87,7 +87,7 @@ division into boxes.
 | `ground_unary.js`, `donor_ground_unary.js` | `true` | none |
 | `donor_overflow_safety.js` | `true` | none |
 
-Instantiation modes set conservative candidate, probe, and depth limits. They
-are intended for small integer conditions, not general algebra or constraint
-solving. Strategy keys are listed in
+Instantiation modes use fixed candidate, probe, and depth limits. They
+are intended for small integer conditions; they do not perform general
+algebra or constraint solving. Strategy keys are listed in
 [`../../Doc/strategy_reference.md`](../../Doc/strategy_reference.md).

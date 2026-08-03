@@ -9,7 +9,7 @@ When neither `-strategy` nor `-strategytext` is given, GK constructs a strategy
 sequence from the parsed problem. Each strategy has an initial time in which to
 find a proof. A strategy that finds none is stopped at that limit. The first
 successful strategy receives the remaining search time and is then used for
-the query's blocker checks and negative-evidence searches.
+the query's blocker checks and searches for explicit negation.
 
 The first strategy depends on the problem size: negative-clause preference for
 small problems and query-focused selection for large ones. Alternatives use
@@ -19,7 +19,6 @@ gets half of the search budget before it is abandoned without a proof; the
 alternatives share the rest. With `-explore`, or automatically when `-seconds`
 exceeds 30, every strategy gets the same short initial limit.
 
-Automatic selection is the default interface and may change between versions.
 Use an explicit strategy when the search configuration must remain fixed.
 
 `-parallel <n>` uses `n` total processes (1 to 8, Unix) for automatic
@@ -113,12 +112,12 @@ hand-written multi-run strategies.
 
 ### `max_answers`
 
-Legacy name for the maximum number of stored proofs in total. Several proofs
-of one answer each count. The automatic strategy commonly sets this to 10.
+Maximum number of stored proofs in total. Several proofs of one answer each
+count. The automatic strategy commonly sets this to 10.
 
 ### `max_total_proofs`
 
-Clearer synonym for `max_answers`.
+Synonym for `max_answers`.
 
 ### `max_distinct_answers`
 
@@ -144,7 +143,7 @@ several compatible preferences.
 | `negative_pref` | Prefer clauses containing negative literals |
 | `positive_pref` | Prefer clauses containing positive literals |
 | `query_focus` | Prefer clauses in the query/goal queues |
-| `hardness_pref` | Prefer clauses estimated to be easier to process |
+| `hardness_pref` | Prefer clauses whose literals are estimated cheap to resolve away; the estimate uses literal size, new variables, and the number of complementary-polarity occurrences of the predicate |
 | `knuthbendix_pref` | Use a Knuth-Bendix-oriented preference for equational problems |
 | `hyper` | Enable hyperresolution |
 | `unit` | Restrict resolution arguments to unit clauses |
@@ -156,8 +155,8 @@ search incomplete.
 
 ## Query and clause queues
 
-Clauses have goal, assumption, or axiom roles. `query_preference` determines
-how those roles map to selection queues:
+Clauses have goal, assumption, or axiom roles. `query_preference` (integer
+0 to 4; default 0) determines how those roles map to selection queues:
 
 | Value | Treatment |
 |---:|---|
@@ -165,24 +164,27 @@ how those roles map to selection queues:
 | `1` | Keep the queues as marked by their roles |
 | `2` | Move positive goal units and non-included axioms to the assumption queue |
 | `3` | Keep only fully negative goal clauses in the goal queue |
+| `4` | Treat all clauses as axioms regardless of role |
 
 `query_focus` is the selection method that gives direct preference to the goal
 queue.
 
 ### `weight_select_ratio`
 
-Set the ratio used when selecting from the clause queues. The accepted synonym
-is `given_queue_ratio`.
+Integer, 1 or greater; default 5. Ratio of priority-queue picks to
+simple-order picks when the given clause is selected from a queue. The
+accepted synonym is `given_queue_ratio`.
 
 ## Derived-clause limits
 
-A zero value disables the corresponding limit.
+Each key takes an integer, 0 or greater; 0 disables the corresponding
+limit, and 0 is the default.
 
 | Key | Limit |
 |---|---|
 | `max_size` | number of literals in a retained clause |
-| `max_depth` | term nesting depth |
-| `max_length` | term arity or length |
+| `max_depth` | term nesting depth in a retained clause |
+| `max_length` | number of arguments (the length) of a term in a retained clause |
 | `max_weight` | calculated clause weight |
 
 Restrictive values reduce memory use but may remove all proofs of an answer.
@@ -214,10 +216,11 @@ SINE is mainly useful for a small query against a large axiom set.
 
 ### `independence`
 
-Accepted range: 0 to 100. In the normal proof-support combiner, `0` disables
-cumulation and any nonzero value enables it. The overlap itself is measured
-from evidence-instance sets. Under the compatibility option `-oldcumulate`,
-the percentage controls the older heuristic interpolation.
+Integer, 0 to 100. In the provenance-aware retained-proof calculation, `0`
+disables the combination of alternative proofs and any nonzero value
+enables it; the overlap is measured from activation-event sets. With
+`-oldcumulate`, the percentage scales the dependency-ratio discounting of
+that option's noisy-or calculation.
 
 ### `keepconfidence`
 

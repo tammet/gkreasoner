@@ -1,0 +1,19 @@
+command: ["scasp", "--query=bird(f(f(a)))", "inputs/scasp/scasp_f1.pl"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+% Query
+?- bird(f(f(a))).
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+%                         Answer 1 (0.000 sec)                          
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+% Model
+{ bird(a),        bird(f(a)),     bird(f(f(a)))
+}
+% No bindings
+true ? 
+
+
+[stderr]

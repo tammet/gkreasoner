@@ -64,10 +64,10 @@ The first run is sufficient for this problem.
 
 ## Confidence combination
 
-The current combiner reconstructs evidence-instance sets and computes the
-overlap between proofs. Strategy value `independence: 0` disables cumulation; nonzero
-values enable the normal combiner. Intermediate percentages affect results
-only with the compatibility option `-oldcumulate`.
+`independence: 0` disables same-polarity aggregation. A nonzero value
+selects provenance-aware aggregation from the proofs' activation-event
+sets. `-oldcumulate` selects the calculation controlled by intermediate
+percentage values.
 
 [`../../Doc/strategy_reference.md`](../../Doc/strategy_reference.md) lists the
 strategy keys. [`../../Doc/how_gk_works.md`](../../Doc/how_gk_works.md)

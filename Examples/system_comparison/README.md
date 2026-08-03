@@ -1,11 +1,12 @@
 # System comparison examples
 
 This directory contains small, executable comparisons with
-[TweetyProject](https://tweetyproject.org/),
-[PASTA](https://github.com/damianoazzolini/pasta), and
-[I-DLV](https://github.com/DeMaCS-UNICAL/I-DLV). The examples compare the
-meaning of conclusions, not performance. Each example uses the native rules
-of its formalism.
+[TweetyProject](https://tweetyproject.org/) 1.31,
+[PASTA](https://github.com/damianoazzolini/pasta) 1.0.1, and
+[I-DLV](https://github.com/DeMaCS-UNICAL/I-DLV) 1.1.6. The examples compare
+the meaning of conclusions; run times are measured in
+[`../asp_comparison/`](../asp_comparison/README.md). Each example uses the
+native rules of its formalism.
 
 ## Results
 
@@ -20,28 +21,31 @@ of its formalism.
 | opposing Nixon defaults | I-DLV plus [clasp](https://potassco.org/clasp/) | two stable models, one for each conclusion |
 | bird default with an explicit penguin exception | I-DLV query answering | `flies(tweety)` |
 
-The PASTA values `0.8` and `0.3` agree with gk's
+The PASTA values `0.8` and `0.3` equal GK's
 [`cumulate.js`](../confidences/cumulate.js) and
-[`coin1.js`](../confidences/coin1.js), respectively. This agreement is limited
-to these positive, independent-evidence cases. PASTA assigns probabilities to
-possible worlds and then considers their stable models. gk combines evidence
-found in first-order proofs and reports an assessment of support and conflict.
+[`coin1.js`](../confidences/coin1.js) results. The agreement covers these
+positive, independent-evidence cases. PASTA assigns probabilities to
+possible worlds and then considers their stable models; GK combines
+evidence found in first-order proofs and reports support and conflict.
 
-The Nixon results express the same ambiguity in three different result types:
-two DeLP arguments remain undecided, PASTA reports the lower and upper
-probability across stable models, and I-DLV with a solver enumerates the two
-stable models. None is a numeric equivalent of gk's confidence-and-support calculation.
+The three Nixon outputs are of different kinds: DeLP leaves both opposed
+arguments undecided; PASTA reports the interval `[0,1]` for each
+conclusion across the two stable models; I-DLV with clasp enumerates the
+two stable models. Their semantics differ, so the outputs are not one
+common numeric quantity, and none corresponds numerically to GK's report
+of pure ignorance for the same conflict.
 
 ## TweetyProject inputs
 
-`tweety_birds.rdl` uses a normal Reiter default. A strict `!Flies(opus)` fact
-prevents the bird default from being applied to Opus. `tweety_birds.delp` uses
-a defeasible bird rule and a more-specific defeasible penguin rule;
-generalized specificity makes the penguin argument prevail.
+`tweety_birds.rdl` uses a normal Reiter default. A strict `!Flies(opus)`
+fact prevents the bird default from being applied to Opus.
+`tweety_birds.delp` uses a defeasible bird rule and a more-specific
+defeasible penguin rule; generalized specificity makes the penguin
+argument prevail.
 
 `TweetyComparison.java` runs both formalisms and also queries the opposed
-defaults in `tweety_nixon.delp`. With the self-contained TweetyProject 1.31
-JARs, the captured output was:
+defaults in `tweety_nixon.delp`. With the TweetyProject 1.31 RDL and DeLP
+libraries, the captured output was:
 
 ```text
 RDL extensions=1
@@ -56,24 +60,14 @@ DeLP pacifist(nixon)         answer=The answer is: UNDECIDED
 DeLP ~pacifist(nixon)        answer=The answer is: UNDECIDED
 ```
 
-The two downloaded JARs had these SHA-256 values:
-
-```text
-34f7602c725f9b27302717418450fd781a29493fa8d0dbcaf4110b2dfcab41a8  rdl
-44c458eaa84cdf8dd3f6c6ec76660b1cf2ce158c9fdcd6a417f65a421f4e7465  delp
-```
-
-Reproduce the run from the repository root:
+Run it from the repository root, with `tweety-rdl.jar` and
+`tweety-delp.jar` standing for the TweetyProject 1.31 libraries with
+dependencies:
 
 ```sh
-curl -fL https://tweetyproject.org/builds/1.31/org.tweetyproject.logics.rdl-1.31-with-dependencies.jar \
-  -o /tmp/tweety-rdl.jar
-curl -fL https://tweetyproject.org/builds/1.31/org.tweetyproject.arg.delp-1.31-with-dependencies.jar \
-  -o /tmp/tweety-delp.jar
-mkdir -p /tmp/tweety-classes
-javac -cp /tmp/tweety-rdl.jar:/tmp/tweety-delp.jar \
-  -d /tmp/tweety-classes Examples/system_comparison/TweetyComparison.java
-java -cp /tmp/tweety-rdl.jar:/tmp/tweety-delp.jar:/tmp/tweety-classes \
+javac -cp tweety-rdl.jar:tweety-delp.jar \
+  -d tweety-classes Examples/system_comparison/TweetyComparison.java
+java -cp tweety-rdl.jar:tweety-delp.jar:tweety-classes \
   TweetyComparison \
   Examples/system_comparison/tweety_birds.rdl \
   Examples/system_comparison/tweety_birds.delp \
@@ -82,55 +76,43 @@ java -cp /tmp/tweety-rdl.jar:/tmp/tweety-delp.jar:/tmp/tweety-classes \
 
 ## PASTA inputs
 
-`pasta_independent_support.lp` and `pasta_conjunctive_support.lp` isolate the
-two ways independent probabilistic facts can support a query. The Nixon input
-has no probabilistic facts; its interval comes from the two stable models of
-the default conflict.
+`pasta_independent_support.lp` and `pasta_conjunctive_support.lp` isolate
+the two ways independent probabilistic facts can support a query. The
+Nixon input has no probabilistic facts; its interval comes from the two
+stable models of the default conflict.
 
-The runs used PASTA 1.0.1 at commit
-`ba2a92b0ee4e66462d2be600fbf2d2a0b7db71e5`:
+Run with the PASTA 1.0.1 solver, `pastasolver` standing for the installed
+executable:
 
 ```sh
-git clone https://github.com/damianoazzolini/pasta.git /tmp/pasta
-python3 -m venv /tmp/pasta-venv
-/tmp/pasta-venv/bin/pip install /tmp/pasta
-/tmp/pasta-venv/bin/pastasolver \
-  Examples/system_comparison/pasta_independent_support.lp --query=answer
-/tmp/pasta-venv/bin/pastasolver \
-  Examples/system_comparison/pasta_conjunctive_support.lp --query=answer
-/tmp/pasta-venv/bin/pastasolver \
-  Examples/system_comparison/pasta_nixon.lp --query='pacifist(nixon)'
-/tmp/pasta-venv/bin/pastasolver \
-  Examples/system_comparison/pasta_nixon.lp --query='nonpacifist(nixon)'
+pastasolver Examples/system_comparison/pasta_independent_support.lp --query=answer
+pastasolver Examples/system_comparison/pasta_conjunctive_support.lp --query=answer
+pastasolver Examples/system_comparison/pasta_nixon.lp --query='pacifist(nixon)'
+pastasolver Examples/system_comparison/pasta_nixon.lp --query='nonpacifist(nixon)'
 ```
 
 ## I-DLV inputs
 
-I-DLV can fully evaluate stratified Datalog programs and answer a supplied
+I-DLV fully evaluates stratified Datalog programs and answers a supplied
 query using Magic Sets. `idlv_birds.lp` is stratified and returns
 `flies(tweety)`. It uses a separate `nonflies` predicate for the explicit
-exception; in this example that predicate has the same blocker role as strong
-negation because no rule can derive both conclusions.
+exception; in this example that predicate has the same blocker role as
+strong negation because no rule can derive both conclusions.
 
-The Nixon program is not stratified. I-DLV grounds it and clasp computes its
-two stable models:
+The Nixon program is not stratified. I-DLV grounds it and clasp computes
+its two stable models:
 
 ```text
 quaker(nixon) republican(nixon) pacifist(nixon)
 quaker(nixon) republican(nixon) nonpacifist(nixon)
 ```
 
-The runs used I-DLV 1.1.6, whose Linux executable had SHA-256
-`4fcf0dd01fae22b82e3b52a4421d3c5c0b2a377486450b6175d30b209ffec32a`:
+Run with the I-DLV 1.1.6 executable, `idlv` standing for it:
 
 ```sh
-curl -fL \
-  https://github.com/DeMaCS-UNICAL/I-DLV/releases/download/1.1.6/idlv_1.1.6_linux_x86-64 \
-  -o /tmp/idlv
-chmod +x /tmp/idlv
-/tmp/idlv --query --silent Examples/system_comparison/idlv_birds.lp
-/tmp/idlv --silent Examples/system_comparison/idlv_nixon.lp | clasp 0
+idlv --query --silent Examples/system_comparison/idlv_birds.lp
+idlv --silent Examples/system_comparison/idlv_nixon.lp | clasp 0
 ```
 
-The larger query-focus measurements for I-DLV use the normalized workload in
-[`../asp_comparison/`](../asp_comparison/README.md).
+The larger query-focus measurements for I-DLV use the normalized workload
+in [`../asp_comparison/`](../asp_comparison/README.md).

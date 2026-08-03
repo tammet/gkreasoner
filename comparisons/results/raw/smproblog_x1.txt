@@ -1,0 +1,13 @@
+command: ["problog", "-k", "ddnnf", "inputs/smproblog/smproblog_x1.pl"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+Total: 0.0s
+	t		f		i
+np(a):	0.31034483	0.26965517	0.42      
+ p(a):	0.48275862	0.097241379	0.42      
+ q(b):	1         	-0.42     	0.42      
+
+[stderr]

@@ -4,7 +4,7 @@
 // Run from the repository root:
 //   ./bin/gk Examples/language/axioms_std.js Examples/language/family_relations.js \
 //     -strategytext '{"strategy": ["negative_pref", "posunitpara"], "query_preference": 1}' \
-//     -seconds 3 -confidence 0.1 -keepconfidence 0.1
+//     -seconds 3 -confidence 0.1 -keepconfidence 0.1 -taxonomy -datafolder data
 [
 {"@name": "entity_S3", "@logic": ["isa", "person", "#:John 1"], "@nl": "John 1 is a father of Mike 2."},
 {"@name": "entity_S3", "@logic": ["isa", "person", "#:Mike 2"], "@nl": "John 1 is a father of Mike 2."},

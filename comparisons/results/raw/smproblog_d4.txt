@@ -1,4 +1,4 @@
-command: ["/opt/provers/smproblog-bfbc542/bin/problog", "-k", "ddnnf", "/opt/gk/experiments/comparisons/table_extensions/smproblog_d4.pl"]
+command: ["problog", "-k", "ddnnf", "inputs/smproblog/smproblog_d4.pl"]
 exit_code: 0
 accepted_exit_codes: [0]
 missing_checks: []

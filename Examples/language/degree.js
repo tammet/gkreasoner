@@ -4,7 +4,7 @@
 // Run from the repository root:
 //   ./bin/gk Examples/language/axioms_std.js Examples/language/degree.js \
 //     -strategytext '{"strategy": ["negative_pref", "posunitpara"], "query_preference": 1}' \
-//     -seconds 3 -confidence 0.1 -keepconfidence 0.1
+//     -seconds 3 -confidence 0.1 -keepconfidence 0.1 -taxonomy -datafolder data
 [
 {"@name": "sent_S1", "@logic": ["isa", "person", "#:John 1"], "@nl": "John 1 is somewhat big."},
 {"@name": "sent_S1", "@logic": ["has degree property", "big", "#:John 1", "low", "person", ["$ctxt", "present", "W0", "?:Fv1", "?:Fv2"]], "@nl": "John 1 is somewhat big."},

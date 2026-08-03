@@ -50,9 +50,12 @@ proving it.
 ### `-detail`
 
 Add a `detail` block to each answer: `support_for`, `support_against`,
-`conflict`, `ignorance`, the `calculation`/`coverage_status`/`polarity_status`
-fields naming which calculation produced the numbers and whether both query
-orientations give mirrored reports, conflict sources, and flags.
+`conflict`, `ignorance`, the `calculation`, `coverage_status`, and
+`polarity_status` fields, conflict sources, and flags. The field values are
+defined in the report-status tables of
+[`how_gk_works.md`](how_gk_works.md). `coverage_status: complete` means
+that no covered operational failure was detected; it does not establish
+that the query lies in the exact-correspondence fragment.
 
 ### `-print <n>`
 
@@ -117,12 +120,11 @@ Acceptance threshold for an exception proof in the recursive default check;
 same decimal or percentage forms as `-confidence`, default 0.5. An exception
 proof below the threshold is ignored, so the reported confidence can jump when
 the combined evidence for an exception crosses it. Lower the threshold, or
-use `-softblock`, for graded behaviour below 0.5.
+use `-softblock`, for graded behavior below 0.5.
 
 ### `-firstanswer`
 
-Stop after the first answer rather than searching for alternative answers and
-proofs.
+Stop after the first answer and its first retained proof.
 
 ### `-maxanswers <n>`
 
@@ -152,26 +154,25 @@ Do not search for support for the explicit negation.
 
 ### `-oldcumulate`
 
-Use the older heuristic proof-combination algorithm. In this mode the
-`independence` strategy value controls the degree of combination. The normal
-algorithm measures overlap from the proofs' provenance sets.
+Combine two proofs by noisy-or with the weaker contribution scaled by a
+dependency ratio estimated from the proof histories and by the
+`independence` strategy percentage. Without this option, GK measures the
+overlap from the proofs' activation-event sets.
 
 ### `-olduncertainty`
 
-Use the previous single-number positive-minus-negative pipeline instead of the
-default four-component assessment.
+Select the single-number positive-minus-negative calculation.
 
 ### `-defworlds`
 
-Explicitly select the current four-component assessment. It is already the
-default for proof search. The explicit form matters with `-clausify`, which
-otherwise uses the classic clause export.
+Select the four-component report. With `-clausify`, `-defworlds` selects
+the confidence-aware clause export.
 
 ### `-envelope`
 
 Compute minimum and maximum support when identified conflicts are resolved in
-each direction. The envelope is a sensitivity report, not a probability
-interval. It implies detailed output.
+each direction. The bounds are support values; they have no probability
+reading. It implies detailed output.
 
 ### `-stake <F>`
 
@@ -198,23 +199,42 @@ exceptions.
 
 ### `-softblock`
 
-Use graded blocker discounting with the legacy single-number report. A
-candidate confidence is multiplied by `1 - pb`, where `pb` is the noisy-or
-pool of firing blocker priorities. This mode selects the legacy pipeline unless
-the current four-component mode is explicitly requested.
+Multiply a blocked candidate's confidence by `1 - pb`, where `pb` is the
+noisy-or pool of the firing blocker confidences. The option selects the
+single-number calculation pipeline unless `-defworlds` is given; it is a
+different pipeline, and the four-component report does not use this
+discounting.
 
-### `-defaults`
+### `-taxonomy`
 
-Load taxonomy data used by `tax(...)` blocker priorities. GK reads:
+Load the taxonomy data used by taxonomy-form blocker priorities such as
+`tax(name)` and `tax(name, nr)`. GK reads two files, from the
+`-datafolder` path or the current working directory:
 
 ```text
 gk_name_number.txt
 gk_taxonomy_packed.txt
 ```
 
+The canonical copies are in [`../data/`](../data/README.md). The two
+files form one generated pair and are validated together; a missing or
+mismatched file is an error with a nonzero exit. An input that uses
+taxonomy-form priorities without this flag is an error; numeric
+priorities never need it. `-defaults` is an accepted synonym.
+
 ### `-relatedwords`
 
 Load `gk_relatedwords.txt`.
+
+### `-similarities`
+
+Load the word-similarity file `gk_similarity.txt` and enable similarity
+derivation.
+
+### `-nosimilarities`
+
+Disable similarity derivation even when a similarity file has been loaded.
+Useful with `-usekb` when the shared base contains the file.
 
 ### `-datafolder <path>`
 
@@ -222,7 +242,7 @@ Read auxiliary `gk_...` files from `path` rather than the current directory.
 
 ```sh
 gk Examples/exceptions/classify.gkp \
-  -defaults -datafolder Examples/exceptions
+  -taxonomy -datafolder data
 ```
 
 ### `-task <name>`
@@ -269,14 +289,14 @@ Database number 1000 is used by default.
 ### `-readkb <file>`
 
 Parse a question-free file into shared memory. Use at least `-mbsize 1000`.
-Options that load auxiliary data, such as `-defaults -datafolder DIR`, belong
+Options that load auxiliary data, such as `-taxonomy -datafolder DIR`, belong
 on this command.
 
 ### `-usekb`
 
 Use the shared knowledge base together with any query file on the command
 line. The question must be in that file. Auxiliary data loaded with
-`-defaults`, `-datafolder`, or `-relatedwords` comes from the shared base; do
+`-taxonomy`, `-datafolder`, or `-relatedwords` comes from the shared base; do
 not repeat those options. Search and report options, including `-parallel`,
 apply to each query. With `-usekb`, SINE relevance filtering is disabled.
 
@@ -304,7 +324,7 @@ Parse a logic file and write the resulting database directly to a dump file.
 Typical sequence:
 
 ```sh
-gk -readkb axioms.js -mbsize 2000 -defaults -datafolder DIR
+gk -readkb axioms.js -mbsize 2000 -taxonomy -datafolder DIR
 gk -usekb query.js -parallel 3
 gk -deletekb
 ```

@@ -4,7 +4,7 @@
 // Run from the repository root:
 //   ./bin/gk Examples/language/axioms_std.js Examples/language/probability.js \
 //     -strategytext '{"strategy": ["negative_pref", "posunitpara"], "query_preference": 1}' \
-//     -seconds 3 -confidence 0.1 -keepconfidence 0.1
+//     -seconds 3 -confidence 0.1 -keepconfidence 0.1 -taxonomy -datafolder data
 [
 {"@name": "entity_S1", "@logic": ["isa", "place", "#:Tallinn 1"], "@nl": "Tallinn 1 is in Latvia 2."},
 {"@name": "entity_S1", "@logic": ["isa", "place", "#:Latvia 2"], "@nl": "Tallinn 1 is in Latvia 2."},

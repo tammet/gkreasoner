@@ -1,0 +1,9 @@
+command: ["problog", "inputs/problog/problog_f1.pl"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+bird(f(f(a))):	0.576     
+
+[stderr]

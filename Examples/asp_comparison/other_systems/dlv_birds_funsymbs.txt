@@ -1,5 +1,5 @@
-% Historical function-symbol variant for DLV 2.1.1. The positive recursive
-% f(X) rules require infinitely many ground terms; the recorded run did not finish.
+% Function-symbol variant for DLV. The positive recursive f(X) rules
+% require infinitely many ground terms; grounding does not finish.
 
 bird(b1).
 penguin(p1).

@@ -1,0 +1,19 @@
+command: ["scasp", "--query=q(a)", "inputs/scasp/scasp_dj1.pl"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+% Query
+?- q(a).
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+%                         Answer 1 (0.000 sec)                          
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+% Model
+{ not ¬ p(_ | {_ ∉ [a]}),¬ p(a),                q(a)
+}
+% No bindings
+true ? 
+
+
+[stderr]

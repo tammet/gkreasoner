@@ -1,7 +1,20 @@
 # First-order runs in other reasoners
 
 These runs use the three classical clause problems without probabilities,
-defaults, finite-domain bounds, or function-depth bounds.
+defaults, finite-domain bounds, or function-depth bounds. Tested systems:
+
+| System | Version |
+|---|---|
+| ProbLog | 2.2.10 |
+| PASTA | 1.0.1 |
+| TweetyProject | 1.31 (FOL library) |
+| clingo | 5.6.2 |
+| DLV | official x86-64 static release (reports no semantic version) |
+| I-DLV | 1.1.6 |
+| s(CASP) | 1.1.4 |
+
+In the commands below, `problog`, `pastasolver`, `dlv`, `idlv`, `scasp`,
+and `tweety-fol.jar` stand for the installed executables and library.
 
 ## Translation
 
@@ -46,14 +59,13 @@ union(cDa,cDb,cD_aIb):  0
 Its `ground` mode reduces the query to `union(cDa,cDb,cD_aIb) :- fail`.
 This is not a countermodel to the set theorem. ProbLog models contain Prolog
 clauses and probabilistic or annotated-disjunction choices; an unannotated
-multi-atom classical clause is not a ProbLog rule head. There is consequently
-no semantics-preserving ProbLog input for these non-Horn clause theories.
+multi-atom classical clause is not a ProbLog rule head. No faithful ProbLog
+translation is claimed for these clause sets.
 
 Command:
 
 ```sh
-/tmp/gkreasoner-language-tools/problog-venv/bin/problog \
-  Examples/fol_comparison/other_systems/set_asp.lp
+problog Examples/fol_comparison/other_systems/set_asp.lp
 ```
 
 ## [PASTA](https://github.com/damianoazzolini/pasta)
@@ -66,8 +78,7 @@ unbounded `term/1` closure reached the eight-second limit after using about
 
 ```sh
 OPENBLAS_NUM_THREADS=1 timeout 8s bash -c 'ulimit -v 1572864
-exec /tmp/gkreasoner-language-tools/pasta-venv/bin/pastasolver \
-  Examples/fol_comparison/other_systems/set_asp.lp \
+exec pastasolver Examples/fol_comparison/other_systems/set_asp.lp \
   --query="union(cDa,cDb,cD_aIb)"'
 ```
 
@@ -87,12 +98,10 @@ undeclared constant. Thus none of the three inputs reaches an entailment
 result from the bundled reasoner.
 
 ```sh
-javac -cp /tmp/gkreasoner-language-tools/tweety-fol.jar \
-  -d /tmp/gkreasoner-language-tools/tweety-fol-classes \
+javac -cp tweety-fol.jar -d tweety-classes \
   Examples/fol_comparison/other_systems/TweetyFolComparison.java
 
-timeout 5s java -Xmx512m \
-  -cp /tmp/gkreasoner-language-tools/tweety-fol.jar:/tmp/gkreasoner-language-tools/tweety-fol-classes \
+timeout 5s java -Xmx512m -cp tweety-fol.jar:tweety-classes \
   TweetyFolComparison Examples/fol_comparison/other_systems/set_tweety.p
 ```
 
@@ -103,12 +112,6 @@ The same set translation was tried with
 [DLV](https://www.dlvsystem.it/dlvsite/dlv/),
 [I-DLV](https://github.com/DeMaCS-UNICAL/I-DLV) 1.1.6, and
 [s(CASP)](https://github.com/JanWielemaker/sCASP) 1.1.4:
-
-The DLV executable was the official legacy x86-64 static download. It does
-not report a semantic version and had SHA-256
-`e26fe0c89c329e68c5cfa7c719e25ad6adab7d07082461a8b47cd3400ee00c11`.
-The I-DLV executable had SHA-256
-`4fcf0dd01fae22b82e3b52a4421d3c5c0b2a377486450b6175d30b209ffec32a`.
 
 | System | Result |
 |---|---|
@@ -129,11 +132,11 @@ timeout 5s bash -c 'ulimit -v 524288
 exec clingo Examples/fol_comparison/other_systems/set_clingo.lp \
   0 --enum-mode=cautious'
 
-/tmp/gkreasoner-language-tools/dlv -n=1 -filter=union \
+dlv -n=1 -filter=union \
   Examples/fol_comparison/other_systems/set_asp.lp
 
 timeout 5s bash -c 'ulimit -v 524288
-exec /tmp/gkreasoner-language-tools/idlv --silent --filter=union/3 \
+exec idlv --silent --filter=union/3 \
   Examples/fol_comparison/other_systems/set_asp.lp'
 
 timeout 5s scasp -s 1 \

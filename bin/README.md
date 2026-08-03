@@ -55,9 +55,10 @@ Module.onRuntimeInitialized = function () {
 Module.postRun = [function () { Module.callMain(["input", "-seconds", "5"]); }];
 ```
 
-The same applies to the auxiliary data files of `-defaults`
-(`gk_name_number.txt`, `gk_taxonomy_packed.txt`): they must be written with
-`FS.writeFile` before `-defaults` is used.
+The same applies to the auxiliary data files of `-taxonomy` (synonym
+`-defaults`): `gk_name_number.txt` and `gk_taxonomy_packed.txt`, whose
+canonical copies are in [`../data/`](../data/README.md), must be written
+with `FS.writeFile` before the flag is used.
 
 Two further limits of the WebAssembly build: it is single-process, so
 `-parallel` must not be passed, and its memory is fixed at build time. The

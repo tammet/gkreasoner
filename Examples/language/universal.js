@@ -4,7 +4,7 @@
 // Run from the repository root:
 //   ./bin/gk Examples/language/axioms_std.js Examples/language/universal.js \
 //     -strategytext '{"strategy": ["negative_pref", "posunitpara"], "query_preference": 1}' \
-//     -seconds 3 -confidence 0.1 -keepconfidence 0.1
+//     -seconds 3 -confidence 0.1 -keepconfidence 0.1 -taxonomy -datafolder data
 [
 {"@name": "sent_S1", "@logic": ["isa", "person", "#:John 1"], "@nl": "John 1 likes all boxers."},
 {"@name": "sent_S1", "@logic": [["-isa", "boxer", "?:X"], ["has degree rel2", "like", "#:John 1", "?:X", "none", "?:Fv15", ["$ctxt", "?:Fv4", "?:Fv3", "?:Fv1", "?:Fv2"]]], "@nl": "John 1 likes all boxers."},

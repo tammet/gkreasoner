@@ -1,0 +1,18 @@
+command: ["timeout", "10", "plingo", "inputs/plingo/plingo_f1.lp", "--frontend=problog", "--quiet=2"]
+exit_code: 124
+accepted_exit_codes: [124]
+missing_checks: []
+
+[stdout]
+plingo version 1.1.0
+Reading from ...parisons/table_extensions/plingo_f1.lp
+UNKNOWN
+
+INTERRUPTED  : 1
+Models       : 0+
+Calls        : 1
+Time         : 9.937s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 9.922s
+
+[stderr]
+*** Info : (plingo): INTERRUPTED by signal!

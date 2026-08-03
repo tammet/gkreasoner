@@ -1,4 +1,4 @@
-command: ["/opt/provers/plingo-1.1.0/bin/plingo", "/opt/gk/experiments/comparisons/table_extensions/plingo_d4sm.lp", "--frontend=problog", "--quiet=2"]
+command: ["plingo", "inputs/plingo/plingo_d4sm.lp", "--frontend=problog", "--quiet=2"]
 exit_code: 30
 accepted_exit_codes: [0, 30]
 missing_checks: []

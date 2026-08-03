@@ -42,8 +42,8 @@ confidence against: 1
 
 ## 2. Several proofs for one answer
 
-[`confidences/cumulate.gkp`](confidences/cumulate.gkp) gives the same fact two
-independent sources:
+[`confidences/cumulate.gkp`](confidences/cumulate.gkp) states the same fact
+from two distinct uncertain sources:
 
 ```prolog
 0.5::bird(a).
@@ -55,9 +55,10 @@ query(bird(a)).
 confidence: 0.8
 ```
 
-For disjoint evidence the combination is noisy-or:
-`1 - (1 - 0.5)(1 - 0.6) = 0.8`. When proofs share input instances, GK uses
-the recorded provenance sets to avoid counting the shared evidence twice.
+The two statements are separate activation events, and GK combines the
+proofs' activation-event sets. For disjoint sets the combination is
+noisy-or: `1 - (1 - 0.5)(1 - 0.6) = 0.8`. When proofs share activation
+events, GK counts the shared events once.
 The overlap cases are in [`confidences/overlap1.js`](confidences/overlap1.js)
 and [`confidences/overlap3.js`](confidences/overlap3.js).
 
@@ -89,7 +90,13 @@ the result in the accepted or rejected list according to the sign and prints
 its magnitude as the verdict confidence.
 
 Conflict records the part supported in both polarities. Ignorance records the
-part supported in neither polarity. [`confidences/net_premise.js`](confidences/net_premise.js)
+part supported in neither polarity. This direct-opposition case has a
+completed shared-threshold report: with `-detail`, its `calculation` field
+is `canonical_atom`. Reports from the direct retained-proof calculation or
+from a fallback carry the same four fields as proof-pool decompositions;
+the `calculation` field identifies which calculation produced the report
+(see [`../Doc/how_gk_works.md`](../Doc/how_gk_works.md)).
+[`confidences/net_premise.js`](confidences/net_premise.js)
 shows how a contested premise affects a downstream conclusion.
 
 ## 4. Defaults and exceptions
@@ -109,16 +116,17 @@ record their blocker. [`exceptions/bird_exception.gkp`](exceptions/bird_exceptio
 adds `0.9::-flies(a).`; `flies(a)` has 0.1 positive support and 0.9 negative
 support, so it is rejected with confidence 0.8, while `flies(b)` remains at 1.
 
-[`exceptions/nixon.gkp`](exceptions/nixon.gkp) is the Nixon diamond. Equal
-defaults support `pacifist(n)` and its negation; its downstream candidate has
-a zero margin and is marked contested.
+[`exceptions/nixon.gkp`](exceptions/nixon.gkp) is the Nixon diamond. The
+equal-priority defaults block each other, so neither polarity keeps usable
+support and the report is ignorance; the downstream candidate is reported
+with a zero margin and a `CONTESTED` flag.
 [`exceptions/penguin.gkp`](exceptions/penguin.gkp) adds priorities and a strict
 exception. [`exceptions/classify.gkp`](exceptions/classify.gkp) uses taxonomy
 priorities:
 
 ```sh
 ./bin/gk Examples/exceptions/classify.gkp \
-  -defaults -datafolder Examples/exceptions
+  -taxonomy -datafolder data
 ```
 
 ## 5. Search strategies
@@ -154,9 +162,10 @@ variable inside an arithmetic condition requires bounded instantiation.
   -strategytext '{"strategy":["unit"],"query_preference":0,"arith_instantiation":1}'
 ```
 
-The answer is `8` with confidence `0.8`. Mode `1` handles one arithmetic
-unknown conservatively; mode `2` also considers selected two-variable cases.
-This is bounded enumeration, not general equation solving.
+The answer is `8` with confidence `0.8`. Mode `1` instantiates one
+arithmetic unknown from a bounded candidate range; mode `2` also considers
+selected two-variable cases. The mode is bounded enumeration; it does not
+solve general equations.
 
 ## Categories
 
@@ -167,9 +176,14 @@ This is bounded enumeration, not general equation solving.
 | [`exceptions/`](exceptions/README.md) | Defaults, blockers, priorities, taxonomies, and persistence |
 | [`strategy/`](strategy/README.md) | Strategy files used with `-strategy` |
 | [`arithmetic/`](arithmetic/README.md) | Ground evaluation and bounded numeric instantiation |
-| [`language/`](language/README.md) | gk encodings of English reasoning problems, run against a shared knowledge base |
-| [`asp_comparison/`](asp_comparison/README.md) | Current and historical bird-default inputs for gk, [clingo](https://potassco.org/clingo/), [DLV](https://www.dlvsystem.it/dlvsite/dlv/), [I-DLV](https://github.com/DeMaCS-UNICAL/I-DLV), and [s(CASP)](https://swish.swi-prolog.org/example/scasp.swinb) |
+| [`language/`](language/README.md) | GK encodings of English reasoning problems, run against a shared knowledge base |
+| [`asp_comparison/`](asp_comparison/README.md) | Bird-default inputs for gk, [clingo](https://potassco.org/clingo/), [DLV](https://dlv.demacs.unical.it/), [I-DLV](https://github.com/DeMaCS-UNICAL/I-DLV), and [s(CASP)](https://gitlab.software.imdea.org/ciao-lang/sCASP), with a scaling workload |
+| [`fol_comparison/`](fol_comparison/README.md) | Non-Horn first-order clause problems with equality and function terms, with runs of other reasoners on the same inputs |
 | [`system_comparison/`](system_comparison/README.md) | Executable semantic comparisons with [TweetyProject](https://tweetyproject.org/), [PASTA](https://github.com/damianoazzolini/pasta), and I-DLV |
+
+The comparison cases, with captured outputs from the external systems, are
+in [`../comparisons/`](../comparisons/README.md); their per-case
+descriptions are in [`../comparisons/CASES.md`](../comparisons/CASES.md).
 
 Input notation is covered in [`../Doc/input_languages.md`](../Doc/input_languages.md).
 The algorithms behind the examples are described in

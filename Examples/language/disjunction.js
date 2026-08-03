@@ -4,7 +4,7 @@
 // Run from the repository root:
 //   ./bin/gk Examples/language/axioms_std.js Examples/language/disjunction.js \
 //     -strategytext '{"strategy": ["negative_pref", "posunitpara"], "query_preference": 1}' \
-//     -seconds 3 -confidence 0.1 -keepconfidence 0.1
+//     -seconds 3 -confidence 0.1 -keepconfidence 0.1 -taxonomy -datafolder data
 [
 {"@name": "sent_S1", "@logic": [["-isa", "elephant", "?:X"], ["isa", "trunk", ["sk0", "?:X"]], ["isa", "tail", ["sk1", "?:X"]]], "@nl": "Elephants have trunks or tails."},
 {"@name": "sent_S1", "@logic": [["-isa", "elephant", "?:X"], ["isa", "trunk", ["sk0", "?:X"]], ["has part", "?:X", ["sk1", "?:X"], ["$ctxt", "?:Fv4", "?:Fv3", "?:Fv1", "?:Fv2"]], ["$block", ["$", "elephant", 1], ["$not", ["has part", "?:X", ["sk1", "?:X"], ["$ctxt", "?:Fv4", "?:Fv3", "?:Fv1", "?:Fv2"]]]]], "@confidence": 0.9933, "@nl": "Elephants have trunks or tails."},

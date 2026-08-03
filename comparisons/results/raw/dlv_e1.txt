@@ -1,0 +1,9 @@
+command: ["dlv", "--silent", "-n=0", "inputs/asp/asp_e1.lp"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+INCOHERENT
+
+[stderr]

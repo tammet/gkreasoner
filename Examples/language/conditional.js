@@ -4,7 +4,7 @@
 // Run from the repository root:
 //   ./bin/gk Examples/language/axioms_std.js Examples/language/conditional.js \
 //     -strategytext '{"strategy": ["negative_pref", "posunitpara"], "query_preference": 1}' \
-//     -seconds 3 -confidence 0.1 -keepconfidence 0.1
+//     -seconds 3 -confidence 0.1 -keepconfidence 0.1 -taxonomy -datafolder data
 [
 {"@name": "entity_S2", "@logic": ["isa", "person", "#:Mike 2"], "@nl": "If John 1 is glad, then Mike 2 is not glad."},
 {"@name": "sent_S1", "@logic": ["isa", "person", "#:John 1"], "@nl": "John 1 is glad."},

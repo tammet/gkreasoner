@@ -1,0 +1,9 @@
+command: ["timeout", "10", "dlv", "--silent", "-n=0", "inputs/asp/asp_f1.lp"]
+exit_code: 124
+accepted_exit_codes: [124]
+missing_checks: []
+
+[stdout]
+
+[stderr]
+Killed: Bye!

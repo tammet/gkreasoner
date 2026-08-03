@@ -1,4 +1,4 @@
-command: ["/home/tanel/.local/bin/scasp", "--query=d4_neg", "/opt/gk/experiments/comparisons/table_extensions/scasp_cases.pl"]
+command: ["scasp", "--query=d4_neg", "inputs/scasp/scasp_cases.pl"]
 exit_code: 0
 accepted_exit_codes: [0]
 missing_checks: []

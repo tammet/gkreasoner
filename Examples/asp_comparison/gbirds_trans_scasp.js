@@ -1,6 +1,5 @@
-// gk translation of other_systems/scasp_birds_trans.pl. This file deliberately
-// has no function-symbol rule, so it isolates the small transitivity input used
-// in the historical s(CASP) run.
+// gk translation of other_systems/scasp_birds_trans.pl. This file has no
+// function-symbol rule, so it isolates the small transitivity input.
 //
 // Run: ./bin/gk \
 //   Examples/asp_comparison/gbirds_trans_scasp.js -seconds 1

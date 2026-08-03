@@ -1,4 +1,4 @@
-% Historical basic-birds input for DLV 2.1.1. The query is the last line.
+% Basic birds input for DLV. The query is the last line.
 
 bird(b1).
 penguin(p1).

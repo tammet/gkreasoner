@@ -4,7 +4,7 @@
 // Run from the repository root:
 //   ./bin/gk Examples/language/axioms_std.js Examples/language/passive.js \
 //     -strategytext '{"strategy": ["negative_pref", "posunitpara"], "query_preference": 1}' \
-//     -seconds 3 -confidence 0.1 -keepconfidence 0.1
+//     -seconds 3 -confidence 0.1 -keepconfidence 0.1 -taxonomy -datafolder data
 [
 {"@name": "sent_S1", "@logic": ["isa", "person", "#:Eve 1"], "@nl": "Eve 1 wrote the letter 2."},
 {"@name": "sent_S1", "@logic": ["isa", "letter", "#:letter 2"], "@nl": "Eve 1 wrote the letter 2."},

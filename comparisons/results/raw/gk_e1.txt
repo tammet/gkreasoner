@@ -1,0 +1,39 @@
+command: ["gk", "inputs/gk/e1.gkp", "-detail", "-outformat", "json"]
+exit_code: 0
+accepted_exit_codes: [0]
+missing_checks: []
+
+[stdout]
+{"result": "answer found",
+
+"answers": [
+{
+"answer": true,
+"confidence": 0.3400,
+"detail": {"support_for": 0.3400,
+"support_against": 0.0000,
+"conflict": 0.5600,
+"ignorance": 0.1000,
+"calculation": "proof_fallback",
+"coverage_status": "unsupported_fragment",
+"polarity_status": "not_guaranteed",
+"conflict_sources": [],
+"flags": ["CONTESTED", "PROOF_FALLBACK", "STRUCTURAL_UNSUPPORTED_PROOF"],
+"recursive_checks": 0},
+"positive proof":
+[
+[1, ["in", "frm_1", "axiom", 0.9], [["p","a"]]],
+[2, ["in", "frm_4", "goal", 1], [["-p","a"]]],
+[3, ["mp", 1, 2, "fromgoal", 0.9], false]
+],
+"negative proof":
+[
+[1, ["in", "frm_3", "axiom", 0.8], [["=","a","b"]]],
+[2, ["in", "$auto_negated_question", "goal", 1], [["p","a"]]],
+[3, ["=", 1, [2,0,1], "fromgoal", 0.8], [["p","b"]]],
+[4, ["in", "frm_2", "axiom", 0.7], [["-p","b"]]],
+[5, ["mp", 3, 4, "fromgoal", 0.56], false]
+]}
+]}
+
+[stderr]

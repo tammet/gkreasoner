@@ -4,7 +4,7 @@
 // Run from the repository root:
 //   ./bin/gk Examples/language/axioms_std.js Examples/language/which_cannot_fly.js \
 //     -strategytext '{"strategy": ["negative_pref", "posunitpara"], "query_preference": 1}' \
-//     -seconds 3 -confidence 0.1 -keepconfidence 0.1
+//     -seconds 3 -confidence 0.1 -keepconfidence 0.1 -taxonomy -datafolder data
 [
 {"@name": "sent_S1", "@logic": [["-isa", "squirrel", "?:X"], ["isa", "activity", ["sk0", "?:X"]]], "@nl": "Squirrels can fly."},
 {"@name": "sent_S1", "@logic": [["-isa", "squirrel", "?:X"], ["has type", ["sk0", "?:X"], "fly", ["$ctxt", "?:Fv4", "?:Fv3", "?:Fv1", "?:Fv2"]]], "@nl": "Squirrels can fly."},

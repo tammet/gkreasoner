@@ -1,4 +1,4 @@
-% Retained historical clingo query test.
+% clingo query test for the basic birds input.
 % The final constraint rejects every model in which flies(b1) holds. Therefore
 % UNSATISFIABLE is the successful result: no counterexample model exists.
 

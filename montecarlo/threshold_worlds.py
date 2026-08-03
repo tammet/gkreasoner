@@ -1,48 +1,57 @@
 #!/usr/bin/env python3
 """
-threshold_worlds.py -- threshold sampling for the four gk masses.
+threshold_worlds.py -- shared-threshold sampling for the four-component
+report.
 
-Estimates gk's four-part report (support_for, support_against, conflict,
-ignorance) for a ground query by random sampling, using no gk subprocess.
+Estimates the shared-threshold reference construction (support_for,
+support_against, conflict, ignorance) for a query by random sampling, with
+no gk subprocess. It estimates the reference model on the restricted
+fragment described below; it does not estimate every GK report.
 
-2026-07-21 (settlement memo, gk 1.0.4): the netting core mirrors the
-adjudicated mutual-gate arithmetic. Each atom draws TWO independent
-uniforms: plain contests keep the single shared bar (subtraction netting);
-a gated (mutual-ranked) default against plain evidence takes the one-sided
-exclusive gate, two equal-rank defaults the symmetric mutual gate, and
-unequal ranks the Decision-5 award on the shared bar.
-
-Each ground atom that has evidence draws one acceptance threshold U in [0,1],
-independent across atoms. The evidence for the atom is combined (noisy-or) into
-one strength a, the evidence against it into one strength b. The same threshold
-U decides both sides:
+Each ground atom that has evidence draws an acceptance threshold U in
+[0,1], independent across atoms. The evidence for the atom is pooled
+(noisy-or) into one strength a, the evidence against it into one strength
+b. The same threshold U decides both sides:
 
     supported for      iff  b < U <= a      (only the for-side clears U)
     supported against  iff  a < U <= b      (only the against-side clears U)
     conflict           iff  U <= min(a, b)  (both sides clear U)
     ignorance          iff  U >  max(a, b)  (neither side clears U)
 
-Averaging these outcomes over many draws gives the four masses. Because a
-shared atom has one threshold, evidence that passes through the same atom is
-correlated, which reproduces gk's treatment of shared and contested support.
+Averaging these outcomes over many draws gives the four components. A
+shared atom has one threshold, so evidence that passes through the same
+atom is correlated; this reproduces the treatment of shared and contested
+support.
 
-Rules and blockers: a rule instance holds in a draw iff every body atom is
-usable in the required polarity and no blocker on another atom fires. A blocker
+Each atom draws a second, independent threshold for the local combination
+rules of defaults and opposing evidence: a default opposed by ordinary
+evidence takes the exclusive split, two equal-rank defaults block each
+other symmetrically, and unequal ranks take the strict-priority override on
+the shared threshold.
+
+Rules and exception conditions: a ground rule instance (a directed
+application) holds in a draw iff every body atom is usable in the required
+polarity and no exception condition on another atom fires. A blocker
 ["$block", s, B] fires iff atom B is usable on its for-side; ["$block", s,
-["$not", B]] fires iff atom B is usable on its against-side. Atoms are evaluated
-in dependency order, and a cyclic group is evaluated by least-fixpoint
+["$not", B]] fires iff atom B is usable on its against-side. Atoms are
+evaluated in dependency order; a cyclic group is evaluated by least-fixpoint
 iteration per draw.
 
-Some cases are not settled by this model. It reports them as not scored,
-rather than guessing: a dependency cycle through a blocker or a contested atom,
-and mutual-block priority encodings at unequal strengths.
+Unsupported cases are reported as not scored rather than guessed: a
+dependency cycle through an exception condition away from the query, a
+cycle through a contested atom, and a rank-restricted exception check whose
+content is protected at a strictly weaker rank.
 
 Public API:
   evaluate(pool, confs, query_atom, query_sign, trials, seed) -> dict with
-    support_for / support_against / conflict / ignorance (and a 'not_scored'
-    reason when the case is not settled).
+    support_for / support_against / conflict / ignorance (and a
+    'not_scored' reason for an unsupported case).
 
-Limits: constants only (no function symbols); the query atom must be ground.
+Input contract: original clauses with the head as the LAST ordinary
+literal (facts are their own head), or the implication form
+[antecedent(s), "=>", consequent], whose consequent is the head; a clause
+with more than one positive literal is rejected as ambiguous. Constants only (no function terms); the
+query atom of evaluate() must be ground.
 """
 import random
 from itertools import product
@@ -87,10 +96,11 @@ def parse_literal(lit):
 
 
 def _priority(strength):
-    # ["$", ...] taxonomy strengths are not modelled here; plain ints only.
     if isinstance(strength, int):
         return strength
-    return 0
+    raise SystemExit(
+        f"unsupported blocker priority form {strength!r}: only plain "
+        f"integer priorities are supported by threshold sampling")
 
 
 def _lit_sign_atom(lit):
@@ -110,9 +120,35 @@ def complement(sign):
     return "-" if sign == "+" else "+"
 
 
+
+def _negate_atom(a):
+    if isinstance(a, str) and not a.startswith("$"):
+        return a[1:] if a.startswith("-") else "-" + a
+    if isinstance(a, list) and a and isinstance(a[0], str):
+        p = a[0]
+        return ([p[1:]] if p.startswith("-") else ["-" + p]) + a[1:]
+    raise SystemExit(f"unsupported antecedent in an implication: {a!r}")
+
+
+def _normalize(logic):
+    """Convert the implication form [antecedent(s), "=>", consequent] into a
+    head-last clause: the consequent is the head, each antecedent atom is
+    negated into the body. Clause-form input is returned unchanged."""
+    if not (isinstance(logic, list) and "=>" in logic):
+        return logic
+    i = logic.index("=>")
+    left, right = logic[:i], logic[i + 1:]
+    if len(right) != 1 or "=>" in right:
+        raise SystemExit(f"unsupported implication form: {logic!r}")
+    if (len(left) == 1 and isinstance(left[0], list) and left[0]
+            and isinstance(left[0][0], list)):
+        left = left[0]          # a conjunction given as a list of atoms
+    return [_negate_atom(a) for a in left] + [right[0]]
+
+
 # --------------------------------------------------------------- model building
 
-class Testimony:
+class DirectedApplication:
     __slots__ = ("head_atom", "head_sign", "strength", "body", "blockers",
                  "mutual", "orig", "paired_main")
 
@@ -128,11 +164,12 @@ class Testimony:
         self.paired_main = False        # set if this is a consumed paired exception
 
 
-def ground_original(stmts):
-    """Ground the ORIGINAL @logic clauses over the Herbrand constants, preserving
-    literal order (so the head = last-literal convention holds). gk -clausify
-    reorders literals positive-first, which destroys that convention, so the
-    the sampler must ground the originals itself. Returns (pool, confs, questions)."""
+def ground_original(stmts, max_ground=None):
+    """Ground the ORIGINAL @logic clauses over the named constants,
+    preserving literal order: the input contract puts the head last, and gk
+    -clausify reorders literals, so the sampler grounds the originals
+    itself. Stops with an error when the pool exceeds max_ground.
+    Returns (pool, confs, questions)."""
     consts = set()
     clauses = []
     questions = []
@@ -145,6 +182,7 @@ def ground_original(stmts):
             # queried individual bird(a)
             gkmc.clause_consts(_as_clause(logic), consts)
             continue
+        logic = _normalize(logic)
         _validate_clause(logic)
         clauses.append((len(clauses), conf, logic))
         gkmc.clause_consts(_as_clause(logic), consts)
@@ -162,6 +200,9 @@ def ground_original(stmts):
                 continue
             seen.add(key)
             pool.append((idx, g))
+            if max_ground is not None and len(pool) > max_ground:
+                raise SystemExit(f"ground pool exceeds --max-ground "
+                                 f"{max_ground}; refusing to truncate")
     return pool, confs, questions
 
 
@@ -198,130 +239,21 @@ def _validate_clause(logic):
 
 
 def _as_clause(logic):
-    """gkmc's walk helpers expect a list of literals; wrap a single-literal fact."""
+    """gkmc's walk helpers expect a list of literals; wrap a single-literal
+    fact. Implication-form input is converted first."""
+    logic = _normalize(logic)
     if isinstance(logic, list) and logic and isinstance(logic[0], str):
         return [logic]
     return logic
-
-
-# ---------------------------------------------- clausified (gk_clauses_v1) loading
-
-MARKER_LESS_SKIP = "marker-less all-negative rule clause"
-
-
-def _implied_positions(ord_lits, blocks, head_idx):
-    """Which ordinary-literal positions are the IMPLIED (head) literals of a clause,
-    mirroring gk's dw_build_index stack exactly:
-      case 2 -- a $block whose content atom's COMPLEMENT (same functor, opposite
-                sign) is an ordinary literal marks THAT literal as the single head;
-      case 1 -- otherwise every POSITIVE ordinary literal is a head (a non-Horn
-                disjunction delivers either -- one oriented testimony per positive);
-      residual -- an all-negative clause takes the @head marker (the raw @logic
-                index gk emitted); -1 there is the never-expected G-P2 tripwire.
-    ord_lits: [(orig_i, sign, atomkey)]; blocks: [(orig_i, content_atomkey, sign)].
-    Returns a list of positions into ord_lits, or raises _MarkerLess for the
-    tripwire so the caller can decline to score rather than guess a head."""
-    # case 2: $block-complement
-    for (_oi, catom, csign) in blocks:
-        for pos, (_i, s, a) in enumerate(ord_lits):
-            if a[0] == catom[0] and s != csign:   # gk compares FUNCTOR, not args
-                return [pos]
-    # case 1: all positive ordinary literals
-    pos_idx = [pos for pos, (_i, s, _a) in enumerate(ord_lits) if s == "+"]
-    if pos_idx:
-        return pos_idx
-    # residual: all-negative -> the emitted @head marker
-    if head_idx is not None and head_idx >= 0:
-        for pos, (oi, _s, _a) in enumerate(ord_lits):
-            if oi == head_idx:
-                return [pos]
-    raise _MarkerLess()
-
-
-class _MarkerLess(Exception):
-    pass
-
-
-def _orient_head_last(logic, head_idx):
-    """Turn one clausified @logic clause into one template PER implied literal, each
-    with the chosen head moved LAST among the ordinary literals (so the existing
-    last-literal build_testimonies picks the same head gk does). $block markers are
-    preserved (build_testimonies re-separates them by position-independent parse).
-    A single-literal fact is its own head. Raises _MarkerLess on the G-P2 tripwire.
-    GENUINE function terms (nested lists in a literal's ARG positions) still raise
-    via parse_literal/_atom_of downstream -- kept as the v1 hard error."""
-    if isinstance(logic, list) and logic and isinstance(logic[0], str):
-        return [logic]                              # fact: single positive unit
-    ord_lits, blocks, markers = [], [], []
-    for i, item in enumerate(logic):
-        kind = parse_literal(item)
-        if kind[0] == "block":
-            blocks.append((i, kind[2][0], kind[2][1]))   # (idx, batomkey, bsign)
-            markers.append(item)
-        elif isinstance(item, list) and item and item[0] == "$ans":
-            markers.append(item)                    # answer literal: not a head
-        else:
-            ord_lits.append((i, kind[1], kind[2]))
-    if not ord_lits:
-        return [logic]
-    ord_items = [logic[i] for (i, _s, _a) in ord_lits]
-    heads = _implied_positions(ord_lits, blocks, head_idx)
-    templates = []
-    for hpos in heads:
-        head_item = ord_items[hpos]
-        rest = [ord_items[p] for p in range(len(ord_items)) if p != hpos]
-        templates.append(rest + markers + [head_item])   # head LAST
-    return templates
-
-
-def ground_clausified(items):
-    """Ground gk's gk_clauses_v1 export over the Herbrand constants of the NON-goal
-    clauses (parity with gk's dw_collect_constpool: a constant appearing ONLY in the
-    goal/query is not a witness). Each axiom clause is oriented to its implied
-    literal(s) by gk's own stack (see _implied_positions) and grounded. Strengths
-    come straight from @confidence (post-root-split; NOT recomputed -- the split
-    rule lives in gk). Returns (pool, confs, skips) where skips lists any
-    marker-less rule clauses (the G-P2 tripwire) the caller must surface."""
-    consts = set()
-    axioms = []
-    for it in items:
-        if it.get("@role") == "goal":
-            continue
-        gkmc.clause_consts(_as_clause(it["@logic"]), consts)
-        axioms.append(it)
-    consts = sorted(consts, key=str) or ["c0"]
-    pool, confs, skips = [], [], []
-    for it in axioms:
-        logic = it["@logic"]
-        conf = float(it.get("@confidence", 1.0))
-        try:
-            templates = _orient_head_last(logic, it.get("@head", -1))
-        except _MarkerLess:
-            skips.append((it.get("@name", "?"), MARKER_LESS_SKIP))
-            continue
-        for tmpl in templates:
-            cl = _as_clause(tmpl)
-            vs = gkmc.clause_vars(cl)
-            seen = set()
-            for tup in product(consts, repeat=len(vs)):
-                g = gkmc.substitute(tmpl, dict(zip(vs, tup)))
-                key = repr(g)
-                if key in seen:
-                    continue
-                seen.add(key)
-                idx = len(confs)
-                pool.append((idx, g))
-                confs.append(conf)
-    return pool, confs, skips
 
 
 def clause_literals(raw):
     """Split a ground @logic value into (ordinary literals, block markers).
     A single-literal fact is `["-bird","a"]` (first element a predicate string);
     a multi-literal clause is a list of literal-lists (possibly with $block
-    markers). The HEAD is the last ordinary literal (the gk default-rule
-    convention used by these KBs: `[-body1, ..., -bodyk, head]`); preceding
-    ordinary literals are the body, each contributing (atom, complement sign)."""
+    markers). The head is the last ordinary literal (the input contract of
+    this sampler: `[-body1, ..., -bodyk, head]`); preceding ordinary
+    literals are the body, each contributing (atom, complement sign)."""
     if isinstance(raw, list) and raw and isinstance(raw[0], str) \
             and raw[0] not in ("$block", "$not"):
         return [("lit",) + _lit_sign_atom(raw)], []
@@ -335,12 +267,13 @@ def clause_literals(raw):
     return lits, blocks
 
 
-def build_testimonies(pool, confs, query_atom, query_sign):
-    """From the ground pool build the directional testimonies reachable from the
-    query by backward chaining. The head of each clause is its last ordinary
-    literal (no contrapositives); indexing by head atom collects BOTH polarities
-    of a contested atom (a `¬bird` fact and a `bird:-wings` rule both index under
-    atom bird) without generating spurious reverse rules. Returns (ts, atoms)."""
+def build_applications(pool, confs, query_atom, query_sign):
+    """From the ground pool build the directed applications reachable from
+    the query by backward chaining. The head of each clause is its last
+    ordinary literal (no contrapositives); indexing by head atom collects
+    BOTH polarities of a contested atom (a `¬bird` fact and a `bird:-wings`
+    rule both index under atom bird) without generating spurious reverse
+    rules. Returns (apps, atoms)."""
     by_head_atom = {}
     for orig, raw in pool:
         lits, blocks = clause_literals(raw)
@@ -357,7 +290,7 @@ def build_testimonies(pool, confs, query_atom, query_sign):
         by_head_atom.setdefault(hatom, []).append(
             (hsign, confs[orig], body, dist_blk, mutual, orig))
 
-    testimonies = []
+    applications = []
     frontier = [query_atom]
     atoms = set()
     while frontier:
@@ -367,22 +300,23 @@ def build_testimonies(pool, confs, query_atom, query_sign):
         atoms.add(atom)
         for (hsign, strength, body, dist_blk, mutual, orig) in \
                 by_head_atom.get(atom, []):
-            testimonies.append(
-                Testimony(atom, hsign, strength, body, dist_blk, mutual, orig))
+            applications.append(
+                DirectedApplication(atom, hsign, strength, body, dist_blk, mutual, orig))
             for (ba, _bs) in body:
                 frontier.append(ba)
             for (batom, _bsign, _p) in dist_blk:
                 frontier.append(batom)
-    _mark_pairs(testimonies)
-    return testimonies, atoms
+    _mark_pairs(applications)
+    return applications, atoms
 
 
-def _mark_pairs(testimonies):
-    """A testimony is a paired exception of a main rule when: same head atom,
-    opposite head sign, the main rule carries a distinct-atom blocker whose atom
-    occurs in the exception's body (spec §5.3 detection, syntactic)."""
+def _mark_pairs(applications):
+    """A directed application is a paired exception of a main rule when:
+    same head atom, opposite head sign, and the main rule carries a
+    distinct-atom blocker whose atom occurs in the exception's body
+    (syntactic detection)."""
     by_atom = {}
-    for t in testimonies:
+    for t in applications:
         by_atom.setdefault(t.head_atom, []).append(t)
     for atom, ts in by_atom.items():
         for main in ts:
@@ -399,17 +333,14 @@ def _mark_pairs(testimonies):
 
 # --------------------------------------------------------------- world evaluation
 
-CONFLICT_SKIP = "mutual-block priority encoding not settled"
-
-
-def _has_rank_restricted_blocker(testimonies, by_head):
-    """Detect the C2-blocker signature: a distinct-atom blocker check at rank r
-    whose content atom's support flows through a rule SELF-protected at a rank
-    STRICTLY BELOW r. gk's search side then refuses that support inside the check
-    ("may not use lower-priority defaults"); this model has no
-    rank classes on checks and would let it block — so it must defer, not
-    mis-score. Returns (content_atom, check_rank, protect_rank) or None."""
-    for t in testimonies:
+def _has_rank_restricted_blocker(applications, by_head):
+    """Detect a rank-restricted exception check: a distinct-atom blocker at
+    rank r whose content atom's support flows through a rule self-protected
+    at a rank strictly below r. GK's search refuses that support inside the
+    check; this model carries no enclosing check rank and would let it
+    block, so the case must be reported as unsupported rather than
+    mis-scored. Returns (content_atom, check_rank, protect_rank) or None."""
+    for t in applications:
         for (batom, bsign, prio) in t.blockers:
             for s_t in by_head.get(batom, []):
                 if s_t.head_sign != bsign or not s_t.mutual:
@@ -421,30 +352,27 @@ def _has_rank_restricted_blocker(testimonies, by_head):
 
 
 def evaluate(pool, confs, query_atom, query_sign, trials, seed):
-    testimonies, atoms = build_testimonies(pool, confs, query_atom, query_sign)
-    order = _topo_order(testimonies, atoms)
+    applications, atoms = build_applications(pool, confs, query_atom, query_sign)
+    order = _topo_order(applications, atoms)
     plan = None
     if order is None:
-        plan, why = _scc_plan(testimonies, atoms, query_atom)
+        plan, why = _scc_plan(applications, atoms, query_atom)
         if plan is None:
             return {"support_for": None, "support_against": None,
                     "conflict": None, "ignorance": None,
                     "not_scored": f"{why} (cycle through a blocker or contested atom); not scored"}
     by_head = {}
-    for t in testimonies:
+    for t in applications:
         by_head.setdefault(t.head_atom, []).append(t)
 
-    # unequal mutual ranks are settled (Decision 5 / settlement memo of
-    # 2026-07-21): the award is the adjudicated reading, no annotation needed.
-    # The rank-restricted DISTINCT-atom check (C2/Test 8) is NOT modelled here:
-    # this sampler carries a testimony's own mutual rank, not a derivation-deep
-    # guard evaluated under an enclosing check priority, so it would let a
-    # lower-rank-protected support fire such a check and would silently return
-    # the ADMISSIBLE-exception value for the INADMISSIBLE case (Test 9's answer
-    # for Test 8).  It must decline instead: an oracle that quietly scores a
-    # case it does not implement is worse than one that abstains
-    # (2026-07-27, fix plan step 8 gate 10).
-    rank_note = _has_rank_restricted_blocker(testimonies, by_head)
+    # Unequal mutual ranks are scored by the strict-priority override. The
+    # rank-restricted DISTINCT-atom check is not modelled: this sampler
+    # carries an application's own mutual rank, not a guard evaluated under
+    # an enclosing check rank, so it would let a lower-rank-protected
+    # support fire such a check and silently return the admissible-exception
+    # value for the inadmissible case. It reports the case as unsupported
+    # instead.
+    rank_note = _has_rank_restricted_blocker(applications, by_head)
     if rank_note:
         return {"support_for": None, "support_against": None,
                 "conflict": None, "ignorance": None,
@@ -512,8 +440,8 @@ def _present(t, state):
 def _is_cycle_member(t):
     """A RECIPROCAL priority-zero default: its mutual block's content is the
     COMPLEMENT of its own head (`p :- ..., unless(-p)`) and carries no priority
-    bid.  Priority zero means INCOMPARABLE, so such a block makes no claim that
-    can be adjudicated by rank; the two blocker edges of a same-atom pair are the
+    claim.  Priority zero means INCOMPARABLE, so such a block cannot be
+    resolved by rank; the two blocker edges of a same-atom pair are the
     internal edges of a cycle.  A block whose content EQUALS the head
     (`p :- ..., unless(p)`) is the self-defeating form, not this."""
     return any(prio < 1 and bsign == complement(t.head_sign)
@@ -522,17 +450,17 @@ def _is_cycle_member(t):
 
 def _pools(head_atom, ts, state):
     """Return (a, b, a_cyc, b_cyc, a_ext, b_ext, filled, rank_pro, rank_con):
-    pooled pro/con strengths of the PRESENT testimonies, the same pools split
-    into reciprocal priority-zero CYCLE members and EXTERNAL evidence, whether a
-    paired-exception residual fill applies, and each side's netting rank. A
-    side's rank is the maximum mutual-block rank of its present testimonies when
-    EVERY present testimony on that side carries one (a gated default); it is 0
-    when the side has any present plain (unranked) testimony -- mirroring
-    dw_net_ders' pro_r/con_r convention after the 2026-07-21 settlement fixes."""
+    pooled pro/con strengths of the PRESENT directed applications, the same
+    pools split into reciprocal priority-zero CYCLE members and EXTERNAL
+    evidence, whether a paired-exception residual fill applies, and each
+    side's rank. A side's rank is the maximum mutual-block rank of its
+    present applications when EVERY present application on that side
+    carries one (a self-protected default); it is 0 when the side has any
+    present unranked application -- mirroring GK's rank convention."""
     pro, con = [], []
     pro_cyc, con_cyc, pro_ext, con_ext = [], [], [], []
     filled = False
-    rank_pro = rank_con = -1          # -1 no present testimony
+    rank_pro = rank_con = -1          # -1: no present application
     main_pro_blocked = any(t.head_sign == "+" and (t.blockers) and not _present(t, state)
                            for t in ts)
     for t in ts:
@@ -570,27 +498,30 @@ def _pools(head_atom, ts, state):
 def _net(a, b, u2, filled, rank_pro, rank_con,
          a_cyc=0.0, b_cyc=0.0, a_ext=None, b_ext=None):
     """(pro_usable, con_usable, conflict) for one atom in one world.
-    u2 = (u_pro, u_con): two independent uniforms per atom. Plain contests
-    use the SHARED bar u_pro for both sides (Decision 1 netting); the
-    mutual-gate cases use both bars (settlement fix record, 2026-07-21):
+    u2 = (u_pro, u_con): two independent uniforms per atom. Ordinary
+    opposition uses the SHARED threshold u_pro for both sides; the default
+    cases use both thresholds:
 
-      both sides gated, unequal ranks -> the Decision-5 award on the shared
-        bar (winner takes the overlap, loser keeps its excess);
-      both sides gated, equal ranks   -> the symmetric mutual gate: each
-        side fires on its own bar and survives only if the other missed;
-      one side gated                  -> the one-sided exclusive gate: the
-        plain side fires on its own bar, the gated side survives only off
-        the plain side's mass; conflict 0 (exclusive regions).
+      both sides self-protected, unequal ranks -> the strict-priority
+        override on the shared threshold (the higher rank takes the
+        overlap, the lower keeps its excess);
+      both sides self-protected, equal ranks   -> symmetric mutual
+        blocking: each side fires on its own threshold and survives only
+        if the other missed;
+      one side self-protected                  -> the exclusive split: the
+        plain side fires on its own threshold, the protected side survives
+        only off the plain side's mass; conflict 0 (exclusive regions).
 
-    The independent second bar is what makes for = a(1-b) a product; a
-    single shared bar cannot express it."""
+    The independent second threshold is what makes for = a(1-b) a product;
+    a single shared threshold cannot express it."""
     ul, ur = u2
     lo = min(a, b)
     gated_pro = (rank_pro is not None and rank_pro >= 1)
     gated_con = (rank_con is not None and rank_con >= 1)
     if a > 0.0 and b > 0.0 and gated_pro and gated_con and rank_pro != rank_con:
-        # Decision 5 award (reading C), shared bar: the strictly-higher side
-        # takes the conflict region U <= min(a,b); the lower keeps its excess.
+        # strict-priority override on the shared threshold: the
+        # strictly-higher side takes the region U <= min(a,b); the lower
+        # keeps its excess.
         if rank_pro > rank_con:
             pro = ul <= a
             con = a < ul <= b
@@ -599,31 +530,34 @@ def _net(a, b, u2, filled, rank_pro, rank_con,
         pro = b < ul <= a
         return pro, con, False
     if a > 0.0 and b > 0.0 and gated_pro and gated_con:
-        # equal ranks: symmetric mutual gate; both-fire and neither-fire
-        # regions are ignorance (certain limit = the Nixon standoff)
+        # equal ranks: symmetric mutual blocking; both-fire and
+        # neither-fire regions are ignorance (the certain limit is the
+        # Nixon case)
         fp = ul <= a
         fc = ur <= b
         return (fp and not fc), (fc and not fp), False
     if a > 0.0 and b > 0.0 and gated_pro:
-        # one-sided: the con evidence fires the pro default's $not-self-gate
+        # one-sided: the con evidence fires the pro default's contrary
+        # exception condition
         fc = ur <= b
         pro = (ul <= a) and not fc
         return pro, fc, False
     if a > 0.0 and b > 0.0 and gated_con:
-        # mirror (the refuting-side case: bird_penguin, probe A7)
+        # the mirror case: the default is on the con side
         fp = ul <= a
         con = (ur <= b) and not fp
         return fp, con, False
     if a_cyc > 0.0 or b_cyc > 0.0:
-        # ---- the PRIORITY-ZERO layer (2026-07-27) -------------------------
-        # Priority zero is INCOMPARABLE, not the lowest rank, so a reciprocal
-        # rank-0 pair cannot be adjudicated by the ranked branches above.  The
-        # internal edges of the cycle are dependencies, not undercutters: the
-        # cycle pools meet by ordinary opposition on their own bar.  Evidence
-        # from OUTSIDE the cycle keeps undercutting -- it suppresses the cycle
-        # side it attacks exactly where it is itself usable -- which is what
-        # makes a lone rank-0 default against an ordinary contrary fact keep the
-        # exclusive F4 split a(1-b) / b / 0 instead of becoming an opposition.
+        # ---- the priority-zero layer --------------------------------------
+        # Priority zero is INCOMPARABLE, not the lowest rank, so a
+        # reciprocal rank-0 pair cannot be resolved by the ranked branches
+        # above.  The internal edges of the cycle are dependencies, not
+        # undercutting attacks: the cycle pools meet by ordinary opposition
+        # on their own threshold.  Evidence from OUTSIDE the cycle keeps
+        # undercutting -- it suppresses the cycle side it attacks exactly
+        # where it is itself usable -- so a lone rank-0 default against an
+        # ordinary contrary fact keeps the exclusive split a(1-b) / b / 0
+        # instead of becoming an opposition.
         ae = a if a_ext is None else a_ext
         be = b if b_ext is None else b_ext
         ext_pro = (be < ul <= ae)
@@ -639,7 +573,7 @@ def _net(a, b, u2, filled, rank_pro, rank_con,
     con = (a < ul <= b)
     conflict = (ul <= lo)
     if filled and ul > b and not pro:
-        pro = True                      # reading-D residual fill
+        pro = True                      # paired-exception residual fill
     return pro, con, (conflict and not pro and not con)
 
 
@@ -654,11 +588,12 @@ def _classify(atom, sign, ts, state, u):
     return _net(a, b, u[atom], filled, rp, rc, ac, bc, ae, be)
 
 
-def _atom_deps(testimonies, atoms):
-    """The static atom dependency graph: head atom -> {body atoms, distinct-atom
-    blocker atoms}. Mutual (same-atom) blocks are self-loops and ignored."""
+def _atom_deps(applications, atoms):
+    """The static atom dependency graph: head atom -> {body atoms,
+    distinct-atom blocker atoms}. Mutual (same-atom) blocks are self-loops
+    and ignored."""
     deps = {a: set() for a in atoms}
-    for t in testimonies:
+    for t in applications:
         for (ba, _s) in t.body:
             if ba != t.head_atom:
                 deps[t.head_atom].add(ba)
@@ -668,11 +603,11 @@ def _atom_deps(testimonies, atoms):
     return deps
 
 
-def _topo_order(testimonies, atoms):
+def _topo_order(applications, atoms):
     """Kahn topological sort over distinct-atom dependencies (body + distinct
     blockers). Returns None on a genuine cycle (the caller then falls back to
     the SCC/fixpoint plan of _scc_plan)."""
-    deps = _atom_deps(testimonies, atoms)
+    deps = _atom_deps(applications, atoms)
     indeg = {a: len(deps[a]) for a in atoms}
     rdeps = {a: [] for a in atoms}
     for a in atoms:
@@ -743,24 +678,24 @@ def _sccs(deps, atoms):
     return sccs
 
 
-def _scc_plan(testimonies, atoms, query_atom=None):
+def _scc_plan(applications, atoms, query_atom=None):
     """Evaluation plan for a KB whose static atom graph is cyclic (equivalences,
     mutual rules): the SCC condensation in dependency-first order. Singleton SCCs
     evaluate exactly as on the acyclic path; each group of mutually dependent atoms is evaluated per
-    world by least fixpoint (testimony presence = existence of a well-founded
-    derivation in that world). The fixpoint is monotone -- hence unique and equal
-    to the derivability reading -- ONLY when the cycle contains no blocker and no
-    contested atom. A cyclic group WITH an internal blocker edge is settled
-    when it contains the QUERY atom (settlement memo S4a, 2026-07-21): gk's
+    world by least fixpoint (application presence = existence of a
+    well-founded derivation in that world). The fixpoint is monotone --
+    hence unique and equal to the derivability reading -- ONLY when the
+    cycle contains no blocker and no contested atom. A cyclic group WITH an
+    internal blocker edge is defined when it contains the QUERY atom: GK's
     blocker check voids an exception argument whose own validity depends on
     defeating the queried candidate, so the group evaluates credulously for
-    the query -- the query atom first with in-group blockers voided, then the
-    rest by fixpoint given it (plan entry ("credulous", atoms)). A blocker
-    cycle NOT containing the query, or any cyclic group with a CONTESTED
-    atom, stays unscored. Returns (plan, None) or (None, reason)."""
-    deps = _atom_deps(testimonies, atoms)
+    the query -- the query atom first with in-group blockers voided, then
+    the rest by fixpoint given it (plan entry ("credulous", atoms)). A
+    blocker cycle NOT containing the query, or any cyclic group with a
+    CONTESTED atom, stays unscored. Returns (plan, None) or (None, reason)."""
+    deps = _atom_deps(applications, atoms)
     by_head = {}
-    for t in testimonies:
+    for t in applications:
         by_head.setdefault(t.head_atom, []).append(t)
     plan = []
     for comp in _sccs(deps, atoms):
@@ -772,7 +707,7 @@ def _scc_plan(testimonies, atoms, query_atom=None):
             if len({t.head_sign for t in by_head.get(a, [])}) > 1:
                 return None, f"contested atom {a} inside a dependency cycle"
         has_blocker = False
-        for t in testimonies:
+        for t in applications:
             if t.head_atom in cset:
                 for (ba, _bs, _p) in t.blockers:
                     if ba in cset:
@@ -789,12 +724,12 @@ def _scc_plan(testimonies, atoms, query_atom=None):
 
 
 def _eval_scc_credulous(comp, query_atom, by_head, state, u):
-    """Settlement memo S4a: a blocker cycle containing the query resolves
-    credulously for the query. Phase 1 evaluates the query atom with every
-    in-group blocker voided (gk voids the exception argument that depends on
-    defeating the queried candidate); phase 2 fixpoints the remaining atoms
-    normally given the committed query state, so the defeated side of the
-    loop comes out blocked exactly as gk reports it."""
+    """A blocker cycle containing the query resolves credulously for the
+    query. Phase 1 evaluates the query atom with every in-group blocker
+    voided (GK voids the exception argument that depends on defeating the
+    queried candidate); phase 2 fixpoints the remaining atoms normally
+    given the committed query state, so the defeated side of the loop comes
+    out blocked exactly as GK reports it."""
     cset = set(comp)
     for a in comp:
         state[a] = (False, False)
@@ -805,7 +740,7 @@ def _eval_scc_credulous(comp, query_atom, by_head, state, u):
         if len(blk) == len(t.blockers):
             stripped.append(t)
         else:
-            t2 = Testimony(t.head_atom, t.head_sign, t.strength,
+            t2 = DirectedApplication(t.head_atom, t.head_sign, t.strength,
                            t.body, blk, t.mutual, t.orig)
             t2.paired_main = t.paired_main
             stripped.append(t2)

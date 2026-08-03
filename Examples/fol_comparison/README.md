@@ -2,17 +2,17 @@
 
 These inputs were adapted from the
 [GKC](https://github.com/tammet/gkc) example collection. They test the
-first-order prover underneath gk's uncertainty and default machinery.
+first-order prover underneath GK's uncertainty and default machinery.
 
 ## Clause problems
 
-| Input | Main first-order features | gk result |
+| Input | Main first-order features | GK result |
 |---|---|---|
 | [`nlp_query.p`](nlp_query.p) | non-Horn clauses, equality, disequality, Skolem functions, quantified cardinality axioms | theorem, 33 proof clauses |
 | [`dreadbury_safe_query.p`](dreadbury_safe_query.p) | non-Horn clauses, equality, disequality, nested Skolem functions | theorem, 35 proof clauses |
 | [`set.p`](set.p) | set-theory clauses, four witness functions, unrestricted term depth | theorem, 74 proof clauses |
 
-## gk commands
+## GK commands
 
 NLP:
 
@@ -47,8 +47,6 @@ Five runs of each command, including process startup, produced:
 | set theory | 0.08 s | 32.8 MiB |
 
 All three runs report confidence 1 in plain mode.
-The measured gk executable had SHA-256
-`7a976fd38fdffcade87a67de9f30339ec3ebf4cca12d5b45045be418f6a7c5e2`.
 
 ## Results in other reasoners
 

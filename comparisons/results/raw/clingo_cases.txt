@@ -1,4 +1,4 @@
-command: ["/usr/bin/clingo", "/opt/gk/experiments/comparisons/table_extensions/asp_cases.lp", "0"]
+command: ["clingo", "inputs/asp/asp_cases.lp", "0"]
 exit_code: 30
 accepted_exit_codes: [0, 10, 30]
 missing_checks: []
@@ -19,9 +19,9 @@ Time         : 0.001s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
 CPU Time     : 0.001s
 
 [stderr]
-/opt/gk/experiments/comparisons/table_extensions/asp_cases.lp:26:20-30: info: atom does not occur in any rule head:
+inputs/asp/asp_cases.lp:26:20-30: info: atom does not occur in any rule head:
   d6_injured
 
-/opt/gk/experiments/comparisons/table_extensions/asp_cases.lp:27:17-23: info: atom does not occur in any rule head:
+inputs/asp/asp_cases.lp:27:17-23: info: atom does not occur in any rule head:
   d6_neg
 

@@ -126,13 +126,9 @@
     ["-less_measure", "?:M2", "?:M1"]
   ],
 
-  // measure_of -> "<noun> of" relational bridge: now injected DYNAMICALLY,
-  // per measure noun, by lc_post_inject.inject_measure_relation_bridges — one
-  // bridge is added only when BOTH a $measure_of(<noun>,...) fact and an
-  // is_rel2 "<noun> of" atom appear in the problem, instead of carrying a
-  // static bridge for every measure noun here.  The former static block was:
-  //   [ ["-=", ["$measure_of", "length", "?:S", "?:W"], "?:V"],
-  //     ["is rel2", "length of", "?:V", "?:S", "?:Ctxt"] ]   (and price/weight/height)
+  // measure_of -> "<noun> of" relational bridge: injected dynamically by
+  // the translation front end, one bridge per measure noun that appears both
+  // as a $measure_of fact and as an is_rel2 "<noun> of" atom in the problem.
 
   // event -> "is rel2" bridge for "like"
   /*
@@ -185,7 +181,7 @@
   // Davidsonian Activity Reification: every event is shape
   //   isa(activity, E, Ctxt) + has_type(E, V, Ctxt) + has_actor(E, X, Ctxt)
   // with EXACTLY ONE arity-1 modal classifier flagging the event's mode:
-  //   ["actuality", E]   - real event (pipeline-injected, never from Stage 2)
+  //   ["actuality", E]   - real event (injected by the translation front end)
   //   ["typical", E]     - habitual / generic
   //   ["capability", E]  - "can / be able to"
   //   ["necessity", E]   - "must / have to"
@@ -202,8 +198,8 @@
   // verb.  Defeasible: a strict ¬capability(E) (e.g., "Penguins cannot
   // fly") overrides via $block.
   //
-  // Gated on actuality(E) — the pipeline-injected marker that fires only
-  // on real events.  Modal events (typical/capability/necessity/...) and
+  // Gated on actuality(E), the marker of real events.  Modal events
+  // (typical/capability/necessity/...) and
   // inner content events of two-event reifications carry a different
   // classifier (or none) and are skipped by construction.
 
@@ -219,7 +215,7 @@
   // X can eat berries).  Contrapositively, ¬capability(E) defeats typical(E):
   // "Baby bears cannot eat berries" (strict ¬capability) overrides the generic
   // default "Bears eat berries" (defeasible typical) for a baby bear, so a baby
-  // bear is excluded from "Who eats berries?" (case 1476).  Strict so the
+  // bear is excluded from "Who eats berries?".  Strict so the
   // capability negation beats the defeasible typical default.
   // typical carries a $ctxt (arity 2); capability is arity 1.
   [["-typical", "?:E", "?:Ctxt"],
@@ -230,13 +226,13 @@
   //
   // For an outer speech_act event E1 whose verb is one of the assertive
   // verbs (say/claim/report/state/announce), the inner content event E2
-  // (linked by has_content) is defeasibly actual.  Closes case 159:
-  // "John said that Mary left.  Mary left?" -> Probably true (~0.9).
+  // (linked by has_content) is defeasibly actual.  Example:
+  // "John said that Mary left.  Mary left?" -> true, verdict confidence 0.9.
   //
   // Per-verb gating (instead of "?:V" free) keeps directive verbs
   // (ask/order/request), commissive verbs (promise/threaten/vow), and
   // expressive verbs (apologize/thank) out of scope -- those do NOT entail
-  // their content.  Excludes "tell" because Stage-2 reifies both
+  // their content.  Excludes "tell" because the translation reifies both
   // "told that X" (assertive) and "told to V" (directive) as
   // speech_act + has_content + has_type=tell with no syntactic distinction.
   //
@@ -290,7 +286,7 @@
   //     ["-has type",   "?:E3", "?:V", "?:Ct3"], ["-has actor",  "?:E3", "?:X", "?:Ct3"],
   //     ["-has target", "?:E3", "?:Y", "?:Ct3"], ["-actuality",  "?:E3"] ]
   // i.e. "Tom refused to eat the soup" -> there is no actual eat(Tom,soup) -> the
-  // query "Tom ate the soup?" is False (not just Unknown); case 1597.
+  // query "Tom ate the soup?" is false.
 
 
   // Movement Results: If X 'go'es to Dest, X is 'at' Dest in the next state [cite: 146, 147]
@@ -329,46 +325,21 @@
 
   // Derive moved(X, W): X performed a movement event at world W.
   // Used by the is_rel2 frame axiom to block location persistence when X moved.
-  // Only the "go" version is needed: lc_rewrites.py normalizes travel/journey/
-  // move to "go" before clauses reach the prover (avoids synonym axiom chains).
+  // Inputs use the verb "go" for movement; the translation normalizes
+  // travel/journey/move to "go" before clauses reach the prover.
   [["-has actor", "?:E", "?:X", ["$ctxt", "?:T", "?:W", "?:L", "?:K"]],
    ["-has type", "?:E", "go", ["$ctxt", "?:T", "?:W", "?:L", "?:K"]],
    ["moved", "?:X", "?:W"]],
 
-  // Derive moved_between(X, W_old, W_new): X performed a movement at some world
-  // strictly between W_old and W_new. Used to block §12 is_rel2 tense-migration
-  // of a present-tense location when the actor moved AGAIN after the source
-  // world (the existing moved(X,W_old) block only catches a move AT the source).
-  // Case 1327: Sandra is at hallway (present W2), then moves to garden at W3;
-  // without this, the stale hallway migrated to past W4 and leaked into the
-  // "Where is Sandra?" answer alongside the correct garden.
+  // Derive moved_between(X, W_old, W_new): X performed a movement at some
+  // world strictly between W_old and W_new. Used to block is_rel2 tense
+  // migration of a present-tense location when the actor moved again after
+  // the source world; the moved(X, W_old) block alone catches only a move at
+  // the source world.
   [["-moved", "?:X", "?:Wmid"],
    ["-before", "?:W_old", "?:Wmid"],
    ["-before", "?:Wmid", "?:W_new"],
    ["moved_between", "?:X", "?:W_old", "?:W_new"]],
-  /*
-  // Redundant with pipeline normalization in lc_rewrites.py:
-  [["-has actor", "?:E", "?:X", ["$ctxt", "?:T", "?:W", "?:L", "?:K"]],
-   ["-has type", "?:E", "travel", ["$ctxt", "?:T", "?:W", "?:L", "?:K"]],
-   ["moved", "?:X", "?:W"]],
-  [["-has actor", "?:E", "?:X", ["$ctxt", "?:T", "?:W", "?:L", "?:K"]],
-   ["-has type", "?:E", "journey", ["$ctxt", "?:T", "?:W", "?:L", "?:K"]],
-   ["moved", "?:X", "?:W"]],
-  [["-has actor", "?:E", "?:X", ["$ctxt", "?:T", "?:W", "?:L", "?:K"]],
-   ["-has type", "?:E", "move", ["$ctxt", "?:T", "?:W", "?:L", "?:K"]],
-   ["moved", "?:X", "?:W"]],
-  */
-
-  // Movement Synonyms — REDUNDANT, kept commented for documentation.
-  // lc_rewrites.py rewrites travel/journey/move → go pre-clausification,
-  // so the prover never sees these verbs. Pipeline normalization avoids
-  // synonym axiom chains that cause combinatorial explosion with many worlds.
-  /*
-  [["-has type", "?:E", "travel", "?:Ctxt"], ["has type", "?:E", "go", "?:Ctxt"]],
-  [["-has type", "?:E", "journey", "?:Ctxt"], ["has type", "?:E", "go", "?:Ctxt"]],
-  [["-has type", "?:E", "move", "?:Ctxt"], ["has type", "?:E", "go", "?:Ctxt"]],
-  */
-
   // Placement Results: If X 'put's Target at Dest, Target is 'at' Dest in the next state.
   // Mirrors the movement result axiom above, but the TARGET (not the actor) ends
   // up at the destination. Pattern: "Tom put the book on the chair" → book is at chair.
@@ -402,7 +373,7 @@
   // == 5c. PERSPECTIVE BRIDGES (GIVE/RECEIVE) ==
   // Give and receive describe the same event from different perspectives.
   // Only give→receive direction to avoid circular role pollution.
-  // (receive→give is handled by pipeline normalization in lc_rewrites.py.)
+  // (inputs normalize receive to the give direction.)
   // Type bridge: a give event is also a receive event.
   [["-has type", "?:E", "give", "?:Ctxt"],
    ["has type", "?:E", "receive", "?:Ctxt"]],
@@ -411,11 +382,10 @@
    ["-has recipient", "?:E", "?:X", "?:Ctxt"],
    ["has actor", "?:E", "?:X", "?:Ctxt"]],
 
-  // Transfer verb synonyms — hand/send → give are still rewritten in
-  // lc_rewrites.py pre-clausification. "pass" is no longer rewritten there
-  // because it has too many non-transfer senses (pass an exam, pass by, ...);
-  // instead we bridge defeasibly here so the give-axiom chain remains
-  // available when "pass" really does mean transfer.
+  // Transfer verb synonyms: inputs normalize hand/send to give. "pass" has
+  // many non-transfer senses (pass an exam, pass by, ...), so it is bridged
+  // defeasibly here instead, keeping the give-axiom chain available when
+  // "pass" means transfer.
   {
     "@confidence": 0.85,
     "@logic": [
@@ -438,8 +408,8 @@
   // is in the fridge in the same world (keep is durative, not transitional —
   // no next() chain). Higher confidence than the generic PP-attachment
   // bridge below because "keep" lexicalises the stative-result reading.
-  // Two sibling axioms, since LLMs vary on whether they emit the locative PP
-  // as has_location (gemini, claude) or has_destination (deepseek).
+  // Two sibling axioms, since inputs may carry the locative phrase as
+  // has_location or has_destination.
   {
     "@confidence": 0.95,
     "@logic": [
@@ -514,14 +484,12 @@
   // Like in/at, these locate the actor AT a position relative to the landmark,
   // so when an event HAS a location (not a destination) with such a preposition
   // the actor is there: "the car parked behind the house" → the car is behind
-  // the house (case 670, has_actor reading). Support preps (on/under) attach to
+  // the house (has_actor reading). Support preps (on/under) attach to
   // the target instead, so they are excluded.
   //
-  // These are now injected DYNAMICALLY — one bridge per positional preposition
-  // that actually appears in a has_location atom — by
-  // lc_post_inject.inject_positional_actor_bridges (wired in logconvert), so
-  // the prover only carries the relevant ones. The static forms are kept here,
-  // commented out, as documentation of the canonical shape:
+  // These bridges are injected dynamically by the translation front end,
+  // one per positional preposition that appears in a has_location atom, so
+  // the prover only carries the relevant ones. The canonical shape:
   //
   // for PREP in {behind, in_front_of, beside, next_to, near, by, left_of, right_of}:
   //   { "@confidence": 0.9, "@logic": [
@@ -949,14 +917,10 @@ Does John 1 have two cars?
   [["isa", "length", ["$theof1", "length", "?:O", "?:Ctxt"]]],
   // Property to Attribute Mapping
   //
-  // The single static "red -> color of" stub below is REPLACED by the dynamic
-  // lc_post_inject.inject_attribute_relation_bridges (wired in logconvert),
-  // which bridges a stored property VALUE to its attribute RELATION for the
-  // color / shape / material / taste families (value sets from
-  // data_exclusions), in both arg-orders, and -- crucially -- from the
-  // has_property form (the stub expected has_degree_property, but colours
-  // normalise to has_property, so the stub never fired). Case 901. The stub is
-  // kept here commented out as documentation of the canonical shape:
+  // Attribute-relation bridges are injected dynamically by the translation
+  // front end: a stored property value is bridged to its attribute relation
+  // for the color / shape / material / taste families, in both argument
+  // orders, from the has_property form. The canonical shape:
   //
   // [ ["-has degree property", "red", "?:X", "none", "?:Rel", "?:Ctxt"],
   //   ["is rel2", "color of", "red", "?:X", "?:Ctxt"] ],
@@ -965,9 +929,9 @@ Does John 1 have two cars?
 
 // Axiom 1: Direct succession implies "before".
 //
-// The concrete W0..Wn `next` chain that used to live here is now generated
-// dynamically by lc_postprocess.inject_world_geometry, based on which world
-// constants (W0, W1, ...) actually appear in the per-sentence clauses. Only
+// The concrete W0..Wn `next` chain is generated dynamically by the
+// translation front end, based on which world constants (W0, W1, ...)
+// appear in the per-sentence clauses. Only
 // the minimal chain spanning the observed worlds is emitted, so the `before`
 // transitivity closure stays small when a problem touches only a few worlds.
 
@@ -1015,26 +979,11 @@ Does John 1 have two cars?
 
 // is rel2
 //
-// HISTORY: previously this axiom had no $block — any present-tense is_rel2
-// fact in W_old freely migrated to a past-tense fact at any later W_new.
-//
-// CHANGE: added $block(0, moved(?:E1, ?:W_old)). The block fires when E1
-// (the locatum / first entity argument) performed a movement event at
-// W_old; in that case the present-tense fact about E1 in W_old has already
-// been superseded by the next motion-result and must not project forward
-// as a historical fact about later worlds.
-//
-// WHY: case 197 ("Sandra travelled to the kitchen. Sandra travelled to the
-// hallway. Where is Sandra?") was returning BOTH "at hallway" and "at
-// kitchen" because:
-//   1. motion-result from sk0 derived  is_rel2 at Sandra kitchen [present W1]
-//   2. this axiom (no block) migrated to is_rel2 at Sandra kitchen [past W2]
-//   3. the dynamic question_bridge (lc_ctxt.build_question_tense_bridges)
-//      defeasibly converted past W2 → present W2
-//   4. the goal "where is Sandra in present W2" matched the stale kitchen
-//      location in addition to the correct hallway location.
-// The is_rel2 PERSISTENCE axiom (above, §6) already blocks on moved(?:X,?:W)
-// for the same reason — this brings tense-migration in line.
+// The $block(0, moved(?:E1, ?:W_old)) guard stops migration when E1 (the
+// locatum) performed a movement event at W_old: the present-tense fact
+// about E1 in W_old has been superseded by the next motion result and must
+// not project forward as a past-tense fact about later worlds. The is_rel2
+// persistence axiom above blocks on moved(?:X, ?:W) for the same reason.
 //
 // LIMITATION: Past-location queries about moved entities ("Was Sandra
 // at the kitchen?" asked at W2) lose this migration path. They fall
@@ -1129,8 +1078,8 @@ Does John 1 have two cars?
 [ ["=", "?:W", ["$get_world", ["$ctxt", "?:T", "?:W", "?:L", "?:K"]]] ],
 
 // --- B. $theof1/datetime Year to Semantic Tense Bridge ---
-// When a world's time (via $theof1) is a $datetime value less than current year,
-// infer the world is in the past.
+// When a world's time (via $theof1) is a $datetime value below the fixed
+// example cutoff year 2026, infer the world is in the past.
 [
   ["-=", ["$theof1", "time", "?:W", "?:C"], ["$datetime", "?:T"]],
   ["-$less", "?:T", 2026],
@@ -1138,9 +1087,9 @@ Does John 1 have two cars?
 ],
 
 // --- D. Context Tense Normalization (datetime-triggered only) ---
-// When is_past_world(W) holds (currently only via explicit $datetime < 2026),
-// rewrite any-tense facts at W to past tense. Does NOT handle the common case
-// of LLM tense mismatch (present vs past on the same world without $datetime).
+// When is_past_world(W) holds (via an explicit $datetime below the cutoff),
+// rewrite any-tense facts at W to past tense. Does not handle a tense
+// mismatch (present vs past on the same world without $datetime).
 [
   ["-is rel2", "?:R", "?:X", "?:Y", ["$ctxt", "?:AnyTense", "?:W", "?:L", "?:K"]],
   ["-is_past_world", "?:W"],

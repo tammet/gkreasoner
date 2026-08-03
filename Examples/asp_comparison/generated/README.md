@@ -1,8 +1,7 @@
 # Normalized 1,000-constant inputs
 
 These five files contain the same two 500-node father chains and the same
-rules, expressed in each system's syntax. They are generated fixtures, not the
-slightly different inputs used for the historical timing table.
+rules, expressed in each system's syntax.
 
 The external systems represented are
 [clingo](https://potassco.org/clingo/),

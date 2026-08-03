@@ -1,0 +1,42 @@
+command: ["timeout", "10", "problog", "-k", "ddnnf", "inputs/smproblog/smproblog_f1.pl"]
+exit_code: 124
+accepted_exit_codes: [124]
+missing_checks: []
+
+[stdout]
+An unexpected error has occurred.
+
+[stderr]
+Traceback (most recent call last):
+  File "smproblog-bfbc542/lib/python3.12/site-packages/problog/tasks/probability.py", line 144, in execute
+    formula = knowledge.create_from(db, engine=engine, database=db, **kwdargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "smproblog-bfbc542/lib/python3.12/site-packages/problog/core.py", line 159, in create_from
+    return ProbLog.convert(obj, cls, **kwdargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "smproblog-bfbc542/lib/python3.12/site-packages/problog/core.py", line 124, in convert
+    next_obj = path[0](current_obj, path[1](**kwdargs), **kwdargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "smproblog-bfbc542/lib/python3.12/site-packages/problog/engine.py", line 51, in ground
+    return ground_gringo(model, target, **kwdargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "smproblog-bfbc542/lib/python3.12/site-packages/problog/engine.py", line 80, in ground_gringo
+    return engine.ground_all(
+           ^^^^^^^^^^^^^^^^^^
+  File "smproblog-bfbc542/lib/python3.12/site-packages/problog/engine.py", line 255, in ground_all
+    ground_smodels = self.ground(
+                     ^^^^^^^^^^^^
+  File "smproblog-bfbc542/lib/python3.12/site-packages/problog/engine.py", line 227, in ground
+    output = subprocess_check_output(cmd)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "smproblog-bfbc542/lib/python3.12/site-packages/problog/util.py", line 170, in subprocess_check_output
+    kill_proc_tree(process)
+  File "smproblog-bfbc542/lib/python3.12/site-packages/problog/util.py", line 240, in kill_proc_tree
+    parent = psutil.Process(pid)
+             ^^^^^^^^^^^^^^^^^^^
+  File "smproblog-bfbc542/lib/python3.12/site-packages/psutil/__init__.py", line 314, in __init__
+    self._init(pid)
+  File "smproblog-bfbc542/lib/python3.12/site-packages/psutil/__init__.py", line 360, in _init
+    raise NoSuchProcess(pid, msg=msg) from None
+psutil.NoSuchProcess: process PID not found (pid=15453)
+

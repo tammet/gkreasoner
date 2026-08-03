@@ -1,7 +1,11 @@
 # Default and exception examples
 
-A default rule derives a candidate conclusion together with a blocker literal.
-GK then searches for the exception condition. Numeric or taxonomy priorities
+A default rule has an exception condition, encoded in GK as a blocker
+literal. Two operations are involved. During search, GK derives a candidate
+conclusion and checks the exception condition in a bounded subsidiary
+search; this decides proof acceptance. At report time, the support for the
+exception condition and for its explicit negation is calculated
+recursively; this produces the numbers. Numeric or taxonomy priorities
 determine which defaults may defeat other defaults.
 
 Run commands from the repository root. `-detail` prints positive support,
@@ -36,10 +40,11 @@ which the answers depend.
 0.9::-flies(a).
 ```
 
-The fact, with confidence 0.9, supports both the default's exception condition
-and the negation of its conclusion. It does not eliminate
-the default outright; GK instead reports the surviving positive support and
-the stronger negative support:
+The fact with confidence 0.9 plays two roles: it supports the exception
+condition and undercuts the default application, and, because the
+exception condition is the explicit negation of the conclusion, it also
+rebuts the conclusion. GK reports the surviving positive support and the
+stronger negative support:
 
 ```text
 b  accepted with confidence 1.0
@@ -52,9 +57,10 @@ blocker, providing a control case for the same support calculation.
 
 ## Evidence against an exception
 
-Before an exception blocks a default, gk resolves the opposing evidence on
-the exception atom itself. Evidence against the exception may be a fact or
-may be derived by a rule; both count.
+GK evaluates the exception condition and its explicit negation
+recursively; opposition is resolved within the relevant predecessor
+configuration. Evidence against the exception may be a fact or may be
+derived by a rule; both count.
 In [`bird_counter.gkp`](bird_counter.gkp) a rule with confidence 0.58
 derives evidence against the exception:
 
@@ -68,18 +74,20 @@ query(flies(a)).
 ```
 
 The exception `injured(a)` has positive support 0.6 and, through the rule,
-negative support 0.58. Subtracting leaves 0.02, so the default is blocked
-with strength 0.02 and `flies(a)` is reported with confidence
-1 − 0.02 = 0.98 — the same value the fact `0.58::-injured(a)` would give.
+negative support 0.58. In this share-free case the recursive calculation
+reduces to a difference: the usable support for the exception is
+0.6 − 0.58 = 0.02, the default is blocked with strength 0.02, and
+`flies(a)` is reported with confidence 0.98 — the value the fact
+`0.58::-injured(a)` would also give.
 
 [`bird_counter_premise.gkp`](bird_counter_premise.gkp) moves the 0.58 from
 the rule to its premise (`0.58::vet(a)` with a certain rule). The result is
-0.748, not 0.98. The two placements mean different things: a confidence on
-the rule lowers the strength of what the rule derives, so `-injured(a)` gets
-negative support 0.58 as above. A confidence on the premise is the
-probability that the rule applies at all: with probability 0.58 the rule
-derives a certain `-injured(a)` and the exception is cancelled completely;
-with probability 0.42 the rule does not apply and the exception keeps its
+0.748. The two placements mean different things: a rule confidence lowers
+the strength of what the rule derives, so `-injured(a)` gets negative
+support 0.58 as above. A premise confidence means that the premise
+instance is active in that fraction of activation worlds: with 0.58 the
+rule derives a certain `-injured(a)` and the exception is cancelled
+completely; with 0.42 the rule does not apply and the exception keeps its
 full 0.6. The average is 0.58 · 1 + 0.42 · (1 − 0.6) = 0.748.
 
 Evidence against an exception is itself checked: if its own derivation is
@@ -98,9 +106,10 @@ dislikeswar(X) :- pacifist(X).
 query(dislikeswar(X)).
 ```
 
-The two defaults have equal priority. One supports `pacifist(n)` and the other
-supports its negation. The candidate `dislikeswar(n)` is reported with a zero
-margin and a `CONTESTED` flag; no rule-order tie breaker is used.
+The two defaults have equal priority and block each other. The audited
+detail report for `dislikeswar(n)` is pure ignorance: positive support 0,
+negative support 0, conflict 0, ignorance 1, with a `CONTESTED` flag and a
+zero margin. No rule-order tie breaker is used.
 [`nixon_taxonomy.js`](nixon_taxonomy.js) asks the direct pacifism question with
 taxonomy-style priorities.
 
@@ -113,12 +122,18 @@ flying penguin, with opposing flight defaults at different priorities.
 
 ```sh
 ./bin/gk Examples/exceptions/penguin3.js \
-  -defaults -datafolder Examples/exceptions
+  -taxonomy -datafolder data
 ```
 
-The auxiliary files in this directory map names to taxonomy nodes and store
-the hierarchy. [`penguin4.js`](penguin4.js) applies the same pattern to nested
-function terms.
+The taxonomy data files are in [`../../data/`](../../data/README.md); a
+taxonomy-form priority without `-taxonomy` (synonym `-defaults`) is an
+error. [`penguin4.js`](penguin4.js) applies the same pattern to nested
+function terms. [`taxonomy.js`](taxonomy.js) is a compact
+taxonomy-priority case:
+
+```sh
+./bin/gk Examples/exceptions/taxonomy.js -taxonomy -datafolder data
+```
 
 [`penguin.gkp`](penguin.gkp) and [`penguin.js`](penguin.js) are compact cases
 with a strict penguin exception and two opposed defaults. The stronger flight
@@ -132,10 +147,10 @@ class, while strict engine evidence supports `-isa(X, organism)`.
 
 ```sh
 ./bin/gk Examples/exceptions/classify.gkp \
-  -defaults -datafolder Examples/exceptions
+  -taxonomy -datafolder data
 ```
 
-Principal results:
+Main results:
 
 ```text
 h1  accepted, confidence 0.44
@@ -157,8 +172,11 @@ paths:
 
 ```sh
 ./bin/gk Examples/exceptions/people_room.js \
-  -detail -confidence 0
+  -detail -confidence 0 -taxonomy -datafolder data
 ```
+
+The named markers in its frame rules are taxonomy-form priorities, so the
+tables must be loaded; they do not change this example's result.
 
 ## Equivalent input notations
 
@@ -172,11 +190,10 @@ format differences.
 
 | Files | Main feature |
 |---|---|
-| `hierarchy.js`, `taxonomy.js` | compact specificity and hierarchy cases |
+| `hierarchy.js`, `taxonomy.js` | compact specificity and hierarchy cases (`taxonomy.js` needs `-taxonomy`) |
 | `gbirds.js` | bird/penguin default with an ASP comparison in comments |
 | `gbirds_funsymbs.js` | the same pattern with function symbols |
 | `trivial.js` | plain facts and one closed query, with no defaults |
-| `gk_name_number.txt`, `gk_taxonomy_packed.txt` | data loaded by `-defaults` |
 
 The blocker and support-calculation algorithms are described in
 [`../../Doc/how_gk_works.md`](../../Doc/how_gk_works.md).

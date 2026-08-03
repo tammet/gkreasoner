@@ -1,52 +1,56 @@
 # Reasoner comparison
 
-This document records executable comparisons with ProbLog, PASTA,
-TweetyProject, clingo, DLV, I-DLV, and s(CASP). Each system uses its native
-semantics. Current measurements are kept separate from historical results.
+This document summarizes executable comparisons of GK with
+[ProbLog](https://dtai.cs.kuleuven.be/problog/),
+[PASTA](https://github.com/damianoazzolini/pasta),
+[TweetyProject](https://tweetyproject.org/),
+[clingo](https://potassco.org/clingo/),
+[DLV](https://dlv.demacs.unical.it/),
+[I-DLV](https://github.com/DeMaCS-UNICAL/I-DLV), and
+[s(CASP)](https://gitlab.software.imdea.org/ciao-lang/sCASP). Each system was
+run with its native semantics; the exact inputs, versions, commands, and
+captured outputs are in the linked directories.
 
-The comparison table of the gk uncertainty paper is a separate, per-cell
-package: [`../comparisons/`](../comparisons/README.md) holds its inputs, the
-classification and reason for every cell, the recorded commands, and the
-captured outputs, and adds plingo and smProbLog to the systems listed above.
+GK's relevant strengths in these comparisons: query-directed non-ground
+first-order reasoning, input confidences, explicit opposition, recursively
+evaluated prioritized exceptions, retained proofs, and four-component
+reports.
+
+The per-cell comparison table of 16 cases, which also covers
+[plingo](https://github.com/potassco/plingo) and
+[smProbLog](https://github.com/PietroTotis/smProblog), is in
+[`../comparisons/`](../comparisons/README.md); its case descriptions are in
+[`../comparisons/CASES.md`](../comparisons/CASES.md). This document covers
+the comparisons that are not part of that package.
 
 ## ProbLog
 
-### Positive-only results
-
 A ProbLog probabilistic fact is an independent Boolean choice. Standard
-inference reports the probability that a query succeeds across those choices.
-For a finite program with only positive support, gk's current calculation over
-its retained proof family often gives the same number:
+inference reports the probability that a query succeeds across those
+choices.
 
-- two independent facts with confidences 0.5 and 0.6 supporting one answer give
-  `1 - (1 - 0.5)(1 - 0.6) = 0.8`;
-- one proof using facts with confidences 0.5 and 0.6 gives
-  `0.5 * 0.6 = 0.3`;
-- when proofs share a premise, gk records the ground evidence instances and
-  uses that premise once when combining the proofs.
+On finite programs with only positive support, GK's provenance-aware
+retained-proof calculation returns the same numbers for a fixed retained
+proof set; agreement with the full ProbLog result additionally requires that
+the retained set covers all relevant minimal explanations. Otherwise the
+retained-proof value is a lower bound on the ProbLog success probability.
+Recorded cases:
 
-The first two are the usual ProbLog distribution-semantics values as well as
-gk's results. The shared-premise cases in
-[`../montecarlo/`](../montecarlo/README.md) are compared with independent
-possible-world sampling: `overlap1.js` estimates 0.8450 with gk at 0.846, and
-`overlap3.js` estimates 0.9596 with gk at 0.959. Both gk values lie inside the
-reported 95% sampling intervals. The intervals and commands are in
-[`../montecarlo/comparison.md`](../montecarlo/comparison.md).
+- two independent facts with confidences 0.5 and 0.6 supporting one answer:
+  `1 - (1 - 0.5)(1 - 0.6) = 0.8` in both systems;
+- one proof using facts with confidences 0.5 and 0.6:
+  `0.5 * 0.6 = 0.3` in both systems;
+- proofs sharing a premise: GK records the ground activation events and uses
+  the shared premise once. `overlap1.js` and `overlap3.js` return 0.846 and
+  0.959; independent possible-world sampling estimates 0.8450 and 0.9596,
+  and both GK values lie inside the reported 95% sampling intervals
+  ([`../montecarlo/comparison.md`](../montecarlo/comparison.md)).
 
-The sampler supports constants only. GK uses exact inclusion-exclusion for up
-to 20 reduced proof masks and a deterministic approximation above that limit.
-ProbLog's probability ranges over all explanations represented by its compiled
-formula, whereas GK pools only proofs retained by bounded search. Under the
-shared ground-event interpretation, and where retained-family pooling is
-exact, GK therefore agrees when the retained family covers all minimal
-explanations; otherwise its retained-family value is a lower bound on the
-corresponding full ProbLog success probability.
+GK uses exact inclusion-exclusion for up to 20 reduced activation-event
+sets and a deterministic approximation above that limit.
 
-### Opposing evidence
-
-gk treats a negative literal such as `-flies(a)` as explicit evidence with its
-own confidence. If the aggregated positive support is 0.7 and the aggregated
-negative support is 0.4, gk's detailed result is:
+With opposing evidence the outputs differ in kind. For aggregated positive
+support 0.7 and negative support 0.4, GK reports:
 
 ```text
 support_for      0.3
@@ -55,184 +59,107 @@ conflict         0.4
 ignorance        0.3
 ```
 
-This four-component assessment is not a ProbLog success probability. ProbLog
-does not report gk's conflict and ignorance values.
+This four-component report is not a success probability; ProbLog has no
+counterpart of the conflict and ignorance components. GK's default rules
+run a blocker proof search with priorities; ProbLog's negation and
+probabilistic choices do not implement those rules.
 
-Defaults also differ. A gk blocker starts another proof search to determine
-whether an exception defeats a candidate proof, and priorities restrict which
-defaults may participate in that check. ProbLog's Prolog-style negation and
-probabilistic choices do not implement those blocker and priority rules.
-
-### Other ProbLog operations
-
-ProbLog provides evidence conditioning, MPE and MAP queries, probability
-learning, annotated disjunctions, and continuous distributions. GK does not
-provide these operations. See the
-[ProbLog documentation](https://problog.readthedocs.io/en/latest/cli.html).
+ProbLog additionally provides evidence conditioning, MPE and MAP queries,
+probability learning, annotated disjunctions, and continuous distributions;
+GK does not provide these operations
+([ProbLog documentation](https://problog.readthedocs.io/en/latest/cli.html)).
 
 ## PASTA
 
-PASTA extends ASP with probabilistic facts. Under its credal semantics, each
-selection of probabilistic facts can have one or more stable models. The lower
-query probability counts selections where the query holds in every stable
-model; the upper probability counts selections where it holds in at least one.
+PASTA extends ASP with probabilistic facts. Under its credal semantics, the
+lower query probability counts the selections of probabilistic facts whose
+every stable model satisfies the query; the upper probability counts the
+selections with at least one such model. Recorded results:
 
-Recorded results:
+- independent facts 0.5 and 0.6, each sufficient: lower = upper = 0.8;
+- independent facts 0.5 and 0.6, both required: lower = upper = 0.3;
+- the two opposed Nixon defaults: `pacifist` and `nonpacifist` both get the
+  interval [0, 1], from the two stable models.
 
-- independent facts with probabilities `0.5` and `0.6`, each sufficient for
-  the query, give lower = upper = `0.8`;
-- independent facts with probabilities `0.5` and `0.6`, both required by one
-  proof, give lower = upper = `0.3`;
-- the two opposed Nixon defaults give two stable models, so both `pacifist`
-  and `nonpacifist` have lower probability `0` and upper probability `1`.
-
-The first two numbers agree with gk's `cumulate.js` and `coin1.js` results.
-That is the same limited agreement already described for ProbLog: positive
-independent evidence uses the same arithmetic. The Nixon interval
-has no direct gk numeric counterpart. It measures variation across stable
-models, whereas gk assesses opposing proofs and default blockers.
-
-Inputs, exact commands, implementation provenance, and captured output are in
+The first two values equal GK's `cumulate.js` and `coin1.js` results; the
+agreement covers positive independent evidence. The Nixon interval measures
+variation across stable models; GK reports the same conflict as signed
+confidence 0 with pure ignorance. Inputs and captured outputs:
 [`../Examples/system_comparison/`](../Examples/system_comparison/README.md).
 
 ## TweetyProject
 
-TweetyProject is a Java library collection rather than one reasoning
-formalism. The comparison uses two modules related to gk's default examples:
+Two modules were run on the default examples
+([`../Examples/system_comparison/`](../Examples/system_comparison/README.md)):
 
-- Reiter default logic computes extensions. In the bird theory there is one
-  extension: the normal bird default derives `Flies(tweety)`, while the strict
-  fact `!Flies(opus)` prevents the default conclusion for Opus.
-- DeLP builds arguments from strict and defeasible rules and compares
-  conflicting arguments. With generalized specificity, the penguin argument
-  for `~Flies(opus)` defeats the less-specific bird argument. With equally
-  supported Nixon defaults, both `pacifist(nixon)` and its negation are
+- Reiter default logic: one extension for the bird theory; the default
+  derives `Flies(tweety)`, and the strict fact `!Flies(opus)` prevents the
+  default conclusion for Opus.
+- DeLP with generalized specificity: the more specific penguin argument
+  defeats the bird argument, so Opus does not fly; with the equally
+  supported Nixon defaults, `pacifist(nixon)` and its negation are both
   `UNDECIDED`.
 
-The semantics differ from gk's. A Reiter justification is tested against a
-candidate extension; DeLP uses dialectical argument evaluation; gk launches a
-blocker proof search and can use explicit priorities and numeric evidence. The
-repository harness runs both TweetyProject modules and records skeptical,
-credulous, and DeLP answers in
-[`../Examples/system_comparison/`](../Examples/system_comparison/README.md).
+A Reiter justification is tested against a candidate extension; DeLP
+compares conflicting arguments dialectically; GK runs a blocker proof
+search with explicit priorities and numeric evidence.
 
-## Answer Set Programming
+## clingo and DLV
 
-### Basic defaults
+The bird/penguin default can be written in ASP as
+`flies(X) :- bird(X), not -flies(X)`. On the finite basic example, GK,
+clingo, DLV, and s(CASP) all reach the expected answer; ASP reaches it by
+stable models and negation as failure, GK by a first-order proof and a
+blocker check. clingo and DLV ground non-ground rules before stable-model
+search; positive recursion through a function term needs infinitely many
+ground terms and does not ground (row F1 of
+[`../comparisons/`](../comparisons/README.md)). GK does not enumerate
+stable models and has no ASP optimization constructs.
 
-The bird/penguin rule can be written in ASP as:
+## I-DLV
 
-```prolog
-flies(X) :- bird(X), not -flies(X).
-```
+The tested I-DLV roles are:
 
-On the finite basic example, gk, clingo, DLV, and s(CASP) all obtain the
-expected query answer. The route to that answer is different: ASP uses stable
-models and negation as failure, whereas gk constructs a first-order proof and
-checks an explicit blocker.
+- direct query answering on disjunction-free programs that are stratified
+  under negation, using Magic Sets: on the birds workload it answers
+  `flies(b1)` without evaluating the unused ancestor closure;
+- grounding a non-stratified program for a separate solver: on the Nixon
+  defaults [clasp](https://potassco.org/clasp/) returns the two stable
+  models from I-DLV's ground program.
 
-### clingo and DLV
+## s(CASP)
 
-clingo and DLV ground non-ground rules before stable-model search. Function
-terms are valid syntax, but positive recursion such as
-`bird(f(X)) :- bird(X)` needs infinitely many ground terms. The historical
-grounders in this repository's birds example did not finish that input. GK
-does not enumerate stable models or provide ASP optimization constructs.
+s(CASP) evaluates a query top-down and can return a partial stable model
+and a justification. On the normalized birds input its execution follows
+the left-recursive transitivity rule although the query does not use it,
+and the runs reached the time or stack limit
+([`../Examples/asp_comparison/`](../Examples/asp_comparison/README.md)).
 
-### I-DLV
+## Birds workload
 
-I-DLV has two relevant roles. It can evaluate a disjunction-free program that
-is stratified under negation and answer a query using Magic Sets, or it can
-ground a general ASP program for a separate stable-model solver.
-
-Both roles were exercised on defeasible examples. Its direct query mode
-derives the ordinary bird's flight while respecting an explicit penguin
-exception. For the non-stratified Nixon defaults, I-DLV grounds the program
-and [clasp](https://potassco.org/clasp/) returns two stable models, one
-containing `pacifist(nixon)` and the other its opposing atom.
-
-I-DLV was also added to the normalized birds workload. Query rewriting does
-not evaluate the ancestor closure, which is not needed for `flies(b1)`. Single
-runs returned `flies(b1)` in less than 0.01 seconds at 1,000 and 2,000
-constants and 0.24 seconds at 100,000 constants.
-The exact inputs, memory figures, command, and executable hash are in
-[`../Examples/asp_comparison/`](../Examples/asp_comparison/README.md).
-
-### s(CASP)
-
-s(CASP) is not a grounding solver. It evaluates a query top-down and can return
-a partial stable model and a justification. clingo and DLV instead ground the
-complete finite program before stable-model search.
-
-On the normalized input, s(CASP) 1.1.4 follows the left-recursive transitivity
-rule although the query does not use it. The runs reached either the time limit
-or the Prolog stack limit.
-
-### Birds benchmark
-
-The `flies(b1)` query does not use the recursive ancestor relation. clingo and
-DLV materialize that relation, I-DLV restricts evaluation with Magic Sets,
-s(CASP) enters deep recursive search, and gk proves the query directly.
-Commands and measurements are in
-[`../Examples/asp_comparison/README.md`](../Examples/asp_comparison/README.md).
+The normalized workload asks `flies(b1)` next to a recursive ancestor
+relation that the query does not use. GK and I-DLV answer without
+evaluating the closure; clingo and DLV materialize it before answering;
+s(CASP) enters deep recursive search. Generated inputs, commands, and
+measurements: [`../Examples/asp_comparison/`](../Examples/asp_comparison/README.md).
 
 ## First-order clause problems
 
-These three classical clause sets test non-Horn first-order reasoning with
-equality, disequality, and function terms.
+Three classical clause sets test non-Horn first-order reasoning with
+equality, disequality, and function terms:
 
-| Problem | Required features | gk result | Median wall time |
+| Problem | Required features | GK result | Median wall time |
 |---|---|---:|---:|
 | NLP inconsistency | non-Horn clauses, equality and disequality, Skolem functions, cardinality axioms | theorem; 33 proof clauses | 0.01 s |
 | Dreadbury | non-Horn clauses, equality and disequality, nested Skolem functions | theorem; 35 proof clauses | 0.01 s |
 | set identity | non-Horn set axioms and four unrestricted witness functions | theorem; 74 proof clauses | 0.08 s |
 
-Commands and gk measurements are in
-[`../Examples/fol_comparison/`](../Examples/fol_comparison/README.md).
-
-NLP and Dreadbury require equality reasoning in non-Horn clauses and were not
-translated to the tested ASP languages. The set problem has an equality-free
-translation, but its recursive term closure has an infinite Herbrand universe.
-
-Results for the set translation:
-
-| System | Result |
-|---|---|
-| ProbLog | accepted the surface file but returned probability 0; its ground form reduces the query to `fail` because classical disjunctive clauses are not ProbLog rule heads |
-| PASTA | reached the run bound after using about 950 MiB while grounding; no interval was produced |
-| TweetyProject | the set input parses, but its simple FOL reasoner rejects signatures containing functors; its TPTP parser rejects the other two inputs at equality literals containing functions |
-| clingo | reached the grounding memory bound; no model was produced |
-| DLV | rejected the recursive term rule because termination is not guaranteed |
-| I-DLV | reached the grounding memory bound; no ground program was produced |
-| s(CASP) | returned no answer within the run bound |
-
-No tested run returned a proof. Commands, versions, resource bounds, and
-parser or grounding results are in
+NLP and Dreadbury need equality reasoning in non-Horn clauses and were not
+translated to the tested ASP languages. The set problem has an
+equality-free translation with an infinite set of ground terms; no tested
+external run returned a proof. The commands, translations, resource bounds,
+and per-system outcomes are in
+[`../Examples/fol_comparison/`](../Examples/fol_comparison/README.md) and
 [`../Examples/fol_comparison/other_systems/`](../Examples/fol_comparison/other_systems/README.md).
-
-## English-language examples
-
-[`Examples/language/`](../Examples/language/README.md) contains compiled output
-from the [llmpipe commonsense-reasoning system](https://github.com/tammet/nlpsolver/tree/main/llmpipe).
-llmpipe translates English into gk logic and uses gk for proof search.
-
-The compiled examples combine several features: first-order variables and
-function terms, existential witnesses, explicit negation, disjunction,
-contexts, question-answer bridges, defaults, confidence annotations, and a
-shared background theory for taxonomy, part-whole relations, degrees, events,
-and space. The compared systems do not accept these JSON-LD-LOGIC conventions,
-so no cross-system results are listed for this group.
-
-## Capabilities
-
-| Question | gk | ProbLog | PASTA | TweetyProject modules compared here | clingo / DLV | I-DLV | s(CASP) |
-|---|---|---|---|---|---|---|---|
-| Primary result | first-order query proof and assessment | query probability | lower and upper query probability | default extensions or DeLP query status | stable models | stratified query answers or a ground ASP program | query-directed partial stable model |
-| Numeric uncertainty | proof support and four-component assessment | distribution-semantics probability | credal probability interval | none in the two compared modules | none in the base systems | none | none in the base system |
-| Exceptions and conflict | blockers, priorities, opposing evidence | encoding-dependent | stable-model variation | Reiter justifications or dialectical arguments | negation as failure | stratified negation or stable models with a solver | negation as failure |
-| Query focus | yes | finite proof/formula construction | finite grounding and model analysis | library algorithm depends on the formalism | complete grounding | Magic Sets for stratified queries | top-down evaluation |
-| Multiple alternatives | proof alternatives combine into an assessment | summed possible worlds | lower/upper bounds over stable models | extensions or competing arguments | stable-model enumeration | solver-dependent outside stratified mode | query-relevant partial models |
-| Evidence conditioning or learning | no | yes | conditioning and additional inference modes | separate TweetyProject modules, not these two | no | no | no |
-| Explanation object | gk proof | explanation modes | stable models and probability bounds | extensions or dialectical arguments | models; further tooling is needed for proof-style explanations | query answers or ground rules | justification tree |
 
 GK's algorithms are described in [`how_gk_works.md`](how_gk_works.md).

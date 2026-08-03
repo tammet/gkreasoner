@@ -1,6 +1,6 @@
-% Historical function-symbol variant for s(CASP) 0.21.10.09. The recorded run did
-% not finish. This is an observation about this program and version, not a
-% general claim that s(CASP) cannot use function symbols.
+% Function-symbol variant for s(CASP). The recorded run on this program did
+% not finish; the observation concerns this program, without a general claim
+% about s(CASP) and function symbols.
 
 bird(b1).
 penguin(p1).

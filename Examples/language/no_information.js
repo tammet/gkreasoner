@@ -4,7 +4,7 @@
 // Run from the repository root:
 //   ./bin/gk Examples/language/axioms_std.js Examples/language/no_information.js \
 //     -strategytext '{"strategy": ["negative_pref", "posunitpara"], "query_preference": 1}' \
-//     -seconds 3 -confidence 0.1 -keepconfidence 0.1
+//     -seconds 3 -confidence 0.1 -keepconfidence 0.1 -taxonomy -datafolder data
 [
 {"@name": "sent_S1", "@logic": [["-isa", "elephant", "?:X"], ["isa", "animal", "?:X"]], "@nl": "Elephants are animals."},
 {"@name": "sent_S2", "@logic": [["-isa", "elephant", "?:X"], ["has degree property", "big", "?:X", "none", "elephant", ["$ctxt", "?:Fv8", "?:Fv7", "?:Fv5", "?:Fv6"]], ["$block", ["$", "elephant", 1], ["$not", ["has degree property", "big", "?:X", "none", "elephant", ["$ctxt", "?:Fv8", "?:Fv7", "?:Fv5", "?:Fv6"]]]]], "@confidence": 0.98, "@nl": "Elephants are big."},

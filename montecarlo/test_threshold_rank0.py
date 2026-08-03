@@ -1,37 +1,35 @@
 #!/usr/bin/env python3
 """
-Focused tests for the PRIORITY-ZERO layer and the contextual-priority decline
-added to threshold_worlds.py on 2026-07-27.
+Analytic reference checks for the priority-zero layer and the
+rank-restricted exception check of threshold_worlds.py.
 
-These test the reference sampler ON ITS OWN, against closed forms derived by
-hand -- they never consult gk.  That independence is the point: the same rule is
-implemented twice, once as a closed-form configuration enumeration inside gk's
-evaluator and once here as per-world sampling, so a formula error in either
-shows up as a disagreement rather than as two copies of the same mistake.
+The expected values are closed forms derived by hand from the local
+combination rules; the checks never consult gk. The sampler is compared
+against an independent derivation of the same rules, so a formula error in
+either shows up as a disagreement.
 
-What is pinned:
+Checked cases:
 
-  rank0_cycle     two reciprocal priority-zero defaults about the two polarities
-                  of one atom.  Priority zero is INCOMPARABLE, so neither block
-                  is a priority bid and the two edges are the internal edges of
-                  a cycle: what survives is ordinary unranked evidence meeting
-                  by shared-threshold opposition, and the overlap is CONFLICT.
-  rank0_onesided  ONE priority-zero default undercut by an ordinary contrary
-                  fact.  No reciprocal partner, so this is a pure acyclic
-                  undercut and keeps the exclusive F4 split, conflict 0.  This
-                  is the case the pre-2026-07-27 sampler got wrong: it treated
-                  every rank-0 mutual block as plain evidence and returned the
-                  opposition tuple .32/.12/.48/.08 here too.
-  rank0_mixed     both at once: the external fact still undercuts, the
+  rank0_cycle     two reciprocal priority-zero defaults about the two
+                  polarities of one atom.  Priority zero is incomparable,
+                  so neither block is a rank claim and the two edges are
+                  the internal edges of a cycle: the two sides meet by
+                  ordinary shared-threshold opposition, and the overlap is
+                  conflict.
+  rank0_onesided  one priority-zero default undercut by an ordinary
+                  contrary fact.  No reciprocal partner, so this is an
+                  acyclic undercut and keeps the exclusive split with
+                  conflict 0.
+  rank0_mixed     both at once: the external fact undercuts, the
                   reciprocal partner does not.
   rank0_certain   the certain limit of the cycle: conflict 1.
-  ctx_test8       a rank-3 check whose exception is derivable only through a
-                  rank-1 default.  gk's search excludes that support inside the
-                  check; this model has no enclosing-check context, so it must
-                  DECLINE -- never silently return the value of the admissible
-                  variant below.
-  ctx_test9       the same shape with the ranks reversed, where the exception IS
-                  admissible: scored normally.
+  ctx_test8       a rank-3 check whose exception is derivable only through
+                  a rank-1 default.  GK's search excludes that support
+                  inside the check; this model carries no enclosing check
+                  rank, so it must report the case as unsupported rather
+                  than return the value of the admissible variant.
+  ctx_test9       the same shape with the ranks reversed, where the
+                  exception IS admissible: scored normally.
 
 Usage:  python3 montecarlo/test_threshold_rank0.py [-n TRIALS] [--seed SEED]
 Exit status 0 iff every case matches within tolerance.
@@ -50,7 +48,7 @@ def atom(pred, *args):
 
 # Each case: (name, clauses, confidences, query atom, query sign, expected or None)
 # `clauses` are ORIGINAL @logic clauses, head LAST, exactly the form
-# build_testimonies consumes; `confs` maps the clause id to its strength.
+# build_applications consumes; `confs` maps the clause id to its strength.
 CASES = []
 
 
@@ -81,7 +79,7 @@ case("rank0_certain", _CYCLE, {"q": 1.0, "r": 1.0, "rp": 1.0, "rn": 1.0},
      atom("pacifist", "n"), "+", (0.0, 0.0, 1.0, 0.0),
      "certain limit of the cycle")
 
-# --- one-sided acyclic undercut: the F4 boundary ----------------------------
+# --- one-sided acyclic undercut: the exclusive-split boundary ---------------
 #   the default lives only where the undercutter is absent: .8*.4 = .32;
 #   the ordinary contrary fact stands on its full .6; conflict 0
 _ONESIDED = [
@@ -92,7 +90,7 @@ _ONESIDED = [
 ]
 case("rank0_onesided", _ONESIDED, {"q": 0.8, "rp": 1.0, "f": 0.6},
      atom("pacifist", "n"), "+", (0.32, 0.60, 0.0, 0.08),
-     "no reciprocal partner: the exclusive F4 split must survive")
+     "no reciprocal partner: the exclusive split must survive")
 
 case("rank0_onesided_neg", _ONESIDED, {"q": 0.8, "rp": 1.0, "f": 0.6},
      atom("pacifist", "n"), "-", (0.60, 0.32, 0.0, 0.08),
@@ -122,7 +120,7 @@ _CTX = lambda target_rank, exc_rank: [       # noqa: E731
 case("ctx_test8", _CTX(3, 1),
      {"b": 1.0, "c": 1.0, "rt": 1.0, "re": 0.9, "f": 0.2},
      atom("target", "a"), "+", None,
-     "the exception is inadmissible in a rank-3 check: DECLINE, never score")
+     "the exception is inadmissible in a rank-3 check: unsupported, never scored")
 case("ctx_test9", _CTX(1, 3),
      {"b": 1.0, "c": 1.0, "rt": 1.0, "re": 0.9, "f": 0.2},
      atom("target", "a"), "+", (0.08, 0.18, 0.02, 0.72),

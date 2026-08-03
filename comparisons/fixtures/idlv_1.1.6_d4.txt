@@ -1,3 +1,0 @@
-I-DLV 1.1.6 grounding followed by stable-model enumeration
-quaker(nixon) republican(nixon) pacifist(nixon)
-quaker(nixon) republican(nixon) nonpacifist(nixon)

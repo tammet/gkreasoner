@@ -1,4 +1,4 @@
-command: ["/usr/bin/clingo", "/opt/gk/experiments/comparisons/table_extensions/asp_nonground.lp", "0"]
+command: ["clingo", "inputs/asp/asp_nonground.lp", "0"]
 exit_code: 30
 accepted_exit_codes: [0, 10, 30]
 missing_checks: []

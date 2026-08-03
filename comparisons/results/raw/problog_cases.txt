@@ -1,4 +1,4 @@
-command: ["/opt/provers/problog-2.2.10/bin/problog", "/opt/gk/experiments/comparisons/table_extensions/problog_cases.pl"]
+command: ["problog", "inputs/problog/problog_cases.pl"]
 exit_code: 0
 accepted_exit_codes: [0]
 missing_checks: []

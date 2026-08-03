@@ -1,870 +1,759 @@
 [
-  {
-    "run_id": "gk_c1",
-    "system": "GK",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/gk/gk",
-      "/opt/gk/experiments/comparisons/table_extensions/gk/c1.gkp",
-      "-detail",
-      "-outformat",
-      "json"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/gk_c1.txt"
-  },
-  {
-    "run_id": "gk_c2",
-    "system": "GK",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/gk/gk",
-      "/opt/gk/experiments/comparisons/table_extensions/gk/c2.gkp",
-      "-detail",
-      "-outformat",
-      "json"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/gk_c2.txt"
-  },
-  {
-    "run_id": "gk_d1",
-    "system": "GK",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/gk/gk",
-      "/opt/gk/experiments/comparisons/table_extensions/gk/d1.gkp",
-      "-detail",
-      "-outformat",
-      "json"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/gk_d1.txt"
-  },
-  {
-    "run_id": "gk_d2",
-    "system": "GK",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/gk/gk",
-      "/opt/gk/experiments/comparisons/table_extensions/gk/d2.gkp",
-      "-detail",
-      "-outformat",
-      "json"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/gk_d2.txt"
-  },
-  {
-    "run_id": "gk_d3",
-    "system": "GK",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/gk/gk",
-      "/opt/gk/experiments/comparisons/table_extensions/gk/d3.gkp",
-      "-detail",
-      "-outformat",
-      "json"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/gk_d3.txt"
-  },
-  {
-    "run_id": "gk_d4",
-    "system": "GK",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/gk/gk",
-      "/opt/gk/experiments/comparisons/table_extensions/gk/d4.gkp",
-      "-detail",
-      "-outformat",
-      "json"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/gk_d4.txt"
-  },
-  {
-    "run_id": "gk_d4sm_pos",
-    "system": "GK",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/gk/gk",
-      "/opt/gk/experiments/comparisons/table_extensions/gk/d4sm_pos.gkp",
-      "-detail",
-      "-outformat",
-      "json"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/gk_d4sm_pos.txt"
-  },
-  {
-    "run_id": "gk_d4sm_neg",
-    "system": "GK",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/gk/gk",
-      "/opt/gk/experiments/comparisons/table_extensions/gk/d4sm_neg.gkp",
-      "-detail",
-      "-outformat",
-      "json"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/gk_d4sm_neg.txt"
-  },
-  {
-    "run_id": "gk_d5",
-    "system": "GK",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/gk/gk",
-      "/opt/gk/experiments/comparisons/table_extensions/gk/d5.gkp",
-      "-detail",
-      "-outformat",
-      "json"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/gk_d5.txt"
-  },
-  {
-    "run_id": "gk_d6_undercut",
-    "system": "GK",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/gk/gk",
-      "/opt/gk/experiments/comparisons/table_extensions/gk/d6_undercut.gkp",
-      "-detail",
-      "-outformat",
-      "json"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/gk_d6_undercut.txt"
-  },
-  {
-    "run_id": "gk_d6_rebut",
-    "system": "GK",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/gk/gk",
-      "/opt/gk/experiments/comparisons/table_extensions/gk/d6_rebut.gkp",
-      "-detail",
-      "-outformat",
-      "json"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/gk_d6_rebut.txt"
-  },
-  {
-    "run_id": "gk_d7",
-    "system": "GK",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/gk/gk",
-      "/opt/gk/experiments/comparisons/table_extensions/gk/d7.gkp",
-      "-detail",
-      "-outformat",
-      "json"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/gk_d7.txt"
-  },
-  {
-    "run_id": "gk_n1",
-    "system": "GK",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/gk/gk",
-      "/opt/gk/experiments/comparisons/table_extensions/gk/n1_study4.gkp",
-      "-detail",
-      "-outformat",
-      "json"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/gk_n1.txt"
-  },
-  {
-    "run_id": "gk_n2",
-    "system": "GK",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/gk/gk",
-      "/opt/gk/experiments/comparisons/table_extensions/gk/n2_study10.gkp",
-      "-detail",
-      "-outformat",
-      "json"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/gk_n2.txt"
-  },
-  {
-    "run_id": "problog_cases",
-    "system": "ProbLog",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/problog-2.2.10/bin/problog",
-      "/opt/gk/experiments/comparisons/table_extensions/problog_cases.pl"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/problog_cases.txt"
-  },
-  {
-    "run_id": "problog_nonground",
-    "system": "ProbLog",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/problog-2.2.10/bin/problog",
-      "/opt/gk/experiments/comparisons/table_extensions/problog_nonground.pl"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/problog_nonground.txt"
-  },
-  {
-    "run_id": "pasta_c1_q",
-    "system": "PASTA",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/pasta-1.0.1/bin/pastasolver",
-      "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
-      "--query=c1_q"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/pasta_c1_q.txt"
-  },
-  {
-    "run_id": "pasta_c2_q",
-    "system": "PASTA",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/pasta-1.0.1/bin/pastasolver",
-      "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
-      "--query=c2_q"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/pasta_c2_q.txt"
-  },
-  {
-    "run_id": "pasta_d1_pos",
-    "system": "PASTA",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/pasta-1.0.1/bin/pastasolver",
-      "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
-      "--query=d1_pos"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/pasta_d1_pos.txt"
-  },
-  {
-    "run_id": "pasta_d1_neg",
-    "system": "PASTA",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/pasta-1.0.1/bin/pastasolver",
-      "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
-      "--query=d1_neg"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/pasta_d1_neg.txt"
-  },
-  {
-    "run_id": "pasta_d2_h",
-    "system": "PASTA",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/pasta-1.0.1/bin/pastasolver",
-      "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
-      "--query=d2_h"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/pasta_d2_h.txt"
-  },
-  {
-    "run_id": "pasta_d3_h",
-    "system": "PASTA",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/pasta-1.0.1/bin/pastasolver",
-      "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
-      "--query=d3_h"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/pasta_d3_h.txt"
-  },
-  {
-    "run_id": "pasta_d4_pos",
-    "system": "PASTA",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/pasta-1.0.1/bin/pastasolver",
-      "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
-      "--query=d4_pos"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/pasta_d4_pos.txt"
-  },
-  {
-    "run_id": "pasta_d4_neg",
-    "system": "PASTA",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/pasta-1.0.1/bin/pastasolver",
-      "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
-      "--query=d4_neg"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/pasta_d4_neg.txt"
-  },
-  {
-    "run_id": "pasta_d5_pos",
-    "system": "PASTA",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/pasta-1.0.1/bin/pastasolver",
-      "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
-      "--query=d5_pos"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/pasta_d5_pos.txt"
-  },
-  {
-    "run_id": "pasta_d5_neg",
-    "system": "PASTA",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/pasta-1.0.1/bin/pastasolver",
-      "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
-      "--query=d5_neg"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/pasta_d5_neg.txt"
-  },
-  {
-    "run_id": "pasta_d6_undercut",
-    "system": "PASTA",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/pasta-1.0.1/bin/pastasolver",
-      "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
-      "--query=d6_undercut"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/pasta_d6_undercut.txt"
-  },
-  {
-    "run_id": "pasta_d6_rebut",
-    "system": "PASTA",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/pasta-1.0.1/bin/pastasolver",
-      "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
-      "--query=d6_rebut"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/pasta_d6_rebut.txt"
-  },
-  {
-    "run_id": "pasta_d7_pos",
-    "system": "PASTA",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/pasta-1.0.1/bin/pastasolver",
-      "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
-      "--query=d7_pos"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/pasta_d7_pos.txt"
-  },
-  {
-    "run_id": "pasta_d7_neg",
-    "system": "PASTA",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/pasta-1.0.1/bin/pastasolver",
-      "/opt/gk/experiments/comparisons/table_extensions/pasta_cases.lp",
-      "--query=d7_neg"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/pasta_d7_neg.txt"
-  },
-  {
-    "run_id": "pasta_d4sm_pacifist",
-    "system": "PASTA",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/pasta-1.0.1/bin/pastasolver",
-      "/opt/gk/experiments/comparisons/table_extensions/pasta_d4sm.lp",
-      "--query=pacifist"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/pasta_d4sm_pacifist.txt"
-  },
-  {
-    "run_id": "pasta_d4sm_nonpacifist",
-    "system": "PASTA",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/pasta-1.0.1/bin/pastasolver",
-      "/opt/gk/experiments/comparisons/table_extensions/pasta_d4sm.lp",
-      "--query=nonpacifist"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/pasta_d4sm_nonpacifist.txt"
-  },
-  {
-    "run_id": "pasta_n1_aa",
-    "system": "PASTA",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/pasta-1.0.1/bin/pastasolver",
-      "/opt/gk/experiments/comparisons/table_extensions/pasta_nonground.lp",
-      "--query=n1_twobirds(a,a)"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/pasta_n1_aa.txt"
-  },
-  {
-    "run_id": "pasta_n1_ab",
-    "system": "PASTA",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/pasta-1.0.1/bin/pastasolver",
-      "/opt/gk/experiments/comparisons/table_extensions/pasta_nonground.lp",
-      "--query=n1_twobirds(a,b)"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/pasta_n1_ab.txt"
-  },
-  {
-    "run_id": "pasta_n1_ba",
-    "system": "PASTA",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/pasta-1.0.1/bin/pastasolver",
-      "/opt/gk/experiments/comparisons/table_extensions/pasta_nonground.lp",
-      "--query=n1_twobirds(b,a)"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/pasta_n1_ba.txt"
-  },
-  {
-    "run_id": "pasta_n1_bb",
-    "system": "PASTA",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/pasta-1.0.1/bin/pastasolver",
-      "/opt/gk/experiments/comparisons/table_extensions/pasta_nonground.lp",
-      "--query=n1_twobirds(b,b)"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/pasta_n1_bb.txt"
-  },
-  {
-    "run_id": "pasta_n2_ann",
-    "system": "PASTA",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/pasta-1.0.1/bin/pastasolver",
-      "/opt/gk/experiments/comparisons/table_extensions/pasta_nonground.lp",
-      "--query=n2_smokes(ann)"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/pasta_n2_ann.txt"
-  },
-  {
-    "run_id": "pasta_n2_bob",
-    "system": "PASTA",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/pasta-1.0.1/bin/pastasolver",
-      "/opt/gk/experiments/comparisons/table_extensions/pasta_nonground.lp",
-      "--query=n2_smokes(bob)"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/pasta_n2_bob.txt"
-  },
-  {
-    "run_id": "pasta_n2_carl",
-    "system": "PASTA",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/pasta-1.0.1/bin/pastasolver",
-      "/opt/gk/experiments/comparisons/table_extensions/pasta_nonground.lp",
-      "--query=n2_smokes(carl)"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/pasta_n2_carl.txt"
-  },
-  {
-    "run_id": "plingo_cases",
-    "system": "plingo",
-    "status": "pass",
-    "exit_code": 30,
-    "command": [
-      "/opt/provers/plingo-1.1.0/bin/plingo",
-      "/opt/gk/experiments/comparisons/table_extensions/plingo_cases.lp",
-      "--frontend=problog",
-      "--quiet=2"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/plingo_cases.txt"
-  },
-  {
-    "run_id": "plingo_d4sm",
-    "system": "plingo",
-    "status": "pass",
-    "exit_code": 30,
-    "command": [
-      "/opt/provers/plingo-1.1.0/bin/plingo",
-      "/opt/gk/experiments/comparisons/table_extensions/plingo_d4sm.lp",
-      "--frontend=problog",
-      "--quiet=2"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/plingo_d4sm.txt"
-  },
-  {
-    "run_id": "plingo_nonground",
-    "system": "plingo",
-    "status": "pass",
-    "exit_code": 30,
-    "command": [
-      "/opt/provers/plingo-1.1.0/bin/plingo",
-      "/opt/gk/experiments/comparisons/table_extensions/plingo_nonground.lp",
-      "--frontend=problog",
-      "--quiet=2"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/plingo_nonground.txt"
-  },
-  {
-    "run_id": "smproblog_cases",
-    "system": "smProbLog",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/smproblog-bfbc542/bin/problog",
-      "-k",
-      "ddnnf",
-      "/opt/gk/experiments/comparisons/table_extensions/smproblog_cases.pl"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/smproblog_cases.txt"
-  },
-  {
-    "run_id": "smproblog_d4",
-    "system": "smProbLog",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/smproblog-bfbc542/bin/problog",
-      "-k",
-      "ddnnf",
-      "/opt/gk/experiments/comparisons/table_extensions/smproblog_d4.pl"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/smproblog_d4.txt"
-  },
-  {
-    "run_id": "smproblog_d4sm",
-    "system": "smProbLog",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/smproblog-bfbc542/bin/problog",
-      "-k",
-      "ddnnf",
-      "/opt/gk/experiments/comparisons/table_extensions/smproblog_d4sm.pl"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/smproblog_d4sm.txt"
-  },
-  {
-    "run_id": "smproblog_nonground",
-    "system": "smProbLog",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/smproblog-bfbc542/bin/problog",
-      "-k",
-      "ddnnf",
-      "/opt/gk/experiments/comparisons/table_extensions/smproblog_nonground.pl"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/smproblog_nonground.txt"
-  },
-  {
-    "run_id": "clingo_cases",
-    "system": "clingo",
-    "status": "pass",
-    "exit_code": 30,
-    "command": [
-      "/usr/bin/clingo",
-      "/opt/gk/experiments/comparisons/table_extensions/asp_cases.lp",
-      "0"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/clingo_cases.txt"
-  },
-  {
-    "run_id": "dlv_cases",
-    "system": "DLV",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/default/dlv-2.1.1-linux-x86_64",
-      "--silent",
-      "-n=0",
-      "/opt/gk/experiments/comparisons/table_extensions/asp_cases.lp"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/dlv_cases.txt"
-  },
-  {
-    "run_id": "clingo_nonground",
-    "system": "clingo",
-    "status": "pass",
-    "exit_code": 30,
-    "command": [
-      "/usr/bin/clingo",
-      "/opt/gk/experiments/comparisons/table_extensions/asp_nonground.lp",
-      "0"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/clingo_nonground.txt"
-  },
-  {
-    "run_id": "dlv_nonground",
-    "system": "DLV",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/opt/provers/default/dlv-2.1.1-linux-x86_64",
-      "--silent",
-      "-n=0",
-      "/opt/gk/experiments/comparisons/table_extensions/asp_nonground.lp"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/dlv_nonground.txt"
-  },
-  {
-    "run_id": "scasp_d1_pos",
-    "system": "s(CASP)",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/home/tanel/.local/bin/scasp",
-      "--query=d1_pos",
-      "/opt/gk/experiments/comparisons/table_extensions/scasp_cases.pl"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/scasp_d1_pos.txt"
-  },
-  {
-    "run_id": "scasp_d1_neg",
-    "system": "s(CASP)",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/home/tanel/.local/bin/scasp",
-      "--query=d1_neg",
-      "/opt/gk/experiments/comparisons/table_extensions/scasp_cases.pl"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/scasp_d1_neg.txt"
-  },
-  {
-    "run_id": "scasp_d2_h",
-    "system": "s(CASP)",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/home/tanel/.local/bin/scasp",
-      "--query=d2_h",
-      "/opt/gk/experiments/comparisons/table_extensions/scasp_cases.pl"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/scasp_d2_h.txt"
-  },
-  {
-    "run_id": "scasp_d3_h",
-    "system": "s(CASP)",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/home/tanel/.local/bin/scasp",
-      "--query=d3_h",
-      "/opt/gk/experiments/comparisons/table_extensions/scasp_cases.pl"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/scasp_d3_h.txt"
-  },
-  {
-    "run_id": "scasp_d4_pos",
-    "system": "s(CASP)",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/home/tanel/.local/bin/scasp",
-      "--query=d4_pos",
-      "/opt/gk/experiments/comparisons/table_extensions/scasp_cases.pl"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/scasp_d4_pos.txt"
-  },
-  {
-    "run_id": "scasp_d4_neg",
-    "system": "s(CASP)",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/home/tanel/.local/bin/scasp",
-      "--query=d4_neg",
-      "/opt/gk/experiments/comparisons/table_extensions/scasp_cases.pl"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/scasp_d4_neg.txt"
-  },
-  {
-    "run_id": "scasp_d5_pos",
-    "system": "s(CASP)",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/home/tanel/.local/bin/scasp",
-      "--query=d5_pos",
-      "/opt/gk/experiments/comparisons/table_extensions/scasp_cases.pl"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/scasp_d5_pos.txt"
-  },
-  {
-    "run_id": "scasp_d5_neg",
-    "system": "s(CASP)",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/home/tanel/.local/bin/scasp",
-      "--query=d5_neg",
-      "/opt/gk/experiments/comparisons/table_extensions/scasp_cases.pl"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/scasp_d5_neg.txt"
-  },
-  {
-    "run_id": "scasp_d6_undercut",
-    "system": "s(CASP)",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/home/tanel/.local/bin/scasp",
-      "--query=d6_undercut",
-      "/opt/gk/experiments/comparisons/table_extensions/scasp_cases.pl"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/scasp_d6_undercut.txt"
-  },
-  {
-    "run_id": "scasp_d6_rebut",
-    "system": "s(CASP)",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/home/tanel/.local/bin/scasp",
-      "--query=d6_rebut",
-      "/opt/gk/experiments/comparisons/table_extensions/scasp_cases.pl"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/scasp_d6_rebut.txt"
-  },
-  {
-    "run_id": "scasp_n1",
-    "system": "s(CASP)",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/home/tanel/.local/bin/scasp",
-      "-n",
-      "0",
-      "--query=n1_twobirds(X,Y)",
-      "/opt/gk/experiments/comparisons/table_extensions/scasp_nonground.pl"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/scasp_n1.txt"
-  },
-  {
-    "run_id": "scasp_n2",
-    "system": "s(CASP)",
-    "status": "pass",
-    "exit_code": 0,
-    "command": [
-      "/home/tanel/.local/bin/scasp",
-      "-n",
-      "0",
-      "--query=n2_smokes(X)",
-      "/opt/gk/experiments/comparisons/table_extensions/scasp_nonground.pl"
-    ],
-    "missing_checks": [],
-    "raw_output": "results/raw/scasp_n2.txt"
-  },
-  {
-    "run_id": "tweety_reference",
-    "system": "Tweety",
-    "source": "fixtures/tweety_1.31.txt",
-    "status": "captured_reference",
-    "inputs": [
-      "tweety/d5_specificity.delp",
-      "tweety/d4_nixon.delp"
-    ],
-    "reproduction": "Set TWEETY_CLASSPATH to the TweetyProject 1.31 classpath and rerun this script.",
-    "raw_output": "results/raw/tweety_reference.txt"
-  },
-  {
-    "run_id": "idlv_reference",
-    "system": "I-DLV",
-    "source": "fixtures/idlv_1.1.6_d4.txt",
-    "status": "captured_reference",
-    "inputs": [
-      "idlv/d4_nixon.lp"
-    ],
-    "reproduction": "Set IDLV to the I-DLV 1.1.6 executable and rerun this script.",
-    "raw_output": "results/raw/idlv_reference.txt"
-  }
+ {
+  "run_id": "gk_c1",
+  "system": "GK",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/gk_c1.txt"
+ },
+ {
+  "run_id": "gk_c2",
+  "system": "GK",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/gk_c2.txt"
+ },
+ {
+  "run_id": "gk_d1",
+  "system": "GK",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/gk_d1.txt"
+ },
+ {
+  "run_id": "gk_d2",
+  "system": "GK",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/gk_d2.txt"
+ },
+ {
+  "run_id": "gk_d3",
+  "system": "GK",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/gk_d3.txt"
+ },
+ {
+  "run_id": "gk_d4",
+  "system": "GK",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/gk_d4.txt"
+ },
+ {
+  "run_id": "gk_d4sm_pos",
+  "system": "GK",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/gk_d4sm_pos.txt"
+ },
+ {
+  "run_id": "gk_d4sm_neg",
+  "system": "GK",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/gk_d4sm_neg.txt"
+ },
+ {
+  "run_id": "gk_d5",
+  "system": "GK",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/gk_d5.txt"
+ },
+ {
+  "run_id": "gk_d6_undercut",
+  "system": "GK",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/gk_d6_undercut.txt"
+ },
+ {
+  "run_id": "gk_d6_rebut",
+  "system": "GK",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/gk_d6_rebut.txt"
+ },
+ {
+  "run_id": "gk_d7",
+  "system": "GK",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/gk_d7.txt"
+ },
+ {
+  "run_id": "gk_n1",
+  "system": "GK",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/gk_n1.txt"
+ },
+ {
+  "run_id": "gk_n2",
+  "system": "GK",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/gk_n2.txt"
+ },
+ {
+  "run_id": "problog_cases",
+  "system": "ProbLog",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/problog_cases.txt"
+ },
+ {
+  "run_id": "problog_nonground",
+  "system": "ProbLog",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/problog_nonground.txt"
+ },
+ {
+  "run_id": "pasta_c1_q",
+  "system": "PASTA",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/pasta_c1_q.txt"
+ },
+ {
+  "run_id": "pasta_c2_q",
+  "system": "PASTA",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/pasta_c2_q.txt"
+ },
+ {
+  "run_id": "pasta_d1_pos",
+  "system": "PASTA",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/pasta_d1_pos.txt"
+ },
+ {
+  "run_id": "pasta_d1_neg",
+  "system": "PASTA",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/pasta_d1_neg.txt"
+ },
+ {
+  "run_id": "pasta_d2_h",
+  "system": "PASTA",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/pasta_d2_h.txt"
+ },
+ {
+  "run_id": "pasta_d3_h",
+  "system": "PASTA",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/pasta_d3_h.txt"
+ },
+ {
+  "run_id": "pasta_d4_pos",
+  "system": "PASTA",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/pasta_d4_pos.txt"
+ },
+ {
+  "run_id": "pasta_d4_neg",
+  "system": "PASTA",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/pasta_d4_neg.txt"
+ },
+ {
+  "run_id": "pasta_d5_pos",
+  "system": "PASTA",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/pasta_d5_pos.txt"
+ },
+ {
+  "run_id": "pasta_d5_neg",
+  "system": "PASTA",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/pasta_d5_neg.txt"
+ },
+ {
+  "run_id": "pasta_d6_undercut",
+  "system": "PASTA",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/pasta_d6_undercut.txt"
+ },
+ {
+  "run_id": "pasta_d6_rebut",
+  "system": "PASTA",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/pasta_d6_rebut.txt"
+ },
+ {
+  "run_id": "pasta_d7_pos",
+  "system": "PASTA",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/pasta_d7_pos.txt"
+ },
+ {
+  "run_id": "pasta_d7_neg",
+  "system": "PASTA",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/pasta_d7_neg.txt"
+ },
+ {
+  "run_id": "pasta_d4sm_pacifist",
+  "system": "PASTA",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/pasta_d4sm_pacifist.txt"
+ },
+ {
+  "run_id": "pasta_d4sm_nonpacifist",
+  "system": "PASTA",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/pasta_d4sm_nonpacifist.txt"
+ },
+ {
+  "run_id": "pasta_n1_aa",
+  "system": "PASTA",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/pasta_n1_aa.txt"
+ },
+ {
+  "run_id": "pasta_n1_ab",
+  "system": "PASTA",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/pasta_n1_ab.txt"
+ },
+ {
+  "run_id": "pasta_n1_ba",
+  "system": "PASTA",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/pasta_n1_ba.txt"
+ },
+ {
+  "run_id": "pasta_n1_bb",
+  "system": "PASTA",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/pasta_n1_bb.txt"
+ },
+ {
+  "run_id": "pasta_n2_ann",
+  "system": "PASTA",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/pasta_n2_ann.txt"
+ },
+ {
+  "run_id": "pasta_n2_bob",
+  "system": "PASTA",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/pasta_n2_bob.txt"
+ },
+ {
+  "run_id": "pasta_n2_carl",
+  "system": "PASTA",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/pasta_n2_carl.txt"
+ },
+ {
+  "run_id": "plingo_cases",
+  "system": "plingo",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 30,
+  "raw_output": "results/raw/plingo_cases.txt"
+ },
+ {
+  "run_id": "plingo_d4sm",
+  "system": "plingo",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 30,
+  "raw_output": "results/raw/plingo_d4sm.txt"
+ },
+ {
+  "run_id": "plingo_nonground",
+  "system": "plingo",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 30,
+  "raw_output": "results/raw/plingo_nonground.txt"
+ },
+ {
+  "run_id": "smproblog_cases",
+  "system": "smProbLog",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/smproblog_cases.txt"
+ },
+ {
+  "run_id": "smproblog_d4",
+  "system": "smProbLog",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/smproblog_d4.txt"
+ },
+ {
+  "run_id": "smproblog_d4sm",
+  "system": "smProbLog",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/smproblog_d4sm.txt"
+ },
+ {
+  "run_id": "smproblog_nonground",
+  "system": "smProbLog",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/smproblog_nonground.txt"
+ },
+ {
+  "run_id": "clingo_cases",
+  "system": "clingo",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 30,
+  "raw_output": "results/raw/clingo_cases.txt"
+ },
+ {
+  "run_id": "dlv_cases",
+  "system": "DLV",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/dlv_cases.txt"
+ },
+ {
+  "run_id": "clingo_nonground",
+  "system": "clingo",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 30,
+  "raw_output": "results/raw/clingo_nonground.txt"
+ },
+ {
+  "run_id": "dlv_nonground",
+  "system": "DLV",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/dlv_nonground.txt"
+ },
+ {
+  "run_id": "scasp_d1_pos",
+  "system": "s(CASP)",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/scasp_d1_pos.txt"
+ },
+ {
+  "run_id": "scasp_d1_neg",
+  "system": "s(CASP)",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/scasp_d1_neg.txt"
+ },
+ {
+  "run_id": "scasp_d2_h",
+  "system": "s(CASP)",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/scasp_d2_h.txt"
+ },
+ {
+  "run_id": "scasp_d3_h",
+  "system": "s(CASP)",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/scasp_d3_h.txt"
+ },
+ {
+  "run_id": "scasp_d4_pos",
+  "system": "s(CASP)",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/scasp_d4_pos.txt"
+ },
+ {
+  "run_id": "scasp_d4_neg",
+  "system": "s(CASP)",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/scasp_d4_neg.txt"
+ },
+ {
+  "run_id": "scasp_d5_pos",
+  "system": "s(CASP)",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/scasp_d5_pos.txt"
+ },
+ {
+  "run_id": "scasp_d5_neg",
+  "system": "s(CASP)",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/scasp_d5_neg.txt"
+ },
+ {
+  "run_id": "scasp_d6_undercut",
+  "system": "s(CASP)",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/scasp_d6_undercut.txt"
+ },
+ {
+  "run_id": "scasp_d6_rebut",
+  "system": "s(CASP)",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/scasp_d6_rebut.txt"
+ },
+ {
+  "run_id": "scasp_n1",
+  "system": "s(CASP)",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/scasp_n1.txt"
+ },
+ {
+  "run_id": "scasp_n2",
+  "system": "s(CASP)",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/scasp_n2.txt"
+ },
+ {
+  "run_id": "tweety_reference",
+  "system": "Tweety",
+  "outcome": "captured_reference",
+  "inputs": [
+   "inputs/tweety/d5_specificity.delp",
+   "inputs/tweety/d4_nixon.delp"
+  ],
+  "raw_output": "results/raw/tweety_reference.txt",
+  "note": "Captured reference output; no rerun command is recorded."
+ },
+ {
+  "run_id": "idlv_reference",
+  "system": "I-DLV",
+  "outcome": "captured_reference",
+  "inputs": [
+   "inputs/idlv/d4_nixon.lp"
+  ],
+  "raw_output": "results/raw/idlv_reference.txt",
+  "note": "Captured reference output; no rerun command is recorded."
+ },
+ {
+  "run_id": "gk_x1",
+  "system": "GK",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/gk_x1.txt"
+ },
+ {
+  "run_id": "gk_f1",
+  "system": "GK",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/gk_f1.txt"
+ },
+ {
+  "run_id": "gk_dj1",
+  "system": "GK",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/gk_dj1.txt"
+ },
+ {
+  "run_id": "problog_f1",
+  "system": "ProbLog",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/problog_f1.txt"
+ },
+ {
+  "run_id": "pasta_x1",
+  "system": "PASTA",
+  "outcome": "error",
+  "capture_check": "matched",
+  "exit_code": 255,
+  "raw_output": "results/raw/pasta_x1.txt"
+ },
+ {
+  "run_id": "pasta_dj1",
+  "system": "PASTA",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/pasta_dj1.txt"
+ },
+ {
+  "run_id": "pasta_f1",
+  "system": "PASTA",
+  "outcome": "timeout",
+  "capture_check": "matched",
+  "exit_code": 124,
+  "raw_output": "results/raw/pasta_f1.txt"
+ },
+ {
+  "run_id": "plingo_x1",
+  "system": "plingo",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 30,
+  "raw_output": "results/raw/plingo_x1.txt"
+ },
+ {
+  "run_id": "plingo_dj1",
+  "system": "plingo",
+  "outcome": "error",
+  "capture_check": "matched",
+  "exit_code": 65,
+  "raw_output": "results/raw/plingo_dj1.txt"
+ },
+ {
+  "run_id": "plingo_f1",
+  "system": "plingo",
+  "outcome": "timeout",
+  "capture_check": "matched",
+  "exit_code": 124,
+  "raw_output": "results/raw/plingo_f1.txt"
+ },
+ {
+  "run_id": "smproblog_x1",
+  "system": "smProbLog",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/smproblog_x1.txt"
+ },
+ {
+  "run_id": "smproblog_dj1",
+  "system": "smProbLog",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/smproblog_dj1.txt"
+ },
+ {
+  "run_id": "smproblog_f1",
+  "system": "smProbLog",
+  "outcome": "timeout",
+  "capture_check": "matched",
+  "exit_code": 124,
+  "raw_output": "results/raw/smproblog_f1.txt"
+ },
+ {
+  "run_id": "clingo_x1",
+  "system": "clingo",
+  "outcome": "no_models",
+  "capture_check": "matched",
+  "exit_code": 20,
+  "raw_output": "results/raw/clingo_x1.txt"
+ },
+ {
+  "run_id": "clingo_dj1",
+  "system": "clingo",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 30,
+  "raw_output": "results/raw/clingo_dj1.txt"
+ },
+ {
+  "run_id": "clingo_f1",
+  "system": "clingo",
+  "outcome": "timeout",
+  "capture_check": "matched",
+  "exit_code": 124,
+  "raw_output": "results/raw/clingo_f1.txt"
+ },
+ {
+  "run_id": "dlv_x1",
+  "system": "DLV",
+  "outcome": "no_models",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/dlv_x1.txt"
+ },
+ {
+  "run_id": "dlv_dj1",
+  "system": "DLV",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/dlv_dj1.txt"
+ },
+ {
+  "run_id": "dlv_f1",
+  "system": "DLV",
+  "outcome": "timeout",
+  "capture_check": "matched",
+  "exit_code": 124,
+  "raw_output": "results/raw/dlv_f1.txt"
+ },
+ {
+  "run_id": "scasp_x1",
+  "system": "s(CASP)",
+  "outcome": "no_models",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/scasp_x1.txt"
+ },
+ {
+  "run_id": "scasp_dj1",
+  "system": "s(CASP)",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/scasp_dj1.txt"
+ },
+ {
+  "run_id": "scasp_f1",
+  "system": "s(CASP)",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/scasp_f1.txt"
+ },
+ {
+  "run_id": "gk_e1",
+  "system": "GK",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/gk_e1.txt"
+ },
+ {
+  "run_id": "problog_e1",
+  "system": "ProbLog",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/problog_e1.txt"
+ },
+ {
+  "run_id": "pasta_e1",
+  "system": "PASTA",
+  "outcome": "error",
+  "capture_check": "matched",
+  "exit_code": 255,
+  "raw_output": "results/raw/pasta_e1.txt"
+ },
+ {
+  "run_id": "plingo_e1",
+  "system": "plingo",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 30,
+  "raw_output": "results/raw/plingo_e1.txt"
+ },
+ {
+  "run_id": "smproblog_e1",
+  "system": "smProbLog",
+  "outcome": "completed",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/smproblog_e1.txt"
+ },
+ {
+  "run_id": "clingo_e1",
+  "system": "clingo",
+  "outcome": "no_models",
+  "capture_check": "matched",
+  "exit_code": 20,
+  "raw_output": "results/raw/clingo_e1.txt"
+ },
+ {
+  "run_id": "dlv_e1",
+  "system": "DLV",
+  "outcome": "no_models",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/dlv_e1.txt"
+ },
+ {
+  "run_id": "scasp_e1",
+  "system": "s(CASP)",
+  "outcome": "no_models",
+  "capture_check": "matched",
+  "exit_code": 0,
+  "raw_output": "results/raw/scasp_e1.txt"
+ }
 ]
