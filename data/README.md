@@ -1,6 +1,9 @@
 # Taxonomy data
 
-Runtime data for GK's taxonomy-based default priorities. Load it with:
+Runtime data for GK's taxonomy-based default priorities: a default whose
+priority names a more specific class defeats one naming a more general
+class (the comparison rules are in the defaults section of
+[`../Doc/how_gk_works.md`](../Doc/how_gk_works.md)). Load the data with:
 
 ```sh
 ./bin/gk INPUT -taxonomy -datafolder data

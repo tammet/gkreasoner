@@ -220,7 +220,10 @@ The canonical copies are in [`../data/`](../data/README.md). The two
 files form one generated pair and are validated together; a missing or
 mismatched file is an error with a nonzero exit. An input that uses
 taxonomy-form priorities without this flag is an error; numeric
-priorities never need it. `-defaults` is an accepted synonym.
+priorities never need it. `-defaults` is an accepted synonym. The
+comparison rule — a more specific class defeats a more general one — is
+described in the defaults section of
+[`how_gk_works.md`](how_gk_works.md).
 
 ### `-relatedwords`
 

@@ -95,10 +95,14 @@ A taxonomy can supply the priority:
                      unless(-isa(X, bird), tax(bird)).
 ```
 
+A priority naming a more specific class defeats one naming a more general
+class: `tax(penguin)` defeats `tax(bird)`. The shipped taxonomy is the
+WordNet noun hierarchy.
 Taxonomy priorities require `-taxonomy` (synonym `-defaults`) and the
 data files in [`../data/`](../data/README.md); without them GK stops with
 an error. `tax(name, N)` adds a numeric tie-breaker used when the
-taxonomy does not order the two classes. An `unless` expression without a priority makes no priority
+taxonomy does not order the two classes; the comparison rules are listed
+in the defaults section of [`how_gk_works.md`](how_gk_works.md). An `unless` expression without a priority makes no priority
 claim: it neither defeats nor is defeated by an explicitly ranked default,
 and two such rules about opposite polarities of one atom count as ordinary
 opposing evidence (see the defaults section of
@@ -188,6 +192,11 @@ flies(X) :- bird(X), unless(-flies(X), 2).
   ["$block", 2, ["$not", ["flies", "?:X"]]]
 ]}
 ```
+
+A taxonomy-form priority replaces the number with a `$` term:
+`["$", "bird"]` is the JSON spelling of `tax(bird)` and
+`["$", "bird", 1]` of `tax(bird, 1)`, as in
+[`../Examples/exceptions/penguin3.js`](../Examples/exceptions/penguin3.js).
 
 The example files use predicate arrays of this form. JSON-LD-LOGIC also
 supports graph-oriented objects, but those are not needed for the introductory

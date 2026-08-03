@@ -34,12 +34,7 @@ chmod +x bin/gk
 ```
 
 The command returns the ordinary bird `b` as flying and rejects the penguin
-`p`. Taxonomy-based default priorities load their data from
-[`data/`](data/README.md):
-
-```sh
-./bin/gk Examples/exceptions/classify.gkp -taxonomy -datafolder data
-```
+`p`.
 
 Run `./bin/gk -help` for the option summary. The native binaries use the
 same command-line interface; the WebAssembly build has the limits described
@@ -74,6 +69,15 @@ confidence: 1
 
 rejected answer: p
 confidence against: 1
+```
+
+Instead of hand-assigned numbers, competing defaults can be ordered by a
+taxonomy: a default tied to a more specific class defeats one tied to a
+more general class. The class hierarchy is loaded from
+[`data/`](data/README.md):
+
+```sh
+./bin/gk Examples/exceptions/classify.gkp -taxonomy -datafolder data
 ```
 
 ## Search structure

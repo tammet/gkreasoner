@@ -125,6 +125,10 @@ flying penguin, with opposing flight defaults at different priorities.
   -taxonomy -datafolder data
 ```
 
+Here the taxonomy supplies the order: `penguin` is below `bird` and
+`organism` in the loaded hierarchy, so the penguin defaults defeat the
+bird and organism defaults without hand-assigned numbers.
+
 The taxonomy data files are in [`../../data/`](../../data/README.md); a
 taxonomy-form priority without `-taxonomy` (synonym `-defaults`) is an
 error. [`penguin4.js`](penguin4.js) applies the same pattern to nested

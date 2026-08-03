@@ -340,10 +340,28 @@ the calculation.
 Blockers have priorities. A blocking proof may itself depend on defaults, and
 priorities prevent a lower-priority default from defeating a higher-priority
 one. Priorities may be numbers or taxonomy terms such as `tax(penguin)`.
+The comparison rules:
+
+- A numeric priority defeats a strictly smaller numeric priority. Equal
+  priorities do not defeat each other.
+- `tax(name)` names a class in the loaded taxonomy. A priority naming a
+  more specific class — a descendant in the taxonomy — defeats one naming
+  a more general class: `tax(penguin)` defeats `tax(bird)`. This is the
+  specificity principle for defaults, without hand-assigned numbers.
+- When neither class is a descendant of the other, or a name is not in
+  the taxonomy, the optional tie-breakers of `tax(name, nr)` are compared
+  as numeric priorities. Without tie-breakers, neither side defeats the
+  other.
+- A numeric priority and a taxonomy priority are also compared through
+  the tie-breaker: the number against the `nr` of `tax(name, nr)`.
+  Against a bare `tax(name)`, a number makes no claim.
+
 Taxonomy terms require `-taxonomy` (synonym `-defaults`) and the data
-files in [`../data/`](../data/README.md); an input using them without the
-flag is an error. Taxonomy priorities are compared by the blocker-priority
-check; the dependency-aware evaluator does not process them.
+files in [`../data/`](../data/README.md), which encode the WordNet noun
+hierarchy; class names are WordNet-style names such as `penguin` or
+`bird.n.01`. An input using taxonomy terms without the flag is an error.
+Taxonomy priorities are compared by the blocker-priority check; the
+dependency-aware evaluator does not process them.
 
 Opposed defaults need not have a forced winner. In the Nixon diamond,
 
