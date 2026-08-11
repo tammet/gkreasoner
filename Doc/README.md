@@ -14,5 +14,5 @@ Suggested reading order: [`input_languages.md`](input_languages.md),
 [`comparison_with_other_systems.md`](comparison_with_other_systems.md).
 
 The runnable tutorial is in [`../Examples/README.md`](../Examples/README.md).
-Installation and repository contents are described in the
-[`top-level README`](../README.md).
+Installation, repository contents, and the published papers are described in
+the [`top-level README`](../README.md).

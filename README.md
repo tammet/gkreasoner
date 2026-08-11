@@ -158,6 +158,18 @@ The example categories are classical reasoning, confidence and support calculati
 defaults and exceptions, arithmetic, proof-search strategy, and
 natural-language reasoning.
 
+## Papers
+
+The methods implemented in GK are described in:
+
+- [Structure-Preserving Uncertainty Propagation in First-Order Proof Search](https://arxiv.org/abs/2608.09190)
+- [GK: Implementing Full First Order Default Logic for Commonsense Reasoning (System Description)](https://doi.org/10.1007/978-3-031-10769-6_18)
+- [Confidences for Commonsense Reasoning](https://doi.org/10.1007/978-3-030-79876-5_29)
+
+The underlying resolution prover is described in:
+
+- [GKC: A Reasoning System for Large Knowledge Bases](https://doi.org/10.1007/978-3-030-29436-6_32)
+
 ## Development
 
 GK is developed by Tanel Tammet, with database technology contributions by
