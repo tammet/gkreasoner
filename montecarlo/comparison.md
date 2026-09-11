@@ -11,7 +11,7 @@ rows here.
 
 ## Reproduction protocol
 
-The GK columns come from gk 1.0.10 (`bin/gk`, one `-detail` run per file).
+The GK columns come from gk 1.0.11 (`bin/gk`, one `-detail` run per file).
 Sampling uses the Python standard-library random generator, 10,000 trials,
 and seed 1. Clause-activation sampling uses per-ground-instance draws; the
 shared-threshold sampler uses two independent uniforms per atom and the

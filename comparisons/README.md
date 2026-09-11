@@ -42,7 +42,7 @@ evidence. An optional second argument of `unless` is a priority rank.
 
 | System | Version | Output used here | Project page |
 |---|---|---|---|
-| gk | 1.0.10 | signed confidence with a four-component report | this repository |
+| gk | 1.0.11 | signed confidence with a four-component report | this repository |
 | ProbLog | 2.2.10 | scalar probability | <https://dtai.cs.kuleuven.be/problog/> |
 | PASTA | 1.0.1 | lower/upper probability interval | <https://github.com/damianoazzolini/pasta> |
 | plingo | 1.1.0 | scalar probability | <https://github.com/potassco/plingo> |
