@@ -1,0 +1,5 @@
+0.5::p(heads1).
+0.6::p(heads2).
+r(c) :- p(heads1).
+r(c) :- p(heads2).
+query(r(c)).

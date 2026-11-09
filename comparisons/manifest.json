@@ -1,7 +1,7 @@
 {
   "purpose": "Cell-level record of the implemented-system comparison: 16 cases, GK and eight external table columns, with inputs, commands, and captured outputs.",
   "working_directory": "comparisons",
-  "command_note": "Input paths in commands are relative to the working directory. The gk executable is the repository binary, ../bin/gk from that directory; external executables must be installed at the recorded versions.",
+  "command_note": "Input paths in commands are relative to the working directory. The gk executable is the repository binary, ../bin/gk from that directory; external executables must be installed at the recorded versions. A gk command without options runs the recursive method; -direct runs the direct method of gk 1.1.2.",
   "relation_codes": {
     "N": "native input/result in the selected formalism",
     "E": "exact translation on the stated fragment",
@@ -9,11 +9,10 @@
     "U": "no faithful encoding claimed"
   },
   "result_encoding": {
-    "0_i": "signed confidence zero with pure ignorance",
-    "0_m": "signed confidence zero with balanced positive and negative support"
+    "0_i": "signed confidence zero with pure ignorance"
   },
   "systems": {
-    "GK": "GK 1.0.9",
+    "GK": "GK 1.2.3 (the recursive method, gk's default)",
     "ProbLog": "ProbLog 2.2.10",
     "PASTA": "PASTA 1.0.1",
     "plingo": "plingo 1.1.0",
@@ -54,6 +53,17 @@
         ],
         "run_ids": [
           "gk_c1"
+        ],
+        "four_shares": [
+          {
+            "query": "q",
+            "value": [
+              0.8,
+              0,
+              0,
+              0.2
+            ]
+          }
         ]
       },
       "ProbLog": {
@@ -153,6 +163,17 @@
         ],
         "run_ids": [
           "gk_c2"
+        ],
+        "four_shares": [
+          {
+            "query": "q",
+            "value": [
+              0.3,
+              0,
+              0,
+              0.7
+            ]
+          }
         ]
       },
       "ProbLog": {
@@ -252,6 +273,17 @@
         ],
         "run_ids": [
           "gk_d1"
+        ],
+        "four_shares": [
+          {
+            "query": "flies(a)",
+            "value": [
+              0.1,
+              0.9,
+              0,
+              0
+            ]
+          }
         ]
       },
       "ProbLog": {
@@ -375,6 +407,17 @@
         ],
         "run_ids": [
           "gk_d2"
+        ],
+        "four_shares": [
+          {
+            "query": "h",
+            "value": [
+              0.54,
+              0,
+              0,
+              0.46
+            ]
+          }
         ]
       },
       "ProbLog": {
@@ -489,6 +532,17 @@
         ],
         "run_ids": [
           "gk_d3"
+        ],
+        "four_shares": [
+          {
+            "query": "h",
+            "value": [
+              0,
+              0,
+              0,
+              1
+            ]
+          }
         ]
       },
       "ProbLog": {
@@ -603,6 +657,17 @@
         ],
         "run_ids": [
           "gk_d4"
+        ],
+        "four_shares": [
+          {
+            "query": "pacifist(n)",
+            "value": [
+              0,
+              0,
+              0,
+              1
+            ]
+          }
         ]
       },
       "PASTA": {
@@ -731,6 +796,26 @@
         "run_ids": [
           "gk_d4sm_pos",
           "gk_d4sm_neg"
+        ],
+        "four_shares": [
+          {
+            "query": "pacifist(n)",
+            "value": [
+              0.32,
+              0.12,
+              0,
+              0.56
+            ]
+          },
+          {
+            "query": "-pacifist(n)",
+            "value": [
+              0.12,
+              0.32,
+              0,
+              0.56
+            ]
+          }
         ]
       },
       "PASTA": {
@@ -829,6 +914,17 @@
         ],
         "run_ids": [
           "gk_d5"
+        ],
+        "four_shares": [
+          {
+            "query": "l",
+            "value": [
+              0.6,
+              0.3,
+              0,
+              0.1
+            ]
+          }
         ]
       },
       "ProbLog": {
@@ -961,6 +1057,26 @@
         "run_ids": [
           "gk_d6_undercut",
           "gk_d6_rebut"
+        ],
+        "four_shares": [
+          {
+            "query": "flies(a)",
+            "value": [
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "query": "flies(a)",
+            "value": [
+              1,
+              0,
+              0,
+              0
+            ]
+          }
         ]
       },
       "ProbLog": {
@@ -1074,7 +1190,7 @@
     },
     "D7": {
       "GK": {
-        "displayed_result": "0_m",
+        "displayed_result": "-.12",
         "relation": "N",
         "inputs": [
           "inputs/gk/d7.gkp"
@@ -1084,7 +1200,19 @@
         ],
         "run_ids": [
           "gk_d7"
-        ]
+        ],
+        "four_shares": [
+          {
+            "query": "flies(a)",
+            "value": [
+              0.36,
+              0.48,
+              0,
+              0.16
+            ]
+          }
+        ],
+        "direct_method_note": "The direct method (-direct) gives signed confidence 0 with support .48 for and .48 against."
       },
       "ProbLog": {
         "displayed_result": ".48/.48",
@@ -1188,6 +1316,44 @@
         ],
         "run_ids": [
           "gk_n1"
+        ],
+        "four_shares": [
+          {
+            "query": "twobirds(a,a)",
+            "value": [
+              0.5,
+              0,
+              0,
+              0.5
+            ]
+          },
+          {
+            "query": "twobirds(a,b)",
+            "value": [
+              0.3,
+              0,
+              0,
+              0.7
+            ]
+          },
+          {
+            "query": "twobirds(b,a)",
+            "value": [
+              0.3,
+              0,
+              0,
+              0.7
+            ]
+          },
+          {
+            "query": "twobirds(b,b)",
+            "value": [
+              0.6,
+              0,
+              0,
+              0.4
+            ]
+          }
         ]
       },
       "ProbLog": {
@@ -1311,6 +1477,35 @@
         ],
         "run_ids": [
           "gk_n2"
+        ],
+        "four_shares": [
+          {
+            "query": "smokes(ann)",
+            "value": [
+              0.8,
+              0,
+              0,
+              0.2
+            ]
+          },
+          {
+            "query": "smokes(bob)",
+            "value": [
+              0.688,
+              0,
+              0,
+              0.312
+            ]
+          },
+          {
+            "query": "smokes(carl)",
+            "value": [
+              0.1376,
+              0,
+              0,
+              0.8624
+            ]
+          }
         ]
       },
       "ProbLog": {
@@ -1431,7 +1626,19 @@
         ],
         "run_ids": [
           "gk_e1"
-        ]
+        ],
+        "four_shares": [
+          {
+            "query": "p(a)",
+            "value": [
+              0.396,
+              0.056,
+              0.504,
+              0.044
+            ]
+          }
+        ],
+        "direct_method_note": "The direct method (-direct) gives the same signed confidence .34 with the four shares (.34, 0, .56, .10)."
       },
       "ProbLog": {
         "displayed_result": "U",
@@ -1536,6 +1743,17 @@
         ],
         "run_ids": [
           "gk_x1"
+        ],
+        "four_shares": [
+          {
+            "query": "q(b)",
+            "value": [
+              1,
+              0,
+              0,
+              0
+            ]
+          }
         ]
       },
       "ProbLog": {
@@ -1641,6 +1859,17 @@
         ],
         "run_ids": [
           "gk_f1"
+        ],
+        "four_shares": [
+          {
+            "query": "bird(f(f(a)))",
+            "value": [
+              0.576,
+              0,
+              0,
+              0.424
+            ]
+          }
         ]
       },
       "ProbLog": {
@@ -1751,6 +1980,17 @@
         ],
         "run_ids": [
           "gk_dj1"
+        ],
+        "four_shares": [
+          {
+            "query": "q(a)",
+            "value": [
+              0.72,
+              0,
+              0,
+              0.28
+            ]
+          }
         ]
       },
       "ProbLog": {
@@ -1851,14 +2091,11 @@
       "system": "GK",
       "command": [
         "gk",
-        "inputs/gk/c1.gkp",
-        "-detail",
-        "-outformat",
-        "json"
+        "inputs/gk/c1.gkp"
       ],
       "checks": [
-        "\"answer\": true",
-        "\"confidence\": 0.8000"
+        "\"question\":\"q\"",
+        "\"value\":\\[0\\.80000000000000004,0,0,0\\.19999999999999996\\]"
       ],
       "accepted_exit_codes": [
         0
@@ -1870,14 +2107,11 @@
       "system": "GK",
       "command": [
         "gk",
-        "inputs/gk/c2.gkp",
-        "-detail",
-        "-outformat",
-        "json"
+        "inputs/gk/c2.gkp"
       ],
       "checks": [
-        "\"answer\": true",
-        "\"confidence\": 0.3000"
+        "\"question\":\"q\"",
+        "\"value\":\\[0\\.30000000000000004,0,0,0\\.69999999999999996\\]"
       ],
       "accepted_exit_codes": [
         0
@@ -1889,14 +2123,11 @@
       "system": "GK",
       "command": [
         "gk",
-        "inputs/gk/d1.gkp",
-        "-detail",
-        "-outformat",
-        "json"
+        "inputs/gk/d1.gkp"
       ],
       "checks": [
-        "\"answer\": false",
-        "\"confidence\": 0.8000"
+        "\"question\":\"flies\\(a\\)\"",
+        "\"value\":\\[0\\.099999999999999978,0\\.90000000000000002,0,0\\]"
       ],
       "accepted_exit_codes": [
         0
@@ -1908,14 +2139,11 @@
       "system": "GK",
       "command": [
         "gk",
-        "inputs/gk/d2.gkp",
-        "-detail",
-        "-outformat",
-        "json"
+        "inputs/gk/d2.gkp"
       ],
       "checks": [
-        "\"answer\": true",
-        "\"confidence\": 0.5400"
+        "\"question\":\"h\"",
+        "\"value\":\\[0\\.54000000000000015,0,0,0\\.45999999999999985\\]"
       ],
       "accepted_exit_codes": [
         0
@@ -1927,14 +2155,11 @@
       "system": "GK",
       "command": [
         "gk",
-        "inputs/gk/d3.gkp",
-        "-detail",
-        "-outformat",
-        "json"
+        "inputs/gk/d3.gkp"
       ],
       "checks": [
-        "\"result\": \"evidence below limit\"",
-        "\"confidence\": 0.0000"
+        "\"question\":\"h\"",
+        "\"value\":\\[0,0,0,1\\]"
       ],
       "accepted_exit_codes": [
         0
@@ -1946,14 +2171,11 @@
       "system": "GK",
       "command": [
         "gk",
-        "inputs/gk/d4.gkp",
-        "-detail",
-        "-outformat",
-        "json"
+        "inputs/gk/d4.gkp"
       ],
       "checks": [
-        "\"result\": \"evidence below limit\"",
-        "\"confidence\": 0.0000"
+        "\"question\":\"pacifist\\(n\\)\"",
+        "\"value\":\\[0,0,0,1\\]"
       ],
       "accepted_exit_codes": [
         0
@@ -1965,14 +2187,11 @@
       "system": "GK",
       "command": [
         "gk",
-        "inputs/gk/d4sm_pos.gkp",
-        "-detail",
-        "-outformat",
-        "json"
+        "inputs/gk/d4sm_pos.gkp"
       ],
       "checks": [
-        "\"answer\": true",
-        "\"confidence\": 0.2000"
+        "\"question\":\"pacifist\\(n\\)\"",
+        "\"value\":\\[0\\.32000000000000006,0\\.11999999999999997,0,0\\.55999999999999994\\]"
       ],
       "accepted_exit_codes": [
         0
@@ -1984,14 +2203,11 @@
       "system": "GK",
       "command": [
         "gk",
-        "inputs/gk/d4sm_neg.gkp",
-        "-detail",
-        "-outformat",
-        "json"
+        "inputs/gk/d4sm_neg.gkp"
       ],
       "checks": [
-        "\"answer\": false",
-        "\"confidence\": 0.2000"
+        "\"question\":\"\\-pacifist\\(n\\)\"",
+        "\"value\":\\[0\\.11999999999999997,0\\.32000000000000006,0,0\\.55999999999999994\\]"
       ],
       "accepted_exit_codes": [
         0
@@ -2003,14 +2219,11 @@
       "system": "GK",
       "command": [
         "gk",
-        "inputs/gk/d5.gkp",
-        "-detail",
-        "-outformat",
-        "json"
+        "inputs/gk/d5.gkp"
       ],
       "checks": [
-        "\"answer\": true",
-        "\"confidence\": 0.3000"
+        "\"question\":\"l\"",
+        "\"value\":\\[0\\.59999999999999998,0\\.30000000000000004,0,0\\.099999999999999978\\]"
       ],
       "accepted_exit_codes": [
         0
@@ -2022,14 +2235,11 @@
       "system": "GK",
       "command": [
         "gk",
-        "inputs/gk/d6_undercut.gkp",
-        "-detail",
-        "-outformat",
-        "json"
+        "inputs/gk/d6_undercut.gkp"
       ],
       "checks": [
-        "\"answer\": true",
-        "\"confidence\": 1.0000"
+        "\"question\":\"flies\\(a\\)\"",
+        "\"value\":\\[1,0,0,0\\]"
       ],
       "accepted_exit_codes": [
         0
@@ -2041,14 +2251,11 @@
       "system": "GK",
       "command": [
         "gk",
-        "inputs/gk/d6_rebut.gkp",
-        "-detail",
-        "-outformat",
-        "json"
+        "inputs/gk/d6_rebut.gkp"
       ],
       "checks": [
-        "\"answer\": true",
-        "\"confidence\": 1.0000"
+        "\"question\":\"flies\\(a\\)\"",
+        "\"value\":\\[1,0,0,0\\]"
       ],
       "accepted_exit_codes": [
         0
@@ -2060,14 +2267,11 @@
       "system": "GK",
       "command": [
         "gk",
-        "inputs/gk/d7.gkp",
-        "-detail",
-        "-outformat",
-        "json"
+        "inputs/gk/d7.gkp"
       ],
       "checks": [
-        "\"result\": \"evidence below limit\"",
-        "\"confidence\": 0.0000"
+        "\"question\":\"flies\\(a\\)\"",
+        "\"value\":\\[0\\.36000000000000004,0\\.47999999999999998,0,0\\.15999999999999998\\]"
       ],
       "accepted_exit_codes": [
         0
@@ -2079,16 +2283,13 @@
       "system": "GK",
       "command": [
         "gk",
-        "inputs/gk/n1_study4.gkp",
-        "-detail",
-        "-outformat",
-        "json"
+        "inputs/gk/n1_study4.gkp"
       ],
       "checks": [
-        "\"\\$ans\",\"a\",\"a\".*?\"confidence\": 0\\.5000",
-        "\"\\$ans\",\"a\",\"b\".*?\"confidence\": 0\\.3000",
-        "\"\\$ans\",\"b\",\"a\".*?\"confidence\": 0\\.3000",
-        "\"\\$ans\",\"b\",\"b\".*?\"confidence\": 0\\.6000"
+        "\"answer\":\"twobirds\\(b,b\\)\",\"value\":\\[0\\.59999999999999998,0,0,0\\.40000000000000002\\]",
+        "\"answer\":\"twobirds\\(a,a\\)\",\"value\":\\[0\\.5,0,0,0\\.5\\]",
+        "\"answer\":\"twobirds\\(a,b\\)\",\"value\":\\[0\\.30000000000000004,0,0,0\\.69999999999999996\\]",
+        "\"answer\":\"twobirds\\(b,a\\)\",\"value\":\\[0\\.30000000000000004,0,0,0\\.69999999999999996\\]"
       ],
       "accepted_exit_codes": [
         0
@@ -2100,15 +2301,12 @@
       "system": "GK",
       "command": [
         "gk",
-        "inputs/gk/n2_study10.gkp",
-        "-detail",
-        "-outformat",
-        "json"
+        "inputs/gk/n2_study10.gkp"
       ],
       "checks": [
-        "\"\\$ans\",\"ann\".*?\"confidence\": 0\\.8000",
-        "\"\\$ans\",\"bob\".*?\"confidence\": 0\\.6880",
-        "\"\\$ans\",\"carl\".*?\"confidence\": 0\\.1376"
+        "\"answer\":\"smokes\\(ann\\)\",\"value\":\\[0\\.80000000000000004,0,0,0\\.19999999999999996\\]",
+        "\"answer\":\"smokes\\(bob\\)\",\"value\":\\[0\\.68799999999999994,0,0,0\\.31200000000000006\\]",
+        "\"answer\":\"smokes\\(carl\\)\",\"value\":\\[0\\.13759999999999994,0,0,0\\.86240000000000006\\]"
       ],
       "accepted_exit_codes": [
         0
@@ -3003,14 +3201,11 @@
       "system": "GK",
       "command": [
         "gk",
-        "inputs/gk/x1.gkp",
-        "-detail",
-        "-outformat",
-        "json"
+        "inputs/gk/x1.gkp"
       ],
       "checks": [
-        "\"answer\": true",
-        "\"confidence\": 1.0000"
+        "\"question\":\"q\\(b\\)\"",
+        "\"value\":\\[1,0,0,0\\]"
       ],
       "accepted_exit_codes": [
         0
@@ -3022,14 +3217,11 @@
       "system": "GK",
       "command": [
         "gk",
-        "inputs/gk/f1.gkp",
-        "-detail",
-        "-outformat",
-        "json"
+        "inputs/gk/f1.gkp"
       ],
       "checks": [
-        "\"answer\": true",
-        "\"confidence\": 0.5760"
+        "\"question\":\"bird\\(f\\(f\\(a\\)\\)\\)\"",
+        "\"value\":\\[0\\.57600000000000007,0,0,0\\.42399999999999993\\]"
       ],
       "accepted_exit_codes": [
         0
@@ -3041,14 +3233,11 @@
       "system": "GK",
       "command": [
         "gk",
-        "inputs/gk/dj1.gkp",
-        "-detail",
-        "-outformat",
-        "json"
+        "inputs/gk/dj1.gkp"
       ],
       "checks": [
-        "\"answer\": true",
-        "\"confidence\": 0.7200"
+        "\"question\":\"q\\(a\\)\"",
+        "\"value\":\\[0\\.72000000000000008,0,0,0\\.27999999999999992\\]"
       ],
       "accepted_exit_codes": [
         0
@@ -3388,15 +3577,11 @@
       "system": "GK",
       "command": [
         "gk",
-        "inputs/gk/e1.gkp",
-        "-detail",
-        "-outformat",
-        "json"
+        "inputs/gk/e1.gkp"
       ],
       "checks": [
-        "\"answer\": true",
-        "\"confidence\": 0.3400",
-        "\"conflict\": 0.5600"
+        "\"question\":\"p\\(a\\)\"",
+        "\"value\":\\[0\\.39600000000000007,0\\.05599999999999998,0\\.504,0\\.043999999999999997\\]"
       ],
       "accepted_exit_codes": [
         0

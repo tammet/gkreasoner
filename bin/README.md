@@ -13,6 +13,12 @@ Every binary takes the same command-line arguments and produces the same
 answers. `-version` prints the build version, `-help` the option summary; the
 options themselves are in [`../Doc/cli_reference.md`](../Doc/cli_reference.md).
 
+By default a binary answers with the recursive method. It prints one line
+that starts with `{"recursive":`, then a dump of the evidence
+([`../Doc/recursive_output.md`](../Doc/recursive_output.md)). `-direct` runs
+the direct method of gk 1.1.2
+([`../Doc/direct_method.md`](../Doc/direct_method.md)).
+
 ## Running
 
 Linux:
@@ -55,6 +61,10 @@ Module.onRuntimeInitialized = function () {
 Module.postRun = [function () { Module.callMain(["input", "-seconds", "5"]); }];
 ```
 
+`callMain` adds the program name to the front of the array it is given. A
+page that calls the reasoner several times in one instance passes a new
+array, or a copy (`args.slice()`), to each call.
+
 The same applies to the auxiliary data files of `-taxonomy` (synonym
 `-defaults`): `gk_name_number.txt` and `gk_taxonomy_packed.txt`, whose
 canonical copies are in [`../data/`](../data/README.md), must be written
@@ -62,7 +72,8 @@ with `FS.writeFile` before the flag is used.
 
 Two further limits of the WebAssembly build: it is single-process, so
 `-parallel` must not be passed, and its memory is fixed at build time. The
-build here is set to 2000 MB, which Chrome accepts; a page that has to work in
+build here was made with Emscripten 6.0.13 and is set to 2000 MB, which
+Chrome accepts; a page that has to work in
 browsers refusing that size is served a build compiled with a smaller
 `TOTAL_MEMORY`.
 

@@ -250,8 +250,10 @@ cnf(birds_fly, axiom, (~bird(X) | flies(X)),,
     [confidence(0.9), unless(~flies(X), 2)]).
 ```
 
-TPTP input uses the plain TPTP/SZS-oriented result format by default. Use
-`-outformat json` when JSON output is required.
+gk's default, the recursive method, prints JSON for every input notation
+([`recursive_output.md`](recursive_output.md)). The plain TPTP/SZS result
+format of TPTP input, and the key:value text of GKP input, come with
+`-direct` ([`direct_method.md`](direct_method.md)).
 
 TPTP `fof(...)` input is recognized but rejected with an instruction to
 clausify it first. GK accepts `cnf(...)` problems only.

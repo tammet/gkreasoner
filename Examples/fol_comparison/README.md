@@ -2,7 +2,13 @@
 
 These inputs were adapted from the
 [GKC](https://github.com/tammet/gkc) example collection. They test the
-first-order prover underneath GK's uncertainty and default machinery.
+first-order prover underneath gk's uncertainty and default machinery.
+
+The commands below use `-plain`, which prints a classical proof without
+confidences and runs gk's direct method. The recursive method, gk's
+default, does not find these proofs: without `-plain -nonegative` it
+reports (0, 0, 0, 1) for the three clause problems and no answer for the
+planning example.
 
 ## Clause problems
 
@@ -38,13 +44,14 @@ Set theory:
   -strategytext '{"strategy":["negative_pref","posunitpara"],"query_preference":1}'
 ```
 
-Five runs of each command, including process startup, produced:
+Five runs of each command with gk 1.2.3, including process startup,
+produced:
 
 | Input | Median wall time | Peak resident memory |
 |---|---:|---:|
-| NLP | 0.01 s | 25.6 MiB |
-| Dreadbury | 0.01 s | 23.6 MiB |
-| set theory | 0.08 s | 32.8 MiB |
+| NLP | 0.03 s | 25.8 MiB |
+| Dreadbury | 0.03 s | 23.9 MiB |
+| set theory | 0.10 s | 33.1 MiB |
 
 All three runs report confidence 1 in plain mode.
 

@@ -1,5 +1,5 @@
-// Expanded form of the first social-smoking network. The expected confidence
-// of smokes(sam) is 0.3764 under the provenance-aware retained-proof calculation.
+// Expanded form of the first social-smoking network. gk 1.2.3 answers
+// smokes(sam) with (.3804, 0, 0, .6196); the direct method (-direct) gives .3764.
 [
   {"@confidence": 0.3, "@logic": ["smokes", "?:X"]},
   {"@confidence": 0.1, "@logic": ["friends", "?:X", "?:Y"]},

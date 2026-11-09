@@ -7,4 +7,4 @@ bird(b).
 
 flies(X) :- bird(X), unless(-flies(X), 2).
 
-query(flies(X)).      % both a and b fly, confidence 1
+query(flies(X)).      % flies(a) and flies(b) both (1, 0, 0, 0)

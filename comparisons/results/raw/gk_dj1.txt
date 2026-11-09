@@ -1,32 +1,40 @@
-command: ["gk", "inputs/gk/dj1.gkp", "-detail", "-outformat", "json"]
+command: ["gk", "inputs/gk/dj1.gkp"]
 exit_code: 0
 accepted_exit_codes: [0]
 missing_checks: []
 
 [stdout]
-{"result": "answer found",
+{"recursive":{"method":"recursive","question":"q(a)","model_version":1,"report_revision":2,"rounds":2,"budget_ms":9000.0,"budget_used_ms":106.5,"tasks":4,"tasks_cut":0,"tasks_queued":0,"tasks_that_cannot_run":0,"applications":3,"pending_steps":0,"loop_marks":0,"value":[0.72000000000000008,0,0,0.27999999999999992],"value_model_version":1,"value_from":"checkpoint 1","switches":{"keep_equal_goals":0,"loop_marks":0,"floor_ms":19.0,"floor_adaptive":1,"floor_last_ms":15.0},"stop":"no task can become runnable under a later allowance","search":"no further proof found within the budget"}}
 
-"answers": [
-{
-"answer": true,
-"confidence": 0.7200,
-"detail": {"support_for": 0.7200,
-"support_against": 0.0000,
-"conflict": 0.0000,
-"ignorance": 0.2800,
-"calculation": "canonical_atom",
-"coverage_status": "complete",
-"polarity_status": "guaranteed",
-"conflict_sources": [],
-"flags": ["CONTESTED"],
-"recursive_checks": 1},
-"positive proof":
-[
-[1, ["in", "frm_1", "axiom", 0.8], [["q","a"], ["p","a"]]],
-[2, ["in", "frm_2", "axiom", 0.9], [["-p","a"]]],
-[3, ["in", "frm_3", "goal", 1], [["-q","a"]]],
-[4, ["mp", [1,1], 2, 3, "fromgoal", 0.72], false]
-]}
-]}
+{"@format":"gk_dump_v1","version":"gk_dump_v1 (1.2.0-dev step 3b)","question":"q(a)","context":0,
+"applications":[
+{"id":"$src_e1","source":"e1","entry":1,"statement":1,"name":"frm_1","origin":"source event","subst":[],"head":"$src_e1","confidence":"0.8","kind":"ordinary","rank":0,"marker":false,"block":false,"body":[],"exceptions":[],"same_atom":false,"text":"{\"@name\":\"frm_1\",\"@confidence\":0.80000001192092896,\"@kind\":\"classical\",\"@search_kind\":\"classical\",\"@logic\":[p(a),q(a)]}","orientation":null,"weight":0.80000001192092896,"source_event":null,"depth":0,"derivations":[1,2]},
+{"id":"e1:q(a)","source":"e1","entry":1,"statement":1,"name":"frm_1","origin":"classical","subst":[],"head":"q(a)","confidence":"1","kind":"ordinary","rank":0,"marker":false,"block":false,"body":["$src_e1","-p(a)"],"exceptions":[],"same_atom":false,"text":"{\"@name\":\"frm_1\",\"@confidence\":0.80000001192092896,\"@kind\":\"classical\",\"@search_kind\":\"classical\",\"@logic\":[p(a),q(a)]}","orientation":"another literal","weight":0.80000001192092896,"source_event":"$src_e1","depth":0,"derivations":[1,2]},
+{"id":"e2","source":"e2","entry":2,"statement":2,"name":"frm_2","origin":"statement","subst":[],"head":"-p(a)","confidence":"0.9","kind":"ordinary","rank":0,"marker":false,"block":false,"body":[],"exceptions":[],"same_atom":false,"text":"{\"@name\":\"frm_2\",\"@confidence\":0.89999997615814209,\"@kind\":\"fact\",\"@search_kind\":\"fact\",\"@logic\":-p(a)}","orientation":null,"weight":0.89999997615814209,"source_event":null,"depth":0,"derivations":[1,2,3,4,5,6]}],
+"views":[],
+"calls":[],
+"pending":[],
+"priorities":[],
+"atoms":[],
+"components":[],
+"markers":[],
+"derivations":[{"derivation":1,"depth":0,"negative_search":0,"search":"base","score":0.720000029,"ground":1,"steps":2,"status":"imported","answered":"q(a)","alternative_of":0,"repeat_of":0,"duplicate_root_producer":0,"residual_variables":0,"step_notes":["a classical clause"],"applications":["$src_e1","e1:q(a)","e2"],"pending":[],"sources":[2,1],"instances":[{"instance":"e1i()","uses":1},{"instance":"e2i()","uses":1}],"key":"q(a)#e1i()\u001fe2i()\u001f","assumptions":[]},{"derivation":2,"depth":0,"negative_search":0,"search":"base","score":0.720000029,"ground":1,"steps":2,"status":"imported","answered":"q(a)","alternative_of":0,"repeat_of":1,"duplicate_root_producer":0,"residual_variables":0,"step_notes":["a classical clause"],"applications":["e2","$src_e1","e1:q(a)"],"pending":[],"sources":[2,1],"instances":[{"instance":"e2i()","uses":1},{"instance":"e1i()","uses":1}],"key":"q(a)#e1i()\u001fe2i()\u001f","assumptions":[]},{"derivation":3,"depth":1,"negative_search":0,"search":"-p(a)|0","score":0.899999976,"ground":1,"steps":1,"status":"imported","answered":"-p(a)","alternative_of":0,"repeat_of":0,"duplicate_root_producer":0,"residual_variables":0,"step_notes":[],"applications":["e2"],"pending":[],"sources":[2],"instances":[{"instance":"e2i()","uses":1}],"key":"-p(a)#e2i()\u001f","assumptions":[]},{"derivation":4,"depth":1,"negative_search":0,"search":"-p(a)|0","score":0.899999976,"ground":1,"steps":1,"status":"imported","answered":"-p(a)","alternative_of":0,"repeat_of":3,"duplicate_root_producer":0,"residual_variables":0,"step_notes":[],"applications":["e2"],"pending":[],"sources":[2],"instances":[{"instance":"e2i()","uses":1}],"key":"-p(a)#e2i()\u001f","assumptions":[]},{"derivation":5,"depth":1,"negative_search":0,"search":"-p(a)|0","score":0.899999976,"ground":1,"steps":1,"status":"imported","answered":"-p(a)","alternative_of":0,"repeat_of":3,"duplicate_root_producer":0,"residual_variables":0,"step_notes":[],"applications":["e2"],"pending":[],"sources":[2],"instances":[{"instance":"e2i()","uses":1}],"key":"-p(a)#e2i()\u001f","assumptions":[]},{"derivation":6,"depth":1,"negative_search":0,"search":"-p(a)|0","score":0.899999976,"ground":1,"steps":1,"status":"imported","answered":"-p(a)","alternative_of":0,"repeat_of":3,"duplicate_root_producer":0,"residual_variables":0,"step_notes":[],"applications":["e2"],"pending":[],"sources":[2],"instances":[{"instance":"e2i()","uses":1}],"key":"-p(a)#e2i()\u001f","assumptions":[]}],
+"imported":[
+{"id":"$src_e1","source":"e1","entry":1,"statement":1,"name":"frm_1","origin":"source event","subst":[],"head":"$src_e1","confidence":"0.8","kind":"ordinary","rank":0,"marker":false,"block":false,"body":[],"exceptions":[],"same_atom":false,"text":"{\"@name\":\"frm_1\",\"@confidence\":0.80000001192092896,\"@kind\":\"classical\",\"@search_kind\":\"classical\",\"@logic\":[p(a),q(a)]}","orientation":null,"weight":0.80000001192092896,"source_event":null,"depth":0,"derivations":[1,2]},
+{"id":"e1:q(a)","source":"e1","entry":1,"statement":1,"name":"frm_1","origin":"classical","subst":[],"head":"q(a)","confidence":"1","kind":"ordinary","rank":0,"marker":false,"block":false,"body":["$src_e1","-p(a)"],"exceptions":[],"same_atom":false,"text":"{\"@name\":\"frm_1\",\"@confidence\":0.80000001192092896,\"@kind\":\"classical\",\"@search_kind\":\"classical\",\"@logic\":[p(a),q(a)]}","orientation":"another literal","weight":0.80000001192092896,"source_event":"$src_e1","depth":0,"derivations":[1,2]},
+{"id":"e2","source":"e2","entry":2,"statement":2,"name":"frm_2","origin":"statement","subst":[],"head":"-p(a)","confidence":"0.9","kind":"ordinary","rank":0,"marker":false,"block":false,"body":[],"exceptions":[],"same_atom":false,"text":"{\"@name\":\"frm_2\",\"@confidence\":0.89999997615814209,\"@kind\":\"fact\",\"@search_kind\":\"fact\",\"@logic\":-p(a)}","orientation":null,"weight":0.89999997615814209,"source_event":null,"depth":0,"derivations":[1,2,3,4,5,6]}],
+"pending_steps":[],
+"tasks":[{"task":1,"literal":"q(a)","context":"{}","depth":0,"state":"ended","question":true,"roles":["further proofs"],"spent_ms":35.425,"cannot_run":null,"attempts":[{"seq":1,"round":0,"depth":0,"allowance_ms":2250.000,"used_ms":17.805,"answers_cap":4,"derivations":2,"exit":"ended","why":null,"new_derivations":1,"strategy":"{\"strategy\":[\"negative_pref\"],\"query_preference\":1}","excluded":[],"refused_steps":0},{"seq":2,"round":0,"depth":0,"allowance_ms":32.195,"used_ms":17.621,"answers_cap":4,"derivations":0,"exit":"ended","why":null,"new_derivations":0,"strategy":"gk's automatic ladder","excluded":["e1:q(a)"],"refused_steps":4}],"provenance":["question"],"chain":[1]},
+{"task":2,"literal":"-q(a)","context":"{}","depth":1,"state":"ended","question":true,"roles":["opposition"],"spent_ms":17.089,"cannot_run":null,"attempts":[{"seq":3,"round":0,"depth":1,"allowance_ms":25.000,"used_ms":17.089,"answers_cap":4,"derivations":0,"exit":"ended","why":null,"new_derivations":0,"strategy":"gk's automatic ladder","excluded":[],"refused_steps":0}],"provenance":["question","e1:q(a)"],"chain":[2]},
+{"task":3,"literal":"p(a)","context":"{}","depth":1,"state":"ended","question":false,"roles":["opposition"],"spent_ms":15.793,"cannot_run":null,"attempts":[{"seq":4,"round":0,"depth":1,"allowance_ms":25.000,"used_ms":15.793,"answers_cap":4,"derivations":0,"exit":"ended","why":null,"new_derivations":0,"strategy":"gk's automatic ladder","excluded":[],"refused_steps":0}],"provenance":["e1:q(a)","e2"],"chain":[1,3]},
+{"task":4,"literal":"-p(a)","context":"{}","depth":1,"state":"ended","question":false,"roles":["further proofs"],"spent_ms":38.092,"cannot_run":null,"attempts":[{"seq":5,"round":0,"depth":1,"allowance_ms":25.000,"used_ms":23.050,"answers_cap":4,"derivations":4,"exit":"cut","why":"allowance","new_derivations":1,"strategy":"gk's automatic ladder","excluded":[],"refused_steps":0},{"seq":6,"round":1,"depth":1,"allowance_ms":26.950,"used_ms":15.043,"answers_cap":8,"derivations":0,"exit":"ended","why":null,"new_derivations":0,"strategy":"gk's automatic ladder","excluded":["e2"],"refused_steps":4}],"provenance":["e1:q(a)"],"chain":[1,4]}],
+"loop_marks":[],
+"checkpoint":{"model_version":1,"report_revision":2,"round":2,"budget_used_ms":106.508,"budget_ms":9000.000,"why":"a report revision: task or status information changed","number":"computed by gk's evaluator (value_c); evaluate_checkpoints.py computes it again from this dump"},
+"value_c":{"question":"q(a)","state":"completed","value":[0.72000000000000008,0,0,0.27999999999999992],"evaluation_ms":0.028,"readings":[],"display_model_version":1,"display":[0.72000000000000008,0,0,0.27999999999999992],"value_from":"checkpoint 1","nodes":[{"node":"q(a)","value":[0.72000000000000008,0,0,0.27999999999999992],"selected":"for"},{"node":"$src_e1","value":[0.80000000000000004,0,0,0.19999999999999996],"selected":"for"},{"node":"p(a)","value":[0,0.90000000000000002,0,0.099999999999999978],"selected":"against"}]},
+"switches":{"keep_equal_goals":0,"loop_marks":0,"floor_ms":19.0,"floor_adaptive":1,"floor_last_ms":15.0},
+"status_facts":{"unfinished":[],"approximation":[]},
+"catalogue":[{"id":1,"statement":1,"kind":"classical","written_kind":"classical","name":"frm_1","role":null,"generated":null,"provenance":null},{"id":2,"statement":2,"kind":"fact","written_kind":"fact","name":"frm_2","role":null,"generated":null,"provenance":null},{"id":3,"statement":3,"kind":"goal","written_kind":"goal","name":"frm_3","role":null,"generated":"goal","provenance":null},{"id":4,"statement":0,"kind":"none","written_kind":"none","name":null,"role":null,"generated":null,"provenance":null}],
+"definition":{"defined":false,"alias":false,"form":"plain","variable_classes":0,"ambiguous":[]},"closure":{"atoms":1,"calls":0,"markers":0},
+"collection":{"status":"not run","reasons":[],"work":{"steps":0,"views":0,"calls":0,"matches attempted":0,"matches":0,"applications registered":0,"applications found again":0,"answers produced":0,"non-ground answers":0,"literals deferred":0,"answers filtered by context":0,"filtered by built-in":0,"existential exceptions":0,"index entries scanned":0}}}
 
 [stderr]

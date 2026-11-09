@@ -5,7 +5,16 @@ below is `./bin/gk`.
 
 Most introductory problems are supplied in GKP (`.gkp`) and native
 JSON-LD-LOGIC (`.js`) forms. The logic is the same; only the surface notation
-and output format differ.
+differs.
+
+gk 1.2.4 answers with the recursive method by default. It prints one line
+that starts with `{"recursive":`, then a dump of the evidence. The line's
+`value` holds the four shares in the order (for, against, conflict,
+ignorance). A question with a variable gets an `answers` list, one entry per
+instance. [`../Doc/recursive_output.md`](../Doc/recursive_output.md)
+describes the output, and
+[`../Doc/support_semantics.md`](../Doc/support_semantics.md) the meaning of
+the four shares. The values below are gk 1.2.4's, shortened.
 
 ## 1. Defaults and answer substitutions
 
@@ -26,19 +35,18 @@ query(flies(X)).
 ./bin/gk Examples/exceptions/penguin.gkp
 ```
 
-The ordinary bird default has priority 3 and the opposing object default has
-priority 2. The strict penguin rule supplies the exception:
+The ordinary bird default has rank 3 and the opposing object default has
+rank 2. The certain penguin rule supplies the exception:
 
 ```text
-answer: b
-confidence: 1
-
-rejected answer: p
-confidence against: 1
+"answers":[{"answer":"flies(b)","value":[1,0,0,0]},
+           {"answer":"flies(p)","value":[0,1,0,0]}]
 ```
 
 [`core/logic_chain.js`](core/logic_chain.js) shows a longer implication chain.
-[`core/algebra.js`](core/algebra.js) introduces equality reasoning.
+[`core/algebra.js`](core/algebra.js) introduces equality reasoning. The
+recursive method finds no proof for either of them; see
+[`core/README.md`](core/README.md).
 
 ## 2. Several proofs for one answer
 
@@ -52,15 +60,14 @@ query(bird(a)).
 ```
 
 ```text
-confidence: 0.8
+"value":[0.8,0,0,0.2]
 ```
 
-The two statements are separate activation events, and GK combines the
-proofs' activation-event sets. For disjoint sets the combination is
-noisy-or: `1 - (1 - 0.5)(1 - 0.6) = 0.8`. When proofs share activation
-events, GK counts the shared events once.
-The overlap cases are in [`confidences/overlap1.js`](confidences/overlap1.js)
-and [`confidences/overlap3.js`](confidences/overlap3.js).
+The two statements are two independent sources, so they combine by
+noisy-or: `1 - (1 - 0.5)(1 - 0.6) = 0.8`. When proofs share a source, gk
+counts the shared source once. The overlap cases are in
+[`confidences/overlap1.js`](confidences/overlap1.js) and
+[`confidences/overlap3.js`](confidences/overlap3.js).
 
 ## 3. Evidence on both sides
 
@@ -74,30 +81,21 @@ query(flies(a)).
 ```
 
 ```sh
-./bin/gk Examples/confidences/net_direct.gkp -detail
+./bin/gk Examples/confidences/net_direct.gkp
 ```
-
-The result has confidence `0.3`. The detailed report splits the total of 1
-as follows:
 
 ```text
-support: 0.3 for, 0 against
-conflict: 0.4   ignorance: 0.3
+"value":[0.3,0,0.4,0.3]
 ```
 
-The signed confidence is positive support minus negative support. GK places
-the result in the accepted or rejected list according to the sign and prints
-its magnitude as the verdict confidence.
+Both sides are tested against one shared number of the atom. Where the
+number lies below .4, both sides pass: conflict .4. Between .4 and .7, only
+the stronger side passes: for .3. Above .7, neither side passes: ignorance
+.3. The weaker side never wins alone. The signed confidence, for minus
+against, is .3.
 
-Conflict records the part supported in both polarities. Ignorance records the
-part supported in neither polarity. This direct-opposition case has a
-completed shared-threshold report: with `-detail`, its `calculation` field
-is `canonical_atom`. Reports from the direct retained-proof calculation or
-from a fallback carry the same four fields as proof-pool decompositions;
-the `calculation` field identifies which calculation produced the report
-(see [`../Doc/how_gk_works.md`](../Doc/how_gk_works.md)).
-[`confidences/net_premise.js`](confidences/net_premise.js)
-shows how a contested premise affects a downstream conclusion.
+[`confidences/net_premise.js`](confidences/net_premise.js) shows how a
+contested premise affects a downstream conclusion.
 
 ## 4. Defaults and exceptions
 
@@ -111,27 +109,29 @@ flies(X) :- bird(X), unless(-flies(X), 2).
 query(flies(X)).
 ```
 
-With no evidence for either exception, both answers have confidence 1 and
-record their blocker. [`exceptions/bird_exception.gkp`](exceptions/bird_exception.gkp)
-adds `0.9::-flies(a).`; `flies(a)` has 0.1 positive support and 0.9 negative
-support, so it is rejected with confidence 0.8, while `flies(b)` remains at 1.
+With no evidence for either exception, `flies(a)` and `flies(b)` are both
+(1, 0, 0, 0). [`exceptions/bird_exception.gkp`](exceptions/bird_exception.gkp)
+adds `0.9::-flies(a).`: the default yields to the contrary fact, so
+`flies(a)` is (.1, .9, 0, 0), while `flies(b)` stays (1, 0, 0, 0).
 
 [`exceptions/nixon.gkp`](exceptions/nixon.gkp) is the Nixon diamond. The
-equal-priority defaults block each other, so neither polarity keeps usable
-support and the report is ignorance; the downstream candidate is reported
-with a zero margin and a `CONTESTED` flag.
-[`exceptions/penguin.gkp`](exceptions/penguin.gkp) adds priorities and a strict
-exception. [`exceptions/classify.gkp`](exceptions/classify.gkp) uses taxonomy
-priorities:
+equal-rank defaults block each other, so neither side is usable and the
+downstream question `dislikeswar(n)` is (0, 0, 0, 1): ignorance, not
+conflict. [`exceptions/penguin.gkp`](exceptions/penguin.gkp) adds ranks and a
+certain exception. [`exceptions/classify.gkp`](exceptions/classify.gkp) uses
+taxonomy priorities:
 
 ```sh
 ./bin/gk Examples/exceptions/classify.gkp \
   -taxonomy -datafolder data
 ```
 
+It answers `isa(b1,organism)` (.5731, .0179, .3821, .0269) and
+`isa(a1,organism)` (0, .4, .6, 0), with two `cycle cut` readings.
+
 ## 5. Search strategies
 
-GK constructs a strategy automatically when none is supplied. An explicit
+gk constructs a strategy automatically when none is supplied. An explicit
 strategy is useful for reproducing a search or changing clause selection:
 
 ```sh
@@ -139,7 +139,7 @@ strategy is useful for reproducing a search or changing clause selection:
   -strategy Examples/strategy/query_focus.json
 ```
 
-A strategy may also contain a sequence of runs. GK tries the runs in order
+A strategy may also contain a sequence of runs. gk tries the runs in order
 until one produces an answer or the total time limit is reached:
 
 ```sh
@@ -147,7 +147,8 @@ until one produces an answer or the total time limit is reached:
   -strategy Examples/strategy/runs.json
 ```
 
-See [`../Doc/strategy_reference.md`](../Doc/strategy_reference.md) for the
+Both give the answers of Section 1. See
+[`../Doc/strategy_reference.md`](../Doc/strategy_reference.md) for the
 selection methods and limits.
 
 ## 6. Arithmetic instantiation
@@ -162,18 +163,48 @@ variable inside an arithmetic condition requires bounded instantiation.
   -strategytext '{"strategy":["unit"],"query_preference":0,"arith_instantiation":1}'
 ```
 
-The answer is `8` with confidence `0.8`. Mode `1` instantiates one
-arithmetic unknown from a bounded candidate range; mode `2` also considers
-selected two-variable cases. The mode is bounded enumeration; it does not
-solve general equations.
+The answer is `johnhad(8)` with (.8, 0, 0, .2). The arithmetic step is not
+replayed as an application, so the line reports it among `pending_steps`.
+Mode `1` instantiates one arithmetic unknown from a bounded candidate range;
+mode `2` also considers selected two-variable cases. The mode is bounded
+enumeration; it does not solve general equations.
+
+## 7. Checking a value with the reference tool
+
+The reference tool [`mcref`](../mcref/README.md) computes the support
+semantics by sampling worlds. It shares no code with gk's proof search.
+[`semantics/default_vs_fact.gkp`](semantics/default_vs_fact.gkp) has a
+default and a weaker fact against it:
+
+```prolog
+bird(t).
+0.3::-flies(t).
+0.9::flies(X) :- bird(X), unless(-flies(X), 2).
+query(flies(t)).
+```
+
+gk answers (.63, .3, 0, .07). The tool, with 20,000 samples:
+
+```sh
+python3 mcref/mcref.py Examples/semantics/default_vs_fact.gkp --samples 20000
+```
+
+```text
+"value": [0.62695, 0.30225, 0.0, 0.0708]
+```
+
+Its sampling error is at most ±.0113 per share at 20,000 samples, so the
+two agree. [`semantics/`](semantics/README.md) holds all the inputs of the
+semantics page with their values.
 
 ## Categories
 
 | Directory | Contents |
 |---|---|
 | [`core/`](core/README.md) | Resolution, substitutions, equality, and negation |
-| [`confidences/`](confidences/README.md) | Proof products, pooling, overlap, negative support, conflict, and ignorance |
-| [`exceptions/`](exceptions/README.md) | Defaults, blockers, priorities, taxonomies, and persistence |
+| [`confidences/`](confidences/README.md) | Uncertain facts and rules, several proofs, shared sources, evidence against, conflict, and ignorance |
+| [`exceptions/`](exceptions/README.md) | Defaults, exceptions, ranks, taxonomies, and persistence |
+| [`semantics/`](semantics/README.md) | The inputs of the support semantics page, one per example, with their values |
 | [`strategy/`](strategy/README.md) | Strategy files used with `-strategy` |
 | [`arithmetic/`](arithmetic/README.md) | Ground evaluation and bounded numeric instantiation |
 | [`language/`](language/README.md) | GK encodings of English reasoning problems, run against a shared knowledge base |
@@ -185,6 +216,7 @@ The comparison cases, with captured outputs from the external systems, are
 in [`../comparisons/`](../comparisons/README.md); their per-case
 descriptions are in [`../comparisons/CASES.md`](../comparisons/CASES.md).
 
-Input notation is covered in [`../Doc/input_languages.md`](../Doc/input_languages.md).
-The algorithms behind the examples are described in
+Input notation is covered in [`../Doc/input_languages.md`](../Doc/input_languages.md)
+and [`../Doc/json_ld_logic.md`](../Doc/json_ld_logic.md).
+How gk reaches an answer is described in
 [`../Doc/how_gk_works.md`](../Doc/how_gk_works.md).

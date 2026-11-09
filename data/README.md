@@ -2,8 +2,11 @@
 
 Runtime data for GK's taxonomy-based default priorities: a default whose
 priority names a more specific class defeats one naming a more general
-class (the comparison rules are in the defaults section of
-[`../Doc/how_gk_works.md`](../Doc/how_gk_works.md)). Load the data with:
+class. The direct method (`-direct`) compares such priorities; the rules
+are in [`../Doc/direct_method.md`](../Doc/direct_method.md) Section 6. The
+recursive method, gk's default, reads a taxonomy priority as rank 0
+([`../Doc/how_gk_works.md`](../Doc/how_gk_works.md) Section 10). Load the
+data with:
 
 ```sh
 ./bin/gk INPUT -taxonomy -datafolder data

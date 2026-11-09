@@ -1,38 +1,36 @@
-command: ["gk", "inputs/gk/d5.gkp", "-detail", "-outformat", "json"]
+command: ["gk", "inputs/gk/d5.gkp"]
 exit_code: 0
 accepted_exit_codes: [0]
 missing_checks: []
 
 [stdout]
-{"result": "answer found",
+{"recursive":{"method":"recursive","question":"l","model_version":2,"report_revision":1,"rounds":2,"budget_ms":9000.0,"budget_used_ms":68.9,"tasks":2,"tasks_cut":0,"tasks_queued":0,"tasks_that_cannot_run":0,"applications":2,"pending_steps":0,"loop_marks":0,"value":[0.59999999999999998,0.30000000000000004,0,0.099999999999999978],"value_model_version":2,"value_from":"checkpoint 2","switches":{"keep_equal_goals":0,"loop_marks":0,"floor_ms":19.0,"floor_adaptive":1,"floor_last_ms":17.0},"stop":"no task can become runnable under a later allowance","search":"no further proof found within the budget"}}
 
-"answers": [
-{
-"answer": true,
-"blockers": [["$block",2,["$not",["l"]]]],
-"confidence": 0.3000,
-"detail": {"support_for": 0.6000,
-"support_against": 0.3000,
-"conflict": 0.0000,
-"ignorance": 0.1000,
-"calculation": "canonical_atom",
-"coverage_status": "complete",
-"polarity_status": "guaranteed",
-"conflict_sources": [],
-"flags": ["CONTESTED"],
-"recursive_checks": 1},
-"positive proof":
-[
-[1, ["in", "frm_1", "axiom", 0.9], [["$block",2,["$not",["l"]]], ["l"]]],
-[2, ["in", "frm_3", "goal", 1], [["-l"]]],
-[3, ["mp", [1,1], 2, "fromgoal", 0.9], [["$block",2,["$not",["l"]]]]]
-],
-"negative proof":
-[
-[1, ["in", "frm_2", "axiom", 0.3], [["-l"], ["$block",3,["l"]]]],
-[2, ["in", "$auto_negated_question", "goal", 1], [["l"]]],
-[3, ["mp", 1, 2, "fromgoal", 0.3], [["$block",3,["l"]]]]
-]}
-]}
+{"@format":"gk_dump_v1","version":"gk_dump_v1 (1.2.0-dev step 3b)","question":"l","context":0,
+"applications":[
+{"id":"e1","source":"e1","entry":1,"statement":1,"name":"frm_1","origin":"statement","subst":[],"head":"l","confidence":"0.9","kind":"normal","rank":2,"marker":true,"block":true,"body":[],"exceptions":[],"same_atom":false,"text":"{\"@name\":\"frm_1\",\"@confidence\":0.89999997615814209,\"@kind\":\"fact\",\"@search_kind\":\"default\",\"@logic\":[l(),\"|\",$block(2,$not(l()))]}","orientation":null,"weight":0.89999997615814209,"source_event":null,"depth":0,"derivations":[1,2,3,4]},
+{"id":"e2","source":"e2","entry":2,"statement":2,"name":"frm_2","origin":"statement","subst":[],"head":"-l","confidence":"0.3","kind":"normal","rank":3,"marker":true,"block":true,"body":[],"exceptions":[],"same_atom":false,"text":"{\"@name\":\"frm_2\",\"@confidence\":0.30000001192092896,\"@kind\":\"fact\",\"@search_kind\":\"default\",\"@logic\":[-l(),\"|\",$block(3,l())]}","orientation":null,"weight":0.30000001192092896,"source_event":null,"depth":1,"derivations":[5,6,7,8]}],
+"views":[],
+"calls":[],
+"pending":[],
+"priorities":[{"priority":2,"prohibits":[]},{"priority":3,"prohibits":[2]}],
+"atoms":[],
+"components":[],
+"markers":[],
+"derivations":[{"derivation":1,"depth":0,"negative_search":0,"search":"base","score":0.899999976,"ground":1,"steps":1,"status":"imported","answered":"l","alternative_of":0,"repeat_of":0,"duplicate_root_producer":0,"residual_variables":0,"step_notes":[],"applications":["e1"],"pending":[],"sources":[1],"instances":[{"instance":"e1i()","uses":1}],"key":"l#e1i()\u001f","assumptions":[]},{"derivation":2,"depth":0,"negative_search":0,"search":"base","score":0.899999976,"ground":1,"steps":1,"status":"imported","answered":"l","alternative_of":0,"repeat_of":1,"duplicate_root_producer":0,"residual_variables":0,"step_notes":[],"applications":["e1"],"pending":[],"sources":[1],"instances":[{"instance":"e1i()","uses":1}],"key":"l#e1i()\u001f","assumptions":[]},{"derivation":3,"depth":0,"negative_search":0,"search":"base","score":0.899999976,"ground":1,"steps":1,"status":"imported","answered":"l","alternative_of":0,"repeat_of":1,"duplicate_root_producer":0,"residual_variables":0,"step_notes":[],"applications":["e1"],"pending":[],"sources":[1],"instances":[{"instance":"e1i()","uses":1}],"key":"l#e1i()\u001f","assumptions":[]},{"derivation":4,"depth":0,"negative_search":0,"search":"base","score":0.899999976,"ground":1,"steps":1,"status":"imported","answered":"l","alternative_of":0,"repeat_of":1,"duplicate_root_producer":0,"residual_variables":0,"step_notes":[],"applications":["e1"],"pending":[],"sources":[1],"instances":[{"instance":"e1i()","uses":1}],"key":"l#e1i()\u001f","assumptions":[]},{"derivation":5,"depth":1,"negative_search":0,"search":"-l|0","score":0.300000012,"ground":1,"steps":1,"status":"imported","answered":"-l","alternative_of":0,"repeat_of":0,"duplicate_root_producer":0,"residual_variables":0,"step_notes":[],"applications":["e2"],"pending":[],"sources":[2],"instances":[{"instance":"e2i()","uses":1}],"key":"-l#e2i()\u001f","assumptions":[]},{"derivation":6,"depth":1,"negative_search":0,"search":"-l|0","score":0.300000012,"ground":1,"steps":1,"status":"imported","answered":"-l","alternative_of":0,"repeat_of":5,"duplicate_root_producer":0,"residual_variables":0,"step_notes":[],"applications":["e2"],"pending":[],"sources":[2],"instances":[{"instance":"e2i()","uses":1}],"key":"-l#e2i()\u001f","assumptions":[]},{"derivation":7,"depth":1,"negative_search":0,"search":"-l|0","score":0.300000012,"ground":1,"steps":1,"status":"imported","answered":"-l","alternative_of":0,"repeat_of":5,"duplicate_root_producer":0,"residual_variables":0,"step_notes":[],"applications":["e2"],"pending":[],"sources":[2],"instances":[{"instance":"e2i()","uses":1}],"key":"-l#e2i()\u001f","assumptions":[]},{"derivation":8,"depth":1,"negative_search":0,"search":"-l|0","score":0.300000012,"ground":1,"steps":1,"status":"imported","answered":"-l","alternative_of":0,"repeat_of":5,"duplicate_root_producer":0,"residual_variables":0,"step_notes":[],"applications":["e2"],"pending":[],"sources":[2],"instances":[{"instance":"e2i()","uses":1}],"key":"-l#e2i()\u001f","assumptions":[]}],
+"imported":[
+{"id":"e1","source":"e1","entry":1,"statement":1,"name":"frm_1","origin":"statement","subst":[],"head":"l","confidence":"0.9","kind":"normal","rank":2,"marker":true,"block":true,"body":[],"exceptions":[],"same_atom":false,"text":"{\"@name\":\"frm_1\",\"@confidence\":0.89999997615814209,\"@kind\":\"fact\",\"@search_kind\":\"default\",\"@logic\":[l(),\"|\",$block(2,$not(l()))]}","orientation":null,"weight":0.89999997615814209,"source_event":null,"depth":0,"derivations":[1,2,3,4]},
+{"id":"e2","source":"e2","entry":2,"statement":2,"name":"frm_2","origin":"statement","subst":[],"head":"-l","confidence":"0.3","kind":"normal","rank":3,"marker":true,"block":true,"body":[],"exceptions":[],"same_atom":false,"text":"{\"@name\":\"frm_2\",\"@confidence\":0.30000001192092896,\"@kind\":\"fact\",\"@search_kind\":\"default\",\"@logic\":[-l(),\"|\",$block(3,l())]}","orientation":null,"weight":0.30000001192092896,"source_event":null,"depth":1,"derivations":[5,6,7,8]}],
+"pending_steps":[],
+"tasks":[{"task":1,"literal":"l","context":"{}","depth":0,"state":"ended","question":true,"roles":["opposition","further proofs"],"spent_ms":34.912,"cannot_run":null,"attempts":[{"seq":1,"round":0,"depth":0,"allowance_ms":2250.000,"used_ms":17.555,"answers_cap":4,"derivations":4,"exit":"ended","why":null,"new_derivations":1,"strategy":"{\"strategy\":[\"negative_pref\"],\"query_preference\":1}","excluded":[],"refused_steps":0},{"seq":2,"round":0,"depth":0,"allowance_ms":32.445,"used_ms":17.356,"answers_cap":4,"derivations":0,"exit":"ended","why":null,"new_derivations":0,"strategy":"gk's automatic ladder","excluded":["e1"],"refused_steps":4}],"provenance":["question","e2"],"chain":[1]},
+{"task":2,"literal":"-l","context":"{}","depth":1,"state":"ended","question":true,"roles":["opposition"],"spent_ms":33.953,"cannot_run":null,"attempts":[{"seq":3,"round":0,"depth":1,"allowance_ms":25.000,"used_ms":16.974,"answers_cap":4,"derivations":4,"exit":"ended","why":null,"new_derivations":1,"strategy":"gk's automatic ladder","excluded":[],"refused_steps":0},{"seq":4,"round":1,"depth":1,"allowance_ms":33.026,"used_ms":16.979,"answers_cap":8,"derivations":0,"exit":"ended","why":null,"new_derivations":0,"strategy":"gk's automatic ladder","excluded":["e2"],"refused_steps":4}],"provenance":["question","e1"],"chain":[2]}],
+"loop_marks":[],
+"checkpoint":{"model_version":2,"report_revision":1,"round":2,"budget_used_ms":68.907,"budget_ms":9000.000,"why":"a report revision: task or status information changed","number":"computed by gk's evaluator (value_c); evaluate_checkpoints.py computes it again from this dump"},
+"value_c":{"question":"l","state":"completed","value":[0.59999999999999998,0.30000000000000004,0,0.099999999999999978],"evaluation_ms":0.007,"readings":[],"display_model_version":2,"display":[0.59999999999999998,0.30000000000000004,0,0.099999999999999978],"value_from":"checkpoint 2","nodes":[{"node":"l","value":[0.59999999999999998,0.30000000000000004,0,0.099999999999999978],"selected":"for"}]},
+"switches":{"keep_equal_goals":0,"loop_marks":0,"floor_ms":19.0,"floor_adaptive":1,"floor_last_ms":17.0},
+"status_facts":{"unfinished":[],"approximation":[]},
+"catalogue":[{"id":1,"statement":1,"kind":"default","written_kind":"fact","name":"frm_1","role":null,"generated":null,"provenance":null},{"id":2,"statement":2,"kind":"default","written_kind":"fact","name":"frm_2","role":null,"generated":null,"provenance":null},{"id":3,"statement":3,"kind":"goal","written_kind":"goal","name":"frm_3","role":null,"generated":"goal","provenance":null},{"id":4,"statement":0,"kind":"none","written_kind":"none","name":null,"role":null,"generated":null,"provenance":null}],
+"definition":{"defined":false,"alias":false,"form":"plain","variable_classes":0,"ambiguous":[]},"closure":{"atoms":1,"calls":0,"markers":0},
+"collection":{"status":"not run","reasons":[],"work":{"steps":0,"views":0,"calls":0,"matches attempted":0,"matches":0,"applications registered":0,"applications found again":0,"answers produced":0,"non-ground answers":0,"literals deferred":0,"answers filtered by context":0,"filtered by built-in":0,"existential exceptions":0,"index entries scanned":0}}}
 
 [stderr]

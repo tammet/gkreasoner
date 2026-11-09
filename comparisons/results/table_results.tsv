@@ -80,7 +80,7 @@ D6	undercut vs. rebut	Tweety	U	U				No faithful encoding of the row's GK constru
 D6	undercut vs. rebut	clingo	A	yes/yes	inputs/asp/asp_cases.lp	d6_undercut;d6_rebut	clingo_cases	
 D6	undercut vs. rebut	DLV/I-DLV	A	yes/yes	inputs/asp/asp_cases.lp	d6_undercut;d6_rebut	dlv_cases	
 D6	undercut vs. rebut	s(CASP)	A	yes/yes	inputs/scasp/scasp_cases.pl	d6_undercut;d6_rebut	scasp_d6_undercut;scasp_d6_rebut	
-D7	paired exception	GK	N	0_m	inputs/gk/d7.gkp	d7_pos	gk_d7	
+D7	paired exception	GK	N	-.12	inputs/gk/d7.gkp	d7_pos	gk_d7	
 D7	paired exception	ProbLog	A	.48/.48	inputs/problog/problog_cases.pl	d7_pos;d7_neg	problog_cases	
 D7	paired exception	PASTA	A	[.48,.48]/[.48,.48]	inputs/pasta/pasta_cases.lp	d7_pos;d7_neg	pasta_d7_pos;pasta_d7_neg	
 D7	paired exception	plingo	A	.48/.48	inputs/plingo/plingo_cases.lp	d7_pos;d7_neg	plingo_cases	

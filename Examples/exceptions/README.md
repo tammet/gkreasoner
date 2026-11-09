@@ -1,15 +1,17 @@
 # Default and exception examples
 
-A default rule has an exception condition, encoded in GK as a blocker
-literal. Two operations are involved. During search, GK derives a candidate
-conclusion and checks the exception condition in a bounded subsidiary
-search; this decides proof acceptance. At report time, the support for the
-exception condition and for its explicit negation is calculated
-recursively; this produces the numbers. Numeric or taxonomy priorities
-determine which defaults may defeat other defaults.
+A default rule has an exception condition, written `unless(...)` in GKP and
+as a `$block` literal in JSON-LD-LOGIC. The default applies only where its
+exception does not hold. gk's default method, the recursive method, starts
+from a proof that uses the default. It then searches for the exception, and
+for evidence for and against it, in nested searches with smaller time
+allowances. All the evidence goes into one calculation of the four shares:
+for, against, conflict, and ignorance. Ranks, numeric or from a taxonomy,
+decide which defaults may defeat other defaults.
 
-Run commands from the repository root. `-detail` prints positive support,
-negative support, conflict, ignorance, conflict sources, and report flags.
+Run commands from the repository root. The values below are gk 1.2.4's,
+shortened. [`../../Doc/support_semantics.md`](../../Doc/support_semantics.md)
+explains the four shares on examples.
 
 ## An unopposed default
 
@@ -27,9 +29,9 @@ query(flies(X)).
 ./bin/gk Examples/exceptions/bird_default.gkp
 ```
 
-Both `a` and `b` are returned with confidence 1. Their proofs retain
-`unless(-flies(a), 2)` and `unless(-flies(b), 2)`, recording the exceptions on
-which the answers depend.
+Each answer depends on its exception, `-flies(a)` or `-flies(b)`. gk finds no
+evidence for either exception, so `flies(a)` and `flies(b)` are both
+(1, 0, 0, 0).
 
 ## Uncertain support for an exception condition
 
@@ -40,29 +42,25 @@ which the answers depend.
 0.9::-flies(a).
 ```
 
-The fact with confidence 0.9 plays two roles: it supports the exception
-condition and undercuts the default application, and, because the
-exception condition is the explicit negation of the conclusion, it also
-rebuts the conclusion. GK reports the surviving positive support and the
-stronger negative support:
-
 ```text
-b  accepted with confidence 1.0
-a  rejected with confidence 0.8
-   (detail: support_for 0.1, support_against 0.9)
+"answers":[{"answer":"flies(a)","value":[0.1,0.9,0,0]},
+           {"answer":"flies(b)","value":[1,0,0,0]}]
 ```
 
-[`bird_hierarchy.js`](bird_hierarchy.js) uses an ordinary rule without a
-blocker, providing a control case for the same support calculation.
+Where the fact of confidence .9 is present, it is the exception: the
+default does not apply, and `-flies(a)` holds. That gives .9 against.
+Elsewhere the default applies: .1 for. The default yields to the fact, so
+there is no conflict.
+
+[`bird_hierarchy.js`](bird_hierarchy.js) uses an ordinary rule without an
+exception as a control case. The certain rule and the fact meet head on, so
+`flies(a)` is (.1, 0, .9, 0): conflict .9 instead of against .9.
 
 ## Evidence against an exception
 
-GK evaluates the exception condition and its explicit negation
-recursively; opposition is resolved within the relevant predecessor
-configuration. Evidence against the exception may be a fact or may be
-derived by a rule; both count.
-In [`bird_counter.gkp`](bird_counter.gkp) a rule with confidence 0.58
-derives evidence against the exception:
+Evidence against an exception may be a fact or may be derived by a rule;
+both count. In [`bird_counter.gkp`](bird_counter.gkp) a rule with confidence
+.58 derives evidence against the exception:
 
 ```prolog
 bird(a).
@@ -73,22 +71,21 @@ flies(X) :- bird(X), unless(injured(X), 2).
 query(flies(a)).
 ```
 
-The exception `injured(a)` has positive support 0.6 and, through the rule,
-negative support 0.58. In this share-free case the recursive calculation
-reduces to a difference: the usable support for the exception is
-0.6 − 0.58 = 0.02, the default is blocked with strength 0.02, and
-`flies(a)` is reported with confidence 0.98 — the value the fact
-`0.58::-injured(a)` would also give.
+The exception `injured(a)` has .6 for it and .58 against it. The two are
+tested against one shared number of the atom, so `injured(a)` holds without
+conflict only in a share of .6 − .58 = .02. Only there does the exception
+block the default. gk answers `flies(a)` with (.98, 0, 0, .02).
 
-[`bird_counter_premise.gkp`](bird_counter_premise.gkp) moves the 0.58 from
-the rule to its premise (`0.58::vet(a)` with a certain rule). The result is
-0.748. The two placements mean different things: a rule confidence lowers
-the strength of what the rule derives, so `-injured(a)` gets negative
-support 0.58 as above. A premise confidence means that the premise
-instance is active in that fraction of activation worlds: with 0.58 the
-rule derives a certain `-injured(a)` and the exception is cancelled
-completely; with 0.42 the rule does not apply and the exception keeps its
-full 0.6. The average is 0.58 · 1 + 0.42 · (1 − 0.6) = 0.748.
+[`bird_counter_premise.gkp`](bird_counter_premise.gkp) moves the .58 from
+the rule to its premise (`0.58::vet(a)` with a certain rule). The answer is
+(.748, 0, 0, .252). The two placements mean different things. A rule
+confidence of .58 gives `-injured(a)` .58 against, as above. A premise
+confidence of .58 means that the premise is present in .58 of the worlds.
+There the certain rule derives `-injured(a)`, and the exception never holds
+alone. In the other .42 of the worlds, the exception holds with .6. The
+default is blocked in .42 × .6 = .252 of the worlds, so the share for is
+1 − .252 = .748. The line also has one `cycle cut` reading; the reference
+tool gives .7556 for, within its sampling error of ±.0113.
 
 Evidence against an exception is itself checked: if its own derivation is
 blocked by a certain exception, it contributes nothing.
@@ -106,89 +103,122 @@ dislikeswar(X) :- pacifist(X).
 query(dislikeswar(X)).
 ```
 
-The two defaults have equal priority and block each other. The audited
-detail report for `dislikeswar(n)` is pure ignorance: positive support 0,
-negative support 0, conflict 0, ignorance 1, with a `CONTESTED` flag and a
-zero margin. No rule-order tie breaker is used.
-[`nixon_taxonomy.js`](nixon_taxonomy.js) asks the direct pacifism question with
-taxonomy-style priorities.
+The two defaults have equal rank and block each other, so neither side is
+usable. gk answers `dislikeswar(n)` with (0, 0, 0, 1): ignorance, not
+conflict. No rule-order tie breaker is used.
+[`nixon_taxonomy.js`](nixon_taxonomy.js) asks the pacifism question itself
+with taxonomy ranks and gets `pacifist(n)` (0, 0, 0, 1).
 
-## Numeric and taxonomy priorities
+## Numeric and taxonomy ranks
 
 The `penguin*.js` files build a hierarchy from organism to bird, penguin, and
-flying penguin, with opposing flight defaults at different priorities.
-[`penguin2.js`](penguin2.js) uses numeric priorities.
-[`penguin3.js`](penguin3.js) uses taxonomy priorities and therefore requires:
+flying penguin, with opposing flight defaults at different ranks.
+[`penguin2.js`](penguin2.js) uses numeric ranks.
+[`penguin3.js`](penguin3.js) uses taxonomy ranks and therefore requires:
 
 ```sh
 ./bin/gk Examples/exceptions/penguin3.js \
   -taxonomy -datafolder data
 ```
 
-Here the taxonomy supplies the order: `penguin` is below `bird` and
-`organism` in the loaded hierarchy, so the penguin defaults defeat the
-bird and organism defaults without hand-assigned numbers.
+Both answer `fly(b)` (1, 0, 0, 0), `fly(p)` (0, 1, 0, 0) and `fly(fp)`
+(1, 0, 0, 0). Here the taxonomy supplies the order: `penguin` is below
+`bird` and `organism` in the loaded hierarchy, so the penguin defaults
+defeat the bird and organism defaults without hand-assigned numbers.
 
 The taxonomy data files are in [`../../data/`](../../data/README.md); a
-taxonomy-form priority without `-taxonomy` (synonym `-defaults`) is an
-error. [`penguin4.js`](penguin4.js) applies the same pattern to nested
-function terms. [`taxonomy.js`](taxonomy.js) is a compact
-taxonomy-priority case:
+taxonomy-form rank without `-taxonomy` (synonym `-defaults`) is an
+input error. [`penguin4.js`](penguin4.js) applies the same pattern to nested
+function terms; it answers `fly(father(father(p)))` (0, 1, 0, 0) and uses its
+whole time budget, about 7 seconds. [`taxonomy.js`](taxonomy.js) is a compact
+taxonomy-rank case:
 
 ```sh
 ./bin/gk Examples/exceptions/taxonomy.js -taxonomy -datafolder data
 ```
 
+It asks `bird(os)` for an ostrich, and no rule makes an ostrich a bird:
+(0, 0, 0, 1).
+
 [`penguin.gkp`](penguin.gkp) and [`penguin.js`](penguin.js) are compact cases
-with a strict penguin exception and two opposed defaults. The stronger flight
-default prevails for the ordinary bird; the penguin has full negative support.
+with a certain penguin exception and two opposed defaults. The stronger
+flight default prevails for the ordinary bird, `flies(b)` (1, 0, 0, 0); the
+penguin gets `flies(p)` (0, 1, 0, 0).
 
 ## Classification from parts
 
 [`classify.gkp`](classify.gkp) and [`classify.js`](classify.js) classify three
-objects from observed parts. Several uncertain defaults may support the same
-class, while strict engine evidence supports `-isa(X, organism)`.
+objects from observed parts: `h1` (legs), `b1` (legs, wings and feathers)
+and `a1` (an engine and wings). Several uncertain defaults may support the
+same class, while a certain engine rule supports `-isa(X, organism)`.
 
 ```sh
 ./bin/gk Examples/exceptions/classify.gkp \
   -taxonomy -datafolder data
 ```
 
-Main results:
-
 ```text
-h1  accepted, confidence 0.44
-b1  accepted through the bird path, confidence 0.5552
-a1  rejected with negative support 1
+"answers":[{"answer":"isa(b1,organism)","value":[0.5731,0.0179,0.3821,0.0269]},
+           {"answer":"isa(a1,organism)","value":[0,0.4,0.6,0]}]
 ```
 
-The `b1` assessment also contains an opposed airplane path. The detailed proof
-shows which classification defaults were pooled and which supplied negative
-evidence.
+`b1` has a bird path for it and an opposed airplane path against it. The
+line has two `cycle cut` readings. With the default search, gk does not
+list `h1`. With the strategy file
+[`../strategy/query_focus.json`](../strategy/query_focus.json) it lists
+`isa(h1,organism)` with (.44, 0, 0, .56): the human default .3 and the bird
+default .2 combine by noisy-or. That search does not list `a1`. Which
+answers the recursive method lists depends on the search: a measured limit
+of gk 1.2.4.
 
 ## Persistence across situations
 
 [`people_room.js`](people_room.js) represents entry and exit events across
-three situations. Frame rules use blockers to carry `in` and `-in` forward
-unless an event changes them. The example contains contested states; use
-`-detail -confidence 0` to inspect the positive- and negative-support
-paths:
+three situations. Frame rules use exceptions to carry `in` and `-in` forward
+unless an event changes them:
 
 ```sh
 ./bin/gk Examples/exceptions/people_room.js \
-  -detail -confidence 0 -taxonomy -datafolder data
+  -taxonomy -datafolder data
 ```
 
-The named markers in its frame rules are taxonomy-form priorities, so the
-tables must be loaded; they do not change this example's result.
+gk answers `in(man1,room1,sit2)` (1, 0, 0, 0) and `in(man1,room1,sit3)`
+(0, 1, 0, 0). It uses its whole time budget, about 7 seconds, and reports
+8 nested searches cut by their allowances. The named markers in its frame
+rules are taxonomy-form ranks, so the tables must be loaded; they do not
+change this example's result.
 
 ## Equivalent input notations
 
 [`bird_penguin.gkp`](bird_penguin.gkp),
 [`bird_penguin.js`](bird_penguin.js), and
 [`bird_penguin.p`](bird_penguin.p) encode one problem in GKP,
-JSON-LD-LOGIC, and TPTP. They are useful for inspecting conversion and output
-format differences.
+JSON-LD-LOGIC, and TPTP:
+
+```prolog
+bird(b).
+0.8::penguin(p).
+bird(X) :- penguin(X).
+0.9::-flies(X) :- penguin(X).
+flies(X) :- bird(X), unless(-flies(X), 2).
+query(-flies(X)).
+```
+
+The notations differ in one respect that the recursive method uses. A GKP
+rule keeps its written head. The `.js` and `.p` files state flat clauses,
+which gk uses in every direction. The values therefore differ:
+
+| File | gk 1.2.4 for `-flies(p)` |
+|---|---|
+| `bird_penguin.gkp` | (.72, .08, 0, .2) |
+| `bird_penguin.js`, `bird_penguin.p` | (.72, 0, 0, .28), with three `cycle cut` readings |
+
+The reference tool gives (.722, .077, 0, .201) for both forms, within its
+sampling error. The GKP value is the semantics value. The penguin rule
+derives `-flies(p)` in .8 × .9 = .72 of the worlds: the share for. Where
+`penguin(p)` holds but that rule does not (.08), the bird default derives
+`flies(p)`: the share against. With the flat clauses gk cuts a cycle
+across signs, and the .08 against goes to ignorance.
 
 ## Additional cases
 
@@ -199,5 +229,5 @@ format differences.
 | `gbirds_funsymbs.js` | the same pattern with function symbols |
 | `trivial.js` | plain facts and one closed query, with no defaults |
 
-The blocker and support-calculation algorithms are described in
+How gk reaches an answer is described in
 [`../../Doc/how_gk_works.md`](../../Doc/how_gk_works.md).

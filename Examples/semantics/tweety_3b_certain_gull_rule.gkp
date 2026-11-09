@@ -1,0 +1,9 @@
+bird(tweety).
+0.9::flies(X) :- bird(X), unless(-flies(X), 2).
+-flies(X) :- penguin(X), unless(flies(X), 3).
+gull(X) ; penguin(X) :- seabird(X).
+0.8::seabird(tweety).
+0.7::-gull(tweety).
+gull(X) :- seabird(X), yellow_bill(X).
+0.6::yellow_bill(tweety).
+query(flies(tweety)).

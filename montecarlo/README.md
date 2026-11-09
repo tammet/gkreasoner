@@ -1,5 +1,11 @@
 # Monte Carlo checks for GK confidences
 
+These two programs check the **direct method** of gk 1.1.2, which
+`gk -direct` runs. Their `GK result` column comes from a `gk -detail` run,
+and `-detail` selects the direct method. The reference for gk's default,
+the recursive method, is [`mcref`](../mcref/README.md). It computes the
+support semantics of [`../Doc/support_semantics.md`](../Doc/support_semantics.md).
+
 ## Purpose and scope
 
 This directory contains two sampling calculations for small GK examples.
@@ -157,7 +163,7 @@ the original file, negative for a rejected answer. Below the table, one
 line per answer reports GK's `calculation`, `coverage_status`,
 `polarity_status`, and flags; these say what kind of GK result the number
 is (see the report-status tables in
-[`../Doc/how_gk_works.md`](../Doc/how_gk_works.md)). A numeric agreement
+[`../Doc/direct_method.md`](../Doc/direct_method.md) Section 5). A numeric agreement
 is meaningful only together with those fields.
 
 Shared-threshold output is the four components `support_for`,

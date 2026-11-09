@@ -1,0 +1,3 @@
+injured(t) ; sick(t).
+-sick(t).
+query(injured(t)).

@@ -1,0 +1,3 @@
+0.7::flies(a).
+0.4::-flies(a).
+query(flies(a)).

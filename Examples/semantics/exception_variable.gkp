@@ -1,0 +1,5 @@
+r(a).
+0.5::s(a,b).
+0.5::s(a,c).
+0.9::q(X) :- r(X), unless(s(X,Y)).
+query(q(a)).

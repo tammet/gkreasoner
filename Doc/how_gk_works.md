@@ -1,445 +1,567 @@
 # How GK Works
 
-GK uses first-order resolution to construct proofs. It then checks exceptions,
-combines alternative evidence, and compares support for the answer and its
-negation.
+GK uses first-order resolution to find proofs. It then looks for further
+support, for opposing evidence and for exceptions, and reports four shares
+for the answer: for, against, conflict and ignorance.
 
-## 1. From input to answers
+This page describes the **recursive method**, which `gk input` runs since
+version 1.2.0. What the four shares mean is defined in
+[support_semantics.md](support_semantics.md). The output is described in
+[recursive_output.md](recursive_output.md). The values below are the output
+of gk 1.2.4.
 
-GK converts every supported input notation to the same internal clause form.
+gk also keeps the older **direct method** of gk 1.1.2. `gk input -direct`
+runs it, and [direct_method.md](direct_method.md) describes it.
+`gk input -audit` runs both methods and prints the direct result as a
+labelled comparison.
 
-A query with variables is converted to an answer clause. A proof of
-`flies(b)`, for example, derives `$ans(b)` and returns `b` as the substitution.
-A ground query returns `true` when the query is proved and `false` when its
-negation is proved. If neither polarity is proved, the result is
-`no information`.
+## 1. Questions and answers
 
-GK proves a query by adding its negation as a goal and deriving a contradiction.
-It combines clauses whose complementary literals unify, applies the resulting
-substitution, and continues until it derives an answer or contradiction clause.
-Simplification, equality reasoning, rewriting, and arithmetic evaluation are
-applied when enabled by the problem and strategy.
+gk converts every input notation to the same internal clause form
+([input_languages.md](input_languages.md)). The question is a literal, such
+as `flies(tweety)` or `flies(X)`.
 
-The proof printed with an answer records the input clauses and inference steps.
-Common step labels are:
+gk proves a question by refutation. It adds the negation of the question as
+a goal and derives a contradiction. It combines clauses whose complementary
+literals unify, applies the resulting substitution, and continues until it
+derives the contradiction. For a question with variables, the goal carries
+an answer literal `$ans(X)`, and the proof gives the substitution for `X`.
 
-| Label | Meaning |
-|---|---|
-| `in` | input clause |
-| `goal` | clause generated from the query |
-| `mp` | resolution or multi-premise resolution |
-| `simp` | simplification |
-| `cumul` | combination of alternative proofs |
-| `arithinst` | bounded arithmetic instantiation |
+A question without variables gets one value: four shares in the order
+(for, against, conflict, ignorance), which sum to 1. A question with
+variables gets one value for each ground answer. For
+[`penguin.gkp`](../Examples/exceptions/penguin.gkp):
+
+```prolog
+bird(b).
+penguin(p).
+bird(X)   :- penguin(X).
+object(X) :- bird(X).
+-flies(X) :- penguin(X).
+flies(X)  :- bird(X),   unless(-flies(X), 3).
+-flies(X) :- object(X), unless(flies(X), 2).
+query(flies(X)).
+```
+
+```sh
+./bin/gk Examples/exceptions/penguin.gkp
+```
+
+gk prints one line that starts with `{"recursive":`, then a dump of the
+evidence. Shortened, the line lists two answers:
+
+```text
+flies(b)  (1, 0, 0, 0)
+flies(p)  (0, 1, 0, 0)
+```
+
+The ordinary bird `b` flies. For the penguin `p`, the strict rule
+`-flies(X) :- penguin(X)` gives the answer "against".
 
 ## 2. Input confidences
 
-An input confidence is a value between 0 and 1. It is written with a numeric
-prefix in GKP and with the `confidence` annotation in GK's other input formats.
-Facts, source reports, and rules may be annotated with input confidences. The
-confidence determines how much support the annotated input can contribute; it
-need not be a calibrated probability that the formula is objectively true.
+An input confidence is a number between 0 and 1. GKP writes it as a prefix,
+`0.8::bird(tweety).`; JSON-LD-LOGIC writes it in the field `@confidence`. A
+statement without a confidence has confidence 1.
 
-An unannotated statement has confidence 1. In GKP:
-
-```prolog
-0.8::bird(tweety).
-flies(X) :- bird(X).
-```
-
-The confidence belongs to a ground use of the input clause. This is the
-ground-instance activation semantics: each ground instance of an uncertain
-input clause is an independent activation event whose probability is the
-input confidence. Two uses of the same rule with different substitutions are
-different activation events. Repeated use of the same ground instance within
-one proof counts once.
-
-When one annotated formula is clausified into several clauses, its confidence
-is distributed by taking an appropriate root. If a formula with confidence `P`
-becomes `N` clauses, each clause receives `P^(1/N)`. This preserves the input
-confidence `P` for a proof that requires all `N` clauses. The distinction matters
-mainly for non-clausal formulas such as equivalences.
-
-## 3. One proof
-
-The support contribution of one proof is the product of the confidences of its
-distinct evidence instances. Consider:
-
-```prolog
-0.5::p(heads1).
-0.6::p(heads2).
-r(c) :- p(heads1), p(heads2).
-query(r(X)).
-```
-
-The only proof uses both uncertain facts and a rule with confidence 1:
-
-```text
-0.5 * 0.6 * 1 = 0.3
-```
-
-The calculation replays reconstructed proof histories. When an
-activation-event identifier stays non-ground after replay, the per-use
-product is a lower bound for that proof. Across several proofs, treating an
-unresolved identifier as proof-specific is an approximation without a bound
-guarantee; the maximum of the individual proof lower bounds is the
-guaranteed lower bound.
-
-## 4. Several proofs of the same answer
-
-Alternative proofs may be independent, identical, nested, or partly
-overlapping. Treating every proof as independent would count shared facts and
-rules more than once.
-
-GK records each proof's activation-event set — its provenance set — and
-combines the sets by inclusion-exclusion:
-
-- identical sets are idempotent;
-- if one proof's activation-event set is a subset of another's, the subset
-  proof's availability event subsumes the other and determines the result;
-- disjoint sets combine by noisy-or;
-- partial overlap produces a value between those cases.
-
-For two disjoint proofs with support contributions `a` and `b`, noisy-or gives:
-
-```text
-1 - (1 - a)(1 - b)
-```
-
-Thus two independent facts with confidences `0.5` and `0.6` supporting
-the same answer combine to `0.8`. The `overlap*.js` examples show why the
-provenance sets are required; final proof values alone are insufficient.
-
-Exact inclusion-exclusion is used for up to 20 reduced activation-event
-sets. Above that limit GK uses a deterministic greedy fold and prints a
-warning. This bounds the cost of combining a large number of proofs.
-
-When every reconstructed activation-event identifier is ground and replay
-and inclusion-exclusion stay within their bounds, the result is the exact
-union probability of the retained proof set. It equals the full
-activation-model value when the retained set covers all minimal
-explanations; otherwise it is a lower bound.
-
-This provenance-aware retained-proof calculation measures overlap directly.
-In a strategy file, `independence: 0` disables combination and retains the
-best proof; any nonzero value enables the calculation. `-oldcumulate`
-selects a different calculation: noisy-or with the weaker contribution
-scaled by a dependency ratio estimated from the proof histories and by the
-`independence` percentage.
-
-## 5. Positive and negative support
-
-GK searches separately for proofs of a conclusion and its explicit negation.
-Suppose the aggregated positive support is `a` and the aggregated negative
-support is `b`. The local opposition decomposition, applied where the two
-pools oppose each other at one point, is:
-
-```text
-support_for     = max(a - b, 0)
-support_against = max(b - a, 0)
-conflict        = min(a, b)
-ignorance       = 1 - max(a, b)
-```
-
-The four values sum to 1. With `0.7::flies(a)` and `0.4::-flies(a)`, they are:
-
-```text
-support_for      0.3
-support_against  0.0
-conflict         0.4
-ignorance        0.3
-```
-
-The signed confidence of a proposition is
-
-```text
-confidence = support_for - support_against
-```
-
-Its sign gives the favored polarity and its magnitude is the confidence in
-that verdict. Conflict and ignorance retain the information lost by this
-single number: strong balanced conflict and complete ignorance both have
-confidence zero, but very different four-component reports. In the example,
-the signed confidence of `flies(a)` is `0.3`.
-
-This division follows from a shared uniform threshold for each ground atom.
-Below both support levels, the two polarities conflict and neither is usable.
-Between the levels, only the polarity with stronger support is usable. Above
-both levels, neither polarity is usable.
-
-### Two reference calculations
-
-GK has two reference calculations and selects between them automatically.
-The direct retained-proof calculation combines the retained proofs of the
-two polarities and applies the decomposition above at the query. The
-dependency-aware calculation evaluates contested atoms recursively,
-resolving opposition at the premise where it occurs, and corresponds to
-shared-threshold semantics on its stated fragment. The two calculations
-need not be marginals of one global probability distribution; each report
-names the calculation that produced it.
-
-With `-detail`, three fields state what kind of report was produced.
-
-| `calculation` | Meaning |
-|---|---|
-| `flat` | direct retained-proof calculation on an uncontested answer |
-| `canonical_atom` | completed dependency-aware evaluation; runs on the canonical positive form of the atom |
-| `blocked_flat` | a blocked default combined with the direct calculation |
-| `proof_fallback` | dependency-aware evaluation was declined or discarded; the retained proof pools were combined instead |
-
-| `coverage_status` | Meaning |
-|---|---|
-| `complete` | no covered operational failure was detected |
-| `incomplete` | a resource limit interrupted the evaluation |
-| `unsupported_fragment` | the case is outside the supported fragment of the dependency-aware evaluator |
-
-`complete` does not establish that the query lies in the exact-correspondence
-fragment; the unflagged cases listed at the end of this section remain
-possible.
-
-| `polarity_status` | Meaning |
-|---|---|
-| `guaranteed` | the two query orientations are the same calculation by construction |
-| `not_guaranteed` | a query-directed route was used; the orientations are not guaranteed to mirror |
-
-`not_guaranteed` is not a claim that the orientations disagree.
-
-### The searches behind the report
-
-GK runs three kinds of search for one query Q(x). The answer-literal
-search, with the overall time limit T, discovers candidate answer
-substitutions σ<sub>1</sub>, …, σ<sub>n</sub>. For each candidate
-σ<sub>i</sub>, proofs of the query instance Qσ<sub>i</sub> and proofs of
-its explicit negation ¬Qσ<sub>i</sub> form two separate collections. A
-blocker literal found in either collection starts a bounded subsidiary
-search for its exception condition, with a smaller time limit
-T<sub>1</sub> (Section 6). In the figure, E<sup>+</sup><sub>i,j</sub>
-names the j-th exception check in the positive collection of candidate
-σ<sub>i</sub>, and E<sup>−</sup><sub>i,k</sub> the k-th in the negative
-collection; an exception E′ nested inside such a check is searched with a
-still smaller limit T<sub>2</sub> < T<sub>1</sub>. Candidate and proof
-searches continue after the first substitution and the first proof.
-
-<img src="images/gk_proof_search.svg" width="760"
-     alt="Two search trees, one per answer candidate. Solid branches are
-proof searches for the query instance and its negation; dashed branches
-are bounded exception searches, with further nested levels.">
-
-Solid branches are proof searches; dashed branches are exception searches.
-
-The negative-support search looks for the explicit negation of the question
-or of each answer found for an open question. A separate search is needed
-because such evidence cannot close the original refutation.
-
-Opposition to an intermediate premise is handled by a separate report-time
-backward search over the loaded input clauses; it is not part of the proof
-search above and is not read off the retained answer proof. This search matches directed rule conclusions against
-ground targets and recursively collects derivations of both polarities,
-within explicit resource caps. The collected derivation graph is then
-combined numerically. The retained proof is used to decide whether this
-assessment is relevant and supported, and supplies the fallback proof pools
-if the assessment cannot be completed.
-
-[`net_premise.js`](../Examples/confidences/net_premise.js) is equivalent to:
+A confidence is a strength of support, not a probability that the
+statement is true. For an unopposed statement it behaves like a probability
+([support_semantics.md](support_semantics.md) Section 2). Two statements of
+one fact are two routes to it, and they combine by noisy-or (Section 3 of
+that page):
 
 ```prolog
 0.5::bird(a).
-0.2::-bird(a).
-0.9::flies(X) :- bird(X).
-query(flies(a)).
+0.6::bird(a).
+query(bird(a)).
 ```
 
-The usable support for `bird(a)` — the support that remains once opposition
-and exception conditions have been evaluated, and is therefore available for
-propagation through a rule — is 0.3, so `flies(a)` receives
-`0.3 * 0.9 = 0.27`. The `-bird(a)` evidence contests the premise; it does not
-prove `-flies(a)`. With `-detail`, `bird(a)` is listed as a conflict source.
+gk prints (.8, 0, 0, .2) for `bird(a)`: 1 − (1 − .5)(1 − .6) = .8. Two uses
+of one ground statement count once. The instances of one rule at different
+constants are different evidence (Section 4 below).
 
-A reading of input confidences as independent clause-activation probabilities
-gives a different number for this example (0.45: the premise is provable in
-half the sampled worlds, and nothing derives the negated conclusion). The
-[Monte Carlo checks](../montecarlo/README.md) compare both readings with
-GK's on the repository examples; the Differences section of
-[`../montecarlo/comparison.md`](../montecarlo/comparison.md) works through
-this example, the uncertain-exception case, and the recursive-rule case, and
-identifies the modelling decision each disagreement turns on.
+## 3. Two parts of the computation
 
-For conclusions reached through rules, assessment proceeds from premises to
-conclusions. A rule contributes support only when its body is usable and its
-blockers do not fire.
+The reference tool [`mcref`](mcref.md) begins with a finite grounding of
+the input. gk instead begins with a proof of the question. It inspects the
+proof's steps and searches for further support, for opposing evidence and
+for exceptions. It inspects the new proofs in turn, with smaller search
+allowances at greater depth. At intervals, one calculation over all the
+evidence found so far gives the four shares. Proof search chooses which
+evidence to investigate. The support semantics determines how that
+evidence affects the answer.
 
-The premise search is not memoized: the same atom reached through different
-branches is evaluated again. Dependence is handled by enumerating
-configurations of the shared predecessor ground atoms and, within the
-joint-enumeration cap, conditioning the affected branches together within
-each configuration. The search has depth, derivation-count, body-width,
-joint-width, and time limits.
+The computation has two parts.
 
-A flagged incomplete assessment is discarded as a whole and GK falls back to
-proof-level assessment, where opposition to an intermediate premise has no
-channel. `-detail` reports `PROOF_FALLBACK` together with cause flags such
-as `DEPTH_CUTOFF`, `DERIVATION_CAP`, or `SCRUTINY_INCOMPLETE`.
+- **Recursive proof expansion** collects applications from proofs
+  (Sections 4 to 6).
+- **Snapshot evaluation** computes the four shares of the collection
+  available so far, called a **snapshot**. It does not sample (Section 7).
 
-Some limitations are not flagged: a non-ground answer can prevent the
-report-time traversal from starting; an index or head-selection miss can
-prevent the dependency-evaluation trigger; dependency-set overflow selects
-the retained-proof calculation; the coarse dependency index can merge
-distinct ground predecessors with the same predicate and arity; and a proof
-that uses classical factoring is outside the stated fragment without being
-detected. The directed premise search also excludes contraposition.
+A **checkpoint** is one evaluation, after the first search or after a round
+of further searches. gk returns the value of the latest completed
+evaluation. So a search or an evaluation that runs out of time does not
+lose the value already computed.
 
-For compact output, GK routes a positive signed confidence to `answers` and a
-negative one to `rejected_answers`. The ordinary `confidence` field is
-therefore non-negative: it is the absolute value of the signed confidence, or
-the confidence in the verdict as printed. Ties are reported as zero. `-detail`
-adds the four components, conflict sources, and flags.
+Sections 3 to 9 describe a question without variables. A question with
+variables can give several ground answers, and each gets its own four
+shares.
 
-The optional `-envelope` report varies the resolution of identified conflicts
-and returns minimum and maximum support. The bounds are support values;
-they have no probability reading. `-stake F` compares that interval with a
-decision threshold and reports `ACCEPT`, `DEFER`, or `REJECT`.
+## 4. From a proof to applications
 
-## 6. Defaults and blockers
+gk searches with resolution and paramodulation, with factoring and
+simplification. Resolution combines two clauses by matching opposite
+literals. Paramodulation substitutes with an equality. The search works on
+clauses with variables, disjunctions, equality and function terms. So gk
+does not need all ground instances of the input before it starts.
 
-A default rule has an exception condition. In GKP:
+A proof keeps its parent clauses, its substitutions and its inference
+steps, also for a derived lemma. So the method can inspect the premises
+behind a compressed proof. The search uses each clause in the directions
+of the semantics: an uncertain directed rule and a default supply their
+written head only; a certain clause without exceptions and a classical
+disjunction can be used in every direction.
+
+The lineage version of the Tweety example
+([`tweety_4_lineage.gkp`](../Examples/semantics/tweety_4_lineage.gkp))
+shows a first proof. It derives `bird(tweety)` from the register entry
+`bird(parent(parent(tweety)))` with two instances of a certain lineage
+rule. The .9 flying default then gives a proof of `flies(tweety)`. The
+input permits infinitely many lineage terms, but this proof needs only
+finitely many. The default's exception and rank stay with the derivation.
+So the proof also names the objection to investigate: `-flies(tweety)`.
+
+The **importer** replays the substitutions and forms **applications**. An
+application is one use of one input clause. It records a conclusion (the
+**head**), conditions (the **body**), exceptions, a confidence and the
+identity of its source. The head is the literal of the ground instance that
+the proof derives from it. The body is the complements of the other
+literals.
+
+- Different uses of one ground application are merged. `0.5::bird(a)` used
+  twice is one piece of evidence.
+- The instances of `0.9::p(X)` at `a` and at `b` are two pieces of
+  evidence.
+- An uncertain directed rule contributes its confidence once.
+- The orientations of one uncertain classical ground clause share one
+  **source event**. The clause is in force in a world or not, as one
+  thing.
+
+For example, in the disjunction version of the Tweety example a proof of
+`penguin(tweety)` uses the clause `gull(X) ; penguin(X) :- seabird(X)` at
+`X = tweety`. The importer records the application
+`e4{_0=tweety}:penguin(tweety)`: entry 4 of the input, its ground instance,
+and the orientation of that instance with the head `penguin(tweety)` and
+the body `seabird(tweety)`, `-gull(tweety)`.
+
+Classical reasoning can give more than a forward use of a rule. An
+equality proof can give the application `p(b) <- p(a), a = b`, and the
+equality is then a condition to investigate. A proof by cases gives one
+combined application. From
+
+```prolog
+0.6::a ; b.
+0.7::-a ; b.
+query(b).
+```
+
+resolution derives `b` from both clauses together, and gk prints
+(.42, 0, 0, .58), with support .6 × .7. The eliminated case literal `a` is
+no condition that must be established. The dump lists the use as an
+application with origin `composite`. The semantics builds applications from
+one clause at a time and has no such application, so this is a departure
+from it (Section 8).
+
+A refutation proof of Q starts from the assumption ¬Q. The proof discharges
+that assumption, so the assumption is no negative evidence about Q. A stated
+or separately proved ¬Q is.
+
+## 5. Checking the proof recursively
+
+Each application creates search **tasks**:
+
+- for its conclusion: a search for opposition;
+- for every condition: a search for opposition and a search for further
+  support;
+- for every exception: a search for the exception and a search for
+  opposition to it.
+
+The question is also searched for further proofs. A proof that a task finds
+adds applications, and these create tasks of their own. Equal tasks are
+shared: a literal reached twice gets one task.
+
+The yellow-bill version of the Tweety example shows why the checks inside a
+proof matter
+([`tweety_3a_gull_rule.gkp`](../Examples/semantics/tweety_3a_gull_rule.gkp)):
+
+```prolog
+bird(tweety).
+0.9::flies(X) :- bird(X), unless(-flies(X), 2).
+-flies(X) :- penguin(X), unless(flies(X), 3).
+gull(X) ; penguin(X) :- seabird(X).
+0.8::seabird(tweety).
+0.7::-gull(tweety).
+0.9::gull(X) :- seabird(X), yellow_bill(X).
+0.6::yellow_bill(tweety).
+query(flies(tweety)).
+```
+
+With `-checkpoints <dir>` gk writes the dump of each checkpoint:
+
+| checkpoint | evidence collected | for | against | conflict | ignorance |
+|---|---|---|---|---|---|
+| 1 | the bird fact and the flying default | .9 | 0 | 0 | .1 |
+| 2 | also the opposing penguin proof | .396 | .56 | 0 | .044 |
+| 3 | also the yellow-bill support for gull | .6984 | .224 | 0 | .0776 |
+
+- The first proof uses `bird(tweety)` and the flying default.
+- The search for opposition to `flies(tweety)` finds the penguin default of
+  rank 3. Its proof uses `seabird(tweety)`, `-gull(tweety)` and the
+  disjunction. Penguin holds in .8 × .7 = .56 of the worlds, and there the
+  higher rank wins.
+- The search for opposition to the premise `-gull(tweety)` finds the
+  yellow-bill rule. Where it gives gull positive support, `-gull(tweety)` is
+  no usable premise, and part of the penguin proof is defeated. The penguin
+  support falls to .8 × .7 × (1 − .6) = .224, and flying gets
+  (1 − .224) × .9 = .6984.
+
+The last discovery is not a new proof of flying. It changes the state of a
+premise inside the opposing proof. The first two rows are estimates on
+incomplete evidence. The for share falls and then rises. A run need not
+find exactly one new proof per checkpoint.
+
+The control of the whole method, in pseudocode:
+
+```text
+input: the clauses, a ground question Q, the time budget
+reserve part of the budget for the evaluations
+run a first proof search for Q with a bounded allowance
+import its derivations into one shared set of applications S
+queue Q, its opposite, and the tasks that the applications create
+evaluate S; keep the result if the evaluation completes
+for the rounds k = 0, 1, 2, ..., while search time remains:
+  choose the runnable tasks: shallowest first, opposition before support
+  for each chosen task, at depth d:
+    search with the unused part of its allowance A(k, d)
+    import the new derivations into S; merge repeated applications
+    queue the tasks that their conclusions, conditions and exceptions need
+    record whether the attempt ended or was cut by its allowance
+  if S changed: evaluate S; keep the result if the evaluation completes
+use the evaluation reserve for the latest snapshot not yet evaluated
+return the latest completed value, its checkpoint, and the status facts
+```
+
+To import a proof means to keep its applications and their identities. The
+proof does not become an independent probabilistic fact.
+
+## 6. Contexts, exclusions and the budget
+
+Three choices control the expansion.
+
+**Contexts.** A task is a signed literal with a **context**: the
+restrictions inherited from the exception checks that enclose it. Inside
+the exception check of a normal default of rank k, a normal default of a
+positive rank below k cannot supply the objection. So a weaker default
+cannot defeat a stronger one through its exception check. The same literal
+in two contexts can need two searches. A source used in both stays one
+piece of evidence.
+
+- A normal default's own head complement (the `-flies(X)` of
+  `unless(-flies(X), 2)` in a rule for `flies(X)`) is no exception in this
+  sense. It marks the default and gives its rank, and it creates no
+  exception-check context. The opposition to the default's conclusion is
+  still searched, in the inherited context.
+- Each other exception literal, and its complement, is searched in the
+  context extended by the application's own rank restriction.
+
+**Exclusions.** A search for further proofs of a literal excludes the
+literal's known producers: the input entries whose applications concluded
+that literal in the task's earlier derivations (and, for the question, in
+the first search). The exclusion refuses only a root resolution step that
+would derive the literal's ground instance, with its sign, from such an
+entry. The entry stays available in every other role: for other instances
+and at inner steps. Composite producers are not excluded. So the search
+looks for additional evidence and does not return the first proof again.
+
+- A task is **ended** only after a pass that was not cut, with the full
+  exclusion set, found nothing new.
+- An ended task means that the search strategy finished that attempt. It
+  does not mean that all evidence was enumerated.
+- A task that recurs on a dependency chain merges with the existing task.
+
+**Allowances.** Work near the question comes first. At depth d in round k
+the cumulative allowance of a task is A(k, d) = L0 × 2^k × ρ^d, with
+L0 = 50 ms and ρ = .5. A task at depth 1 has 25, 50 and 100 ms in the first
+three rounds; each attempt gets the part of the allowance that is still
+unused. Within a depth, opposition is searched before alternative support,
+because an objection can make an apparently good premise unusable.
+
+The deadline is `-seconds` (default 10 s). The recursive method's budget is
+9,000 ms of it. The first proof search gets a quarter of the budget
+(2,250 ms at the default), and another quarter is kept for the
+evaluations. These are scheduling choices for a useful estimate under a
+budget. The semantics does not depend on them.
+
+## 7. Evaluating the collected evidence
+
+The evaluator works on the whole snapshot. Each ground atom and each
+source event has one identity. The evaluator does not score separate
+proofs and then combine the scores as if they were independent. For
+
+```prolog
+0.5::a.
+b :- a.
+c :- a.
+q :- b, c.
+query(q).
+```
+
+gk prints (.5, 0, 0, .5) for `q`, which is the support of `a`, not .5 × .5.
+Both conditions of `q` depend on the same fact. Split the calculation into
+two cases. Where `a` is positive, `b`, `c` and `q` are positive. Where `a`
+is in ignorance, none of them is established. The two cases have the
+weights .5 and .5.
+
+This case split is the central operation. A few terms describe it.
+
+- An **operand read** is one use, by an application, of a body or exception
+  literal of another atom.
+- The **usability indicator** of a read says whether the literal read is
+  usable in a world.
+- The **residual dependency closure** of an atom is the set of atoms, not
+  yet conditioned on, that it depends on directly or through others.
+
+The evaluator groups the atoms of the snapshot into the vertices of a graph
+without cycles: each cycle group becomes one vertex. The orientations of
+one uncertain flat ground clause get one two-state source-event vertex.
+The evaluator then computes the graph by **recursive conditioning**.
+
+- When the reads of a vertex have disjoint residual dependency closures,
+  their usability indicators are independent.
+- When two reads share ancestors that are not yet fixed, the evaluator
+  conditions on one separator vertex, if one vertex lies on all shared
+  paths. Otherwise it conditions on the lowest shared vertices, whose own
+  closures are disjoint. It averages the resulting conditional
+  distributions and caches repeated calculations.
+
+Within each case the evaluator applies the same supports, kinds, ranks and
+state tables as the semantics. For one atom outside a cycle, each
+application is present with the probability that its body literals are
+usable and its exception literals are not. The evaluator computes, over the
+atom's applications, the exact distribution of each side's support, highest
+rank and kind. It then averages the state table of the semantics over all
+pairs of side states. It integrates the comparisons with the world's
+numbers exactly. So the reference tool and gk compute the same quantity by
+different means: the tool counts sampled worlds, gk sums weighted cases.
+
+A cycle of one sign without internal exceptions is evaluated as a group.
+For each atom of the group, the evaluator divides [0, 1) at the finitely
+many support values that subsets of its applications can produce. On each
+cell of this division the comparisons with the atom's numbers are
+constant, so one sweep of the semantics' procedure gives one state per
+cell. A cycle across signs or through exceptions gets a **cycle cut**
+(Section 8). The number of cases or cells can be large, so the evaluation
+has resource limits.
+
+**When the evaluation is exact.** Call an input clause **Horn-shaped**
+when it is a directed clause written with one head literal (a fact, a rule
+with confidence below 1, or a default), or a classical clause with at most
+one positive atom among its ordinary literals. This is the convention of
+the paper behind [support_semantics.md](support_semantics.md), not the
+classical definition. Suppose that the snapshot satisfies two conditions:
+
+1. Every step is an instance of a Horn-shaped clause, without composite
+   steps, equality, arithmetic or taxonomy ranks, without a residual
+   variable and without a rank-context restriction.
+2. Every cycle group is a single atom without a self-loop, or a cycle of
+   one sign with no exception literal inside it, in which every application
+   with a condition inside the cycle is ordinary and its head and inner
+   conditions have that sign.
+
+If the evaluation then completes without reaching a resource limit and
+without an approximation, the four shares equal the semantics' value for
+the evidence in the snapshot. Equality with the value for the whole input
+also needs the expansion to have collected every relevant application.
+Proving a literal once need not reveal all the applications that support
+it, and a deadline need not leave time to find them.
+
+**Eventual exactness.** Take a finite ground input whose relevant part
+satisfies the two conditions, with one-sign cycles that settle in every
+world. Suppose an unbounded run eventually imports, for every atom that a
+task asks for, every reachable application for or against it, and asks for
+their conditions and exceptions in turn. Then, with unbounded evaluation
+allowances, after finitely many checkpoints gk returns the exact four
+shares of the question for the whole input. This is a statement about the
+expansion. It does not claim that a run under a deadline meets the
+condition.
+
+## 8. What the answer establishes, and what it leaves open
+
+The `{"recursive": ...}` line gives the value of the latest completed
+evaluation and the checkpoint it comes from (`value_from`). If the search
+advances but the evaluation of the newest snapshot runs out of time, the
+previous completed value stays, with its checkpoint number. The dump holds
+the proof, the collected applications and the state of each atom.
+
+The output qualifies a value in two ways.
+
+- **Unfinished work** (`status_facts.unfinished`) lists searches that were
+  cut or not run, pending proof steps and interrupted evaluations.
+- A **reading** (`readings`, and `status_facts.approximation`) records an
+  approximation or a convention that the evaluation applied.
+
+An ended search does not certify that no objection exists. A value need not
+improve with time: the rows of the table in Section 5 move in both
+directions. The union of positive proofs, which ProbLog uses, is a lower
+bound of support. An incomplete snapshot is no bound. It can overestimate
+the answer, because it may lack an objection or an exception.
+
+Four readings mark departures from the semantics. All four lie outside the
+exactness conditions of Section 7.
+
+- **The cycle cut** (`cycle cut`). For a cycle across signs or through
+  exceptions, gk walks depth-first from the question atom over the
+  applications, in the order its proofs produced them. An application whose
+  condition leads back to an atom on the current path, in the same cycle
+  group, is removed. An exception that leads back is dropped from its
+  application, which stays. The result depends on the question and on the
+  order of the proofs. On the certain-rule variant of the Tweety example
+  ([`tweety_3b_certain_gull_rule.gkp`](../Examples/semantics/tweety_3b_certain_gull_rule.gkp))
+  the cut leaves the semantics' value, (.6984, .224, 0, .0776). On other
+  inputs it changes the value.
+- **Rank contexts** (`context copies`). The context rule of Section 6 is a
+  search rule. The semantics has no contexts. The evaluator copies an atom
+  that occurs in two contexts.
+- **A residual variable** (`residual variable represented by a fresh
+  constant`). A variable that a proof leaves unbound gets a fresh constant.
+  The reference tool grounds over the input's constants and has no such
+  instance.
+- **Composite steps and steps not represented.** A proof by cases gives a
+  combined application (Section 4). A proof step that gk cannot yet turn
+  into applications, such as a step of gk's word-similarity reasoning,
+  enters as one **proof application**, with the proof's confidence as a
+  source event and its exceptions attached. The record is removed when
+  imported applications cover its evidence. The line counts such steps in
+  `steps_not_represented`.
+
+How much of the relevant evidence the search finds before the deadline is
+an empirical question. It is separate from the correctness of the
+calculation on a snapshot.
+
+## 9. An answer without a complete grounding
+
+[`tweety_4_lineage.gkp`](../Examples/semantics/tweety_4_lineage.gkp)
+replaces `bird(tweety)` by a register entry and two certain lineage rules:
+
+```prolog
+bird(parent(parent(tweety))).
+bird(parent(X)) :- bird(X).
+bird(X) :- bird(parent(X)).
+```
+
+Their ground instances are infinite, but the proof that Tweety is a bird
+needs two steps. gk prints (.396, .56, 0, .044), the value of the
+disjunction layer, after about 6.8 s. Four lineage searches are cut by the
+budget. They cannot change the value here: the lineage gives a certain proof
+of `bird(tweety)`, and no clause of the input gives evidence against a bird
+atom. The snapshot does not hold the infinite reachable program, and the
+cut searches for evidence against a bird atom do not show that none
+exists. In general a cut search leaves the value open.
+
+## 10. Defaults, ranks and taxonomy priorities
+
+A default is a rule with an exception. In GKP:
 
 ```prolog
 flies(X) :- bird(X), unless(-flies(X), 2).
 ```
 
-Two separate operations are involved: a search-time blocker check that
-decides whether a candidate proof is accepted, and a report-time calculation
-of the support for the exception condition.
-
-The blocker check belongs to proof acceptance. The rule first derives a
-candidate conclusion containing a blocker literal. GK then starts a bounded
-subsidiary proof search for the exception condition, with diminishing
-budgets for nested checks. The candidate survives when no blocking argument
-with sufficient priority is found. An exception proof must also reach
-confidence 0.5 to count; `-blockerconfidence` changes that threshold. The
-blocker literal is retained in the printed proof, so the defeasible
-assumption is visible.
-
-The numeric report is calculated separately, by the dependency-aware
-evaluation of Section 5. An exception undercuts the default application;
-when the exception condition is the explicit negation of the conclusion, its
-evidence also rebuts the conclusion. When support for the exception
-condition is itself uncertain, the report divides accordingly. In the
-isolated case of one certain default whose exception condition has support
-0.9, the conclusion keeps 0.1 positive support. The remaining 0.9 depends on
-the form of the exception condition: when it is the negated conclusion, the
-0.9 is negative support and the answer is rejected; when it is a separate
-atom, the 0.9 is ignorance.
-
-Opposition to an exception condition — a fact or a derived conclusion — is
-resolved recursively, within the relevant predecessor configuration, before
-the exception can block. The `bird_counter*` examples in
-[`../Examples/exceptions/README.md`](../Examples/exceptions/README.md) show
-the calculation.
-
-Blockers have priorities. A blocking proof may itself depend on defaults, and
-priorities prevent a lower-priority default from defeating a higher-priority
-one. Priorities may be numbers or taxonomy terms such as `tax(penguin)`.
-The comparison rules:
-
-- A numeric priority defeats a strictly smaller numeric priority. Equal
-  priorities do not defeat each other.
-- `tax(name)` names a class in the loaded taxonomy. A priority naming a
-  more specific class — a descendant in the taxonomy — defeats one naming
-  a more general class: `tax(penguin)` defeats `tax(bird)`. This is the
-  specificity principle for defaults, without hand-assigned numbers.
-- When neither class is a descendant of the other, or a name is not in
-  the taxonomy, the optional tie-breakers of `tax(name, nr)` are compared
-  as numeric priorities. Without tie-breakers, neither side defeats the
-  other.
-- A numeric priority and a taxonomy priority are also compared through
-  the tie-breaker: the number against the `nr` of `tax(name, nr)`.
-  Against a bare `tax(name)`, a number makes no claim.
-
-Taxonomy terms require `-taxonomy` (synonym `-defaults`) and the data
-files in [`../data/`](../data/README.md), which encode the WordNet noun
-hierarchy; class names are WordNet-style names such as `penguin` or
-`bird.n.01`. An input using taxonomy terms without the flag is an error.
-Taxonomy priorities are compared by the blocker-priority check; the
-dependency-aware evaluator does not process them.
-
-Opposed defaults need not have a forced winner. In the Nixon diamond,
+The rule derives `flies(X)` from `bird(X)` unless `-flies(X)` is
+established. The number 2 is the rank of the default. When the exception
+is the negation of the rule's own conclusion, the rule is a **normal
+default**. Between opposing normal defaults, the one of the higher rank
+wins; at equal rank neither wins
+([support_semantics.md](support_semantics.md) Sections 5 and 6). In the
+Nixon example,
 
 ```prolog
-pacifist(X)  :- quaker(X),     unless(-pacifist(X), 1).
--pacifist(X) :- republican(X), unless(pacifist(X), 1).
+quaker(n).
+republican(n).
+pacifist(X)  :- quaker(X),     unless(-pacifist(X), 2).
+-pacifist(X) :- republican(X), unless(pacifist(X), 2).
+dislikeswar(X) :- pacifist(X).
+query(dislikeswar(X)).
 ```
 
-equal-priority arguments support both polarities. GK reports the opposition and
-a zero margin rather than choosing one conclusion by rule order. When two such
-opposed defaults have rule confidences `a` and `b`, each polarity counts only
-where the other is absent: positive support `a(1-b)` and negative support
-`b(1-a)`, no conflict component, and the remainder is ignorance. With two
-certain defaults the entire four-component report is ignorance.
+the two defaults have equal rank, and gk prints (0, 0, 0, 1) for
+`dislikeswar(n)`: neither default establishes its conclusion.
 
-The explicit priorities matter here. With the priority omitted, an exception
-reference makes no priority claim, and two such rules about opposite
-polarities of one atom are treated as ordinary opposing evidence instead of
-mutually blocking defaults: the region where both supports hold is then
-reported in the conflict component.
+A rank can also name a class of the WordNet taxonomy, such as
+`tax(penguin)`. Such an input needs `-taxonomy` and the data files of
+[`../data/`](../data/README.md); without `-taxonomy` it is an input error.
+The recursive method's evaluator reads a taxonomy rank as rank 0 and
+records the reading `taxonomy ignored`. The direct method compares taxonomy
+ranks by specificity ([direct_method.md](direct_method.md) Section 6).
 
-## 7. Arithmetic
+## 11. Arithmetic
 
-Ground arithmetic is simplified during proof search. For example, `2 + 3` is
-evaluated to `5` when all operands are known.
+Ground arithmetic is simplified during proof search. For example, `2 + 3`
+is evaluated to `5` when all operands are known.
 
 Arithmetic conditions containing variables require bounded instantiation.
-With `arith_instantiation: 1`, GK considers selected one-variable conditions;
-mode `2` also considers selected conditions with two variables. Candidate and
-probe limits keep the procedure finite. It is intended for small integer
-problems and is not a general constraint solver.
+With `arith_instantiation: 1`, gk considers selected one-variable
+conditions; mode `2` also considers selected conditions with two variables.
+Candidate and probe limits keep the procedure finite. It is intended for
+small integer problems and is not a general constraint solver.
 
-## 8. Search control
+A proof step with an arithmetic instance enters the recursive method as a
+**proof application**: one source event with the proof's confidence. The
+line counts such steps in `steps_not_represented`
+([recursive_output.md](recursive_output.md) Section 4).
 
-Resolution is complete only when it runs without restrictive strategy limits.
-Practical searches use time, clause-size, and selection controls. GK generates
-an ordered sequence of strategies from the input. Each strategy gets an initial
-time in which to find a proof. The first successful strategy gets the remaining
-budget and is reused for the query's later searches (see
-[`strategy_reference.md`](strategy_reference.md)). A strategy file can instead
-specify:
+## 12. Search control
+
+Resolution is complete only when it runs without restrictive strategy
+limits. Practical searches use time, clause-size and selection controls. gk
+generates an ordered sequence of strategies from the input. Each strategy
+gets an initial time in which to find a proof. The first successful
+strategy gets the remaining time and is reused for the query's later
+searches ([strategy_reference.md](strategy_reference.md)). A strategy file
+can instead specify:
 
 - clause selection preferences such as `negative_pref` or `query_focus`;
-- goal, assumption, and axiom queue treatment;
-- limits on time, answers, clause size, depth, length, and weight;
-- equality, rewriting, and SINE relevance filtering;
+- goal, assumption and axiom queue treatment;
+- limits on time, answers, clause size, depth, length and weight;
+- equality, rewriting and SINE relevance filtering;
 - several runs attempted in sequence.
 
+The deadline is `-seconds` (default 10). The recursive method divides it
+between the first proof search, the nested searches and the evaluations
+(Section 6).
+
 A fixed set of axioms can be parsed once into shared memory (`-readkb`) and
-reused across many queries (`-usekb`). `-parallel` runs automatically selected
-strategies concurrently. Both options are described in
-[`cli_reference.md`](cli_reference.md).
+reused across many queries (`-usekb`). Since 1.2.4 the recursive method runs
+on such a knowledge base as on one input file
+([recursive_output.md](recursive_output.md) Section 1). The options are
+described in [`cli_reference.md`](cli_reference.md).
 
 Unit resolution and other short-argument restrictions can be fast but are
 incomplete. A timeout or a restrictive strategy therefore means only that no
 proof was found under those limits.
 
-## 9. Result states
+## 13. Results without a proof
 
-Common result strings are:
-
-| Result | Meaning |
-|---|---|
-| `answer found` | at least one answer met the confidence threshold |
-| `evidence below limit` | a derivation was found but its margin was below `-confidence` |
-| `no answers found` | no substitution was found for an open query |
-| `no information` | neither polarity of a ground query was proved |
-| `time limit, proof not found` | the search time expired before finding a proof |
+- A question without variables that gk cannot prove gets the value
+  (0, 0, 0, 1): complete ignorance. For `bird(t). query(flies(t)).` the
+  line has `"value":[0,0,0,1]`.
+- A question with variables without any proof gets `"value": null` and
+  no answers. The field `stop` says `the recursion did not run`, and
+  `unfinished` names the reason.
+- The fields `stop` and `search` say why the nested searches stopped and
+  what the last search of the question reported. The status facts of the
+  dump list what the value does not include
+  ([recursive_output.md](recursive_output.md) Section 5).
 
 The command-line options are listed in [`cli_reference.md`](cli_reference.md).
-Input examples are in [`input_languages.md`](input_languages.md), and runnable
-algorithm examples are indexed by [`../Examples/README.md`](../Examples/README.md).
-
-The methods of this document are described in the papers
-[Structure-Preserving Uncertainty Propagation in First-Order Proof Search](https://arxiv.org/abs/2608.09190)
-(confidences, support calculation, and reports),
-[GK: Implementing Full First Order Default Logic for Commonsense Reasoning (System Description)](https://doi.org/10.1007/978-3-031-10769-6_18)
-(defaults and blockers), and
-[Confidences for Commonsense Reasoning](https://doi.org/10.1007/978-3-030-79876-5_29)
-(the earlier confidence calculus). The base prover is described in
-[GKC: A Reasoning System for Large Knowledge Bases](https://doi.org/10.1007/978-3-030-29436-6_32).
+Input examples are in [`input_languages.md`](input_languages.md), and
+runnable examples are indexed by [`../Examples/README.md`](../Examples/README.md).

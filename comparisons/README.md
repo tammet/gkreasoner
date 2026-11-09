@@ -15,34 +15,43 @@ gk is a first-order reasoner. It provides:
   `0.9::h :- b`;
 - query-directed non-ground first-order proof search;
 - equality, function terms, and classical disjunction;
-- same-polarity aggregation that preserves shared proof provenance;
-- opposition resolution at the premise where the opposition occurs;
-- recursively evaluated exception conditions and prioritized defaults;
+- explicit negation and evidence against a conclusion;
+- default rules with exception conditions and priority ranks;
 - separate undercutting and rebutting attacks;
-- four-component reports: positive support, negative support, conflict,
-  and ignorance.
+- a report of four shares for each answer: for, against, conflict, and
+  ignorance.
 
-GK combines query-directed first-order resolution with input confidences,
-explicit opposition, and recursively evaluated prioritized exceptions. It
-returns proofs and four-component reports without global grounding.
+The gk cells of this package come from gk 1.2.3 with no options; gk 1.2.4
+reproduces every cell (`check_gk_cells.sh`). This
+runs gk's default, the recursive method. It starts from a resolution
+proof of the question. It then searches recursively for support,
+opposition, and exceptions, with smaller time allowances at greater
+depth, and evaluates all the evidence found in one calculation. The four
+shares are those of the support semantics
+([`../Doc/support_semantics.md`](../Doc/support_semantics.md)). gk does not
+ground the whole program.
 
 The signed confidence of a query Q is
 
 ```text
-C(Q) = s+(Q) - s-(Q)
+C(Q) = for(Q) - against(Q)
 ```
 
-positive support minus negative support; |C(Q)| is the confidence in the
+the share for minus the share against; |C(Q)| is the confidence in the
 reported verdict. A default rule is written with an exception condition,
 for example `0.9::h :- unless(b)`: the rule applies unless `b` holds, and
-the support for `b` is evaluated recursively against its opposing
-evidence. An optional second argument of `unless` is a priority rank.
+gk checks the support for `b` and the evidence against it by a recursive
+search. An optional second argument of `unless` is a priority rank.
+
+`gk -direct` runs the direct method of gk 1.1.2 instead. Its values equal
+the recursive method's on 14 of the 16 cases; the case descriptions note
+the two exceptions, D7 and EQ1.
 
 ## Compared systems
 
 | System | Version | Output used here | Project page |
 |---|---|---|---|
-| gk | 1.0.11 | signed confidence with a four-component report | this repository |
+| gk | 1.2.3, 1.2.4 | signed confidence, from the four shares of the recursive method | this repository |
 | ProbLog | 2.2.10 | scalar probability | <https://dtai.cs.kuleuven.be/problog/> |
 | PASTA | 1.0.1 | lower/upper probability interval | <https://github.com/damianoazzolini/pasta> |
 | plingo | 1.1.0 | scalar probability | <https://github.com/potassco/plingo> |
@@ -72,7 +81,6 @@ Result notation:
 | x/y | displayed query / explicit opposite query |
 | [l,u] | lower / upper probability |
 | 0 (ign.) | signed confidence zero with pure ignorance |
-| 0 (bal.) | signed confidence zero with balanced positive and negative support |
 | (v1,...,vn) | per-binding results of an open query, in the stated binding order |
 | {b1,...,bn} | binding set of an open query, without probabilities |
 | error | the system's reported error on the stated input |
@@ -92,12 +100,18 @@ Different output kinds are not numerically comparable.
   query-directed non-ground proof search and ProbLog grounds on demand;
   the ground-and-solve systems reach the grounding timeout on this
   program.
-- D1–D7: the analogue translations omit recursive exception evaluation
-  (D2), premise-level opposition resolution (D3), strict priority (D5),
-  or the paired exception operation (D7).
+- D1–D7: the analogue translations omit the recursive check of the
+  exception condition (D2), the opposition at the premise (D3), or strict
+  priority (D5).
+- D7: gk gives .36 for and .48 against, signed -.12. The analogue
+  encodings reproduce the direct method's paired branch, which gives
+  .48/.48, so they no longer match gk's value.
+- D4-P: gk's shares for, .32 and .12, equal the lower bounds of the PASTA
+  intervals [.32,.80] and [.12,.60].
 - EQ1: gk combines an uncertain equality with opposed evidence; the
   tested encodings produce an inconsistent world or do not encode the
-  input.
+  input. gk's conflict share .504 equals smProbLog's inconsistent mass
+  .504.
 - X1: an unrelated contradiction does not affect gk's query proof; the
   ASP-based systems reject the program, renormalize, or report
   inconsistent mass.
@@ -130,7 +144,7 @@ Defaults and opposition:
 | D4-P | probabilistic Nixon premises | A: +.20/-.20 | U | N: [.32,.80]/[.12,.60] | N: .54054/.40540 | N: .56/.36 | U | U | U | U |
 | D5 | strict priority | N: .30 | A: .63/.30 | A: [.63,.63]/[.30,.30] | A: .63/.30 | A: .63/.30 | A: no/yes | A: no/yes | A: no/yes | A: no/yes |
 | D6 | undercut vs. rebut | N: undercutting 1; rebutting 1 | A: undercutting 1; rebutting 1 | A: undercutting [1,1]; rebutting [1,1] | A: undercutting 1; rebutting 1 | A: undercutting 1; rebutting 1 | U | A: undercutting yes; rebutting yes | A: undercutting yes; rebutting yes | A: undercutting yes; rebutting yes |
-| D7 | paired exception | N: 0 (bal.) | A: .48/.48 | A: [.48,.48]/[.48,.48] | A: .48/.48 | A: .48/.48 | U | U | U | U |
+| D7 | paired exception | N: -.12 | A: .48/.48 | A: [.48,.48]/[.48,.48] | A: .48/.48 | A: .48/.48 | U | U | U | U |
 
 First-order and conflict cases:
 
@@ -142,6 +156,41 @@ First-order and conflict cases:
 | DJ1 | uncertain classical disjunction | N: .72 | U | E: [.72,.80] | E: error | A: .76 | U | A: yes | A: yes | A: yes |
 
 In paired cells the order is displayed query / explicit opposite query.
+
+gk's four shares (for, against, conflict, ignorance), from which the gk
+column takes the signed confidence:
+
+| ID | gk query | for | against | conflict | ignorance |
+|---|---|---:|---:|---:|---:|
+| C1 | `q` | .80 | 0 | 0 | .20 |
+| C2 | `q` | .30 | 0 | 0 | .70 |
+| D1 | `flies(a)` | .10 | .90 | 0 | 0 |
+| D2 | `h` | .54 | 0 | 0 | .46 |
+| D3 | `h` | 0 | 0 | 0 | 1 |
+| D4 | `pacifist(n)` | 0 | 0 | 0 | 1 |
+| D4-P | `pacifist(n)` | .32 | .12 | 0 | .56 |
+| D4-P | `-pacifist(n)` | .12 | .32 | 0 | .56 |
+| D5 | `l` | .60 | .30 | 0 | .10 |
+| D6 | `flies(a)`, undercutting form | 1 | 0 | 0 | 0 |
+| D6 | `flies(a)`, rebutting form | 1 | 0 | 0 | 0 |
+| D7 | `flies(a)` | .36 | .48 | 0 | .16 |
+| N1 | `twobirds(a,a)` | .50 | 0 | 0 | .50 |
+| N1 | `twobirds(a,b)`, `twobirds(b,a)` | .30 | 0 | 0 | .70 |
+| N1 | `twobirds(b,b)` | .60 | 0 | 0 | .40 |
+| N2 | `smokes(ann)` | .80 | 0 | 0 | .20 |
+| N2 | `smokes(bob)` | .688 | 0 | 0 | .312 |
+| N2 | `smokes(carl)` | .1376 | 0 | 0 | .8624 |
+| EQ1 | `p(a)` | .396 | .056 | .504 | .044 |
+| X1 | `q(b)` | 1 | 0 | 0 | 0 |
+| F1 | `bird(f(f(a)))` | .576 | 0 | 0 | .424 |
+| DJ1 | `q(a)` | .72 | 0 | 0 | .28 |
+
+The reference tool mcref ([`../Doc/mcref.md`](../Doc/mcref.md)) samples
+the worlds of the support semantics. It accepts 16 of the 18 gk inputs;
+it does not accept equality (EQ1) or function symbols (F1). On all 16,
+with 100,000 samples and seed 1, each of the 84 shares it estimates lies
+within its sampling bound e = .00504 of gk's share; the largest difference
+is .0043.
 
 ## Case index
 
@@ -172,15 +221,33 @@ Detailed descriptions, inputs, and per-case commentary are in
 A gk cell runs with the binary from [`../bin/`](../bin/README.md):
 
 ```sh
-./bin/gk comparisons/inputs/gk/c1.gkp -detail -outformat json
+./bin/gk comparisons/inputs/gk/d1.gkp
 ```
 
-The gk input of each case is listed in the case index. The printed
-`confidence` is non-negative: the absolute value of positive support
-minus negative support (fields `support_for` and `support_against` in the
-`detail` block). The table restores the query-oriented sign. For D1 the
-JSON reports `confidence: 0.8` with `answer: false`; the table shows
--.80.
+The gk input of each case is listed in the case index. gk prints one
+line `{"recursive": ...}`, then a dump of the evidence. In the line,
+`value` holds the four shares in the order for, against, conflict,
+ignorance; an open question gets an `answers` list with one `value` per
+ground answer. [`../Doc/recursive_output.md`](../Doc/recursive_output.md)
+describes the output. For D1 the line has
+`"value":[0.09999999999999998,0.9,0,0]`; the table shows the signed
+confidence .10 - .90 = -.80.
+
+To rerun all 18 gk cells and compare them with their captures:
+
+```sh
+comparisons/check_gk_cells.sh
+```
+
+The script compares the question, the value, the answers, the readings,
+and the stop reason of the `{"recursive": ...}` line. It ignores the
+times in the line and the dump.
+
+The direct method's report of a cell is printed by
+
+```sh
+./bin/gk comparisons/inputs/gk/d7.gkp -direct -detail -outformat json
+```
 
 The `run_definitions` of `manifest.json` record every run for which a
 command is available, with executable name and relative input path; the
@@ -196,6 +263,7 @@ comparisons/
   README.md
   CASES.md               per-case descriptions
   manifest.json          index: cells, run definitions, reference records
+  check_gk_cells.sh      reruns the 18 gk cells and compares them
   inputs/
     gk/                  gk input of each case
     problog/  pasta/  plingo/  smproblog/  scasp/
@@ -210,7 +278,9 @@ comparisons/
 
 `manifest.json` is the authoritative record: it maps each of the 144
 row/system cells to its result, relation classification, input files,
-queries, and run identifiers, and defines every run command.
+queries, and run identifiers, and defines every run command. Each gk cell
+also lists its four shares (`four_shares`); D7 and EQ1 have a
+`direct_method_note` with the direct method's values.
 `results/table_results.tsv` is its flat rendering.
 `results/run_records.json` records the outcome of each run (completed,
 timeout, error, no_models, or captured_reference) and the check that the
@@ -225,4 +295,6 @@ workload and on first-order clause problems are in
 [`../Examples/fol_comparison/`](../Examples/fol_comparison/README.md); native
 TweetyProject, PASTA, and I-DLV inputs with their own commands are in
 [`../Examples/system_comparison/`](../Examples/system_comparison/README.md);
-the samplers are in [`../montecarlo/`](../montecarlo/README.md).
+the reference tool for gk's default is described in
+[`../Doc/mcref.md`](../Doc/mcref.md); the samplers of the direct method
+are in [`../montecarlo/`](../montecarlo/README.md).

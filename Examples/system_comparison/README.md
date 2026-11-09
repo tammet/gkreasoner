@@ -21,19 +21,19 @@ native rules of its formalism.
 | opposing Nixon defaults | I-DLV plus [clasp](https://potassco.org/clasp/) | two stable models, one for each conclusion |
 | bird default with an explicit penguin exception | I-DLV query answering | `flies(tweety)` |
 
-The PASTA values `0.8` and `0.3` equal GK's
-[`cumulate.js`](../confidences/cumulate.js) and
-[`coin1.js`](../confidences/coin1.js) results. The agreement covers these
+The PASTA values `0.8` and `0.3` equal the shares for in gk's answers to
+[`cumulate.js`](../confidences/cumulate.js), (.8, 0, 0, .2), and
+[`coin1.js`](../confidences/coin1.js), (.3, 0, 0, .7). The agreement covers these
 positive, independent-evidence cases. PASTA assigns probabilities to
-possible worlds and then considers their stable models; GK combines
+possible worlds and then considers their stable models; gk combines
 evidence found in first-order proofs and reports support and conflict.
 
 The three Nixon outputs are of different kinds: DeLP leaves both opposed
 arguments undecided; PASTA reports the interval `[0,1]` for each
 conclusion across the two stable models; I-DLV with clasp enumerates the
 two stable models. Their semantics differ, so the outputs are not one
-common numeric quantity, and none corresponds numerically to GK's report
-of pure ignorance for the same conflict.
+common numeric quantity, and none corresponds numerically to gk's report
+of pure ignorance, (0, 0, 0, 1), for the same conflict.
 
 ## TweetyProject inputs
 

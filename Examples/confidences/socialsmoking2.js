@@ -1,5 +1,5 @@
 // Stress and social influence provide two overlapping paths to smokes(carl).
-// The expected confidence is 0.1376.
+// gk 1.2.3 answers smokes(carl) with (.1376, 0, 0, .8624).
 [
   {"@confidence": 0.8, "@logic": ["stress", "ann"]},
   {"@confidence": 0.4, "@logic": ["stress", "bob"]},

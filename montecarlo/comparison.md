@@ -11,7 +11,12 @@ rows here.
 
 ## Reproduction protocol
 
-The GK columns come from gk 1.0.11 (`bin/gk`, one `-detail` run per file).
+The GK columns come from gk 1.2.4 (`bin/gk`, one `-detail` run per file).
+`-detail` selects the direct method of gk 1.1.2, so these columns are the
+direct method's values. gk 1.0.11 gave the same numbers; seven rows then
+had the calculation `flat`, which core selection (gk 1.1.2) changed to
+`canonical_atom`. The reference for gk's default, the recursive method, is
+[`mcref`](../mcref/README.md).
 Sampling uses the Python standard-library random generator, 10,000 trials,
 and seed 1. Clause-activation sampling uses per-ground-instance draws; the
 shared-threshold sampler uses two independent uniforms per atom and the
@@ -38,11 +43,11 @@ shared-threshold table are sampling variation. The sampler outputs are
 regenerated from the fixed seed rather than committed.
 
 The GK calculation column shows the `-detail` `calculation` value, as
-defined in [`../Doc/how_gk_works.md`](../Doc/how_gk_works.md):
+defined in [`../Doc/direct_method.md`](../Doc/direct_method.md) Section 5:
 `canonical_atom` is a completed shared-threshold report; `flat` is a
 direct retained-proof calculation. Every row below had `coverage_status:
 complete`; `polarity_status` was `guaranteed` for the `canonical_atom`
-rows and `not_guaranteed` for the `flat` rows.
+rows and `not_guaranteed` for the `flat` row (`near.js`).
 
 ## Clause-activation sampling
 
@@ -53,10 +58,10 @@ magnitude separately from the rejection label.
 
 | File and answer | Mechanism | MC pos-neg | 95% CI | GK result | GK calculation |
 |---|---|---:|---:|---:|---|
-| `cumulate.js`, `true` | noisy-or of 0.5 and 0.6 | 0.8013 | [0.7935, 0.8091] | 0.8000 | flat |
-| `coin1.js`, `c` | one proof using 0.5 and 0.6 | 0.2979 | [0.2889, 0.3069] | 0.3000 | flat |
-| `overlap1.js`, `true` | two proofs sharing one premise | 0.8450 | [0.8379, 0.8521] | 0.8460 | flat |
-| `overlap3.js`, `true` | three overlapping proof paths | 0.9596 | [0.9557, 0.9635] | 0.9590 | flat |
+| `cumulate.js`, `true` | noisy-or of 0.5 and 0.6 | 0.8013 | [0.7935, 0.8091] | 0.8000 | canonical_atom |
+| `coin1.js`, `c` | one proof using 0.5 and 0.6 | 0.2979 | [0.2889, 0.3069] | 0.3000 | canonical_atom |
+| `overlap1.js`, `true` | two proofs sharing one premise | 0.8450 | [0.8379, 0.8521] | 0.8460 | canonical_atom |
+| `overlap3.js`, `true` | three overlapping proof paths | 0.9596 | [0.9557, 0.9635] | 0.9590 | canonical_atom |
 | `net_direct.js`, `true` | opposing facts about the queried atom | 0.3107 | [0.2976, 0.3238] | 0.3000 | canonical_atom |
 | `negation_conflict.js`, `a` | contested premise propagated through rules | 0.2487 | [0.2373, 0.2601] | 0.2520 | canonical_atom |
 | `bird_exception.js`, `b` | unopposed default | 1.0000 | [1.0000, 1.0000] | 1.0000 | canonical_atom |
@@ -94,14 +99,14 @@ positive support / negative support / conflict / ignorance
 | File | Shared-threshold MC | gk `-detail` | GK calculation | Assessment |
 |---|---:|---:|---|---|
 | `trivial.js` | 1.0000 / 0 / 0 / 0 | 1.0000 / 0 / 0 / 0 | canonical_atom | deterministic agreement |
-| `cumulate.js` | 0.7984 / 0 / 0 / 0.2016 | 0.8000 / 0 / 0 / 0.2000 | flat | agreement |
-| `net_lone.js` | 0.4972 / 0 / 0 / 0.5028 | 0.5000 / 0 / 0 / 0.5000 | flat | agreement |
+| `cumulate.js` | 0.7984 / 0 / 0 / 0.2016 | 0.8000 / 0 / 0 / 0.2000 | canonical_atom | agreement |
+| `net_lone.js` | 0.4972 / 0 / 0 / 0.5028 | 0.5000 / 0 / 0 / 0.5000 | canonical_atom | agreement |
 | `net_direct.js` | 0.3018 / 0 / 0.3984 / 0.2998 | 0.3000 / 0 / 0.4000 / 0.3000 | canonical_atom | agreement |
 | `net_fought.js` | 0.4965 / 0 / 0.3984 / 0.1051 | 0.5000 / 0 / 0.4000 / 0.1000 | canonical_atom | agreement |
 | `net_against.js` | 0 / 0.5028 / 0.2956 / 0.2016 | 0 / 0.5000 / 0.3000 / 0.2000 | canonical_atom | agreement |
 | `net_strong.js` | 0.5993 / 0 / 0.2956 / 0.1051 | 0.6000 / 0 / 0.3000 / 0.1000 | canonical_atom | agreement |
-| `coin3.js` | 0.9759 / 0 / 0 / 0.0241 | 0.9744 / 0 / 0 / 0.0256 | flat | agreement |
-| `coin4.js` | 0.9724 / 0 / 0 / 0.0276 | 0.9744 / 0 / 0 / 0.0256 | flat | agreement |
+| `coin3.js` | 0.9759 / 0 / 0 / 0.0241 | 0.9744 / 0 / 0 / 0.0256 | canonical_atom | agreement |
+| `coin4.js` | 0.9724 / 0 / 0 / 0.0276 | 0.9744 / 0 / 0 / 0.0256 | canonical_atom | agreement |
 | `n2c.js` | 0.1157 / 0 / 0.7909 / 0.0934 | 0.1180 / 0 / 0.7900 / 0.0920 | canonical_atom | agreement |
 | `near.js` | 1.0000 / 0 / 0 / 0 | 0.4305 / 0 / 0 / 0.5695 | flat | different recursive-proof treatment |
 | `nixon_taxonomy.js` | 0 / 0 / 0 / 1.0000 | 0 / 0 / 0 / 1.0000 | canonical_atom | agreement |
@@ -112,10 +117,8 @@ implementations against each other. The calculation value alone does not
 establish that a case lies inside the paper's correspondence fragment;
 `nixon_taxonomy.js`, for example, exercises the separately defined local
 rule for equally ranked opposed defaults (mutual blocking) rather than
-the acyclic opposition fragment. The `flat` rows are direct
-retained-proof calculations; agreement there holds because the retained
-proof set covers the relevant derivations of these small examples.
-`near.js` is the case where retained-proof coverage and the exhaustively
+the acyclic opposition fragment. The `flat` row is a direct
+retained-proof calculation. `near.js` is the case where retained-proof coverage and the exhaustively
 grounded model differ; see Differences.
 
 ## Differences

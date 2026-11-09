@@ -1,0 +1,6 @@
+alive(s0).  loaded(s0).  result(s0,s1).  result(s1,s2).  happens(shoot,s1).
+alive(S2) :- alive(S1), result(S1,S2), unless(-alive(S2), 1).
+loaded(S2) :- loaded(S1), result(S1,S2), unless(-loaded(S2), 1).
+-alive(S2) :- happens(shoot,S1), loaded(S1), result(S1,S2).
+walks(s2) :- alive(s2).
+query(walks(s2)).

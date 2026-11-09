@@ -33,7 +33,8 @@ sequence of runs.
   -strategy Examples/strategy/query_focus.json
 ```
 
-Expected result: `b` is accepted and `p` is rejected, both with confidence 1.
+gk answers `flies(b)` with (1, 0, 0, 0) and `flies(p)` with (0, 1, 0, 0), as
+with the automatic strategy.
 
 ## Negative-clause preference
 
@@ -45,7 +46,7 @@ literals. It is a useful baseline for small resolution problems:
   -strategy Examples/strategy/negative_pref.json
 ```
 
-This strategy returns the same accepted and rejected answers.
+This strategy returns the same two answers with the same values.
 
 ## Several runs
 
@@ -60,15 +61,17 @@ This strategy returns the same accepted and rejected answers.
   -strategy Examples/strategy/runs.json
 ```
 
-The first run is sufficient for this problem.
+The first run is sufficient for this problem. The answers are those of the
+automatic strategy.
 
 ## Confidence combination
 
-`independence: 0` disables same-polarity aggregation. A nonzero value
-selects provenance-aware aggregation from the proofs' activation-event
-sets. `-oldcumulate` selects the calculation controlled by intermediate
-percentage values.
+The key `independence` controls how the direct method (`-direct`) combines
+alternative proofs. The recursive method, gk's default, combines the
+proofs it finds by the support semantics:
+[`../confidences/cumulate.gkp`](../confidences/cumulate.gkp) gives
+(.8, 0, 0, .2) also with `"independence": 0`.
 
 [`../../Doc/strategy_reference.md`](../../Doc/strategy_reference.md) lists the
 strategy keys. [`../../Doc/how_gk_works.md`](../../Doc/how_gk_works.md)
-describes proof combination.
+describes how gk reaches an answer.

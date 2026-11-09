@@ -1,5 +1,5 @@
-% Positive and negative evidence about the same atom are netted:
-% support 0.7 for, 0.4 against -> the report keeps the net, plus conflict.
+% Evidence for (0.7) and against (0.4) the same atom. Both are tested
+% against one shared number: gk answers flies(a) with (.3, 0, .4, .3).
 % GKP form of net_direct.js. See Doc/input_languages.md.
 
 0.7::flies(a).

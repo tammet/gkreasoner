@@ -5,6 +5,15 @@ gk input of each case is quoted verbatim and can be copied and run as a
 whole. The external input files of each cell are listed in
 `manifest.json`.
 
+Each gk result is the value of gk 1.2.3 run without options (gk 1.2.4 gives
+the same values), which is the
+recursive method. A value is written as four shares (for, against,
+conflict, ignorance). The table shows the signed confidence, for minus
+against. The explanations use the support semantics
+([`../Doc/support_semantics.md`](../Doc/support_semantics.md)): each atom
+has one number in a world, and the evidence for and against an atom is
+tested against that one number.
+
 ## C1: independent causes
 
 Purpose: same-polarity aggregation of two independent uncertain causes.
@@ -21,7 +30,8 @@ q :- b.
 query(q).
 ```
 
-gk result: .80.
+gk result: (.80, 0, 0, .20). The two causes are independent, so the
+share for is 1 - (1 - .5)(1 - .6) = .80.
 
 Comparison: ProbLog, PASTA, plingo, and smProbLog return
 1 - (1-.5)(1-.6) = .80. The non-probabilistic systems return no
@@ -42,7 +52,7 @@ q :- a, b.
 query(q).
 ```
 
-gk result: .30 = .5 x .6.
+gk result: (.30, 0, 0, .70); .30 = .5 x .6.
 
 Comparison: same agreement and classification pattern as C1.
 
@@ -62,8 +72,9 @@ flies(X) :- bird(X), unless(-flies(X)).
 query(flies(a)).
 ```
 
-gk result: signed confidence -.80, from positive support .10 and negative
-support .90.
+gk result: (.10, .90, 0, 0), signed confidence -.80. The fact
+`-flies(a)` holds in .9 of the worlds; there it blocks the default, and
+the share against is .90. In the other .1 the default applies.
 
 Comparison: the probabilistic analogues compile the exception to negation
 as failure and answer the two queries separately, .10 and .90. The crisp
@@ -85,8 +96,10 @@ Input `inputs/gk/d2.gkp`:
 query(h).
 ```
 
-gk result: .54. The usable support for `b` after opposition is
-.7 - .3 = .4, and the default yields .9 x (1 - .4).
+gk result: (.54, 0, 0, .46). The evidence for `b` (.7) and against it
+(.3) is tested against the one number of `b`, so `b` holds alone in
+.7 - .3 = .4 of the worlds. The default is blocked there and applies
+with .9 elsewhere: .9 x (1 - .4) = .54.
 
 Comparison: the translations replace the default by an independent .9
 activation guarded by the absence of `b`, giving .9 x (1 - .7) = .27,
@@ -108,7 +121,10 @@ Input `inputs/gk/d3.gkp`:
 query(h).
 ```
 
-gk result: signed confidence 0 with pure ignorance.
+gk result: (0, 0, 0, 1), signed confidence 0 with pure ignorance. The
+evidence for and against `b` is equally strong (.5), so `b` never holds
+alone: where the evidence for `b` passes, the evidence against it passes
+too. The rule for `h` never applies.
 
 Comparison: the guarded translation counts the worlds where `b` is active
 and its opposing atom inactive: .9 x .5 x (1 - .5) = .225. The crisp
@@ -130,7 +146,8 @@ pacifist(X) :- quaker(X), unless(-pacifist(X), 2).
 query(pacifist(n)).
 ```
 
-gk result: signed confidence 0 with pure ignorance.
+gk result: (0, 0, 0, 1), signed confidence 0 with pure ignorance. The
+two defaults have the same rank and block each other.
 
 Comparison: the conflict is native in the stable-model and argumentation
 systems, with differing output types: PASTA a credal interval [0,1] per
@@ -158,9 +175,15 @@ query(pacifist(n)).
 Input `inputs/gk/d4sm_neg.gkp`: the same program with
 `query(-pacifist(n)).`
 
-gk result: +.20 and -.20. The gk row uses an equal-priority analogue
-whose defaults use the contrary conclusion as the exception condition,
-and is marked A.
+gk result: (.32, .12, 0, .56) for `pacifist(n)` and (.12, .32, 0, .56)
+for `-pacifist(n)`, signed confidences +.20 and -.20. Where only
+`quaker(n)` holds (.8 x .4 = .32), the first default applies. Where only
+`republican(n)` holds (.2 x .6 = .12), the second applies. Where both
+hold (.48), the defaults have equal rank and block each other. These
+worlds and those where neither holds (.08) give the ignorance .56. The
+gk row uses an equal-priority analogue whose defaults use the contrary
+conclusion as the exception condition, and is marked A. The shares for,
+.32 and .12, equal the lower bounds of the PASTA intervals.
 
 Comparison: PASTA, plingo, and smProbLog evaluate the probabilistic
 stable-model input natively and return different quantities under their
@@ -179,8 +202,10 @@ Input `inputs/gk/d5.gkp`:
 query(l).
 ```
 
-gk result: signed confidence .30, from positive support .60 and negative
-support .30.
+gk result: (.60, .30, 0, .10), signed confidence .30. The two defaults
+are tested against the one number of `l`. Where both pass (.3), the
+rank-3 default for `-l` wins. Where only the rank-2 default passes
+(.9 - .3 = .6), `l` holds.
 
 Comparison: the translations guard the positive rule by the absence of
 the negative activation and answer .63 and .30 as separate queries. The
@@ -211,8 +236,8 @@ flies(a) :- unless(-flies(a)).
 query(flies(a)).
 ```
 
-gk result: 1 for both forms; neither exception condition has support in
-these inputs.
+gk result: (1, 0, 0, 0) for both forms; neither exception condition has
+support in these inputs.
 
 Comparison: every system that runs the case returns 1 or yes for both
 forms. The translations give both rules one negation-as-failure form. The
@@ -236,12 +261,21 @@ bird(a).
 query(flies(a)).
 ```
 
-gk result: signed confidence 0 with balanced positive and negative
-support .48/.48.
+gk result: (.36, .48, 0, .16), signed confidence -.12. Where
+`penguin(a)` holds (.6), the exception blocks the default, and the rule
+for `-flies(a)` applies with .8: the share against is .6 x .8 = .48.
+Where it does not hold (.4), the default applies with .9: the share for
+is .4 x .9 = .36. mcref gives the same shares within its sampling bound.
 
-Comparison: the external encoding adds rules whose probabilities reproduce
-the two marginals; the paired reference-class operation itself is not
-encoded, so the numeric agreement is marked A.
+Comparison: the external encodings add a rule that applies the default
+in the worlds where `penguin(a)` holds and the rule for `-flies(a)` does
+not. This rule reproduces the direct method's paired branch: with it,
+the encodings return .48/.48. The recursive method does not use such a
+branch: an exception that holds blocks the default. So the external
+values no longer match gk's value. The cells stay A.
+
+Direct method: `gk -direct` gives signed confidence 0 with .48 for and
+.48 against.
 
 ## N1: open join query
 
@@ -258,7 +292,8 @@ query(twobirds(X,Y)).
 ```
 
 gk result: (.50, .30, .30, .60) over the bindings (a,a), (a,b), (b,a),
-(b,b).
+(b,b); each binding has no share against or conflict, and the rest of
+its value is ignorance.
 
 Comparison: ProbLog, plingo, and smProbLog return the same values; PASTA
 returns each value as both interval endpoints; clingo, DLV, and s(CASP)
@@ -281,7 +316,8 @@ smokes(X) :- influences(Y,X), smokes(Y).
 query(smokes(X)).
 ```
 
-gk result: ann .80, bob .688, carl .1376.
+gk result: ann .80, bob .688, carl .1376, as shares for; the rest of
+each value is ignorance.
 
 Comparison: same agreement pattern as N1.
 
@@ -300,9 +336,17 @@ Input `inputs/gk/e1.gkp`:
 query(p(a)).
 ```
 
-gk result: signed confidence .34. Paramodulation derives negative support
-.7 x .8 = .56 for the queried atom; the overlapping .56 is reported in
-the conflict component.
+gk result: (.396, .056, .504, .044), signed confidence .34.
+Paramodulation derives `-p(a)` from `-p(b)` and `a = b`. That evidence
+against holds in .7 x .8 = .56 of the worlds and depends on the numbers
+of `p(b)` and `a = b`, not on that of `p(a)`. So it is independent of the
+fact `p(a)` (.9): conflict .9 x .56 = .504, for alone .9 x .44 = .396,
+against alone .1 x .56 = .056, neither .1 x .44 = .044. The conflict
+share equals smProbLog's inconsistent mass .504. mcref does not accept
+equality, so no sampled value is recorded for this case.
+
+Direct method: `gk -direct` gives the same signed confidence .34 with the
+shares (.34, 0, .56, .10).
 
 Comparison: the tested configurations do not accept an input confidence
 on an equality. The encodings state it as a probabilistic fact with
@@ -336,7 +380,8 @@ q(b).
 query(q(b)).
 ```
 
-gk result: 1.0. The contradiction is not used in the query proof.
+gk result: (1, 0, 0, 0). The contradiction is not used in the query
+proof.
 
 Comparison: the ASP-based encodings state the contradictory pair through
 strong negation; smProbLog uses a fresh atom with an incompatibility
@@ -364,7 +409,8 @@ Input `inputs/gk/f1.gkp`:
 query(bird(f(f(a)))).
 ```
 
-gk result: .576 = .9 x .8 x .8.
+gk result: (.576, 0, 0, .424); .576 = .9 x .8 x .8. mcref does not
+accept function symbols, so no sampled value is recorded for this case.
 
 Comparison:
 
@@ -392,7 +438,7 @@ Input `inputs/gk/dj1.gkp`:
 query(q(a)).
 ```
 
-gk result: .72 = .8 x .9 for the surviving disjunct.
+gk result: (.72, 0, 0, .28); .72 = .8 x .9 for the surviving disjunct.
 
 Comparison:
 
