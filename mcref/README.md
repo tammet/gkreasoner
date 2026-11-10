@@ -9,8 +9,12 @@ no code with gk. For gk's clause notations it runs gk's parser only:
 
 - What the tool computes, what it declines, its output and its comparison
   with gk: [`Doc/mcref.md`](../Doc/mcref.md).
-- Version 1.1.1 (2026-11-09). It gives the same counts as version 1.1.0 of
-  2026-11-03.
+- Version 1.1.2 (2026-11-10). It computes the cycle rule of 2026-11-10:
+  sweeps only for a sweep group (one sign, no exception literal inside the
+  group, no normal default, no unresolved outside atom), the narrowing for
+  every other cycle group ([`Doc/support_semantics.md`](../Doc/support_semantics.md),
+  Section 14.6). Version 1.1.1 (2026-11-09) gave the same counts as
+  version 1.1.0 of 2026-11-03.
 
 ## Files
 

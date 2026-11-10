@@ -42,6 +42,8 @@ python3 mcref/mcref.py Examples/semantics/penguin.gkp --samples 20000
 | `mixed_kinds.gkp` | 8 | flies(t) (.65, 0, .3, .05) |
 | `absent_route.gkp` | 8 | flies(t) (.63, .3, 0, .07) |
 | `positive_loop.gkp` | 9 | b (.5, 0, 0, .5) |
+| `withdrawn_support.gkp` | 9 | p (0, 0, 0, 1); gk with the reading `cycle cut` |
+| `withdrawn_support_default.gkp` | 9 | b (.275, 0, 0, .725); **gk (.4, 0, 0, .6)** with no reading |
 | `mutual_block.gkp` | 9 | p(a) (0, 0, 0, 1); gk with the reading `cycle cut` |
 | `mutual_block_half.gkp` | 9 | p(a) (.25, 0, 0, .75); gk with the reading `cycle cut` |
 | `exception_cycle.gkp` | 9 | p (0, 0, 0, 1); **gk (1, 0, 0, 0)** with the reading `cycle cut` |
@@ -57,7 +59,14 @@ python3 mcref/mcref.py Examples/semantics/penguin.gkp --samples 20000
 | `bird_uncertain_sings.gkp` | 13 | sings(t) (1, 0, 0, 0) |
 
 The values are the values of the semantics, computed by hand. On
-2026-11-09 gk 1.2.3 gave them exactly on every input except the three in
-bold, where gk's cycle cut departs from the semantics. The reference tool
-mcref 1.1.1 gave them within its sampling error (at most ±.0113 per share
-at 20,000 samples, seed 1) on every input it accepts.
+2026-11-09 gk 1.2.3 gave them exactly on every input except the three
+bold rows with the reading `cycle cut`, where the cut departs from the
+semantics. The reference tool mcref 1.1.1 gave them within its sampling
+error (at most ±.0113 per share at 20,000 samples, seed 1) on every input
+it accepts. On 2026-11-10 mcref 1.1.2, which computes the cycle rule of
+`Doc/support_semantics.md` §14.6, gave the same counts as 1.1.1 on these
+inputs at 100,000 samples. The two inputs of withdrawn support were added
+on that day for the rule; mcref 1.1.2 gives their values, and gk 1.2.5
+gives the first. On the second gk evaluates the group {a, b} by sweeps
+and records no reading; its value is that of the sweeps, which the
+semantics used for this group before 2026-11-10.

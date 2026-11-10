@@ -279,8 +279,8 @@ has `reading` and `by`.
 - **1.2.3.** An application with an exception literal on its own atom
   with the head's sign, `p :- b, unless(p, 0)`, never applies
   ([support_semantics.md](support_semantics.md) §8 and §9: a one-atom cycle
-  through an exception literal whose sweeps alternate; the atom keeps only
-  its other evidence). Until
+  through an exception literal, which the narrowing leaves undecided; the
+  atom keeps only its other evidence). Until
   1.2.2 the exception was read as a veto by a copy of the atom (the reading
   `same-atom exception`, now gone): `0.5::b. p :- b, unless(p, 0).` gave
   (.5, 0, 0, .5) and now gives (0, 0, 0, 1). Decision 68 (an exception that

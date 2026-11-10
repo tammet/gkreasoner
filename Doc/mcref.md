@@ -14,8 +14,11 @@ Exceptions* (T. Tammet, 2026, in preparation); the paper's Section 5
 describes the tool. This page assumes that semantics and cites the
 sections of `support_semantics.md` as §1 to §15. The tool is in
 [`../mcref/`](../mcref/README.md), with its command-line reference. This
-page describes version 1.1.1
-of 2026-11-09, which gives the same counts as version 1.1.0 of 2026-11-03.
+page describes version 1.1.2
+of 2026-11-10. It computes the cycle rule of 2026-11-10 (§14.6): sweeps
+only for a sweep group, the narrowing for every other cycle group.
+Version 1.1.1 of 2026-11-09 gave the same counts as version 1.1.0 of
+2026-11-03; Section 12 lists what version 1.1.2 changed.
 
 `mcref` is not one of the two older Monte Carlo programs in
 [`../montecarlo/`](../montecarlo/README.md). Those check the direct method:
@@ -230,18 +233,25 @@ for each cycle group G, dependencies first:
         and neither sure; an atom left possible but not sure is unresolved
     else if G is one atom without a cycle:
         its state comes from the tables
-    else if G has no cycle across signs (one sign only, or a cycle through
-            exception literals only):
+    else if G is a sweep group:
         every atom of G starts ignorant
         repeat a sweep: recompute every atom of G from the previous states
             the sweep changes nothing      -> G is settled; stop
-            the states of G were seen before -> stop
-        not settled: the narrowing; an atom left possible but not sure is
-            ignorance
+    else if G has no cycle across signs:
+        the narrowing, ordinary applications first when G has normal
+        defaults; an atom left possible but not sure is ignorance
     else (a cycle across signs):
         the narrowing, ordinary applications first when G has normal
         defaults; an atom left possible but not sure is unresolved
 ```
+
+A **sweep group** is a cycle group G with four properties: G has no cycle
+across signs; no application for or against an atom of G has an exception
+literal whose atom is in G (the complement of its own head on a normal
+default does not count); no application for or against an atom of G is a
+normal default; and no atom outside G that G depends on is unresolved. The
+tool decides the first three once for each group, before sampling; the
+fourth is the first test of the loop above.
 
 The **narrowing** is the procedure of §9 and §14.6. In one world it keeps two
 sets of literals of G: **sure**, the literals the computation has
@@ -257,8 +267,23 @@ ordinary applications alone and fixes every atom that ends sure or in
 conflict, then on all applications (§9). Section 11.3 gives the
 pseudocode.
 
-The sweeps are deterministic. So the iteration either settles or returns to
-a state it has visited before, and then repeats the same states for ever.
+In a sweep group the set of atoms with the group's sign only grows from
+sweep to sweep, and the side of the other sign is the same in every sweep.
+So the states are final after at most |G|+1 sweeps, and sweep |G|+2
+changes nothing (the sweep lemma of §14.6). The tool checks this bound: a
+sweep group that changes a state in sweep |G|+2 stops the run with an
+internal error that names the input and the group (exit status 3). The
+bound has not been reached on any input.
+
+Before version 1.1.2 the tool used sweeps for every group without a cycle
+across signs and ran the narrowing only when the sweeps repeated a state.
+Sweeps can let a group support itself when support is withdrawn later.
+In `p :- unless(u). p :- p. u :- p. u.` the first sweep makes p positive
+before u blocks p's default, and `p :- p` then keeps p positive: version
+1.1.1 gave p (1, 0, 0, 0). The group {p, u} has the exception literal u
+inside, so version 1.1.2 uses the narrowing: u is sure, p's default is
+blocked, `p :- p` cannot make p possible, and p is in ignorance,
+(0, 0, 0, 1). The well-founded model of the program has p false.
 
 Example, `Examples/semantics/mutual_block_half.gkp`:
 
@@ -268,12 +293,11 @@ Example, `Examples/semantics/mutual_block_half.gkp`:
 query(p(a)).
 ```
 
-The group has a cycle through exception literals only. In a world where
-both rules pass their thresholds, the first sweep makes both atoms
-positive (neither exception is usable yet), the second makes both
-ignorant (each exception is now usable), and the third repeats the first
-state. The narrowing then finds neither literal sure, since each rule's
-exception stays possible, and both atoms are read as ignorance (§9).
+The group has a cycle through exception literals only, so it is not a
+sweep group, and the narrowing evaluates it. In a world where both rules
+pass their thresholds, the narrowing finds neither literal sure, since
+each rule's exception stays possible, and both atoms are read as
+ignorance (§9).
 With 100,000 samples the tool counts p(a) positive in 24,991 worlds and
 ignorant in 75,009: value (.2499, 0, 0, .7501), the semantics' (.25, 0, 0,
 .75). Until version 1.0.0 the tool reported the 25,015 worlds where both
@@ -401,7 +425,8 @@ The flags are observed features of gk's run on the input, not shown causes.
 A cause is claimed only where a run demonstrates it.
 
 The result of version 1.1.0 at 20,000 samples per input, against gk 1.2.3
-(2026-11-09):
+(2026-11-09; versions 1.1.1 and 1.1.2 give the same counts on all 360
+inputs, and gk 1.2.5 the same values):
 
 - 360 of the 1,022 inputs are inside the tool's scope. Equality (522
   inputs) and function symbols (86) are the largest rejection reasons; 7
@@ -546,15 +571,15 @@ world(U, V):
             narrow(G, all applications); an atom left possible but not
                 sure is unresolved
         else if G is one atom without a cycle: outcome(A, U, V)
-        else if G has no cycle across signs:
-            every atom of G starts as IGN; seen = {the state tuple of G}
-            repeat:
+        else if G is a sweep group (decided once, before sampling):
+            every atom of G starts as IGN
+            for k in 1, 2, ...:
                 sweep G, each atom from the previous sweep
                 if the sweep changes nothing: G is settled; stop
-                if the new state tuple of G is in seen: stop
-                add the tuple to seen
-            if G did not settle: narrow(G, all applications); an atom
-                left possible but not sure is ignorance
+                if k = |G| + 2: stop with an internal error
+        else if G has no cycle across signs:
+            narrow(G, all applications); an atom left possible but not
+                sure is ignorance
         else:
             narrow(G, all applications); an atom left possible but not
                 sure is unresolved
@@ -616,11 +641,11 @@ take (present, kind, rank, the range of its support) and checks the row
 for every pair of regimes (support_semantics.md §14.6, "Selections").
 
 An exception literal outside the group is settled before the group that
-reads it. A positive cycle without a seed stays ignorant. A safety stop of
-100,000 sweeps per group and world is counted in the output's
-`sweep_cap_hits`; it was not reached on the record. The output's
+reads it. A positive cycle without a seed stays ignorant. The output's
 `longest_sweeps` is the largest number of sweeps or narrowing rounds one
-group needed in one world. The evaluated atoms are the question instances
+group needed in one world. Version 1.1.1 also printed `sweep_cap_hits`,
+the count of a safety stop of 100,000 sweeps; version 1.1.2 has the bound
+|G|+2 of the sweep lemma instead, and the field is gone. The evaluated atoms are the question instances
 and every atom their applications read, transitively (all ground atoms
 with `--all-atoms`).
 
@@ -647,7 +672,7 @@ The output is one JSON line, `{"mcref": {...}}`, with the fields
 `version`, `input`, `converted_by`, `interpretation`, `question`,
 `variables`, `constants`, `ground_clauses`, `atoms`, `applications`,
 `self_exception_applications`, `evaluated_atoms`, `components`,
-`longest_sweeps`, `sweep_cap_hits`, `samples`, `seed`, `readings`,
+`longest_sweeps`, `samples`, `seed`, `readings`,
 `answers`, `unsupported` and `provenance`; with `--all-atoms` also
 `atom_values`, where an atom that fails the rank-context test has
 `unsupported` and no value. Each answer has `instance`, `key`, `binding`,
@@ -724,7 +749,7 @@ the scored rows only.
 ## 12. History
 
 The tool was written in the gk 1.2 work. The tasks, reports and design log
-of the steps below are not in the repository. The 135 acceptance cases
+of the steps below are not in the repository. The 148 acceptance cases
 of the steps, with their runner, are in gk's source repository.
 
 - Step 16 (2026-10-29): the tool.
@@ -754,3 +779,17 @@ of the steps, with their runner, are in gk's source repository.
   finds gk at `../bin/gk`, the layout of the gkreasoner repository. The
   counts did not change: the 135 acceptance cases pass, and the 39 inputs of
   `Examples/semantics/` give the counts of 1.1.0 at 20,000 samples.
+- 2026-11-10: version 1.1.2 computes the cycle rule of 2026-11-10
+  (support_semantics.md §14.6): sweeps only for a sweep group, the
+  narrowing for every other group without a cycle across signs, with an
+  undecided atom read as ignorance. The repeated-state test of step 17c and
+  the safety stop of 100,000 sweeps (`sweep_cap_hits`) are gone; a sweep
+  group that changes a state in sweep |G|+2 stops the run with an internal
+  error. The acceptance set `step112` (13 cases) was added, and its
+  changes file sets the step-17c case `s17c_late_settlement` to
+  (0, 0, 0, 1): the group has exception literals inside. All 148 cases pass. With the same seeds and sample counts, the
+  39 inputs of `Examples/semantics/` and the 360 inputs of the record give
+  the counts of 1.1.1. Of the 532 runs of the tool in the paper's
+  reproduction folder, 5 changed, all on the cyclic benchmark families: the
+  random programs of 8 and 40 facts (.222 to .219, .665 to .679) and three
+  undecided arguments of frameworks with 6, 10 and 20 arguments.

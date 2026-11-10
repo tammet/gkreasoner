@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 """mcref: an independent Monte Carlo reference for the support semantics of
 gk's recursive method (step 16 of the gk 1.2 work, 2026-10-29; step 19,
-2026-11-03: the tool computes the semantics memo of 2026-11-03).
+2026-11-03: the tool computes the semantics memo of 2026-11-03; version
+1.1.2, 2026-11-10: the cycle rule of 2026-11-10, sweeps for sweep groups
+only).
 
-The definition it computes is the support semantics of 2026-11-03, stated in
-Doc/support_semantics.md (Section 14). The section numbers cited below as
+The definition it computes is the support semantics of 2026-11-03 with the
+cycle rule of 2026-11-10, stated in Doc/support_semantics.md (Section 14;
+the cycle rule in Section 14.6). The section numbers cited below as
 "memo" are those of the unpublished memo of 2026-11-03 that the page follows.
 It reads a gk input and grounds it over the input's
 constants (mcref_read.py), turns every ground clause into applications (memo
@@ -21,7 +24,9 @@ only; a flat clause gives one application per literal, an uncertain one with
 a source event; a classical consequence that needs several clauses at once
 is not represented; the domain is the constants of the input; the kind of a
 side is decided in each world from the present applications (memo 4.5); a
-cycle across signs is evaluated by the narrowing of memo 5.5; an application
+sweep group (one sign, no exception literal in the group, no normal default,
+no unresolved outside atom) is evaluated by sweeps, every other cycle group
+by the narrowing of memo 5.5 (Doc/support_semantics.md 14.6); an application
 whose exception is its own body literal never applies (decision 68).
 Constants are typed: 1, 1.0 and "1" are three terms.
 
@@ -29,7 +34,8 @@ The rows of the tables (function `outcome`) are those of memo 4.2 and 4.4,
 not gk's C code. README.md describes the tool.
 
 Usage: mcref.py INPUT [--samples N] [--seed N] [--max-ground N] [--all-atoms]
-Output: one JSON line {"mcref": {...}}."""
+Output: one JSON line {"mcref": {...}}. Exit status 3 and a message on
+stderr: a sweep group that did not settle, an internal error (SweepError)."""
 import argparse
 import itertools
 import json
@@ -40,23 +46,25 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from mcref_read import Unsupported, atom_text, lit_text, read_input, sha256_file, untyped  # noqa: E402
 
-VERSION = "1.1.1"   # the tool's version, printed in every output
+VERSION = "1.1.2"   # the tool's version, printed in every output
 POS, NEG, CON, IGN, UNRES = 0, 1, 2, 3, 4
 MASK = (1 << 64) - 1
 GOLDEN = 0x9E3779B97F4A7C15   # splitmix64's increment
 TWO53 = 2.0 ** -53
 INTERPRETATION = {
-  "semantics": "Doc/support_semantics.md, the support semantics of 2026-11-03",
+  "semantics": "Doc/support_semantics.md, the support semantics of 2026-11-03 with the cycle rule of 2026-11-10",
   "written-head rules": "a certain rule without exception literals is used in every direction (memo 4.1); "
                         "below confidence 1 or with an exception literal, at its written head only",
   "flat clauses": "one application per literal; one source event per uncertain ground clause",
   "not represented": "a classical consequence that needs several input clauses at once",
   "domain": "the constants of the input",
   "kind of a side": "decided in each world from the applications present in it (memo 4.4, 4.5)",
-  "cycles": "a cycle across signs by the narrowing of memo 5.5, ordinary applications first when the group has "
-            "normal defaults; a one-sign or exception-only group by sweeps, the narrowing only when the sweeps "
-            "repeat a state, an undecided atom then read as ignorance (memo 5.1, 5.4)",
-  "unresolved": "an atom of a cycle across signs left possible but not sure (memo 5.4, 5.5); a group that depends "
+  "cycles": "a sweep group (no cycle across signs, no exception literal in the group, no normal default for or "
+            "against an atom of the group, no unresolved outside atom) by sweeps, which settle; every other group "
+            "by the narrowing of memo 5.5, ordinary applications first when the group has normal defaults, an "
+            "undecided atom read as ignorance when the group has no cycle across signs and no unresolved outside "
+            "atom (Doc/support_semantics.md 14.6, the rule of 2026-11-10)",
+  "unresolved": "an atom of a cycle across signs left possible but not sure (memo 5.5); a group that depends "
                 "on an unresolved atom runs the narrowing with that atom's two literals possible and neither sure "
                 "(memo 5), and an atom of it left possible but not sure is unresolved too",
   "rank contexts (decision 13)": "not covered; an input where they can matter is unsupported",
@@ -282,7 +290,7 @@ def components(deps, n):
 def build_comps(deps, n):
   """the cycle groups (memo 5) in dependency order: (atoms, the outside
   atoms the group depends on, the readers of each atom inside the group,
-  whether the group has a cycle)"""
+  whether the group has a cycle). group_kinds() adds the procedure."""
   comps = []
   for nodes in components(deps, n):
     members = set(nodes)
@@ -686,7 +694,7 @@ def narrow_group(nodes, outside, byatom, u, v, state, unres_reading, stats):
   has normal defaults (memo 5.3), one otherwise; then the state of every
   atom. An atom left possible but not sure gets unres_reading: UNRES for a
   cycle across signs or a group that depends on an unresolved atom, IGN for
-  a one-sign or exception-only group whose sweeps did not settle (memo 5.4)."""
+  any other group that is not a sweep group (Doc/support_semantics.md 14.6)."""
   ext_base, unres_lits = set(), set()
   for j in outside:
     if state[j] == POS:
@@ -728,60 +736,90 @@ def narrow_group(nodes, outside, byatom, u, v, state, unres_reading, stats):
       state[i] = unres_reading
 
 
-SWEEP_CAP = 100000   # a safety stop for the sweeps, never reached on the record; counted in sweep_cap_hits
+ONE, SWEEP, NARROW_IGN, NARROW_UNRES = 0, 1, 2, 3   # the procedure of a cycle group
+
+
+class SweepError(Exception):
+  """a sweep group whose sweeps changed a state in sweep |G|+2. The sweep
+  lemma (Doc/support_semantics.md 14.6) says the states are final after at
+  most |G|+1 sweeps, so this is an internal error of the tool."""
+
+  def __init__(self, nodes, sweeps):
+    Exception.__init__(self, "a sweep group did not settle")
+    self.nodes, self.sweeps = nodes, sweeps
+
+
+def group_kinds(comps, byatom):
+  """the procedure of each cycle group (Doc/support_semantics.md 14.6, the
+  rule of 2026-11-10), decided once: ONE for an atom that does not depend on
+  itself; SWEEP for a sweep group, which has no cycle across signs, no
+  application of the group with an exception literal in the group, and no
+  normal default among the applications of the group; NARROW_IGN for any
+  other group without a cycle across signs; NARROW_UNRES for a cycle across
+  signs. The fourth condition of a sweep group, no unresolved outside atom,
+  depends on the world and is tested in world(). The complement of its own
+  head on a normal default is not among an application's exceptions
+  (application()), so it does not count in the second condition."""
+  out = []
+  for nodes, outside, inner, cyclic in comps:
+    if not cyclic:
+      kind = ONE
+    elif is_cross_sign(nodes, byatom):
+      kind = NARROW_UNRES
+    else:
+      members = set(nodes)
+      apps = [x for i in nodes for x in byatom[i]]
+      exc_inside = any(j in members for x in apps for j, _s in x[3])
+      normal = any(x[4] for x in apps)
+      kind = NARROW_IGN if exc_inside or normal else SWEEP
+    out.append((nodes, outside, inner, kind))
+  return out
+
+
+def sweep_group(nodes, inner, byatom, u, v, state, stats):
+  """the sweeps of a sweep group: every atom starts in ignorance, and each
+  sweep recomputes the atoms from the states of the previous sweep, until a
+  sweep changes nothing. The sweep lemma bounds the count by |G|+2, the
+  last sweep changing nothing; a change in sweep |G|+2 raises SweepError."""
+  for i in nodes:
+    state[i] = IGN
+  dirty, sw, limit = nodes, 0, len(nodes) + 2
+  while True:
+    sw += 1
+    changed = []
+    for i in dirty:
+      s = outcome(byatom[i], state, u[i], v[i])
+      if s != state[i]:
+        changed.append((i, s))
+    if not changed:
+      break
+    if sw >= limit:
+      raise SweepError(nodes, sw)
+    nd = set()
+    for i, s in changed:
+      state[i] = s
+      nd.update(inner[i])
+    dirty = sorted(nd)
+  if sw > stats[0]:
+    stats[0] = sw
 
 
 def world(byatom, comps, u, v, state, stats):
   """one world: the cycle groups in dependency order, each from the final
-  states of the atoms outside it (memo 5, the table). A group that depends
-  on an unresolved atom runs the narrowing whatever its shape (memo 5, the
-  paragraph after the table). stats = [the longest sweep or round count,
-  the safety stops of the sweeps]."""
-  for nodes, outside, inner, cyclic in comps:
+  states of the atoms outside it (Doc/support_semantics.md 14.6). A group
+  that depends on an unresolved atom runs the narrowing whatever its shape,
+  an undecided atom then unresolved. comps holds the procedures of
+  group_kinds(). stats = [the longest sweep or round count]."""
+  for nodes, outside, inner, kind in comps:
     if any(state[j] == UNRES for j in outside):
       narrow_group(nodes, outside, byatom, u, v, state, UNRES, stats)
-      continue
-    if not cyclic:
+    elif kind == ONE:
       i = nodes[0]
       state[i] = outcome(byatom[i], state, u[i], v[i])
-      continue
-    cross = is_cross_sign(nodes, byatom)
-    if not cross:
-      # a one-sign or exception-only group: sweeps (memo 5.1); the narrowing
-      # only when a sweep repeats a state, an undecided atom then ignorance
-      for i in nodes:
-        state[i] = IGN
-      dirty, settled, sw = nodes, False, 0
-      seen = {tuple(state[i] for i in nodes)}
-      while True:
-        sw += 1
-        changed = []
-        for i in dirty:
-          s = outcome(byatom[i], state, u[i], v[i])
-          if s != state[i]:
-            changed.append((i, s))
-        if not changed:
-          settled = True
-          break
-        nd = set()
-        for i, s in changed:
-          state[i] = s
-          nd.update(inner[i])
-        dirty = sorted(nd)
-        key = tuple(state[i] for i in nodes)
-        if key in seen:
-          break
-        if sw >= SWEEP_CAP:
-          stats[1] += 1
-          break
-        seen.add(key)
-      if sw > stats[0]:
-        stats[0] = sw
-      if settled:
-        continue
-      narrow_group(nodes, outside, byatom, u, v, state, IGN, stats)
-      continue
-    narrow_group(nodes, outside, byatom, u, v, state, UNRES, stats)
+    elif kind == SWEEP:
+      sweep_group(nodes, inner, byatom, u, v, state, stats)
+    else:
+      narrow_group(nodes, outside, byatom, u, v, state, IGN if kind == NARROW_IGN else UNRES, stats)
 
 
 def hoeffding(n):
@@ -865,12 +903,12 @@ def run(path, samples, seed, max_ground, all_atoms):
   live = {(POS if sg == 0 else NEG, idx[a]) for sg, a in possible if a in idx}
   byatom = [[x for x in byatom[h] if all((sg, j) in live for j, sg in x[2])] for h in range(n)]
   deps = [sorted({j for x in byatom[h] for j, _s in x[2] + x[3]}) for h in range(n)]
-  comps = build_comps(deps, n)
+  comps = group_kinds(build_comps(deps, n), byatom)
   res["components"] = len(comps)
   counts = [[0, 0, 0, 0, 0] for _ in insts]
   acounts = [[0, 0, 0, 0, 0] for _ in range(n)] if all_atoms else None
   state, u, v = [IGN] * n, [0.0] * n, [0.0] * n
-  stats = [0, 0]
+  stats = [0]
   # splitmix64 in the order of the atom texts: atom i's U and V are the
   # draws 2i+1 and 2i+2 of a world. The state advances by GOLDEN per draw,
   # so a draw is computed only where it can change a state: U for an atom
@@ -894,13 +932,19 @@ def run(path, samples, seed, max_ground, all_atoms):
       z = ((z ^ (z >> 27)) * 0x94D049BB133111EB) & MASK
       v[i] = ((z ^ (z >> 31)) >> 11) * TWO53
     s = (s + step) & MASK
-    world(byatom, comps, u, v, state, stats)
+    try:
+      world(byatom, comps, u, v, state, stats)
+    except SweepError as e:
+      e.args = ("mcref %s: internal error: the sweep group {%s} of %s changed a state in sweep %d; the sweep "
+                "lemma of Doc/support_semantics.md 14.6 says that sweep %d changes nothing"
+                % (VERSION, ", ".join(atom_text(*order[i]) for i in e.nodes), path, e.sweeps, len(e.nodes) + 2),)
+      raise
     for j, qi in enumerate(qidx):
       counts[j][state[qi]] += 1
     if all_atoms:
       for i in range(n):
         acounts[i][state[i]] += 1
-  res["longest_sweeps"], res["sweep_cap_hits"] = stats
+  res["longest_sweeps"] = stats[0]
   for j, (text, key, binding) in enumerate(insts):
     a = {"instance": text, "key": ["-" if qs else "+", key[0], None if key[1] is None else [untyped(t) for t in key[1]]]}
     if inp.qvars:
@@ -923,7 +967,12 @@ def main():
   a = ap.parse_args()
   if a.samples < 1:
     ap.error("--samples must be at least 1")
-  print(json.dumps({"mcref": run(a.input, a.samples, a.seed, a.max_ground, a.all_atoms)}))
+  try:
+    res = run(a.input, a.samples, a.seed, a.max_ground, a.all_atoms)
+  except SweepError as e:
+    sys.stderr.write(e.args[0] + "\n")
+    sys.exit(3)
+  print(json.dumps({"mcref": res}))
 
 
 if __name__ == "__main__":

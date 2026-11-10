@@ -365,8 +365,12 @@ A cycle of one sign without internal exceptions is evaluated as a group.
 For each atom of the group, the evaluator divides [0, 1) at the finitely
 many support values that subsets of its applications can produce. On each
 cell of this division the comparisons with the atom's numbers are
-constant, so one sweep of the semantics' procedure gives one state per
-cell. A cycle across signs or through exceptions gets a **cycle cut**
+constant, so one sweep gives one state per cell. The semantics uses
+sweeps only for such a group without a normal default (a sweep group,
+support_semantics.md §14.6). For a group of one sign with a normal default
+it uses the narrowing, and gk's sweeps can give another value without
+recording a reading (support_semantics.md §9, the example with `b :- b`).
+A cycle across signs or through exceptions gets a **cycle cut**
 (Section 8). The number of cases or cells can be large, so the evaluation
 has resource limits.
 
@@ -381,9 +385,10 @@ classical definition. Suppose that the snapshot satisfies two conditions:
    steps, equality, arithmetic or taxonomy ranks, without a residual
    variable and without a rank-context restriction.
 2. Every cycle group is a single atom without a self-loop, or a cycle of
-   one sign with no exception literal inside it, in which every application
-   with a condition inside the cycle is ordinary and its head and inner
-   conditions have that sign.
+   one sign with no exception literal inside it and no normal default for
+   or against one of its atoms, in which every application with a
+   condition inside the cycle has its head and inner conditions of that
+   sign.
 
 If the evaluation then completes without reaching a resource limit and
 without an approximation, the four shares equal the semantics' value for

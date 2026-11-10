@@ -31,7 +31,11 @@ computes the semantics by random sampling and shares no code with gk's
 proof search. The tool ran with 20,000 samples, and its sampling error is
 then at most ±.0113 per share for one answer. The two agree on every
 example within that error, except on three cycles that Section 9 names.
-The inputs are in `Examples/semantics/`.
+The inputs are in `Examples/semantics/`. On 2026-11-10 `mcref` 1.1.2,
+which computes the cycle rule of Section 14.6, gave the same counts as
+1.1.1 on every input of `Examples/semantics/` at 100,000 samples. The two
+examples that Section 9 adds for that rule were checked with `mcref`
+1.1.2 and gk 1.2.5; gk differs on the second (Section 9, the end).
 
 The examples use the GKP notation: `0.8::bird(t).` is a fact with
 confidence .8, `flies(X) :- bird(X).` a rule, `-flies(t)` a negated
@@ -553,8 +557,9 @@ query(p).
 
 The answer is (0, 0, 0, 1). This is not a separate rule: the atom p
 depends on itself through its exception, so it is a cycle of one atom
-through an exception literal, and Section 9 says that such a cycle whose
-states alternate leaves its atom in ignorance. With one more fact
+through an exception literal. Section 9 evaluates such a cycle by the
+narrowing, which leaves the atom undecided, and an undecided atom of a
+group without a cycle across signs is in ignorance. With one more fact
 `0.3::p` the answer is (.3, 0, 0, .7): the atom keeps only its other
 evidence. gk 1.2.3 gives both values; until gk 1.2.2 it read the
 exception as a veto by a copy of the atom and gave (.5, 0, 0, .5).
@@ -627,11 +632,12 @@ components of the dependency relation. The semantics evaluates the groups
 in an order in which every group comes after all the atoms it depends on,
 so a group reads only final states outside itself. A group of one atom
 that does not depend on itself takes its state from the table of
-Section 6 in one step. The other groups are of three shapes:
+Section 6 in one step. The other groups are of four shapes:
 
 | the group | procedure |
 |---|---|
-| applications of one sign only, or a cycle through exception literals only | sweeps; if they repeat a state, the narrowing, with an undecided atom read as ignorance |
+| a sweep group: applications of one sign only, no exception literal in the group, no normal default | sweeps |
+| any other group without a cycle across signs | the narrowing, ordinary applications first when the group has normal defaults, with an undecided atom read as ignorance |
 | a cycle across signs, without a normal default | the narrowing |
 | a cycle across signs, with normal defaults | the narrowing, ordinary applications first |
 
@@ -641,7 +647,16 @@ than its head, or when two applications with a body literal in the group
 have heads of opposite signs. Exception literals and facts do not count
 in this test.
 
-**One sign: sweeps.** A loop of positive rules settles:
+A group is a **sweep group** when four conditions hold: it has no cycle
+across signs; no application for or against an atom of the group has an
+exception literal whose atom is in the group (the complement of its own
+head on a normal default does not count); no application for or against
+an atom of the group is a normal default; and no atom outside the group
+that the group depends on is unresolved. A group that depends on an
+unresolved atom is evaluated by the narrowing (the paragraph
+"Unresolved" below).
+
+**Sweep groups: sweeps.** A loop of positive rules settles:
 
 ```prolog
 0.5::a.
@@ -655,12 +670,49 @@ the group starts in ignorance, and a **sweep** recomputes all of them at
 once from the states of the previous sweep. When a sweep changes nothing,
 the group is settled. Here the first sweep makes `a` positive from its
 fact where its number is below .5, the second makes `b` positive from
-`a`, and the third changes nothing. A positive cycle cannot support
-itself, since the sweeps start from ignorance; this keeps the agreement
-with ProbLog of Section 3, positive recursion included.
+`a`, and the third changes nothing. In a sweep group the set of atoms
+with the group's sign only grows from sweep to sweep, so the sweeps
+settle after at most one sweep more than the group has atoms (the sweep
+lemma of Section 14.6). The sweeps start from ignorance, so a positive
+cycle without a fact stays in ignorance; this keeps the agreement with
+ProbLog of Section 3, positive recursion included.
 
-**Exceptions only: sweeps, then ignorance.** A loop through exceptions
-need not settle:
+**Withdrawn support: the narrowing.** Sweeps are not used when support
+can be withdrawn inside the group. In
+
+```prolog
+p :- unless(u).
+p :- p.
+u :- p.
+u.
+query(p).
+```
+
+the first sweep would make `p` positive, before `u` blocks its rule, and
+`p :- p` would then keep it positive. The group {p, u} has the exception
+literal `u` inside, so it is not a sweep group, and the narrowing below
+evaluates it: `u` is sure from its fact, the rule `p :- unless(u)` is
+blocked, and `p :- p` cannot make `p` possible. The answer is
+(0, 0, 0, 1). A normal default has the same effect when an ordinary
+application joins its side and changes the side's kind:
+
+```prolog
+0.5::a :- unless(-a).
+0.2::-a.
+0.5::a :- b.
+b :- a.
+b :- b.
+query(b).
+```
+
+Sweeps would give `b` (.4, 0, 0, .6), since `b :- b` keeps `b` positive
+in worlds where the first sweep made `a` positive from its default and a
+later sweep withdrew it. The group {a, b} has a normal default, so the
+narrowing evaluates it, and `b` is positive exactly where `a` is:
+(.275, 0, 0, .725).
+
+**Exceptions only: the narrowing, then ignorance.** Under sweeps a loop
+through exceptions need not settle:
 
 ```prolog
 p(a) :- unless(b(a)).
@@ -668,12 +720,13 @@ b(a) :- unless(p(a)).
 query(p(a)).
 ```
 
-Both atoms start in ignorance, so neither exception is usable, so the
-first sweep makes both positive. Now each exception is usable, so the
-second sweep makes both ignorant again, and the states repeat. When the
-sweeps of such a group repeat a state, the group is evaluated by the
-narrowing below, and an atom that the narrowing leaves undecided is read
-as **ignorance**. The answer is (0, 0, 0, 1) for both atoms. With
+If both atoms started in ignorance, neither exception would be usable, so
+a first sweep would make both positive. Then each exception would be
+usable, so a second sweep would make both ignorant again, and the states
+would repeat. The group has exception literals inside, so it is not a
+sweep group: the narrowing below evaluates it, and an atom that the
+narrowing leaves undecided is read as **ignorance**. The answer is
+(0, 0, 0, 1) for both atoms. With
 strength .5 on both rules it is (.25, 0, 0, .75): where one rule passes
 alone, its head holds; where both pass, the two block each other, and
 both atoms are in ignorance. The same holds for three atoms in a ring,
@@ -681,9 +734,10 @@ both atoms are in ignorance. The same holds for three atoms in a ring,
 (0, 0, 0, 1). The exception on the default's own atom of Section 8 is the
 case of one atom.
 
-**Across signs: the narrowing.** For a cycle across signs the semantics
-uses a **narrowing** of two sets of literals, an idea familiar from the
-well-founded semantics of logic programming. It works in one fixed world,
+**The narrowing.** For a cycle across signs, and for every other group
+that is not a sweep group, the semantics uses a **narrowing** of two sets
+of literals, an idea familiar from the well-founded semantics of logic
+programming. It works in one fixed world,
 in which all numbers are drawn and every atom outside the group has its
 final state. **Sure** holds the literals of the group that the
 computation has justified, and **possible** holds the literals it has not
@@ -713,7 +767,9 @@ literals and both literals of every atom of the group. Then, in turn:
 
 At the end an atom with a literal in sure has that sign; an atom with
 neither literal in possible is in ignorance; any other atom is
-**unresolved**. Section 14.6 states the steps precisely.
+undecided. An undecided atom is **unresolved** when the group has a cycle
+across signs or depends on an unresolved atom, and in ignorance
+otherwise. Section 14.6 states the steps precisely.
 
 On the inconsistent world of Section 7, in the case where both facts
 pass, sure stays empty: `r` has its fact for it, but the backward
@@ -776,6 +832,12 @@ this page the cut leaves the value of the semantics. It does not on three:
 The cut depends on which atom was asked and on the order in which the
 proofs were found, so these differences are a property of gk's method,
 not of the semantics. Section 12 lists gk's readings.
+
+On the two examples of withdrawn support above, gk 1.2.5 gives `p`
+(0, 0, 0, 1) with the reading `cycle cut`, the value of the semantics,
+and `b` (.4, 0, 0, .6) with no reading. The second value is the value of
+the sweeps that the semantics used for this group before 2026-11-10; the
+semantics now gives (.275, 0, 0, .725).
 
 ## 10. Two combined examples
 
@@ -991,9 +1053,13 @@ conditioning on shared atoms and by dynamic programming over each atom's
 applications, on the class stated in the paper's Theorem 3: Horn-shaped
 steps without composite steps, equality, arithmetic, taxonomy strength,
 residual variables or rank contexts; every cycle group of one sign without
-an exception inside it; and an evaluation that reaches none of its
-resource limits and records no cycle cut. On that class the value is
-exact for the evidence in the snapshot. It equals the answer for the
+an exception inside it and without a normal default for or against one of
+its atoms; and an evaluation that reaches none of its resource limits and
+records no cycle cut. On that class the value is exact for the evidence in
+the snapshot. A cycle group of one sign with a normal default is outside
+the class: gk evaluates it by sweeps and records no reading, while the
+semantics evaluates it by the narrowing, and the two can differ
+(Section 9, the example with `b :- b`). It equals the answer for the
 whole input only when the expansion has also found every application the
 question depends on, and a finite budget need not find them all.
 
@@ -1026,7 +1092,7 @@ this page:
   that gk cannot replay as an application enters as a marked **proof
   application**, with the reading `a step not represented`.
 
-**The reference tool** `mcref` 1.1.1 builds all applications by grounding
+**The reference tool** `mcref` 1.1.2 builds all applications by grounding
 over D, samples worlds, and counts the states ([mcref.md](mcref.md)). It
 is independent of gk's search. To run it on an example:
 
@@ -1250,6 +1316,15 @@ remain after Section 14.3. The **cycle groups** are the strongly connected
 components of this relation; an atom that is in no cycle forms a group of
 its own. In each world:
 
+**Sweep groups.** An application *of G* is an application whose head is
+A or ¬A for an atom A of G. A cycle group G is a **sweep group** when
+
+1. G has no cycle across signs (Section 9);
+2. no application of G has an exception literal whose atom is in G; the
+   complement of its own head on a normal default does not count;
+3. no application of G is a normal default;
+4. no atom outside G that G depends on is unresolved.
+
 ```
 draw U_A and V_A for every ground atom
 for each cycle group G, after every group that G depends on:
@@ -1257,16 +1332,26 @@ for each cycle group G, after every group that G depends on:
         run the procedure for G (below), whatever its shape
     else if G is one atom that does not depend on itself:
         its state comes from Section 14.5
-    else if G has applications of one sign only, or is a cycle through exception literals only:
+    else if G is a sweep group:
         every atom of G starts in ignorance
-        repeat a sweep: recompute every atom of G from the states of the previous sweep
-            the sweep changes nothing             -> G is settled; its states are final
-            the states of G repeat earlier states -> run the procedure for G,
-                                                     and read an unresolved atom of G as ignorance
+        repeat a sweep: recompute every atom of G from the states of the previous sweep,
+            until a sweep changes nothing; the states of G are then final
+    else if G has no cycle across signs:
+        run the procedure for G, and read an unresolved atom of G as ignorance
     else:                                          (a cycle across signs)
         run the procedure for G
 record the state of the question's atom, unresolved included
 ```
+
+**The sweep lemma.** Let G be a sweep group. All applications of G with
+a body literal in G have heads of one sign s, and their body literals in
+G have sign s. The side of the other sign of every atom of G is the same
+in every sweep, and the set of atoms of G with sign s only grows from
+sweep to sweep. So the states of G are final after at most |G| + 1
+sweeps, and the next sweep changes nothing. The final set of atoms with
+sign s is the least fixed point of one sweep. The paper proves the lemma;
+the reference tool stops with an internal error if a sweep group changes
+a state in sweep |G| + 2.
 
 **The narrowing**, for a given set of applications of G. Literals of the
 atoms outside G are read from their final states. For a literal L of G,
@@ -1328,9 +1413,18 @@ step 3 decide.
    Otherwise run the narrowing once, on all applications.
 2. A fixed atom keeps its state. An atom with a literal in sure has that
    sign. An atom with neither literal in possible is in ignorance. Any
-   other atom is **unresolved**.
+   other atom is **unresolved**; in a group without a cycle across signs
+   that depends on no unresolved atom, the table above reads it as
+   ignorance.
 
 An atom fixed in conflict keeps that state for the rest of the world.
+
+*Changed on 2026-11-10:* sweeps are used for sweep groups only; before,
+every group without a cycle across signs was swept, and the narrowing ran
+only when the sweeps repeated a state. Two examples changed:
+`p :- t. q :- t. p :- q. q :- p. t :- unless(u). u :- p. u.` gives p
+(0, 0, 0, 1), was (1, 0, 0, 0); the example of Section 9 with `b :- b`
+gives b (.275, 0, 0, .725), was (.4, 0, 0, .6).
 
 ### 14.7 The report
 
@@ -1414,6 +1508,7 @@ The paper proves the following for finite ground programs.
 | depends on | atom A depends on every atom in a body or external exception literal of an application with head A or ¬A |
 | cycle group | atoms that depend on each other in a circle (a strongly connected component of the dependency relation) |
 | sweep | one recomputation of every atom of a group from the states of the previous sweep |
+| sweep group | a cycle group of one sign without an exception literal inside, without a normal default and without an unresolved outside atom; evaluated by sweeps (Section 14.6) |
 | narrowing | the computation of the sure and the possible literals of a cycle group (Section 14.6) |
 | sure, possible | the literals the narrowing has justified, and the literals it has not yet ruled out |
 | fixed | an atom whose final state the procedure has given in this world |
