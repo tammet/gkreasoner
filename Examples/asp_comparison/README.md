@@ -48,7 +48,7 @@ the strong-negated `-flies` predicate in the other ASP files.
 
 ## Systems and versions
 
-The measured implementations were gk 1.0.0 (and gk 1.2.4, below), clingo 5.6.2, DLV (the
+The measured implementations were gk 1.0.0 (and gk 1.2.5, below), clingo 5.6.2, DLV (the
 official x86-64 static release), I-DLV 1.1.6, and s(CASP) 1.1.4 on
 [SWI-Prolog](https://www.swi-prolog.org/) 9.2.9. On the basic
 bird/penguin input, gk, clingo, DLV, and s(CASP) all establish the
@@ -75,16 +75,16 @@ largest; all three runs returned an answer within their limits. The
 30-second limit; the two larger s(CASP) runs reached SWI-Prolog's default
 stack limit first. Further protocol detail is in [`results.md`](results.md).
 
-### gk 1.2.4
+### gk 1.2.5
 
-gk 1.2.4 answers with the recursive method by default. Single runs of the
+gk 1.2.5 answers with the recursive method by default. Single runs of the
 same gk commands on an AMD Ryzen 5 3600 (6 cores), with `/usr/bin/time`:
 
-| Constants | `-seconds` | gk 1.2.4 value of `flies(b1)` | Wall time | Maximum RSS | Searches cut |
+| Constants | `-seconds` | gk 1.2.5 value of `flies(b1)` | Wall time | Maximum RSS | Searches cut |
 |---:|---:|---|---:|---:|---:|
-| 1,000 | 1 | (1, 0, 0, 0) | 0.74 s | 206,664 KiB | 3 |
-| 2,000 | 1 | (1, 0, 0, 0) | 0.78 s | 221,076 KiB | 3 |
-| 100,000 | 10 | (1, 0, 0, 0) | 7.29 s | 508,156 KiB | 4 |
+| 1,000 | 1 | (1, 0, 0, 0) | 0.73 s | 206,508 KiB | 3 |
+| 2,000 | 1 | (1, 0, 0, 0) | 0.78 s | 221,040 KiB | 3 |
+| 100,000 | 10 | (1, 0, 0, 0) | 7.38 s | 506,780 KiB | 4 |
 
 The value is the four shares (for, against, conflict, ignorance). The
 recursive method also searches for opposition to the answer and its

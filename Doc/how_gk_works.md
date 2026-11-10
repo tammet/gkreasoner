@@ -8,7 +8,7 @@ This page describes the **recursive method**, which `gk input` runs since
 version 1.2.0. What the four shares mean is defined in
 [support_semantics.md](support_semantics.md). The output is described in
 [recursive_output.md](recursive_output.md). The values below are the output
-of gk 1.2.4.
+of gk 1.2.5.
 
 gk also keeps the older **direct method** of gk 1.1.2. `gk input -direct`
 runs it, and [direct_method.md](direct_method.md) describes it.
@@ -57,6 +57,13 @@ flies(p)  (0, 1, 0, 0)
 
 The ordinary bird `b` flies. For the penguin `p`, the strict rule
 `-flies(X) :- penguin(X)` gives the answer "against".
+
+Each answer in the line also carries its resolution proofs, for and against
+(the field `proof`). A default proof shows the main structure of the proof:
+the steps by which the proof search derived the answer. The nested searches
+described below can find sub-proofs for or against these steps. The value
+counts them, and `-fullproof` shows them
+([recursive_output.md](recursive_output.md) Section 3.1).
 
 ## 2. Input confidences
 
@@ -540,8 +547,8 @@ between the first proof search, the nested searches and the evaluations
 (Section 6).
 
 A fixed set of axioms can be parsed once into shared memory (`-readkb`) and
-reused across many queries (`-usekb`). Since 1.2.4 the recursive method runs
-on such a knowledge base as on one input file
+reused across many queries (`-usekb`). The recursive method runs on such a
+knowledge base as on one input file
 ([recursive_output.md](recursive_output.md) Section 1). The options are
 described in [`cli_reference.md`](cli_reference.md).
 

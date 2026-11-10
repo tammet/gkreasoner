@@ -10,7 +10,7 @@ the meaning of the four shares on examples.
 gk's default method, the recursive method, starts from the proofs it finds,
 searches recursively for further support, opposition and exceptions, and
 evaluates all the evidence in one calculation. Run commands from the
-repository root. The values below are gk 1.2.4's, shortened.
+repository root. The values below are gk 1.2.5's, shortened.
 
 ## Product along a proof
 
@@ -88,7 +88,7 @@ and above .7 neither passes (ignorance .3).
 
 The `net_*.js` files vary which side is stronger:
 
-| File | Evidence | gk 1.2.4 |
+| File | Evidence | gk 1.2.5 |
 |---|---|---|
 | `net_lone.js` | .5 for, nothing against | (.5, 0, 0, .5) |
 | `net_fought.js` | .9 for, .4 against | (.5, 0, .4, .1) |

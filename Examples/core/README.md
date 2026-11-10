@@ -19,7 +19,7 @@ finds both classical proofs and answers `true` with confidence 1:
 ./bin/gk Examples/core/logic_chain.js -direct
 ```
 
-The second command needs about 8 seconds. In gk 1.2.4 the recursive
+The second command needs about 8 seconds. In gk 1.2.5 the recursive
 method does not find these proofs: they are measured limits of its search.
 
 ## Support for explicit negation
@@ -39,7 +39,7 @@ on `bird(a)` and propagates it through rules for `flies(a)`:
 ```
 
 ```text
-"answers":[{"answer":"flies(a)","value":[0.252,0,0,0.748]}]
+"answers":[{"answer":["flies","a"],"value":[0.252,0,0,0.748],...}]
 ```
 
 `bird(a)` has the sources .9 and .8 for it (.98 together) and .7 against

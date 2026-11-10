@@ -11,6 +11,11 @@
 # which include the times budget_used_ms and switches, and the dump that
 # follows the line. python3 reads the JSON line.
 #
+# Since gk 1.2.5 the line writes the question and the answers as JSON
+# literals, ["q","a"], where gk 1.2.4 and earlier wrote the text "q(a)". The
+# script turns a JSON literal into that text before it compares, so the
+# captures of gk 1.2.3 and the output of a newer gk compare alike.
+#
 # Usage, from the repository root or from comparisons/:
 #   comparisons/check_gk_cells.sh
 #   GK=<path> comparisons/check_gk_cells.sh    (another gk binary)
@@ -36,6 +41,32 @@ try:
 except Exception:
   print("no {\"recursive\": ...} line")
   sys.exit(0)
+def term_text(t):
+  # a term or literal of the JSON form as the text of gk 1.2.4
+  if isinstance(t, bool):
+    return "true" if t else "false"
+  if isinstance(t, int):
+    return str(t)
+  if isinstance(t, float):
+    for p in range(1, 18):
+      s = "%.*g" % (p, t)
+      if float(s) == t:
+        break
+    return s if any(c in s for c in ".eni") else s + ".0"
+  if isinstance(t, str):
+    if t.startswith("?:X"):
+      return "_V" + t[3:]
+    if t.startswith(":"):
+      return t[1:]
+    return t
+  if isinstance(t, list) and t:
+    if len(t) == 1:
+      return term_text(t[0])
+    return term_text(t[0]) + "(" + ",".join(term_text(a) for a in t[1:]) + ")"
+  return str(t)
+def lit_text(x):
+  # text and None stay as they are
+  return x if x is None or isinstance(x, str) else term_text(x)
 def rnd(x):
   if isinstance(x, float):
     return round(x, 6)
@@ -44,8 +75,8 @@ def rnd(x):
   if isinstance(x, dict):
     return {k: rnd(v) for k, v in x.items()}
   return x
-answers = sorted(([a.get("answer"), rnd(a.get("value"))] for a in r.get("answers", [])), key=str)
-keep = {"question": r.get("question"), "value": rnd(r.get("value")),
+answers = sorted(([lit_text(a.get("answer")), rnd(a.get("value"))] for a in r.get("answers", [])), key=str)
+keep = {"question": lit_text(r.get("question")), "value": rnd(r.get("value")),
         "answers": answers, "readings": rnd(r.get("readings")), "stop": r.get("stop")}
 print(json.dumps(keep, sort_keys=True))
 '

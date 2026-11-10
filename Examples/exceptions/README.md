@@ -9,7 +9,7 @@ allowances. All the evidence goes into one calculation of the four shares:
 for, against, conflict, and ignorance. Ranks, numeric or from a taxonomy,
 decide which defaults may defeat other defaults.
 
-Run commands from the repository root. The values below are gk 1.2.4's,
+Run commands from the repository root. The values below are gk 1.2.5's,
 shortened. [`../../Doc/support_semantics.md`](../../Doc/support_semantics.md)
 explains the four shares on examples.
 
@@ -43,8 +43,8 @@ evidence for either exception, so `flies(a)` and `flies(b)` are both
 ```
 
 ```text
-"answers":[{"answer":"flies(a)","value":[0.1,0.9,0,0]},
-           {"answer":"flies(b)","value":[1,0,0,0]}]
+"answers":[{"answer":["flies","a"],"value":[0.1,0.9,0,0],...},
+           {"answer":["flies","b"],"value":[1,0,0,0],...}]
 ```
 
 Where the fact of confidence .9 is present, it is the exception: the
@@ -158,8 +158,8 @@ same class, while a certain engine rule supports `-isa(X, organism)`.
 ```
 
 ```text
-"answers":[{"answer":"isa(b1,organism)","value":[0.5731,0.0179,0.3821,0.0269]},
-           {"answer":"isa(a1,organism)","value":[0,0.4,0.6,0]}]
+"answers":[{"answer":["isa","b1","organism"],"value":[0.57312,0.01792,0.38208,0.02688],...},
+           {"answer":["isa","a1","organism"],"value":[0,0.4,0.6,0],...}]
 ```
 
 `b1` has a bird path for it and an opposed airplane path against it. The
@@ -169,7 +169,7 @@ list `h1`. With the strategy file
 `isa(h1,organism)` with (.44, 0, 0, .56): the human default .3 and the bird
 default .2 combine by noisy-or. That search does not list `a1`. Which
 answers the recursive method lists depends on the search: a measured limit
-of gk 1.2.4.
+of gk 1.2.5.
 
 ## Persistence across situations
 
@@ -208,7 +208,7 @@ The notations differ in one respect that the recursive method uses. A GKP
 rule keeps its written head. The `.js` and `.p` files state flat clauses,
 which gk uses in every direction. The values therefore differ:
 
-| File | gk 1.2.4 for `-flies(p)` |
+| File | gk 1.2.5 for `-flies(p)` |
 |---|---|
 | `bird_penguin.gkp` | (.72, .08, 0, .2) |
 | `bird_penguin.js`, `bird_penguin.p` | (.72, 0, 0, .28), with three `cycle cut` readings |

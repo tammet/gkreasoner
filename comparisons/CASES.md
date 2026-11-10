@@ -5,7 +5,7 @@ gk input of each case is quoted verbatim and can be copied and run as a
 whole. The external input files of each cell are listed in
 `manifest.json`.
 
-Each gk result is the value of gk 1.2.3 run without options (gk 1.2.4 gives
+Each gk result is the value of gk 1.2.3 run without options (gk 1.2.5 gives
 the same values), which is the
 recursive method. A value is written as four shares (for, against,
 conflict, ignorance). The table shows the signed confidence, for minus

@@ -1,8 +1,9 @@
 # The recursive method's output
 
 Since 1.2.0, gk answers a query with the recursive method by default. This
-page describes what gk 1.2.4 prints: the `{"recursive": ...}` line, the dump that
-follows it, and the status facts in the dump. What the four numbers of a
+page describes what gk 1.2.5 prints: the `{"recursive": ...}` line with the
+proofs of the answer, the dump that follows it, and the status facts in the
+dump. What the four numbers of a
 value mean is explained on examples in
 [support_semantics.md](support_semantics.md).
 
@@ -35,7 +36,7 @@ value mean is explained on examples in
   a method: `-clausify`, `-writejson`, `-dwcatalogue`,
   `-readkb`, `-deletekb`.
 - With an attached knowledge base (`-usekb`) the recursive method runs as
-  on one input file, since 1.2.4: its catalogue holds the knowledge base's
+  on one input file: its catalogue holds the knowledge base's
   clauses first, then the query's. `-readkb` keeps the written head of every
   rule and the catalogue fields of every clause for it. A knowledge base
   built by another gk version does not attach (`Existing segment header is
@@ -43,6 +44,8 @@ value mean is explained on examples in
   without the written heads gives a `{"recursive": ...}` line with
   `"value": null` and writes `{"recursive_boundary":{"setting":"usekb",...}}`
   to stderr.
+- `-fullproof` adds the sub-proofs of the nested searches to the proofs of
+  the line (Section 3.1). Without it, a proof shows only its main structure.
 - `-checkpoints DIR` writes the dump of every checkpoint into the folder
   DIR. The folder must exist: with a missing folder gk writes nothing and
   reports no error.
@@ -80,9 +83,11 @@ One JSON object on one line, under the key `recursive`.
 | key | meaning |
 |---|---|
 | `method` | `"recursive"` |
-| `question` | the question literal; `null` for a question with variables |
-| `value` | the four numbers (for, against, conflict, ignorance); `null` for a question with variables |
-| `answers` | for a question with variables: one object per ground answer, with `answer`, `value` and `value_from` |
+| `question` | the question literal in gk's JSON form, for example `["smokes","sam"]` or `["-flies","tweety"]`; left out for a question with variables |
+| `value` | the four numbers (for, against, conflict, ignorance), rounded to 6 decimals; left out for a question with variables |
+| `signed_confidence` | the for share minus the against share, rounded to 6 decimals; left out with `value` |
+| `proof` | the proofs for and against the question and the proofs of their guards (Section 3.1); left out when there is none |
+| `answers` | for a question with variables: one object per ground answer, with `answer` (the literal in JSON form), `value`, `signed_confidence`, `value_from` and `proof` |
 | `value_from` | the checkpoint the value comes from, as `"checkpoint N"` |
 | `value_model_version` | the model version that was evaluated for the value |
 | `model_version`, `report_revision` | the last model version, and the revisions of the report since it |
@@ -99,13 +104,95 @@ One JSON object on one line, under the key `recursive`.
 | `stop` | why the nested searches stopped |
 | `search` | what the last search of the question reported |
 
-Example (`Examples/confidences/net_premise.js`), shortened:
+A key whose value would be `null` is left out. Example
+(`Examples/confidences/net_premise.js`), shortened:
 
 ```
-{"recursive":{"method":"recursive","question":"flies(a)","rounds":2,"tasks":4,
- "applications":3,"value":[0.27,0,0,0.73],"value_from":"checkpoint 2",
+{"recursive":{"method":"recursive","question":["flies","a"],"rounds":2,"tasks":4,
+ "applications":3,"value":[0.27,0,0,0.73],"signed_confidence":0.27,
+ "value_from":"checkpoint 2","proof":{"for":[...]},
  "stop":"no task can become runnable under a later allowance",
  "search":"no further proof found within the budget",...}}
+```
+
+### 3.1 The proofs
+
+The field `proof` explains the value with classical resolution proofs. It
+has up to three lists, and an empty list is left out:
+
+- `for`: the proofs of the question, or of the answer;
+- `against`: the proofs of its complement;
+- `guards`: the proofs of the guards of the listed proofs. A guard is the
+  literal of an exception, `unless(L, k)` (stored as a `$block` literal),
+  that is left in the last clause of a proof for or against. The proof's
+  `guard_of` names the listed proofs with that guard, for example
+  `[["for",1]]`.
+
+Each list holds each distinct proof once. A proof object has these keys:
+
+| key | meaning |
+|---|---|
+| `proves` | the proved literal |
+| `search` | the literal of the search that found the proof; present only when it differs from `proves` |
+| `confidence` | the proof's confidence: the confidence of its last clause, rounded to 6 significant digits |
+| `in_value` | `false` when gk made no application from the proof, so the value does not use it (for example a case analysis through a default); left out otherwise |
+| `steps` | the resolution steps |
+| `guard_of` | in `guards` only: the listed proofs that have the guard |
+| `subproofs` | with `-fullproof` only: the proofs that the nested searches found |
+
+The steps have the form of the direct method's proofs: `[n, label,
+clause]`.
+
+- `["in", name, role, confidence]` is an input clause. The role is `axiom`
+  or `goal`. The goal named `taskgoal` is the goal of a nested search.
+- `["mp", p1, p2, ..., "fromgoal", confidence]` is a resolution step
+  (`"fromaxiom"` when no goal clause is among its ancestors). A parent
+  `[3,1]` means literal 1 of step 3, counted from 0. `simp`, `=`,
+  `arithinst` and `merge` are other steps.
+- The clause is a list of literals in JSON form. `false` is the empty
+  clause.
+- An input step has a fourth element `{"head": k}` when the rule was written
+  with literal k as its head and the usual reading picks another head. The
+  usual reading takes the positive literals as the head, or the first
+  negative literal when the clause has none. For example,
+  `-flies(X) :- penguin(X), unless(flies(X), 3)` is stored as
+  `[["$block",3,["flies","?:X"]],["-penguin","?:X"],["-flies","?:X"]]`,
+  with `{"head":2}`.
+
+**The default proof and `-fullproof`.** A default proof gives the main
+structure of the reasoning: the steps by which gk's proof search derived the
+literal. The nested searches can find sub-proofs for or against these steps:
+evidence for a condition, opposition to a premise, or an exception. The value
+counts the sub-proofs, but the default proof does not show them. `-fullproof`
+adds them. Each proof gets `subproofs`: the proofs that the nested searches
+of its input steps found, at every depth that the searches reached. The lists
+`for`, `against` and `guards` are the same with and without `-fullproof`. A
+subproof has the keys of a proof and these:
+
+| key | meaning |
+|---|---|
+| `step` | the input step of the parent proof whose search found the subproof |
+| `roles` | the roles of that search: `"opposition"`, a search for the complement of the step's literal, and `"further proofs"`, a search for more proofs of it |
+| `listed_as` | for example `["against",1]`: the subproof is the first proof of the list `against`, so it is not repeated |
+| `no_new_instances` | `true` when the subproof uses no input instance beyond the proofs above it |
+
+Example: the Tweety input of the tutorial
+(`Examples/semantics/tweety_3a_gull_rule.gkp`) has the value
+(.6984, .224, 0, .0776). Its default proof against `flies(tweety)` has the
+confidence .56: tweety is a penguin, because it is a seabird (.8) and not a
+gull (.7). The against share is lower than .56 because a nested search found
+a proof of `gull(tweety)` from the yellow bill (.432), which opposes the
+not-gull premise. Only `-fullproof` shows that proof. The subproofs of
+`proof.against[0]`, with their keys `step`, `roles`, `proves` and
+`confidence`:
+
+```
+against #1: -flies(tweety), confidence 0.56, 9 steps
+  step 1, further proofs: penguin(tweety), 0.56
+    step 1, further proofs: seabird(tweety), 0.8
+    step 1, opposition: gull(tweety), 0.432
+      step 1, opposition and further proofs: -gull(tweety), 0.7
+      step 1, further proofs: yellow_bill(tweety), 0.6
 ```
 
 ## 4. Proof applications
@@ -168,6 +255,14 @@ has `reading` and `by`.
 
 ## 6. Version notes
 
+- **1.2.5.** The line gives the proofs of the answer: the field `proof`
+  (Section 3.1), and with `-fullproof` the nested sub-proofs. The
+  question, the answers and the proved literals are literals in gk's JSON
+  form: `["smokes","sam"]`, where 1.2.4 wrote the text `"smokes(sam)"`. The
+  new key `signed_confidence` is the for share minus the against share.
+  `value` and `signed_confidence` are rounded to 6 decimals. A key whose
+  value would be `null` is left out: until 1.2.4 a question with variables
+  had `"question":null` and `"value":null`. The values are unchanged.
 - **1.2.4.** The recursive method runs on a shared-memory knowledge base
   (`-readkb`, then `-usekb`; Section 1). Until 1.2.3 such a query gave a
   line with `"value": null`. The other outputs of 1.2.3 are unchanged.

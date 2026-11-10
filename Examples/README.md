@@ -7,14 +7,14 @@ Most introductory problems are supplied in GKP (`.gkp`) and native
 JSON-LD-LOGIC (`.js`) forms. The logic is the same; only the surface notation
 differs.
 
-gk 1.2.4 answers with the recursive method by default. It prints one line
+gk 1.2.5 answers with the recursive method by default. It prints one line
 that starts with `{"recursive":`, then a dump of the evidence. The line's
 `value` holds the four shares in the order (for, against, conflict,
 ignorance). A question with a variable gets an `answers` list, one entry per
 instance. [`../Doc/recursive_output.md`](../Doc/recursive_output.md)
 describes the output, and
 [`../Doc/support_semantics.md`](../Doc/support_semantics.md) the meaning of
-the four shares. The values below are gk 1.2.4's, shortened.
+the four shares. The values below are gk 1.2.5's, shortened.
 
 ## 1. Defaults and answer substitutions
 
@@ -39,8 +39,8 @@ The ordinary bird default has rank 3 and the opposing object default has
 rank 2. The certain penguin rule supplies the exception:
 
 ```text
-"answers":[{"answer":"flies(b)","value":[1,0,0,0]},
-           {"answer":"flies(p)","value":[0,1,0,0]}]
+"answers":[{"answer":["flies","b"],"value":[1,0,0,0],...},
+           {"answer":["flies","p"],"value":[0,1,0,0],...}]
 ```
 
 [`core/logic_chain.js`](core/logic_chain.js) shows a longer implication chain.

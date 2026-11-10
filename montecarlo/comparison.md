@@ -11,7 +11,7 @@ rows here.
 
 ## Reproduction protocol
 
-The GK columns come from gk 1.2.4 (`bin/gk`, one `-detail` run per file).
+The GK columns come from gk 1.2.5 (`bin/gk`, one `-detail` run per file).
 `-detail` selects the direct method of gk 1.1.2, so these columns are the
 direct method's values. gk 1.0.11 gave the same numbers; seven rows then
 had the calculation `flat`, which core selection (gk 1.1.2) changed to

@@ -16,8 +16,7 @@ first-order reasoning, input confidences, explicit opposition, exceptions
 checked by recursive searches, priority ranks of defaults, proofs, and a
 report of four shares for each answer.
 
-The GK values below are those of gk 1.2.3 run without options (gk 1.2.4
-gives the same values), which is
+The GK values below are those of gk 1.2.5 run without options, which is
 the recursive method ([`how_gk_works.md`](how_gk_works.md)). The four
 shares (for, against, conflict, ignorance) are those of the support
 semantics ([`support_semantics.md`](support_semantics.md)).

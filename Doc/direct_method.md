@@ -5,7 +5,7 @@ was gk's method until version 1.1.2. Since 1.2.0 gk answers with the
 recursive method, described in [how_gk_works.md](how_gk_works.md). The
 direct method's proof search is the one the recursive method uses; its
 evaluation and its output differ. The values below are the output of
-gk 1.2.4 with `-direct`. Options that only the direct method reads (for example `-detail`,
+gk 1.2.5 with `-direct`. Options that only the direct method reads (for example `-detail`,
 `-legacy <mode>` and `-outformat`) also select it; `recursive_output.md`
 Section 1 lists them.
 

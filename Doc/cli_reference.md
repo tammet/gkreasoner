@@ -70,8 +70,16 @@ bases*; the conversion commands `-clausify` and `-writejson` under
 ## The method of a query
 
 Since gk 1.2.0 a query runs the recursive method by default. gk prints one
-line `{"recursive":{...}}` with the value, then the dump of the final
-checkpoint. [`recursive_output.md`](recursive_output.md) describes both.
+line `{"recursive":{...}}` with the value and the proofs, then the dump of
+the final checkpoint. [`recursive_output.md`](recursive_output.md) describes
+both.
+
+The line's field `proof` gives the resolution proofs for and against the
+answer, and the proofs of their guards (the exceptions left in them). A
+default proof gives the main structure of the proof: the steps by which the
+proof search derived the answer. The nested searches can also find sub-proofs
+for or against these steps. The value counts the sub-proofs, but the default
+proof does not show them; `-fullproof` adds them.
 
 ### `-direct`
 
@@ -101,7 +109,7 @@ phases do not run. The strategy JSON can set `recursive_L0` (ms, 50),
 `recursive_a0` (4), `recursive_d0` (4), `recursive_m0` (256) and
 `recursive_base_answers`. A strategy text with only these keys leaves gk's
 automatic ladder in place. With `-usekb` the method reads the attached
-knowledge base too (since 1.2.4; *Shared-memory knowledge bases* below).
+knowledge base too (*Shared-memory knowledge bases* below).
 
 ### `-audit`
 
@@ -109,6 +117,20 @@ Run the recursive method, and the direct method in a second process beside
 it. gk prints the recursive line and an `{"audit":{...}}` object with the
 direct method's result, labelled as a comparison. Each method gets half of
 `-seconds`. An option of the direct method goes to the second process.
+
+### `-fullproof`
+
+With the recursive method: print the full proofs, with all their details.
+Every proof in the line's field `proof` also gets `subproofs`: the proofs
+that the nested searches of its input steps found, nested to every depth that
+the searches reached. A subproof names the step whose search found it
+(`step`) and the roles of that search (`opposition`, `further proofs`). A
+subproof that is already listed at the top prints as a reference, for
+example `"listed_as":["against",1]`. The lists `for`, `against` and `guards`
+and the value are the same as without `-fullproof`.
+[`recursive_output.md`](recursive_output.md) Section 3.1 describes the keys.
+
+    ./bin/gk Examples/semantics/tweety_3a_gull_rule.gkp -fullproof
 
 ### `-checkpoints <dir>`
 
@@ -594,7 +616,7 @@ the KB is rejected. Options that load auxiliary data, such as
 `-taxonomy -datafolder DIR`, belong on this command so that `-usekb` queries
 need not repeat them.
 
-Since 1.2.4 the knowledge base also keeps the written head of every directed
+The knowledge base also keeps the written head of every directed
 rule and the statement number, `@sourcetype` and `@provenance` of every
 clause. The recursive method of a `-usekb` query reads them; the direct
 method does not. A knowledge base, or a dump, made by another gk version
@@ -608,9 +630,8 @@ line; that file carries the question. Auxiliary data loaded with `-taxonomy`,
 `-datafolder`, `-similarities` or `-relatedwords` comes from the shared base,
 so those options must not be repeated here.
 
-Both methods run on an attached knowledge base. Since 1.2.4 the recursive
-method, the default, reads the knowledge base's clauses together with the
-query's; its value equals the value of one run on both inputs, up to the
+Both methods run on an attached knowledge base. The recursive method, the
+default, reads the knowledge base's clauses together with the query's; its value equals the value of one run on both inputs, up to the
 search order (the automatic ladder differs, see below).
 
 The automatic strategy ladder, `-parallel`, `-confidence`, `-keepconfidence`,

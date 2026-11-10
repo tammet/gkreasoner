@@ -4,7 +4,7 @@ GK is a first-order reasoner for uncertain facts, opposing evidence,
 defaults, exceptions and contradictions. For a question it reports four
 shares: support for the statement, support against it, conflict and
 ignorance. GK works on clauses with variables, function terms, equality,
-classical disjunction and explicit negation. The current version is 1.2.4.
+classical disjunction and explicit negation. The current version is 1.2.5.
 
 This repository holds the GK binaries, the user documentation, the
 examples, the taxonomy data and the reference tool `mcref`. The source code
@@ -61,8 +61,9 @@ GK prints one line that starts with `{"recursive":`, then a dump of the
 evidence. Shortened, the line is:
 
 ```text
-{"recursive":{"method":"recursive","question":"flies(t)",
- "value":[0.63,0.3,0,0.07],"value_from":"checkpoint 2",...}}
+{"recursive":{"method":"recursive","question":["flies","t"],
+ "value":[0.63,0.3,0,0.07],"signed_confidence":0.33,"value_from":"checkpoint 2",
+ "proof":{"for":[...],"against":[...]},...}}
 ```
 
 The value is (for, against, conflict, ignorance) = (.63, .3, 0, .07). The
@@ -71,6 +72,16 @@ default "birds fly" yields to the contrary evidence: where `-flies(t)` holds
 support .9, so .7 × .9 = .63 is for, and the remaining .07 is ignorance.
 With an ordinary rule `0.9::flies(X) :- bird(X)` in place of the default,
 the two sides fight instead, and the value is (.6, 0, .3, .1).
+
+The line also contains the resolution proofs for and against the answer
+(the field `proof`). A default proof gives the main structure of the proof:
+the steps by which the proof search derived the answer. The nested searches
+can find sub-proofs, for example a proof that weakens a premise. The value
+counts them, but the default proof does not show them.
+`./bin/gk input -fullproof` gives the full proofs, with the sub-proofs nested
+under the steps they concern.
+[`Doc/recursive_output.md`](Doc/recursive_output.md) Section 3.1 describes
+the proofs.
 
 ## How GK answers
 

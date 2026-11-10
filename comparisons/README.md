@@ -21,7 +21,7 @@ gk is a first-order reasoner. It provides:
 - a report of four shares for each answer: for, against, conflict, and
   ignorance.
 
-The gk cells of this package come from gk 1.2.3 with no options; gk 1.2.4
+The gk cells of this package come from gk 1.2.3 with no options; gk 1.2.5
 reproduces every cell (`check_gk_cells.sh`). This
 runs gk's default, the recursive method. It starts from a resolution
 proof of the question. It then searches recursively for support,
@@ -51,7 +51,7 @@ the two exceptions, D7 and EQ1.
 
 | System | Version | Output used here | Project page |
 |---|---|---|---|
-| gk | 1.2.3, 1.2.4 | signed confidence, from the four shares of the recursive method | this repository |
+| gk | 1.2.3 to 1.2.5 | signed confidence, from the four shares of the recursive method | this repository |
 | ProbLog | 2.2.10 | scalar probability | <https://dtai.cs.kuleuven.be/problog/> |
 | PASTA | 1.0.1 | lower/upper probability interval | <https://github.com/damianoazzolini/pasta> |
 | plingo | 1.1.0 | scalar probability | <https://github.com/potassco/plingo> |
@@ -229,9 +229,8 @@ line `{"recursive": ...}`, then a dump of the evidence. In the line,
 `value` holds the four shares in the order for, against, conflict,
 ignorance; an open question gets an `answers` list with one `value` per
 ground answer. [`../Doc/recursive_output.md`](../Doc/recursive_output.md)
-describes the output. For D1 the line has
-`"value":[0.09999999999999998,0.9,0,0]`; the table shows the signed
-confidence .10 - .90 = -.80.
+describes the output. For D1 the line has `"value":[0.1,0.9,0,0]` and
+`"signed_confidence":-0.8`; the table shows the signed confidence -.80.
 
 To rerun all 18 gk cells and compare them with their captures:
 
@@ -241,7 +240,10 @@ comparisons/check_gk_cells.sh
 
 The script compares the question, the value, the answers, the readings,
 and the stop reason of the `{"recursive": ...}` line. It ignores the
-times in the line and the dump.
+times in the line and the dump. gk 1.2.5 writes the question and the
+answers as JSON literals (`["flies","a"]`, where the captures have
+`"flies(a)"`); the script turns them into the text form before it
+compares.
 
 The direct method's report of a cell is printed by
 
