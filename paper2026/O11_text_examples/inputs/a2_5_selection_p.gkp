@@ -1,0 +1,5 @@
+% Appendix A.2.5: a certain rule between two uncertain facts of opposite sign.
+0.8::r.
+0.2::-p.
+p :- r.
+query(p).

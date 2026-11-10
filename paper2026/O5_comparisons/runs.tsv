@@ -1,0 +1,47 @@
+run_id	tool	input	options	settings	alone	timeout_s
+c1.gk	gk	../../comparisons/inputs/gk/c1.gkp				180
+c1.mcref	mcref	../../comparisons/inputs/gk/c1.gkp		samples=100000 seed=1		900
+c2.gk	gk	../../comparisons/inputs/gk/c2.gkp				180
+c2.mcref	mcref	../../comparisons/inputs/gk/c2.gkp		samples=100000 seed=1		900
+d1.gk	gk	../../comparisons/inputs/gk/d1.gkp				180
+d1.mcref	mcref	../../comparisons/inputs/gk/d1.gkp		samples=100000 seed=1		900
+d2.gk	gk	../../comparisons/inputs/gk/d2.gkp				180
+d2.mcref	mcref	../../comparisons/inputs/gk/d2.gkp		samples=100000 seed=1		900
+d3.gk	gk	../../comparisons/inputs/gk/d3.gkp				180
+d3.mcref	mcref	../../comparisons/inputs/gk/d3.gkp		samples=100000 seed=1		900
+d4.gk	gk	../../comparisons/inputs/gk/d4.gkp				180
+d4.mcref	mcref	../../comparisons/inputs/gk/d4.gkp		samples=100000 seed=1		900
+d4-p.pos.gk	gk	../../comparisons/inputs/gk/d4sm_pos.gkp				180
+d4-p.pos.mcref	mcref	../../comparisons/inputs/gk/d4sm_pos.gkp		samples=100000 seed=1		900
+d4-p.neg.gk	gk	../../comparisons/inputs/gk/d4sm_neg.gkp				180
+d4-p.neg.mcref	mcref	../../comparisons/inputs/gk/d4sm_neg.gkp		samples=100000 seed=1		900
+d5.gk	gk	../../comparisons/inputs/gk/d5.gkp				180
+d5.mcref	mcref	../../comparisons/inputs/gk/d5.gkp		samples=100000 seed=1		900
+d6.undercut.gk	gk	../../comparisons/inputs/gk/d6_undercut.gkp				180
+d6.undercut.mcref	mcref	../../comparisons/inputs/gk/d6_undercut.gkp		samples=100000 seed=1		900
+d6.rebut.gk	gk	../../comparisons/inputs/gk/d6_rebut.gkp				180
+d6.rebut.mcref	mcref	../../comparisons/inputs/gk/d6_rebut.gkp		samples=100000 seed=1		900
+d7.gk	gk	../../comparisons/inputs/gk/d7.gkp				180
+d7.mcref	mcref	../../comparisons/inputs/gk/d7.gkp		samples=100000 seed=1		900
+n1.gk	gk	../../comparisons/inputs/gk/n1_study4.gkp				180
+n1.mcref	mcref	../../comparisons/inputs/gk/n1_study4.gkp		samples=100000 seed=1		900
+n2.gk	gk	../../comparisons/inputs/gk/n2_study10.gkp				180
+n2.mcref	mcref	../../comparisons/inputs/gk/n2_study10.gkp		samples=100000 seed=1		900
+eq1.gk	gk	../../comparisons/inputs/gk/e1.gkp				180
+eq1.mcref	mcref	../../comparisons/inputs/gk/e1.gkp		samples=100000 seed=1		900
+x1.gk	gk	../../comparisons/inputs/gk/x1.gkp				180
+x1.mcref	mcref	../../comparisons/inputs/gk/x1.gkp		samples=100000 seed=1		900
+f1.gk	gk	../../comparisons/inputs/gk/f1.gkp				180
+f1.mcref	mcref	../../comparisons/inputs/gk/f1.gkp		samples=100000 seed=1		900
+dj1.gk	gk	../../comparisons/inputs/gk/dj1.gkp				180
+dj1.mcref	mcref	../../comparisons/inputs/gk/dj1.gkp		samples=100000 seed=1		900
+c1.gk.hyper	gk	../../comparisons/inputs/gk/c1.gkp	-strategy ../../../paper2026/O5_comparisons/strategies/hyper.json			180
+c1.gk.query_focus	gk	../../comparisons/inputs/gk/c1.gkp	-strategy ../../../paper2026/O5_comparisons/strategies/query_focus.json			180
+dj1.gk.hyper	gk	../../comparisons/inputs/gk/dj1.gkp	-strategy ../../../paper2026/O5_comparisons/strategies/hyper.json			180
+dj1.gk.query_focus	gk	../../comparisons/inputs/gk/dj1.gkp	-strategy ../../../paper2026/O5_comparisons/strategies/query_focus.json			180
+n1.gk.hyper	gk	../../comparisons/inputs/gk/n1_study4.gkp	-strategy ../../../paper2026/O5_comparisons/strategies/hyper.json			180
+n1.gk.query_focus	gk	../../comparisons/inputs/gk/n1_study4.gkp	-strategy ../../../paper2026/O5_comparisons/strategies/query_focus.json			180
+n2.gk.hyper	gk	../../comparisons/inputs/gk/n2_study10.gkp	-strategy ../../../paper2026/O5_comparisons/strategies/hyper.json			180
+n2.gk.query_focus	gk	../../comparisons/inputs/gk/n2_study10.gkp	-strategy ../../../paper2026/O5_comparisons/strategies/query_focus.json			180
+f1.gk.hyper	gk	../../comparisons/inputs/gk/f1.gkp	-strategy ../../../paper2026/O5_comparisons/strategies/hyper.json			180
+f1.gk.query_focus	gk	../../comparisons/inputs/gk/f1.gkp	-strategy ../../../paper2026/O5_comparisons/strategies/query_focus.json			180

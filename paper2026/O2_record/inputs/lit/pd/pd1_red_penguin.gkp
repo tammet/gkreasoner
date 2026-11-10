@@ -1,0 +1,5 @@
+penguin(tweety). red(tweety).
+bird(X) :- penguin(X).
+0.9::flies(X) :- bird(X), unless(-flies(X), 1).
+0.95::-flies(X) :- penguin(X), unless(flies(X), 2).
+query(flies(tweety)).

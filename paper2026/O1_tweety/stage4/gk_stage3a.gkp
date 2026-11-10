@@ -1,0 +1,17 @@
+% Tweety, stage 4 (Section 2.4, Table 1): stage 3a with the register entry and the two lineage rules.
+bird(parent(X)) :- bird(X).
+bird(X) :- bird(parent(X)).
+bird(parent(parent(tweety))).
+
+0.9::flies(X) :- bird(X), unless(-flies(X), 2).
+-flies(X) :- penguin(X), unless(flies(X), 3).
+
+gull(X) ; penguin(X) :- seabird(X).
+
+0.8::seabird(tweety).
+0.7::-gull(tweety).
+
+0.9::gull(X) :- seabird(X), yellow_bill(X).
+0.6::yellow_bill(tweety).
+
+query(flies(tweety)).

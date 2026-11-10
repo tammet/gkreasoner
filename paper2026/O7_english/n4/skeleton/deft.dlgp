@@ -1,0 +1,6 @@
+babyBear(john).
+bear(X) :- babyBear(X).
+[DEFTe] eatsBerries(X) :- bear(X).
+[DEFTn] noBerries(X) :- babyBear(X).
+! :- eatsBerries(X), noBerries(X).
+[DEFTn] > [DEFTe].

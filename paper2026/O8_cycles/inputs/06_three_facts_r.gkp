@@ -1,0 +1,8 @@
+% Part O8, example 6: three facts that cannot all hold, question r.
+p.
+q.
+r.
+-p ; -q.
+-q ; -r.
+-r ; -p.
+query(r).

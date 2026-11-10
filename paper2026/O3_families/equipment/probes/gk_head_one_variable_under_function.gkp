@@ -1,0 +1,5 @@
+% Probe: a clause with the equality head f(X) = m :- p(X).
+p(a).
+f(X) = m :- p(X).
+q(f(a)).
+query(q(m)).

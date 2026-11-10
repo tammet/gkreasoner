@@ -1,0 +1,6 @@
+trade(ant, bison).
+-borrow(bulldog, bison).
+-enjoy(cobra, bison).
+-surrender(bison, seahorse) :- -borrow(bulldog, bison), unless(surrender(bison, seahorse), 2).
+surrender(bison, seahorse) :- trade(ant, bison), -enjoy(cobra, bison), unless(-surrender(bison, seahorse), 1).
+query(surrender(bison, seahorse)).

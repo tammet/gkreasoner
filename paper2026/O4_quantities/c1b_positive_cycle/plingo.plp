@@ -1,0 +1,6 @@
+sw_a :- &problog("0.5").
+a :- sw_a.
+b :- a.
+a :- b.
+q :- b.
+&query(q).

@@ -1,0 +1,6 @@
+p_pos.
+p_neg.
+sw_r :- &problog("0.6").
+r :- sw_r.
+:- p_pos, p_neg.
+&query(r).

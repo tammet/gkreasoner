@@ -1,0 +1,8 @@
+% Certain skeleton of case N1v1 (part O7), written by hand: confidences dropped,
+% priorities kept as ranks, Skolem terms as constants. Question: certified(mara).
+person(mara).
+certified(X) :- person(X), unless(-certified(X), 1).
+-certified(X) :- person(X), unless(certified(X), 1).
+labAccess(X) :- person(X), certified(X), unless(-labAccess(X), 1).
+mayUse(X) :- person(X), labAccess(X), unless(-mayUse(X), 1).
+query(certified(mara)).

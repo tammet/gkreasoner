@@ -1,0 +1,15 @@
+% Ground abstraction of gk_stage2.gkp for the reference tool, which declines function terms:
+% p1 = parent(tweety), gp = parent(p1), ggp = parent(gp).
+bird(p1) :- bird(tweety).
+bird(gp) :- bird(p1).
+bird(ggp) :- bird(gp).
+bird(tweety) :- bird(p1).
+bird(p1) :- bird(gp).
+bird(gp) :- bird(ggp).
+bird(gp).
+0.9::flies(X) :- bird(X), unless(-flies(X), 2).
+-flies(X) :- penguin(X), unless(flies(X), 3).
+gull(X) ; penguin(X) :- seabird(X).
+0.8::seabird(tweety).
+0.7::-gull(tweety).
+query(flies(tweety)).

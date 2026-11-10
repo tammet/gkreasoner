@@ -1,0 +1,13 @@
+% Tweety, stage 4: a plingo analogue with the positive switch for gull. It tests grounding
+% with both lineage rules; it is no matched numerical comparison.
+bird(parent(X)) :- bird(X).
+bird(X) :- bird(parent(X)).
+bird(parent(parent(tweety))).
+sw_fly(X) :- bird(X), &problog("0.9").
+sw_seabird :- &problog("0.8").
+sw_gull :- &problog("0.3").
+seabird(tweety) :- sw_seabird.
+gull(tweety) :- sw_gull.
+gull(X) ; penguin(X) :- seabird(X).
+flies(X) :- bird(X), sw_fly(X), not penguin(X).
+&query(flies(tweety)).

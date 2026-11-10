@@ -1,0 +1,16 @@
+% Tweety, stage 2: the plingo encoding, a non-equivalent analogue. The report against gull
+% is the probabilistic atom ngull_ev; a constraint removes the models where gull holds with it.
+bird(tweety).
+
+sw_fly(X) :- bird(X), &problog("0.9").
+flies(X) :- bird(X), sw_fly(X), not penguin(X).
+nflies(X) :- penguin(X).
+
+gull(X) ; penguin(X) :- seabird(X).
+
+seabird(tweety) :- &problog("0.8").
+ngull_ev(tweety) :- &problog("0.7").
+:- gull(X), ngull_ev(X).
+
+&query(flies(tweety)).
+&query(nflies(tweety)).

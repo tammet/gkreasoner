@@ -1,0 +1,4 @@
+0.7::buys(a).
+trusts(b,a). trusts(c,b). trusts(c,a). trusts(a,c).
+0.5::buys(X) :- trusts(X,Y), buys(Y).
+query(buys(c)).

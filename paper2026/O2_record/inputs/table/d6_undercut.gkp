@@ -1,0 +1,3 @@
+flies(a) :- unless(injured(a)).
+
+query(flies(a)).

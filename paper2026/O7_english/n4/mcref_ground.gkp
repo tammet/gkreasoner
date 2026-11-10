@@ -1,0 +1,9 @@
+% Ground abstraction of gk.js for the reference tool, written by hand from the
+% extracted clauses. The tool declines the extraction, which has Skolem functions.
+% typ = typical(the eating event); ranks 1 and 4 stand for the taxonomy
+% priorities bear:1 and baby bear:4.
+babybear.
+bear :- babybear.
+0.98::typ :- bear, unless(-typ, 1).
+0.98::-typ :- babybear, unless(typ, 4).
+query(typ).

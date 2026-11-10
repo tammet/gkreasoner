@@ -1,0 +1,6 @@
+quaker(nixon). republican(nixon). football_fan(nixon).
+pacifist(X) :- quaker(X), unless(-pacifist(X), 1).
+-pacifist(X) :- republican(X), unless(pacifist(X), 1).
+antimilitary(X) :- pacifist(X), unless(-antimilitary(X), 1).
+-antimilitary(X) :- football_fan(X), unless(antimilitary(X), 1).
+query(antimilitary(nixon)).

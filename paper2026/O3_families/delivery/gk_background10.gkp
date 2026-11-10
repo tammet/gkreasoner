@@ -1,0 +1,59 @@
+parcel(p1).
+0.9::cold(p1, s0).
+0.2::-cold(p1, s0).
+plan_step(p1, leg1, s0).
+0.3::warmed(p1, leg1, s0).
+0.95::handover_ok(p1, do(leg1, s0)).
+parcel(q0).
+0.9::cold(q0, s0).
+plan_step(q0, bleg0, s0).
+0.3::warmed(q0, bleg0, s0).
+0.95::handover_ok(q0, do(bleg0, s0)).
+parcel(q1).
+0.9::cold(q1, s0).
+plan_step(q1, bleg1, s0).
+0.3::warmed(q1, bleg1, s0).
+0.95::handover_ok(q1, do(bleg1, s0)).
+parcel(q2).
+0.9::cold(q2, s0).
+plan_step(q2, bleg2, s0).
+0.3::warmed(q2, bleg2, s0).
+0.95::handover_ok(q2, do(bleg2, s0)).
+parcel(q3).
+0.9::cold(q3, s0).
+plan_step(q3, bleg3, s0).
+0.3::warmed(q3, bleg3, s0).
+0.95::handover_ok(q3, do(bleg3, s0)).
+parcel(q4).
+0.9::cold(q4, s0).
+plan_step(q4, bleg4, s0).
+0.3::warmed(q4, bleg4, s0).
+0.95::handover_ok(q4, do(bleg4, s0)).
+parcel(q5).
+0.9::cold(q5, s0).
+plan_step(q5, bleg5, s0).
+0.3::warmed(q5, bleg5, s0).
+0.95::handover_ok(q5, do(bleg5, s0)).
+parcel(q6).
+0.9::cold(q6, s0).
+plan_step(q6, bleg6, s0).
+0.3::warmed(q6, bleg6, s0).
+0.95::handover_ok(q6, do(bleg6, s0)).
+parcel(q7).
+0.9::cold(q7, s0).
+plan_step(q7, bleg7, s0).
+0.3::warmed(q7, bleg7, s0).
+0.95::handover_ok(q7, do(bleg7, s0)).
+parcel(q8).
+0.9::cold(q8, s0).
+plan_step(q8, bleg8, s0).
+0.3::warmed(q8, bleg8, s0).
+0.95::handover_ok(q8, do(bleg8, s0)).
+parcel(q9).
+0.9::cold(q9, s0).
+plan_step(q9, bleg9, s0).
+0.3::warmed(q9, bleg9, s0).
+0.95::handover_ok(q9, do(bleg9, s0)).
+cold(P, do(A, S)) :- cold(P, S), plan_step(P, A, S), unless(warmed(P, A, S)).
+delivered_cold(P, S) :- cold(P, S), handover_ok(P, S).
+query(delivered_cold(p1, do(leg1, s0))).

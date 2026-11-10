@@ -1,0 +1,19 @@
+0.28::f0.
+a0 :- f0, unless(a7).
+0.25::f1.
+a1 :- f1, unless(a6).
+0.43::f2.
+a2 :- f2, unless(a3).
+0.43::f3.
+a3 :- f3, unless(a0).
+0.38::f4.
+a4 :- f4, unless(a1).
+0.32::f5.
+a5 :- f5, unless(a7).
+0.39::f6.
+a6 :- f6, unless(a0).
+0.31::f7.
+a7 :- f7, unless(a4).
+a6 :- a0.
+a5 :- a7.
+query(a0).

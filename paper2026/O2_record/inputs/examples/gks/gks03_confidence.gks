@@ -1,0 +1,4 @@
+% The confidence prefix attaches to the whole statement.
+0.95 :: bird(tweety).
+0.7 :: ~penguin(tweety).
+query(bird(tweety)).

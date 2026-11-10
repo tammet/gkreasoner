@@ -1,0 +1,6 @@
+% Probe: a clause with the equality head X = Y :- r(X,Y).
+p(a). p(b).
+r(X,Y) :- p(X), p(Y).
+X = Y :- r(X,Y).
+q(a).
+query(q(b)).

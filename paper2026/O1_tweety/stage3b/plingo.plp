@@ -1,0 +1,18 @@
+% Tweety, stage 3b: the plingo encoding, a non-equivalent analogue (the encoding of stage 2
+% with the certain gull rule and the yellow-bill fact).
+bird(tweety).
+
+sw_fly(X) :- bird(X), &problog("0.9").
+flies(X) :- bird(X), sw_fly(X), not penguin(X).
+nflies(X) :- penguin(X).
+
+gull(X) ; penguin(X) :- seabird(X).
+gull(X) :- seabird(X), yellow_bill(X).
+
+seabird(tweety) :- &problog("0.8").
+ngull_ev(tweety) :- &problog("0.7").
+yellow_bill(tweety) :- &problog("0.6").
+:- gull(X), ngull_ev(X).
+
+&query(flies(tweety)).
+&query(nflies(tweety)).

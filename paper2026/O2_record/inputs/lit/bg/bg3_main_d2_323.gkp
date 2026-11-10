@@ -1,0 +1,9 @@
+disarm(crow, swan).
+take(poodle, songbird).
+-unite(cobra, poodle).
+-want(poodle, vampire).
+tear(poodle, shark) :- -unite(cobra, poodle), unless(-tear(poodle, shark), 2).
+swear(swan, shark) :- disarm(crow, swan), unless(-swear(swan, shark), 1).
+-tear(X, shark) :- take(X, songbird), -want(X, vampire), unless(tear(X, shark), 1).
+swim(shark, flamingo) :- -tear(poodle, shark), swear(swan, shark), unless(-swim(shark, flamingo), 1).
+query(swim(shark, flamingo)).

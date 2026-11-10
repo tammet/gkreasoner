@@ -1,0 +1,4 @@
+% include() reads another GKS file relative to this one.
+include("gks15_included.gks").
+bird(X) & small(X) => flies(X).
+query(flies(X)).

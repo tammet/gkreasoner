@@ -1,0 +1,17 @@
+top(c).
+a5(c).
+[DEFTd4] a4(X) :- top(X).
+[DEFTr4] na4(X) :- a5(X).
+! :- a4(X), na4(X).
+[DEFTd3] a3(X) :- top(X).
+[DEFTr3] na3(X) :- a4(X).
+! :- a3(X), na3(X).
+[DEFTd2] a2(X) :- top(X).
+[DEFTr2] na2(X) :- a3(X).
+! :- a2(X), na2(X).
+[DEFTd1] a1(X) :- top(X).
+[DEFTr1] na1(X) :- a2(X).
+! :- a1(X), na1(X).
+[DEFTd0] a0(X) :- top(X).
+[DEFTr0] na0(X) :- a1(X).
+! :- a0(X), na0(X).

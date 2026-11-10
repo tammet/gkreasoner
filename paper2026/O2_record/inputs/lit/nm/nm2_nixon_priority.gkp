@@ -1,0 +1,4 @@
+quaker(nixon). republican(nixon).
+pacifist(X) :- quaker(X), unless(-pacifist(X), 1).
+-pacifist(X) :- republican(X), unless(pacifist(X), 2).
+query(pacifist(nixon)).

@@ -1,0 +1,7 @@
+-manage(peafowl, vampire).
+-pay(vampire, dachshund).
+-surrender(vampire, fish).
+-build(X, dragonfly) :- shout(X, pigeon), unless(build(X, dragonfly), 1).
+shout(X, pigeon) :- -pay(X, dachshund), -surrender(X, fish), unless(-shout(X, pigeon), 2).
+-shout(vampire, pigeon) :- -manage(peafowl, vampire), unless(shout(vampire, pigeon), 1).
+query(build(vampire, dragonfly)).

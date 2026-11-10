@@ -1,0 +1,22 @@
+a10.
+a9 :- unless(-a9, 1).
+-a9 :- a10, unless(a9, 1).
+a8 :- unless(-a8, 1).
+-a8 :- a9, unless(a8, 1).
+a7 :- unless(-a7, 1).
+-a7 :- a8, unless(a7, 1).
+a6 :- unless(-a6, 1).
+-a6 :- a7, unless(a6, 1).
+a5 :- unless(-a5, 1).
+-a5 :- a6, unless(a5, 1).
+a4 :- unless(-a4, 1).
+-a4 :- a5, unless(a4, 1).
+a3 :- unless(-a3, 1).
+-a3 :- a4, unless(a3, 1).
+a2 :- unless(-a2, 1).
+-a2 :- a3, unless(a2, 1).
+a1 :- unless(-a1, 1).
+-a1 :- a2, unless(a1, 1).
+a0 :- unless(-a0, 1).
+-a0 :- a1, unless(a0, 1).
+query(a0).

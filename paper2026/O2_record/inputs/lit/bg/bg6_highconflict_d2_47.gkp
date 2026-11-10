@@ -1,0 +1,6 @@
+call(chinchilla, otter).
+invest(german_shepherd, rhino).
+borrow(X, liger) :- -hug(X, zebra), unless(-borrow(X, liger), 1).
+-hug(rhino, zebra) :- invest(german_shepherd, rhino), unless(hug(rhino, zebra), 1).
+hug(rhino, zebra) :- call(X, otter), unless(-hug(rhino, zebra), 2).
+query(borrow(rhino, liger)).

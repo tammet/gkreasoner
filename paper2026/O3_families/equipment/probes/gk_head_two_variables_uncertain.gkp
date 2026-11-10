@@ -1,0 +1,5 @@
+% Probe: a clause with the equality head 0.9::X = Y :- p(X), p(Y).
+p(a). p(b).
+0.9::X = Y :- p(X), p(Y).
+q(a).
+query(q(b)).

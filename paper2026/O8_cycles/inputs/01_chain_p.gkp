@@ -1,0 +1,6 @@
+% Part O8, example 1: a longer chain across signs, question p.
+0.8::r.
+0.2::-q.
+p :- r.
+q :- p.
+query(p).

@@ -1,0 +1,6 @@
+eligible(X) :- high_gpa(X).
+eligible(X) :- fair_gpa(X), minority(X).
+-eligible(X) :- -fair_gpa(X), -high_gpa(X).
+fair_gpa(anne).
+-fair_gpa(bob). -high_gpa(bob).
+query(eligible(anne)).

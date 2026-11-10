@@ -1,0 +1,7 @@
+% Certain skeleton of case N4 (part O7), written by hand: confidences dropped,
+% priorities kept as ranks, Skolem terms as constants. Question: eatsBerries(john).
+babyBear(john).
+bear(X) :- babyBear(X).
+eatsBerries(X) :- bear(X), unless(-eatsBerries(X), 1).
+-eatsBerries(X) :- babyBear(X), unless(eatsBerries(X), 4).
+query(eatsBerries(john)).

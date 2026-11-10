@@ -1,0 +1,721 @@
+run_id	tool	input	options	settings	alone	timeout_s
+ab/A_allowance_interrupts__q0.js.gk	gk	inputs/ab/A_allowance_interrupts__q0.js				180
+ab/A_allowance_interrupts__q0.js.mcref	mcref	inputs/ab/A_allowance_interrupts__q0.js		samples=20000 seed=1		900
+ab/A_always_absent_same_kind__q0.js.gk	gk	inputs/ab/A_always_absent_same_kind__q0.js				180
+ab/A_always_absent_same_kind__q0.js.mcref	mcref	inputs/ab/A_always_absent_same_kind__q0.js		samples=20000 seed=1		900
+ab/A_block_normal_negative_side__q0.js.gk	gk	inputs/ab/A_block_normal_negative_side__q0.js				180
+ab/A_block_normal_negative_side__q0.js.mcref	mcref	inputs/ab/A_block_normal_negative_side__q0.js		samples=20000 seed=1		900
+ab/A_block_normal_negative_side__q1.js.gk	gk	inputs/ab/A_block_normal_negative_side__q1.js				180
+ab/A_block_normal_negative_side__q1.js.mcref	mcref	inputs/ab/A_block_normal_negative_side__q1.js		samples=20000 seed=1		900
+ab/A_block_normal_negative_side__q2.js.gk	gk	inputs/ab/A_block_normal_negative_side__q2.js				180
+ab/A_block_normal_negative_side__q2.js.mcref	mcref	inputs/ab/A_block_normal_negative_side__q2.js		samples=20000 seed=1		900
+ab/A_body_implies_exception_direct__q0.js.gk	gk	inputs/ab/A_body_implies_exception_direct__q0.js				180
+ab/A_body_implies_exception_direct__q0.js.mcref	mcref	inputs/ab/A_body_implies_exception_direct__q0.js		samples=20000 seed=1		900
+ab/A_body_variable_answers__q0.js.gk	gk	inputs/ab/A_body_variable_answers__q0.js				180
+ab/A_body_variable_answers__q0.js.mcref	mcref	inputs/ab/A_body_variable_answers__q0.js		samples=20000 seed=1		900
+ab/A_coupling_mirror_disabled_rule__q0.js.gk	gk	inputs/ab/A_coupling_mirror_disabled_rule__q0.js				180
+ab/A_coupling_mirror_disabled_rule__q0.js.mcref	mcref	inputs/ab/A_coupling_mirror_disabled_rule__q0.js		samples=20000 seed=1		900
+ab/A_coupling_mirror_keeps_v__q0.js.gk	gk	inputs/ab/A_coupling_mirror_keeps_v__q0.js				180
+ab/A_coupling_mirror_keeps_v__q0.js.mcref	mcref	inputs/ab/A_coupling_mirror_keeps_v__q0.js		samples=20000 seed=1		900
+ab/A_coupling_open_transition__q0.js.gk	gk	inputs/ab/A_coupling_open_transition__q0.js				180
+ab/A_coupling_open_transition__q0.js.mcref	mcref	inputs/ab/A_coupling_open_transition__q0.js		samples=20000 seed=1		900
+ab/A_cycle_across_signs__q0.js.gk	gk	inputs/ab/A_cycle_across_signs__q0.js				180
+ab/A_cycle_across_signs__q0.js.mcref	mcref	inputs/ab/A_cycle_across_signs__q0.js		samples=20000 seed=1		900
+ab/A_cycle_order_1__q0.js.gk	gk	inputs/ab/A_cycle_order_1__q0.js				180
+ab/A_cycle_order_1__q0.js.mcref	mcref	inputs/ab/A_cycle_order_1__q0.js		samples=20000 seed=1		900
+ab/A_cycle_order_1__q1.js.gk	gk	inputs/ab/A_cycle_order_1__q1.js				180
+ab/A_cycle_order_1__q1.js.mcref	mcref	inputs/ab/A_cycle_order_1__q1.js		samples=20000 seed=1		900
+ab/A_cycle_order_1__q2.js.gk	gk	inputs/ab/A_cycle_order_1__q2.js				180
+ab/A_cycle_order_1__q2.js.mcref	mcref	inputs/ab/A_cycle_order_1__q2.js		samples=20000 seed=1		900
+ab/A_cycle_order_2__q0.js.gk	gk	inputs/ab/A_cycle_order_2__q0.js				180
+ab/A_cycle_order_2__q0.js.mcref	mcref	inputs/ab/A_cycle_order_2__q0.js		samples=20000 seed=1		900
+ab/A_cycle_order_2__q1.js.gk	gk	inputs/ab/A_cycle_order_2__q1.js				180
+ab/A_cycle_order_2__q1.js.mcref	mcref	inputs/ab/A_cycle_order_2__q1.js		samples=20000 seed=1		900
+ab/A_cycle_order_2__q2.js.gk	gk	inputs/ab/A_cycle_order_2__q2.js				180
+ab/A_cycle_order_2__q2.js.mcref	mcref	inputs/ab/A_cycle_order_2__q2.js		samples=20000 seed=1		900
+ab/A_cycle_through_exception__q0.js.gk	gk	inputs/ab/A_cycle_through_exception__q0.js				180
+ab/A_cycle_through_exception__q0.js.mcref	mcref	inputs/ab/A_cycle_through_exception__q0.js		samples=20000 seed=1		900
+ab/A_cycle_through_normal_default__q0.js.gk	gk	inputs/ab/A_cycle_through_normal_default__q0.js				180
+ab/A_cycle_through_normal_default__q0.js.mcref	mcref	inputs/ab/A_cycle_through_normal_default__q0.js		samples=20000 seed=1		900
+ab/A_deterministic_cycle_20__q0.js.gk	gk	inputs/ab/A_deterministic_cycle_20__q0.js				180
+ab/A_deterministic_cycle_20__q0.js.mcref	mcref	inputs/ab/A_deterministic_cycle_20__q0.js		samples=20000 seed=1		900
+ab/A_diamond_two_depths__q0.js.gk	gk	inputs/ab/A_diamond_two_depths__q0.js				180
+ab/A_diamond_two_depths__q0.js.mcref	mcref	inputs/ab/A_diamond_two_depths__q0.js		samples=20000 seed=1		900
+ab/A_e4_shared_derived_premise__q0.js.gk	gk	inputs/ab/A_e4_shared_derived_premise__q0.js				180
+ab/A_e4_shared_derived_premise__q0.js.mcref	mcref	inputs/ab/A_e4_shared_derived_premise__q0.js		samples=20000 seed=1		900
+ab/A_exception_with_opposition__q0.js.gk	gk	inputs/ab/A_exception_with_opposition__q0.js				180
+ab/A_exception_with_opposition__q0.js.mcref	mcref	inputs/ab/A_exception_with_opposition__q0.js		samples=20000 seed=1		900
+ab/A_found_twice__q0.js.gk	gk	inputs/ab/A_found_twice__q0.js				180
+ab/A_found_twice__q0.js.mcref	mcref	inputs/ab/A_found_twice__q0.js		samples=20000 seed=1		900
+ab/A_high_low_priority__q1.js.gk	gk	inputs/ab/A_high_low_priority__q1.js				180
+ab/A_high_low_priority__q1.js.mcref	mcref	inputs/ab/A_high_low_priority__q1.js		samples=20000 seed=1		900
+ab/A_independent_exceptions__q0.js.gk	gk	inputs/ab/A_independent_exceptions__q0.js				180
+ab/A_independent_exceptions__q0.js.mcref	mcref	inputs/ab/A_independent_exceptions__q0.js		samples=20000 seed=1		900
+ab/A_m_body_implies_exception__q0.js.gk	gk	inputs/ab/A_m_body_implies_exception__q0.js				180
+ab/A_m_body_implies_exception__q0.js.mcref	mcref	inputs/ab/A_m_body_implies_exception__q0.js		samples=20000 seed=1		900
+ab/A_m_derived_shortcut_wrongly_added_as_extra_rule__q0.js.gk	gk	inputs/ab/A_m_derived_shortcut_wrongly_added_as_extra_rule__q0.js				180
+ab/A_m_derived_shortcut_wrongly_added_as_extra_rule__q0.js.mcref	mcref	inputs/ab/A_m_derived_shortcut_wrongly_added_as_extra_rule__q0.js		samples=20000 seed=1		900
+ab/A_m_equality_negative_one_way_encoding__q0.js.gk	gk	inputs/ab/A_m_equality_negative_one_way_encoding__q0.js				180
+ab/A_m_equality_negative_one_way_encoding__q0.js.mcref	mcref	inputs/ab/A_m_equality_negative_one_way_encoding__q0.js		samples=20000 seed=1		900
+ab/A_m_equality_positive_one_way_encoding__q0.js.gk	gk	inputs/ab/A_m_equality_positive_one_way_encoding__q0.js				180
+ab/A_m_equality_positive_one_way_encoding__q0.js.mcref	mcref	inputs/ab/A_m_equality_positive_one_way_encoding__q0.js		samples=20000 seed=1		900
+ab/A_m_exception_undiscovered__q0.js.gk	gk	inputs/ab/A_m_exception_undiscovered__q0.js				180
+ab/A_m_exception_undiscovered__q0.js.mcref	mcref	inputs/ab/A_m_exception_undiscovered__q0.js		samples=20000 seed=1		900
+ab/A_m_one_source_fact__q0.js.gk	gk	inputs/ab/A_m_one_source_fact__q0.js				180
+ab/A_m_one_source_fact__q0.js.mcref	mcref	inputs/ab/A_m_one_source_fact__q0.js		samples=20000 seed=1		900
+ab/A_m_positive_exception_discovered__q0.js.gk	gk	inputs/ab/A_m_positive_exception_discovered__q0.js				180
+ab/A_m_positive_exception_discovered__q0.js.mcref	mcref	inputs/ab/A_m_positive_exception_discovered__q0.js		samples=20000 seed=1		900
+ab/A_m_propagated_score_wrongly_used_as_rule_confidence__q0.js.gk	gk	inputs/ab/A_m_propagated_score_wrongly_used_as_rule_confidence__q0.js				180
+ab/A_m_propagated_score_wrongly_used_as_rule_confidence__q0.js.mcref	mcref	inputs/ab/A_m_propagated_score_wrongly_used_as_rule_confidence__q0.js		samples=20000 seed=1		900
+ab/A_m_same_exception_twice_via_or__q0.js.gk	gk	inputs/ab/A_m_same_exception_twice_via_or__q0.js				180
+ab/A_m_same_exception_twice_via_or__q0.js.mcref	mcref	inputs/ab/A_m_same_exception_twice_via_or__q0.js		samples=20000 seed=1		900
+ab/A_m_source_chain__q0.js.gk	gk	inputs/ab/A_m_source_chain__q0.js				180
+ab/A_m_source_chain__q0.js.mcref	mcref	inputs/ab/A_m_source_chain__q0.js		samples=20000 seed=1		900
+ab/A_m_source_confidence_correct__q0.js.gk	gk	inputs/ab/A_m_source_confidence_correct__q0.js				180
+ab/A_m_source_confidence_correct__q0.js.mcref	mcref	inputs/ab/A_m_source_confidence_correct__q0.js		samples=20000 seed=1		900
+ab/A_m_two_independent_exceptions_via_or__q0.js.gk	gk	inputs/ab/A_m_two_independent_exceptions_via_or__q0.js				180
+ab/A_m_two_independent_exceptions_via_or__q0.js.mcref	mcref	inputs/ab/A_m_two_independent_exceptions_via_or__q0.js		samples=20000 seed=1		900
+ab/A_m_two_independent_source_facts__q0.js.gk	gk	inputs/ab/A_m_two_independent_source_facts__q0.js				180
+ab/A_m_two_independent_source_facts__q0.js.mcref	mcref	inputs/ab/A_m_two_independent_source_facts__q0.js		samples=20000 seed=1		900
+ab/A_merged_sources__q0.js.gk	gk	inputs/ab/A_merged_sources__q0.js				180
+ab/A_merged_sources__q0.js.mcref	mcref	inputs/ab/A_merged_sources__q0.js		samples=20000 seed=1		900
+ab/A_mixed_kinds__q0.js.gk	gk	inputs/ab/A_mixed_kinds__q0.js				180
+ab/A_mixed_kinds__q0.js.mcref	mcref	inputs/ab/A_mixed_kinds__q0.js		samples=20000 seed=1		900
+ab/A_mixed_kinds_always_absent__q0.js.gk	gk	inputs/ab/A_mixed_kinds_always_absent__q0.js				180
+ab/A_mixed_kinds_always_absent__q0.js.mcref	mcref	inputs/ab/A_mixed_kinds_always_absent__q0.js		samples=20000 seed=1		900
+ab/A_negative_block_fixed_positive__q0.js.gk	gk	inputs/ab/A_negative_block_fixed_positive__q0.js				180
+ab/A_negative_block_fixed_positive__q0.js.mcref	mcref	inputs/ab/A_negative_block_fixed_positive__q0.js		samples=20000 seed=1		900
+ab/A_negative_block_fixed_positive__q1.js.gk	gk	inputs/ab/A_negative_block_fixed_positive__q1.js				180
+ab/A_negative_block_fixed_positive__q1.js.mcref	mcref	inputs/ab/A_negative_block_fixed_positive__q1.js		samples=20000 seed=1		900
+ab/A_negative_cycle__q0.js.gk	gk	inputs/ab/A_negative_cycle__q0.js				180
+ab/A_negative_cycle__q0.js.mcref	mcref	inputs/ab/A_negative_cycle__q0.js		samples=20000 seed=1		900
+ab/A_negative_cycle__q1.js.gk	gk	inputs/ab/A_negative_cycle__q1.js				180
+ab/A_negative_cycle__q1.js.mcref	mcref	inputs/ab/A_negative_cycle__q1.js		samples=20000 seed=1		900
+ab/A_negative_two_output_cycle__q0.js.gk	gk	inputs/ab/A_negative_two_output_cycle__q0.js				180
+ab/A_negative_two_output_cycle__q0.js.mcref	mcref	inputs/ab/A_negative_two_output_cycle__q0.js		samples=20000 seed=1		900
+ab/A_negative_two_output_cycle__q1.js.gk	gk	inputs/ab/A_negative_two_output_cycle__q1.js				180
+ab/A_negative_two_output_cycle__q1.js.mcref	mcref	inputs/ab/A_negative_two_output_cycle__q1.js		samples=20000 seed=1		900
+ab/A_negative_two_output_cycle__q2.js.gk	gk	inputs/ab/A_negative_two_output_cycle__q2.js				180
+ab/A_negative_two_output_cycle__q2.js.mcref	mcref	inputs/ab/A_negative_two_output_cycle__q2.js		samples=20000 seed=1		900
+ab/A_normal_default_no_self_cycle__q0.js.gk	gk	inputs/ab/A_normal_default_no_self_cycle__q0.js				180
+ab/A_normal_default_no_self_cycle__q0.js.mcref	mcref	inputs/ab/A_normal_default_no_self_cycle__q0.js		samples=20000 seed=1		900
+ab/A_opposition_at_premise__q0.js.gk	gk	inputs/ab/A_opposition_at_premise__q0.js				180
+ab/A_opposition_at_premise__q0.js.mcref	mcref	inputs/ab/A_opposition_at_premise__q0.js		samples=20000 seed=1		900
+ab/A_paired_construction__q0.js.gk	gk	inputs/ab/A_paired_construction__q0.js				180
+ab/A_paired_construction__q0.js.mcref	mcref	inputs/ab/A_paired_construction__q0.js		samples=20000 seed=1		900
+ab/A_reciprocal_rank_zero__q0.js.gk	gk	inputs/ab/A_reciprocal_rank_zero__q0.js				180
+ab/A_reciprocal_rank_zero__q0.js.mcref	mcref	inputs/ab/A_reciprocal_rank_zero__q0.js		samples=20000 seed=1		900
+ab/A_repeated_exception__q0.js.gk	gk	inputs/ab/A_repeated_exception__q0.js				180
+ab/A_repeated_exception__q0.js.mcref	mcref	inputs/ab/A_repeated_exception__q0.js		samples=20000 seed=1		900
+ab/A_rule_without_body_proof__q0.js.gk	gk	inputs/ab/A_rule_without_body_proof__q0.js				180
+ab/A_rule_without_body_proof__q0.js.mcref	mcref	inputs/ab/A_rule_without_body_proof__q0.js		samples=20000 seed=1		900
+ab/A_same_atom_exception__q0.js.gk	gk	inputs/ab/A_same_atom_exception__q0.js				180
+ab/A_same_atom_exception__q0.js.mcref	mcref	inputs/ab/A_same_atom_exception__q0.js		samples=20000 seed=1		900
+ab/A_seedless_loop__q0.js.gk	gk	inputs/ab/A_seedless_loop__q0.js				180
+ab/A_seedless_loop__q0.js.mcref	mcref	inputs/ab/A_seedless_loop__q0.js		samples=20000 seed=1		900
+ab/A_seedless_loop__q1.js.gk	gk	inputs/ab/A_seedless_loop__q1.js				180
+ab/A_seedless_loop__q1.js.mcref	mcref	inputs/ab/A_seedless_loop__q1.js		samples=20000 seed=1		900
+ab/A_seedless_loop__q2.js.gk	gk	inputs/ab/A_seedless_loop__q2.js				180
+ab/A_seedless_loop__q2.js.mcref	mcref	inputs/ab/A_seedless_loop__q2.js		samples=20000 seed=1		900
+ab/A_tweety_rank0_default_ctx0__q0.js.gk	gk	inputs/ab/A_tweety_rank0_default_ctx0__q0.js				180
+ab/A_tweety_rank0_default_ctx0__q0.js.mcref	mcref	inputs/ab/A_tweety_rank0_default_ctx0__q0.js		samples=20000 seed=1		900
+ab/A_twelve_facts__q0.js.gk	gk	inputs/ab/A_twelve_facts__q0.js				180
+ab/A_twelve_facts__q0.js.mcref	mcref	inputs/ab/A_twelve_facts__q0.js		samples=20000 seed=1		900
+ab/A_two_output_cycle__q0.js.gk	gk	inputs/ab/A_two_output_cycle__q0.js				180
+ab/A_two_output_cycle__q0.js.mcref	mcref	inputs/ab/A_two_output_cycle__q0.js		samples=20000 seed=1		900
+ab/A_two_output_cycle__q1.js.gk	gk	inputs/ab/A_two_output_cycle__q1.js				180
+ab/A_two_output_cycle__q1.js.mcref	mcref	inputs/ab/A_two_output_cycle__q1.js		samples=20000 seed=1		900
+ab/A_two_output_cycle__q2.js.gk	gk	inputs/ab/A_two_output_cycle__q2.js				180
+ab/A_two_output_cycle__q2.js.mcref	mcref	inputs/ab/A_two_output_cycle__q2.js		samples=20000 seed=1		900
+ab/A_two_sources__q0.js.gk	gk	inputs/ab/A_two_sources__q0.js				180
+ab/A_two_sources__q0.js.mcref	mcref	inputs/ab/A_two_sources__q0.js		samples=20000 seed=1		900
+ab/A_two_views_08_05__q0.js.gk	gk	inputs/ab/A_two_views_08_05__q0.js				180
+ab/A_two_views_08_05__q0.js.mcref	mcref	inputs/ab/A_two_views_08_05__q0.js		samples=20000 seed=1		900
+ab/A_uncertain_seed_cycle_20__q0.js.gk	gk	inputs/ab/A_uncertain_seed_cycle_20__q0.js				180
+ab/A_uncertain_seed_cycle_20__q0.js.mcref	mcref	inputs/ab/A_uncertain_seed_cycle_20__q0.js		samples=20000 seed=1		900
+ab/A_universal_fact_instance__q0.js.gk	gk	inputs/ab/A_universal_fact_instance__q0.js				180
+ab/A_universal_fact_instance__q0.js.mcref	mcref	inputs/ab/A_universal_fact_instance__q0.js		samples=20000 seed=1		900
+ab/A_upstream_then_block_separator_v4__q0.js.gk	gk	inputs/ab/A_upstream_then_block_separator_v4__q0.js				180
+ab/A_upstream_then_block_separator_v4__q0.js.mcref	mcref	inputs/ab/A_upstream_then_block_separator_v4__q0.js		samples=20000 seed=1		900
+ab/A_v2_block_separator_two_nodes__q0.js.gk	gk	inputs/ab/A_v2_block_separator_two_nodes__q0.js				180
+ab/A_v2_block_separator_two_nodes__q0.js.mcref	mcref	inputs/ab/A_v2_block_separator_two_nodes__q0.js		samples=20000 seed=1		900
+ab/A_v2_boolean_fixed_negative__q0.js.gk	gk	inputs/ab/A_v2_boolean_fixed_negative__q0.js				180
+ab/A_v2_boolean_fixed_negative__q0.js.mcref	mcref	inputs/ab/A_v2_boolean_fixed_negative__q0.js		samples=20000 seed=1		900
+ab/A_v2_boolean_fixed_negative__q1.js.gk	gk	inputs/ab/A_v2_boolean_fixed_negative__q1.js				180
+ab/A_v2_boolean_fixed_negative__q1.js.mcref	mcref	inputs/ab/A_v2_boolean_fixed_negative__q1.js		samples=20000 seed=1		900
+ab/A_v2_dominated_opponent__q0.js.gk	gk	inputs/ab/A_v2_dominated_opponent__q0.js				180
+ab/A_v2_dominated_opponent__q0.js.mcref	mcref	inputs/ab/A_v2_dominated_opponent__q0.js		samples=20000 seed=1		900
+ab/A_v2_gate_body_implies_exception__q0.js.gk	gk	inputs/ab/A_v2_gate_body_implies_exception__q0.js				180
+ab/A_v2_gate_body_implies_exception__q0.js.mcref	mcref	inputs/ab/A_v2_gate_body_implies_exception__q0.js		samples=20000 seed=1		900
+ab/A_v2_gate_normal_external__q0.js.gk	gk	inputs/ab/A_v2_gate_normal_external__q0.js				180
+ab/A_v2_gate_normal_external__q0.js.mcref	mcref	inputs/ab/A_v2_gate_normal_external__q0.js		samples=20000 seed=1		900
+ab/A_v2_gate_rank_after_filter__q0.js.gk	gk	inputs/ab/A_v2_gate_rank_after_filter__q0.js				180
+ab/A_v2_gate_rank_after_filter__q0.js.mcref	mcref	inputs/ab/A_v2_gate_rank_after_filter__q0.js		samples=20000 seed=1		900
+ab/A_v2_global_dedup__q0.js.gk	gk	inputs/ab/A_v2_global_dedup__q0.js				180
+ab/A_v2_global_dedup__q0.js.mcref	mcref	inputs/ab/A_v2_global_dedup__q0.js		samples=20000 seed=1		900
+ab/A_v2_monotone_fixed_negative__q0.js.gk	gk	inputs/ab/A_v2_monotone_fixed_negative__q0.js				180
+ab/A_v2_monotone_fixed_negative__q0.js.mcref	mcref	inputs/ab/A_v2_monotone_fixed_negative__q0.js		samples=20000 seed=1		900
+ab/A_v2_monotone_fixed_negative__q1.js.gk	gk	inputs/ab/A_v2_monotone_fixed_negative__q1.js				180
+ab/A_v2_monotone_fixed_negative__q1.js.mcref	mcref	inputs/ab/A_v2_monotone_fixed_negative__q1.js		samples=20000 seed=1		900
+ab/A_v2_monotone_fixed_negative__q2.js.gk	gk	inputs/ab/A_v2_monotone_fixed_negative__q2.js				180
+ab/A_v2_monotone_fixed_negative__q2.js.mcref	mcref	inputs/ab/A_v2_monotone_fixed_negative__q2.js		samples=20000 seed=1		900
+ab/A_v2_one_app_two_views__q0.js.gk	gk	inputs/ab/A_v2_one_app_two_views__q0.js				180
+ab/A_v2_one_app_two_views__q0.js.mcref	mcref	inputs/ab/A_v2_one_app_two_views__q0.js		samples=20000 seed=1		900
+ab/A_v2_projection_ground__q0.js.gk	gk	inputs/ab/A_v2_projection_ground__q0.js				180
+ab/A_v2_projection_ground__q0.js.mcref	mcref	inputs/ab/A_v2_projection_ground__q0.js		samples=20000 seed=1		900
+ab/A_v2_transient_exception__q0.js.gk	gk	inputs/ab/A_v2_transient_exception__q0.js				180
+ab/A_v2_transient_exception__q0.js.mcref	mcref	inputs/ab/A_v2_transient_exception__q0.js		samples=20000 seed=1		900
+ab/A_zero_rank_hidden_in_body__q0.js.gk	gk	inputs/ab/A_zero_rank_hidden_in_body__q0.js				180
+ab/A_zero_rank_hidden_in_body__q0.js.mcref	mcref	inputs/ab/A_zero_rank_hidden_in_body__q0.js		samples=20000 seed=1		900
+ab/B_c01_tweety_penguin__q0.js.gk	gk	inputs/ab/B_c01_tweety_penguin__q0.js				180
+ab/B_c01_tweety_penguin__q0.js.mcref	mcref	inputs/ab/B_c01_tweety_penguin__q0.js		samples=20000 seed=1		900
+ab/B_c01_tweety_penguin__q1.js.gk	gk	inputs/ab/B_c01_tweety_penguin__q1.js				180
+ab/B_c01_tweety_penguin__q1.js.mcref	mcref	inputs/ab/B_c01_tweety_penguin__q1.js		samples=20000 seed=1		900
+ab/B_c02_nixon__q0.js.gk	gk	inputs/ab/B_c02_nixon__q0.js				180
+ab/B_c02_nixon__q0.js.mcref	mcref	inputs/ab/B_c02_nixon__q0.js		samples=20000 seed=1		900
+ab/B_c03_symmetric__q0.js.gk	gk	inputs/ab/B_c03_symmetric__q0.js				180
+ab/B_c03_symmetric__q0.js.mcref	mcref	inputs/ab/B_c03_symmetric__q0.js		samples=20000 seed=1		900
+ab/B_c03_symmetric__q1.js.gk	gk	inputs/ab/B_c03_symmetric__q1.js				180
+ab/B_c03_symmetric__q1.js.mcref	mcref	inputs/ab/B_c03_symmetric__q1.js		samples=20000 seed=1		900
+ab/B_c04_chain3__q0.js.gk	gk	inputs/ab/B_c04_chain3__q0.js				180
+ab/B_c04_chain3__q0.js.mcref	mcref	inputs/ab/B_c04_chain3__q0.js		samples=20000 seed=1		900
+ab/B_c05_chain5__q0.js.gk	gk	inputs/ab/B_c05_chain5__q0.js				180
+ab/B_c05_chain5__q0.js.mcref	mcref	inputs/ab/B_c05_chain5__q0.js		samples=20000 seed=1		900
+ab/B_c06_two_exceptions__q0.js.gk	gk	inputs/ab/B_c06_two_exceptions__q0.js				180
+ab/B_c06_two_exceptions__q0.js.mcref	mcref	inputs/ab/B_c06_two_exceptions__q0.js		samples=20000 seed=1		900
+ab/B_c07_universal_fact__q0.js.gk	gk	inputs/ab/B_c07_universal_fact__q0.js				180
+ab/B_c07_universal_fact__q0.js.mcref	mcref	inputs/ab/B_c07_universal_fact__q0.js		samples=20000 seed=1		900
+ab/B_c08_contested_exception__q0.js.gk	gk	inputs/ab/B_c08_contested_exception__q0.js				180
+ab/B_c08_contested_exception__q0.js.mcref	mcref	inputs/ab/B_c08_contested_exception__q0.js		samples=20000 seed=1		900
+ab/B_c09_deeper_negation__q0.js.gk	gk	inputs/ab/B_c09_deeper_negation__q0.js				180
+ab/B_c09_deeper_negation__q0.js.mcref	mcref	inputs/ab/B_c09_deeper_negation__q0.js		samples=20000 seed=1		900
+ab/B_c10_shared_premise_both_signs__q0.js.gk	gk	inputs/ab/B_c10_shared_premise_both_signs__q0.js				180
+ab/B_c10_shared_premise_both_signs__q0.js.mcref	mcref	inputs/ab/B_c10_shared_premise_both_signs__q0.js		samples=20000 seed=1		900
+ab/B_c12_irrelevant_500__q0.js.gk	gk	inputs/ab/B_c12_irrelevant_500__q0.js				180
+ab/B_c12_irrelevant_500__q0.js.mcref	mcref	inputs/ab/B_c12_irrelevant_500__q0.js		samples=20000 seed=1		900
+ab/B_c13_default_ranks_three__q0.js.gk	gk	inputs/ab/B_c13_default_ranks_three__q0.js				180
+ab/B_c13_default_ranks_three__q0.js.mcref	mcref	inputs/ab/B_c13_default_ranks_three__q0.js		samples=20000 seed=1		900
+ab/B_c13_default_ranks_three__q1.js.gk	gk	inputs/ab/B_c13_default_ranks_three__q1.js				180
+ab/B_c13_default_ranks_three__q1.js.mcref	mcref	inputs/ab/B_c13_default_ranks_three__q1.js		samples=20000 seed=1		900
+ab/B_f01_body_variable_answers__q0.js.gk	gk	inputs/ab/B_f01_body_variable_answers__q0.js				180
+ab/B_f01_body_variable_answers__q0.js.mcref	mcref	inputs/ab/B_f01_body_variable_answers__q0.js		samples=20000 seed=1		900
+ab/B_f02_universal_fact_instance__q0.js.gk	gk	inputs/ab/B_f02_universal_fact_instance__q0.js				180
+ab/B_f02_universal_fact_instance__q0.js.mcref	mcref	inputs/ab/B_f02_universal_fact_instance__q0.js		samples=20000 seed=1		900
+ab/B_f03_projection__q0.js.gk	gk	inputs/ab/B_f03_projection__q0.js				180
+ab/B_f03_projection__q0.js.mcref	mcref	inputs/ab/B_f03_projection__q0.js		samples=20000 seed=1		900
+ab/B_f06_exception_after_join__q0.js.gk	gk	inputs/ab/B_f06_exception_after_join__q0.js				180
+ab/B_f06_exception_after_join__q0.js.mcref	mcref	inputs/ab/B_f06_exception_after_join__q0.js		samples=20000 seed=1		900
+ab/B_f07_existential_exception__q0.js.gk	gk	inputs/ab/B_f07_existential_exception__q0.js				180
+ab/B_f07_existential_exception__q0.js.mcref	mcref	inputs/ab/B_f07_existential_exception__q0.js		samples=20000 seed=1		900
+ab/B_f08_registered_without_body__q0.js.gk	gk	inputs/ab/B_f08_registered_without_body__q0.js				180
+ab/B_f08_registered_without_body__q0.js.mcref	mcref	inputs/ab/B_f08_registered_without_body__q0.js		samples=20000 seed=1		900
+ab/B_f09_blocked_default_stays__q0.js.gk	gk	inputs/ab/B_f09_blocked_default_stays__q0.js				180
+ab/B_f09_blocked_default_stays__q0.js.mcref	mcref	inputs/ab/B_f09_blocked_default_stays__q0.js		samples=20000 seed=1		900
+ab/B_f10_late_answer_two_consumers__q0.js.gk	gk	inputs/ab/B_f10_late_answer_two_consumers__q0.js				180
+ab/B_f10_late_answer_two_consumers__q0.js.mcref	mcref	inputs/ab/B_f10_late_answer_two_consumers__q0.js		samples=20000 seed=1		900
+ab/B_f11_same_call_two_contexts__q0.js.gk	gk	inputs/ab/B_f11_same_call_two_contexts__q0.js				180
+ab/B_f11_same_call_two_contexts__q0.js.mcref	mcref	inputs/ab/B_f11_same_call_two_contexts__q0.js		samples=20000 seed=1		900
+ab/B_f12_same_call_two_contexts_no_overlap__q0.js.gk	gk	inputs/ab/B_f12_same_call_two_contexts_no_overlap__q0.js				180
+ab/B_f12_same_call_two_contexts_no_overlap__q0.js.mcref	mcref	inputs/ab/B_f12_same_call_two_contexts_no_overlap__q0.js		samples=20000 seed=1		900
+examples/arithmetic/boundary_comparison.js.gk	gk	inputs/examples/arithmetic/boundary_comparison.js				180
+examples/arithmetic/boundary_comparison.js.mcref	mcref	inputs/examples/arithmetic/boundary_comparison.js		samples=20000 seed=1		900
+examples/arithmetic/donor_ground_unary.js.gk	gk	inputs/examples/arithmetic/donor_ground_unary.js				180
+examples/arithmetic/donor_ground_unary.js.mcref	mcref	inputs/examples/arithmetic/donor_ground_unary.js		samples=20000 seed=1		900
+examples/asp_comparison/gbirds.js.gk	gk	inputs/examples/asp_comparison/gbirds.js				180
+examples/asp_comparison/gbirds.js.mcref	mcref	inputs/examples/asp_comparison/gbirds.js		samples=20000 seed=1		900
+examples/asp_comparison/gbirds_trans_scasp.js.gk	gk	inputs/examples/asp_comparison/gbirds_trans_scasp.js				180
+examples/asp_comparison/gbirds_trans_scasp.js.mcref	mcref	inputs/examples/asp_comparison/gbirds_trans_scasp.js		samples=20000 seed=1		900
+examples/confidences/alarm.js.gk	gk	inputs/examples/confidences/alarm.js				180
+examples/confidences/alarm.js.mcref	mcref	inputs/examples/confidences/alarm.js		samples=20000 seed=1		900
+examples/confidences/alarm_v1.js.gk	gk	inputs/examples/confidences/alarm_v1.js				180
+examples/confidences/alarm_v1.js.mcref	mcref	inputs/examples/confidences/alarm_v1.js		samples=20000 seed=1		900
+examples/confidences/alarm_v2.js.gk	gk	inputs/examples/confidences/alarm_v2.js				180
+examples/confidences/alarm_v2.js.mcref	mcref	inputs/examples/confidences/alarm_v2.js		samples=20000 seed=1		900
+examples/confidences/coin1.gkp.gk	gk	inputs/examples/confidences/coin1.gkp				180
+examples/confidences/coin1.gkp.mcref	mcref	inputs/examples/confidences/coin1.gkp		samples=20000 seed=1		900
+examples/confidences/coin1.js.gk	gk	inputs/examples/confidences/coin1.js				180
+examples/confidences/coin1.js.mcref	mcref	inputs/examples/confidences/coin1.js		samples=20000 seed=1		900
+examples/confidences/coin2.js.gk	gk	inputs/examples/confidences/coin2.js				180
+examples/confidences/coin2.js.mcref	mcref	inputs/examples/confidences/coin2.js		samples=20000 seed=1		900
+examples/confidences/coin3.js.gk	gk	inputs/examples/confidences/coin3.js				180
+examples/confidences/coin3.js.mcref	mcref	inputs/examples/confidences/coin3.js		samples=20000 seed=1		900
+examples/confidences/coin4.js.gk	gk	inputs/examples/confidences/coin4.js				180
+examples/confidences/coin4.js.mcref	mcref	inputs/examples/confidences/coin4.js		samples=20000 seed=1		900
+examples/confidences/conf1.js.gk	gk	inputs/examples/confidences/conf1.js				180
+examples/confidences/conf1.js.mcref	mcref	inputs/examples/confidences/conf1.js		samples=20000 seed=1		900
+examples/confidences/conf2.js.gk	gk	inputs/examples/confidences/conf2.js				180
+examples/confidences/conf2.js.mcref	mcref	inputs/examples/confidences/conf2.js		samples=20000 seed=1		900
+examples/confidences/conf3.js.gk	gk	inputs/examples/confidences/conf3.js				180
+examples/confidences/conf3.js.mcref	mcref	inputs/examples/confidences/conf3.js		samples=20000 seed=1		900
+examples/confidences/conf4.js.gk	gk	inputs/examples/confidences/conf4.js				180
+examples/confidences/conf4.js.mcref	mcref	inputs/examples/confidences/conf4.js		samples=20000 seed=1		900
+examples/confidences/cumulate.gkp.gk	gk	inputs/examples/confidences/cumulate.gkp				180
+examples/confidences/cumulate.gkp.mcref	mcref	inputs/examples/confidences/cumulate.gkp		samples=20000 seed=1		900
+examples/confidences/cumulate.js.gk	gk	inputs/examples/confidences/cumulate.js				180
+examples/confidences/cumulate.js.mcref	mcref	inputs/examples/confidences/cumulate.js		samples=20000 seed=1		900
+examples/confidences/n1.js.gk	gk	inputs/examples/confidences/n1.js				180
+examples/confidences/n1.js.mcref	mcref	inputs/examples/confidences/n1.js		samples=20000 seed=1		900
+examples/confidences/n2.js.gk	gk	inputs/examples/confidences/n2.js				180
+examples/confidences/n2.js.mcref	mcref	inputs/examples/confidences/n2.js		samples=20000 seed=1		900
+examples/confidences/n2a.js.gk	gk	inputs/examples/confidences/n2a.js				180
+examples/confidences/n2a.js.mcref	mcref	inputs/examples/confidences/n2a.js		samples=20000 seed=1		900
+examples/confidences/n2c.js.gk	gk	inputs/examples/confidences/n2c.js				180
+examples/confidences/n2c.js.mcref	mcref	inputs/examples/confidences/n2c.js		samples=20000 seed=1		900
+examples/confidences/n2plus.js.gk	gk	inputs/examples/confidences/n2plus.js				180
+examples/confidences/n2plus.js.mcref	mcref	inputs/examples/confidences/n2plus.js		samples=20000 seed=1		900
+examples/confidences/near.js.gk	gk	inputs/examples/confidences/near.js				180
+examples/confidences/near.js.mcref	mcref	inputs/examples/confidences/near.js		samples=20000 seed=1		900
+examples/confidences/net_against.js.gk	gk	inputs/examples/confidences/net_against.js				180
+examples/confidences/net_against.js.mcref	mcref	inputs/examples/confidences/net_against.js		samples=20000 seed=1		900
+examples/confidences/net_direct.gkp.gk	gk	inputs/examples/confidences/net_direct.gkp				180
+examples/confidences/net_direct.gkp.mcref	mcref	inputs/examples/confidences/net_direct.gkp		samples=20000 seed=1		900
+examples/confidences/net_direct.js.gk	gk	inputs/examples/confidences/net_direct.js				180
+examples/confidences/net_direct.js.mcref	mcref	inputs/examples/confidences/net_direct.js		samples=20000 seed=1		900
+examples/confidences/net_fought.js.gk	gk	inputs/examples/confidences/net_fought.js				180
+examples/confidences/net_fought.js.mcref	mcref	inputs/examples/confidences/net_fought.js		samples=20000 seed=1		900
+examples/confidences/net_lone.js.gk	gk	inputs/examples/confidences/net_lone.js				180
+examples/confidences/net_lone.js.mcref	mcref	inputs/examples/confidences/net_lone.js		samples=20000 seed=1		900
+examples/confidences/net_premise.js.gk	gk	inputs/examples/confidences/net_premise.js				180
+examples/confidences/net_premise.js.mcref	mcref	inputs/examples/confidences/net_premise.js		samples=20000 seed=1		900
+examples/confidences/net_strong.js.gk	gk	inputs/examples/confidences/net_strong.js				180
+examples/confidences/net_strong.js.mcref	mcref	inputs/examples/confidences/net_strong.js		samples=20000 seed=1		900
+examples/confidences/overlap1.js.gk	gk	inputs/examples/confidences/overlap1.js				180
+examples/confidences/overlap1.js.mcref	mcref	inputs/examples/confidences/overlap1.js		samples=20000 seed=1		900
+examples/confidences/overlap3.js.gk	gk	inputs/examples/confidences/overlap3.js				180
+examples/confidences/overlap3.js.mcref	mcref	inputs/examples/confidences/overlap3.js		samples=20000 seed=1		900
+examples/confidences/rulemult.js.gk	gk	inputs/examples/confidences/rulemult.js				180
+examples/confidences/rulemult.js.mcref	mcref	inputs/examples/confidences/rulemult.js		samples=20000 seed=1		900
+examples/confidences/rules2.js.gk	gk	inputs/examples/confidences/rules2.js				180
+examples/confidences/rules2.js.mcref	mcref	inputs/examples/confidences/rules2.js		samples=20000 seed=1		900
+examples/confidences/rules3.js.gk	gk	inputs/examples/confidences/rules3.js				180
+examples/confidences/rules3.js.mcref	mcref	inputs/examples/confidences/rules3.js		samples=20000 seed=1		900
+examples/confidences/smokes.gkp.gk	gk	inputs/examples/confidences/smokes.gkp				180
+examples/confidences/smokes.gkp.mcref	mcref	inputs/examples/confidences/smokes.gkp		samples=20000 seed=1		900
+examples/confidences/smokes.js.gk	gk	inputs/examples/confidences/smokes.js				180
+examples/confidences/smokes.js.mcref	mcref	inputs/examples/confidences/smokes.js		samples=20000 seed=1		900
+examples/confidences/smokes2.js.gk	gk	inputs/examples/confidences/smokes2.js				180
+examples/confidences/smokes2.js.mcref	mcref	inputs/examples/confidences/smokes2.js		samples=20000 seed=1		900
+examples/confidences/smokes_alchemy.js.gk	gk	inputs/examples/confidences/smokes_alchemy.js				180
+examples/confidences/smokes_alchemy.js.mcref	mcref	inputs/examples/confidences/smokes_alchemy.js		samples=20000 seed=1		900
+examples/confidences/socialsmoking.js.gk	gk	inputs/examples/confidences/socialsmoking.js				180
+examples/confidences/socialsmoking.js.mcref	mcref	inputs/examples/confidences/socialsmoking.js		samples=20000 seed=1		900
+examples/confidences/socialsmoking2.js.gk	gk	inputs/examples/confidences/socialsmoking2.js				180
+examples/confidences/socialsmoking2.js.mcref	mcref	inputs/examples/confidences/socialsmoking2.js		samples=20000 seed=1		900
+examples/core/grandfather.gkp.gk	gk	inputs/examples/core/grandfather.gkp				180
+examples/core/grandfather.gkp.mcref	mcref	inputs/examples/core/grandfather.gkp		samples=20000 seed=1		900
+examples/core/grandfather.gks.gk	gk	inputs/examples/core/grandfather.gks				180
+examples/core/grandfather.gks.mcref	mcref	inputs/examples/core/grandfather.gks		samples=20000 seed=1		900
+examples/core/grandfather.js.gk	gk	inputs/examples/core/grandfather.js				180
+examples/core/grandfather.js.mcref	mcref	inputs/examples/core/grandfather.js		samples=20000 seed=1		900
+examples/core/negation.js.gk	gk	inputs/examples/core/negation.js				180
+examples/core/negation.js.mcref	mcref	inputs/examples/core/negation.js		samples=20000 seed=1		900
+examples/core/negation_conflict.js.gk	gk	inputs/examples/core/negation_conflict.js				180
+examples/core/negation_conflict.js.mcref	mcref	inputs/examples/core/negation_conflict.js		samples=20000 seed=1		900
+examples/exceptions/bird_counter.gkp.gk	gk	inputs/examples/exceptions/bird_counter.gkp				180
+examples/exceptions/bird_counter.gkp.mcref	mcref	inputs/examples/exceptions/bird_counter.gkp		samples=20000 seed=1		900
+examples/exceptions/bird_counter_premise.gkp.gk	gk	inputs/examples/exceptions/bird_counter_premise.gkp				180
+examples/exceptions/bird_counter_premise.gkp.mcref	mcref	inputs/examples/exceptions/bird_counter_premise.gkp		samples=20000 seed=1		900
+examples/exceptions/bird_default.gkp.gk	gk	inputs/examples/exceptions/bird_default.gkp				180
+examples/exceptions/bird_default.gkp.mcref	mcref	inputs/examples/exceptions/bird_default.gkp		samples=20000 seed=1		900
+examples/exceptions/bird_default.js.gk	gk	inputs/examples/exceptions/bird_default.js				180
+examples/exceptions/bird_default.js.mcref	mcref	inputs/examples/exceptions/bird_default.js		samples=20000 seed=1		900
+examples/exceptions/bird_exception.gkp.gk	gk	inputs/examples/exceptions/bird_exception.gkp				180
+examples/exceptions/bird_exception.gkp.mcref	mcref	inputs/examples/exceptions/bird_exception.gkp		samples=20000 seed=1		900
+examples/exceptions/bird_exception.js.gk	gk	inputs/examples/exceptions/bird_exception.js				180
+examples/exceptions/bird_exception.js.mcref	mcref	inputs/examples/exceptions/bird_exception.js		samples=20000 seed=1		900
+examples/exceptions/bird_hierarchy.js.gk	gk	inputs/examples/exceptions/bird_hierarchy.js				180
+examples/exceptions/bird_hierarchy.js.mcref	mcref	inputs/examples/exceptions/bird_hierarchy.js		samples=20000 seed=1		900
+examples/exceptions/bird_penguin.gkp.gk	gk	inputs/examples/exceptions/bird_penguin.gkp				180
+examples/exceptions/bird_penguin.gkp.mcref	mcref	inputs/examples/exceptions/bird_penguin.gkp		samples=20000 seed=1		900
+examples/exceptions/bird_penguin.js.gk	gk	inputs/examples/exceptions/bird_penguin.js				180
+examples/exceptions/bird_penguin.js.mcref	mcref	inputs/examples/exceptions/bird_penguin.js		samples=20000 seed=1		900
+examples/exceptions/bird_penguin.p.gk	gk	inputs/examples/exceptions/bird_penguin.p				180
+examples/exceptions/bird_penguin.p.mcref	mcref	inputs/examples/exceptions/bird_penguin.p		samples=20000 seed=1		900
+examples/exceptions/gbirds.js.gk	gk	inputs/examples/exceptions/gbirds.js				180
+examples/exceptions/gbirds.js.mcref	mcref	inputs/examples/exceptions/gbirds.js		samples=20000 seed=1		900
+examples/exceptions/hierarchy.js.gk	gk	inputs/examples/exceptions/hierarchy.js				180
+examples/exceptions/hierarchy.js.mcref	mcref	inputs/examples/exceptions/hierarchy.js		samples=20000 seed=1		900
+examples/exceptions/kingqueen.js.gk	gk	inputs/examples/exceptions/kingqueen.js				180
+examples/exceptions/kingqueen.js.mcref	mcref	inputs/examples/exceptions/kingqueen.js		samples=20000 seed=1		900
+examples/exceptions/nixon.gkp.gk	gk	inputs/examples/exceptions/nixon.gkp				180
+examples/exceptions/nixon.gkp.mcref	mcref	inputs/examples/exceptions/nixon.gkp		samples=20000 seed=1		900
+examples/exceptions/nixon.js.gk	gk	inputs/examples/exceptions/nixon.js				180
+examples/exceptions/nixon.js.mcref	mcref	inputs/examples/exceptions/nixon.js		samples=20000 seed=1		900
+examples/exceptions/nixon_taxonomy.js.gk	gk	inputs/examples/exceptions/nixon_taxonomy.js				180
+examples/exceptions/nixon_taxonomy.js.mcref	mcref	inputs/examples/exceptions/nixon_taxonomy.js		samples=20000 seed=1		900
+examples/exceptions/partcapability3.js.gk	gk	inputs/examples/exceptions/partcapability3.js				180
+examples/exceptions/partcapability3.js.mcref	mcref	inputs/examples/exceptions/partcapability3.js		samples=20000 seed=1		900
+examples/exceptions/penguin.gkp.gk	gk	inputs/examples/exceptions/penguin.gkp				180
+examples/exceptions/penguin.gkp.mcref	mcref	inputs/examples/exceptions/penguin.gkp		samples=20000 seed=1		900
+examples/exceptions/penguin.js.gk	gk	inputs/examples/exceptions/penguin.js				180
+examples/exceptions/penguin.js.mcref	mcref	inputs/examples/exceptions/penguin.js		samples=20000 seed=1		900
+examples/exceptions/penguin2.js.gk	gk	inputs/examples/exceptions/penguin2.js				180
+examples/exceptions/penguin2.js.mcref	mcref	inputs/examples/exceptions/penguin2.js		samples=20000 seed=1		900
+examples/exceptions/trivial.js.gk	gk	inputs/examples/exceptions/trivial.js				180
+examples/exceptions/trivial.js.mcref	mcref	inputs/examples/exceptions/trivial.js		samples=20000 seed=1		900
+examples/gks/gks01_facts.gks.gk	gk	inputs/examples/gks/gks01_facts.gks				180
+examples/gks/gks01_facts.gks.mcref	mcref	inputs/examples/gks/gks01_facts.gks		samples=20000 seed=1		900
+examples/gks/gks01_facts.js.gk	gk	inputs/examples/gks/gks01_facts.js				180
+examples/gks/gks01_facts.js.mcref	mcref	inputs/examples/gks/gks01_facts.js		samples=20000 seed=1		900
+examples/gks/gks02_negated_fact.gks.gk	gk	inputs/examples/gks/gks02_negated_fact.gks				180
+examples/gks/gks02_negated_fact.gks.mcref	mcref	inputs/examples/gks/gks02_negated_fact.gks		samples=20000 seed=1		900
+examples/gks/gks02_negated_fact.js.gk	gk	inputs/examples/gks/gks02_negated_fact.js				180
+examples/gks/gks02_negated_fact.js.mcref	mcref	inputs/examples/gks/gks02_negated_fact.js		samples=20000 seed=1		900
+examples/gks/gks03_confidence.gks.gk	gk	inputs/examples/gks/gks03_confidence.gks				180
+examples/gks/gks03_confidence.gks.mcref	mcref	inputs/examples/gks/gks03_confidence.gks		samples=20000 seed=1		900
+examples/gks/gks03_confidence.js.gk	gk	inputs/examples/gks/gks03_confidence.js				180
+examples/gks/gks03_confidence.js.mcref	mcref	inputs/examples/gks/gks03_confidence.js		samples=20000 seed=1		900
+examples/gks/gks04_rule.gks.gk	gk	inputs/examples/gks/gks04_rule.gks				180
+examples/gks/gks04_rule.gks.mcref	mcref	inputs/examples/gks/gks04_rule.gks		samples=20000 seed=1		900
+examples/gks/gks04_rule.js.gk	gk	inputs/examples/gks/gks04_rule.js				180
+examples/gks/gks04_rule.js.mcref	mcref	inputs/examples/gks/gks04_rule.js		samples=20000 seed=1		900
+examples/gks/gks05_conj_premise.gks.gk	gk	inputs/examples/gks/gks05_conj_premise.gks				180
+examples/gks/gks05_conj_premise.gks.mcref	mcref	inputs/examples/gks/gks05_conj_premise.gks		samples=20000 seed=1		900
+examples/gks/gks05_conj_premise.js.gk	gk	inputs/examples/gks/gks05_conj_premise.js				180
+examples/gks/gks05_conj_premise.js.mcref	mcref	inputs/examples/gks/gks05_conj_premise.js		samples=20000 seed=1		900
+examples/gks/gks06_disj_consequence.gks.gk	gk	inputs/examples/gks/gks06_disj_consequence.gks				180
+examples/gks/gks06_disj_consequence.gks.mcref	mcref	inputs/examples/gks/gks06_disj_consequence.gks		samples=20000 seed=1		900
+examples/gks/gks06_disj_consequence.js.gk	gk	inputs/examples/gks/gks06_disj_consequence.js				180
+examples/gks/gks06_disj_consequence.js.mcref	mcref	inputs/examples/gks/gks06_disj_consequence.js		samples=20000 seed=1		900
+examples/gks/gks07_bare_disjunction.gks.gk	gk	inputs/examples/gks/gks07_bare_disjunction.gks				180
+examples/gks/gks07_bare_disjunction.gks.mcref	mcref	inputs/examples/gks/gks07_bare_disjunction.gks		samples=20000 seed=1		900
+examples/gks/gks07_bare_disjunction.js.gk	gk	inputs/examples/gks/gks07_bare_disjunction.js				180
+examples/gks/gks07_bare_disjunction.js.mcref	mcref	inputs/examples/gks/gks07_bare_disjunction.js		samples=20000 seed=1		900
+examples/gks/gks08_false_consequence.js.gk	gk	inputs/examples/gks/gks08_false_consequence.js				180
+examples/gks/gks08_false_consequence.js.mcref	mcref	inputs/examples/gks/gks08_false_consequence.js		samples=20000 seed=1		900
+examples/gks/gks09_unless_premise.gks.gk	gk	inputs/examples/gks/gks09_unless_premise.gks				180
+examples/gks/gks09_unless_premise.gks.mcref	mcref	inputs/examples/gks/gks09_unless_premise.gks		samples=20000 seed=1		900
+examples/gks/gks09_unless_premise.js.gk	gk	inputs/examples/gks/gks09_unless_premise.js				180
+examples/gks/gks09_unless_premise.js.mcref	mcref	inputs/examples/gks/gks09_unless_premise.js		samples=20000 seed=1		900
+examples/gks/gks10_unless_consequence.gks.gk	gk	inputs/examples/gks/gks10_unless_consequence.gks				180
+examples/gks/gks10_unless_consequence.gks.mcref	mcref	inputs/examples/gks/gks10_unless_consequence.gks		samples=20000 seed=1		900
+examples/gks/gks10_unless_consequence.js.gk	gk	inputs/examples/gks/gks10_unless_consequence.js				180
+examples/gks/gks10_unless_consequence.js.mcref	mcref	inputs/examples/gks/gks10_unless_consequence.js		samples=20000 seed=1		900
+examples/gks/gks11_unless_negated.gks.gk	gk	inputs/examples/gks/gks11_unless_negated.gks				180
+examples/gks/gks11_unless_negated.gks.mcref	mcref	inputs/examples/gks/gks11_unless_negated.gks		samples=20000 seed=1		900
+examples/gks/gks11_unless_negated.js.gk	gk	inputs/examples/gks/gks11_unless_negated.js				180
+examples/gks/gks11_unless_negated.js.mcref	mcref	inputs/examples/gks/gks11_unless_negated.js		samples=20000 seed=1		900
+examples/gks/gks12_unless_fact_clause.gks.gk	gk	inputs/examples/gks/gks12_unless_fact_clause.gks				180
+examples/gks/gks12_unless_fact_clause.gks.mcref	mcref	inputs/examples/gks/gks12_unless_fact_clause.gks		samples=20000 seed=1		900
+examples/gks/gks14_query_negation.gks.gk	gk	inputs/examples/gks/gks14_query_negation.gks				180
+examples/gks/gks14_query_negation.gks.mcref	mcref	inputs/examples/gks/gks14_query_negation.gks		samples=20000 seed=1		900
+examples/gks/gks14_query_negation.js.gk	gk	inputs/examples/gks/gks14_query_negation.js				180
+examples/gks/gks14_query_negation.js.mcref	mcref	inputs/examples/gks/gks14_query_negation.js		samples=20000 seed=1		900
+examples/gks/gks15_include.gks.gk	gk	inputs/examples/gks/gks15_include.gks				180
+examples/gks/gks15_include.gks.mcref	mcref	inputs/examples/gks/gks15_include.gks		samples=20000 seed=1		900
+examples/gks/gks15_include.js.gk	gk	inputs/examples/gks/gks15_include.js				180
+examples/gks/gks15_include.js.mcref	mcref	inputs/examples/gks/gks15_include.js		samples=20000 seed=1		900
+examples/gks/gks16_comments.gks.gk	gk	inputs/examples/gks/gks16_comments.gks				180
+examples/gks/gks16_comments.gks.mcref	mcref	inputs/examples/gks/gks16_comments.gks		samples=20000 seed=1		900
+examples/gks/gks16_comments.js.gk	gk	inputs/examples/gks/gks16_comments.js				180
+examples/gks/gks16_comments.js.mcref	mcref	inputs/examples/gks/gks16_comments.js		samples=20000 seed=1		900
+examples/language/who_question.js.gk	gk	inputs/examples/language/who_question.js				180
+examples/language/who_question.js.mcref	mcref	inputs/examples/language/who_question.js		samples=20000 seed=1		900
+families/proj_10_neg.js.gk	gk	inputs/families/proj_10_neg.js				180
+families/proj_10_neg.js.mcref	mcref	inputs/families/proj_10_neg.js		samples=20000 seed=1		900
+families/proj_10_pos.js.gk	gk	inputs/families/proj_10_pos.js				180
+families/proj_10_pos.js.mcref	mcref	inputs/families/proj_10_pos.js		samples=20000 seed=1		900
+families/proj_11_neg.js.gk	gk	inputs/families/proj_11_neg.js				180
+families/proj_11_neg.js.mcref	mcref	inputs/families/proj_11_neg.js		samples=20000 seed=1		900
+families/proj_11_pos.js.gk	gk	inputs/families/proj_11_pos.js				180
+families/proj_11_pos.js.mcref	mcref	inputs/families/proj_11_pos.js		samples=20000 seed=1		900
+families/proj_12_neg.js.gk	gk	inputs/families/proj_12_neg.js				180
+families/proj_12_neg.js.mcref	mcref	inputs/families/proj_12_neg.js		samples=20000 seed=1		900
+families/proj_12_pos.js.gk	gk	inputs/families/proj_12_pos.js				180
+families/proj_12_pos.js.mcref	mcref	inputs/families/proj_12_pos.js		samples=20000 seed=1		900
+families/proj_13_neg.js.gk	gk	inputs/families/proj_13_neg.js				180
+families/proj_13_neg.js.mcref	mcref	inputs/families/proj_13_neg.js		samples=20000 seed=1		900
+families/proj_13_pos.js.gk	gk	inputs/families/proj_13_pos.js				180
+families/proj_13_pos.js.mcref	mcref	inputs/families/proj_13_pos.js		samples=20000 seed=1		900
+families/proj_14_neg.js.gk	gk	inputs/families/proj_14_neg.js				180
+families/proj_14_neg.js.mcref	mcref	inputs/families/proj_14_neg.js		samples=20000 seed=1		900
+families/proj_14_pos.js.gk	gk	inputs/families/proj_14_pos.js				180
+families/proj_14_pos.js.mcref	mcref	inputs/families/proj_14_pos.js		samples=20000 seed=1		900
+families/proj_15_neg.js.gk	gk	inputs/families/proj_15_neg.js				180
+families/proj_15_neg.js.mcref	mcref	inputs/families/proj_15_neg.js		samples=20000 seed=1		900
+families/proj_15_pos.js.gk	gk	inputs/families/proj_15_pos.js				180
+families/proj_15_pos.js.mcref	mcref	inputs/families/proj_15_pos.js		samples=20000 seed=1		900
+families/proj_16_neg.js.gk	gk	inputs/families/proj_16_neg.js				180
+families/proj_16_neg.js.mcref	mcref	inputs/families/proj_16_neg.js		samples=20000 seed=1		900
+families/proj_16_pos.js.gk	gk	inputs/families/proj_16_pos.js				180
+families/proj_16_pos.js.mcref	mcref	inputs/families/proj_16_pos.js		samples=20000 seed=1		900
+families/proj_17_neg.js.gk	gk	inputs/families/proj_17_neg.js				180
+families/proj_17_neg.js.mcref	mcref	inputs/families/proj_17_neg.js		samples=20000 seed=1		900
+families/proj_17_pos.js.gk	gk	inputs/families/proj_17_pos.js				180
+families/proj_17_pos.js.mcref	mcref	inputs/families/proj_17_pos.js		samples=20000 seed=1		900
+families/proj_18_neg.js.gk	gk	inputs/families/proj_18_neg.js				180
+families/proj_18_neg.js.mcref	mcref	inputs/families/proj_18_neg.js		samples=20000 seed=1		900
+families/proj_18_pos.js.gk	gk	inputs/families/proj_18_pos.js				180
+families/proj_18_pos.js.mcref	mcref	inputs/families/proj_18_pos.js		samples=20000 seed=1		900
+families/proj_19_neg.js.gk	gk	inputs/families/proj_19_neg.js				180
+families/proj_19_neg.js.mcref	mcref	inputs/families/proj_19_neg.js		samples=20000 seed=1		900
+families/proj_19_pos.js.gk	gk	inputs/families/proj_19_pos.js				180
+families/proj_19_pos.js.mcref	mcref	inputs/families/proj_19_pos.js		samples=20000 seed=1		900
+families/proj_1_neg.js.gk	gk	inputs/families/proj_1_neg.js				180
+families/proj_1_neg.js.mcref	mcref	inputs/families/proj_1_neg.js		samples=20000 seed=1		900
+families/proj_1_pos.js.gk	gk	inputs/families/proj_1_pos.js				180
+families/proj_1_pos.js.mcref	mcref	inputs/families/proj_1_pos.js		samples=20000 seed=1		900
+families/proj_20_neg.js.gk	gk	inputs/families/proj_20_neg.js				180
+families/proj_20_neg.js.mcref	mcref	inputs/families/proj_20_neg.js		samples=20000 seed=1		900
+families/proj_20_pos.js.gk	gk	inputs/families/proj_20_pos.js				180
+families/proj_20_pos.js.mcref	mcref	inputs/families/proj_20_pos.js		samples=20000 seed=1		900
+families/proj_2_neg.js.gk	gk	inputs/families/proj_2_neg.js				180
+families/proj_2_neg.js.mcref	mcref	inputs/families/proj_2_neg.js		samples=20000 seed=1		900
+families/proj_2_pos.js.gk	gk	inputs/families/proj_2_pos.js				180
+families/proj_2_pos.js.mcref	mcref	inputs/families/proj_2_pos.js		samples=20000 seed=1		900
+families/proj_3_neg.js.gk	gk	inputs/families/proj_3_neg.js				180
+families/proj_3_neg.js.mcref	mcref	inputs/families/proj_3_neg.js		samples=20000 seed=1		900
+families/proj_3_pos.js.gk	gk	inputs/families/proj_3_pos.js				180
+families/proj_3_pos.js.mcref	mcref	inputs/families/proj_3_pos.js		samples=20000 seed=1		900
+families/proj_4_neg.js.gk	gk	inputs/families/proj_4_neg.js				180
+families/proj_4_neg.js.mcref	mcref	inputs/families/proj_4_neg.js		samples=20000 seed=1		900
+families/proj_4_pos.js.gk	gk	inputs/families/proj_4_pos.js				180
+families/proj_4_pos.js.mcref	mcref	inputs/families/proj_4_pos.js		samples=20000 seed=1		900
+families/proj_5_neg.js.gk	gk	inputs/families/proj_5_neg.js				180
+families/proj_5_neg.js.mcref	mcref	inputs/families/proj_5_neg.js		samples=20000 seed=1		900
+families/proj_5_pos.js.gk	gk	inputs/families/proj_5_pos.js				180
+families/proj_5_pos.js.mcref	mcref	inputs/families/proj_5_pos.js		samples=20000 seed=1		900
+families/proj_6_neg.js.gk	gk	inputs/families/proj_6_neg.js				180
+families/proj_6_neg.js.mcref	mcref	inputs/families/proj_6_neg.js		samples=20000 seed=1		900
+families/proj_6_pos.js.gk	gk	inputs/families/proj_6_pos.js				180
+families/proj_6_pos.js.mcref	mcref	inputs/families/proj_6_pos.js		samples=20000 seed=1		900
+families/proj_7_neg.js.gk	gk	inputs/families/proj_7_neg.js				180
+families/proj_7_neg.js.mcref	mcref	inputs/families/proj_7_neg.js		samples=20000 seed=1		900
+families/proj_7_pos.js.gk	gk	inputs/families/proj_7_pos.js				180
+families/proj_7_pos.js.mcref	mcref	inputs/families/proj_7_pos.js		samples=20000 seed=1		900
+families/proj_8_neg.js.gk	gk	inputs/families/proj_8_neg.js				180
+families/proj_8_neg.js.mcref	mcref	inputs/families/proj_8_neg.js		samples=20000 seed=1		900
+families/proj_8_pos.js.gk	gk	inputs/families/proj_8_pos.js				180
+families/proj_8_pos.js.mcref	mcref	inputs/families/proj_8_pos.js		samples=20000 seed=1		900
+families/proj_9_neg.js.gk	gk	inputs/families/proj_9_neg.js				180
+families/proj_9_neg.js.mcref	mcref	inputs/families/proj_9_neg.js		samples=20000 seed=1		900
+families/proj_9_pos.js.gk	gk	inputs/families/proj_9_pos.js				180
+families/proj_9_pos.js.mcref	mcref	inputs/families/proj_9_pos.js		samples=20000 seed=1		900
+families/width_2_neg.js.gk	gk	inputs/families/width_2_neg.js				180
+families/width_2_neg.js.mcref	mcref	inputs/families/width_2_neg.js		samples=20000 seed=1		900
+families/width_2_pos.js.gk	gk	inputs/families/width_2_pos.js				180
+families/width_2_pos.js.mcref	mcref	inputs/families/width_2_pos.js		samples=20000 seed=1		900
+families/width_3_neg.js.gk	gk	inputs/families/width_3_neg.js				180
+families/width_3_neg.js.mcref	mcref	inputs/families/width_3_neg.js		samples=20000 seed=1		900
+families/width_3_pos.js.gk	gk	inputs/families/width_3_pos.js				180
+families/width_3_pos.js.mcref	mcref	inputs/families/width_3_pos.js		samples=20000 seed=1		900
+families/width_4_neg.js.gk	gk	inputs/families/width_4_neg.js				180
+families/width_4_neg.js.mcref	mcref	inputs/families/width_4_neg.js		samples=20000 seed=1		900
+families/width_4_pos.js.gk	gk	inputs/families/width_4_pos.js				180
+families/width_4_pos.js.mcref	mcref	inputs/families/width_4_pos.js		samples=20000 seed=1		900
+families/width_5_neg.js.gk	gk	inputs/families/width_5_neg.js				180
+families/width_5_neg.js.mcref	mcref	inputs/families/width_5_neg.js		samples=20000 seed=1		900
+families/width_5_pos.js.gk	gk	inputs/families/width_5_pos.js				180
+families/width_5_pos.js.mcref	mcref	inputs/families/width_5_pos.js		samples=20000 seed=1		900
+families/width_6_neg.js.gk	gk	inputs/families/width_6_neg.js				180
+families/width_6_neg.js.mcref	mcref	inputs/families/width_6_neg.js		samples=20000 seed=1		900
+families/width_6_pos.js.gk	gk	inputs/families/width_6_pos.js				180
+families/width_6_pos.js.mcref	mcref	inputs/families/width_6_pos.js		samples=20000 seed=1		900
+families/width_7_neg.js.gk	gk	inputs/families/width_7_neg.js				180
+families/width_7_neg.js.mcref	mcref	inputs/families/width_7_neg.js		samples=20000 seed=1		900
+families/width_7_pos.js.gk	gk	inputs/families/width_7_pos.js				180
+families/width_7_pos.js.mcref	mcref	inputs/families/width_7_pos.js		samples=20000 seed=1		900
+families/width_8_neg.js.gk	gk	inputs/families/width_8_neg.js				180
+families/width_8_neg.js.mcref	mcref	inputs/families/width_8_neg.js		samples=20000 seed=1		900
+families/width_8_pos.js.gk	gk	inputs/families/width_8_pos.js				180
+families/width_8_pos.js.mcref	mcref	inputs/families/width_8_pos.js		samples=20000 seed=1		900
+lit/bg/bg10_knowledgelight_d2_639.gkp.gk	gk	inputs/lit/bg/bg10_knowledgelight_d2_639.gkp				180
+lit/bg/bg10_knowledgelight_d2_639.gkp.mcref	mcref	inputs/lit/bg/bg10_knowledgelight_d2_639.gkp		samples=20000 seed=1		900
+lit/bg/bg1_binary_d1_516.gkp.gk	gk	inputs/lit/bg/bg1_binary_d1_516.gkp				180
+lit/bg/bg1_binary_d1_516.gkp.mcref	mcref	inputs/lit/bg/bg1_binary_d1_516.gkp		samples=20000 seed=1		900
+lit/bg/bg2_main_d1_448.gkp.gk	gk	inputs/lit/bg/bg2_main_d1_448.gkp				180
+lit/bg/bg2_main_d1_448.gkp.mcref	mcref	inputs/lit/bg/bg2_main_d1_448.gkp		samples=20000 seed=1		900
+lit/bg/bg3_main_d2_323.gkp.gk	gk	inputs/lit/bg/bg3_main_d2_323.gkp				180
+lit/bg/bg3_main_d2_323.gkp.mcref	mcref	inputs/lit/bg/bg3_main_d2_323.gkp		samples=20000 seed=1		900
+lit/bg/bg4_main_d3_782.gkp.gk	gk	inputs/lit/bg/bg4_main_d3_782.gkp				180
+lit/bg/bg4_main_d3_782.gkp.mcref	mcref	inputs/lit/bg/bg4_main_d3_782.gkp		samples=20000 seed=1		900
+lit/bg/bg5_lowconflict_d2_595.gkp.gk	gk	inputs/lit/bg/bg5_lowconflict_d2_595.gkp				180
+lit/bg/bg5_lowconflict_d2_595.gkp.mcref	mcref	inputs/lit/bg/bg5_lowconflict_d2_595.gkp		samples=20000 seed=1		900
+lit/bg/bg6_highconflict_d2_47.gkp.gk	gk	inputs/lit/bg/bg6_highconflict_d2_47.gkp				180
+lit/bg/bg6_highconflict_d2_47.gkp.mcref	mcref	inputs/lit/bg/bg6_highconflict_d2_47.gkp		samples=20000 seed=1		900
+lit/bg/bg7_difficultconflict_d2_513.gkp.gk	gk	inputs/lit/bg/bg7_difficultconflict_d2_513.gkp				180
+lit/bg/bg7_difficultconflict_d2_513.gkp.mcref	mcref	inputs/lit/bg/bg7_difficultconflict_d2_513.gkp		samples=20000 seed=1		900
+lit/bg/bg8_easyconflict_d2_841.gkp.gk	gk	inputs/lit/bg/bg8_easyconflict_d2_841.gkp				180
+lit/bg/bg8_easyconflict_d2_841.gkp.mcref	mcref	inputs/lit/bg/bg8_easyconflict_d2_841.gkp		samples=20000 seed=1		900
+lit/bg/bg9_zeroconflict_d2_434.gkp.gk	gk	inputs/lit/bg/bg9_zeroconflict_d2_434.gkp				180
+lit/bg/bg9_zeroconflict_d2_434.gkp.mcref	mcref	inputs/lit/bg/bg9_zeroconflict_d2_434.gkp		samples=20000 seed=1		900
+lit/dnli/dnli1_child_smiling.gkp.gk	gk	inputs/lit/dnli/dnli1_child_smiling.gkp				180
+lit/dnli/dnli1_child_smiling.gkp.mcref	mcref	inputs/lit/dnli/dnli1_child_smiling.gkp		samples=20000 seed=1		900
+lit/dnli/dnli2_searching.gkp.gk	gk	inputs/lit/dnli/dnli2_searching.gkp				180
+lit/dnli/dnli2_searching.gkp.mcref	mcref	inputs/lit/dnli/dnli2_searching.gkp		samples=20000 seed=1		900
+lit/dnli/dnli3_self_esteem.gkp.gk	gk	inputs/lit/dnli/dnli3_self_esteem.gkp				180
+lit/dnli/dnli3_self_esteem.gkp.mcref	mcref	inputs/lit/dnli/dnli3_self_esteem.gkp		samples=20000 seed=1		900
+lit/dnli/dnli4_confident.gkp.gk	gk	inputs/lit/dnli/dnli4_confident.gkp				180
+lit/dnli/dnli4_confident.gkp.mcref	mcref	inputs/lit/dnli/dnli4_confident.gkp		samples=20000 seed=1		900
+lit/nm/nm1_clyde.gkp.gk	gk	inputs/lit/nm/nm1_clyde.gkp				180
+lit/nm/nm1_clyde.gkp.mcref	mcref	inputs/lit/nm/nm1_clyde.gkp		samples=20000 seed=1		900
+lit/nm/nm2_nixon_priority.gkp.gk	gk	inputs/lit/nm/nm2_nixon_priority.gkp				180
+lit/nm/nm2_nixon_priority.gkp.mcref	mcref	inputs/lit/nm/nm2_nixon_priority.gkp		samples=20000 seed=1		900
+lit/nm/nm3_yale_shooting.gkp.gk	gk	inputs/lit/nm/nm3_yale_shooting.gkp				180
+lit/nm/nm3_yale_shooting.gkp.mcref	mcref	inputs/lit/nm/nm3_yale_shooting.gkp		samples=20000 seed=1		900
+lit/nm/nm4_theorist_car.gkp.gk	gk	inputs/lit/nm/nm4_theorist_car.gkp				180
+lit/nm/nm4_theorist_car.gkp.mcref	mcref	inputs/lit/nm/nm4_theorist_car.gkp		samples=20000 seed=1		900
+lit/nm/nm5_delp_chicken.gkp.gk	gk	inputs/lit/nm/nm5_delp_chicken.gkp				180
+lit/nm/nm5_delp_chicken.gkp.mcref	mcref	inputs/lit/nm/nm5_delp_chicken.gkp		samples=20000 seed=1		900
+lit/nm/nm6_interview.gkp.gk	gk	inputs/lit/nm/nm6_interview.gkp				180
+lit/nm/nm6_interview.gkp.mcref	mcref	inputs/lit/nm/nm6_interview.gkp		samples=20000 seed=1		900
+lit/nm/nm7_priority_vs_specificity.gkp.gk	gk	inputs/lit/nm/nm7_priority_vs_specificity.gkp				180
+lit/nm/nm7_priority_vs_specificity.gkp.mcref	mcref	inputs/lit/nm/nm7_priority_vs_specificity.gkp		samples=20000 seed=1		900
+lit/nm/nm8_cascaded_ambiguity.gkp.gk	gk	inputs/lit/nm/nm8_cascaded_ambiguity.gkp				180
+lit/nm/nm8_cascaded_ambiguity.gkp.mcref	mcref	inputs/lit/nm/nm8_cascaded_ambiguity.gkp		samples=20000 seed=1		900
+lit/pasp/pasp1_lpmln_jo.gkp.gk	gk	inputs/lit/pasp/pasp1_lpmln_jo.gkp				180
+lit/pasp/pasp1_lpmln_jo.gkp.mcref	mcref	inputs/lit/pasp/pasp1_lpmln_jo.gkp		samples=20000 seed=1		900
+lit/pasp/pasp2_lpmln_firing_squad.gkp.gk	gk	inputs/lit/pasp/pasp2_lpmln_firing_squad.gkp				180
+lit/pasp/pasp2_lpmln_firing_squad.gkp.mcref	mcref	inputs/lit/pasp/pasp2_lpmln_firing_squad.gkp		samples=20000 seed=1		900
+lit/pasp/pasp3_plog_simpson_do.gkp.gk	gk	inputs/lit/pasp/pasp3_plog_simpson_do.gkp				180
+lit/pasp/pasp3_plog_simpson_do.gkp.mcref	mcref	inputs/lit/pasp/pasp3_plog_simpson_do.gkp		samples=20000 seed=1		900
+lit/pasp/pasp4_pasta_birds.gkp.gk	gk	inputs/lit/pasp/pasp4_pasta_birds.gkp				180
+lit/pasp/pasp4_pasta_birds.gkp.mcref	mcref	inputs/lit/pasp/pasp4_pasta_birds.gkp		samples=20000 seed=1		900
+lit/pd/pd1_red_penguin.gkp.gk	gk	inputs/lit/pd/pd1_red_penguin.gkp				180
+lit/pd/pd1_red_penguin.gkp.mcref	mcref	inputs/lit/pd/pd1_red_penguin.gkp		samples=20000 seed=1		900
+lit/pd/pd2_penguin_wings.gkp.gk	gk	inputs/lit/pd/pd2_penguin_wings.gkp				180
+lit/pd/pd2_penguin_wings.gkp.mcref	mcref	inputs/lit/pd/pd2_penguin_wings.gkp		samples=20000 seed=1		900
+lit/pd/pd3_superpenguin.gkp.gk	gk	inputs/lit/pd/pd3_superpenguin.gkp				180
+lit/pd/pd3_superpenguin.gkp.mcref	mcref	inputs/lit/pd/pd3_superpenguin.gkp		samples=20000 seed=1		900
+lit/pd/pd4_random_worlds_bird.gkp.gk	gk	inputs/lit/pd/pd4_random_worlds_bird.gkp				180
+lit/pd/pd4_random_worlds_bird.gkp.mcref	mcref	inputs/lit/pd/pd4_random_worlds_bird.gkp		samples=20000 seed=1		900
+lit/pd/pd5_random_worlds_penguin.gkp.gk	gk	inputs/lit/pd/pd5_random_worlds_penguin.gkp				180
+lit/pd/pd5_random_worlds_penguin.gkp.mcref	mcref	inputs/lit/pd/pd5_random_worlds_penguin.gkp		samples=20000 seed=1		900
+lit/pd/pd6_theorist_car_prob.gkp.gk	gk	inputs/lit/pd/pd6_theorist_car_prob.gkp				180
+lit/pd/pd6_theorist_car_prob.gkp.mcref	mcref	inputs/lit/pd/pd6_theorist_car_prob.gkp		samples=20000 seed=1		900
+lit/pd/pd7_possibilistic_chain.gkp.gk	gk	inputs/lit/pd/pd7_possibilistic_chain.gkp				180
+lit/pd/pd7_possibilistic_chain.gkp.mcref	mcref	inputs/lit/pd/pd7_possibilistic_chain.gkp		samples=20000 seed=1		900
+lit/pd/pd8_lottery.gkp.gk	gk	inputs/lit/pd/pd8_lottery.gkp				180
+lit/pd/pd8_lottery.gkp.mcref	mcref	inputs/lit/pd/pd8_lottery.gkp		samples=20000 seed=1		900
+lit/plp/plp1_diamond.gkp.gk	gk	inputs/lit/plp/plp1_diamond.gkp				180
+lit/plp/plp1_diamond.gkp.mcref	mcref	inputs/lit/plp/plp1_diamond.gkp		samples=20000 seed=1		900
+lit/plp/plp2_path_dag.gkp.gk	gk	inputs/lit/plp/plp2_path_dag.gkp				180
+lit/plp/plp2_path_dag.gkp.mcref	mcref	inputs/lit/plp/plp2_path_dag.gkp		samples=20000 seed=1		900
+lit/plp/plp3_path_cycle.gkp.gk	gk	inputs/lit/plp/plp3_path_cycle.gkp				180
+lit/plp/plp3_path_cycle.gkp.mcref	mcref	inputs/lit/plp/plp3_path_cycle.gkp		samples=20000 seed=1		900
+lit/plp/plp4_viral.gkp.gk	gk	inputs/lit/plp/plp4_viral.gkp				180
+lit/plp/plp4_viral.gkp.mcref	mcref	inputs/lit/plp/plp4_viral.gkp		samples=20000 seed=1		900
+lit/plp/plp5_ancestor.gkp.gk	gk	inputs/lit/plp/plp5_ancestor.gkp				180
+lit/plp/plp5_ancestor.gkp.mcref	mcref	inputs/lit/plp/plp5_ancestor.gkp		samples=20000 seed=1		900
+studies/study10_smokes2ans.js.gk	gk	inputs/studies/study10_smokes2ans.js				180
+studies/study10_smokes2ans.js.mcref	mcref	inputs/studies/study10_smokes2ans.js		samples=20000 seed=1		900
+studies/study11_smokes3poole1.js.gk	gk	inputs/studies/study11_smokes3poole1.js				180
+studies/study11_smokes3poole1.js.mcref	mcref	inputs/studies/study11_smokes3poole1.js		samples=20000 seed=1		900
+studies/study12_smokes3poole2.js.gk	gk	inputs/studies/study12_smokes3poole2.js				180
+studies/study12_smokes3poole2.js.mcref	mcref	inputs/studies/study12_smokes3poole2.js		samples=20000 seed=1		900
+studies/study15_smokesproblog.js.gk	gk	inputs/studies/study15_smokesproblog.js				180
+studies/study15_smokesproblog.js.mcref	mcref	inputs/studies/study15_smokesproblog.js		samples=20000 seed=1		900
+studies/study16_smokesproblog2.js.gk	gk	inputs/studies/study16_smokesproblog2.js				180
+studies/study16_smokesproblog2.js.mcref	mcref	inputs/studies/study16_smokesproblog2.js		samples=20000 seed=1		900
+studies/study17_semwebproblog.js.gk	gk	inputs/studies/study17_semwebproblog.js				180
+studies/study17_semwebproblog.js.mcref	mcref	inputs/studies/study17_semwebproblog.js		samples=20000 seed=1		900
+studies/study18_neginconsistency1.js.gk	gk	inputs/studies/study18_neginconsistency1.js				180
+studies/study18_neginconsistency1.js.mcref	mcref	inputs/studies/study18_neginconsistency1.js		samples=20000 seed=1		900
+studies/study19_neginconsistency2.js.gk	gk	inputs/studies/study19_neginconsistency2.js				180
+studies/study19_neginconsistency2.js.mcref	mcref	inputs/studies/study19_neginconsistency2.js		samples=20000 seed=1		900
+studies/study1_purecumul.js.gk	gk	inputs/studies/study1_purecumul.js				180
+studies/study1_purecumul.js.mcref	mcref	inputs/studies/study1_purecumul.js		samples=20000 seed=1		900
+studies/study20_neginconsistency3.js.gk	gk	inputs/studies/study20_neginconsistency3.js				180
+studies/study20_neginconsistency3.js.mcref	mcref	inputs/studies/study20_neginconsistency3.js		samples=20000 seed=1		900
+studies/study21_neginconsistency4.js.gk	gk	inputs/studies/study21_neginconsistency4.js				180
+studies/study21_neginconsistency4.js.mcref	mcref	inputs/studies/study21_neginconsistency4.js		samples=20000 seed=1		900
+studies/study22_penguins.js.gk	gk	inputs/studies/study22_penguins.js				180
+studies/study22_penguins.js.mcref	mcref	inputs/studies/study22_penguins.js		samples=20000 seed=1		900
+studies/study23_penguinsneg.js.gk	gk	inputs/studies/study23_penguinsneg.js				180
+studies/study23_penguinsneg.js.mcref	mcref	inputs/studies/study23_penguinsneg.js		samples=20000 seed=1		900
+studies/study2_purecumul.js.gk	gk	inputs/studies/study2_purecumul.js				180
+studies/study2_purecumul.js.mcref	mcref	inputs/studies/study2_purecumul.js		samples=20000 seed=1		900
+studies/study3_rulemult.js.gk	gk	inputs/studies/study3_rulemult.js				180
+studies/study3_rulemult.js.mcref	mcref	inputs/studies/study3_rulemult.js		samples=20000 seed=1		900
+studies/study4_rulemultanswers.js.gk	gk	inputs/studies/study4_rulemultanswers.js				180
+studies/study4_rulemultanswers.js.mcref	mcref	inputs/studies/study4_rulemultanswers.js		samples=20000 seed=1		900
+studies/study5_pureneg.js.gk	gk	inputs/studies/study5_pureneg.js				180
+studies/study5_pureneg.js.mcref	mcref	inputs/studies/study5_pureneg.js		samples=20000 seed=1		900
+studies/study6_negquestion.js.gk	gk	inputs/studies/study6_negquestion.js				180
+studies/study6_negquestion.js.mcref	mcref	inputs/studies/study6_negquestion.js		samples=20000 seed=1		900
+studies/study7_negnegquestion.js.gk	gk	inputs/studies/study7_negnegquestion.js				180
+studies/study7_negnegquestion.js.mcref	mcref	inputs/studies/study7_negnegquestion.js		samples=20000 seed=1		900
+studies/study8_smokes1.js.gk	gk	inputs/studies/study8_smokes1.js				180
+studies/study8_smokes1.js.mcref	mcref	inputs/studies/study8_smokes1.js		samples=20000 seed=1		900
+studies/study9_smokes2.js.gk	gk	inputs/studies/study9_smokes2.js				180
+studies/study9_smokes2.js.mcref	mcref	inputs/studies/study9_smokes2.js		samples=20000 seed=1		900
+demo/cumulate.js.gk	gk	inputs/demo/cumulate.js				180
+demo/cumulate.js.mcref	mcref	inputs/demo/cumulate.js		samples=20000 seed=1		900
+demo/kingqueen.js.gk	gk	inputs/demo/kingqueen.js	-similarities			180
+demo/kingqueen.js.mcref	mcref	inputs/demo/kingqueen.js		samples=20000 seed=1		900
+demo/near.json.gk	gk	inputs/demo/near.json				180
+demo/near.json.mcref	mcref	inputs/demo/near.json		samples=20000 seed=1		900
+demo/nixon.json.gk	gk	inputs/demo/nixon.json				180
+demo/nixon.json.mcref	mcref	inputs/demo/nixon.json		samples=20000 seed=1		900
+demo/penguin.js.gk	gk	inputs/demo/penguin.js				180
+demo/penguin.js.mcref	mcref	inputs/demo/penguin.js		samples=20000 seed=1		900
+demo/penguin2.js.gk	gk	inputs/demo/penguin2.js				180
+demo/penguin2.js.mcref	mcref	inputs/demo/penguin2.js		samples=20000 seed=1		900
+demo/quasi_1.js.gk	gk	inputs/demo/quasi_1.js				180
+demo/quasi_1.js.mcref	mcref	inputs/demo/quasi_1.js		samples=20000 seed=1		900
+demo/quasi_2.js.gk	gk	inputs/demo/quasi_2.js				180
+demo/quasi_2.js.mcref	mcref	inputs/demo/quasi_2.js		samples=20000 seed=1		900
+demo/quasi_3.js.gk	gk	inputs/demo/quasi_3.js				180
+demo/quasi_3.js.mcref	mcref	inputs/demo/quasi_3.js		samples=20000 seed=1		900
+demo/quasi_4.js.gk	gk	inputs/demo/quasi_4.js				180
+demo/quasi_4.js.mcref	mcref	inputs/demo/quasi_4.js		samples=20000 seed=1		900
+demo/quasi_5.js.gk	gk	inputs/demo/quasi_5.js				180
+demo/quasi_5.js.mcref	mcref	inputs/demo/quasi_5.js		samples=20000 seed=1		900
+demo/quasi_6.js.gk	gk	inputs/demo/quasi_6.js				180
+demo/quasi_6.js.mcref	mcref	inputs/demo/quasi_6.js		samples=20000 seed=1		900
+demo/quasi_7.js.gk	gk	inputs/demo/quasi_7.js				180
+demo/quasi_7.js.mcref	mcref	inputs/demo/quasi_7.js		samples=20000 seed=1		900
+demo/quasi_8.js.gk	gk	inputs/demo/quasi_8.js				180
+demo/quasi_8.js.mcref	mcref	inputs/demo/quasi_8.js		samples=20000 seed=1		900
+demo/quasi_9.js.gk	gk	inputs/demo/quasi_9.js				180
+demo/quasi_9.js.mcref	mcref	inputs/demo/quasi_9.js		samples=20000 seed=1		900
+demo/socialsmoking.js.gk	gk	inputs/demo/socialsmoking.js				180
+demo/socialsmoking.js.mcref	mcref	inputs/demo/socialsmoking.js		samples=20000 seed=1		900
+demo/socialsmoking2.js.gk	gk	inputs/demo/socialsmoking2.js				180
+demo/socialsmoking2.js.mcref	mcref	inputs/demo/socialsmoking2.js		samples=20000 seed=1		900
+demo/trivial.js.gk	gk	inputs/demo/trivial.js				180
+demo/trivial.js.mcref	mcref	inputs/demo/trivial.js		samples=20000 seed=1		900
+table/c1.gkp.gk	gk	inputs/table/c1.gkp				180
+table/c1.gkp.mcref	mcref	inputs/table/c1.gkp		samples=20000 seed=1		900
+table/c2.gkp.gk	gk	inputs/table/c2.gkp				180
+table/c2.gkp.mcref	mcref	inputs/table/c2.gkp		samples=20000 seed=1		900
+table/d1.gkp.gk	gk	inputs/table/d1.gkp				180
+table/d1.gkp.mcref	mcref	inputs/table/d1.gkp		samples=20000 seed=1		900
+table/d2.gkp.gk	gk	inputs/table/d2.gkp				180
+table/d2.gkp.mcref	mcref	inputs/table/d2.gkp		samples=20000 seed=1		900
+table/d3.gkp.gk	gk	inputs/table/d3.gkp				180
+table/d3.gkp.mcref	mcref	inputs/table/d3.gkp		samples=20000 seed=1		900
+table/d4.gkp.gk	gk	inputs/table/d4.gkp				180
+table/d4.gkp.mcref	mcref	inputs/table/d4.gkp		samples=20000 seed=1		900
+table/d4sm_neg.gkp.gk	gk	inputs/table/d4sm_neg.gkp				180
+table/d4sm_neg.gkp.mcref	mcref	inputs/table/d4sm_neg.gkp		samples=20000 seed=1		900
+table/d4sm_pos.gkp.gk	gk	inputs/table/d4sm_pos.gkp				180
+table/d4sm_pos.gkp.mcref	mcref	inputs/table/d4sm_pos.gkp		samples=20000 seed=1		900
+table/d5.gkp.gk	gk	inputs/table/d5.gkp				180
+table/d5.gkp.mcref	mcref	inputs/table/d5.gkp		samples=20000 seed=1		900
+table/d6_rebut.gkp.gk	gk	inputs/table/d6_rebut.gkp				180
+table/d6_rebut.gkp.mcref	mcref	inputs/table/d6_rebut.gkp		samples=20000 seed=1		900
+table/d6_undercut.gkp.gk	gk	inputs/table/d6_undercut.gkp				180
+table/d6_undercut.gkp.mcref	mcref	inputs/table/d6_undercut.gkp		samples=20000 seed=1		900
+table/d7.gkp.gk	gk	inputs/table/d7.gkp				180
+table/d7.gkp.mcref	mcref	inputs/table/d7.gkp		samples=20000 seed=1		900
+table/dj1.gkp.gk	gk	inputs/table/dj1.gkp				180
+table/dj1.gkp.mcref	mcref	inputs/table/dj1.gkp		samples=20000 seed=1		900
+table/n1_study4.gkp.gk	gk	inputs/table/n1_study4.gkp				180
+table/n1_study4.gkp.mcref	mcref	inputs/table/n1_study4.gkp		samples=20000 seed=1		900
+table/n2_study10.gkp.gk	gk	inputs/table/n2_study10.gkp				180
+table/n2_study10.gkp.mcref	mcref	inputs/table/n2_study10.gkp		samples=20000 seed=1		900
+table/x1.gkp.gk	gk	inputs/table/x1.gkp				180
+table/x1.gkp.mcref	mcref	inputs/table/x1.gkp		samples=20000 seed=1		900
+paper/bird_bat.js.gk	gk	inputs/paper/bird_bat.js				180
+paper/bird_bat.js.mcref	mcref	inputs/paper/bird_bat.js		samples=20000 seed=1		900
+paper/mutual_0.5.js.gk	gk	inputs/paper/mutual_0.5.js				180
+paper/mutual_0.5.js.mcref	mcref	inputs/paper/mutual_0.5.js		samples=20000 seed=1		900
+paper/tweety.js.gk	gk	inputs/paper/tweety.js				180
+paper/tweety.js.mcref	mcref	inputs/paper/tweety.js		samples=20000 seed=1		900
+paper/twoproofs.gkp.gk	gk	inputs/paper/twoproofs.gkp				180
+paper/twoproofs.gkp.mcref	mcref	inputs/paper/twoproofs.gkp		samples=20000 seed=1		900
+boundary/another_calculation.js.gk	gk	inputs/boundary/another_calculation.js				180
+boundary/another_calculation.js.mcref	mcref	inputs/boundary/another_calculation.js		samples=20000 seed=1		900
+boundary/two_exceptions.js.gk	gk	inputs/boundary/two_exceptions.js				180
+boundary/two_exceptions.js.mcref	mcref	inputs/boundary/two_exceptions.js		samples=20000 seed=1		900

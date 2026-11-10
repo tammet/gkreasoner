@@ -1,0 +1,7 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>local</groupId><artifactId>tweety-delp-fetch</artifactId><version>1</version>
+  <dependencies>
+    <dependency><groupId>org.tweetyproject.arg</groupId><artifactId>delp</artifactId><version>1.27</version></dependency>
+  <dependency><groupId>org.tweetyproject.logics</groupId><artifactId>commons</artifactId><version>1.27</version></dependency><dependency><groupId>org.tweetyproject.logics</groupId><artifactId>fol</artifactId><version>1.27</version></dependency></dependencies>
+</project>

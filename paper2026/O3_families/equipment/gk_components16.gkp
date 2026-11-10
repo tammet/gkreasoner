@@ -1,0 +1,79 @@
+supply(pump) = b7.
+supply(controller) = b7.
+maintenance_id = b7.
+component(pump).
+component(controller).
+0.9::charged(b7).
+0.2::-charged(maintenance_id).
+0.1::-works(pump).
+0.15::-works(controller).
+supply(c0) = b7.
+component(c0).
+0.1::-works(c0).
+supply(c1) = b7.
+component(c1).
+0.1::-works(c1).
+supply(c2) = b7.
+component(c2).
+0.1::-works(c2).
+supply(c3) = b7.
+component(c3).
+0.1::-works(c3).
+supply(c4) = b7.
+component(c4).
+0.1::-works(c4).
+supply(c5) = b7.
+component(c5).
+0.1::-works(c5).
+supply(c6) = b7.
+component(c6).
+0.1::-works(c6).
+supply(c7) = b7.
+component(c7).
+0.1::-works(c7).
+supply(c8) = b7.
+component(c8).
+0.1::-works(c8).
+supply(c9) = b7.
+component(c9).
+0.1::-works(c9).
+supply(c10) = b7.
+component(c10).
+0.1::-works(c10).
+supply(c11) = b7.
+component(c11).
+0.1::-works(c11).
+supply(c12) = b7.
+component(c12).
+0.1::-works(c12).
+supply(c13) = b7.
+component(c13).
+0.1::-works(c13).
+supply(c14) = b7.
+component(c14).
+0.1::-works(c14).
+supply(c15) = b7.
+component(c15).
+0.1::-works(c15).
+works(X) :- component(X), charged(supply(X)), unless(-works(X), 1).
+ok(0).
+ok(1) :- ok(0), works(pump).
+ok(2) :- ok(1), works(controller).
+ok(3) :- ok(2), works(c0).
+ok(4) :- ok(3), works(c1).
+ok(5) :- ok(4), works(c2).
+ok(6) :- ok(5), works(c3).
+ok(7) :- ok(6), works(c4).
+ok(8) :- ok(7), works(c5).
+ok(9) :- ok(8), works(c6).
+ok(10) :- ok(9), works(c7).
+ok(11) :- ok(10), works(c8).
+ok(12) :- ok(11), works(c9).
+ok(13) :- ok(12), works(c10).
+ok(14) :- ok(13), works(c11).
+ok(15) :- ok(14), works(c12).
+ok(16) :- ok(15), works(c13).
+ok(17) :- ok(16), works(c14).
+ok(18) :- ok(17), works(c15).
+cooling_ready :- ok(18).
+query(cooling_ready).

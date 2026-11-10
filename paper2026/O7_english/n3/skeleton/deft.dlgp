@@ -1,0 +1,10 @@
+bird(mike).
+bird(eve).
+bird(john).
+babyBird(john).
+bird(X) :- babyBird(X).
+[DEFTfly] flies(X) :- bird(X).
+[DEFTeat] eats(X) :- bird(X).
+noFly(X) :- babyBird(X).
+! :- flies(X), noFly(X).
+fliesAndEats(X) :- flies(X), eats(X).

@@ -1,0 +1,4 @@
+high_school_student(x). suspended_often(x).
+0.6::good_about_self(x) :- high_school_student(x), unless(-good_about_self(x), 1).
+0.7::-good_about_self(x) :- suspended_often(x), unless(good_about_self(x), 2).
+query(good_about_self(x)).

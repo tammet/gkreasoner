@@ -1,0 +1,13 @@
+% Equipment, the flattened reference: the three names are the one constant b7 and the supply
+% function is the relation supplied_by, so the input has no equality and no function term.
+supplied_by(pump, b7).
+supplied_by(controller, b7).
+component(pump).
+component(controller).
+0.9::charged(b7).
+0.2::-charged(b7).
+0.1::-works(pump).
+0.15::-works(controller).
+works(X) :- component(X), supplied_by(X, S), charged(S), unless(-works(X), 1).
+cooling_ready :- works(pump), works(controller).
+query(cooling_ready).

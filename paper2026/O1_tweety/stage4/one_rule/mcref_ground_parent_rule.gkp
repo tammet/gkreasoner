@@ -1,0 +1,9 @@
+% Ground abstraction of gk_parent_rule.gkp for the reference tool: pt stands for parent(tweety).
+bird(tweety).
+bird(pt) :- bird(tweety).
+0.9::flies(X) :- bird(X), unless(-flies(X), 2).
+-flies(X) :- penguin(X), unless(flies(X), 3).
+gull(X) ; penguin(X) :- seabird(X).
+0.8::seabird(pt).
+0.7::-gull(pt).
+query(flies(pt)).

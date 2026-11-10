@@ -1,0 +1,5 @@
+% Part O8, example 10: a fact, a normal default and a certain rule.
+0.5::r.
+0.9::p :- unless(-p, 1).
+-r :- p.
+query(r).

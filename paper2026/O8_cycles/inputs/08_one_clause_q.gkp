@@ -1,0 +1,7 @@
+% Part O8, example 8: one clause at a time.
+0.8::r.
+0.2::-p.
+p :- r.
+q :- p.
+q :- -r.
+query(q).

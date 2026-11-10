@@ -1,0 +1,5 @@
+% A sign on a guard is meaningless: -unless(...) lowers to the same $block.
+bird(X) & -unless(-flies(X), 2) => flies(X).
+bird(X) & ~unless(-swims(X), 2) => walks(X).
+bird(tweety).
+query(flies(X)).

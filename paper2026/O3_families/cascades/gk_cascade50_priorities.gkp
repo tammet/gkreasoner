@@ -1,0 +1,102 @@
+a50.
+a49 :- unless(-a49, 1).
+-a49 :- a50, unless(a49, 2).
+a48 :- unless(-a48, 1).
+-a48 :- a49, unless(a48, 2).
+a47 :- unless(-a47, 1).
+-a47 :- a48, unless(a47, 2).
+a46 :- unless(-a46, 1).
+-a46 :- a47, unless(a46, 2).
+a45 :- unless(-a45, 1).
+-a45 :- a46, unless(a45, 2).
+a44 :- unless(-a44, 1).
+-a44 :- a45, unless(a44, 2).
+a43 :- unless(-a43, 1).
+-a43 :- a44, unless(a43, 2).
+a42 :- unless(-a42, 1).
+-a42 :- a43, unless(a42, 2).
+a41 :- unless(-a41, 1).
+-a41 :- a42, unless(a41, 2).
+a40 :- unless(-a40, 1).
+-a40 :- a41, unless(a40, 2).
+a39 :- unless(-a39, 1).
+-a39 :- a40, unless(a39, 2).
+a38 :- unless(-a38, 1).
+-a38 :- a39, unless(a38, 2).
+a37 :- unless(-a37, 1).
+-a37 :- a38, unless(a37, 2).
+a36 :- unless(-a36, 1).
+-a36 :- a37, unless(a36, 2).
+a35 :- unless(-a35, 1).
+-a35 :- a36, unless(a35, 2).
+a34 :- unless(-a34, 1).
+-a34 :- a35, unless(a34, 2).
+a33 :- unless(-a33, 1).
+-a33 :- a34, unless(a33, 2).
+a32 :- unless(-a32, 1).
+-a32 :- a33, unless(a32, 2).
+a31 :- unless(-a31, 1).
+-a31 :- a32, unless(a31, 2).
+a30 :- unless(-a30, 1).
+-a30 :- a31, unless(a30, 2).
+a29 :- unless(-a29, 1).
+-a29 :- a30, unless(a29, 2).
+a28 :- unless(-a28, 1).
+-a28 :- a29, unless(a28, 2).
+a27 :- unless(-a27, 1).
+-a27 :- a28, unless(a27, 2).
+a26 :- unless(-a26, 1).
+-a26 :- a27, unless(a26, 2).
+a25 :- unless(-a25, 1).
+-a25 :- a26, unless(a25, 2).
+a24 :- unless(-a24, 1).
+-a24 :- a25, unless(a24, 2).
+a23 :- unless(-a23, 1).
+-a23 :- a24, unless(a23, 2).
+a22 :- unless(-a22, 1).
+-a22 :- a23, unless(a22, 2).
+a21 :- unless(-a21, 1).
+-a21 :- a22, unless(a21, 2).
+a20 :- unless(-a20, 1).
+-a20 :- a21, unless(a20, 2).
+a19 :- unless(-a19, 1).
+-a19 :- a20, unless(a19, 2).
+a18 :- unless(-a18, 1).
+-a18 :- a19, unless(a18, 2).
+a17 :- unless(-a17, 1).
+-a17 :- a18, unless(a17, 2).
+a16 :- unless(-a16, 1).
+-a16 :- a17, unless(a16, 2).
+a15 :- unless(-a15, 1).
+-a15 :- a16, unless(a15, 2).
+a14 :- unless(-a14, 1).
+-a14 :- a15, unless(a14, 2).
+a13 :- unless(-a13, 1).
+-a13 :- a14, unless(a13, 2).
+a12 :- unless(-a12, 1).
+-a12 :- a13, unless(a12, 2).
+a11 :- unless(-a11, 1).
+-a11 :- a12, unless(a11, 2).
+a10 :- unless(-a10, 1).
+-a10 :- a11, unless(a10, 2).
+a9 :- unless(-a9, 1).
+-a9 :- a10, unless(a9, 2).
+a8 :- unless(-a8, 1).
+-a8 :- a9, unless(a8, 2).
+a7 :- unless(-a7, 1).
+-a7 :- a8, unless(a7, 2).
+a6 :- unless(-a6, 1).
+-a6 :- a7, unless(a6, 2).
+a5 :- unless(-a5, 1).
+-a5 :- a6, unless(a5, 2).
+a4 :- unless(-a4, 1).
+-a4 :- a5, unless(a4, 2).
+a3 :- unless(-a3, 1).
+-a3 :- a4, unless(a3, 2).
+a2 :- unless(-a2, 1).
+-a2 :- a3, unless(a2, 2).
+a1 :- unless(-a1, 1).
+-a1 :- a2, unless(a1, 2).
+a0 :- unless(-a0, 1).
+-a0 :- a1, unless(a0, 2).
+query(a0).

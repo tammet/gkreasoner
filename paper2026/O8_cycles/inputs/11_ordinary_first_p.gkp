@@ -1,0 +1,5 @@
+% Part O8, example 11: the ordinary evidence is fixed before the defaults.
+0.8::p.
+0.9::q :- p, unless(-q, 1).
+0.8::-p :- q.
+query(p).

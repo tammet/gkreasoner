@@ -1,0 +1,4 @@
+% Section 4.1: a premise and a rule, established in .8 x .7 of the worlds.
+0.8::seabird(tweety).
+0.7::penguin(X) :- seabird(X).
+query(penguin(tweety)).

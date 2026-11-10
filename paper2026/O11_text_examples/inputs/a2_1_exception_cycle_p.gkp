@@ -1,0 +1,5 @@
+% Appendix A.2.1: a cycle through exceptions only.
+p :- unless(q).
+q :- unless(r).
+r :- unless(p).
+query(p).

@@ -1,0 +1,4 @@
+turn_key. headlights_dim.
+dead_battery :- headlights_dim, unless(-dead_battery, 1).
+starts :- turn_key, unless(dead_battery, 1).
+query(starts).

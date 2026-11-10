@@ -1,0 +1,4 @@
+% Section 6.1: resolution combines the source events of two uncertain clauses.
+0.6::a ; b.
+0.7::-a ; b.
+query(b).

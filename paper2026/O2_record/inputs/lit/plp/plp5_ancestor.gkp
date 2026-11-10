@@ -1,0 +1,4 @@
+0.9::parent(a,b). 0.8::parent(b,c). 0.6::parent(b,d). 0.5::parent(d,c).
+anc(X,Y) :- parent(X,Y).
+anc(X,Y) :- parent(X,Z), anc(Z,Y).
+query(anc(a,c)).

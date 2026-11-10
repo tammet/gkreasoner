@@ -1,0 +1,6 @@
+% A percent line comment, and the rule below means bird => flies:
+/* a block comment, which may also mention a => arrow and a :- neck
+   without either deciding what language this file is in */
+bird(X) => flies(X).   % a trailing comment
+bird(tweety).
+query(flies(X)).

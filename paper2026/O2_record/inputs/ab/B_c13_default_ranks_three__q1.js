@@ -1,0 +1,136 @@
+[
+ {
+  "@logic": [
+   [
+    "penguin",
+    "?:X"
+   ],
+   "=>",
+   [
+    "bird",
+    "?:X"
+   ]
+  ]
+ },
+ {
+  "@logic": [
+   [
+    "emperor",
+    "?:X"
+   ],
+   "=>",
+   [
+    "penguin",
+    "?:X"
+   ]
+  ]
+ },
+ {
+  "@logic": [
+   "emperor",
+   "e1"
+  ]
+ },
+ {
+  "@logic": [
+   "penguin",
+   "p1"
+  ]
+ },
+ {
+  "@logic": [
+   "bird",
+   "b1"
+  ]
+ },
+ {
+  "@logic": [
+   [
+    "bird",
+    "?:X"
+   ],
+   "=>",
+   [
+    [
+     "flies",
+     "?:X"
+    ],
+    "|",
+    [
+     "$block",
+     1,
+     [
+      "$not",
+      [
+       "flies",
+       "?:X"
+      ]
+     ]
+    ]
+   ]
+  ],
+  "@confidence": 0.9
+ },
+ {
+  "@logic": [
+   [
+    "penguin",
+    "?:X"
+   ],
+   "=>",
+   [
+    [
+     "-flies",
+     "?:X"
+    ],
+    "|",
+    [
+     "$block",
+     2,
+     [
+      "$not",
+      [
+       "-flies",
+       "?:X"
+      ]
+     ]
+    ]
+   ]
+  ],
+  "@confidence": 0.95
+ },
+ {
+  "@logic": [
+   [
+    "emperor",
+    "?:X"
+   ],
+   "=>",
+   [
+    [
+     "flies",
+     "?:X"
+    ],
+    "|",
+    [
+     "$block",
+     3,
+     [
+      "$not",
+      [
+       "flies",
+       "?:X"
+      ]
+     ]
+    ]
+   ]
+  ],
+  "@confidence": 0.3
+ },
+ {
+  "@question": [
+   "flies",
+   "b1"
+  ]
+ }
+]

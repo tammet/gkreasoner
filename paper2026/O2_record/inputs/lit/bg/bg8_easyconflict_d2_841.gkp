@@ -1,0 +1,9 @@
+is(camel, a_programmer).
+negotiate(camel, songbird).
+-swear(camel, mermaid).
+-reveal(otter, camel).
+-destroy(X, coyote) :- hide(X, mannikin), manage(X, dachshund), unless(destroy(X, coyote), 1).
+manage(X, dachshund) :- negotiate(X, songbird), unless(-manage(X, dachshund), 2).
+-manage(camel, dachshund) :- -reveal(otter, camel), unless(manage(camel, dachshund), 1).
+hide(X, mannikin) :- -swear(X, mermaid), unless(-hide(X, mannikin), 1).
+query(destroy(camel, coyote)).

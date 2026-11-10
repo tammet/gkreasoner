@@ -1,0 +1,5 @@
+0.5::male.
+drug.
+0.6::recover :- male, drug.
+0.2::recover :- drug, unless(male, 1).
+query(recover).

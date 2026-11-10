@@ -1,0 +1,5 @@
+% Part O8, example 7: the directed rule in place of the disjunction.
+a.
+0.3::-b.
+0.8::b :- a.
+query(b).

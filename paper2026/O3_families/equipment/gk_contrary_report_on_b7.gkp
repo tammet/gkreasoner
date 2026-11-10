@@ -1,0 +1,14 @@
+% Equipment with direct equalities, with the contrary report written on b7 instead of
+% maintenance_id (otherwise gk_equality_chain1.gkp).
+supply(pump) = b7.
+supply(controller) = b7.
+maintenance_id = b7.
+component(pump).
+component(controller).
+0.9::charged(b7).
+0.2::-charged(b7).
+0.1::-works(pump).
+0.15::-works(controller).
+works(X) :- component(X), charged(supply(X)), unless(-works(X), 1).
+cooling_ready :- works(pump), works(controller).
+query(cooling_ready).

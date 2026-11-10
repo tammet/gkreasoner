@@ -1,0 +1,8 @@
+borrow(mannikin, crow).
+-unite(llama, mannikin).
+-hug(mannikin, camel).
+call(X, beaver) :- -hug(X, camel), borrow(X, crow), unless(-call(X, beaver), 2).
+invest(goose, flamingo) :- leave(X, bear), unless(-invest(goose, flamingo), 1).
+-call(mannikin, beaver) :- -unite(llama, mannikin), unless(call(mannikin, beaver), 1).
+leave(X, bear) :- -call(X, beaver), unless(-leave(X, bear), 1).
+query(invest(goose, flamingo)).

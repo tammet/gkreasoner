@@ -1,0 +1,6 @@
+% A disjunctive consequence, plus the facts that resolve the choice.
+bird(X) => flies(X) | hops(X) | swims(X).
+bird(tweety).
+-hops(tweety).
+-swims(tweety).
+query(flies(X)).

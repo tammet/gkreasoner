@@ -1,0 +1,6 @@
+% A three-conjunct premise: every conjunct is complemented into the clause.
+bird(X) & small(X) & healthy(X) => flies(X).
+bird(tweety).
+small(tweety).
+healthy(tweety).
+query(flies(X)).

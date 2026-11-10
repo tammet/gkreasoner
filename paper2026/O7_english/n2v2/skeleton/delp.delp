@@ -1,0 +1,5 @@
+member(nora).
+membershipOf(m1, nora).
+suspended(m1).
+mayEnter(X) -< member(X).
+~mayEnter(X) <- member(X), membershipOf(M, X), suspended(M).

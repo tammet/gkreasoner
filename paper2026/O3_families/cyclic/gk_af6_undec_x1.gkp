@@ -1,0 +1,12 @@
+acc(x0) :- unless(acc(x2)).
+acc(x1) :- unless(acc(x3)).
+acc(x2).
+acc(x3) :- unless(acc(x5)).
+att_x4 :- acc(x0).
+att_x4 :- acc(x5).
+acc(x4) :- unless(att_x4).
+att_x5 :- acc(x0).
+att_x5 :- acc(x3).
+att_x5 :- acc(x4).
+acc(x5) :- unless(att_x5).
+query(acc(x1)).

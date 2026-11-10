@@ -1,0 +1,5 @@
+sw_p :- &problog("0.5").
+sw_b :- &problog("0.5").
+p(a) :- sw_p, not b(a).
+b(a) :- sw_b, not p(a).
+&query(p(a)).

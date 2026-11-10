@@ -1,0 +1,4 @@
+% The simplest implication: one premise, one consequence.
+bird(X) => flies(X).
+bird(tweety).
+query(flies(X)).

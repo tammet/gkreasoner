@@ -1,0 +1,5 @@
+royal_elephant(clyde).
+elephant(X) :- royal_elephant(X).
+gray(X) :- elephant(X), unless(-gray(X), 1).
+-gray(X) :- royal_elephant(X), unless(gray(X), 2).
+query(gray(clyde)).

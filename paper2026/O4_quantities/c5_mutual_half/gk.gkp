@@ -1,0 +1,2 @@
+0.5::p(a) :- unless(b(a)). 0.5::b(a) :- unless(p(a)).
+query(p(a)).

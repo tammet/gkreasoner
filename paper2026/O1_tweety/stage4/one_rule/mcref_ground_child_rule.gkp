@@ -1,0 +1,11 @@
+% Ground abstraction of gk_child_rule.gkp for the reference tool:
+% p1 = parent(tweety), gp = parent(parent(tweety)).
+bird(tweety) :- bird(p1).
+bird(p1) :- bird(gp).
+bird(gp).
+0.9::flies(X) :- bird(X), unless(-flies(X), 2).
+-flies(X) :- penguin(X), unless(flies(X), 3).
+gull(X) ; penguin(X) :- seabird(X).
+0.8::seabird(tweety).
+0.7::-gull(tweety).
+query(flies(tweety)).

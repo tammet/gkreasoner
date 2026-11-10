@@ -1,0 +1,10 @@
+0.6::edge(a,b).
+0.5::edge(b,d).
+0.7::edge(a,c).
+0.4::edge(c,d).
+0.8::edge(d,e).
+0.3::edge(b,e).
+0.5::edge(c,e).
+path(X,Y) :- edge(X,Y).
+path(X,Y) :- edge(X,Z), path(Z,Y).
+query(path(a,e)).

@@ -1,0 +1,13 @@
+0.9::pollution.
+0.3::smoker.
+0.03::cancer :- pollution, smoker.
+0.001::cancer :- pollution, unless(smoker).
+0.05::cancer :- smoker, unless(pollution).
+aux_cancer_row3 :- pollution.
+aux_cancer_row3 :- smoker.
+0.02::cancer :- unless(aux_cancer_row3).
+0.9::xray :- cancer.
+0.2::xray :- unless(cancer).
+0.65::dyspnoea :- cancer.
+0.3::dyspnoea :- unless(cancer).
+query(xray).

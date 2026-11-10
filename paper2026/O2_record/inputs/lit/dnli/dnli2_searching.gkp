@@ -1,0 +1,4 @@
+riding_buggy(man). shining_light_on_ground(man).
+0.3::searching(man) :- riding_buggy(man), unless(-searching(man), 1).
+0.8::searching(man) :- shining_light_on_ground(man).
+query(searching(man)).

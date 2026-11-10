@@ -1,0 +1,5 @@
+% Section 5: a proof by cases; the applications establish neither a nor b.
+a ; b.
+-a ; q.
+-b ; q.
+query(q).

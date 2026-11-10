@@ -1,0 +1,4 @@
+carrying_on_shoulders(man, child). flailing(child).
+0.7::smiling(child) :- carrying_on_shoulders(X, child), unless(-smiling(child), 1).
+0.6::-smiling(child) :- flailing(child), unless(smiling(child), 2).
+query(smiling(child)).

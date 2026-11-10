@@ -1,0 +1,10 @@
+a4.
+a3 :- unless(-a3, 1).
+-a3 :- a4, unless(a3, 1).
+a2 :- unless(-a2, 1).
+-a2 :- a3, unless(a2, 1).
+a1 :- unless(-a1, 1).
+-a1 :- a2, unless(a1, 1).
+a0 :- unless(-a0, 1).
+-a0 :- a1, unless(a0, 1).
+query(a0).

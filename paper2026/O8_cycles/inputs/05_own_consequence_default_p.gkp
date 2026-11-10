@@ -1,0 +1,5 @@
+% Part O8, example 5: the opposing rule written as a normal default.
+p.
+q :- p.
+0.9::-p :- q, unless(p, 1).
+query(p).

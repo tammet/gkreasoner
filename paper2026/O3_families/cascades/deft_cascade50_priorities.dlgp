@@ -1,0 +1,202 @@
+top(c).
+a50(c).
+[DEFTd49] a49(X) :- top(X).
+[DEFTr49] na49(X) :- a50(X).
+! :- a49(X), na49(X).
+[DEFTr49] > [DEFTd49].
+[DEFTd48] a48(X) :- top(X).
+[DEFTr48] na48(X) :- a49(X).
+! :- a48(X), na48(X).
+[DEFTr48] > [DEFTd48].
+[DEFTd47] a47(X) :- top(X).
+[DEFTr47] na47(X) :- a48(X).
+! :- a47(X), na47(X).
+[DEFTr47] > [DEFTd47].
+[DEFTd46] a46(X) :- top(X).
+[DEFTr46] na46(X) :- a47(X).
+! :- a46(X), na46(X).
+[DEFTr46] > [DEFTd46].
+[DEFTd45] a45(X) :- top(X).
+[DEFTr45] na45(X) :- a46(X).
+! :- a45(X), na45(X).
+[DEFTr45] > [DEFTd45].
+[DEFTd44] a44(X) :- top(X).
+[DEFTr44] na44(X) :- a45(X).
+! :- a44(X), na44(X).
+[DEFTr44] > [DEFTd44].
+[DEFTd43] a43(X) :- top(X).
+[DEFTr43] na43(X) :- a44(X).
+! :- a43(X), na43(X).
+[DEFTr43] > [DEFTd43].
+[DEFTd42] a42(X) :- top(X).
+[DEFTr42] na42(X) :- a43(X).
+! :- a42(X), na42(X).
+[DEFTr42] > [DEFTd42].
+[DEFTd41] a41(X) :- top(X).
+[DEFTr41] na41(X) :- a42(X).
+! :- a41(X), na41(X).
+[DEFTr41] > [DEFTd41].
+[DEFTd40] a40(X) :- top(X).
+[DEFTr40] na40(X) :- a41(X).
+! :- a40(X), na40(X).
+[DEFTr40] > [DEFTd40].
+[DEFTd39] a39(X) :- top(X).
+[DEFTr39] na39(X) :- a40(X).
+! :- a39(X), na39(X).
+[DEFTr39] > [DEFTd39].
+[DEFTd38] a38(X) :- top(X).
+[DEFTr38] na38(X) :- a39(X).
+! :- a38(X), na38(X).
+[DEFTr38] > [DEFTd38].
+[DEFTd37] a37(X) :- top(X).
+[DEFTr37] na37(X) :- a38(X).
+! :- a37(X), na37(X).
+[DEFTr37] > [DEFTd37].
+[DEFTd36] a36(X) :- top(X).
+[DEFTr36] na36(X) :- a37(X).
+! :- a36(X), na36(X).
+[DEFTr36] > [DEFTd36].
+[DEFTd35] a35(X) :- top(X).
+[DEFTr35] na35(X) :- a36(X).
+! :- a35(X), na35(X).
+[DEFTr35] > [DEFTd35].
+[DEFTd34] a34(X) :- top(X).
+[DEFTr34] na34(X) :- a35(X).
+! :- a34(X), na34(X).
+[DEFTr34] > [DEFTd34].
+[DEFTd33] a33(X) :- top(X).
+[DEFTr33] na33(X) :- a34(X).
+! :- a33(X), na33(X).
+[DEFTr33] > [DEFTd33].
+[DEFTd32] a32(X) :- top(X).
+[DEFTr32] na32(X) :- a33(X).
+! :- a32(X), na32(X).
+[DEFTr32] > [DEFTd32].
+[DEFTd31] a31(X) :- top(X).
+[DEFTr31] na31(X) :- a32(X).
+! :- a31(X), na31(X).
+[DEFTr31] > [DEFTd31].
+[DEFTd30] a30(X) :- top(X).
+[DEFTr30] na30(X) :- a31(X).
+! :- a30(X), na30(X).
+[DEFTr30] > [DEFTd30].
+[DEFTd29] a29(X) :- top(X).
+[DEFTr29] na29(X) :- a30(X).
+! :- a29(X), na29(X).
+[DEFTr29] > [DEFTd29].
+[DEFTd28] a28(X) :- top(X).
+[DEFTr28] na28(X) :- a29(X).
+! :- a28(X), na28(X).
+[DEFTr28] > [DEFTd28].
+[DEFTd27] a27(X) :- top(X).
+[DEFTr27] na27(X) :- a28(X).
+! :- a27(X), na27(X).
+[DEFTr27] > [DEFTd27].
+[DEFTd26] a26(X) :- top(X).
+[DEFTr26] na26(X) :- a27(X).
+! :- a26(X), na26(X).
+[DEFTr26] > [DEFTd26].
+[DEFTd25] a25(X) :- top(X).
+[DEFTr25] na25(X) :- a26(X).
+! :- a25(X), na25(X).
+[DEFTr25] > [DEFTd25].
+[DEFTd24] a24(X) :- top(X).
+[DEFTr24] na24(X) :- a25(X).
+! :- a24(X), na24(X).
+[DEFTr24] > [DEFTd24].
+[DEFTd23] a23(X) :- top(X).
+[DEFTr23] na23(X) :- a24(X).
+! :- a23(X), na23(X).
+[DEFTr23] > [DEFTd23].
+[DEFTd22] a22(X) :- top(X).
+[DEFTr22] na22(X) :- a23(X).
+! :- a22(X), na22(X).
+[DEFTr22] > [DEFTd22].
+[DEFTd21] a21(X) :- top(X).
+[DEFTr21] na21(X) :- a22(X).
+! :- a21(X), na21(X).
+[DEFTr21] > [DEFTd21].
+[DEFTd20] a20(X) :- top(X).
+[DEFTr20] na20(X) :- a21(X).
+! :- a20(X), na20(X).
+[DEFTr20] > [DEFTd20].
+[DEFTd19] a19(X) :- top(X).
+[DEFTr19] na19(X) :- a20(X).
+! :- a19(X), na19(X).
+[DEFTr19] > [DEFTd19].
+[DEFTd18] a18(X) :- top(X).
+[DEFTr18] na18(X) :- a19(X).
+! :- a18(X), na18(X).
+[DEFTr18] > [DEFTd18].
+[DEFTd17] a17(X) :- top(X).
+[DEFTr17] na17(X) :- a18(X).
+! :- a17(X), na17(X).
+[DEFTr17] > [DEFTd17].
+[DEFTd16] a16(X) :- top(X).
+[DEFTr16] na16(X) :- a17(X).
+! :- a16(X), na16(X).
+[DEFTr16] > [DEFTd16].
+[DEFTd15] a15(X) :- top(X).
+[DEFTr15] na15(X) :- a16(X).
+! :- a15(X), na15(X).
+[DEFTr15] > [DEFTd15].
+[DEFTd14] a14(X) :- top(X).
+[DEFTr14] na14(X) :- a15(X).
+! :- a14(X), na14(X).
+[DEFTr14] > [DEFTd14].
+[DEFTd13] a13(X) :- top(X).
+[DEFTr13] na13(X) :- a14(X).
+! :- a13(X), na13(X).
+[DEFTr13] > [DEFTd13].
+[DEFTd12] a12(X) :- top(X).
+[DEFTr12] na12(X) :- a13(X).
+! :- a12(X), na12(X).
+[DEFTr12] > [DEFTd12].
+[DEFTd11] a11(X) :- top(X).
+[DEFTr11] na11(X) :- a12(X).
+! :- a11(X), na11(X).
+[DEFTr11] > [DEFTd11].
+[DEFTd10] a10(X) :- top(X).
+[DEFTr10] na10(X) :- a11(X).
+! :- a10(X), na10(X).
+[DEFTr10] > [DEFTd10].
+[DEFTd9] a9(X) :- top(X).
+[DEFTr9] na9(X) :- a10(X).
+! :- a9(X), na9(X).
+[DEFTr9] > [DEFTd9].
+[DEFTd8] a8(X) :- top(X).
+[DEFTr8] na8(X) :- a9(X).
+! :- a8(X), na8(X).
+[DEFTr8] > [DEFTd8].
+[DEFTd7] a7(X) :- top(X).
+[DEFTr7] na7(X) :- a8(X).
+! :- a7(X), na7(X).
+[DEFTr7] > [DEFTd7].
+[DEFTd6] a6(X) :- top(X).
+[DEFTr6] na6(X) :- a7(X).
+! :- a6(X), na6(X).
+[DEFTr6] > [DEFTd6].
+[DEFTd5] a5(X) :- top(X).
+[DEFTr5] na5(X) :- a6(X).
+! :- a5(X), na5(X).
+[DEFTr5] > [DEFTd5].
+[DEFTd4] a4(X) :- top(X).
+[DEFTr4] na4(X) :- a5(X).
+! :- a4(X), na4(X).
+[DEFTr4] > [DEFTd4].
+[DEFTd3] a3(X) :- top(X).
+[DEFTr3] na3(X) :- a4(X).
+! :- a3(X), na3(X).
+[DEFTr3] > [DEFTd3].
+[DEFTd2] a2(X) :- top(X).
+[DEFTr2] na2(X) :- a3(X).
+! :- a2(X), na2(X).
+[DEFTr2] > [DEFTd2].
+[DEFTd1] a1(X) :- top(X).
+[DEFTr1] na1(X) :- a2(X).
+! :- a1(X), na1(X).
+[DEFTr1] > [DEFTd1].
+[DEFTd0] a0(X) :- top(X).
+[DEFTr0] na0(X) :- a1(X).
+! :- a0(X), na0(X).
+[DEFTr0] > [DEFTd0].

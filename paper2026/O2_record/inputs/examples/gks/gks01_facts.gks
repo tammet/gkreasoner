@@ -1,0 +1,4 @@
+% Plain facts and a ground question.
+bird(tweety).
+bird(polly).
+query(bird(tweety)).

@@ -1,0 +1,7 @@
+% Part O8, example 3: a chain that stops at an atom with its own opposing evidence.
+0.8::r.
+0.5::-p.
+0.5::-q.
+p :- r.
+q :- p.
+query(q).

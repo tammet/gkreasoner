@@ -1,0 +1,3 @@
+bird(b1). bird(b2). bird(b3). bird(b4).
+0.9::fly(X) :- bird(X).
+query(fly(b1)).

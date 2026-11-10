@@ -1,0 +1,5 @@
+suspect(ant, dalmatian).
+shout(otter, german_shepherd).
+pay(ant, wolf) :- shout(X, german_shepherd), unless(-pay(ant, wolf), 2).
+-pay(X, wolf) :- suspect(X, dalmatian), unless(pay(X, wolf), 1).
+query(pay(ant, wolf)).

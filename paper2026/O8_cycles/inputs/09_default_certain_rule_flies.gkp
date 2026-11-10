@@ -1,0 +1,6 @@
+% Part O8, example 9: a normal default meets a certain rule (ordinary first).
+bird(p).
+0.8::penguin(p).
+0.9::flies(X) :- bird(X), unless(-flies(X), 2).
+-flies(X) :- penguin(X).
+query(flies(p)).

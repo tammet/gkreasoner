@@ -1,0 +1,10 @@
+parcel(p1).
+0.9::cold(p1, s0).
+plan_step(p1, leg1, s0).
+0.1::warmed(p1, leg1, s0).
+plan_step(p1, leg2, do(leg1, s0)).
+0.1::warmed(p1, leg2, do(leg1, s0)).
+0.95::handover_ok(p1, do(leg2, do(leg1, s0))).
+cold(P, do(A, S)) :- cold(P, S), plan_step(P, A, S), \+warmed(P, A, S).
+delivered_cold(P, S) :- cold(P, S), handover_ok(P, S).
+query(delivered_cold(p1, do(leg2, do(leg1, s0)))).

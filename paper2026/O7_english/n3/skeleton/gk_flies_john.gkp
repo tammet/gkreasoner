@@ -1,0 +1,12 @@
+% Certain skeleton of case N3 (part O7), written by hand: confidences dropped,
+% priorities kept as ranks, Skolem terms as constants. Question: flies(john).
+bird(mike).
+bird(eve).
+bird(john).
+babyBird(john).
+bird(X) :- babyBird(X).
+flies(X) :- bird(X), unless(-flies(X), 1).
+eats(X) :- bird(X), unless(-eats(X), 1).
+-flies(X) :- babyBird(X).
+fliesAndEats(X) :- flies(X), eats(X).
+query(flies(john)).

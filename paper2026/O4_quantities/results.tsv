@@ -1,0 +1,95 @@
+id	paper	system	input	options	kind	relation	result	note	run	stored	measured
+c1.target	the five-inputs table, row C1	support semantics	c1_shared/gk.gkp		target		(.44, 0, 0, .56)	question q; hand calculation under the semantics			
+c1.gk	the five-inputs table, row C1	gk 1.2.5	c1_shared/gk.gkp		run		(.44, 0, 0, .56)		c1.gk	[0.44,0,0,0.56]	0.4 s; searches stopped 0 of 12; applications 7; no approximation note; value from checkpoint 1; budget used 309 ms
+c1.mcref	the five-inputs table, row C1	mcref 1.1.2	c1_shared/gk.gkp	--samples 200000 --seed 1 --all-atoms	estimate		(.4378, 0, 0, .5622)	half-width .0036	c1.mcref	[0.43782,0.0,0.0,0.56218]	1.2 s; samples 200000, seed 1
+c1.problog	the five-inputs table, row C1	ProbLog 2.3.0	c1_shared/problog.pl		run	exact translation	.44				
+c1.plingo	the five-inputs table, row C1	plingo 1.1.0	c1_shared/plingo.plp	--frontend=problog	run	exact translation	.44				
+c1.credal	the five-inputs table, row C1	credal semantics (PASTA)	c1_shared/problog.pl		enumerated	exact translation	[.44, .44]	computed by enumerate.py; PASTA and smProbLog did not run			
+c1.equal	the five-inputs table, row C1	equal allocation (smProbLog)	c1_shared/problog.pl		enumerated	exact translation	.44	computed by enumerate.py; PASTA and smProbLog did not run			
+c1.wf	the five-inputs table, row C1	well-founded semantics	c1_shared/problog.pl		enumerated	exact translation	(.44, .56, 0)	computed by enumerate.py			
+c1b.target	part O4, matrix, row C1B	support semantics	c1b_positive_cycle/gk.gkp		target		(.5, 0, 0, .5)	question q; hand calculation under the semantics			
+c1b.gk	part O4, matrix, row C1B	gk 1.2.5	c1b_positive_cycle/gk.gkp		run		(.5, 0, 0, .5)		c1b.gk	[0.5,0,0,0.5]	0.2 s; searches stopped 0 of 6; applications 3; no approximation note; value from checkpoint 1; budget used 165 ms
+c1b.mcref	part O4, matrix, row C1B	mcref 1.1.2	c1b_positive_cycle/gk.gkp	--samples 200000 --seed 1 --all-atoms	estimate		(.4992, 0, 0, .5008)	half-width .0036	c1b.mcref	[0.499205,0.0,0.0,0.500795]	0.8 s; samples 200000, seed 1
+c1b.problog	part O4, matrix, row C1B	ProbLog 2.3.0	c1b_positive_cycle/problog.pl		run	exact translation	.5				
+c1b.plingo	part O4, matrix, row C1B	plingo 1.1.0	c1b_positive_cycle/plingo.plp	--frontend=problog	run	exact translation	.5				
+c1b.credal	part O4, matrix, row C1B	credal semantics (PASTA)	c1b_positive_cycle/problog.pl		enumerated	exact translation	[.5, .5]	computed by enumerate.py; PASTA and smProbLog did not run			
+c1b.equal	part O4, matrix, row C1B	equal allocation (smProbLog)	c1b_positive_cycle/problog.pl		enumerated	exact translation	.5	computed by enumerate.py; PASTA and smProbLog did not run			
+c1b.wf	part O4, matrix, row C1B	well-founded semantics	c1b_positive_cycle/problog.pl		enumerated	exact translation	(.5, .5, 0)	computed by enumerate.py			
+c2.target	part O4, matrix, row C2	support semantics	c2_exception/gk.gkp		target		(.27, 0, 0, .73)	question flies(t); hand calculation under the semantics			
+c2.gk	part O4, matrix, row C2	gk 1.2.5	c2_exception/gk.gkp		run		(.27, 0, 0, .73)		c2.gk	[0.27,0,0,0.73]	0.2 s; searches stopped 0 of 6; applications 3; no approximation note; value from checkpoint 2; budget used 166 ms
+c2.mcref	part O4, matrix, row C2	mcref 1.1.2	c2_exception/gk.gkp	--samples 200000 --seed 1 --all-atoms	estimate		(.2718, 0, 0, .7282)	half-width .0036	c2.mcref	[0.27176,0.0,0.0,0.72824]	0.8 s; samples 200000, seed 1
+c2.problog	part O4, matrix, row C2	ProbLog 2.3.0	c2_exception/problog.pl		run	exact translation	.27				
+c2.plingo	part O4, matrix, row C2	plingo 1.1.0	c2_exception/plingo.plp	--frontend=problog	run	exact translation	.27				
+c2.credal	part O4, matrix, row C2	credal semantics (PASTA)	c2_exception/problog.pl		enumerated	exact translation	[.27, .27]	computed by enumerate.py; PASTA and smProbLog did not run			
+c2.equal	part O4, matrix, row C2	equal allocation (smProbLog)	c2_exception/problog.pl		enumerated	exact translation	.27	computed by enumerate.py; PASTA and smProbLog did not run			
+c2.wf	part O4, matrix, row C2	well-founded semantics	c2_exception/problog.pl		enumerated	exact translation	(.27, .73, 0)	computed by enumerate.py			
+c2b.target	the five-inputs table, row C2B	support semantics	c2b_opposed_exception/gk.gkp		target		(.54, 0, 0, .46)	question flies(t); hand calculation under the semantics			
+c2b.gk	the five-inputs table, row C2B	gk 1.2.5	c2b_opposed_exception/gk.gkp		run		(.54, 0, 0, .46)		c2b.gk	[0.54,0,0,0.46]	0.3 s; searches stopped 0 of 6; applications 4; no approximation note; value from checkpoint 2; budget used 188 ms
+c2b.mcref	the five-inputs table, row C2B	mcref 1.1.2	c2b_opposed_exception/gk.gkp	--samples 200000 --seed 1 --all-atoms	estimate		(.5400, 0, 0, .4600)	half-width .0036	c2b.mcref	[0.54001,0.0,0.0,0.45999]	0.8 s; samples 200000, seed 1
+c2b.problog.raw	part O4, matrix, row C2B	ProbLog 2.3.0	c2b_opposed_exception/problog_raw.pl		run	non-equivalent analogue	.27	raw: the positive rule alone guards the default			
+c2b.problog.usable	the five-inputs table, row C2B	ProbLog 2.3.0	c2b_opposed_exception/problog_usable.pl		run	non-equivalent analogue	.459	usable: the exception holds only without evidence against it			
+c2b.plingo.raw	part O4, matrix, row C2B	plingo 1.1.0	c2b_opposed_exception/plingo_raw.plp	--frontend=problog	run	non-equivalent analogue	.27				
+c2b.plingo.usable	the five-inputs table, row C2B	plingo 1.1.0	c2b_opposed_exception/plingo_usable.plp	--frontend=problog	run	non-equivalent analogue	.459				
+c2b.credal.raw	part O4, matrix, row C2B	credal semantics (PASTA)	c2b_opposed_exception/problog_raw.pl		enumerated	non-equivalent analogue	[.27, .27]	computed by enumerate.py; PASTA and smProbLog did not run			
+c2b.credal.usable	the five-inputs table, row C2B	credal semantics (PASTA)	c2b_opposed_exception/problog_usable.pl		enumerated	non-equivalent analogue	[.459, .459]	computed by enumerate.py; PASTA and smProbLog did not run			
+c2b.equal.usable	the five-inputs table, row C2B	equal allocation (smProbLog)	c2b_opposed_exception/problog_usable.pl		enumerated	non-equivalent analogue	.459	computed by enumerate.py; PASTA and smProbLog did not run			
+c2b.wf.usable	the five-inputs table, row C2B	well-founded semantics	c2b_opposed_exception/problog_usable.pl		enumerated	non-equivalent analogue	(.459, .541, 0)	computed by enumerate.py			
+c3.target	part O4, matrix, row C3	support semantics	c3_contested/gk.gkp		target		(0, 0, 0, 1)	question flies(a); hand calculation under the semantics			
+c3.gk	part O4, matrix, row C3	gk 1.2.5	c3_contested/gk.gkp		run		(0, 0, 0, 1)		c3.gk	[0,0,0,1]	0.2 s; searches stopped 0 of 4; applications 3; no approximation note; value from checkpoint 2; budget used 133 ms
+c3.mcref	part O4, matrix, row C3	mcref 1.1.2	c3_contested/gk.gkp	--samples 200000 --seed 1 --all-atoms	estimate		(0, 0, 0, 1)	half-width .0036	c3.mcref	[0.0,0.0,0.0,1.0]	0.7 s; samples 200000, seed 1
+c3.problog.raw	part O4, matrix, row C3	ProbLog 2.3.0	c3_contested/problog_raw.pl		run	non-equivalent analogue	.45	raw: the positive fact alone			
+c3.problog.guarded	part O4, matrix, row C3	ProbLog 2.3.0	c3_contested/problog_guarded.pl		run	non-equivalent analogue	.225	guarded: bird usable only without evidence against it			
+c3.problog.matched	part O4, matrix, row C3	ProbLog 2.3.0	c3_contested/problog_matched.pl		run	non-equivalent analogue	0	matched: a control built for C3 only, one switch for both reports			
+c3.plingo.raw	part O4, matrix, row C3	plingo 1.1.0	c3_contested/plingo_raw.plp	--frontend=problog	run	non-equivalent analogue	.45				
+c3.plingo.guarded	part O4, matrix, row C3	plingo 1.1.0	c3_contested/plingo_guarded.plp	--frontend=problog	run	non-equivalent analogue	.225				
+c3.plingo.matched	part O4, matrix, row C3	plingo 1.1.0	c3_contested/plingo_matched.plp	--frontend=problog	run	non-equivalent analogue	0				
+c3.credal.raw	part O4, matrix, row C3	credal semantics (PASTA)	c3_contested/problog_raw.pl		enumerated	non-equivalent analogue	[.45, .45]	computed by enumerate.py; PASTA and smProbLog did not run			
+c3.credal.guarded	part O4, matrix, row C3	credal semantics (PASTA)	c3_contested/problog_guarded.pl		enumerated	non-equivalent analogue	[.225, .225]	computed by enumerate.py; PASTA and smProbLog did not run			
+c3.credal.matched	part O4, matrix, row C3	credal semantics (PASTA)	c3_contested/problog_matched.pl		enumerated	non-equivalent analogue	[0, 0]	computed by enumerate.py; PASTA and smProbLog did not run			
+c3.equal.guarded	part O4, matrix, row C3	equal allocation (smProbLog)	c3_contested/problog_guarded.pl		enumerated	non-equivalent analogue	.225	computed by enumerate.py; PASTA and smProbLog did not run			
+c3.wf.guarded	part O4, matrix, row C3	well-founded semantics	c3_contested/problog_guarded.pl		enumerated	non-equivalent analogue	(.225, .775, 0)	computed by enumerate.py			
+c4.target	part O4, matrix, row C4	support semantics	c4_equal_rank/gk.gkp		target		(0, 0, 0, 1)	question pacifist(n); hand calculation under the semantics			
+c4.gk	part O4, matrix, row C4	gk 1.2.5	c4_equal_rank/gk.gkp		run		(0, 0, 0, 1)		c4.gk	[0,0,0,1]	0.3 s; searches stopped 0 of 6; applications 4; no approximation note; value from checkpoint 2; budget used 198 ms
+c4.mcref	part O4, matrix, row C4	mcref 1.1.2	c4_equal_rank/gk.gkp	--samples 200000 --seed 1 --all-atoms	estimate		(0, 0, 0, 1)	half-width .0036	c4.mcref	[0.0,0.0,0.0,1.0]	0.8 s; samples 200000, seed 1
+c4.problog	part O4, matrix, row C4	ProbLog 2.3.0	c4_equal_rank/problog.pl		declined	non-equivalent analogue	rejected: NegativeCycle	Negative cycle detected			
+c4.plingo	part O4, matrix, row C4	plingo 1.1.0	c4_equal_rank/plingo.plp	--frontend=problog	no answer	non-equivalent analogue	no probability	plingo found two stable models and printed: No soft weights in program. Cannot calculate probabilites			
+c4.plingo.dummy	part O4, matrix, row C4	plingo 1.1.0	c4_equal_rank/plingo_dummy.plp	--frontend=problog	run	non-equivalent analogue	.5	"with the unused fact dummy :- &problog(""0.5"")"			
+c4.credal	part O4, matrix, row C4	credal semantics (PASTA)	c4_equal_rank/problog.pl		enumerated	non-equivalent analogue	[0, 1]	computed by enumerate.py; PASTA and smProbLog did not run			
+c4.equal	part O4, matrix, row C4	equal allocation (smProbLog)	c4_equal_rank/problog.pl		enumerated	non-equivalent analogue	.5	computed by enumerate.py; PASTA and smProbLog did not run			
+c4.wf	part O4, matrix, row C4	well-founded semantics	c4_equal_rank/problog.pl		enumerated	non-equivalent analogue	(0, 0, 1)	computed by enumerate.py			
+c4b.target	the five-inputs table, row C4B	support semantics	c4b_priority/gk.gkp		target		(.1, .8, 0, .1)	question p; hand calculation under the semantics			
+c4b.gk	the five-inputs table, row C4B	gk 1.2.5	c4b_priority/gk.gkp		run		(.1, .8, 0, .1)		c4b.gk	[0.1,0.8,0,0.1]	0.1 s; searches stopped 0 of 2; applications 2; no approximation note; value from checkpoint 2; budget used 74 ms
+c4b.mcref	the five-inputs table, row C4B	mcref 1.1.2	c4b_priority/gk.gkp	--samples 200000 --seed 1 --all-atoms	estimate		(.1008, .7996, 0, .0996)	half-width .0036	c4b.mcref	[0.10078,0.799635,0.0,0.099585]	0.5 s; samples 200000, seed 1
+c4b.problog	the five-inputs table, row C4B	ProbLog 2.3.0	c4b_priority/problog.pl		run	non-equivalent analogue	.18				
+c4b.plingo	the five-inputs table, row C4B	plingo 1.1.0	c4b_priority/plingo.plp	--frontend=problog	run	non-equivalent analogue	.18				
+c4b.credal	the five-inputs table, row C4B	credal semantics (PASTA)	c4b_priority/problog.pl		enumerated	non-equivalent analogue	[.18, .18]	computed by enumerate.py; PASTA and smProbLog did not run			
+c4b.equal	the five-inputs table, row C4B	equal allocation (smProbLog)	c4b_priority/problog.pl		enumerated	non-equivalent analogue	.18	computed by enumerate.py; PASTA and smProbLog did not run			
+c4b.wf	the five-inputs table, row C4B	well-founded semantics	c4b_priority/problog.pl		enumerated	non-equivalent analogue	(.18, .82, 0)	computed by enumerate.py			
+c5.target	part O4, matrix, row C5	support semantics	c5_mutual_half/gk.gkp		target		(.25, 0, 0, .75)	question p(a); hand calculation under the semantics			
+c5.gk	part O4, matrix, row C5	gk 1.2.5	c5_mutual_half/gk.gkp		run		(.25, 0, 0, .75)	two cycle-cut notes; the value equals the target	c5.gk	[0.25,0,0,0.75]	0.3 s; searches stopped 0 of 8; applications 2; approximation notes: cycle cut x2; value from checkpoint 2; budget used 206 ms
+c5.mcref	part O4, matrix, row C5	mcref 1.1.2	c5_mutual_half/gk.gkp	--samples 200000 --seed 1 --all-atoms	estimate		(.2502, 0, 0, .7498)	half-width .0036	c5.mcref	[0.25021,0.0,0.0,0.74979]	5.2 s; samples 200000, seed 1
+c5.problog	part O4, matrix, row C5	ProbLog 2.3.0	c5_mutual_half/problog.pl		declined	non-equivalent analogue	rejected: NegativeCycle	Negative cycle detected			
+c5.plingo	part O4, matrix, row C5	plingo 1.1.0	c5_mutual_half/plingo.plp	--frontend=problog	run	non-equivalent analogue	.40	5 stable models of total weight 1.25: (.25 + .25)/1.25			
+c5.credal	part O4, matrix, row C5	credal semantics (PASTA)	c5_mutual_half/problog.pl		enumerated	non-equivalent analogue	[.25, .5]	computed by enumerate.py; PASTA and smProbLog did not run			
+c5.equal	part O4, matrix, row C5	equal allocation (smProbLog)	c5_mutual_half/problog.pl		enumerated	non-equivalent analogue	.375	computed by enumerate.py; PASTA and smProbLog did not run			
+c5.wf	part O4, matrix, row C5	well-founded semantics	c5_mutual_half/problog.pl		enumerated	non-equivalent analogue	(.25, .5, .25)	computed by enumerate.py			
+c5b.target	the five-inputs table, row C5B	support semantics	c5b_common_consequence/gk.gkp		target		(0, 0, 0, 1)	question q; hand calculation under the semantics			
+c5b.gk	the five-inputs table, row C5B	gk 1.2.5	c5b_common_consequence/gk.gkp		run		(1, 0, 0, 0)	two cycle-cut notes; departs from the semantics, which leaves q in ignorance; equals the credal value	c5b.gk	[1,0,0,0]	0.4 s; searches stopped 0 of 14; applications 4; approximation notes: cycle cut x2; value from checkpoint 1; budget used 319 ms
+c5b.mcref	the five-inputs table, row C5B	mcref 1.1.2	c5b_common_consequence/gk.gkp	--samples 200000 --seed 1 --all-atoms	estimate		(0, 0, 0, 1)	half-width .0036	c5b.mcref	[0.0,0.0,0.0,1.0]	3.9 s; samples 200000, seed 1
+c5b.problog	the five-inputs table, row C5B	ProbLog 2.3.0	c5b_common_consequence/problog.pl		declined	non-equivalent analogue	rejected: negative cycle	NegativeCycle: Negative cycle detected			
+c5b.plingo	part O4, matrix, row C5B	plingo 1.1.0	c5b_common_consequence/plingo.plp	--frontend=problog	no answer	non-equivalent analogue	no probability	plingo printed: No soft weights in program. Cannot calculate probabilites			
+c5b.plingo.dummy	the five-inputs table, row C5B	plingo 1.1.0	c5b_common_consequence/plingo_dummy.plp	--frontend=problog	run	non-equivalent analogue	1	"with the unused fact dummy :- &problog(""0.5""); plingo printed 1.00000"			
+c5b.credal	the five-inputs table, row C5B	credal semantics (PASTA)	c5b_common_consequence/problog.pl		enumerated	non-equivalent analogue	[1, 1]	computed by enumerate.py; PASTA and smProbLog did not run			
+c5b.equal	the five-inputs table, row C5B	equal allocation (smProbLog)	c5b_common_consequence/problog.pl		enumerated	non-equivalent analogue	1	computed by enumerate.py; PASTA and smProbLog did not run			
+c5b.wf	the five-inputs table, row C5B	well-founded semantics	c5b_common_consequence/problog.pl		enumerated	non-equivalent analogue	(0, 0, 1)	computed by enumerate.py			
+c6.target	the five-inputs table, row C6	support semantics	c6_locality/gk.gkp		target		(.6, 0, 0, .4)	question r; hand calculation under the semantics			
+c6.gk	the five-inputs table, row C6	gk 1.2.5	c6_locality/gk.gkp		run		(.6, 0, 0, .4)	the semantics also reports p as (0, 0, 1, 0)	c6.gk	[0.6,0,0,0.4]	0.1 s; searches stopped 0 of 2; applications 1; no approximation note; value from checkpoint 1; budget used 56 ms
+c6.mcref	the five-inputs table, row C6	mcref 1.1.2	c6_locality/gk.gkp	--samples 200000 --seed 1 --all-atoms	estimate		(.6008, 0, 0, .3992)	half-width .0036	c6.mcref	[0.600775,0.0,0.0,0.399225]	0.6 s; samples 200000, seed 1
+c6.problog	the five-inputs table, row C6	ProbLog 2.3.0	c6_locality/constrained.lp		run	non-equivalent analogue	.6	P: ProbLog's parser did not apply the constraint; .6 is its value for the unconstrained program and no result for this input			
+c6.problog.unconstrained	part O4, matrix, row C6	ProbLog 2.3.0	c6_locality/problog_unconstrained.pl		run	non-equivalent analogue	.6	the input without the constraint			
+c6.plingo	the five-inputs table, row C6	plingo 1.1.0	c6_locality/plingo.plp	--frontend=problog	no answer	non-equivalent analogue	no model, no value	UNSATISFIABLE, 0 models			
+c6.plingo.unconstrained	part O4, matrix, row C6	plingo 1.1.0	c6_locality/plingo_unconstrained.plp	--frontend=problog	run	non-equivalent analogue	.6	the input without the constraint			
+c6.credal	the five-inputs table, row C6	credal semantics (PASTA)	c6_locality/constrained.lp		enumerated	non-equivalent analogue	no value	no choice has an answer set; enumerate.py prints [0, 0] with inconsistent mass 1			
+c6.equal	the five-inputs table, row C6	equal allocation (smProbLog)	c6_locality/constrained.lp		enumerated	non-equivalent analogue	all mass inconsistent	computed by enumerate.py; PASTA and smProbLog did not run; inconsistent mass 1.0			
+c6.wf	the five-inputs table, row C6	well-founded semantics	c6_locality/constrained.lp		not run	non-equivalent analogue	nc	not computed: enumerate.py computes the well-founded model without the constraint and prints (.6, .4, 0), which is no value for this input			
+plingo.unrendered	part O4, parsing	plingo 1.1.0	c1_shared/problog.pl	--frontend=problog	failed		syntax error	plingo stopped with a syntax error on each of the 14 unrendered counterparts; the plingo*.plp files are the renderings			

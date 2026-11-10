@@ -1,0 +1,4 @@
+% Part O8, example 12: a mutual pair of defaults, question b(a).
+p(a) :- unless(b(a)).
+b(a) :- unless(p(a)).
+query(b(a)).

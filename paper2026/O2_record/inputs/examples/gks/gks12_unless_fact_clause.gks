@@ -1,0 +1,3 @@
+% A guard in a bare clause, with a confidence: no implication involved.
+0.8 :: nice_day | unless(raining).
+query(nice_day).

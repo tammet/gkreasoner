@@ -1,0 +1,9 @@
+bird(mike).
+bird(eve).
+bird(john).
+babyBird(john).
+bird(X) <- babyBird(X).
+flies(X) -< bird(X).
+eats(X) -< bird(X).
+~flies(X) <- babyBird(X).
+fliesAndEats(X) <- flies(X), eats(X).

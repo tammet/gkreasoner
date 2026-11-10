@@ -1,0 +1,14 @@
+f0 :- &problog("0.63").
+a0 :- f0, not a4.
+f1 :- &problog("0.21").
+a1 :- f1, not a5.
+f2 :- &problog("0.69").
+a2 :- f2, not a0.
+f3 :- &problog("0.77").
+a3 :- f3, not a2.
+f4 :- &problog("0.68").
+a4 :- f4, not a1.
+f5 :- &problog("0.69").
+a5 :- f5, not a3.
+a2 :- a3.
+&query(a0).

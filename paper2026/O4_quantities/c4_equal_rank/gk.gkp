@@ -1,0 +1,5 @@
+quaker(n).
+republican(n).
+pacifist(n) :- quaker(n), unless(-pacifist(n), 1).
+-pacifist(n) :- republican(n), unless(pacifist(n), 1).
+query(pacifist(n)).

@@ -1,0 +1,40 @@
+input	source
+inputs/lit/plp/plp1_diamond.gkp	the shared-premise diamond (ProbLog's distribution semantics; De Raedt, Kimmig and Toivonen, IJCAI 2007)
+inputs/lit/plp/plp2_path_dag.gkp	graph reachability over probabilistic edges (the ProbLog original example; cplint's path)
+inputs/lit/plp/plp3_path_cycle.gkp	the same graph with a back edge e -> b (a positive cycle)
+inputs/lit/plp/plp4_viral.gkp	viral marketing over a trust network with a cycle (cplint's viral marketing example, simplified)
+inputs/lit/plp/plp5_ancestor.gkp	ancestor over uncertain parent facts with two paths sharing a fact (the Mendel/family pattern without annotated disjunctions)
+inputs/lit/pasp/pasp1_lpmln_jo.gkp	LPMLN's Jo (Lee and Wang, KR 2016; plingo examples/lpmln/birds.plp): two sources, resident bird (weight 2) and migratory bird (weight 1), exclusive
+inputs/lit/pasp/pasp2_lpmln_firing_squad.gkp	the firing squad of plingo's LPMLN examples (examples/lpmln/firing_squad.plp): u .7, w .2 as log-weights, c <- u, a <- c, a <- w, b <- c, d <- a, d <- b
+inputs/lit/pasp/pasp3_plog_simpson_do.gkp	Simpson's paradox of P-log (Baral, Gelfond and Rushton 2009; plingo examples/plog/simpsons_paradox.plp): recovery under the intervention do(drug)
+inputs/lit/pasp/pasp4_pasta_birds.gkp	a statistical statement, 90% of birds fly (PASTA, Azzolini and Riguzzi 2022), beside gk's per-instance reading
+inputs/lit/nm/nm1_clyde.gkp	Clyde the royal elephant (Touretzky 1986; Horty, Thomason and Touretzky 1990): specificity
+inputs/lit/nm/nm2_nixon_priority.gkp	the Nixon diamond with an explicit priority for the Republican rule (Brewka, AAAI 1994)
+inputs/lit/nm/nm3_yale_shooting.gkp	the Yale shooting problem (Hanks and McDermott 1987): persistence defaults and a strict effect
+inputs/lit/nm/nm4_theorist_car.gkp	the car that does not start (Poole's Theorist, 1988): a default with an external exception derived by another default
+inputs/lit/nm/nm5_delp_chicken.gkp	Tina the scared chicken (DeLP, Garcia and Simari 2004): three levels of specificity
+inputs/lit/nm/nm6_interview.gkp	the scholarship interview (Gelfond and Lifschitz 1991): strong negation and the undecided case
+inputs/lit/nm/nm7_priority_vs_specificity.gkp	an explicit priority against specificity (Brewka 1994; Delgrande, Schaub and Tompits 2003): the general rule is preferred
+inputs/lit/nm/nm8_cascaded_ambiguity.gkp	cascaded ambiguity (Horty, Thomason and Touretzky 1990): is Nixon anti-military?
+inputs/lit/pd/pd1_red_penguin.gkp	the red penguin (Pearl's System Z, 1990; Goldszmidt and Pearl 1996): an irrelevant property
+inputs/lit/pd/pd2_penguin_wings.gkp	do penguins have wings? (the drowning problem: rational closure says undecided, lexicographic closure says yes; Lehmann and Magidor 1992, Lehmann 1995)
+inputs/lit/pd/pd3_superpenguin.gkp	the super-penguin (rational closure, Lehmann and Magidor 1992): a third level
+inputs/lit/pd/pd4_random_worlds_bird.gkp	random worlds (Bacchus, Grove, Halpern and Koller 1996): 90% of birds fly, Tweety is a bird
+inputs/lit/pd/pd5_random_worlds_penguin.gkp	random worlds with a more specific reference class: 90% of birds fly, 1% of penguins fly, Tweety is a penguin
+inputs/lit/pd/pd6_theorist_car_prob.gkp	the car with a probability on the dead battery (Poole's probabilistic Horn abduction, 1993)
+inputs/lit/pd/pd7_possibilistic_chain.gkp	a chain and two proofs under possibilistic logic (Dubois and Prade; Benferhat, Dubois and Prade 1992): min along a proof, max across proofs
+inputs/lit/pd/pd8_lottery.gkp	the lottery paradox with three tickets (Kyburg 1961): each ticket probably loses, one ticket wins
+inputs/lit/dnli/dnli1_child_smiling.gkp	delta-SNLI dev: P 'A man is carrying a child on his shoulders.' H 'The child is smiling.' U 'The child is flailing.'
+inputs/lit/dnli/dnli2_searching.gkp	delta-SNLI dev: P 'A young man ... is riding in a horse and buggy down a paved road.' H 'A man is searching for something.' U 'The man is shining a light on the ground as they ride.'
+inputs/lit/dnli/dnli3_self_esteem.gkp	delta-ATOMIC dev: P 'PersonX is a high school student' H 'PersonX is seen as good about themselves' U 'PersonX gets suspended all the time.'
+inputs/lit/dnli/dnli4_confident.gkp	delta-ATOMIC dev: P 'PersonX addresses PersonY's audience' H 'As a result, PersonX feels confident' U 'PersonX received a standing ovation from the audience'
+inputs/lit/bg/bg1_binary_d1_516.gkp	BoardgameQA BoardgameQA-Binary-depth1, test example 516 (Kazemi et al., NeurIPS 2023)
+inputs/lit/bg/bg2_main_d1_448.gkp	BoardgameQA BoardgameQA-Main-depth1, test example 448 (Kazemi et al., NeurIPS 2023)
+inputs/lit/bg/bg3_main_d2_323.gkp	BoardgameQA BoardgameQA-Main-depth2, test example 323 (Kazemi et al., NeurIPS 2023)
+inputs/lit/bg/bg4_main_d3_782.gkp	BoardgameQA BoardgameQA-Main-depth3, test example 782 (Kazemi et al., NeurIPS 2023)
+inputs/lit/bg/bg5_lowconflict_d2_595.gkp	BoardgameQA BoardgameQA-LowConflict-depth2, test example 595 (Kazemi et al., NeurIPS 2023)
+inputs/lit/bg/bg6_highconflict_d2_47.gkp	BoardgameQA BoardgameQA-HighConflict-depth2, test example 47 (Kazemi et al., NeurIPS 2023)
+inputs/lit/bg/bg7_difficultconflict_d2_513.gkp	BoardgameQA BoardgameQA-DifficultConflict-depth2, test example 513 (Kazemi et al., NeurIPS 2023)
+inputs/lit/bg/bg8_easyconflict_d2_841.gkp	BoardgameQA BoardgameQA-EasyConflict-depth2, test example 841 (Kazemi et al., NeurIPS 2023)
+inputs/lit/bg/bg9_zeroconflict_d2_434.gkp	BoardgameQA BoardgameQA-ZeroConflict-depth2, test example 434 (Kazemi et al., NeurIPS 2023)
+inputs/lit/bg/bg10_knowledgelight_d2_639.gkp	BoardgameQA BoardgameQA-KnowledgeLight-depth2, test example 639 (Kazemi et al., NeurIPS 2023)

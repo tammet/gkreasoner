@@ -1,0 +1,9 @@
+% Ground abstraction of gk_claude.js for the reference tool, written by hand from the
+% extracted clauses. The tool declines the extraction, which has Skolem functions.
+% susp = the suspension at .88; cap = the permission, a default at .96;
+% the strict clause opposes cap for a member with a suspended membership.
+member.
+0.88::susp.
+0.96::cap :- member, unless(-cap, 1).
+-cap :- member, susp.
+query(cap).

@@ -1,0 +1,4 @@
+addresses_audience(x). standing_ovation(x).
+0.5::confident(x) :- addresses_audience(x), unless(-confident(x), 1).
+0.9::confident(x) :- standing_ovation(x).
+query(confident(x)).

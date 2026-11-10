@@ -1,0 +1,663 @@
+input	sets	reason
+ab/ab/A_high_low_priority__q0.js	ab	rank contexts
+ab/ab/A_nested_high_zero_low__q0.js	ab	rank contexts
+ab/ab/A_nested_rank0_astra_d13__q0.js	ab	rank contexts
+ab/ab/A_v2_grouping_cycle__q0.js	ab	rank contexts
+ab/ab/A_v2_upstream_then_block_separator__q0.js	ab	rank contexts
+ab/ab/A_v2_upstream_then_block_separator_nv__q0.js	ab	rank contexts
+ab/ab/A_v2_view_vertex_separator__q0.js	ab	rank contexts
+ab/ab/B_c11_builtin_filter__q0.js	ab	unknown built-in
+ab/ab/B_c11_builtin_filter__q1.js	ab	unknown built-in
+boundary/families_directed/chain_12_pos.js	boundary families	function symbols
+demo/demo/classify.js	demo	taxonomy strength
+demo/demo/multisource.js	demo	no question
+demo/demo/penguin3.js	demo	taxonomy strength
+demo/demo/people_room.json	demo	equality
+examples/arithconf/arithconf01_single_conf.js	examples	equality
+examples/arithconf/arithconf02_conf_with_less.js	examples	equality
+examples/arithconf/arithconf03_product.js	examples	equality
+examples/arithconf/arithconf04_cut_conf.js	examples	equality
+examples/arithconf/arithconf05_cumul_two_arith.js	examples	equality
+examples/arithconf/arithconf06_cumul_mixed.js	examples	equality
+examples/arithconf/arithconf07_answer_var.js	examples	equality
+examples/arithconf/arithconf08_chain_two_arithinst.js	examples	equality
+examples/arithconf/arithconf09_low_conf.js	examples	equality
+examples/arithconf/arithconf10_two_answers.js	examples	equality
+examples/arithconf/arithconf11_block_survive.js	examples	equality
+examples/arithconf/arithconf12_block_refuted.js	examples	equality
+examples/arithconf/arithconf13_nested_arith_refute.js	examples	equality
+examples/arithconf/arithconf14_block_prio.js	examples	equality
+examples/arithconf/arithconf15_block_conf.js	examples	equality
+examples/arithconf/arithconf16_block_conf_exception.js	examples	equality
+examples/arithconf/arithconf17_block_symbolic.js	examples	equality
+examples/arithconf/arithconf18_posneg.js	examples	equality
+examples/arithconf/arithconf19_overflow_conf.js	examples	equality
+examples/arithconf/arithconf20_mix.js	examples	equality
+examples/arithmetic/apples_answer.gkp	examples	equality
+examples/arithmetic/apples_answer.js	examples	equality
+examples/arithmetic/blocker_apples.js	examples	equality
+examples/arithmetic/blocker_apples_kb.js	examples	equality
+examples/arithmetic/blocker_apples_query.js	examples	no constants
+examples/arithmetic/donor_instantiation01.js	examples	equality
+examples/arithmetic/donor_instantiation02.js	examples	equality
+examples/arithmetic/donor_instantiation03.js	examples	equality
+examples/arithmetic/donor_instantiation04.js	examples	function symbols
+examples/arithmetic/donor_instantiation05.js	examples	built-in over an open domain
+examples/arithmetic/donor_instantiation06.js	examples	equality
+examples/arithmetic/donor_instantiation07.js	examples	built-in over an open domain
+examples/arithmetic/donor_instantiation08.js	examples	built-in over an open domain
+examples/arithmetic/donor_instantiation09.js	examples	built-in over an open domain
+examples/arithmetic/donor_instantiation10.js	examples	built-in over an open domain
+examples/arithmetic/donor_instantiation11_apples.js	examples	equality
+examples/arithmetic/donor_instantiation12_apples_comparison.js	examples	equality
+examples/arithmetic/donor_instantiation13_cars.js	examples	equality
+examples/arithmetic/donor_instantiation14_apples_control.js	examples	equality
+examples/arithmetic/donor_instantiation15_cars_control.js	examples	function symbols
+examples/arithmetic/donor_instantiation16_boxes.js	examples	equality
+examples/arithmetic/donor_overflow_safety.js	examples	equality
+examples/arithmetic/ground_unary.js	examples	function symbols
+examples/arithmetic/product_tuple.js	examples	equality
+examples/asp_comparison/gbirds_funsymbs.js	examples	function symbols
+examples/asp_comparison/gbirds_trans.js	examples	function symbols
+examples/confidences/coin4_err.js	examples	equality
+examples/confidences/coin4_err1.js	examples	equality
+examples/confidences/coin4_err2.js	examples	equality
+examples/confidences/equality1.js	examples	equality
+examples/confidences/equality2.js	examples	equality
+examples/confidences/equality3.js	examples	equality
+examples/confidences/n3.js	examples	compound question
+examples/confidences/near2.js	examples	function symbols
+examples/confidences/rules1.js	examples	no constants
+examples/confidences/rules4.js	examples	function symbols
+examples/confidences/rules5.js	examples	function symbols
+examples/core/algebra.js	examples	equality
+examples/core/algebra_confidence.js	examples	equality
+examples/core/equality.js	examples	equality
+examples/core/grandfather_arc.js	examples	JSON-LD structure
+examples/core/grandfather_equality.js	examples	equality
+examples/core/grandfather_jsonld.js	examples	JSON-LD structure
+examples/core/jsonld_context.js	examples	unsupported formula form
+examples/core/lists.js	examples	equality
+examples/core/logic_chain.js	examples	function symbols
+examples/core/multiple_graphs.js	examples	JSON-LD structure
+examples/core/named_graphs.js	examples	unsupported formula form
+examples/exceptions/classify.gkp	examples	taxonomy strength
+examples/exceptions/classify.js	examples	taxonomy strength
+examples/exceptions/gbirds_funsymbs.js	examples	function symbols
+examples/exceptions/partcapability1.js	examples	taxonomy strength
+examples/exceptions/partcapability2.js	examples	taxonomy strength
+examples/exceptions/penguin3.js	examples	taxonomy strength
+examples/exceptions/penguin4.js	examples	function symbols
+examples/exceptions/people_room.js	examples	equality
+examples/exceptions/taxonomy.js	examples	taxonomy strength
+examples/fol_comparison/blocks.gkp	examples	function symbols
+examples/fol_comparison/dreadbury_safe_query.p	examples	equality
+examples/fol_comparison/nlp_query.p	examples	equality
+examples/fol_comparison/set.p	examples	function symbols
+examples/generated/gbirds_1000.js	examples	grounding limit
+examples/generated/scasp_birds_1000.pl	examples	conversion failed
+examples/gkp_arith/01_sum.gkp	examples	equality
+examples/gkp_arith/01_sum.js	examples	equality
+examples/gkp_arith/01_sum_prefix.gkp	examples	equality
+examples/gkp_arith/02_product.gkp	examples	equality
+examples/gkp_arith/02_product.js	examples	equality
+examples/gkp_arith/02_product_prefix.gkp	examples	equality
+examples/gkp_arith/03_precedence.gkp	examples	equality
+examples/gkp_arith/03_precedence.js	examples	equality
+examples/gkp_arith/03_precedence_prefix.gkp	examples	equality
+examples/gkp_arith/04_assoc.gkp	examples	equality
+examples/gkp_arith/04_assoc.js	examples	equality
+examples/gkp_arith/04_assoc_prefix.gkp	examples	equality
+examples/gkp_arith/05_uminus.gkp	examples	equality
+examples/gkp_arith/05_uminus.js	examples	equality
+examples/gkp_arith/05_uminus_prefix.gkp	examples	equality
+examples/gkp_arith/06_unless_arith.gkp	examples	unknown built-in
+examples/gkp_arith/06_unless_arith.js	examples	unknown built-in
+examples/gkp_arith/06_unless_arith_prefix.gkp	examples	unknown built-in
+examples/gks/gks08_false_consequence.gks	examples	unknown built-in
+examples/gks/gks12_unless_fact_clause.js	examples	function symbols
+examples/gks/gks13_tax_strength.gks	examples	taxonomy strength
+examples/gks/gks13_tax_strength.js	examples	taxonomy strength
+examples/gks/gks15_included.gks	examples	no question
+examples/gks/gks17_arith.gks	examples	equality
+examples/gks/gks17_arith.js	examples	equality
+examples/language/axioms_std.js	examples	equality
+examples/language/class_exclusion.js	examples	unknown built-in
+examples/language/comparison.js	examples	function symbols
+examples/language/concession.js	examples	function symbols
+examples/language/conditional.js	examples	function symbols
+examples/language/confidence.js	examples	function symbols
+examples/language/degree.js	examples	function symbols
+examples/language/disjunction.js	examples	function symbols
+examples/language/event_change.js	examples	function symbols
+examples/language/existential.js	examples	taxonomy strength
+examples/language/family_relations.js	examples	function symbols
+examples/language/no_information.js	examples	function symbols
+examples/language/passive.js	examples	function symbols
+examples/language/penguin_default.js	examples	function symbols
+examples/language/possession.js	examples	function symbols
+examples/language/probability.js	examples	function symbols
+examples/language/relative_clause.js	examples	function symbols
+examples/language/spatial_containment.js	examples	function symbols
+examples/language/taxonomy.js	examples	unknown built-in
+examples/language/universal.js	examples	function symbols
+examples/language/which_cannot_fly.js	examples	function symbols
+examples/language/which_has_apple.js	examples	equality
+examples/other_systems/dreadbury_tweety.p	examples	conversion failed
+examples/other_systems/nlp_tweety.p	examples	conversion failed
+examples/other_systems/scasp_birds.pl	examples	conversion failed
+examples/other_systems/scasp_birds_funsymbs.pl	examples	conversion failed
+examples/other_systems/scasp_birds_trans.pl	examples	conversion failed
+examples/other_systems/set_scasp.pl	examples	conversion failed
+examples/other_systems/set_tweety.p	examples	conversion failed
+examples/strategy/strat_large.js	examples	the input is not a list of statements
+examples/strategy/strat_small.js	examples	the input is not a list of statements
+families/families_directed/chain_0_neg.js	families	function symbols
+families/families_directed/chain_0_pos.js	families	function symbols
+families/families_directed/chain_10_neg.js	families	function symbols
+families/families_directed/chain_10_pos.js	families	function symbols
+families/families_directed/chain_11_neg.js	families	function symbols
+families/families_directed/chain_11_pos.js	families	function symbols
+families/families_directed/chain_12_neg.js	families	function symbols
+families/families_directed/chain_13_neg.js	families	function symbols
+families/families_directed/chain_13_pos.js	families	function symbols
+families/families_directed/chain_14_neg.js	families	function symbols
+families/families_directed/chain_14_pos.js	families	function symbols
+families/families_directed/chain_1_neg.js	families	function symbols
+families/families_directed/chain_1_pos.js	families	function symbols
+families/families_directed/chain_2_neg.js	families	function symbols
+families/families_directed/chain_2_pos.js	families	function symbols
+families/families_directed/chain_3_neg.js	families	function symbols
+families/families_directed/chain_3_pos.js	families	function symbols
+families/families_directed/chain_4_neg.js	families	function symbols
+families/families_directed/chain_4_pos.js	families	function symbols
+families/families_directed/chain_5_neg.js	families	function symbols
+families/families_directed/chain_5_pos.js	families	function symbols
+families/families_directed/chain_6_neg.js	families	function symbols
+families/families_directed/chain_6_pos.js	families	function symbols
+families/families_directed/chain_7_neg.js	families	function symbols
+families/families_directed/chain_7_pos.js	families	function symbols
+families/families_directed/chain_8_neg.js	families	function symbols
+families/families_directed/chain_8_pos.js	families	function symbols
+families/families_directed/chain_9_neg.js	families	function symbols
+families/families_directed/chain_9_pos.js	families	function symbols
+families/families_directed/chainexc_0_neg.js	families	function symbols
+families/families_directed/chainexc_0_pos.js	families	function symbols
+families/families_directed/chainexc_2_neg.js	families	function symbols
+families/families_directed/chainexc_2_pos.js	families	function symbols
+families/families_directed/chainexc_4_neg.js	families	function symbols
+families/families_directed/chainexc_4_pos.js	families	function symbols
+families/families_directed/chainexc_8_neg.js	families	function symbols
+families/families_directed/chainexc_8_pos.js	families	function symbols
+families/families_directed/diamond_1_neg.js	families	function symbols
+families/families_directed/diamond_1_pos.js	families	function symbols
+families/families_directed/diamond_2_neg.js	families	function symbols
+families/families_directed/diamond_2_pos.js	families	function symbols
+families/families_directed/diamond_3_neg.js	families	function symbols
+families/families_directed/diamond_3_pos.js	families	function symbols
+families/families_directed/diamond_4_neg.js	families	function symbols
+families/families_directed/diamond_4_pos.js	families	function symbols
+families/families_directed/diamond_5_neg.js	families	function symbols
+families/families_directed/diamond_5_pos.js	families	function symbols
+families/families_directed/diamond_6_neg.js	families	function symbols
+families/families_directed/diamond_6_pos.js	families	function symbols
+families/families_directed/diamond_7_neg.js	families	function symbols
+families/families_directed/diamond_7_pos.js	families	function symbols
+families/families_directed/diamond_8_neg.js	families	function symbols
+families/families_directed/diamond_8_pos.js	families	function symbols
+lit/eq/eq1_chain.gkp	lit	equality
+lit/eq/eq2_two_paths.gkp	lit	equality
+lit/eq/eq3_contested_identity.gkp	lit	equality
+lit/eq/eq4_symmetric_sources.gkp	lit	equality
+lit/eq/eq5_default_distinctness.js	lit	equality
+lit/eq/eq6_functional_term.gkp	lit	equality
+lit/eq/eq7_computed_body.gkp	lit	equality
+mle/corpus_claude/mle_0133.js	mle	equality
+mle/corpus_claude/mle_0137.js	mle	equality
+mle/corpus_claude/mle_0140.js	mle	equality
+mle/corpus_claude/mle_0147.js	mle	equality
+mle/corpus_claude/mle_0154.js	mle	equality
+mle/corpus_claude/mle_0156.js	mle	equality
+mle/corpus_claude/mle_0161.js	mle	equality
+mle/corpus_claude/mle_0166.js	mle	equality
+mle/corpus_claude/mle_0170.js	mle	equality
+mle/corpus_claude/mle_0177.js	mle	equality
+mle/corpus_claude/mle_0180.js	mle	equality
+mle/corpus_claude/mle_0181.js	mle	equality
+mle/corpus_claude/mle_0189.js	mle	equality
+mle/corpus_claude/mle_0192.js	mle	equality
+mle/corpus_claude/mle_0199.js	mle	equality
+mle/corpus_claude/mle_0203.js	mle	equality
+mle/corpus_claude/mle_0210.js	mle	equality
+mle/corpus_claude/mle_0212.js	mle	equality
+mle/corpus_claude/mle_0221.js	mle	equality
+mle/corpus_claude/mle_0228.js	mle	equality
+mle/corpus_claude/mle_0230.js	mle	equality
+mle/corpus_claude/mle_0235.js	mle	equality
+mle/corpus_claude/mle_0245.js	mle	equality
+mle/corpus_claude/mle_0247.js	mle	equality
+mle/corpus_claude/mle_0248.js	mle	equality
+mle/corpus_claude/mle_0253.js	mle	equality
+mle/corpus_claude/mle_0260.js	mle	equality
+mle/corpus_claude/mle_0264.js	mle	equality
+mle/corpus_claude/mle_0265.js	mle	equality
+mle/corpus_claude/mle_0266.js	mle	equality
+mle/corpus_claude/mle_0492.js	mle	equality
+mle/corpus_claude/mle_0495.js	mle	equality
+mle/corpus_claude/mle_0501.js	mle	equality
+mle/corpus_claude/mle_0503.js	mle	equality
+mle/corpus_claude/mle_0506.js	mle	equality
+mle/corpus_claude/mle_0510.js	mle	equality
+mle/corpus_claude/mle_0514.js	mle	equality
+mle/corpus_claude/mle_0517.js	mle	equality
+mle/corpus_claude/mle_0526.js	mle	equality
+mle/corpus_claude/mle_0535.js	mle	equality
+mle/corpus_claude/mle_0540.js	mle	equality
+mle/corpus_claude/mle_0543.js	mle	equality
+mle/corpus_deepseek/mle_0133.js	mle	equality
+mle/corpus_deepseek/mle_0137.js	mle	equality
+mle/corpus_deepseek/mle_0140.js	mle	equality
+mle/corpus_deepseek/mle_0147.js	mle	equality
+mle/corpus_deepseek/mle_0154.js	mle	equality
+mle/corpus_deepseek/mle_0156.js	mle	equality
+mle/corpus_deepseek/mle_0161.js	mle	equality
+mle/corpus_deepseek/mle_0166.js	mle	equality
+mle/corpus_deepseek/mle_0170.js	mle	equality
+mle/corpus_deepseek/mle_0177.js	mle	equality
+mle/corpus_deepseek/mle_0180.js	mle	equality
+mle/corpus_deepseek/mle_0181.js	mle	equality
+mle/corpus_deepseek/mle_0189.js	mle	equality
+mle/corpus_deepseek/mle_0192.js	mle	equality
+mle/corpus_deepseek/mle_0199.js	mle	equality
+mle/corpus_deepseek/mle_0203.js	mle	equality
+mle/corpus_deepseek/mle_0210.js	mle	equality
+mle/corpus_deepseek/mle_0212.js	mle	equality
+mle/corpus_deepseek/mle_0221.js	mle	equality
+mle/corpus_deepseek/mle_0228.js	mle	equality
+mle/corpus_deepseek/mle_0230.js	mle	equality
+mle/corpus_deepseek/mle_0235.js	mle	equality
+mle/corpus_deepseek/mle_0245.js	mle	equality
+mle/corpus_deepseek/mle_0247.js	mle	equality
+mle/corpus_deepseek/mle_0248.js	mle	equality
+mle/corpus_deepseek/mle_0253.js	mle	equality
+mle/corpus_deepseek/mle_0260.js	mle	equality
+mle/corpus_deepseek/mle_0264.js	mle	equality
+mle/corpus_deepseek/mle_0265.js	mle	equality
+mle/corpus_deepseek/mle_0266.js	mle	equality
+mle/corpus_deepseek/mle_0492.js	mle	equality
+mle/corpus_deepseek/mle_0495.js	mle	equality
+mle/corpus_deepseek/mle_0501.js	mle	equality
+mle/corpus_deepseek/mle_0503.js	mle	equality
+mle/corpus_deepseek/mle_0506.js	mle	equality
+mle/corpus_deepseek/mle_0510.js	mle	equality
+mle/corpus_deepseek/mle_0514.js	mle	equality
+mle/corpus_deepseek/mle_0517.js	mle	equality
+mle/corpus_deepseek/mle_0526.js	mle	equality
+mle/corpus_deepseek/mle_0535.js	mle	equality
+mle/corpus_deepseek/mle_0540.js	mle	equality
+mle/corpus_deepseek/mle_0543.js	mle	equality
+mle/corpus_deepseek/mle_0548.js	mle	equality
+mle/corpus_deepseek/mle_0554.js	mle	equality
+mle/corpus_deepseek/mle_0556.js	mle	equality
+mle/corpus_deepseek/mle_0562.js	mle	equality
+mle/corpus_deepseek/mle_0563.js	mle	equality
+mle/corpus_deepseek/mle_0573.js	mle	equality
+mle/corpus_deepseek/mle_0574.js	mle	equality
+mle/corpus_deepseek/mle_0578.js	mle	equality
+mle/corpus_deepseek/mle_0580.js	mle	equality
+mle/corpus_deepseek/mle_0588.js	mle	equality
+mle/corpus_deepseek/mle_0591.js	mle	equality
+mle/corpus_deepseek/mle_0596.js	mle	equality
+mle/corpus_deepseek/mle_0598.js	mle	equality
+mle/corpus_deepseek/mle_0606.js	mle	equality
+mle/corpus_deepseek/mle_0614.js	mle	equality
+mle/corpus_deepseek/mle_0616.js	mle	equality
+mle/corpus_deepseek/mle_0623.js	mle	equality
+mle/corpus_deepseek/mle_0629.js	mle	equality
+mle/corpus_deepseek/mle_0631.js	mle	equality
+mle/corpus_deepseek/mle_0637.js	mle	equality
+mle/corpus_deepseek/mle_0644.js	mle	equality
+mle/corpus_deepseek/mle_0646.js	mle	equality
+mle/corpus_deepseek/mle_0647.js	mle	equality
+mle/corpus_deepseek/mle_0658.js	mle	equality
+mle/corpus_deepseek/mle_0665.js	mle	equality
+mle/corpus_deepseek/mle_0674.js	mle	equality
+mle/corpus_deepseek/mle_0676.js	mle	equality
+mle/corpus_deepseek/mle_0677.js	mle	equality
+mle/corpus_deepseek/mle_0681.js	mle	equality
+mle/corpus_deepseek/mle_0687.js	mle	equality
+mle/corpus_deepseek/mle_0690.js	mle	equality
+mle/corpus_deepseek/mle_0691.js	mle	equality
+mle/corpus_deepseek/mle_0695.js	mle	equality
+mle/corpus_deepseek/mle_0701.js	mle	equality
+mle/corpus_deepseek/mle_0704.js	mle	equality
+mle/corpus_deepseek/mle_0706.js	mle	equality
+mle/corpus_deepseek/mle_0717.js	mle	equality
+mle/corpus_deepseek/mle_0720.js	mle	equality
+mle/corpus_deepseek/mle_0963.js	mle	equality
+mle/corpus_deepseek/mle_0968.js	mle	equality
+mle/corpus_deepseek/mle_0969.js	mle	equality
+mle/corpus_deepseek/mle_0974.js	mle	equality
+mle/corpus_deepseek/mle_0983.js	mle	equality
+mle/corpus_deepseek/mle_0989.js	mle	equality
+mle/corpus_deepseek/mle_0991.js	mle	equality
+mle/corpus_deepseek/mle_0993.js	mle	equality
+mle/corpus_deepseek/mle_1264.js	mle	equality
+mle/corpus_deepseek/mle_1265.js	mle	equality
+mle/corpus_deepseek/mle_1269.js	mle	equality
+mle/corpus_deepseek/mle_1275.js	mle	equality
+mle/corpus_deepseek/mle_1277.js	mle	equality
+mle/corpus_deepseek/mle_1280.js	mle	equality
+mle/corpus_deepseek/mle_1287.js	mle	equality
+mle/corpus_deepseek/mle_1293.js	mle	equality
+mle/corpus_deepseek/mle_1467.js	mle	equality
+mle/corpus_deepseek/mle_1470.js	mle	equality
+mle/corpus_deepseek/mle_1474.js	mle	equality
+mle/corpus_deepseek/mle_1478.js	mle	equality
+nlpipe/corpus_nlpipe/core_0002.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0005.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0006.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0008.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0015.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0021.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0022.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0028.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0036.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0047.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0061.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0070.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0107.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0117.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0134.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0136.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0184.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0190.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0193.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0228.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0234.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0248.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0250.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0409.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0470.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0511.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0519.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0523.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0524.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0526.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0536.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0541.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0542.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0546.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0550.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0552.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0553.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0561.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0562.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0588.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0598.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0605.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0612.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0656.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0663.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0671.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0747.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0822.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0829.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0888.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0893.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0975.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_0979.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1011.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1029.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1032.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1049.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1052.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1054.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1059.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1069.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1074.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1085.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1089.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1094.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1099.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1112.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1146.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1149.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1156.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1173.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1176.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1188.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1206.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1239.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1310.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1315.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1316.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1317.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1318.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1326.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1329.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1332.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1335.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1336.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1338.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1340.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1341.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1365.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1370.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1375.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1389.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1408.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1424.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1427.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1429.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1475.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1500.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1521.js	nlpipe	equality
+nlpipe/corpus_nlpipe/core_1539.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0001.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0002.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0003.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0004.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0005.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0006.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0007.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0008.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0009.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0010.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0011.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0012.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0013.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0014.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0015.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0016.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0017.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0018.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0019.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0020.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0021.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0022.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0023.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0024.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0025.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0026.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0027.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0028.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0029.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0030.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0031.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0032.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0033.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0034.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0035.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0036.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0037.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0038.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0039.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0040.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0041.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0042.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0043.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0044.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0045.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0046.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0047.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0048.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0049.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0050.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0051.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0052.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0053.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0054.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0055.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0056.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0057.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0058.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0059.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0060.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0061.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0062.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0063.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0064.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0065.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0066.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0067.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0068.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0069.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0070.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0071.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0072.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0073.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0074.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0075.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0076.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0077.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0078.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0079.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0080.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0081.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0082.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0083.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0084.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0085.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0086.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0087.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0088.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0089.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0090.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0091.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0092.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0093.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0094.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0095.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0096.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0097.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0098.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0099.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0100.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0101.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0102.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0103.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0104.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0105.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0106.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0107.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0108.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0109.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0110.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0111.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0112.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0113.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0114.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0115.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0116.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0117.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0118.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0119.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0120.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0121.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0122.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0123.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0124.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0125.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0126.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0127.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0128.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0129.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0130.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0131.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0132.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0133.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0134.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0135.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0136.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0137.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0138.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0139.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0140.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0141.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0142.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0143.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0144.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0145.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0146.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0147.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0148.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0149.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0150.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0151.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0152.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0153.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0154.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0155.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0156.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0157.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0158.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0159.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0160.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0161.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0162.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0163.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0164.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0165.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0166.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0167.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0168.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0169.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0170.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0171.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0172.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0173.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0174.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0175.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0176.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0177.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0178.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0179.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0180.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0181.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0182.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0183.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0184.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0185.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0186.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0187.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0188.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0189.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0190.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0191.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0192.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0193.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0194.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0195.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0196.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0197.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0198.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0199.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0200.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0201.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0202.js	nlpipe	equality
+nlpipe/corpus_nlpipe/folio_0203.js	nlpipe	equality
+studies/published_studies/study13_burglary1.js	studies	uncertain formula with several clauses
+studies/published_studies/study14_burglary2.js	studies	uncertain formula with several clauses
+table/gk/e1.gkp	table	equality
+table/gk/f1.gkp	table	function symbols

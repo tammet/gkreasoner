@@ -1,0 +1,13 @@
+0.01::burglary.
+0.02::earthquake.
+0.95::alarm :- burglary, earthquake.
+0.94::alarm :- burglary, unless(earthquake).
+0.29::alarm :- earthquake, unless(burglary).
+aux_alarm_row3 :- burglary.
+aux_alarm_row3 :- earthquake.
+0.001::alarm :- unless(aux_alarm_row3).
+0.9::johncalls :- alarm.
+0.05::johncalls :- unless(alarm).
+0.7::marycalls :- alarm.
+0.01::marycalls :- unless(alarm).
+query(johncalls).

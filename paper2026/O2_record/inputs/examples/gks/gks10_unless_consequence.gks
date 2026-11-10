@@ -1,0 +1,7 @@
+% The same guard written as a consequence disjunct: same meaning, same $block.
+bird(X) => flies(X) | unless(-flies(X), 2).
+bird(tweety).
+bird(pingu).
+penguin(pingu).
+penguin(X) => -flies(X).
+query(flies(X)).

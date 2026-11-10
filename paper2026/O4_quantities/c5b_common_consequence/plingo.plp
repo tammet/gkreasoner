@@ -1,0 +1,5 @@
+p(a) :- not b(a).
+b(a) :- not p(a).
+q :- p(a).
+q :- b(a).
+&query(q).

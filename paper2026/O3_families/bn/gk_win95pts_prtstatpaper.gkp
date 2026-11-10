@@ -1,0 +1,1327 @@
+0.995::appok.
+0.995::datafile.
+0.97::dsklocal.
+0.95::prtspool.
+0.9::prton.
+0.98::prtpaper.
+0.8::netprint.
+0.9::prtdriver.
+0.9999::prtthread.
+0.99::drvset.
+0.99::drvok.
+0.99::prtsel.
+0.97::prtpath.
+0.98::ntwrkcnfg.
+0.7::ptroffline.
+0.98::prtcbl.
+0.99::prtport.
+0.99::cblprthrdwrok.
+0.15::dsapplctn.
+0.8::prtmptpth.
+0.95::prtmem.
+0.94::prttimeout.
+0.85::fllcrrptdbffr.
+0.995::tnrspply.
+0.95::pgornttnok.
+0.98::prntngarok.
+0.95::scrnfntntprntrfnt.
+0.95::grphcsrltddrvrsttngs.
+0.99::epsgrphc.
+0.4::prtpscript.
+0.9::trtypfnts.
+0.98::fntinstlltn.
+0.9::prntraccptstrtyp.
+0.99::prtqueue.
+0.9999::appdata :- appok, datafile.
+aux_appdata_row3 :- appok.
+aux_appdata_row3 :- datafile.
+0.5::appdata :- unless(aux_appdata_row3).
+appdtgntm :- prtspool.
+0.99::appdtgntm :- unless(prtspool).
+0.99::prntprcsstm :- prtspool.
+prntprcsstm :- unless(prtspool).
+0.99::prtstatoff :- prton.
+0.00999999::prtstatoff :- unless(prton).
+0.999::prtstatpaper :- prtpaper.
+0.00099999::prtstatpaper :- unless(prtpaper).
+0.99::netok :- prtpath, ntwrkcnfg, ptroffline.
+0.1::netok :- prtpath, ptroffline, unless(ntwrkcnfg).
+aux_netok_row3 :- ntwrkcnfg.
+aux_netok_row3 :- ptroffline.
+0.5::netok :- prtpath, unless(aux_netok_row3).
+aux_netok_row5 :- prtpath.
+aux_netok_row5 :- ptroffline.
+0.5::netok :- ntwrkcnfg, unless(aux_netok_row5).
+aux_netok_row6 :- prtpath.
+aux_netok_row6 :- ntwrkcnfg.
+0.5::netok :- ptroffline, unless(aux_netok_row6).
+aux_netok_row7 :- prtpath.
+aux_netok_row7 :- ntwrkcnfg.
+aux_netok_row7 :- ptroffline.
+0.5::netok :- unless(aux_netok_row7).
+0.9999::prticon :- ntwrkcnfg, ptroffline.
+0.7::prticon :- ntwrkcnfg, unless(ptroffline).
+0.25::prticon :- ptroffline, unless(ntwrkcnfg).
+aux_prticon_row3 :- ntwrkcnfg.
+aux_prticon_row3 :- ptroffline.
+0.5::prticon :- unless(aux_prticon_row3).
+0.999::lclok :- prtcbl, prtport, cblprthrdwrok.
+0.01::lclok :- prtcbl, prtport, unless(cblprthrdwrok).
+aux_lclok_row3 :- prtport.
+aux_lclok_row3 :- cblprthrdwrok.
+0.5::lclok :- prtcbl, unless(aux_lclok_row3).
+aux_lclok_row5 :- prtcbl.
+aux_lclok_row5 :- cblprthrdwrok.
+0.5::lclok :- prtport, unless(aux_lclok_row5).
+aux_lclok_row6 :- prtcbl.
+aux_lclok_row6 :- prtport.
+0.5::lclok :- cblprthrdwrok, unless(aux_lclok_row6).
+aux_lclok_row7 :- prtcbl.
+aux_lclok_row7 :- prtport.
+aux_lclok_row7 :- cblprthrdwrok.
+0.5::lclok :- unless(aux_lclok_row7).
+repeat :- cblprthrdwrok, ntwrkcnfg.
+0.5::repeat :- cblprthrdwrok, unless(ntwrkcnfg).
+0.5::repeat :- ntwrkcnfg, unless(cblprthrdwrok).
+aux_repeat_row3 :- cblprthrdwrok.
+aux_repeat_row3 :- ntwrkcnfg.
+0.5::repeat :- unless(aux_repeat_row3).
+0.999::prtstatmem :- prtmem.
+0.2::prtstatmem :- unless(prtmem).
+0.999::prtstattoner :- tnrspply.
+0.00099999::prtstattoner :- unless(tnrspply).
+0.99::cmpltpgprntd :- prtmem, pgornttnok, prntngarok.
+0.1::cmpltpgprntd :- prtmem, pgornttnok, unless(prntngarok).
+0.00999999::cmpltpgprntd :- prtmem, prntngarok, unless(pgornttnok).
+aux_cmpltpgprntd_row3 :- pgornttnok.
+aux_cmpltpgprntd_row3 :- prntngarok.
+0.5::cmpltpgprntd :- prtmem, unless(aux_cmpltpgprntd_row3).
+0.3::cmpltpgprntd :- pgornttnok, prntngarok, unless(prtmem).
+aux_cmpltpgprntd_row5 :- prtmem.
+aux_cmpltpgprntd_row5 :- prntngarok.
+0.5::cmpltpgprntd :- pgornttnok, unless(aux_cmpltpgprntd_row5).
+aux_cmpltpgprntd_row6 :- prtmem.
+aux_cmpltpgprntd_row6 :- pgornttnok.
+0.5::cmpltpgprntd :- prntngarok, unless(aux_cmpltpgprntd_row6).
+aux_cmpltpgprntd_row7 :- prtmem.
+aux_cmpltpgprntd_row7 :- pgornttnok.
+aux_cmpltpgprntd_row7 :- prntngarok.
+0.5::cmpltpgprntd :- unless(aux_cmpltpgprntd_row7).
+0.999::nnpsgrphc :- prtmem, grphcsrltddrvrsttngs, epsgrphc.
+0.1::nnpsgrphc :- prtmem, epsgrphc, unless(grphcsrltddrvrsttngs).
+aux_nnpsgrphc_row3 :- grphcsrltddrvrsttngs.
+aux_nnpsgrphc_row3 :- epsgrphc.
+0.5::nnpsgrphc :- prtmem, unless(aux_nnpsgrphc_row3).
+0.25::nnpsgrphc :- grphcsrltddrvrsttngs, epsgrphc, unless(prtmem).
+aux_nnpsgrphc_row5 :- prtmem.
+aux_nnpsgrphc_row5 :- epsgrphc.
+0.5::nnpsgrphc :- grphcsrltddrvrsttngs, unless(aux_nnpsgrphc_row5).
+aux_nnpsgrphc_row6 :- prtmem.
+aux_nnpsgrphc_row6 :- grphcsrltddrvrsttngs.
+0.5::nnpsgrphc :- epsgrphc, unless(aux_nnpsgrphc_row6).
+aux_nnpsgrphc_row7 :- prtmem.
+aux_nnpsgrphc_row7 :- grphcsrltddrvrsttngs.
+aux_nnpsgrphc_row7 :- epsgrphc.
+0.5::nnpsgrphc :- unless(aux_nnpsgrphc_row7).
+0.999::psgraphic :- prtmem, grphcsrltddrvrsttngs, epsgrphc.
+psgraphic :- prtmem, grphcsrltddrvrsttngs, unless(epsgrphc).
+0.1::psgraphic :- prtmem, epsgrphc, unless(grphcsrltddrvrsttngs).
+aux_psgraphic_row3 :- grphcsrltddrvrsttngs.
+aux_psgraphic_row3 :- epsgrphc.
+0.5::psgraphic :- prtmem, unless(aux_psgraphic_row3).
+0.25::psgraphic :- grphcsrltddrvrsttngs, epsgrphc, unless(prtmem).
+aux_psgraphic_row5 :- prtmem.
+aux_psgraphic_row5 :- epsgrphc.
+0.5::psgraphic :- grphcsrltddrvrsttngs, unless(aux_psgraphic_row5).
+aux_psgraphic_row6 :- prtmem.
+aux_psgraphic_row6 :- grphcsrltddrvrsttngs.
+0.5::psgraphic :- epsgrphc, unless(aux_psgraphic_row6).
+aux_psgraphic_row7 :- prtmem.
+aux_psgraphic_row7 :- grphcsrltddrvrsttngs.
+aux_psgraphic_row7 :- epsgrphc.
+0.5::psgraphic :- unless(aux_psgraphic_row7).
+0.98::avlblvrtlmmry :- prtpscript.
+avlblvrtlmmry :- unless(prtpscript).
+0.99::nnttok :- prtmem, scrnfntntprntrfnt, fntinstlltn.
+0.1::nnttok :- prtmem, scrnfntntprntrfnt, unless(fntinstlltn).
+0.1::nnttok :- prtmem, fntinstlltn, unless(scrnfntntprntrfnt).
+aux_nnttok_row3 :- scrnfntntprntrfnt.
+aux_nnttok_row3 :- fntinstlltn.
+0.5::nnttok :- prtmem, unless(aux_nnttok_row3).
+0.5::nnttok :- scrnfntntprntrfnt, fntinstlltn, unless(prtmem).
+aux_nnttok_row5 :- prtmem.
+aux_nnttok_row5 :- fntinstlltn.
+0.5::nnttok :- scrnfntntprntrfnt, unless(aux_nnttok_row5).
+aux_nnttok_row6 :- prtmem.
+aux_nnttok_row6 :- scrnfntntprntrfnt.
+0.5::nnttok :- fntinstlltn, unless(aux_nnttok_row6).
+aux_nnttok_row7 :- prtmem.
+aux_nnttok_row7 :- scrnfntntprntrfnt.
+aux_nnttok_row7 :- fntinstlltn.
+0.5::nnttok :- unless(aux_nnttok_row7).
+0.99::ttok :- prtmem, fntinstlltn, prntraccptstrtyp.
+0.1::ttok :- prtmem, prntraccptstrtyp, unless(fntinstlltn).
+aux_ttok_row3 :- fntinstlltn.
+aux_ttok_row3 :- prntraccptstrtyp.
+0.5::ttok :- prtmem, unless(aux_ttok_row3).
+0.5::ttok :- fntinstlltn, prntraccptstrtyp, unless(prtmem).
+aux_ttok_row5 :- prtmem.
+aux_ttok_row5 :- prntraccptstrtyp.
+0.5::ttok :- fntinstlltn, unless(aux_ttok_row5).
+aux_ttok_row6 :- prtmem.
+aux_ttok_row6 :- fntinstlltn.
+0.5::ttok :- prntraccptstrtyp, unless(aux_ttok_row6).
+aux_ttok_row7 :- prtmem.
+aux_ttok_row7 :- fntinstlltn.
+aux_ttok_row7 :- prntraccptstrtyp.
+0.5::ttok :- unless(aux_ttok_row7).
+0.99::emfok :- appdata, dsklocal, prtthread.
+0.05::emfok :- appdata, dsklocal, unless(prtthread).
+aux_emfok_row3 :- dsklocal.
+aux_emfok_row3 :- prtthread.
+0.5::emfok :- appdata, unless(aux_emfok_row3).
+0.1::emfok :- dsklocal, prtthread, unless(appdata).
+aux_emfok_row5 :- appdata.
+aux_emfok_row5 :- prtthread.
+0.5::emfok :- dsklocal, unless(aux_emfok_row5).
+aux_emfok_row6 :- appdata.
+aux_emfok_row6 :- dsklocal.
+0.5::emfok :- prtthread, unless(aux_emfok_row6).
+aux_emfok_row7 :- appdata.
+aux_emfok_row7 :- dsklocal.
+aux_emfok_row7 :- prtthread.
+0.5::emfok :- unless(aux_emfok_row7).
+0.99::ds_ntok :- appdata, prtpath, prtmptpth, ntwrkcnfg, ptroffline.
+0.1::ds_ntok :- appdata, prtpath, prtmptpth, ptroffline, unless(ntwrkcnfg).
+aux_ds_ntok_row3 :- ntwrkcnfg.
+aux_ds_ntok_row3 :- ptroffline.
+0.5::ds_ntok :- appdata, prtpath, prtmptpth, unless(aux_ds_ntok_row3).
+aux_ds_ntok_row5 :- prtmptpth.
+aux_ds_ntok_row5 :- ptroffline.
+0.5::ds_ntok :- appdata, prtpath, ntwrkcnfg, unless(aux_ds_ntok_row5).
+aux_ds_ntok_row6 :- prtmptpth.
+aux_ds_ntok_row6 :- ntwrkcnfg.
+0.5::ds_ntok :- appdata, prtpath, ptroffline, unless(aux_ds_ntok_row6).
+aux_ds_ntok_row7 :- prtmptpth.
+aux_ds_ntok_row7 :- ntwrkcnfg.
+aux_ds_ntok_row7 :- ptroffline.
+0.5::ds_ntok :- appdata, prtpath, unless(aux_ds_ntok_row7).
+aux_ds_ntok_row9 :- prtpath.
+aux_ds_ntok_row9 :- ptroffline.
+0.5::ds_ntok :- appdata, prtmptpth, ntwrkcnfg, unless(aux_ds_ntok_row9).
+aux_ds_ntok_row10 :- prtpath.
+aux_ds_ntok_row10 :- ntwrkcnfg.
+0.5::ds_ntok :- appdata, prtmptpth, ptroffline, unless(aux_ds_ntok_row10).
+aux_ds_ntok_row11 :- prtpath.
+aux_ds_ntok_row11 :- ntwrkcnfg.
+aux_ds_ntok_row11 :- ptroffline.
+0.5::ds_ntok :- appdata, prtmptpth, unless(aux_ds_ntok_row11).
+aux_ds_ntok_row12 :- prtpath.
+aux_ds_ntok_row12 :- prtmptpth.
+0.5::ds_ntok :- appdata, ntwrkcnfg, ptroffline, unless(aux_ds_ntok_row12).
+aux_ds_ntok_row13 :- prtpath.
+aux_ds_ntok_row13 :- prtmptpth.
+aux_ds_ntok_row13 :- ptroffline.
+0.5::ds_ntok :- appdata, ntwrkcnfg, unless(aux_ds_ntok_row13).
+aux_ds_ntok_row14 :- prtpath.
+aux_ds_ntok_row14 :- prtmptpth.
+aux_ds_ntok_row14 :- ntwrkcnfg.
+0.5::ds_ntok :- appdata, ptroffline, unless(aux_ds_ntok_row14).
+aux_ds_ntok_row15 :- prtpath.
+aux_ds_ntok_row15 :- prtmptpth.
+aux_ds_ntok_row15 :- ntwrkcnfg.
+aux_ds_ntok_row15 :- ptroffline.
+0.5::ds_ntok :- appdata, unless(aux_ds_ntok_row15).
+0.2::ds_ntok :- prtpath, prtmptpth, ntwrkcnfg, ptroffline, unless(appdata).
+aux_ds_ntok_row17 :- appdata.
+aux_ds_ntok_row17 :- ptroffline.
+0.5::ds_ntok :- prtpath, prtmptpth, ntwrkcnfg, unless(aux_ds_ntok_row17).
+aux_ds_ntok_row18 :- appdata.
+aux_ds_ntok_row18 :- ntwrkcnfg.
+0.5::ds_ntok :- prtpath, prtmptpth, ptroffline, unless(aux_ds_ntok_row18).
+aux_ds_ntok_row19 :- appdata.
+aux_ds_ntok_row19 :- ntwrkcnfg.
+aux_ds_ntok_row19 :- ptroffline.
+0.5::ds_ntok :- prtpath, prtmptpth, unless(aux_ds_ntok_row19).
+aux_ds_ntok_row20 :- appdata.
+aux_ds_ntok_row20 :- prtmptpth.
+0.5::ds_ntok :- prtpath, ntwrkcnfg, ptroffline, unless(aux_ds_ntok_row20).
+aux_ds_ntok_row21 :- appdata.
+aux_ds_ntok_row21 :- prtmptpth.
+aux_ds_ntok_row21 :- ptroffline.
+0.5::ds_ntok :- prtpath, ntwrkcnfg, unless(aux_ds_ntok_row21).
+aux_ds_ntok_row22 :- appdata.
+aux_ds_ntok_row22 :- prtmptpth.
+aux_ds_ntok_row22 :- ntwrkcnfg.
+0.5::ds_ntok :- prtpath, ptroffline, unless(aux_ds_ntok_row22).
+aux_ds_ntok_row23 :- appdata.
+aux_ds_ntok_row23 :- prtmptpth.
+aux_ds_ntok_row23 :- ntwrkcnfg.
+aux_ds_ntok_row23 :- ptroffline.
+0.5::ds_ntok :- prtpath, unless(aux_ds_ntok_row23).
+aux_ds_ntok_row24 :- appdata.
+aux_ds_ntok_row24 :- prtpath.
+0.5::ds_ntok :- prtmptpth, ntwrkcnfg, ptroffline, unless(aux_ds_ntok_row24).
+aux_ds_ntok_row25 :- appdata.
+aux_ds_ntok_row25 :- prtpath.
+aux_ds_ntok_row25 :- ptroffline.
+0.5::ds_ntok :- prtmptpth, ntwrkcnfg, unless(aux_ds_ntok_row25).
+aux_ds_ntok_row26 :- appdata.
+aux_ds_ntok_row26 :- prtpath.
+aux_ds_ntok_row26 :- ntwrkcnfg.
+0.5::ds_ntok :- prtmptpth, ptroffline, unless(aux_ds_ntok_row26).
+aux_ds_ntok_row27 :- appdata.
+aux_ds_ntok_row27 :- prtpath.
+aux_ds_ntok_row27 :- ntwrkcnfg.
+aux_ds_ntok_row27 :- ptroffline.
+0.5::ds_ntok :- prtmptpth, unless(aux_ds_ntok_row27).
+aux_ds_ntok_row28 :- appdata.
+aux_ds_ntok_row28 :- prtpath.
+aux_ds_ntok_row28 :- prtmptpth.
+0.5::ds_ntok :- ntwrkcnfg, ptroffline, unless(aux_ds_ntok_row28).
+aux_ds_ntok_row29 :- appdata.
+aux_ds_ntok_row29 :- prtpath.
+aux_ds_ntok_row29 :- prtmptpth.
+aux_ds_ntok_row29 :- ptroffline.
+0.5::ds_ntok :- ntwrkcnfg, unless(aux_ds_ntok_row29).
+aux_ds_ntok_row30 :- appdata.
+aux_ds_ntok_row30 :- prtpath.
+aux_ds_ntok_row30 :- prtmptpth.
+aux_ds_ntok_row30 :- ntwrkcnfg.
+0.5::ds_ntok :- ptroffline, unless(aux_ds_ntok_row30).
+aux_ds_ntok_row31 :- appdata.
+aux_ds_ntok_row31 :- prtpath.
+aux_ds_ntok_row31 :- prtmptpth.
+aux_ds_ntok_row31 :- ntwrkcnfg.
+aux_ds_ntok_row31 :- ptroffline.
+0.5::ds_ntok :- unless(aux_ds_ntok_row31).
+ds_lclok :- appdata, prtcbl, prtport, cblprthrdwrok.
+0.1::ds_lclok :- appdata, prtcbl, prtport, unless(cblprthrdwrok).
+aux_ds_lclok_row3 :- prtport.
+aux_ds_lclok_row3 :- cblprthrdwrok.
+0.5::ds_lclok :- appdata, prtcbl, unless(aux_ds_lclok_row3).
+aux_ds_lclok_row5 :- prtcbl.
+aux_ds_lclok_row5 :- cblprthrdwrok.
+0.5::ds_lclok :- appdata, prtport, unless(aux_ds_lclok_row5).
+aux_ds_lclok_row6 :- prtcbl.
+aux_ds_lclok_row6 :- prtport.
+0.5::ds_lclok :- appdata, cblprthrdwrok, unless(aux_ds_lclok_row6).
+aux_ds_lclok_row7 :- prtcbl.
+aux_ds_lclok_row7 :- prtport.
+aux_ds_lclok_row7 :- cblprthrdwrok.
+0.5::ds_lclok :- appdata, unless(aux_ds_lclok_row7).
+0.1::ds_lclok :- prtcbl, prtport, cblprthrdwrok, unless(appdata).
+aux_ds_lclok_row9 :- appdata.
+aux_ds_lclok_row9 :- cblprthrdwrok.
+0.5::ds_lclok :- prtcbl, prtport, unless(aux_ds_lclok_row9).
+aux_ds_lclok_row10 :- appdata.
+aux_ds_lclok_row10 :- prtport.
+0.5::ds_lclok :- prtcbl, cblprthrdwrok, unless(aux_ds_lclok_row10).
+aux_ds_lclok_row11 :- appdata.
+aux_ds_lclok_row11 :- prtport.
+aux_ds_lclok_row11 :- cblprthrdwrok.
+0.5::ds_lclok :- prtcbl, unless(aux_ds_lclok_row11).
+aux_ds_lclok_row12 :- appdata.
+aux_ds_lclok_row12 :- prtcbl.
+0.5::ds_lclok :- prtport, cblprthrdwrok, unless(aux_ds_lclok_row12).
+aux_ds_lclok_row13 :- appdata.
+aux_ds_lclok_row13 :- prtcbl.
+aux_ds_lclok_row13 :- cblprthrdwrok.
+0.5::ds_lclok :- prtport, unless(aux_ds_lclok_row13).
+aux_ds_lclok_row14 :- appdata.
+aux_ds_lclok_row14 :- prtcbl.
+aux_ds_lclok_row14 :- prtport.
+0.5::ds_lclok :- cblprthrdwrok, unless(aux_ds_lclok_row14).
+aux_ds_lclok_row15 :- appdata.
+aux_ds_lclok_row15 :- prtcbl.
+aux_ds_lclok_row15 :- prtport.
+aux_ds_lclok_row15 :- cblprthrdwrok.
+0.5::ds_lclok :- unless(aux_ds_lclok_row15).
+lclgrbld :- appdata, prtdriver, prtmem, cblprthrdwrok.
+0.1::lclgrbld :- appdata, prtdriver, prtmem, unless(cblprthrdwrok).
+0.2::lclgrbld :- appdata, prtdriver, cblprthrdwrok, unless(prtmem).
+aux_lclgrbld_row3 :- prtmem.
+aux_lclgrbld_row3 :- cblprthrdwrok.
+0.5::lclgrbld :- appdata, prtdriver, unless(aux_lclgrbld_row3).
+0.4::lclgrbld :- appdata, prtmem, cblprthrdwrok, unless(prtdriver).
+aux_lclgrbld_row5 :- prtdriver.
+aux_lclgrbld_row5 :- cblprthrdwrok.
+0.5::lclgrbld :- appdata, prtmem, unless(aux_lclgrbld_row5).
+aux_lclgrbld_row6 :- prtdriver.
+aux_lclgrbld_row6 :- prtmem.
+0.5::lclgrbld :- appdata, cblprthrdwrok, unless(aux_lclgrbld_row6).
+aux_lclgrbld_row7 :- prtdriver.
+aux_lclgrbld_row7 :- prtmem.
+aux_lclgrbld_row7 :- cblprthrdwrok.
+0.5::lclgrbld :- appdata, unless(aux_lclgrbld_row7).
+0.2::lclgrbld :- prtdriver, prtmem, cblprthrdwrok, unless(appdata).
+aux_lclgrbld_row9 :- appdata.
+aux_lclgrbld_row9 :- cblprthrdwrok.
+0.5::lclgrbld :- prtdriver, prtmem, unless(aux_lclgrbld_row9).
+aux_lclgrbld_row10 :- appdata.
+aux_lclgrbld_row10 :- prtmem.
+0.5::lclgrbld :- prtdriver, cblprthrdwrok, unless(aux_lclgrbld_row10).
+aux_lclgrbld_row11 :- appdata.
+aux_lclgrbld_row11 :- prtmem.
+aux_lclgrbld_row11 :- cblprthrdwrok.
+0.5::lclgrbld :- prtdriver, unless(aux_lclgrbld_row11).
+aux_lclgrbld_row12 :- appdata.
+aux_lclgrbld_row12 :- prtdriver.
+0.5::lclgrbld :- prtmem, cblprthrdwrok, unless(aux_lclgrbld_row12).
+aux_lclgrbld_row13 :- appdata.
+aux_lclgrbld_row13 :- prtdriver.
+aux_lclgrbld_row13 :- cblprthrdwrok.
+0.5::lclgrbld :- prtmem, unless(aux_lclgrbld_row13).
+aux_lclgrbld_row14 :- appdata.
+aux_lclgrbld_row14 :- prtdriver.
+aux_lclgrbld_row14 :- prtmem.
+0.5::lclgrbld :- cblprthrdwrok, unless(aux_lclgrbld_row14).
+aux_lclgrbld_row15 :- appdata.
+aux_lclgrbld_row15 :- prtdriver.
+aux_lclgrbld_row15 :- prtmem.
+aux_lclgrbld_row15 :- cblprthrdwrok.
+0.5::lclgrbld :- unless(aux_lclgrbld_row15).
+ntgrbld :- appdata, prtdriver, prtmem, ntwrkcnfg.
+0.4::ntgrbld :- appdata, prtdriver, prtmem, unless(ntwrkcnfg).
+0.2::ntgrbld :- appdata, prtdriver, ntwrkcnfg, unless(prtmem).
+aux_ntgrbld_row3 :- prtmem.
+aux_ntgrbld_row3 :- ntwrkcnfg.
+0.5::ntgrbld :- appdata, prtdriver, unless(aux_ntgrbld_row3).
+0.4::ntgrbld :- appdata, prtmem, ntwrkcnfg, unless(prtdriver).
+aux_ntgrbld_row5 :- prtdriver.
+aux_ntgrbld_row5 :- ntwrkcnfg.
+0.5::ntgrbld :- appdata, prtmem, unless(aux_ntgrbld_row5).
+aux_ntgrbld_row6 :- prtdriver.
+aux_ntgrbld_row6 :- prtmem.
+0.5::ntgrbld :- appdata, ntwrkcnfg, unless(aux_ntgrbld_row6).
+aux_ntgrbld_row7 :- prtdriver.
+aux_ntgrbld_row7 :- prtmem.
+aux_ntgrbld_row7 :- ntwrkcnfg.
+0.5::ntgrbld :- appdata, unless(aux_ntgrbld_row7).
+0.3::ntgrbld :- prtdriver, prtmem, ntwrkcnfg, unless(appdata).
+aux_ntgrbld_row9 :- appdata.
+aux_ntgrbld_row9 :- ntwrkcnfg.
+0.5::ntgrbld :- prtdriver, prtmem, unless(aux_ntgrbld_row9).
+aux_ntgrbld_row10 :- appdata.
+aux_ntgrbld_row10 :- prtmem.
+0.5::ntgrbld :- prtdriver, ntwrkcnfg, unless(aux_ntgrbld_row10).
+aux_ntgrbld_row11 :- appdata.
+aux_ntgrbld_row11 :- prtmem.
+aux_ntgrbld_row11 :- ntwrkcnfg.
+0.5::ntgrbld :- prtdriver, unless(aux_ntgrbld_row11).
+aux_ntgrbld_row12 :- appdata.
+aux_ntgrbld_row12 :- prtdriver.
+0.5::ntgrbld :- prtmem, ntwrkcnfg, unless(aux_ntgrbld_row12).
+aux_ntgrbld_row13 :- appdata.
+aux_ntgrbld_row13 :- prtdriver.
+aux_ntgrbld_row13 :- ntwrkcnfg.
+0.5::ntgrbld :- prtmem, unless(aux_ntgrbld_row13).
+aux_ntgrbld_row14 :- appdata.
+aux_ntgrbld_row14 :- prtdriver.
+aux_ntgrbld_row14 :- prtmem.
+0.5::ntgrbld :- ntwrkcnfg, unless(aux_ntgrbld_row14).
+aux_ntgrbld_row15 :- appdata.
+aux_ntgrbld_row15 :- prtdriver.
+aux_ntgrbld_row15 :- prtmem.
+aux_ntgrbld_row15 :- ntwrkcnfg.
+0.5::ntgrbld :- unless(aux_ntgrbld_row15).
+0.99::hrglssdrtnaftrprnt :- appdtgntm.
+0.1::hrglssdrtnaftrprnt :- unless(appdtgntm).
+0.999::deskprntspd :- prtmem, appdtgntm, prntprcsstm.
+0.00099999::deskprntspd :- prtmem, appdtgntm, unless(prntprcsstm).
+0.00099999::deskprntspd :- prtmem, prntprcsstm, unless(appdtgntm).
+aux_deskprntspd_row3 :- appdtgntm.
+aux_deskprntspd_row3 :- prntprcsstm.
+0.5::deskprntspd :- prtmem, unless(aux_deskprntspd_row3).
+0.25::deskprntspd :- appdtgntm, prntprcsstm, unless(prtmem).
+aux_deskprntspd_row5 :- prtmem.
+aux_deskprntspd_row5 :- prntprcsstm.
+0.5::deskprntspd :- appdtgntm, unless(aux_deskprntspd_row5).
+aux_deskprntspd_row6 :- prtmem.
+aux_deskprntspd_row6 :- appdtgntm.
+0.5::deskprntspd :- prntprcsstm, unless(aux_deskprntspd_row6).
+aux_deskprntspd_row7 :- prtmem.
+aux_deskprntspd_row7 :- appdtgntm.
+aux_deskprntspd_row7 :- prntprcsstm.
+0.5::deskprntspd :- unless(aux_deskprntspd_row7).
+problem4 :- nnpsgrphc, prtpscript, unless(psgraphic).
+aux_problem4_row5 :- nnpsgrphc.
+aux_problem4_row5 :- psgraphic.
+problem4 :- prtpscript, unless(aux_problem4_row5).
+aux_problem4_row6 :- nnpsgrphc.
+aux_problem4_row6 :- prtpscript.
+problem4 :- psgraphic, unless(aux_problem4_row6).
+aux_problem4_row7 :- nnpsgrphc.
+aux_problem4_row7 :- prtpscript.
+aux_problem4_row7 :- psgraphic.
+problem4 :- unless(aux_problem4_row7).
+pserrmem :- prtpscript, avlblvrtlmmry.
+0.05::pserrmem :- prtpscript, unless(avlblvrtlmmry).
+pserrmem :- avlblvrtlmmry, unless(prtpscript).
+aux_pserrmem_row3 :- prtpscript.
+aux_pserrmem_row3 :- avlblvrtlmmry.
+pserrmem :- unless(aux_pserrmem_row3).
+0.999::tstpstxt :- prtpscript, avlblvrtlmmry.
+0.00099999::tstpstxt :- prtpscript, unless(avlblvrtlmmry).
+tstpstxt :- avlblvrtlmmry, unless(prtpscript).
+aux_tstpstxt_row3 :- prtpscript.
+aux_tstpstxt_row3 :- avlblvrtlmmry.
+tstpstxt :- unless(aux_tstpstxt_row3).
+incmpltps :- cmpltpgprntd, avlblvrtlmmry.
+0.3::incmpltps :- cmpltpgprntd, unless(avlblvrtlmmry).
+aux_incmpltps_row3 :- cmpltpgprntd.
+aux_incmpltps_row3 :- avlblvrtlmmry.
+0.5::incmpltps :- unless(aux_incmpltps_row3).
+problem5 :- trtypfnts, nnttok, unless(ttok).
+aux_problem5_row3 :- ttok.
+aux_problem5_row3 :- nnttok.
+problem5 :- trtypfnts, unless(aux_problem5_row3).
+aux_problem5_row5 :- trtypfnts.
+aux_problem5_row5 :- nnttok.
+problem5 :- ttok, unless(aux_problem5_row5).
+aux_problem5_row7 :- trtypfnts.
+aux_problem5_row7 :- ttok.
+aux_problem5_row7 :- nnttok.
+problem5 :- unless(aux_problem5_row7).
+gdiin :- appdata, prtspool, emfok.
+gdiin :- appdata, emfok, unless(prtspool).
+aux_gdiin_row3 :- prtspool.
+aux_gdiin_row3 :- emfok.
+gdiin :- appdata, unless(aux_gdiin_row3).
+grbldotpt :- netprint, lclgrbld, ntgrbld.
+grbldotpt :- netprint, lclgrbld, unless(ntgrbld).
+grbldotpt :- lclgrbld, ntgrbld, unless(netprint).
+aux_grbldotpt_row6 :- netprint.
+aux_grbldotpt_row6 :- lclgrbld.
+grbldotpt :- ntgrbld, unless(aux_grbldotpt_row6).
+0.999::ntspd :- deskprntspd, ntwrkcnfg, prtqueue.
+0.25::ntspd :- deskprntspd, ntwrkcnfg, unless(prtqueue).
+0.25::ntspd :- deskprntspd, prtqueue, unless(ntwrkcnfg).
+aux_ntspd_row3 :- ntwrkcnfg.
+aux_ntspd_row3 :- prtqueue.
+0.5::ntspd :- deskprntspd, unless(aux_ntspd_row3).
+aux_ntspd_row5 :- deskprntspd.
+aux_ntspd_row5 :- prtqueue.
+0.5::ntspd :- ntwrkcnfg, unless(aux_ntspd_row5).
+aux_ntspd_row6 :- deskprntspd.
+aux_ntspd_row6 :- ntwrkcnfg.
+0.5::ntspd :- prtqueue, unless(aux_ntspd_row6).
+aux_ntspd_row7 :- deskprntspd.
+aux_ntspd_row7 :- ntwrkcnfg.
+aux_ntspd_row7 :- prtqueue.
+0.5::ntspd :- unless(aux_ntspd_row7).
+problem3 :- cmpltpgprntd, prtpscript, unless(incmpltps).
+aux_problem3_row5 :- cmpltpgprntd.
+aux_problem3_row5 :- incmpltps.
+problem3 :- prtpscript, unless(aux_problem3_row5).
+aux_problem3_row6 :- cmpltpgprntd.
+aux_problem3_row6 :- prtpscript.
+problem3 :- incmpltps, unless(aux_problem3_row6).
+aux_problem3_row7 :- cmpltpgprntd.
+aux_problem3_row7 :- prtpscript.
+aux_problem3_row7 :- incmpltps.
+problem3 :- unless(aux_problem3_row7).
+0.99::gdiout :- prtdriver, gdiin, drvset, drvok.
+0.2::gdiout :- prtdriver, gdiin, drvset, unless(drvok).
+0.9::gdiout :- prtdriver, gdiin, drvok, unless(drvset).
+aux_gdiout_row3 :- drvset.
+aux_gdiout_row3 :- drvok.
+0.5::gdiout :- prtdriver, gdiin, unless(aux_gdiout_row3).
+0.1::gdiout :- prtdriver, drvset, drvok, unless(gdiin).
+aux_gdiout_row5 :- gdiin.
+aux_gdiout_row5 :- drvok.
+0.5::gdiout :- prtdriver, drvset, unless(aux_gdiout_row5).
+aux_gdiout_row6 :- gdiin.
+aux_gdiout_row6 :- drvset.
+0.5::gdiout :- prtdriver, drvok, unless(aux_gdiout_row6).
+aux_gdiout_row7 :- gdiin.
+aux_gdiout_row7 :- drvset.
+aux_gdiout_row7 :- drvok.
+0.5::gdiout :- prtdriver, unless(aux_gdiout_row7).
+0.1::gdiout :- gdiin, drvset, drvok, unless(prtdriver).
+aux_gdiout_row9 :- prtdriver.
+aux_gdiout_row9 :- drvok.
+0.5::gdiout :- gdiin, drvset, unless(aux_gdiout_row9).
+aux_gdiout_row10 :- prtdriver.
+aux_gdiout_row10 :- drvset.
+0.5::gdiout :- gdiin, drvok, unless(aux_gdiout_row10).
+aux_gdiout_row11 :- prtdriver.
+aux_gdiout_row11 :- drvset.
+aux_gdiout_row11 :- drvok.
+0.5::gdiout :- gdiin, unless(aux_gdiout_row11).
+aux_gdiout_row12 :- prtdriver.
+aux_gdiout_row12 :- gdiin.
+0.5::gdiout :- drvset, drvok, unless(aux_gdiout_row12).
+aux_gdiout_row13 :- prtdriver.
+aux_gdiout_row13 :- gdiin.
+aux_gdiout_row13 :- drvok.
+0.5::gdiout :- drvset, unless(aux_gdiout_row13).
+aux_gdiout_row14 :- prtdriver.
+aux_gdiout_row14 :- gdiin.
+aux_gdiout_row14 :- drvset.
+0.5::gdiout :- drvok, unless(aux_gdiout_row14).
+aux_gdiout_row15 :- prtdriver.
+aux_gdiout_row15 :- gdiin.
+aux_gdiout_row15 :- drvset.
+aux_gdiout_row15 :- drvok.
+0.5::gdiout :- unless(aux_gdiout_row15).
+grbldps :- grbldotpt, avlblvrtlmmry.
+0.1::grbldps :- grbldotpt, unless(avlblvrtlmmry).
+aux_grbldps_row3 :- grbldotpt.
+aux_grbldps_row3 :- avlblvrtlmmry.
+0.5::grbldps :- unless(aux_grbldps_row3).
+problem2 :- netprint, deskprntspd, ntspd.
+problem2 :- netprint, deskprntspd, unless(ntspd).
+problem2 :- deskprntspd, ntspd, unless(netprint).
+aux_problem2_row6 :- netprint.
+aux_problem2_row6 :- deskprntspd.
+problem2 :- ntspd, unless(aux_problem2_row6).
+0.99::prtdataout :- gdiout, prtsel.
+aux_prtdataout_row3 :- gdiout.
+aux_prtdataout_row3 :- prtsel.
+0.5::prtdataout :- unless(aux_prtdataout_row3).
+problem6 :- grbldotpt, prtpscript, grbldps.
+problem6 :- grbldotpt, grbldps, unless(prtpscript).
+aux_problem6_row3 :- prtpscript.
+aux_problem6_row3 :- grbldps.
+problem6 :- grbldotpt, unless(aux_problem6_row3).
+problem6 :- prtpscript, grbldps, unless(grbldotpt).
+pc2prt :- netprint, prtdataout, netok, lclok, dsapplctn, ds_ntok, ds_lclok.
+pc2prt :- netprint, prtdataout, netok, lclok, dsapplctn, ds_lclok, unless(ds_ntok).
+pc2prt :- netprint, prtdataout, netok, lclok, ds_ntok, ds_lclok, unless(dsapplctn).
+aux_pc2prt_row5 :- dsapplctn.
+aux_pc2prt_row5 :- ds_lclok.
+pc2prt :- netprint, prtdataout, netok, lclok, ds_ntok, unless(aux_pc2prt_row5).
+aux_pc2prt_row6 :- dsapplctn.
+aux_pc2prt_row6 :- ds_ntok.
+pc2prt :- netprint, prtdataout, netok, lclok, ds_lclok, unless(aux_pc2prt_row6).
+aux_pc2prt_row7 :- dsapplctn.
+aux_pc2prt_row7 :- ds_ntok.
+aux_pc2prt_row7 :- ds_lclok.
+pc2prt :- netprint, prtdataout, netok, lclok, unless(aux_pc2prt_row7).
+pc2prt :- netprint, prtdataout, netok, dsapplctn, ds_ntok, ds_lclok, unless(lclok).
+aux_pc2prt_row10 :- lclok.
+aux_pc2prt_row10 :- ds_ntok.
+pc2prt :- netprint, prtdataout, netok, dsapplctn, ds_lclok, unless(aux_pc2prt_row10).
+pc2prt :- netprint, prtdataout, lclok, dsapplctn, ds_ntok, ds_lclok, unless(netok).
+aux_pc2prt_row18 :- netok.
+aux_pc2prt_row18 :- ds_ntok.
+pc2prt :- netprint, prtdataout, lclok, dsapplctn, ds_lclok, unless(aux_pc2prt_row18).
+aux_pc2prt_row20 :- netok.
+aux_pc2prt_row20 :- dsapplctn.
+pc2prt :- netprint, prtdataout, lclok, ds_ntok, ds_lclok, unless(aux_pc2prt_row20).
+aux_pc2prt_row21 :- netok.
+aux_pc2prt_row21 :- dsapplctn.
+aux_pc2prt_row21 :- ds_lclok.
+pc2prt :- netprint, prtdataout, lclok, ds_ntok, unless(aux_pc2prt_row21).
+aux_pc2prt_row22 :- netok.
+aux_pc2prt_row22 :- dsapplctn.
+aux_pc2prt_row22 :- ds_ntok.
+pc2prt :- netprint, prtdataout, lclok, ds_lclok, unless(aux_pc2prt_row22).
+aux_pc2prt_row23 :- netok.
+aux_pc2prt_row23 :- dsapplctn.
+aux_pc2prt_row23 :- ds_ntok.
+aux_pc2prt_row23 :- ds_lclok.
+pc2prt :- netprint, prtdataout, lclok, unless(aux_pc2prt_row23).
+aux_pc2prt_row24 :- netok.
+aux_pc2prt_row24 :- lclok.
+pc2prt :- netprint, prtdataout, dsapplctn, ds_ntok, ds_lclok, unless(aux_pc2prt_row24).
+aux_pc2prt_row26 :- netok.
+aux_pc2prt_row26 :- lclok.
+aux_pc2prt_row26 :- ds_ntok.
+pc2prt :- netprint, prtdataout, dsapplctn, ds_lclok, unless(aux_pc2prt_row26).
+pc2prt :- netprint, netok, lclok, dsapplctn, ds_ntok, ds_lclok, unless(prtdataout).
+aux_pc2prt_row34 :- prtdataout.
+aux_pc2prt_row34 :- ds_ntok.
+pc2prt :- netprint, netok, lclok, dsapplctn, ds_lclok, unless(aux_pc2prt_row34).
+aux_pc2prt_row40 :- prtdataout.
+aux_pc2prt_row40 :- lclok.
+pc2prt :- netprint, netok, dsapplctn, ds_ntok, ds_lclok, unless(aux_pc2prt_row40).
+aux_pc2prt_row42 :- prtdataout.
+aux_pc2prt_row42 :- lclok.
+aux_pc2prt_row42 :- ds_ntok.
+pc2prt :- netprint, netok, dsapplctn, ds_lclok, unless(aux_pc2prt_row42).
+aux_pc2prt_row48 :- prtdataout.
+aux_pc2prt_row48 :- netok.
+pc2prt :- netprint, lclok, dsapplctn, ds_ntok, ds_lclok, unless(aux_pc2prt_row48).
+aux_pc2prt_row50 :- prtdataout.
+aux_pc2prt_row50 :- netok.
+aux_pc2prt_row50 :- ds_ntok.
+pc2prt :- netprint, lclok, dsapplctn, ds_lclok, unless(aux_pc2prt_row50).
+aux_pc2prt_row56 :- prtdataout.
+aux_pc2prt_row56 :- netok.
+aux_pc2prt_row56 :- lclok.
+pc2prt :- netprint, dsapplctn, ds_ntok, ds_lclok, unless(aux_pc2prt_row56).
+aux_pc2prt_row58 :- prtdataout.
+aux_pc2prt_row58 :- netok.
+aux_pc2prt_row58 :- lclok.
+aux_pc2prt_row58 :- ds_ntok.
+pc2prt :- netprint, dsapplctn, ds_lclok, unless(aux_pc2prt_row58).
+pc2prt :- prtdataout, netok, lclok, dsapplctn, ds_ntok, ds_lclok, unless(netprint).
+aux_pc2prt_row65 :- netprint.
+aux_pc2prt_row65 :- ds_lclok.
+pc2prt :- prtdataout, netok, lclok, dsapplctn, ds_ntok, unless(aux_pc2prt_row65).
+aux_pc2prt_row68 :- netprint.
+aux_pc2prt_row68 :- dsapplctn.
+pc2prt :- prtdataout, netok, lclok, ds_ntok, ds_lclok, unless(aux_pc2prt_row68).
+aux_pc2prt_row69 :- netprint.
+aux_pc2prt_row69 :- dsapplctn.
+aux_pc2prt_row69 :- ds_lclok.
+pc2prt :- prtdataout, netok, lclok, ds_ntok, unless(aux_pc2prt_row69).
+aux_pc2prt_row70 :- netprint.
+aux_pc2prt_row70 :- dsapplctn.
+aux_pc2prt_row70 :- ds_ntok.
+pc2prt :- prtdataout, netok, lclok, ds_lclok, unless(aux_pc2prt_row70).
+aux_pc2prt_row71 :- netprint.
+aux_pc2prt_row71 :- dsapplctn.
+aux_pc2prt_row71 :- ds_ntok.
+aux_pc2prt_row71 :- ds_lclok.
+pc2prt :- prtdataout, netok, lclok, unless(aux_pc2prt_row71).
+aux_pc2prt_row72 :- netprint.
+aux_pc2prt_row72 :- lclok.
+pc2prt :- prtdataout, netok, dsapplctn, ds_ntok, ds_lclok, unless(aux_pc2prt_row72).
+aux_pc2prt_row73 :- netprint.
+aux_pc2prt_row73 :- lclok.
+aux_pc2prt_row73 :- ds_lclok.
+pc2prt :- prtdataout, netok, dsapplctn, ds_ntok, unless(aux_pc2prt_row73).
+aux_pc2prt_row76 :- netprint.
+aux_pc2prt_row76 :- lclok.
+aux_pc2prt_row76 :- dsapplctn.
+pc2prt :- prtdataout, netok, ds_ntok, ds_lclok, unless(aux_pc2prt_row76).
+aux_pc2prt_row77 :- netprint.
+aux_pc2prt_row77 :- lclok.
+aux_pc2prt_row77 :- dsapplctn.
+aux_pc2prt_row77 :- ds_lclok.
+pc2prt :- prtdataout, netok, ds_ntok, unless(aux_pc2prt_row77).
+aux_pc2prt_row78 :- netprint.
+aux_pc2prt_row78 :- lclok.
+aux_pc2prt_row78 :- dsapplctn.
+aux_pc2prt_row78 :- ds_ntok.
+pc2prt :- prtdataout, netok, ds_lclok, unless(aux_pc2prt_row78).
+aux_pc2prt_row79 :- netprint.
+aux_pc2prt_row79 :- lclok.
+aux_pc2prt_row79 :- dsapplctn.
+aux_pc2prt_row79 :- ds_ntok.
+aux_pc2prt_row79 :- ds_lclok.
+pc2prt :- prtdataout, netok, unless(aux_pc2prt_row79).
+aux_pc2prt_row80 :- netprint.
+aux_pc2prt_row80 :- netok.
+pc2prt :- prtdataout, lclok, dsapplctn, ds_ntok, ds_lclok, unless(aux_pc2prt_row80).
+aux_pc2prt_row81 :- netprint.
+aux_pc2prt_row81 :- netok.
+aux_pc2prt_row81 :- ds_lclok.
+pc2prt :- prtdataout, lclok, dsapplctn, ds_ntok, unless(aux_pc2prt_row81).
+aux_pc2prt_row88 :- netprint.
+aux_pc2prt_row88 :- netok.
+aux_pc2prt_row88 :- lclok.
+pc2prt :- prtdataout, dsapplctn, ds_ntok, ds_lclok, unless(aux_pc2prt_row88).
+aux_pc2prt_row89 :- netprint.
+aux_pc2prt_row89 :- netok.
+aux_pc2prt_row89 :- lclok.
+aux_pc2prt_row89 :- ds_lclok.
+pc2prt :- prtdataout, dsapplctn, ds_ntok, unless(aux_pc2prt_row89).
+aux_pc2prt_row96 :- netprint.
+aux_pc2prt_row96 :- prtdataout.
+pc2prt :- netok, lclok, dsapplctn, ds_ntok, ds_lclok, unless(aux_pc2prt_row96).
+aux_pc2prt_row97 :- netprint.
+aux_pc2prt_row97 :- prtdataout.
+aux_pc2prt_row97 :- ds_lclok.
+pc2prt :- netok, lclok, dsapplctn, ds_ntok, unless(aux_pc2prt_row97).
+aux_pc2prt_row104 :- netprint.
+aux_pc2prt_row104 :- prtdataout.
+aux_pc2prt_row104 :- lclok.
+pc2prt :- netok, dsapplctn, ds_ntok, ds_lclok, unless(aux_pc2prt_row104).
+aux_pc2prt_row105 :- netprint.
+aux_pc2prt_row105 :- prtdataout.
+aux_pc2prt_row105 :- lclok.
+aux_pc2prt_row105 :- ds_lclok.
+pc2prt :- netok, dsapplctn, ds_ntok, unless(aux_pc2prt_row105).
+aux_pc2prt_row112 :- netprint.
+aux_pc2prt_row112 :- prtdataout.
+aux_pc2prt_row112 :- netok.
+pc2prt :- lclok, dsapplctn, ds_ntok, ds_lclok, unless(aux_pc2prt_row112).
+aux_pc2prt_row113 :- netprint.
+aux_pc2prt_row113 :- prtdataout.
+aux_pc2prt_row113 :- netok.
+aux_pc2prt_row113 :- ds_lclok.
+pc2prt :- lclok, dsapplctn, ds_ntok, unless(aux_pc2prt_row113).
+aux_pc2prt_row120 :- netprint.
+aux_pc2prt_row120 :- prtdataout.
+aux_pc2prt_row120 :- netok.
+aux_pc2prt_row120 :- lclok.
+pc2prt :- dsapplctn, ds_ntok, ds_lclok, unless(aux_pc2prt_row120).
+aux_pc2prt_row121 :- netprint.
+aux_pc2prt_row121 :- prtdataout.
+aux_pc2prt_row121 :- netok.
+aux_pc2prt_row121 :- lclok.
+aux_pc2prt_row121 :- ds_lclok.
+pc2prt :- dsapplctn, ds_ntok, unless(aux_pc2prt_row121).
+0.8::prtfile :- prtdataout.
+0.2::prtfile :- unless(prtdataout).
+0.99::prtdata :- prton, prtpaper, pc2prt, prtmem, prttimeout, fllcrrptdbffr, tnrspply.
+0.01::prtdata :- prton, prtpaper, pc2prt, prtmem, prttimeout, fllcrrptdbffr, unless(tnrspply).
+0.02::prtdata :- prton, prtpaper, pc2prt, prtmem, prttimeout, tnrspply, unless(fllcrrptdbffr).
+aux_prtdata_row3 :- fllcrrptdbffr.
+aux_prtdata_row3 :- tnrspply.
+0.5::prtdata :- prton, prtpaper, pc2prt, prtmem, prttimeout, unless(aux_prtdata_row3).
+aux_prtdata_row5 :- prttimeout.
+aux_prtdata_row5 :- tnrspply.
+0.5::prtdata :- prton, prtpaper, pc2prt, prtmem, fllcrrptdbffr, unless(aux_prtdata_row5).
+aux_prtdata_row6 :- prttimeout.
+aux_prtdata_row6 :- fllcrrptdbffr.
+0.5::prtdata :- prton, prtpaper, pc2prt, prtmem, tnrspply, unless(aux_prtdata_row6).
+aux_prtdata_row7 :- prttimeout.
+aux_prtdata_row7 :- fllcrrptdbffr.
+aux_prtdata_row7 :- tnrspply.
+0.5::prtdata :- prton, prtpaper, pc2prt, prtmem, unless(aux_prtdata_row7).
+0.1::prtdata :- prton, prtpaper, pc2prt, prttimeout, fllcrrptdbffr, tnrspply, unless(prtmem).
+aux_prtdata_row9 :- prtmem.
+aux_prtdata_row9 :- tnrspply.
+0.5::prtdata :- prton, prtpaper, pc2prt, prttimeout, fllcrrptdbffr, unless(aux_prtdata_row9).
+aux_prtdata_row10 :- prtmem.
+aux_prtdata_row10 :- fllcrrptdbffr.
+0.5::prtdata :- prton, prtpaper, pc2prt, prttimeout, tnrspply, unless(aux_prtdata_row10).
+aux_prtdata_row11 :- prtmem.
+aux_prtdata_row11 :- fllcrrptdbffr.
+aux_prtdata_row11 :- tnrspply.
+0.5::prtdata :- prton, prtpaper, pc2prt, prttimeout, unless(aux_prtdata_row11).
+aux_prtdata_row12 :- prtmem.
+aux_prtdata_row12 :- prttimeout.
+0.5::prtdata :- prton, prtpaper, pc2prt, fllcrrptdbffr, tnrspply, unless(aux_prtdata_row12).
+aux_prtdata_row13 :- prtmem.
+aux_prtdata_row13 :- prttimeout.
+aux_prtdata_row13 :- tnrspply.
+0.5::prtdata :- prton, prtpaper, pc2prt, fllcrrptdbffr, unless(aux_prtdata_row13).
+aux_prtdata_row14 :- prtmem.
+aux_prtdata_row14 :- prttimeout.
+aux_prtdata_row14 :- fllcrrptdbffr.
+0.5::prtdata :- prton, prtpaper, pc2prt, tnrspply, unless(aux_prtdata_row14).
+aux_prtdata_row15 :- prtmem.
+aux_prtdata_row15 :- prttimeout.
+aux_prtdata_row15 :- fllcrrptdbffr.
+aux_prtdata_row15 :- tnrspply.
+0.5::prtdata :- prton, prtpaper, pc2prt, unless(aux_prtdata_row15).
+aux_prtdata_row17 :- pc2prt.
+aux_prtdata_row17 :- tnrspply.
+0.5::prtdata :- prton, prtpaper, prtmem, prttimeout, fllcrrptdbffr, unless(aux_prtdata_row17).
+aux_prtdata_row18 :- pc2prt.
+aux_prtdata_row18 :- fllcrrptdbffr.
+0.5::prtdata :- prton, prtpaper, prtmem, prttimeout, tnrspply, unless(aux_prtdata_row18).
+aux_prtdata_row19 :- pc2prt.
+aux_prtdata_row19 :- fllcrrptdbffr.
+aux_prtdata_row19 :- tnrspply.
+0.5::prtdata :- prton, prtpaper, prtmem, prttimeout, unless(aux_prtdata_row19).
+aux_prtdata_row20 :- pc2prt.
+aux_prtdata_row20 :- prttimeout.
+0.5::prtdata :- prton, prtpaper, prtmem, fllcrrptdbffr, tnrspply, unless(aux_prtdata_row20).
+aux_prtdata_row21 :- pc2prt.
+aux_prtdata_row21 :- prttimeout.
+aux_prtdata_row21 :- tnrspply.
+0.5::prtdata :- prton, prtpaper, prtmem, fllcrrptdbffr, unless(aux_prtdata_row21).
+aux_prtdata_row22 :- pc2prt.
+aux_prtdata_row22 :- prttimeout.
+aux_prtdata_row22 :- fllcrrptdbffr.
+0.5::prtdata :- prton, prtpaper, prtmem, tnrspply, unless(aux_prtdata_row22).
+aux_prtdata_row23 :- pc2prt.
+aux_prtdata_row23 :- prttimeout.
+aux_prtdata_row23 :- fllcrrptdbffr.
+aux_prtdata_row23 :- tnrspply.
+0.5::prtdata :- prton, prtpaper, prtmem, unless(aux_prtdata_row23).
+aux_prtdata_row24 :- pc2prt.
+aux_prtdata_row24 :- prtmem.
+0.5::prtdata :- prton, prtpaper, prttimeout, fllcrrptdbffr, tnrspply, unless(aux_prtdata_row24).
+aux_prtdata_row25 :- pc2prt.
+aux_prtdata_row25 :- prtmem.
+aux_prtdata_row25 :- tnrspply.
+0.5::prtdata :- prton, prtpaper, prttimeout, fllcrrptdbffr, unless(aux_prtdata_row25).
+aux_prtdata_row26 :- pc2prt.
+aux_prtdata_row26 :- prtmem.
+aux_prtdata_row26 :- fllcrrptdbffr.
+0.5::prtdata :- prton, prtpaper, prttimeout, tnrspply, unless(aux_prtdata_row26).
+aux_prtdata_row27 :- pc2prt.
+aux_prtdata_row27 :- prtmem.
+aux_prtdata_row27 :- fllcrrptdbffr.
+aux_prtdata_row27 :- tnrspply.
+0.5::prtdata :- prton, prtpaper, prttimeout, unless(aux_prtdata_row27).
+aux_prtdata_row28 :- pc2prt.
+aux_prtdata_row28 :- prtmem.
+aux_prtdata_row28 :- prttimeout.
+0.5::prtdata :- prton, prtpaper, fllcrrptdbffr, tnrspply, unless(aux_prtdata_row28).
+aux_prtdata_row29 :- pc2prt.
+aux_prtdata_row29 :- prtmem.
+aux_prtdata_row29 :- prttimeout.
+aux_prtdata_row29 :- tnrspply.
+0.5::prtdata :- prton, prtpaper, fllcrrptdbffr, unless(aux_prtdata_row29).
+aux_prtdata_row30 :- pc2prt.
+aux_prtdata_row30 :- prtmem.
+aux_prtdata_row30 :- prttimeout.
+aux_prtdata_row30 :- fllcrrptdbffr.
+0.5::prtdata :- prton, prtpaper, tnrspply, unless(aux_prtdata_row30).
+aux_prtdata_row31 :- pc2prt.
+aux_prtdata_row31 :- prtmem.
+aux_prtdata_row31 :- prttimeout.
+aux_prtdata_row31 :- fllcrrptdbffr.
+aux_prtdata_row31 :- tnrspply.
+0.5::prtdata :- prton, prtpaper, unless(aux_prtdata_row31).
+aux_prtdata_row33 :- prtpaper.
+aux_prtdata_row33 :- tnrspply.
+0.5::prtdata :- prton, pc2prt, prtmem, prttimeout, fllcrrptdbffr, unless(aux_prtdata_row33).
+aux_prtdata_row34 :- prtpaper.
+aux_prtdata_row34 :- fllcrrptdbffr.
+0.5::prtdata :- prton, pc2prt, prtmem, prttimeout, tnrspply, unless(aux_prtdata_row34).
+aux_prtdata_row35 :- prtpaper.
+aux_prtdata_row35 :- fllcrrptdbffr.
+aux_prtdata_row35 :- tnrspply.
+0.5::prtdata :- prton, pc2prt, prtmem, prttimeout, unless(aux_prtdata_row35).
+aux_prtdata_row36 :- prtpaper.
+aux_prtdata_row36 :- prttimeout.
+0.5::prtdata :- prton, pc2prt, prtmem, fllcrrptdbffr, tnrspply, unless(aux_prtdata_row36).
+aux_prtdata_row37 :- prtpaper.
+aux_prtdata_row37 :- prttimeout.
+aux_prtdata_row37 :- tnrspply.
+0.5::prtdata :- prton, pc2prt, prtmem, fllcrrptdbffr, unless(aux_prtdata_row37).
+aux_prtdata_row38 :- prtpaper.
+aux_prtdata_row38 :- prttimeout.
+aux_prtdata_row38 :- fllcrrptdbffr.
+0.5::prtdata :- prton, pc2prt, prtmem, tnrspply, unless(aux_prtdata_row38).
+aux_prtdata_row39 :- prtpaper.
+aux_prtdata_row39 :- prttimeout.
+aux_prtdata_row39 :- fllcrrptdbffr.
+aux_prtdata_row39 :- tnrspply.
+0.5::prtdata :- prton, pc2prt, prtmem, unless(aux_prtdata_row39).
+aux_prtdata_row40 :- prtpaper.
+aux_prtdata_row40 :- prtmem.
+0.5::prtdata :- prton, pc2prt, prttimeout, fllcrrptdbffr, tnrspply, unless(aux_prtdata_row40).
+aux_prtdata_row41 :- prtpaper.
+aux_prtdata_row41 :- prtmem.
+aux_prtdata_row41 :- tnrspply.
+0.5::prtdata :- prton, pc2prt, prttimeout, fllcrrptdbffr, unless(aux_prtdata_row41).
+aux_prtdata_row42 :- prtpaper.
+aux_prtdata_row42 :- prtmem.
+aux_prtdata_row42 :- fllcrrptdbffr.
+0.5::prtdata :- prton, pc2prt, prttimeout, tnrspply, unless(aux_prtdata_row42).
+aux_prtdata_row43 :- prtpaper.
+aux_prtdata_row43 :- prtmem.
+aux_prtdata_row43 :- fllcrrptdbffr.
+aux_prtdata_row43 :- tnrspply.
+0.5::prtdata :- prton, pc2prt, prttimeout, unless(aux_prtdata_row43).
+aux_prtdata_row44 :- prtpaper.
+aux_prtdata_row44 :- prtmem.
+aux_prtdata_row44 :- prttimeout.
+0.5::prtdata :- prton, pc2prt, fllcrrptdbffr, tnrspply, unless(aux_prtdata_row44).
+aux_prtdata_row45 :- prtpaper.
+aux_prtdata_row45 :- prtmem.
+aux_prtdata_row45 :- prttimeout.
+aux_prtdata_row45 :- tnrspply.
+0.5::prtdata :- prton, pc2prt, fllcrrptdbffr, unless(aux_prtdata_row45).
+aux_prtdata_row46 :- prtpaper.
+aux_prtdata_row46 :- prtmem.
+aux_prtdata_row46 :- prttimeout.
+aux_prtdata_row46 :- fllcrrptdbffr.
+0.5::prtdata :- prton, pc2prt, tnrspply, unless(aux_prtdata_row46).
+aux_prtdata_row47 :- prtpaper.
+aux_prtdata_row47 :- prtmem.
+aux_prtdata_row47 :- prttimeout.
+aux_prtdata_row47 :- fllcrrptdbffr.
+aux_prtdata_row47 :- tnrspply.
+0.5::prtdata :- prton, pc2prt, unless(aux_prtdata_row47).
+aux_prtdata_row48 :- prtpaper.
+aux_prtdata_row48 :- pc2prt.
+0.5::prtdata :- prton, prtmem, prttimeout, fllcrrptdbffr, tnrspply, unless(aux_prtdata_row48).
+aux_prtdata_row49 :- prtpaper.
+aux_prtdata_row49 :- pc2prt.
+aux_prtdata_row49 :- tnrspply.
+0.5::prtdata :- prton, prtmem, prttimeout, fllcrrptdbffr, unless(aux_prtdata_row49).
+aux_prtdata_row50 :- prtpaper.
+aux_prtdata_row50 :- pc2prt.
+aux_prtdata_row50 :- fllcrrptdbffr.
+0.5::prtdata :- prton, prtmem, prttimeout, tnrspply, unless(aux_prtdata_row50).
+aux_prtdata_row51 :- prtpaper.
+aux_prtdata_row51 :- pc2prt.
+aux_prtdata_row51 :- fllcrrptdbffr.
+aux_prtdata_row51 :- tnrspply.
+0.5::prtdata :- prton, prtmem, prttimeout, unless(aux_prtdata_row51).
+aux_prtdata_row52 :- prtpaper.
+aux_prtdata_row52 :- pc2prt.
+aux_prtdata_row52 :- prttimeout.
+0.5::prtdata :- prton, prtmem, fllcrrptdbffr, tnrspply, unless(aux_prtdata_row52).
+aux_prtdata_row53 :- prtpaper.
+aux_prtdata_row53 :- pc2prt.
+aux_prtdata_row53 :- prttimeout.
+aux_prtdata_row53 :- tnrspply.
+0.5::prtdata :- prton, prtmem, fllcrrptdbffr, unless(aux_prtdata_row53).
+aux_prtdata_row54 :- prtpaper.
+aux_prtdata_row54 :- pc2prt.
+aux_prtdata_row54 :- prttimeout.
+aux_prtdata_row54 :- fllcrrptdbffr.
+0.5::prtdata :- prton, prtmem, tnrspply, unless(aux_prtdata_row54).
+aux_prtdata_row55 :- prtpaper.
+aux_prtdata_row55 :- pc2prt.
+aux_prtdata_row55 :- prttimeout.
+aux_prtdata_row55 :- fllcrrptdbffr.
+aux_prtdata_row55 :- tnrspply.
+0.5::prtdata :- prton, prtmem, unless(aux_prtdata_row55).
+aux_prtdata_row56 :- prtpaper.
+aux_prtdata_row56 :- pc2prt.
+aux_prtdata_row56 :- prtmem.
+0.5::prtdata :- prton, prttimeout, fllcrrptdbffr, tnrspply, unless(aux_prtdata_row56).
+aux_prtdata_row57 :- prtpaper.
+aux_prtdata_row57 :- pc2prt.
+aux_prtdata_row57 :- prtmem.
+aux_prtdata_row57 :- tnrspply.
+0.5::prtdata :- prton, prttimeout, fllcrrptdbffr, unless(aux_prtdata_row57).
+aux_prtdata_row58 :- prtpaper.
+aux_prtdata_row58 :- pc2prt.
+aux_prtdata_row58 :- prtmem.
+aux_prtdata_row58 :- fllcrrptdbffr.
+0.5::prtdata :- prton, prttimeout, tnrspply, unless(aux_prtdata_row58).
+aux_prtdata_row59 :- prtpaper.
+aux_prtdata_row59 :- pc2prt.
+aux_prtdata_row59 :- prtmem.
+aux_prtdata_row59 :- fllcrrptdbffr.
+aux_prtdata_row59 :- tnrspply.
+0.5::prtdata :- prton, prttimeout, unless(aux_prtdata_row59).
+aux_prtdata_row60 :- prtpaper.
+aux_prtdata_row60 :- pc2prt.
+aux_prtdata_row60 :- prtmem.
+aux_prtdata_row60 :- prttimeout.
+0.5::prtdata :- prton, fllcrrptdbffr, tnrspply, unless(aux_prtdata_row60).
+aux_prtdata_row61 :- prtpaper.
+aux_prtdata_row61 :- pc2prt.
+aux_prtdata_row61 :- prtmem.
+aux_prtdata_row61 :- prttimeout.
+aux_prtdata_row61 :- tnrspply.
+0.5::prtdata :- prton, fllcrrptdbffr, unless(aux_prtdata_row61).
+aux_prtdata_row62 :- prtpaper.
+aux_prtdata_row62 :- pc2prt.
+aux_prtdata_row62 :- prtmem.
+aux_prtdata_row62 :- prttimeout.
+aux_prtdata_row62 :- fllcrrptdbffr.
+0.5::prtdata :- prton, tnrspply, unless(aux_prtdata_row62).
+aux_prtdata_row63 :- prtpaper.
+aux_prtdata_row63 :- pc2prt.
+aux_prtdata_row63 :- prtmem.
+aux_prtdata_row63 :- prttimeout.
+aux_prtdata_row63 :- fllcrrptdbffr.
+aux_prtdata_row63 :- tnrspply.
+0.5::prtdata :- prton, unless(aux_prtdata_row63).
+aux_prtdata_row65 :- prton.
+aux_prtdata_row65 :- tnrspply.
+0.5::prtdata :- prtpaper, pc2prt, prtmem, prttimeout, fllcrrptdbffr, unless(aux_prtdata_row65).
+aux_prtdata_row66 :- prton.
+aux_prtdata_row66 :- fllcrrptdbffr.
+0.5::prtdata :- prtpaper, pc2prt, prtmem, prttimeout, tnrspply, unless(aux_prtdata_row66).
+aux_prtdata_row67 :- prton.
+aux_prtdata_row67 :- fllcrrptdbffr.
+aux_prtdata_row67 :- tnrspply.
+0.5::prtdata :- prtpaper, pc2prt, prtmem, prttimeout, unless(aux_prtdata_row67).
+aux_prtdata_row68 :- prton.
+aux_prtdata_row68 :- prttimeout.
+0.5::prtdata :- prtpaper, pc2prt, prtmem, fllcrrptdbffr, tnrspply, unless(aux_prtdata_row68).
+aux_prtdata_row69 :- prton.
+aux_prtdata_row69 :- prttimeout.
+aux_prtdata_row69 :- tnrspply.
+0.5::prtdata :- prtpaper, pc2prt, prtmem, fllcrrptdbffr, unless(aux_prtdata_row69).
+aux_prtdata_row70 :- prton.
+aux_prtdata_row70 :- prttimeout.
+aux_prtdata_row70 :- fllcrrptdbffr.
+0.5::prtdata :- prtpaper, pc2prt, prtmem, tnrspply, unless(aux_prtdata_row70).
+aux_prtdata_row71 :- prton.
+aux_prtdata_row71 :- prttimeout.
+aux_prtdata_row71 :- fllcrrptdbffr.
+aux_prtdata_row71 :- tnrspply.
+0.5::prtdata :- prtpaper, pc2prt, prtmem, unless(aux_prtdata_row71).
+aux_prtdata_row72 :- prton.
+aux_prtdata_row72 :- prtmem.
+0.5::prtdata :- prtpaper, pc2prt, prttimeout, fllcrrptdbffr, tnrspply, unless(aux_prtdata_row72).
+aux_prtdata_row73 :- prton.
+aux_prtdata_row73 :- prtmem.
+aux_prtdata_row73 :- tnrspply.
+0.5::prtdata :- prtpaper, pc2prt, prttimeout, fllcrrptdbffr, unless(aux_prtdata_row73).
+aux_prtdata_row74 :- prton.
+aux_prtdata_row74 :- prtmem.
+aux_prtdata_row74 :- fllcrrptdbffr.
+0.5::prtdata :- prtpaper, pc2prt, prttimeout, tnrspply, unless(aux_prtdata_row74).
+aux_prtdata_row75 :- prton.
+aux_prtdata_row75 :- prtmem.
+aux_prtdata_row75 :- fllcrrptdbffr.
+aux_prtdata_row75 :- tnrspply.
+0.5::prtdata :- prtpaper, pc2prt, prttimeout, unless(aux_prtdata_row75).
+aux_prtdata_row76 :- prton.
+aux_prtdata_row76 :- prtmem.
+aux_prtdata_row76 :- prttimeout.
+0.5::prtdata :- prtpaper, pc2prt, fllcrrptdbffr, tnrspply, unless(aux_prtdata_row76).
+aux_prtdata_row77 :- prton.
+aux_prtdata_row77 :- prtmem.
+aux_prtdata_row77 :- prttimeout.
+aux_prtdata_row77 :- tnrspply.
+0.5::prtdata :- prtpaper, pc2prt, fllcrrptdbffr, unless(aux_prtdata_row77).
+aux_prtdata_row78 :- prton.
+aux_prtdata_row78 :- prtmem.
+aux_prtdata_row78 :- prttimeout.
+aux_prtdata_row78 :- fllcrrptdbffr.
+0.5::prtdata :- prtpaper, pc2prt, tnrspply, unless(aux_prtdata_row78).
+aux_prtdata_row79 :- prton.
+aux_prtdata_row79 :- prtmem.
+aux_prtdata_row79 :- prttimeout.
+aux_prtdata_row79 :- fllcrrptdbffr.
+aux_prtdata_row79 :- tnrspply.
+0.5::prtdata :- prtpaper, pc2prt, unless(aux_prtdata_row79).
+aux_prtdata_row80 :- prton.
+aux_prtdata_row80 :- pc2prt.
+0.5::prtdata :- prtpaper, prtmem, prttimeout, fllcrrptdbffr, tnrspply, unless(aux_prtdata_row80).
+aux_prtdata_row81 :- prton.
+aux_prtdata_row81 :- pc2prt.
+aux_prtdata_row81 :- tnrspply.
+0.5::prtdata :- prtpaper, prtmem, prttimeout, fllcrrptdbffr, unless(aux_prtdata_row81).
+aux_prtdata_row82 :- prton.
+aux_prtdata_row82 :- pc2prt.
+aux_prtdata_row82 :- fllcrrptdbffr.
+0.5::prtdata :- prtpaper, prtmem, prttimeout, tnrspply, unless(aux_prtdata_row82).
+aux_prtdata_row83 :- prton.
+aux_prtdata_row83 :- pc2prt.
+aux_prtdata_row83 :- fllcrrptdbffr.
+aux_prtdata_row83 :- tnrspply.
+0.5::prtdata :- prtpaper, prtmem, prttimeout, unless(aux_prtdata_row83).
+aux_prtdata_row84 :- prton.
+aux_prtdata_row84 :- pc2prt.
+aux_prtdata_row84 :- prttimeout.
+0.5::prtdata :- prtpaper, prtmem, fllcrrptdbffr, tnrspply, unless(aux_prtdata_row84).
+aux_prtdata_row85 :- prton.
+aux_prtdata_row85 :- pc2prt.
+aux_prtdata_row85 :- prttimeout.
+aux_prtdata_row85 :- tnrspply.
+0.5::prtdata :- prtpaper, prtmem, fllcrrptdbffr, unless(aux_prtdata_row85).
+aux_prtdata_row86 :- prton.
+aux_prtdata_row86 :- pc2prt.
+aux_prtdata_row86 :- prttimeout.
+aux_prtdata_row86 :- fllcrrptdbffr.
+0.5::prtdata :- prtpaper, prtmem, tnrspply, unless(aux_prtdata_row86).
+aux_prtdata_row87 :- prton.
+aux_prtdata_row87 :- pc2prt.
+aux_prtdata_row87 :- prttimeout.
+aux_prtdata_row87 :- fllcrrptdbffr.
+aux_prtdata_row87 :- tnrspply.
+0.5::prtdata :- prtpaper, prtmem, unless(aux_prtdata_row87).
+aux_prtdata_row88 :- prton.
+aux_prtdata_row88 :- pc2prt.
+aux_prtdata_row88 :- prtmem.
+0.5::prtdata :- prtpaper, prttimeout, fllcrrptdbffr, tnrspply, unless(aux_prtdata_row88).
+aux_prtdata_row89 :- prton.
+aux_prtdata_row89 :- pc2prt.
+aux_prtdata_row89 :- prtmem.
+aux_prtdata_row89 :- tnrspply.
+0.5::prtdata :- prtpaper, prttimeout, fllcrrptdbffr, unless(aux_prtdata_row89).
+aux_prtdata_row90 :- prton.
+aux_prtdata_row90 :- pc2prt.
+aux_prtdata_row90 :- prtmem.
+aux_prtdata_row90 :- fllcrrptdbffr.
+0.5::prtdata :- prtpaper, prttimeout, tnrspply, unless(aux_prtdata_row90).
+aux_prtdata_row91 :- prton.
+aux_prtdata_row91 :- pc2prt.
+aux_prtdata_row91 :- prtmem.
+aux_prtdata_row91 :- fllcrrptdbffr.
+aux_prtdata_row91 :- tnrspply.
+0.5::prtdata :- prtpaper, prttimeout, unless(aux_prtdata_row91).
+aux_prtdata_row92 :- prton.
+aux_prtdata_row92 :- pc2prt.
+aux_prtdata_row92 :- prtmem.
+aux_prtdata_row92 :- prttimeout.
+0.5::prtdata :- prtpaper, fllcrrptdbffr, tnrspply, unless(aux_prtdata_row92).
+aux_prtdata_row93 :- prton.
+aux_prtdata_row93 :- pc2prt.
+aux_prtdata_row93 :- prtmem.
+aux_prtdata_row93 :- prttimeout.
+aux_prtdata_row93 :- tnrspply.
+0.5::prtdata :- prtpaper, fllcrrptdbffr, unless(aux_prtdata_row93).
+aux_prtdata_row94 :- prton.
+aux_prtdata_row94 :- pc2prt.
+aux_prtdata_row94 :- prtmem.
+aux_prtdata_row94 :- prttimeout.
+aux_prtdata_row94 :- fllcrrptdbffr.
+0.5::prtdata :- prtpaper, tnrspply, unless(aux_prtdata_row94).
+aux_prtdata_row95 :- prton.
+aux_prtdata_row95 :- pc2prt.
+aux_prtdata_row95 :- prtmem.
+aux_prtdata_row95 :- prttimeout.
+aux_prtdata_row95 :- fllcrrptdbffr.
+aux_prtdata_row95 :- tnrspply.
+0.5::prtdata :- prtpaper, unless(aux_prtdata_row95).
+aux_prtdata_row96 :- prton.
+aux_prtdata_row96 :- prtpaper.
+0.5::prtdata :- pc2prt, prtmem, prttimeout, fllcrrptdbffr, tnrspply, unless(aux_prtdata_row96).
+aux_prtdata_row97 :- prton.
+aux_prtdata_row97 :- prtpaper.
+aux_prtdata_row97 :- tnrspply.
+0.5::prtdata :- pc2prt, prtmem, prttimeout, fllcrrptdbffr, unless(aux_prtdata_row97).
+aux_prtdata_row98 :- prton.
+aux_prtdata_row98 :- prtpaper.
+aux_prtdata_row98 :- fllcrrptdbffr.
+0.5::prtdata :- pc2prt, prtmem, prttimeout, tnrspply, unless(aux_prtdata_row98).
+aux_prtdata_row99 :- prton.
+aux_prtdata_row99 :- prtpaper.
+aux_prtdata_row99 :- fllcrrptdbffr.
+aux_prtdata_row99 :- tnrspply.
+0.5::prtdata :- pc2prt, prtmem, prttimeout, unless(aux_prtdata_row99).
+aux_prtdata_row100 :- prton.
+aux_prtdata_row100 :- prtpaper.
+aux_prtdata_row100 :- prttimeout.
+0.5::prtdata :- pc2prt, prtmem, fllcrrptdbffr, tnrspply, unless(aux_prtdata_row100).
+aux_prtdata_row101 :- prton.
+aux_prtdata_row101 :- prtpaper.
+aux_prtdata_row101 :- prttimeout.
+aux_prtdata_row101 :- tnrspply.
+0.5::prtdata :- pc2prt, prtmem, fllcrrptdbffr, unless(aux_prtdata_row101).
+aux_prtdata_row102 :- prton.
+aux_prtdata_row102 :- prtpaper.
+aux_prtdata_row102 :- prttimeout.
+aux_prtdata_row102 :- fllcrrptdbffr.
+0.5::prtdata :- pc2prt, prtmem, tnrspply, unless(aux_prtdata_row102).
+aux_prtdata_row103 :- prton.
+aux_prtdata_row103 :- prtpaper.
+aux_prtdata_row103 :- prttimeout.
+aux_prtdata_row103 :- fllcrrptdbffr.
+aux_prtdata_row103 :- tnrspply.
+0.5::prtdata :- pc2prt, prtmem, unless(aux_prtdata_row103).
+aux_prtdata_row104 :- prton.
+aux_prtdata_row104 :- prtpaper.
+aux_prtdata_row104 :- prtmem.
+0.5::prtdata :- pc2prt, prttimeout, fllcrrptdbffr, tnrspply, unless(aux_prtdata_row104).
+aux_prtdata_row105 :- prton.
+aux_prtdata_row105 :- prtpaper.
+aux_prtdata_row105 :- prtmem.
+aux_prtdata_row105 :- tnrspply.
+0.5::prtdata :- pc2prt, prttimeout, fllcrrptdbffr, unless(aux_prtdata_row105).
+aux_prtdata_row106 :- prton.
+aux_prtdata_row106 :- prtpaper.
+aux_prtdata_row106 :- prtmem.
+aux_prtdata_row106 :- fllcrrptdbffr.
+0.5::prtdata :- pc2prt, prttimeout, tnrspply, unless(aux_prtdata_row106).
+aux_prtdata_row107 :- prton.
+aux_prtdata_row107 :- prtpaper.
+aux_prtdata_row107 :- prtmem.
+aux_prtdata_row107 :- fllcrrptdbffr.
+aux_prtdata_row107 :- tnrspply.
+0.5::prtdata :- pc2prt, prttimeout, unless(aux_prtdata_row107).
+aux_prtdata_row108 :- prton.
+aux_prtdata_row108 :- prtpaper.
+aux_prtdata_row108 :- prtmem.
+aux_prtdata_row108 :- prttimeout.
+0.5::prtdata :- pc2prt, fllcrrptdbffr, tnrspply, unless(aux_prtdata_row108).
+aux_prtdata_row109 :- prton.
+aux_prtdata_row109 :- prtpaper.
+aux_prtdata_row109 :- prtmem.
+aux_prtdata_row109 :- prttimeout.
+aux_prtdata_row109 :- tnrspply.
+0.5::prtdata :- pc2prt, fllcrrptdbffr, unless(aux_prtdata_row109).
+aux_prtdata_row110 :- prton.
+aux_prtdata_row110 :- prtpaper.
+aux_prtdata_row110 :- prtmem.
+aux_prtdata_row110 :- prttimeout.
+aux_prtdata_row110 :- fllcrrptdbffr.
+0.5::prtdata :- pc2prt, tnrspply, unless(aux_prtdata_row110).
+aux_prtdata_row111 :- prton.
+aux_prtdata_row111 :- prtpaper.
+aux_prtdata_row111 :- prtmem.
+aux_prtdata_row111 :- prttimeout.
+aux_prtdata_row111 :- fllcrrptdbffr.
+aux_prtdata_row111 :- tnrspply.
+0.5::prtdata :- pc2prt, unless(aux_prtdata_row111).
+aux_prtdata_row112 :- prton.
+aux_prtdata_row112 :- prtpaper.
+aux_prtdata_row112 :- pc2prt.
+0.5::prtdata :- prtmem, prttimeout, fllcrrptdbffr, tnrspply, unless(aux_prtdata_row112).
+aux_prtdata_row113 :- prton.
+aux_prtdata_row113 :- prtpaper.
+aux_prtdata_row113 :- pc2prt.
+aux_prtdata_row113 :- tnrspply.
+0.5::prtdata :- prtmem, prttimeout, fllcrrptdbffr, unless(aux_prtdata_row113).
+aux_prtdata_row114 :- prton.
+aux_prtdata_row114 :- prtpaper.
+aux_prtdata_row114 :- pc2prt.
+aux_prtdata_row114 :- fllcrrptdbffr.
+0.5::prtdata :- prtmem, prttimeout, tnrspply, unless(aux_prtdata_row114).
+aux_prtdata_row115 :- prton.
+aux_prtdata_row115 :- prtpaper.
+aux_prtdata_row115 :- pc2prt.
+aux_prtdata_row115 :- fllcrrptdbffr.
+aux_prtdata_row115 :- tnrspply.
+0.5::prtdata :- prtmem, prttimeout, unless(aux_prtdata_row115).
+aux_prtdata_row116 :- prton.
+aux_prtdata_row116 :- prtpaper.
+aux_prtdata_row116 :- pc2prt.
+aux_prtdata_row116 :- prttimeout.
+0.5::prtdata :- prtmem, fllcrrptdbffr, tnrspply, unless(aux_prtdata_row116).
+aux_prtdata_row117 :- prton.
+aux_prtdata_row117 :- prtpaper.
+aux_prtdata_row117 :- pc2prt.
+aux_prtdata_row117 :- prttimeout.
+aux_prtdata_row117 :- tnrspply.
+0.5::prtdata :- prtmem, fllcrrptdbffr, unless(aux_prtdata_row117).
+aux_prtdata_row118 :- prton.
+aux_prtdata_row118 :- prtpaper.
+aux_prtdata_row118 :- pc2prt.
+aux_prtdata_row118 :- prttimeout.
+aux_prtdata_row118 :- fllcrrptdbffr.
+0.5::prtdata :- prtmem, tnrspply, unless(aux_prtdata_row118).
+aux_prtdata_row119 :- prton.
+aux_prtdata_row119 :- prtpaper.
+aux_prtdata_row119 :- pc2prt.
+aux_prtdata_row119 :- prttimeout.
+aux_prtdata_row119 :- fllcrrptdbffr.
+aux_prtdata_row119 :- tnrspply.
+0.5::prtdata :- prtmem, unless(aux_prtdata_row119).
+aux_prtdata_row120 :- prton.
+aux_prtdata_row120 :- prtpaper.
+aux_prtdata_row120 :- pc2prt.
+aux_prtdata_row120 :- prtmem.
+0.5::prtdata :- prttimeout, fllcrrptdbffr, tnrspply, unless(aux_prtdata_row120).
+aux_prtdata_row121 :- prton.
+aux_prtdata_row121 :- prtpaper.
+aux_prtdata_row121 :- pc2prt.
+aux_prtdata_row121 :- prtmem.
+aux_prtdata_row121 :- tnrspply.
+0.5::prtdata :- prttimeout, fllcrrptdbffr, unless(aux_prtdata_row121).
+aux_prtdata_row122 :- prton.
+aux_prtdata_row122 :- prtpaper.
+aux_prtdata_row122 :- pc2prt.
+aux_prtdata_row122 :- prtmem.
+aux_prtdata_row122 :- fllcrrptdbffr.
+0.5::prtdata :- prttimeout, tnrspply, unless(aux_prtdata_row122).
+aux_prtdata_row123 :- prton.
+aux_prtdata_row123 :- prtpaper.
+aux_prtdata_row123 :- pc2prt.
+aux_prtdata_row123 :- prtmem.
+aux_prtdata_row123 :- fllcrrptdbffr.
+aux_prtdata_row123 :- tnrspply.
+0.5::prtdata :- prttimeout, unless(aux_prtdata_row123).
+aux_prtdata_row124 :- prton.
+aux_prtdata_row124 :- prtpaper.
+aux_prtdata_row124 :- pc2prt.
+aux_prtdata_row124 :- prtmem.
+aux_prtdata_row124 :- prttimeout.
+0.5::prtdata :- fllcrrptdbffr, tnrspply, unless(aux_prtdata_row124).
+aux_prtdata_row125 :- prton.
+aux_prtdata_row125 :- prtpaper.
+aux_prtdata_row125 :- pc2prt.
+aux_prtdata_row125 :- prtmem.
+aux_prtdata_row125 :- prttimeout.
+aux_prtdata_row125 :- tnrspply.
+0.5::prtdata :- fllcrrptdbffr, unless(aux_prtdata_row125).
+aux_prtdata_row126 :- prton.
+aux_prtdata_row126 :- prtpaper.
+aux_prtdata_row126 :- pc2prt.
+aux_prtdata_row126 :- prtmem.
+aux_prtdata_row126 :- prttimeout.
+aux_prtdata_row126 :- fllcrrptdbffr.
+0.5::prtdata :- tnrspply, unless(aux_prtdata_row126).
+aux_prtdata_row127 :- prton.
+aux_prtdata_row127 :- prtpaper.
+aux_prtdata_row127 :- pc2prt.
+aux_prtdata_row127 :- prtmem.
+aux_prtdata_row127 :- prttimeout.
+aux_prtdata_row127 :- fllcrrptdbffr.
+aux_prtdata_row127 :- tnrspply.
+0.5::prtdata :- unless(aux_prtdata_row127).
+problem1 :- prtdata.
+query(prtstatpaper).

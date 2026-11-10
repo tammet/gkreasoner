@@ -1,0 +1,46 @@
+f0 :- &problog("0.51").
+a0 :- f0, not a7.
+f1 :- &problog("0.77").
+a1 :- f1, not a19.
+f2 :- &problog("0.6").
+a2 :- f2, not a15.
+f3 :- &problog("0.25").
+a3 :- f3, not a7.
+f4 :- &problog("0.33").
+a4 :- f4, not a9.
+f5 :- &problog("0.63").
+a5 :- f5, not a12.
+f6 :- &problog("0.64").
+a6 :- f6, not a3.
+f7 :- &problog("0.62").
+a7 :- f7, not a11.
+f8 :- &problog("0.38").
+a8 :- f8, not a10.
+f9 :- &problog("0.37").
+a9 :- f9, not a6.
+f10 :- &problog("0.31").
+a10 :- f10, not a17.
+f11 :- &problog("0.64").
+a11 :- f11, not a14.
+f12 :- &problog("0.33").
+a12 :- f12, not a6.
+f13 :- &problog("0.62").
+a13 :- f13, not a3.
+f14 :- &problog("0.2").
+a14 :- f14, not a15.
+f15 :- &problog("0.73").
+a15 :- f15, not a12.
+f16 :- &problog("0.68").
+a16 :- f16, not a13.
+f17 :- &problog("0.74").
+a17 :- f17, not a18.
+f18 :- &problog("0.77").
+a18 :- f18, not a12.
+f19 :- &problog("0.25").
+a19 :- f19, not a0.
+a12 :- a11.
+a9 :- a6.
+a4 :- a12.
+a13 :- a18.
+a10 :- a15.
+&query(a0).

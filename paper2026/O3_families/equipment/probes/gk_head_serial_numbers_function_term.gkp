@@ -1,0 +1,5 @@
+% Probe: a clause with the equality head the same, with supply(pump) among the units
+registered(supply(pump)). registered(m17). serial(supply(pump), s). serial(m17, s).
+U = V :- registered(U), registered(V), serial(U, N), serial(V, N).
+charged(supply(pump)).
+query(charged(m17)).

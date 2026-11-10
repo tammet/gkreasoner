@@ -1,0 +1,5 @@
+person(mara).
+certified(X) -< person(X).
+~certified(X) -< person(X).
+labAccess(X) -< person(X), certified(X).
+mayUse(X) -< person(X), labAccess(X).

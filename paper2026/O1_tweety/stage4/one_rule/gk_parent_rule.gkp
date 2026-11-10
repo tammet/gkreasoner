@@ -1,0 +1,14 @@
+% Stage 4, one lineage rule (Section 2.4): only bird(parent(X)) :- bird(X).
+% The evidence and the question concern parent(tweety).
+bird(tweety).
+bird(parent(X)) :- bird(X).
+
+0.9::flies(X) :- bird(X), unless(-flies(X), 2).
+-flies(X) :- penguin(X), unless(flies(X), 3).
+
+gull(X) ; penguin(X) :- seabird(X).
+
+0.8::seabird(parent(tweety)).
+0.7::-gull(parent(tweety)).
+
+query(flies(parent(tweety))).

@@ -1,0 +1,63 @@
+t6(c).
+t7(c).
+[DEFTrt5] t5(X) :- t6(X), t7(X).
+t9(c).
+t10(c).
+[DEFTrt8] t8(X) :- t9(X), t10(X).
+[DEFTrt4] t4(X) :- t5(X), t8(X).
+t13(c).
+t14(c).
+[DEFTrt12] t12(X) :- t13(X), t14(X).
+t16(c).
+t17(c).
+[DEFTrt15] t15(X) :- t16(X), t17(X).
+[DEFTrt11] t11(X) :- t12(X), t15(X).
+[DEFTrt3] t3(X) :- t4(X), t11(X).
+t21(c).
+t22(c).
+[DEFTrt20] t20(X) :- t21(X), t22(X).
+t24(c).
+t25(c).
+[DEFTrt23] t23(X) :- t24(X), t25(X).
+[DEFTrt19] t19(X) :- t20(X), t23(X).
+t28(c).
+t29(c).
+[DEFTrt27] t27(X) :- t28(X), t29(X).
+t31(c).
+t32(c).
+[DEFTrt30] t30(X) :- t31(X), t32(X).
+[DEFTrt26] t26(X) :- t27(X), t30(X).
+[DEFTrt18] t18(X) :- t19(X), t26(X).
+[DEFTrt2] t2(X) :- t3(X), t18(X).
+t37(c).
+t38(c).
+[DEFTrt36] t36(X) :- t37(X), t38(X).
+t40(c).
+t41(c).
+[DEFTrt39] t39(X) :- t40(X), t41(X).
+[DEFTrt35] t35(X) :- t36(X), t39(X).
+t44(c).
+t45(c).
+[DEFTrt43] t43(X) :- t44(X), t45(X).
+t47(c).
+t48(c).
+[DEFTrt46] t46(X) :- t47(X), t48(X).
+[DEFTrt42] t42(X) :- t43(X), t46(X).
+[DEFTrt34] t34(X) :- t35(X), t42(X).
+t52(c).
+t53(c).
+[DEFTrt51] t51(X) :- t52(X), t53(X).
+t55(c).
+t56(c).
+[DEFTrt54] t54(X) :- t55(X), t56(X).
+[DEFTrt50] t50(X) :- t51(X), t54(X).
+t59(c).
+t60(c).
+[DEFTrt58] t58(X) :- t59(X), t60(X).
+t62(c).
+t63(c).
+[DEFTrt61] t61(X) :- t62(X), t63(X).
+[DEFTrt57] t57(X) :- t58(X), t61(X).
+[DEFTrt49] t49(X) :- t50(X), t57(X).
+[DEFTrt33] t33(X) :- t34(X), t49(X).
+[DEFTrt1] t1(X) :- t2(X), t33(X).

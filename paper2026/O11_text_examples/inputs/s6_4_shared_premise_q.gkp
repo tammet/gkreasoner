@@ -1,0 +1,6 @@
+% Section 6.4: two conditions from one uncertain premise.
+0.5::a.
+b :- a.
+c :- a.
+q :- b, c.
+query(q).

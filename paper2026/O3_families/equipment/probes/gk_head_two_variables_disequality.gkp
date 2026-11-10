@@ -1,0 +1,5 @@
+% Probe: a clause with the equality head X = Y :- p(X), p(Y), X != Y.
+p(a). p(b).
+X = Y :- p(X), p(Y), X != Y.
+q(a).
+query(q(b)).

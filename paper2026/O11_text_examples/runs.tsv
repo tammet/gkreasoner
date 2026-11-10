@@ -1,0 +1,40 @@
+run_id	tool	input	options	settings	alone	timeout_s
+s1_bird_conflict.gk	gk	inputs/s1_bird_conflict.gkp				180
+s1_bird_conflict.mcref	mcref	inputs/s1_bird_conflict.gkp		samples=100000 seed=1		900
+s4_1_penguin.gk	gk	inputs/s4_1_penguin.gkp				180
+s4_1_penguin.mcref	mcref	inputs/s4_1_penguin.gkp		samples=100000 seed=1		900
+s4_2_certain_rule_bird.gk	gk	inputs/s4_2_certain_rule_bird.gkp				180
+s4_2_certain_rule_bird.mcref	mcref	inputs/s4_2_certain_rule_bird.gkp		samples=100000 seed=1		900
+s4_2_rule_099_bird.gk	gk	inputs/s4_2_rule_099_bird.gkp				180
+s4_2_rule_099_bird.mcref	mcref	inputs/s4_2_rule_099_bird.gkp		samples=100000 seed=1		900
+s4_2_rule_08_bird.gk	gk	inputs/s4_2_rule_08_bird.gkp				180
+s4_2_rule_08_bird.mcref	mcref	inputs/s4_2_rule_08_bird.gkp		samples=100000 seed=1		900
+s5_case_split_q.gk	gk	inputs/s5_case_split_q.gkp				180
+s5_case_split_q.mcref	mcref	inputs/s5_case_split_q.gkp		samples=100000 seed=1		900
+s6_1_combined_b.gk	gk	inputs/s6_1_combined_b.gkp				180
+s6_1_combined_b.mcref	mcref	inputs/s6_1_combined_b.gkp		samples=100000 seed=1		900
+s6_4_shared_premise_q.gk	gk	inputs/s6_4_shared_premise_q.gkp				180
+s6_4_shared_premise_q.mcref	mcref	inputs/s6_4_shared_premise_q.gkp		samples=100000 seed=1		900
+a2_1_one_sign_a.gk	gk	inputs/a2_1_one_sign_a.gkp				180
+a2_1_one_sign_a.mcref	mcref	inputs/a2_1_one_sign_a.gkp		samples=100000 seed=1		900
+a2_1_one_sign_b.gk	gk	inputs/a2_1_one_sign_b.gkp				180
+a2_1_one_sign_b.mcref	mcref	inputs/a2_1_one_sign_b.gkp		samples=100000 seed=1		900
+a2_1_exception_cycle_p.gk	gk	inputs/a2_1_exception_cycle_p.gkp				180
+a2_1_exception_cycle_p.mcref	mcref	inputs/a2_1_exception_cycle_p.gkp		samples=100000 seed=1		900
+a2_1_exception_cycle_q.gk	gk	inputs/a2_1_exception_cycle_q.gkp				180
+a2_1_exception_cycle_q.mcref	mcref	inputs/a2_1_exception_cycle_q.gkp		samples=100000 seed=1		900
+a2_1_exception_cycle_r.gk	gk	inputs/a2_1_exception_cycle_r.gkp				180
+a2_1_exception_cycle_r.mcref	mcref	inputs/a2_1_exception_cycle_r.gkp		samples=100000 seed=1		900
+a2_5_selection_p.gk	gk	inputs/a2_5_selection_p.gkp				180
+a2_5_selection_p.mcref	mcref	inputs/a2_5_selection_p.gkp		samples=100000 seed=1		900
+a2_5_selection_r.gk	gk	inputs/a2_5_selection_r.gkp				180
+a2_5_selection_r.mcref	mcref	inputs/a2_5_selection_r.gkp		samples=100000 seed=1		900
+t4.stage3a.checkpoints	gk	../O1_tweety/stage3a/gk.gkp	-checkpoints {outdir}			180
+s4_3_default_vs_fact.gk	gk	inputs/s4_3_default_vs_fact.gkp				180
+s4_3_default_vs_fact.mcref	mcref	inputs/s4_3_default_vs_fact.gkp		samples=100000 seed=1		900
+s4_3_rule_vs_fact.gk	gk	inputs/s4_3_rule_vs_fact.gkp				180
+s4_3_rule_vs_fact.mcref	mcref	inputs/s4_3_rule_vs_fact.gkp		samples=100000 seed=1		900
+s4_3_nixon.gk	gk	inputs/s4_3_nixon.gkp				180
+s4_3_nixon.mcref	mcref	inputs/s4_3_nixon.gkp		samples=100000 seed=1		900
+s4_3_nixon_uncertain.gk	gk	inputs/s4_3_nixon_uncertain.gkp				180
+s4_3_nixon_uncertain.mcref	mcref	inputs/s4_3_nixon_uncertain.gkp		samples=100000 seed=1		900

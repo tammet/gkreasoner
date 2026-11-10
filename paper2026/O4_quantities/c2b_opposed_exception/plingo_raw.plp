@@ -1,0 +1,8 @@
+bird(t).
+sw_injury_pos :- &problog("0.7").
+sw_injury_neg :- &problog("0.3").
+sw_fly :- &problog("0.9").
+injured_pos(t) :- sw_injury_pos.
+injured_neg(t) :- sw_injury_neg.
+flies(t) :- bird(t), sw_fly, not injured_pos(t).
+&query(flies(t)).

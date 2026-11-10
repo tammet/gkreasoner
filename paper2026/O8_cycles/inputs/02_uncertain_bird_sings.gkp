@@ -1,0 +1,6 @@
+% Part O8, example 2: the uncertain bird with a fact in another group.
+0.8::bird(t).
+flies(X) :- bird(X).
+-flies(t).
+sings(t).
+query(sings(t)).

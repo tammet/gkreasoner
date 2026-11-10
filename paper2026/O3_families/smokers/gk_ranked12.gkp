@@ -1,0 +1,71 @@
+person(p1).
+person(p2).
+person(p3).
+person(p4).
+person(p5).
+person(p6).
+person(p7).
+person(p8).
+person(p9).
+person(p10).
+person(p11).
+person(p12).
+friend(p1,p10).
+friend(p1,p2).
+friend(p1,p3).
+friend(p1,p4).
+friend(p1,p5).
+friend(p1,p7).
+friend(p1,p8).
+friend(p1,p9).
+friend(p10,p1).
+friend(p10,p7).
+friend(p11,p3).
+friend(p11,p7).
+friend(p12,p4).
+friend(p12,p9).
+friend(p2,p1).
+friend(p2,p3).
+friend(p2,p4).
+friend(p3,p1).
+friend(p3,p11).
+friend(p3,p2).
+friend(p3,p6).
+friend(p3,p8).
+friend(p4,p1).
+friend(p4,p12).
+friend(p4,p2).
+friend(p4,p5).
+friend(p4,p6).
+friend(p4,p7).
+friend(p5,p1).
+friend(p5,p4).
+friend(p6,p3).
+friend(p6,p4).
+friend(p7,p1).
+friend(p7,p10).
+friend(p7,p11).
+friend(p7,p4).
+friend(p7,p9).
+friend(p8,p1).
+friend(p8,p3).
+friend(p9,p1).
+friend(p9,p12).
+friend(p9,p7).
+0.3::stress(X) :- person(X).
+0.2::influences(X,Y) :- person(X), person(Y).
+smokes(X) :- stress(X).
+smokes(X) :- friend(X,Y), influences(Y,X), smokes(Y).
+0.6::treated(p1).
+0.6::treated(p4).
+0.6::treated(p7).
+0.6::treated(p10).
+0.3::-treated(p1).
+0.3::-treated(p4).
+0.3::-treated(p7).
+0.3::-treated(p10).
+athlete(p1).
+untreated(X) :- person(X), unless(treated(X)).
+0.4::asthma(X) :- smokes(X), untreated(X), unless(-asthma(X), 1).
+0.7::-asthma(X) :- athlete(X), unless(asthma(X), 2).
+query(asthma(p1)).

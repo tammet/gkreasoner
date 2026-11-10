@@ -1,0 +1,9 @@
+% Tweety, stage 1: the plingo encoding, an exact translation for this input only.
+bird(tweety).
+sw_fly :- &problog("0.9").
+sw_seabird :- &problog("0.8").
+sw_penguin :- &problog("0.7").
+seabird(tweety) :- sw_seabird.
+penguin(X) :- seabird(X), sw_penguin.
+flies(X) :- bird(X), sw_fly, not penguin(X).
+&query(flies(tweety)).

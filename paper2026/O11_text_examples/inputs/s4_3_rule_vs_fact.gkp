@@ -1,0 +1,4 @@
+bird(t).
+0.3::-flies(t).
+0.9::flies(X) :- bird(X).
+query(flies(t)).

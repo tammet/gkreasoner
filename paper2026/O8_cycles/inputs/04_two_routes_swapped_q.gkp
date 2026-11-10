@@ -1,0 +1,7 @@
+% Part O8, example 4: the two rules for q in the other order.
+0.8::r.
+0.2::-p.
+p :- r.
+0.9::q :- -r.
+0.9::q :- p.
+query(q).

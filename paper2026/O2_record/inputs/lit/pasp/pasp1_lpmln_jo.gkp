@@ -1,0 +1,6 @@
+0.665::resident(jo).
+0.245::migratory(jo).
+-resident(X) | -migratory(X).
+bird(X) :- resident(X).
+bird(X) :- migratory(X).
+query(resident(jo)).

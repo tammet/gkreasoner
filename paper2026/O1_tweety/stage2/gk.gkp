@@ -1,0 +1,13 @@
+% Tweety, stage 2 (Section 2.2, Table 1): the .7 penguin rule replaced by a disjunction
+% and a report against gull.
+bird(tweety).
+
+0.9::flies(X) :- bird(X), unless(-flies(X), 2).
+-flies(X) :- penguin(X), unless(flies(X), 3).
+
+gull(X) ; penguin(X) :- seabird(X).
+
+0.8::seabird(tweety).
+0.7::-gull(tweety).
+
+query(flies(tweety)).

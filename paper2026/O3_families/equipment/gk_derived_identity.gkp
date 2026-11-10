@@ -1,0 +1,18 @@
+% Equipment with a derived identity: two registered supplies with the same serial number are
+% the same unit. The charge report names the pump's supply, the contrary report the unit m17.
+registered(supply(pump)).
+registered(supply(controller)).
+registered(m17).
+serial(supply(pump), sn42).
+serial(supply(controller), sn42).
+serial(m17, sn42).
+U = V :- registered(U), registered(V), serial(U, N), serial(V, N).
+component(pump).
+component(controller).
+0.9::charged(supply(pump)).
+0.2::-charged(m17).
+0.1::-works(pump).
+0.15::-works(controller).
+works(X) :- component(X), charged(supply(X)), unless(-works(X), 1).
+cooling_ready :- works(pump), works(controller).
+query(cooling_ready).

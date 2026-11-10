@@ -1,0 +1,7 @@
+% Part O8, example 3: the all-certain version of the chain stop.
+r.
+-p.
+-q.
+p :- r.
+q :- p.
+query(q).

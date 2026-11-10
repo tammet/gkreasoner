@@ -1,0 +1,9 @@
+fall(dragon, gadwall).
+swim(vampire, husky).
+-leave(fish, cobra).
+hide(X, songbird) :- -leave(X, cobra), unless(-hide(X, songbird), 1).
+-suspect(monkey, swan) :- -surrender(llama, monkey), reveal(mermaid, monkey), unless(suspect(monkey, swan), 1).
+-surrender(llama, monkey) :- fall(X, gadwall), unless(surrender(llama, monkey), 1).
+suspect(monkey, swan) :- hide(X, songbird), unless(-suspect(monkey, swan), 2).
+reveal(mermaid, monkey) :- swim(X, husky), unless(-reveal(mermaid, monkey), 1).
+query(suspect(monkey, swan)).

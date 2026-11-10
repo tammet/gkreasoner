@@ -1,0 +1,112 @@
+supply(pump) = b7.
+supply(controller) = b7.
+maintenance_id = b7.
+component(pump).
+component(controller).
+0.9::charged(b7).
+0.2::-charged(maintenance_id).
+0.1::-works(pump).
+0.15::-works(controller).
+supply(pump_0) = b_0.
+supply(ctrl_0) = b_0.
+maint_0 = b_0.
+component(pump_0).
+component(ctrl_0).
+0.9::charged(b_0).
+0.2::-charged(maint_0).
+0.1::-works(pump_0).
+0.15::-works(ctrl_0).
+ready_0 :- works(pump_0), works(ctrl_0).
+supply(pump_1) = b_1.
+supply(ctrl_1) = b_1.
+maint_1 = b_1.
+component(pump_1).
+component(ctrl_1).
+0.9::charged(b_1).
+0.2::-charged(maint_1).
+0.1::-works(pump_1).
+0.15::-works(ctrl_1).
+ready_1 :- works(pump_1), works(ctrl_1).
+supply(pump_2) = b_2.
+supply(ctrl_2) = b_2.
+maint_2 = b_2.
+component(pump_2).
+component(ctrl_2).
+0.9::charged(b_2).
+0.2::-charged(maint_2).
+0.1::-works(pump_2).
+0.15::-works(ctrl_2).
+ready_2 :- works(pump_2), works(ctrl_2).
+supply(pump_3) = b_3.
+supply(ctrl_3) = b_3.
+maint_3 = b_3.
+component(pump_3).
+component(ctrl_3).
+0.9::charged(b_3).
+0.2::-charged(maint_3).
+0.1::-works(pump_3).
+0.15::-works(ctrl_3).
+ready_3 :- works(pump_3), works(ctrl_3).
+supply(pump_4) = b_4.
+supply(ctrl_4) = b_4.
+maint_4 = b_4.
+component(pump_4).
+component(ctrl_4).
+0.9::charged(b_4).
+0.2::-charged(maint_4).
+0.1::-works(pump_4).
+0.15::-works(ctrl_4).
+ready_4 :- works(pump_4), works(ctrl_4).
+supply(pump_5) = b_5.
+supply(ctrl_5) = b_5.
+maint_5 = b_5.
+component(pump_5).
+component(ctrl_5).
+0.9::charged(b_5).
+0.2::-charged(maint_5).
+0.1::-works(pump_5).
+0.15::-works(ctrl_5).
+ready_5 :- works(pump_5), works(ctrl_5).
+supply(pump_6) = b_6.
+supply(ctrl_6) = b_6.
+maint_6 = b_6.
+component(pump_6).
+component(ctrl_6).
+0.9::charged(b_6).
+0.2::-charged(maint_6).
+0.1::-works(pump_6).
+0.15::-works(ctrl_6).
+ready_6 :- works(pump_6), works(ctrl_6).
+supply(pump_7) = b_7.
+supply(ctrl_7) = b_7.
+maint_7 = b_7.
+component(pump_7).
+component(ctrl_7).
+0.9::charged(b_7).
+0.2::-charged(maint_7).
+0.1::-works(pump_7).
+0.15::-works(ctrl_7).
+ready_7 :- works(pump_7), works(ctrl_7).
+supply(pump_8) = b_8.
+supply(ctrl_8) = b_8.
+maint_8 = b_8.
+component(pump_8).
+component(ctrl_8).
+0.9::charged(b_8).
+0.2::-charged(maint_8).
+0.1::-works(pump_8).
+0.15::-works(ctrl_8).
+ready_8 :- works(pump_8), works(ctrl_8).
+supply(pump_9) = b_9.
+supply(ctrl_9) = b_9.
+maint_9 = b_9.
+component(pump_9).
+component(ctrl_9).
+0.9::charged(b_9).
+0.2::-charged(maint_9).
+0.1::-works(pump_9).
+0.15::-works(ctrl_9).
+ready_9 :- works(pump_9), works(ctrl_9).
+works(X) :- component(X), charged(supply(X)), unless(-works(X), 1).
+cooling_ready :- works(pump), works(controller).
+query(cooling_ready).

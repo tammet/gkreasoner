@@ -1,0 +1,60 @@
+parcel(p1).
+0.9::cold(p1, s0).
+0.2::-cold(p1, s0).
+plan_step(p1, leg1, s0).
+0.3::storm0.
+storm1 :- storm0.
+storm2 :- storm1.
+storm3 :- storm2.
+storm4 :- storm3.
+storm5 :- storm4.
+storm6 :- storm5.
+storm7 :- storm6.
+storm8 :- storm7.
+storm9 :- storm8.
+storm10 :- storm9.
+storm11 :- storm10.
+storm12 :- storm11.
+storm13 :- storm12.
+storm14 :- storm13.
+storm15 :- storm14.
+storm16 :- storm15.
+storm17 :- storm16.
+storm18 :- storm17.
+storm19 :- storm18.
+storm20 :- storm19.
+storm21 :- storm20.
+storm22 :- storm21.
+storm23 :- storm22.
+storm24 :- storm23.
+storm25 :- storm24.
+storm26 :- storm25.
+storm27 :- storm26.
+storm28 :- storm27.
+storm29 :- storm28.
+storm30 :- storm29.
+storm31 :- storm30.
+storm32 :- storm31.
+storm33 :- storm32.
+storm34 :- storm33.
+storm35 :- storm34.
+storm36 :- storm35.
+storm37 :- storm36.
+storm38 :- storm37.
+storm39 :- storm38.
+storm40 :- storm39.
+storm41 :- storm40.
+storm42 :- storm41.
+storm43 :- storm42.
+storm44 :- storm43.
+storm45 :- storm44.
+storm46 :- storm45.
+storm47 :- storm46.
+storm48 :- storm47.
+storm49 :- storm48.
+storm50 :- storm49.
+warmed(p1, leg1, s0) :- storm50.
+0.95::handover_ok(p1, do(leg1, s0)).
+cold(P, do(A, S)) :- cold(P, S), plan_step(P, A, S), unless(warmed(P, A, S)).
+delivered_cold(P, S) :- cold(P, S), handover_ok(P, S).
+query(delivered_cold(p1, do(leg1, s0))).

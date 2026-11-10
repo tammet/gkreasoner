@@ -1,0 +1,20 @@
+0.01::asia.
+0.5::smoke.
+0.05::tub :- asia.
+0.01::tub :- unless(asia).
+0.1::lung :- smoke.
+0.01::lung :- unless(smoke).
+0.6::bronc :- smoke.
+0.3::bronc :- unless(smoke).
+either :- lung, tub.
+either :- lung, unless(tub).
+either :- tub, unless(lung).
+0.98::xray :- either.
+0.05::xray :- unless(either).
+0.9::dysp :- bronc, either.
+0.8::dysp :- bronc, unless(either).
+0.7::dysp :- either, unless(bronc).
+aux_dysp_row3 :- bronc.
+aux_dysp_row3 :- either.
+0.1::dysp :- unless(aux_dysp_row3).
+query(xray).

@@ -1,0 +1,6 @@
+member(nora).
+membershipOf(m1, nora).
+suspended(m1).
+[DEFTenter] mayEnter(X) :- member(X).
+noEnter(X) :- member(X), membershipOf(M, X), suspended(M).
+! :- mayEnter(X), noEnter(X).

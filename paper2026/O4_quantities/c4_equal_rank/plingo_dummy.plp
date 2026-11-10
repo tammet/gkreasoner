@@ -1,0 +1,6 @@
+dummy :- &problog("0.5").
+quaker(n).
+republican(n).
+pacifist_pos(n) :- quaker(n), not pacifist_neg(n).
+pacifist_neg(n) :- republican(n), not pacifist_pos(n).
+&query(pacifist_pos(n)).

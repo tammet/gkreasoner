@@ -1,0 +1,5 @@
+% Part O8, example 5: a fact opposed by its own consequence.
+p.
+q :- p.
+0.9::-p :- q.
+query(p).

@@ -1,0 +1,30 @@
+parcel(p1).
+0.9::cold(p1, s0).
+0.2::-cold(p1, s0).
+plan_step(p1, leg1, s0).
+0.3::storm0.
+storm1 :- storm0.
+storm2 :- storm1.
+storm3 :- storm2.
+storm4 :- storm3.
+storm5 :- storm4.
+storm6 :- storm5.
+storm7 :- storm6.
+storm8 :- storm7.
+storm9 :- storm8.
+storm10 :- storm9.
+storm11 :- storm10.
+storm12 :- storm11.
+storm13 :- storm12.
+storm14 :- storm13.
+storm15 :- storm14.
+storm16 :- storm15.
+storm17 :- storm16.
+storm18 :- storm17.
+storm19 :- storm18.
+storm20 :- storm19.
+warmed(p1, leg1, s0) :- storm20.
+0.95::handover_ok(p1, do(leg1, s0)).
+cold(P, do(A, S)) :- cold(P, S), plan_step(P, A, S), unless(warmed(P, A, S)).
+delivered_cold(P, S) :- cold(P, S), handover_ok(P, S).
+query(delivered_cold(p1, do(leg1, s0))).

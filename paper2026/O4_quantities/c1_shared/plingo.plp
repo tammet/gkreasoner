@@ -1,0 +1,11 @@
+sw_a :- &problog("0.5").
+sw_e1 :- &problog("0.6").
+sw_e2 :- &problog("0.7").
+a :- sw_a.
+e1 :- sw_e1.
+e2 :- sw_e2.
+b :- a, e1.
+c :- a, e2.
+q :- b.
+q :- c.
+&query(q).

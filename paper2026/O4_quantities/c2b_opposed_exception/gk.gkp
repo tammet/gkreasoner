@@ -1,0 +1,5 @@
+bird(t).
+0.7::injured(t).
+0.3::-injured(t).
+0.9::flies(t) :- bird(t), unless(injured(t)).
+query(flies(t)).

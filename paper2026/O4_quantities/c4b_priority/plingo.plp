@@ -1,0 +1,5 @@
+sw_pos :- &problog("0.9").
+sw_neg :- &problog("0.8").
+p_neg :- sw_neg.
+p_pos :- sw_pos, not p_neg.
+&query(p_pos).

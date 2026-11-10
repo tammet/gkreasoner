@@ -1,0 +1,55 @@
+run_id	tool	input	options	settings	alone	timeout_s	reads
+n1v1.gk.claude	gk	n1v1/gk_claude.js	../pipeline/axioms_std.js -strategy ../pipeline/strategy.json -seconds 10 {input} -taxonomy -confidence 0.1 -keepconfidence 0.1 -datafolder ../../../data -recursive		yes	180	../../../data/gk_name_number.txt ../../../data/gk_taxonomy_packed.txt
+n1v1.gk.deepseek	gk	n1v1/gk_deepseek.js	../pipeline/axioms_std.js -strategy ../pipeline/strategy.json -seconds 10 {input} -taxonomy -confidence 0.1 -keepconfidence 0.1 -datafolder ../../../data -recursive		yes	180	../../../data/gk_name_number.txt ../../../data/gk_taxonomy_packed.txt
+n1v1.gk.gemini	gk	n1v1/gk_gemini.js	../pipeline/axioms_std.js -strategy ../pipeline/strategy.json -seconds 10 {input} -taxonomy -confidence 0.1 -keepconfidence 0.1 -datafolder ../../../data -recursive		yes	180	../../../data/gk_name_number.txt ../../../data/gk_taxonomy_packed.txt
+n2v2.gk.deepseek	gk	n2v2/gk_deepseek.js	../pipeline/axioms_std.js -strategy ../pipeline/strategy.json -seconds 10 {input} -taxonomy -confidence 0.1 -keepconfidence 0.1 -datafolder ../../../data -recursive		yes	180	../../../data/gk_name_number.txt ../../../data/gk_taxonomy_packed.txt
+n2v2.gk.claude	gk	n2v2/gk_claude.js	../pipeline/axioms_std.js -strategy ../pipeline/strategy.json -seconds 10 {input} -taxonomy -confidence 0.1 -keepconfidence 0.1 -datafolder ../../../data -recursive		yes	180	../../../data/gk_name_number.txt ../../../data/gk_taxonomy_packed.txt
+n2v2.gk.gemini	gk	n2v2/gk_gemini.js	../pipeline/axioms_std.js -strategy ../pipeline/strategy.json -seconds 10 {input} -taxonomy -confidence 0.1 -keepconfidence 0.1 -datafolder ../../../data -recursive		yes	180	../../../data/gk_name_number.txt ../../../data/gk_taxonomy_packed.txt
+n3.gk.who	gk	n3/gk_who.js	../pipeline/axioms_std.js -strategy ../pipeline/strategy.json -seconds 10 {input} -defaults -confidence 0.1 -keepconfidence 0.1 -datafolder ../../../data -recursive		yes	180	../../../data/gk_name_number.txt ../../../data/gk_taxonomy_packed.txt
+n3.gk.mike	gk	n3/gk_mike.js	../pipeline/axioms_std.js -strategy ../pipeline/strategy.json -seconds 10 {input} -defaults -confidence 0.1 -keepconfidence 0.1 -datafolder ../../../data -recursive		yes	180	../../../data/gk_name_number.txt ../../../data/gk_taxonomy_packed.txt
+n3.gk.eve	gk	n3/gk_eve.js	../pipeline/axioms_std.js -strategy ../pipeline/strategy.json -seconds 10 {input} -defaults -confidence 0.1 -keepconfidence 0.1 -datafolder ../../../data -recursive		yes	180	../../../data/gk_name_number.txt ../../../data/gk_taxonomy_packed.txt
+n3.gk.john	gk	n3/gk_john.js	../pipeline/axioms_std.js -strategy ../pipeline/strategy.json -seconds 10 {input} -defaults -confidence 0.1 -keepconfidence 0.1 -datafolder ../../../data -recursive		yes	180	../../../data/gk_name_number.txt ../../../data/gk_taxonomy_packed.txt
+n3.gk.john.60s	gk	n3/gk_john.js	../pipeline/axioms_std.js -strategy ../pipeline/strategy.json -seconds 60 {input} -defaults -confidence 0.1 -keepconfidence 0.1 -datafolder ../../../data -recursive		yes	180	../../../data/gk_name_number.txt ../../../data/gk_taxonomy_packed.txt
+n4.gk.2s	gk	n4/gk.js	../pipeline/axioms_std.js -strategy ../pipeline/strategy.json -seconds 2 {input} -defaults -confidence 0.1 -keepconfidence 0.1 -datafolder ../../../data -recursive		yes	180	../../../data/gk_name_number.txt ../../../data/gk_taxonomy_packed.txt
+n4.gk.10s	gk	n4/gk.js	../pipeline/axioms_std.js -strategy ../pipeline/strategy.json -seconds 10 {input} -defaults -confidence 0.1 -keepconfidence 0.1 -datafolder ../../../data -recursive		yes	180	../../../data/gk_name_number.txt ../../../data/gk_taxonomy_packed.txt
+n4.gk.60s	gk	n4/gk.js	../pipeline/axioms_std.js -strategy ../pipeline/strategy.json -seconds 60 {input} -defaults -confidence 0.1 -keepconfidence 0.1 -datafolder ../../../data -recursive		yes	180	../../../data/gk_name_number.txt ../../../data/gk_taxonomy_packed.txt
+n1v1.ground.claude.gk	gk	n1v1/mcref_ground_claude.gkp				180	
+n2v2.ground.deepseek.gk	gk	n2v2/mcref_ground_deepseek.gkp				180	
+n2v2.ground.claude.gk	gk	n2v2/mcref_ground_claude.gkp				180	
+n2v2.ground.gemini.gk	gk	n2v2/mcref_ground_gemini.gkp				180	
+n3.ground.john.gk	gk	n3/mcref_ground_john.gkp				180	
+n4.ground.gk	gk	n4/mcref_ground.gkp				180	
+n1v1.ground.claude.mcref	mcref	n1v1/mcref_ground_claude.gkp	--all-atoms	samples=200000 seed=1		900	
+n2v2.ground.deepseek.mcref	mcref	n2v2/mcref_ground_deepseek.gkp	--all-atoms	samples=200000 seed=1		900	
+n2v2.ground.claude.mcref	mcref	n2v2/mcref_ground_claude.gkp	--all-atoms	samples=200000 seed=1		900	
+n2v2.ground.gemini.mcref	mcref	n2v2/mcref_ground_gemini.gkp	--all-atoms	samples=200000 seed=1		900	
+n3.ground.john.mcref	mcref	n3/mcref_ground_john.gkp	--all-atoms	samples=200000 seed=1		900	
+n4.ground.mcref	mcref	n4/mcref_ground.gkp	--all-atoms	samples=200000 seed=1		900	
+n1v1.sk.certified_mara.gk	gk	n1v1/skeleton/gk_certified_mara.gkp				180	
+n1v1.sk.labAccess_mara.gk	gk	n1v1/skeleton/gk_labAccess_mara.gkp				180	
+n1v1.sk.mayUse_mara.gk	gk	n1v1/skeleton/gk_mayUse_mara.gkp				180	
+n2v2.sk.mayEnter_nora.gk	gk	n2v2/skeleton/gk_mayEnter_nora.gkp				180	
+n2v2.sk.not_mayEnter_nora.gk	gk	n2v2/skeleton/gk_not_mayEnter_nora.gkp				180	
+n3.sk.fliesAndEats_mike.gk	gk	n3/skeleton/gk_fliesAndEats_mike.gkp				180	
+n3.sk.fliesAndEats_john.gk	gk	n3/skeleton/gk_fliesAndEats_john.gkp				180	
+n3.sk.flies_john.gk	gk	n3/skeleton/gk_flies_john.gkp				180	
+n4.sk.eatsBerries_john.gk	gk	n4/skeleton/gk_eatsBerries_john.gkp				180	
+n4.sk.not_eatsBerries_john.gk	gk	n4/skeleton/gk_not_eatsBerries_john.gkp				180	
+n1v1.sk.certified_mara.mcref	mcref	n1v1/skeleton/gk_certified_mara.gkp		samples=200000 seed=1		900	
+n1v1.sk.labAccess_mara.mcref	mcref	n1v1/skeleton/gk_labAccess_mara.gkp		samples=200000 seed=1		900	
+n1v1.sk.mayUse_mara.mcref	mcref	n1v1/skeleton/gk_mayUse_mara.gkp		samples=200000 seed=1		900	
+n2v2.sk.mayEnter_nora.mcref	mcref	n2v2/skeleton/gk_mayEnter_nora.gkp		samples=200000 seed=1		900	
+n2v2.sk.not_mayEnter_nora.mcref	mcref	n2v2/skeleton/gk_not_mayEnter_nora.gkp		samples=200000 seed=1		900	
+n3.sk.fliesAndEats_mike.mcref	mcref	n3/skeleton/gk_fliesAndEats_mike.gkp		samples=200000 seed=1		900	
+n3.sk.fliesAndEats_john.mcref	mcref	n3/skeleton/gk_fliesAndEats_john.gkp		samples=200000 seed=1		900	
+n3.sk.flies_john.mcref	mcref	n3/skeleton/gk_flies_john.gkp		samples=200000 seed=1		900	
+n4.sk.eatsBerries_john.mcref	mcref	n4/skeleton/gk_eatsBerries_john.gkp		samples=200000 seed=1		900	
+n4.sk.not_eatsBerries_john.mcref	mcref	n4/skeleton/gk_not_eatsBerries_john.gkp		samples=200000 seed=1		900	
+n1v1.deft	deft	n1v1/skeleton/deft.dlgp	certified(mara) labAccess(mara) mayUse(mara)	version=1.0.0		900	
+n2v2.deft	deft	n2v2/skeleton/deft.dlgp	mayEnter(nora) noEnter(nora)	version=1.0.0		900	
+n3.deft	deft	n3/skeleton/deft.dlgp	fliesAndEats(mike) fliesAndEats(john) flies(john)	version=1.0.0		900	
+n4.deft	deft	n4/skeleton/deft.dlgp	eatsBerries(john) noBerries(john)	version=1.0.0		900	
+n1v1.delp	delp	n1v1/skeleton/delp.delp	certified(mara) labAccess(mara) mayUse(mara)	version=1.27		900	
+n2v2.delp	delp	n2v2/skeleton/delp.delp	mayEnter(nora) ~mayEnter(nora)	version=1.27		900	
+n3.delp	delp	n3/skeleton/delp.delp	fliesAndEats(mike) fliesAndEats(john) flies(john)	version=1.27		900	
+n4.delp	delp	n4/skeleton/delp.delp	eatsBerries(john) ~eatsBerries(john)	version=1.27		900	

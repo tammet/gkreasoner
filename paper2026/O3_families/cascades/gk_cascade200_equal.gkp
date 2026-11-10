@@ -1,0 +1,402 @@
+a200.
+a199 :- unless(-a199, 1).
+-a199 :- a200, unless(a199, 1).
+a198 :- unless(-a198, 1).
+-a198 :- a199, unless(a198, 1).
+a197 :- unless(-a197, 1).
+-a197 :- a198, unless(a197, 1).
+a196 :- unless(-a196, 1).
+-a196 :- a197, unless(a196, 1).
+a195 :- unless(-a195, 1).
+-a195 :- a196, unless(a195, 1).
+a194 :- unless(-a194, 1).
+-a194 :- a195, unless(a194, 1).
+a193 :- unless(-a193, 1).
+-a193 :- a194, unless(a193, 1).
+a192 :- unless(-a192, 1).
+-a192 :- a193, unless(a192, 1).
+a191 :- unless(-a191, 1).
+-a191 :- a192, unless(a191, 1).
+a190 :- unless(-a190, 1).
+-a190 :- a191, unless(a190, 1).
+a189 :- unless(-a189, 1).
+-a189 :- a190, unless(a189, 1).
+a188 :- unless(-a188, 1).
+-a188 :- a189, unless(a188, 1).
+a187 :- unless(-a187, 1).
+-a187 :- a188, unless(a187, 1).
+a186 :- unless(-a186, 1).
+-a186 :- a187, unless(a186, 1).
+a185 :- unless(-a185, 1).
+-a185 :- a186, unless(a185, 1).
+a184 :- unless(-a184, 1).
+-a184 :- a185, unless(a184, 1).
+a183 :- unless(-a183, 1).
+-a183 :- a184, unless(a183, 1).
+a182 :- unless(-a182, 1).
+-a182 :- a183, unless(a182, 1).
+a181 :- unless(-a181, 1).
+-a181 :- a182, unless(a181, 1).
+a180 :- unless(-a180, 1).
+-a180 :- a181, unless(a180, 1).
+a179 :- unless(-a179, 1).
+-a179 :- a180, unless(a179, 1).
+a178 :- unless(-a178, 1).
+-a178 :- a179, unless(a178, 1).
+a177 :- unless(-a177, 1).
+-a177 :- a178, unless(a177, 1).
+a176 :- unless(-a176, 1).
+-a176 :- a177, unless(a176, 1).
+a175 :- unless(-a175, 1).
+-a175 :- a176, unless(a175, 1).
+a174 :- unless(-a174, 1).
+-a174 :- a175, unless(a174, 1).
+a173 :- unless(-a173, 1).
+-a173 :- a174, unless(a173, 1).
+a172 :- unless(-a172, 1).
+-a172 :- a173, unless(a172, 1).
+a171 :- unless(-a171, 1).
+-a171 :- a172, unless(a171, 1).
+a170 :- unless(-a170, 1).
+-a170 :- a171, unless(a170, 1).
+a169 :- unless(-a169, 1).
+-a169 :- a170, unless(a169, 1).
+a168 :- unless(-a168, 1).
+-a168 :- a169, unless(a168, 1).
+a167 :- unless(-a167, 1).
+-a167 :- a168, unless(a167, 1).
+a166 :- unless(-a166, 1).
+-a166 :- a167, unless(a166, 1).
+a165 :- unless(-a165, 1).
+-a165 :- a166, unless(a165, 1).
+a164 :- unless(-a164, 1).
+-a164 :- a165, unless(a164, 1).
+a163 :- unless(-a163, 1).
+-a163 :- a164, unless(a163, 1).
+a162 :- unless(-a162, 1).
+-a162 :- a163, unless(a162, 1).
+a161 :- unless(-a161, 1).
+-a161 :- a162, unless(a161, 1).
+a160 :- unless(-a160, 1).
+-a160 :- a161, unless(a160, 1).
+a159 :- unless(-a159, 1).
+-a159 :- a160, unless(a159, 1).
+a158 :- unless(-a158, 1).
+-a158 :- a159, unless(a158, 1).
+a157 :- unless(-a157, 1).
+-a157 :- a158, unless(a157, 1).
+a156 :- unless(-a156, 1).
+-a156 :- a157, unless(a156, 1).
+a155 :- unless(-a155, 1).
+-a155 :- a156, unless(a155, 1).
+a154 :- unless(-a154, 1).
+-a154 :- a155, unless(a154, 1).
+a153 :- unless(-a153, 1).
+-a153 :- a154, unless(a153, 1).
+a152 :- unless(-a152, 1).
+-a152 :- a153, unless(a152, 1).
+a151 :- unless(-a151, 1).
+-a151 :- a152, unless(a151, 1).
+a150 :- unless(-a150, 1).
+-a150 :- a151, unless(a150, 1).
+a149 :- unless(-a149, 1).
+-a149 :- a150, unless(a149, 1).
+a148 :- unless(-a148, 1).
+-a148 :- a149, unless(a148, 1).
+a147 :- unless(-a147, 1).
+-a147 :- a148, unless(a147, 1).
+a146 :- unless(-a146, 1).
+-a146 :- a147, unless(a146, 1).
+a145 :- unless(-a145, 1).
+-a145 :- a146, unless(a145, 1).
+a144 :- unless(-a144, 1).
+-a144 :- a145, unless(a144, 1).
+a143 :- unless(-a143, 1).
+-a143 :- a144, unless(a143, 1).
+a142 :- unless(-a142, 1).
+-a142 :- a143, unless(a142, 1).
+a141 :- unless(-a141, 1).
+-a141 :- a142, unless(a141, 1).
+a140 :- unless(-a140, 1).
+-a140 :- a141, unless(a140, 1).
+a139 :- unless(-a139, 1).
+-a139 :- a140, unless(a139, 1).
+a138 :- unless(-a138, 1).
+-a138 :- a139, unless(a138, 1).
+a137 :- unless(-a137, 1).
+-a137 :- a138, unless(a137, 1).
+a136 :- unless(-a136, 1).
+-a136 :- a137, unless(a136, 1).
+a135 :- unless(-a135, 1).
+-a135 :- a136, unless(a135, 1).
+a134 :- unless(-a134, 1).
+-a134 :- a135, unless(a134, 1).
+a133 :- unless(-a133, 1).
+-a133 :- a134, unless(a133, 1).
+a132 :- unless(-a132, 1).
+-a132 :- a133, unless(a132, 1).
+a131 :- unless(-a131, 1).
+-a131 :- a132, unless(a131, 1).
+a130 :- unless(-a130, 1).
+-a130 :- a131, unless(a130, 1).
+a129 :- unless(-a129, 1).
+-a129 :- a130, unless(a129, 1).
+a128 :- unless(-a128, 1).
+-a128 :- a129, unless(a128, 1).
+a127 :- unless(-a127, 1).
+-a127 :- a128, unless(a127, 1).
+a126 :- unless(-a126, 1).
+-a126 :- a127, unless(a126, 1).
+a125 :- unless(-a125, 1).
+-a125 :- a126, unless(a125, 1).
+a124 :- unless(-a124, 1).
+-a124 :- a125, unless(a124, 1).
+a123 :- unless(-a123, 1).
+-a123 :- a124, unless(a123, 1).
+a122 :- unless(-a122, 1).
+-a122 :- a123, unless(a122, 1).
+a121 :- unless(-a121, 1).
+-a121 :- a122, unless(a121, 1).
+a120 :- unless(-a120, 1).
+-a120 :- a121, unless(a120, 1).
+a119 :- unless(-a119, 1).
+-a119 :- a120, unless(a119, 1).
+a118 :- unless(-a118, 1).
+-a118 :- a119, unless(a118, 1).
+a117 :- unless(-a117, 1).
+-a117 :- a118, unless(a117, 1).
+a116 :- unless(-a116, 1).
+-a116 :- a117, unless(a116, 1).
+a115 :- unless(-a115, 1).
+-a115 :- a116, unless(a115, 1).
+a114 :- unless(-a114, 1).
+-a114 :- a115, unless(a114, 1).
+a113 :- unless(-a113, 1).
+-a113 :- a114, unless(a113, 1).
+a112 :- unless(-a112, 1).
+-a112 :- a113, unless(a112, 1).
+a111 :- unless(-a111, 1).
+-a111 :- a112, unless(a111, 1).
+a110 :- unless(-a110, 1).
+-a110 :- a111, unless(a110, 1).
+a109 :- unless(-a109, 1).
+-a109 :- a110, unless(a109, 1).
+a108 :- unless(-a108, 1).
+-a108 :- a109, unless(a108, 1).
+a107 :- unless(-a107, 1).
+-a107 :- a108, unless(a107, 1).
+a106 :- unless(-a106, 1).
+-a106 :- a107, unless(a106, 1).
+a105 :- unless(-a105, 1).
+-a105 :- a106, unless(a105, 1).
+a104 :- unless(-a104, 1).
+-a104 :- a105, unless(a104, 1).
+a103 :- unless(-a103, 1).
+-a103 :- a104, unless(a103, 1).
+a102 :- unless(-a102, 1).
+-a102 :- a103, unless(a102, 1).
+a101 :- unless(-a101, 1).
+-a101 :- a102, unless(a101, 1).
+a100 :- unless(-a100, 1).
+-a100 :- a101, unless(a100, 1).
+a99 :- unless(-a99, 1).
+-a99 :- a100, unless(a99, 1).
+a98 :- unless(-a98, 1).
+-a98 :- a99, unless(a98, 1).
+a97 :- unless(-a97, 1).
+-a97 :- a98, unless(a97, 1).
+a96 :- unless(-a96, 1).
+-a96 :- a97, unless(a96, 1).
+a95 :- unless(-a95, 1).
+-a95 :- a96, unless(a95, 1).
+a94 :- unless(-a94, 1).
+-a94 :- a95, unless(a94, 1).
+a93 :- unless(-a93, 1).
+-a93 :- a94, unless(a93, 1).
+a92 :- unless(-a92, 1).
+-a92 :- a93, unless(a92, 1).
+a91 :- unless(-a91, 1).
+-a91 :- a92, unless(a91, 1).
+a90 :- unless(-a90, 1).
+-a90 :- a91, unless(a90, 1).
+a89 :- unless(-a89, 1).
+-a89 :- a90, unless(a89, 1).
+a88 :- unless(-a88, 1).
+-a88 :- a89, unless(a88, 1).
+a87 :- unless(-a87, 1).
+-a87 :- a88, unless(a87, 1).
+a86 :- unless(-a86, 1).
+-a86 :- a87, unless(a86, 1).
+a85 :- unless(-a85, 1).
+-a85 :- a86, unless(a85, 1).
+a84 :- unless(-a84, 1).
+-a84 :- a85, unless(a84, 1).
+a83 :- unless(-a83, 1).
+-a83 :- a84, unless(a83, 1).
+a82 :- unless(-a82, 1).
+-a82 :- a83, unless(a82, 1).
+a81 :- unless(-a81, 1).
+-a81 :- a82, unless(a81, 1).
+a80 :- unless(-a80, 1).
+-a80 :- a81, unless(a80, 1).
+a79 :- unless(-a79, 1).
+-a79 :- a80, unless(a79, 1).
+a78 :- unless(-a78, 1).
+-a78 :- a79, unless(a78, 1).
+a77 :- unless(-a77, 1).
+-a77 :- a78, unless(a77, 1).
+a76 :- unless(-a76, 1).
+-a76 :- a77, unless(a76, 1).
+a75 :- unless(-a75, 1).
+-a75 :- a76, unless(a75, 1).
+a74 :- unless(-a74, 1).
+-a74 :- a75, unless(a74, 1).
+a73 :- unless(-a73, 1).
+-a73 :- a74, unless(a73, 1).
+a72 :- unless(-a72, 1).
+-a72 :- a73, unless(a72, 1).
+a71 :- unless(-a71, 1).
+-a71 :- a72, unless(a71, 1).
+a70 :- unless(-a70, 1).
+-a70 :- a71, unless(a70, 1).
+a69 :- unless(-a69, 1).
+-a69 :- a70, unless(a69, 1).
+a68 :- unless(-a68, 1).
+-a68 :- a69, unless(a68, 1).
+a67 :- unless(-a67, 1).
+-a67 :- a68, unless(a67, 1).
+a66 :- unless(-a66, 1).
+-a66 :- a67, unless(a66, 1).
+a65 :- unless(-a65, 1).
+-a65 :- a66, unless(a65, 1).
+a64 :- unless(-a64, 1).
+-a64 :- a65, unless(a64, 1).
+a63 :- unless(-a63, 1).
+-a63 :- a64, unless(a63, 1).
+a62 :- unless(-a62, 1).
+-a62 :- a63, unless(a62, 1).
+a61 :- unless(-a61, 1).
+-a61 :- a62, unless(a61, 1).
+a60 :- unless(-a60, 1).
+-a60 :- a61, unless(a60, 1).
+a59 :- unless(-a59, 1).
+-a59 :- a60, unless(a59, 1).
+a58 :- unless(-a58, 1).
+-a58 :- a59, unless(a58, 1).
+a57 :- unless(-a57, 1).
+-a57 :- a58, unless(a57, 1).
+a56 :- unless(-a56, 1).
+-a56 :- a57, unless(a56, 1).
+a55 :- unless(-a55, 1).
+-a55 :- a56, unless(a55, 1).
+a54 :- unless(-a54, 1).
+-a54 :- a55, unless(a54, 1).
+a53 :- unless(-a53, 1).
+-a53 :- a54, unless(a53, 1).
+a52 :- unless(-a52, 1).
+-a52 :- a53, unless(a52, 1).
+a51 :- unless(-a51, 1).
+-a51 :- a52, unless(a51, 1).
+a50 :- unless(-a50, 1).
+-a50 :- a51, unless(a50, 1).
+a49 :- unless(-a49, 1).
+-a49 :- a50, unless(a49, 1).
+a48 :- unless(-a48, 1).
+-a48 :- a49, unless(a48, 1).
+a47 :- unless(-a47, 1).
+-a47 :- a48, unless(a47, 1).
+a46 :- unless(-a46, 1).
+-a46 :- a47, unless(a46, 1).
+a45 :- unless(-a45, 1).
+-a45 :- a46, unless(a45, 1).
+a44 :- unless(-a44, 1).
+-a44 :- a45, unless(a44, 1).
+a43 :- unless(-a43, 1).
+-a43 :- a44, unless(a43, 1).
+a42 :- unless(-a42, 1).
+-a42 :- a43, unless(a42, 1).
+a41 :- unless(-a41, 1).
+-a41 :- a42, unless(a41, 1).
+a40 :- unless(-a40, 1).
+-a40 :- a41, unless(a40, 1).
+a39 :- unless(-a39, 1).
+-a39 :- a40, unless(a39, 1).
+a38 :- unless(-a38, 1).
+-a38 :- a39, unless(a38, 1).
+a37 :- unless(-a37, 1).
+-a37 :- a38, unless(a37, 1).
+a36 :- unless(-a36, 1).
+-a36 :- a37, unless(a36, 1).
+a35 :- unless(-a35, 1).
+-a35 :- a36, unless(a35, 1).
+a34 :- unless(-a34, 1).
+-a34 :- a35, unless(a34, 1).
+a33 :- unless(-a33, 1).
+-a33 :- a34, unless(a33, 1).
+a32 :- unless(-a32, 1).
+-a32 :- a33, unless(a32, 1).
+a31 :- unless(-a31, 1).
+-a31 :- a32, unless(a31, 1).
+a30 :- unless(-a30, 1).
+-a30 :- a31, unless(a30, 1).
+a29 :- unless(-a29, 1).
+-a29 :- a30, unless(a29, 1).
+a28 :- unless(-a28, 1).
+-a28 :- a29, unless(a28, 1).
+a27 :- unless(-a27, 1).
+-a27 :- a28, unless(a27, 1).
+a26 :- unless(-a26, 1).
+-a26 :- a27, unless(a26, 1).
+a25 :- unless(-a25, 1).
+-a25 :- a26, unless(a25, 1).
+a24 :- unless(-a24, 1).
+-a24 :- a25, unless(a24, 1).
+a23 :- unless(-a23, 1).
+-a23 :- a24, unless(a23, 1).
+a22 :- unless(-a22, 1).
+-a22 :- a23, unless(a22, 1).
+a21 :- unless(-a21, 1).
+-a21 :- a22, unless(a21, 1).
+a20 :- unless(-a20, 1).
+-a20 :- a21, unless(a20, 1).
+a19 :- unless(-a19, 1).
+-a19 :- a20, unless(a19, 1).
+a18 :- unless(-a18, 1).
+-a18 :- a19, unless(a18, 1).
+a17 :- unless(-a17, 1).
+-a17 :- a18, unless(a17, 1).
+a16 :- unless(-a16, 1).
+-a16 :- a17, unless(a16, 1).
+a15 :- unless(-a15, 1).
+-a15 :- a16, unless(a15, 1).
+a14 :- unless(-a14, 1).
+-a14 :- a15, unless(a14, 1).
+a13 :- unless(-a13, 1).
+-a13 :- a14, unless(a13, 1).
+a12 :- unless(-a12, 1).
+-a12 :- a13, unless(a12, 1).
+a11 :- unless(-a11, 1).
+-a11 :- a12, unless(a11, 1).
+a10 :- unless(-a10, 1).
+-a10 :- a11, unless(a10, 1).
+a9 :- unless(-a9, 1).
+-a9 :- a10, unless(a9, 1).
+a8 :- unless(-a8, 1).
+-a8 :- a9, unless(a8, 1).
+a7 :- unless(-a7, 1).
+-a7 :- a8, unless(a7, 1).
+a6 :- unless(-a6, 1).
+-a6 :- a7, unless(a6, 1).
+a5 :- unless(-a5, 1).
+-a5 :- a6, unless(a5, 1).
+a4 :- unless(-a4, 1).
+-a4 :- a5, unless(a4, 1).
+a3 :- unless(-a3, 1).
+-a3 :- a4, unless(a3, 1).
+a2 :- unless(-a2, 1).
+-a2 :- a3, unless(a2, 1).
+a1 :- unless(-a1, 1).
+-a1 :- a2, unless(a1, 1).
+a0 :- unless(-a0, 1).
+-a0 :- a1, unless(a0, 1).
+query(a0).

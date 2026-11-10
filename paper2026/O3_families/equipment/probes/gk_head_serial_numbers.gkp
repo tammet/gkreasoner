@@ -1,0 +1,5 @@
+% Probe: a clause with the equality head U = V :- registered(U), registered(V), serial(U, N), serial(V, N).
+registered(c1). registered(c2). serial(c1, s). serial(c2, s).
+U = V :- registered(U), registered(V), serial(U, N), serial(V, N).
+charged(c1).
+query(charged(c2)).

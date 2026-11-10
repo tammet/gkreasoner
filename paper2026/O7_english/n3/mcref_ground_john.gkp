@@ -1,0 +1,13 @@
+% Ground abstraction of gk_john.js for the reference tool, written by hand from the
+% extracted clauses. The tool declines the extraction, which has Skolem functions.
+% q stands for the question atom $defq0 for John; the pipeline defines the
+% question atom in both directions.
+bird.
+0.6::babybird.
+0.9::fly :- bird, unless(-fly, 1).
+-fly :- babybird, bird.
+0.98::eat :- bird, unless(-eat, 1).
+q :- fly, eat.
+fly :- q.
+eat :- q.
+query(q).

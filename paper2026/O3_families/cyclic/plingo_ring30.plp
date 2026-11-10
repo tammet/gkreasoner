@@ -1,0 +1,61 @@
+f0 :- &problog("0.5").
+a0 :- f0, not a1.
+f1 :- &problog("0.5").
+a1 :- f1, not a2.
+f2 :- &problog("0.5").
+a2 :- f2, not a3.
+f3 :- &problog("0.5").
+a3 :- f3, not a4.
+f4 :- &problog("0.5").
+a4 :- f4, not a5.
+f5 :- &problog("0.5").
+a5 :- f5, not a6.
+f6 :- &problog("0.5").
+a6 :- f6, not a7.
+f7 :- &problog("0.5").
+a7 :- f7, not a8.
+f8 :- &problog("0.5").
+a8 :- f8, not a9.
+f9 :- &problog("0.5").
+a9 :- f9, not a10.
+f10 :- &problog("0.5").
+a10 :- f10, not a11.
+f11 :- &problog("0.5").
+a11 :- f11, not a12.
+f12 :- &problog("0.5").
+a12 :- f12, not a13.
+f13 :- &problog("0.5").
+a13 :- f13, not a14.
+f14 :- &problog("0.5").
+a14 :- f14, not a15.
+f15 :- &problog("0.5").
+a15 :- f15, not a16.
+f16 :- &problog("0.5").
+a16 :- f16, not a17.
+f17 :- &problog("0.5").
+a17 :- f17, not a18.
+f18 :- &problog("0.5").
+a18 :- f18, not a19.
+f19 :- &problog("0.5").
+a19 :- f19, not a20.
+f20 :- &problog("0.5").
+a20 :- f20, not a21.
+f21 :- &problog("0.5").
+a21 :- f21, not a22.
+f22 :- &problog("0.5").
+a22 :- f22, not a23.
+f23 :- &problog("0.5").
+a23 :- f23, not a24.
+f24 :- &problog("0.5").
+a24 :- f24, not a25.
+f25 :- &problog("0.5").
+a25 :- f25, not a26.
+f26 :- &problog("0.5").
+a26 :- f26, not a27.
+f27 :- &problog("0.5").
+a27 :- f27, not a28.
+f28 :- &problog("0.5").
+a28 :- f28, not a29.
+f29 :- &problog("0.5").
+a29 :- f29, not a0.
+&query(a0).

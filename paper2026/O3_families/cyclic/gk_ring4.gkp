@@ -1,0 +1,9 @@
+0.5::f0.
+a0 :- f0, unless(a1).
+0.5::f1.
+a1 :- f1, unless(a2).
+0.5::f2.
+a2 :- f2, unless(a3).
+0.5::f3.
+a3 :- f3, unless(a0).
+query(a0).

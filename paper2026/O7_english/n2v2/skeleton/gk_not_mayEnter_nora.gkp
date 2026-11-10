@@ -1,0 +1,8 @@
+% Certain skeleton of case N2v2 (part O7), written by hand: confidences dropped,
+% priorities kept as ranks, Skolem terms as constants. Question: -mayEnter(nora).
+member(nora).
+membershipOf(m1, nora).
+suspended(m1).
+mayEnter(X) :- member(X), unless(-mayEnter(X), 1).
+-mayEnter(X) :- member(X), membershipOf(M, X), suspended(M).
+query(-mayEnter(nora)).

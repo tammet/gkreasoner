@@ -1,0 +1,89 @@
+[
+ {
+  "@logic": [
+   "bird",
+   "tweety"
+  ]
+ },
+ {
+  "@logic": [
+   "penguin",
+   "opus"
+  ]
+ },
+ {
+  "@logic": [
+   [
+    "penguin",
+    "?:X"
+   ],
+   "=>",
+   [
+    "bird",
+    "?:X"
+   ]
+  ]
+ },
+ {
+  "@logic": [
+   [
+    "bird",
+    "?:X"
+   ],
+   "=>",
+   [
+    [
+     "flies",
+     "?:X"
+    ],
+    "|",
+    [
+     "$block",
+     1,
+     [
+      "$not",
+      [
+       "flies",
+       "?:X"
+      ]
+     ]
+    ]
+   ]
+  ],
+  "@confidence": 0.9
+ },
+ {
+  "@logic": [
+   [
+    "penguin",
+    "?:X"
+   ],
+   "=>",
+   [
+    [
+     "-flies",
+     "?:X"
+    ],
+    "|",
+    [
+     "$block",
+     2,
+     [
+      "$not",
+      [
+       "-flies",
+       "?:X"
+      ]
+     ]
+    ]
+   ]
+  ],
+  "@confidence": 0.95
+ },
+ {
+  "@question": [
+   "flies",
+   "opus"
+  ]
+ }
+]

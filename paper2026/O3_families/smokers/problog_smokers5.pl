@@ -1,0 +1,25 @@
+person(p1).
+person(p2).
+person(p3).
+person(p4).
+person(p5).
+friend(p1,p2).
+friend(p1,p3).
+friend(p2,p1).
+friend(p2,p3).
+friend(p2,p4).
+friend(p3,p1).
+friend(p3,p2).
+friend(p3,p4).
+friend(p3,p5).
+friend(p4,p2).
+friend(p4,p3).
+friend(p4,p5).
+friend(p5,p3).
+friend(p5,p4).
+0.3::stress(X) :- person(X).
+0.2::influences(X,Y) :- person(X), person(Y).
+smokes(X) :- stress(X).
+smokes(X) :- friend(X,Y), influences(Y,X), smokes(Y).
+0.4::asthma(X) :- smokes(X).
+query(smokes(p3)).

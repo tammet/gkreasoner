@@ -1,0 +1,4 @@
+% The guard as a premise conjunct: birds fly unless known not to.
+bird(X) & unless(-flies(X), 2) => flies(X).
+bird(tweety).
+query(flies(X)).

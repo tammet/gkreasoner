@@ -1,0 +1,259 @@
+parcel(p1).
+0.9::cold(p1, s0).
+0.2::-cold(p1, s0).
+plan_step(p1, leg1, s0).
+0.3::warmed(p1, leg1, s0).
+0.95::handover_ok(p1, do(leg1, s0)).
+parcel(q0).
+0.9::cold(q0, s0).
+plan_step(q0, bleg0, s0).
+0.3::warmed(q0, bleg0, s0).
+0.95::handover_ok(q0, do(bleg0, s0)).
+parcel(q1).
+0.9::cold(q1, s0).
+plan_step(q1, bleg1, s0).
+0.3::warmed(q1, bleg1, s0).
+0.95::handover_ok(q1, do(bleg1, s0)).
+parcel(q2).
+0.9::cold(q2, s0).
+plan_step(q2, bleg2, s0).
+0.3::warmed(q2, bleg2, s0).
+0.95::handover_ok(q2, do(bleg2, s0)).
+parcel(q3).
+0.9::cold(q3, s0).
+plan_step(q3, bleg3, s0).
+0.3::warmed(q3, bleg3, s0).
+0.95::handover_ok(q3, do(bleg3, s0)).
+parcel(q4).
+0.9::cold(q4, s0).
+plan_step(q4, bleg4, s0).
+0.3::warmed(q4, bleg4, s0).
+0.95::handover_ok(q4, do(bleg4, s0)).
+parcel(q5).
+0.9::cold(q5, s0).
+plan_step(q5, bleg5, s0).
+0.3::warmed(q5, bleg5, s0).
+0.95::handover_ok(q5, do(bleg5, s0)).
+parcel(q6).
+0.9::cold(q6, s0).
+plan_step(q6, bleg6, s0).
+0.3::warmed(q6, bleg6, s0).
+0.95::handover_ok(q6, do(bleg6, s0)).
+parcel(q7).
+0.9::cold(q7, s0).
+plan_step(q7, bleg7, s0).
+0.3::warmed(q7, bleg7, s0).
+0.95::handover_ok(q7, do(bleg7, s0)).
+parcel(q8).
+0.9::cold(q8, s0).
+plan_step(q8, bleg8, s0).
+0.3::warmed(q8, bleg8, s0).
+0.95::handover_ok(q8, do(bleg8, s0)).
+parcel(q9).
+0.9::cold(q9, s0).
+plan_step(q9, bleg9, s0).
+0.3::warmed(q9, bleg9, s0).
+0.95::handover_ok(q9, do(bleg9, s0)).
+parcel(q10).
+0.9::cold(q10, s0).
+plan_step(q10, bleg10, s0).
+0.3::warmed(q10, bleg10, s0).
+0.95::handover_ok(q10, do(bleg10, s0)).
+parcel(q11).
+0.9::cold(q11, s0).
+plan_step(q11, bleg11, s0).
+0.3::warmed(q11, bleg11, s0).
+0.95::handover_ok(q11, do(bleg11, s0)).
+parcel(q12).
+0.9::cold(q12, s0).
+plan_step(q12, bleg12, s0).
+0.3::warmed(q12, bleg12, s0).
+0.95::handover_ok(q12, do(bleg12, s0)).
+parcel(q13).
+0.9::cold(q13, s0).
+plan_step(q13, bleg13, s0).
+0.3::warmed(q13, bleg13, s0).
+0.95::handover_ok(q13, do(bleg13, s0)).
+parcel(q14).
+0.9::cold(q14, s0).
+plan_step(q14, bleg14, s0).
+0.3::warmed(q14, bleg14, s0).
+0.95::handover_ok(q14, do(bleg14, s0)).
+parcel(q15).
+0.9::cold(q15, s0).
+plan_step(q15, bleg15, s0).
+0.3::warmed(q15, bleg15, s0).
+0.95::handover_ok(q15, do(bleg15, s0)).
+parcel(q16).
+0.9::cold(q16, s0).
+plan_step(q16, bleg16, s0).
+0.3::warmed(q16, bleg16, s0).
+0.95::handover_ok(q16, do(bleg16, s0)).
+parcel(q17).
+0.9::cold(q17, s0).
+plan_step(q17, bleg17, s0).
+0.3::warmed(q17, bleg17, s0).
+0.95::handover_ok(q17, do(bleg17, s0)).
+parcel(q18).
+0.9::cold(q18, s0).
+plan_step(q18, bleg18, s0).
+0.3::warmed(q18, bleg18, s0).
+0.95::handover_ok(q18, do(bleg18, s0)).
+parcel(q19).
+0.9::cold(q19, s0).
+plan_step(q19, bleg19, s0).
+0.3::warmed(q19, bleg19, s0).
+0.95::handover_ok(q19, do(bleg19, s0)).
+parcel(q20).
+0.9::cold(q20, s0).
+plan_step(q20, bleg20, s0).
+0.3::warmed(q20, bleg20, s0).
+0.95::handover_ok(q20, do(bleg20, s0)).
+parcel(q21).
+0.9::cold(q21, s0).
+plan_step(q21, bleg21, s0).
+0.3::warmed(q21, bleg21, s0).
+0.95::handover_ok(q21, do(bleg21, s0)).
+parcel(q22).
+0.9::cold(q22, s0).
+plan_step(q22, bleg22, s0).
+0.3::warmed(q22, bleg22, s0).
+0.95::handover_ok(q22, do(bleg22, s0)).
+parcel(q23).
+0.9::cold(q23, s0).
+plan_step(q23, bleg23, s0).
+0.3::warmed(q23, bleg23, s0).
+0.95::handover_ok(q23, do(bleg23, s0)).
+parcel(q24).
+0.9::cold(q24, s0).
+plan_step(q24, bleg24, s0).
+0.3::warmed(q24, bleg24, s0).
+0.95::handover_ok(q24, do(bleg24, s0)).
+parcel(q25).
+0.9::cold(q25, s0).
+plan_step(q25, bleg25, s0).
+0.3::warmed(q25, bleg25, s0).
+0.95::handover_ok(q25, do(bleg25, s0)).
+parcel(q26).
+0.9::cold(q26, s0).
+plan_step(q26, bleg26, s0).
+0.3::warmed(q26, bleg26, s0).
+0.95::handover_ok(q26, do(bleg26, s0)).
+parcel(q27).
+0.9::cold(q27, s0).
+plan_step(q27, bleg27, s0).
+0.3::warmed(q27, bleg27, s0).
+0.95::handover_ok(q27, do(bleg27, s0)).
+parcel(q28).
+0.9::cold(q28, s0).
+plan_step(q28, bleg28, s0).
+0.3::warmed(q28, bleg28, s0).
+0.95::handover_ok(q28, do(bleg28, s0)).
+parcel(q29).
+0.9::cold(q29, s0).
+plan_step(q29, bleg29, s0).
+0.3::warmed(q29, bleg29, s0).
+0.95::handover_ok(q29, do(bleg29, s0)).
+parcel(q30).
+0.9::cold(q30, s0).
+plan_step(q30, bleg30, s0).
+0.3::warmed(q30, bleg30, s0).
+0.95::handover_ok(q30, do(bleg30, s0)).
+parcel(q31).
+0.9::cold(q31, s0).
+plan_step(q31, bleg31, s0).
+0.3::warmed(q31, bleg31, s0).
+0.95::handover_ok(q31, do(bleg31, s0)).
+parcel(q32).
+0.9::cold(q32, s0).
+plan_step(q32, bleg32, s0).
+0.3::warmed(q32, bleg32, s0).
+0.95::handover_ok(q32, do(bleg32, s0)).
+parcel(q33).
+0.9::cold(q33, s0).
+plan_step(q33, bleg33, s0).
+0.3::warmed(q33, bleg33, s0).
+0.95::handover_ok(q33, do(bleg33, s0)).
+parcel(q34).
+0.9::cold(q34, s0).
+plan_step(q34, bleg34, s0).
+0.3::warmed(q34, bleg34, s0).
+0.95::handover_ok(q34, do(bleg34, s0)).
+parcel(q35).
+0.9::cold(q35, s0).
+plan_step(q35, bleg35, s0).
+0.3::warmed(q35, bleg35, s0).
+0.95::handover_ok(q35, do(bleg35, s0)).
+parcel(q36).
+0.9::cold(q36, s0).
+plan_step(q36, bleg36, s0).
+0.3::warmed(q36, bleg36, s0).
+0.95::handover_ok(q36, do(bleg36, s0)).
+parcel(q37).
+0.9::cold(q37, s0).
+plan_step(q37, bleg37, s0).
+0.3::warmed(q37, bleg37, s0).
+0.95::handover_ok(q37, do(bleg37, s0)).
+parcel(q38).
+0.9::cold(q38, s0).
+plan_step(q38, bleg38, s0).
+0.3::warmed(q38, bleg38, s0).
+0.95::handover_ok(q38, do(bleg38, s0)).
+parcel(q39).
+0.9::cold(q39, s0).
+plan_step(q39, bleg39, s0).
+0.3::warmed(q39, bleg39, s0).
+0.95::handover_ok(q39, do(bleg39, s0)).
+parcel(q40).
+0.9::cold(q40, s0).
+plan_step(q40, bleg40, s0).
+0.3::warmed(q40, bleg40, s0).
+0.95::handover_ok(q40, do(bleg40, s0)).
+parcel(q41).
+0.9::cold(q41, s0).
+plan_step(q41, bleg41, s0).
+0.3::warmed(q41, bleg41, s0).
+0.95::handover_ok(q41, do(bleg41, s0)).
+parcel(q42).
+0.9::cold(q42, s0).
+plan_step(q42, bleg42, s0).
+0.3::warmed(q42, bleg42, s0).
+0.95::handover_ok(q42, do(bleg42, s0)).
+parcel(q43).
+0.9::cold(q43, s0).
+plan_step(q43, bleg43, s0).
+0.3::warmed(q43, bleg43, s0).
+0.95::handover_ok(q43, do(bleg43, s0)).
+parcel(q44).
+0.9::cold(q44, s0).
+plan_step(q44, bleg44, s0).
+0.3::warmed(q44, bleg44, s0).
+0.95::handover_ok(q44, do(bleg44, s0)).
+parcel(q45).
+0.9::cold(q45, s0).
+plan_step(q45, bleg45, s0).
+0.3::warmed(q45, bleg45, s0).
+0.95::handover_ok(q45, do(bleg45, s0)).
+parcel(q46).
+0.9::cold(q46, s0).
+plan_step(q46, bleg46, s0).
+0.3::warmed(q46, bleg46, s0).
+0.95::handover_ok(q46, do(bleg46, s0)).
+parcel(q47).
+0.9::cold(q47, s0).
+plan_step(q47, bleg47, s0).
+0.3::warmed(q47, bleg47, s0).
+0.95::handover_ok(q47, do(bleg47, s0)).
+parcel(q48).
+0.9::cold(q48, s0).
+plan_step(q48, bleg48, s0).
+0.3::warmed(q48, bleg48, s0).
+0.95::handover_ok(q48, do(bleg48, s0)).
+parcel(q49).
+0.9::cold(q49, s0).
+plan_step(q49, bleg49, s0).
+0.3::warmed(q49, bleg49, s0).
+0.95::handover_ok(q49, do(bleg49, s0)).
+cold(P, do(A, S)) :- cold(P, S), plan_step(P, A, S), unless(warmed(P, A, S)).
+delivered_cold(P, S) :- cold(P, S), handover_ok(P, S).
+query(delivered_cold(p1, do(leg1, s0))).

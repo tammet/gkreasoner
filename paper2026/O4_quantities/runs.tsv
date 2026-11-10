@@ -1,0 +1,21 @@
+run_id	tool	input	options	settings	alone	timeout_s
+c1.gk	gk	c1_shared/gk.gkp				180
+c1b.gk	gk	c1b_positive_cycle/gk.gkp				180
+c2.gk	gk	c2_exception/gk.gkp				180
+c2b.gk	gk	c2b_opposed_exception/gk.gkp				180
+c3.gk	gk	c3_contested/gk.gkp				180
+c4.gk	gk	c4_equal_rank/gk.gkp				180
+c4b.gk	gk	c4b_priority/gk.gkp				180
+c5.gk	gk	c5_mutual_half/gk.gkp				180
+c5b.gk	gk	c5b_common_consequence/gk.gkp				180
+c6.gk	gk	c6_locality/gk.gkp				180
+c1.mcref	mcref	c1_shared/gk.gkp	--all-atoms	samples=200000 seed=1		900
+c1b.mcref	mcref	c1b_positive_cycle/gk.gkp	--all-atoms	samples=200000 seed=1		900
+c2.mcref	mcref	c2_exception/gk.gkp	--all-atoms	samples=200000 seed=1		900
+c2b.mcref	mcref	c2b_opposed_exception/gk.gkp	--all-atoms	samples=200000 seed=1		900
+c3.mcref	mcref	c3_contested/gk.gkp	--all-atoms	samples=200000 seed=1		900
+c4.mcref	mcref	c4_equal_rank/gk.gkp	--all-atoms	samples=200000 seed=1		900
+c4b.mcref	mcref	c4b_priority/gk.gkp	--all-atoms	samples=200000 seed=1		900
+c5.mcref	mcref	c5_mutual_half/gk.gkp	--all-atoms	samples=200000 seed=1		900
+c5b.mcref	mcref	c5b_common_consequence/gk.gkp	--all-atoms	samples=200000 seed=1		900
+c6.mcref	mcref	c6_locality/gk.gkp	--all-atoms	samples=200000 seed=1		900

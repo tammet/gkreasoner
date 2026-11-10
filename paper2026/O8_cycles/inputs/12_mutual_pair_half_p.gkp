@@ -1,0 +1,4 @@
+% Part O8, example 12: the mutual pair with confidence .5 on both rules.
+0.5::p(a) :- unless(b(a)).
+0.5::b(a) :- unless(p(a)).
+query(p(a)).

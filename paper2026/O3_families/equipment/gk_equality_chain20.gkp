@@ -1,0 +1,31 @@
+supply(pump) = b7.
+supply(controller) = b7.
+maintenance_id = m1.
+m1 = m2.
+m2 = m3.
+m3 = m4.
+m4 = m5.
+m5 = m6.
+m6 = m7.
+m7 = m8.
+m8 = m9.
+m9 = m10.
+m10 = m11.
+m11 = m12.
+m12 = m13.
+m13 = m14.
+m14 = m15.
+m15 = m16.
+m16 = m17.
+m17 = m18.
+m18 = m19.
+m19 = b7.
+component(pump).
+component(controller).
+0.9::charged(b7).
+0.2::-charged(maintenance_id).
+0.1::-works(pump).
+0.15::-works(controller).
+works(X) :- component(X), charged(supply(X)), unless(-works(X), 1).
+cooling_ready :- works(pump), works(controller).
+query(cooling_ready).

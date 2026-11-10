@@ -1,0 +1,4 @@
+% A bare |-disjunction is a clause, no implication needed.
+parent(X) | childless(X).
+-childless(kim).
+query(parent(X)).

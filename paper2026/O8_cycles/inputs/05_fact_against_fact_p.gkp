@@ -1,0 +1,4 @@
+% Part O8, example 5: the input p. 0.9::-p. alone.
+p.
+0.9::-p.
+query(p).

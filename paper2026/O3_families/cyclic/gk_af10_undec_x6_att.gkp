@@ -1,0 +1,32 @@
+acc(x0) :- unless(acc(x3)).
+att_x1 :- acc(x3).
+att_x1 :- acc(x4).
+att_x1 :- acc(x6).
+att_x1 :- acc(x7).
+acc(x1) :- unless(att_x1).
+att_x2 :- acc(x1).
+att_x2 :- acc(x3).
+att_x2 :- acc(x6).
+att_x2 :- acc(x7).
+att_x2 :- acc(x8).
+acc(x2) :- unless(att_x2).
+acc(x3) :- unless(acc(x9)).
+att_x4 :- acc(x0).
+att_x4 :- acc(x5).
+att_x4 :- acc(x7).
+acc(x4) :- unless(att_x4).
+att_x5 :- acc(x1).
+att_x5 :- acc(x2).
+att_x5 :- acc(x4).
+acc(x5) :- unless(att_x5).
+att_x6 :- acc(x4).
+att_x6 :- acc(x8).
+acc(x6) :- unless(att_x6).
+acc(x7).
+att_x8 :- acc(x0).
+att_x8 :- acc(x4).
+att_x8 :- acc(x6).
+att_x8 :- acc(x9).
+acc(x8) :- unless(att_x8).
+acc(x9) :- unless(acc(x5)).
+query(att_x6).

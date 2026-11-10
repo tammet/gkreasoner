@@ -1,0 +1,91 @@
+0.66::f0.
+a0 :- f0, unless(a7).
+0.22::f1.
+a1 :- f1, unless(a2).
+0.52::f2.
+a2 :- f2, unless(a4).
+0.61::f3.
+a3 :- f3, unless(a15).
+0.21::f4.
+a4 :- f4, unless(a13).
+0.8::f5.
+a5 :- f5, unless(a25).
+0.7::f6.
+a6 :- f6, unless(a25).
+0.39::f7.
+a7 :- f7, unless(a3).
+0.74::f8.
+a8 :- f8, unless(a15).
+0.56::f9.
+a9 :- f9, unless(a27).
+0.62::f10.
+a10 :- f10, unless(a19).
+0.23::f11.
+a11 :- f11, unless(a36).
+0.45::f12.
+a12 :- f12, unless(a13).
+0.49::f13.
+a13 :- f13, unless(a29).
+0.59::f14.
+a14 :- f14, unless(a9).
+0.28::f15.
+a15 :- f15, unless(a10).
+0.6::f16.
+a16 :- f16, unless(a38).
+0.26::f17.
+a17 :- f17, unless(a35).
+0.77::f18.
+a18 :- f18, unless(a31).
+0.63::f19.
+a19 :- f19, unless(a21).
+0.35::f20.
+a20 :- f20, unless(a9).
+0.61::f21.
+a21 :- f21, unless(a25).
+0.25::f22.
+a22 :- f22, unless(a32).
+0.63::f23.
+a23 :- f23, unless(a14).
+0.7::f24.
+a24 :- f24, unless(a25).
+0.52::f25.
+a25 :- f25, unless(a31).
+0.71::f26.
+a26 :- f26, unless(a31).
+0.56::f27.
+a27 :- f27, unless(a31).
+0.56::f28.
+a28 :- f28, unless(a38).
+0.43::f29.
+a29 :- f29, unless(a19).
+0.66::f30.
+a30 :- f30, unless(a23).
+0.76::f31.
+a31 :- f31, unless(a22).
+0.7::f32.
+a32 :- f32, unless(a27).
+0.32::f33.
+a33 :- f33, unless(a23).
+0.71::f34.
+a34 :- f34, unless(a28).
+0.42::f35.
+a35 :- f35, unless(a11).
+0.66::f36.
+a36 :- f36, unless(a35).
+0.69::f37.
+a37 :- f37, unless(a25).
+0.26::f38.
+a38 :- f38, unless(a9).
+0.49::f39.
+a39 :- f39, unless(a9).
+a18 :- a9.
+a12 :- a35.
+a17 :- a6.
+a0 :- a24.
+a15 :- a13.
+a22 :- a21.
+a13 :- a34.
+a22 :- a17.
+a17 :- a20.
+a25 :- a27.
+query(a0).

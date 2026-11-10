@@ -1,0 +1,9 @@
+run_id	tool	input	options	settings	alone	timeout_s	reads
+plan32.gk.2s	gk	delivery/plan32.gkp	-seconds 2		yes	180	
+plan32.gk.2s.r2	gk	delivery/plan32.gkp	-seconds 2	repeat=2	yes	180	
+plan32.gk.2s.r3	gk	delivery/plan32.gkp	-seconds 2	repeat=3	yes	180	
+plan32.gk.10s	gk	delivery/plan32.gkp			yes	180	
+berries.gk.10s	gk	berries/gk.js	../pipeline/axioms_std.js -strategy ../pipeline/strategy.json -seconds 10 {input} -defaults -confidence 0.1 -keepconfidence 0.1 -datafolder ../../../data -recursive		yes	180	../../../data/gk_name_number.txt ../../../data/gk_taxonomy_packed.txt
+berries.gk.60s	gk	berries/gk.js	../pipeline/axioms_std.js -strategy ../pipeline/strategy.json -seconds 60 {input} -defaults -confidence 0.1 -keepconfidence 0.1 -datafolder ../../../data -recursive		yes	180	../../../data/gk_name_number.txt ../../../data/gk_taxonomy_packed.txt
+grid56.gk.10s	gk	grid/corner56.gkp			yes	180	
+grid56.gk.60s	gk	grid/corner56.gkp	-seconds 60		yes	180	

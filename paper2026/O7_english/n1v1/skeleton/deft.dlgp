@@ -1,0 +1,6 @@
+person(mara).
+[DEFTc] certified(X) :- person(X).
+[DEFTnc] notCertified(X) :- person(X).
+! :- certified(X), notCertified(X).
+[DEFTa] labAccess(X) :- person(X), certified(X).
+[DEFTu] mayUse(X) :- person(X), labAccess(X).

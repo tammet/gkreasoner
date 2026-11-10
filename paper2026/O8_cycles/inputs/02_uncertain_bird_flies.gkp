@@ -1,0 +1,5 @@
+% Part O8, example 2: the uncertain bird, question flies(t).
+0.8::bird(t).
+flies(X) :- bird(X).
+-flies(t).
+query(flies(t)).

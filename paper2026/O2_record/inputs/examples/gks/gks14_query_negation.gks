@@ -1,0 +1,4 @@
+% A question may be a negative literal.
+penguin(X) => -flies(X).
+penguin(pingu).
+query(-flies(X)).

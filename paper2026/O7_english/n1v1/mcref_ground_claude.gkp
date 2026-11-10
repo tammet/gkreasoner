@@ -1,0 +1,13 @@
+% Ground abstraction of gk_claude.js for the reference tool, written by hand from the
+% extracted clauses. The tool declines the extraction, which has Skolem functions.
+% c = isa(certified, Mara) at .7746 and its negation at .7746; person comes from both
+% sentences; acc and use are the two defaults at .95; q stands for the question atom $defq0.
+0.7746::c.
+0.7746::-c.
+0.7746::person.
+0.7746::person.
+0.95::acc :- person, c, unless(-acc, 1).
+0.95::use :- person, acc, unless(-use, 1).
+q :- use.
+use :- q.
+query(q).

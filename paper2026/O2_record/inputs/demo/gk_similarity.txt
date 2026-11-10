@@ -1,0 +1,11 @@
+queen,12,king,0.9,male$female
+king,12,queen,0.9,male$female
+penguin,12,ostrich,0.9,,emu,0.9,
+ostrich,12,penguin,0.9,,emu,0.9,
+flies,12,inair,0.8,
+inair,12,flies,0.8,
+
+
+
+
+

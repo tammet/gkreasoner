@@ -1,0 +1,7 @@
+% Part O8, example 4: two routes from both sides of a conflict (nothing from conflict).
+0.8::r.
+0.2::-p.
+p :- r.
+0.9::q :- p.
+0.9::q :- -r.
+query(q).

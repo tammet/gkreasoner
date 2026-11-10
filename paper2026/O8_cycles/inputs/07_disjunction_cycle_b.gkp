@@ -1,0 +1,5 @@
+% Part O8, example 7: an uncertain disjunction in a cycle.
+a.
+0.3::-b.
+0.8::-a ; b.
+query(b).

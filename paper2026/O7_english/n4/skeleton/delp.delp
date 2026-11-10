@@ -1,0 +1,4 @@
+babyBear(john).
+bear(X) <- babyBear(X).
+eatsBerries(X) -< bear(X).
+~eatsBerries(X) -< babyBear(X).

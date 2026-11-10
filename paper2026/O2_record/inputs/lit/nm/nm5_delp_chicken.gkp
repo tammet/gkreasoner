@@ -1,0 +1,6 @@
+chicken(tina). scared(tina).
+bird(X) :- chicken(X).
+flies(X) :- bird(X), unless(-flies(X), 1).
+-flies(X) :- chicken(X), unless(flies(X), 2).
+flies(X) :- chicken(X), scared(X), unless(-flies(X), 3).
+query(flies(tina)).

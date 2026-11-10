@@ -1,0 +1,28 @@
+run_id	tool	input	options	settings	alone	timeout_s
+s1.gk	gk	stage1/gk.gkp				180
+s2.gk	gk	stage2/gk.gkp				180
+s3a.gk	gk	stage3a/gk.gkp				180
+s3b.gk	gk	stage3b/gk.gkp				180
+s4.gk.2	gk	stage4/gk_stage2.gkp			yes	180
+s4.gk.3a	gk	stage4/gk_stage3a.gkp			yes	180
+s4.gk.3b	gk	stage4/gk_stage3b.gkp			yes	180
+s4.gk.2.s30	gk	stage4/gk_stage2.gkp	-seconds 30		yes	180
+s4.gk.3b.s1	gk	stage4/gk_stage3b.gkp	-seconds 1		yes	180
+parent.gk	gk	stage4/one_rule/gk_parent_rule.gkp				180
+child.gk	gk	stage4/one_rule/gk_child_rule.gkp				180
+s1.mcref	mcref	stage1/gk.gkp		samples=20000 seed=1		900
+s2.mcref	mcref	stage2/gk.gkp		samples=20000 seed=1		900
+s3a.mcref	mcref	stage3a/gk.gkp		samples=20000 seed=1		900
+s3b.mcref	mcref	stage3b/gk.gkp		samples=20000 seed=1		900
+s4.mcref	mcref	stage4/gk_stage2.gkp		samples=20000 seed=1		900
+s4.mcref.ground.2	mcref	stage4/mcref_ground_stage2.gkp		samples=20000 seed=1		900
+s4.mcref.ground.3a	mcref	stage4/mcref_ground_stage3a.gkp		samples=20000 seed=1		900
+s4.mcref.ground.3b	mcref	stage4/mcref_ground_stage3b.gkp		samples=20000 seed=1		900
+parent.mcref.ground	mcref	stage4/one_rule/mcref_ground_parent_rule.gkp		samples=20000 seed=1		900
+child.mcref.ground	mcref	stage4/one_rule/mcref_ground_child_rule.gkp		samples=20000 seed=1		900
+s4.problog	problog	stage4/problog_analogue.pl		version=2.3.0	yes	60
+s4.clingo	clingo	stage4/clingo_skeleton.lp	0	version=5.8.3	yes	10
+child.problog	problog	stage4/one_rule/problog_child_rule.pl		version=2.3.0	yes	60
+s1.pasta.flies	pasta	stage1/pasta.lp	{input} --query=flies(tweety)	version=1.0.1		60
+s1.pasta.nflies	pasta	stage1/pasta.lp	{input} --query=nflies(tweety)	version=1.0.1		60
+s3a.gk.fullproof	gk	stage3a/gk.gkp	-fullproof			180

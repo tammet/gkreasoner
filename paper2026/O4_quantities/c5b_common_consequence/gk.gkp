@@ -1,0 +1,5 @@
+p(a) :- unless(b(a)).
+b(a) :- unless(p(a)).
+q :- p(a).
+q :- b(a).
+query(q).

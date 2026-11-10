@@ -1,0 +1,4 @@
+% Section 4.2: an uncertain rule (.99) is not read backwards.
+0.99::flies(X) :- bird(X).
+-flies(t).
+query(bird(t)).

@@ -1,0 +1,5 @@
+% Both - and ~ negate; a negative fact is an ordinary literal.
+-car(tweety).
+~boat(tweety).
+bird(tweety).
+query(-car(tweety)).

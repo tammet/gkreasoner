@@ -1,0 +1,5 @@
+% Section 1: conflicting evidence about a premise; no support for the conclusion.
+0.5::bird(a).
+0.5::-bird(a).
+0.9::flies(X) :- bird(X).
+query(flies(a)).

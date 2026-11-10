@@ -1,0 +1,9 @@
+invest(chinchilla, liger).
+enjoy(husky, songbird).
+disarm(liger, camel).
+neglect(liger, otter).
+disarm(badger, stork) :- enjoy(X, songbird), unless(-disarm(badger, stork), 1).
+dance(stork, vampire) :- create(liger, stork), disarm(badger, stork), unless(-dance(stork, vampire), 1).
+-create(liger, stork) :- invest(chinchilla, liger), unless(create(liger, stork), 1).
+create(X, stork) :- disarm(X, camel), neglect(X, otter), unless(-create(X, stork), 2).
+query(dance(stork, vampire)).

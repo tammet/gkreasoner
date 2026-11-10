@@ -1,0 +1,5 @@
+enjoy(duck, shark).
+-neglect(worm, shark).
+destroy(shark, gorilla) :- -neglect(worm, shark), -enjoy(duck, shark), unless(-destroy(shark, gorilla), 1).
+neglect(monkey, ant) :- destroy(X, gorilla), unless(-neglect(monkey, ant), 1).
+query(neglect(monkey, ant)).

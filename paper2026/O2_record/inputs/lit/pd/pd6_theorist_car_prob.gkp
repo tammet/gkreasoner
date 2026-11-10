@@ -1,0 +1,4 @@
+turn_key.
+0.3::dead_battery.
+starts :- turn_key, unless(dead_battery, 1).
+query(starts).

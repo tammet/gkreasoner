@@ -1,0 +1,4 @@
+% Section 4.2: an uncertain rule (.8) and a non-flying individual.
+0.8::flies(X) :- bird(X).
+-flies(t).
+query(bird(t)).

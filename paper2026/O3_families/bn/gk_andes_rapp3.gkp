@@ -1,0 +1,2677 @@
+0.02::goal_2.
+0.02::snode_3.
+0.02::snode_4.
+0.02::snode_5.
+0.02::snode_6.
+0.02::snode_7.
+0.5::displacem0.
+0.02::given_1.
+0.02::snode_9.
+0.02::snode_10.
+0.02::snode_11.
+0.02::snode_12.
+0.02::snode_13.
+0.02::snode_14.
+0.02::snode_15.
+0.02::snode_16.
+0.02::snode_17.
+0.02::snode_18.
+0.02::snode_19.
+0.5::need1.
+0.5::grav2.
+0.5::value3.
+0.1::sliding4.
+0.5::constant5.
+0.5::known6.
+0.5::velocity7.
+0.5::known8.
+0.5::compo16.
+0.7::try12.
+0.5::choose19.
+0.5::system18.
+0.5::kinemati17.
+0.5::identify10.
+0.5::identify9.
+0.3::var20.
+0.1::given21.
+0.5::vector27.
+0.5::apply32.
+0.5::choose35.
+0.5::maximize34.
+0.2::axis33.
+0.5::write31.
+0.5::write30.
+0.5::resolve37.
+0.5::need36.
+0.5::identify39.
+0.5::resolve38.
+0.5::identify41.
+0.5::resolve40.
+0.6::identify43.
+0.5::resolve42.
+0.5::kine29.
+0.5::vector44.
+0.6::equation28.
+0.1::try25.
+0.5::choose47.
+0.5::system46.
+0.5::newtons45.
+0.5::define23.
+0.5::identify22.
+0.5::null48.
+0.5::find49.
+0.5::normal50.
+0.5::strat_90.
+0.646::normal52.
+0.5::identify55.
+0.3::weight56.
+0.3::weight57.
+0.7::find58.
+0.5::identify59.
+0.2::force60.
+0.5::apply61.
+0.5::choose62.
+0.5::write63.
+0.5::write64.
+0.5::goal65.
+0.6::goal66.
+0.5::need67.
+0.5::goal68.
+0.7::vector69.
+0.1::vector70.
+0.4::equal71.
+0.5::goal72.
+0.5::vector73.
+0.5::newtons74.
+0.5::sum75.
+0.5::try76.
+0.5::apply77.
+0.5::grav78.
+rapp1 :- displacem0, snode_3.
+rapp1 :- displacem0, unless(snode_3).
+rapp1 :- snode_3, unless(displacem0).
+aux_rapp1_row3 :- displacem0.
+aux_rapp1_row3 :- snode_3.
+0.0001::rapp1 :- unless(aux_rapp1_row3).
+rapp2 :- given_1.
+0.0001::rapp2 :- unless(given_1).
+0.8::snode_20 :- snode_16, need1.
+0.8::snode_20 :- snode_16, unless(need1).
+0.8::snode_20 :- need1, unless(snode_16).
+aux_snode_20_row3 :- snode_16.
+aux_snode_20_row3 :- need1.
+8e-05::snode_20 :- unless(aux_snode_20_row3).
+0.9::snode_25 :- snode_15, sliding4.
+0.9::snode_25 :- snode_15, unless(sliding4).
+0.9::snode_25 :- sliding4, unless(snode_15).
+aux_snode_25_row3 :- snode_15.
+aux_snode_25_row3 :- sliding4.
+9e-05::snode_25 :- unless(aux_snode_25_row3).
+0.8::snode_26 :- snode_11, constant5.
+0.8::snode_26 :- snode_11, unless(constant5).
+0.8::snode_26 :- constant5, unless(snode_11).
+aux_snode_26_row3 :- snode_11.
+aux_snode_26_row3 :- constant5.
+8e-05::snode_26 :- unless(aux_snode_26_row3).
+0.8::snode_34 :- snode_10, constant5.
+0.8::snode_34 :- snode_10, unless(constant5).
+0.8::snode_34 :- constant5, unless(snode_10).
+aux_snode_34_row3 :- snode_10.
+aux_snode_34_row3 :- constant5.
+8e-05::snode_34 :- unless(aux_snode_34_row3).
+0.8::snode_41 :- snode_9, constant5.
+0.8::snode_41 :- snode_9, unless(constant5).
+0.8::snode_41 :- constant5, unless(snode_9).
+aux_snode_41_row3 :- snode_9.
+aux_snode_41_row3 :- constant5.
+8e-05::snode_41 :- unless(aux_snode_41_row3).
+0.8::snode_47 :- snode_3, velocity7.
+0.8::snode_47 :- snode_3, unless(velocity7).
+0.8::snode_47 :- velocity7, unless(snode_3).
+aux_snode_47_row3 :- snode_3.
+aux_snode_47_row3 :- velocity7.
+8e-05::snode_47 :- unless(aux_snode_47_row3).
+rapp4 :- known8, snode_11.
+rapp4 :- known8, unless(snode_11).
+rapp4 :- snode_11, unless(known8).
+aux_rapp4_row3 :- known8.
+aux_rapp4_row3 :- snode_11.
+0.0001::rapp4 :- unless(aux_rapp4_row3).
+0.8::goal_48 :- goal_2, compo16.
+0.8::goal_48 :- goal_2, unless(compo16).
+0.8::goal_48 :- compo16, unless(goal_2).
+aux_goal_48_row3 :- goal_2.
+aux_goal_48_row3 :- compo16.
+8e-05::goal_48 :- unless(aux_goal_48_row3).
+0.8::try11 :- try12.
+0.8::try13 :- try12.
+0.9::try14 :- try12.
+0.9::try15 :- try12.
+0.9::snode_33 :- snode_10, given21.
+0.9::snode_33 :- snode_10, unless(given21).
+0.9::snode_33 :- given21, unless(snode_10).
+aux_snode_33_row3 :- snode_10.
+aux_snode_33_row3 :- given21.
+9e-05::snode_33 :- unless(aux_snode_33_row3).
+0.95::try24 :- try25.
+0.9::try26 :- try25.
+incline51 :- normal52.
+0.8::horiz53 :- normal52.
+0.2::buggy54 :- normal52.
+buggy54 :- unless(normal52).
+0.8::snode_8 :- rapp1, rapp2.
+0.8::snode_21 :- snode_20, grav2.
+0.8::snode_21 :- snode_20, unless(grav2).
+0.8::snode_21 :- grav2, unless(snode_20).
+aux_snode_21_row3 :- snode_20.
+aux_snode_21_row3 :- grav2.
+8e-05::snode_21 :- unless(aux_snode_21_row3).
+rapp3 :- known6, snode_26, snode_47.
+rapp3 :- known6, snode_26, unless(snode_47).
+rapp3 :- known6, snode_47, unless(snode_26).
+aux_rapp3_row3 :- snode_26.
+aux_rapp3_row3 :- snode_47.
+rapp3 :- known6, unless(aux_rapp3_row3).
+rapp3 :- snode_26, snode_47, unless(known6).
+aux_rapp3_row5 :- known6.
+aux_rapp3_row5 :- snode_47.
+rapp3 :- snode_26, unless(aux_rapp3_row5).
+aux_rapp3_row6 :- known6.
+aux_rapp3_row6 :- snode_26.
+rapp3 :- snode_47, unless(aux_rapp3_row6).
+aux_rapp3_row7 :- known6.
+aux_rapp3_row7 :- snode_26.
+aux_rapp3_row7 :- snode_47.
+0.0001::rapp3 :- unless(aux_rapp3_row7).
+0.8::goal_49 :- snode_5, snode_6, goal_48, try11.
+0.8::goal_49 :- snode_5, snode_6, goal_48, unless(try11).
+0.8::goal_49 :- snode_5, snode_6, try11, unless(goal_48).
+aux_goal_49_row3 :- goal_48.
+aux_goal_49_row3 :- try11.
+0.8::goal_49 :- snode_5, snode_6, unless(aux_goal_49_row3).
+0.8::goal_49 :- snode_5, goal_48, try11, unless(snode_6).
+aux_goal_49_row5 :- snode_6.
+aux_goal_49_row5 :- try11.
+0.8::goal_49 :- snode_5, goal_48, unless(aux_goal_49_row5).
+aux_goal_49_row6 :- snode_6.
+aux_goal_49_row6 :- goal_48.
+0.8::goal_49 :- snode_5, try11, unless(aux_goal_49_row6).
+aux_goal_49_row7 :- snode_6.
+aux_goal_49_row7 :- goal_48.
+aux_goal_49_row7 :- try11.
+0.8::goal_49 :- snode_5, unless(aux_goal_49_row7).
+0.8::goal_49 :- snode_6, goal_48, try11, unless(snode_5).
+aux_goal_49_row9 :- snode_5.
+aux_goal_49_row9 :- try11.
+0.8::goal_49 :- snode_6, goal_48, unless(aux_goal_49_row9).
+aux_goal_49_row10 :- snode_5.
+aux_goal_49_row10 :- goal_48.
+0.8::goal_49 :- snode_6, try11, unless(aux_goal_49_row10).
+aux_goal_49_row11 :- snode_5.
+aux_goal_49_row11 :- goal_48.
+aux_goal_49_row11 :- try11.
+0.8::goal_49 :- snode_6, unless(aux_goal_49_row11).
+aux_goal_49_row12 :- snode_5.
+aux_goal_49_row12 :- snode_6.
+0.8::goal_49 :- goal_48, try11, unless(aux_goal_49_row12).
+aux_goal_49_row13 :- snode_5.
+aux_goal_49_row13 :- snode_6.
+aux_goal_49_row13 :- try11.
+0.8::goal_49 :- goal_48, unless(aux_goal_49_row13).
+aux_goal_49_row14 :- snode_5.
+aux_goal_49_row14 :- snode_6.
+aux_goal_49_row14 :- goal_48.
+0.8::goal_49 :- try11, unless(aux_goal_49_row14).
+aux_goal_49_row15 :- snode_5.
+aux_goal_49_row15 :- snode_6.
+aux_goal_49_row15 :- goal_48.
+aux_goal_49_row15 :- try11.
+8e-05::goal_49 :- unless(aux_goal_49_row15).
+0.8::snode_92 :- snode_12, strat_90, buggy54.
+0.8::snode_92 :- snode_12, strat_90, unless(buggy54).
+0.8::snode_92 :- snode_12, buggy54, unless(strat_90).
+aux_snode_92_row3 :- strat_90.
+aux_snode_92_row3 :- buggy54.
+0.8::snode_92 :- snode_12, unless(aux_snode_92_row3).
+0.8::snode_92 :- strat_90, buggy54, unless(snode_12).
+aux_snode_92_row5 :- snode_12.
+aux_snode_92_row5 :- buggy54.
+8e-05::snode_92 :- strat_90, unless(aux_snode_92_row5).
+aux_snode_92_row6 :- snode_12.
+aux_snode_92_row6 :- strat_90.
+0.8::snode_92 :- buggy54, unless(aux_snode_92_row6).
+aux_snode_92_row7 :- snode_12.
+aux_snode_92_row7 :- strat_90.
+aux_snode_92_row7 :- buggy54.
+0.8::snode_92 :- unless(aux_snode_92_row7).
+0.8::snode_42 :- snode_8, snode_41, known6.
+0.8::snode_42 :- snode_8, snode_41, unless(known6).
+0.8::snode_42 :- snode_8, known6, unless(snode_41).
+aux_snode_42_row3 :- snode_41.
+aux_snode_42_row3 :- known6.
+0.8::snode_42 :- snode_8, unless(aux_snode_42_row3).
+0.8::snode_42 :- snode_41, known6, unless(snode_8).
+aux_snode_42_row5 :- snode_8.
+aux_snode_42_row5 :- known6.
+0.8::snode_42 :- snode_41, unless(aux_snode_42_row5).
+aux_snode_42_row6 :- snode_8.
+aux_snode_42_row6 :- snode_41.
+0.8::snode_42 :- known6, unless(aux_snode_42_row6).
+aux_snode_42_row7 :- snode_8.
+aux_snode_42_row7 :- snode_41.
+aux_snode_42_row7 :- known6.
+8e-05::snode_42 :- unless(aux_snode_42_row7).
+0.9::snode_24 :- snode_21, value3.
+0.9::snode_24 :- snode_21, unless(value3).
+0.9::snode_24 :- value3, unless(snode_21).
+aux_snode_24_row3 :- snode_21.
+aux_snode_24_row3 :- value3.
+9e-05::snode_24 :- unless(aux_snode_24_row3).
+0.8::snode_27 :- rapp3, rapp4.
+0.8::goal_50 :- goal_49, choose19.
+0.8::goal_50 :- goal_49, unless(choose19).
+0.8::goal_50 :- choose19, unless(goal_49).
+aux_goal_50_row3 :- goal_49.
+aux_goal_50_row3 :- choose19.
+8e-05::goal_50 :- unless(aux_goal_50_row3).
+0.9::snode_51 :- snode_17, goal_50, system18.
+0.9::snode_51 :- snode_17, goal_50, unless(system18).
+0.9::snode_51 :- snode_17, system18, unless(goal_50).
+aux_snode_51_row3 :- goal_50.
+aux_snode_51_row3 :- system18.
+0.9::snode_51 :- snode_17, unless(aux_snode_51_row3).
+0.9::snode_51 :- goal_50, system18, unless(snode_17).
+aux_snode_51_row5 :- snode_17.
+aux_snode_51_row5 :- system18.
+0.9::snode_51 :- goal_50, unless(aux_snode_51_row5).
+aux_snode_51_row6 :- snode_17.
+aux_snode_51_row6 :- goal_50.
+0.9::snode_51 :- system18, unless(aux_snode_51_row6).
+aux_snode_51_row7 :- snode_17.
+aux_snode_51_row7 :- goal_50.
+aux_snode_51_row7 :- system18.
+9e-05::snode_51 :- unless(aux_snode_51_row7).
+0.8::snode_52 :- snode_51, kinemati17.
+0.8::snode_52 :- snode_51, unless(kinemati17).
+0.8::snode_52 :- kinemati17, unless(snode_51).
+aux_snode_52_row3 :- snode_51.
+aux_snode_52_row3 :- kinemati17.
+8e-05::snode_52 :- unless(aux_snode_52_row3).
+0.8::goal_53 :- goal_49, snode_52, identify10.
+0.8::goal_53 :- goal_49, snode_52, unless(identify10).
+0.8::goal_53 :- goal_49, identify10, unless(snode_52).
+aux_goal_53_row3 :- snode_52.
+aux_goal_53_row3 :- identify10.
+0.8::goal_53 :- goal_49, unless(aux_goal_53_row3).
+0.8::goal_53 :- snode_52, identify10, unless(goal_49).
+aux_goal_53_row5 :- goal_49.
+aux_goal_53_row5 :- identify10.
+0.8::goal_53 :- snode_52, unless(aux_goal_53_row5).
+aux_goal_53_row6 :- goal_49.
+aux_goal_53_row6 :- snode_52.
+0.8::goal_53 :- identify10, unless(aux_goal_53_row6).
+aux_goal_53_row7 :- goal_49.
+aux_goal_53_row7 :- snode_52.
+aux_goal_53_row7 :- identify10.
+8e-05::goal_53 :- unless(aux_goal_53_row7).
+0.8::goal_56 :- goal_49, snode_52, apply32.
+0.8::goal_56 :- goal_49, snode_52, unless(apply32).
+0.8::goal_56 :- goal_49, apply32, unless(snode_52).
+aux_goal_56_row3 :- snode_52.
+aux_goal_56_row3 :- apply32.
+0.8::goal_56 :- goal_49, unless(aux_goal_56_row3).
+0.8::goal_56 :- snode_52, apply32, unless(goal_49).
+aux_goal_56_row5 :- goal_49.
+aux_goal_56_row5 :- apply32.
+0.8::goal_56 :- snode_52, unless(aux_goal_56_row5).
+aux_goal_56_row6 :- goal_49.
+aux_goal_56_row6 :- snode_52.
+0.8::goal_56 :- apply32, unless(aux_goal_56_row6).
+aux_goal_56_row7 :- goal_49.
+aux_goal_56_row7 :- snode_52.
+aux_goal_56_row7 :- apply32.
+8e-05::goal_56 :- unless(aux_goal_56_row7).
+0.8::snode_28 :- snode_27, goal_53, identify9.
+0.8::snode_28 :- snode_27, goal_53, unless(identify9).
+0.8::snode_28 :- snode_27, identify9, unless(goal_53).
+aux_snode_28_row3 :- goal_53.
+aux_snode_28_row3 :- identify9.
+0.8::snode_28 :- snode_27, unless(aux_snode_28_row3).
+0.8::snode_28 :- goal_53, identify9, unless(snode_27).
+aux_snode_28_row5 :- snode_27.
+aux_snode_28_row5 :- identify9.
+0.8::snode_28 :- goal_53, unless(aux_snode_28_row5).
+aux_snode_28_row6 :- snode_27.
+aux_snode_28_row6 :- goal_53.
+0.8::snode_28 :- identify9, unless(aux_snode_28_row6).
+aux_snode_28_row7 :- snode_27.
+aux_snode_28_row7 :- goal_53.
+aux_snode_28_row7 :- identify9.
+8e-05::snode_28 :- unless(aux_snode_28_row7).
+0.8::snode_43 :- snode_42, goal_53, identify39.
+0.8::snode_43 :- snode_42, goal_53, unless(identify39).
+0.8::snode_43 :- snode_42, identify39, unless(goal_53).
+aux_snode_43_row3 :- goal_53.
+aux_snode_43_row3 :- identify39.
+0.8::snode_43 :- snode_42, unless(aux_snode_43_row3).
+0.8::snode_43 :- goal_53, identify39, unless(snode_42).
+aux_snode_43_row5 :- snode_42.
+aux_snode_43_row5 :- identify39.
+0.8::snode_43 :- goal_53, unless(aux_snode_43_row5).
+aux_snode_43_row6 :- snode_42.
+aux_snode_43_row6 :- goal_53.
+0.8::snode_43 :- identify39, unless(aux_snode_43_row6).
+aux_snode_43_row7 :- snode_42.
+aux_snode_43_row7 :- goal_53.
+aux_snode_43_row7 :- identify39.
+8e-05::snode_43 :- unless(aux_snode_43_row7).
+0.8::snode_54 :- goal_53, identify41.
+0.8::snode_54 :- goal_53, unless(identify41).
+0.8::snode_54 :- identify41, unless(goal_53).
+aux_snode_54_row3 :- goal_53.
+aux_snode_54_row3 :- identify41.
+8e-05::snode_54 :- unless(aux_snode_54_row3).
+0.8::snode_55 :- snode_34, goal_53, identify43.
+0.8::snode_55 :- snode_34, goal_53, unless(identify43).
+0.8::snode_55 :- snode_34, identify43, unless(goal_53).
+aux_snode_55_row3 :- goal_53.
+aux_snode_55_row3 :- identify43.
+0.8::snode_55 :- snode_34, unless(aux_snode_55_row3).
+0.8::snode_55 :- goal_53, identify43, unless(snode_34).
+aux_snode_55_row5 :- snode_34.
+aux_snode_55_row5 :- identify43.
+0.8::snode_55 :- goal_53, unless(aux_snode_55_row5).
+aux_snode_55_row6 :- snode_34.
+aux_snode_55_row6 :- goal_53.
+0.8::snode_55 :- identify43, unless(aux_snode_55_row6).
+aux_snode_55_row7 :- snode_34.
+aux_snode_55_row7 :- goal_53.
+aux_snode_55_row7 :- identify43.
+8e-05::snode_55 :- unless(aux_snode_55_row7).
+0.8::goal_57 :- goal_56, choose35.
+0.8::goal_57 :- goal_56, unless(choose35).
+0.8::goal_57 :- choose35, unless(goal_56).
+aux_goal_57_row3 :- goal_56.
+aux_goal_57_row3 :- choose35.
+8e-05::goal_57 :- unless(aux_goal_57_row3).
+0.8::snode_29 :- snode_28, var20.
+0.8::snode_29 :- snode_28, unless(var20).
+0.8::snode_29 :- var20, unless(snode_28).
+aux_snode_29_row3 :- snode_28.
+aux_snode_29_row3 :- var20.
+8e-05::snode_29 :- unless(aux_snode_29_row3).
+0.8::snode_44 :- snode_43, var20.
+0.8::snode_44 :- snode_43, unless(var20).
+0.8::snode_44 :- var20, unless(snode_43).
+aux_snode_44_row3 :- snode_43.
+aux_snode_44_row3 :- var20.
+8e-05::snode_44 :- unless(aux_snode_44_row3).
+0.8::snode_59 :- snode_7, goal_57, maximize34.
+0.8::snode_59 :- snode_7, goal_57, unless(maximize34).
+0.8::snode_59 :- snode_7, maximize34, unless(goal_57).
+aux_snode_59_row3 :- goal_57.
+aux_snode_59_row3 :- maximize34.
+0.8::snode_59 :- snode_7, unless(aux_snode_59_row3).
+0.8::snode_59 :- goal_57, maximize34, unless(snode_7).
+aux_snode_59_row5 :- snode_7.
+aux_snode_59_row5 :- maximize34.
+0.8::snode_59 :- goal_57, unless(aux_snode_59_row5).
+aux_snode_59_row6 :- snode_7.
+aux_snode_59_row6 :- goal_57.
+0.8::snode_59 :- maximize34, unless(aux_snode_59_row6).
+aux_snode_59_row7 :- snode_7.
+aux_snode_59_row7 :- goal_57.
+aux_snode_59_row7 :- maximize34.
+8e-05::snode_59 :- unless(aux_snode_59_row7).
+0.9::snode_31 :- snode_29, value3.
+0.9::snode_31 :- snode_29, unless(value3).
+0.9::snode_31 :- value3, unless(snode_29).
+aux_snode_31_row3 :- snode_29.
+aux_snode_31_row3 :- value3.
+9e-05::snode_31 :- unless(aux_snode_31_row3).
+0.9::snode_46 :- snode_44, value3.
+0.9::snode_46 :- snode_44, unless(value3).
+0.9::snode_46 :- value3, unless(snode_44).
+aux_snode_46_row3 :- snode_44.
+aux_snode_46_row3 :- value3.
+9e-05::snode_46 :- unless(aux_snode_46_row3).
+0.8::snode_60 :- snode_59, axis33.
+0.8::snode_60 :- snode_59, unless(axis33).
+0.8::snode_60 :- axis33, unless(snode_59).
+aux_snode_60_row3 :- snode_59.
+aux_snode_60_row3 :- axis33.
+8e-05::snode_60 :- unless(aux_snode_60_row3).
+0.8::goal_61 :- goal_56, snode_60, write31.
+0.8::goal_61 :- goal_56, snode_60, unless(write31).
+0.8::goal_61 :- goal_56, write31, unless(snode_60).
+aux_goal_61_row3 :- snode_60.
+aux_goal_61_row3 :- write31.
+0.8::goal_61 :- goal_56, unless(aux_goal_61_row3).
+0.8::goal_61 :- snode_60, write31, unless(goal_56).
+aux_goal_61_row5 :- goal_56.
+aux_goal_61_row5 :- write31.
+0.8::goal_61 :- snode_60, unless(aux_goal_61_row5).
+aux_goal_61_row6 :- goal_56.
+aux_goal_61_row6 :- snode_60.
+0.8::goal_61 :- write31, unless(aux_goal_61_row6).
+aux_goal_61_row7 :- goal_56.
+aux_goal_61_row7 :- snode_60.
+aux_goal_61_row7 :- write31.
+8e-05::goal_61 :- unless(aux_goal_61_row7).
+0.8::goal_62 :- goal_61, write30.
+0.8::goal_62 :- goal_61, unless(write30).
+0.8::goal_62 :- write30, unless(goal_61).
+aux_goal_62_row3 :- goal_61.
+aux_goal_62_row3 :- write30.
+8e-05::goal_62 :- unless(aux_goal_62_row3).
+0.8::goal_63 :- snode_28, goal_62, resolve37.
+0.8::goal_63 :- snode_28, goal_62, unless(resolve37).
+0.8::goal_63 :- snode_28, resolve37, unless(goal_62).
+aux_goal_63_row3 :- goal_62.
+aux_goal_63_row3 :- resolve37.
+0.8::goal_63 :- snode_28, unless(aux_goal_63_row3).
+0.8::goal_63 :- goal_62, resolve37, unless(snode_28).
+aux_goal_63_row5 :- snode_28.
+aux_goal_63_row5 :- resolve37.
+0.8::goal_63 :- goal_62, unless(aux_goal_63_row5).
+aux_goal_63_row6 :- snode_28.
+aux_goal_63_row6 :- goal_62.
+0.8::goal_63 :- resolve37, unless(aux_goal_63_row6).
+aux_goal_63_row7 :- snode_28.
+aux_goal_63_row7 :- goal_62.
+aux_goal_63_row7 :- resolve37.
+8e-05::goal_63 :- unless(aux_goal_63_row7).
+0.8::goal_66 :- snode_43, goal_62, resolve38.
+0.8::goal_66 :- snode_43, goal_62, unless(resolve38).
+0.8::goal_66 :- snode_43, resolve38, unless(goal_62).
+aux_goal_66_row3 :- goal_62.
+aux_goal_66_row3 :- resolve38.
+0.8::goal_66 :- snode_43, unless(aux_goal_66_row3).
+0.8::goal_66 :- goal_62, resolve38, unless(snode_43).
+aux_goal_66_row5 :- snode_43.
+aux_goal_66_row5 :- resolve38.
+0.8::goal_66 :- goal_62, unless(aux_goal_66_row5).
+aux_goal_66_row6 :- snode_43.
+aux_goal_66_row6 :- goal_62.
+0.8::goal_66 :- resolve38, unless(aux_goal_66_row6).
+aux_goal_66_row7 :- snode_43.
+aux_goal_66_row7 :- goal_62.
+aux_goal_66_row7 :- resolve38.
+8e-05::goal_66 :- unless(aux_goal_66_row7).
+0.8::goal_69 :- snode_54, goal_62, resolve40.
+0.8::goal_69 :- snode_54, goal_62, unless(resolve40).
+0.8::goal_69 :- snode_54, resolve40, unless(goal_62).
+aux_goal_69_row3 :- goal_62.
+aux_goal_69_row3 :- resolve40.
+0.8::goal_69 :- snode_54, unless(aux_goal_69_row3).
+0.8::goal_69 :- goal_62, resolve40, unless(snode_54).
+aux_goal_69_row5 :- snode_54.
+aux_goal_69_row5 :- resolve40.
+0.8::goal_69 :- goal_62, unless(aux_goal_69_row5).
+aux_goal_69_row6 :- snode_54.
+aux_goal_69_row6 :- goal_62.
+0.8::goal_69 :- resolve40, unless(aux_goal_69_row6).
+aux_goal_69_row7 :- snode_54.
+aux_goal_69_row7 :- goal_62.
+aux_goal_69_row7 :- resolve40.
+8e-05::goal_69 :- unless(aux_goal_69_row7).
+0.8::goal_72 :- snode_55, goal_62, resolve42.
+0.8::goal_72 :- snode_55, goal_62, unless(resolve42).
+0.8::goal_72 :- snode_55, resolve42, unless(goal_62).
+aux_goal_72_row3 :- goal_62.
+aux_goal_72_row3 :- resolve42.
+0.8::goal_72 :- snode_55, unless(aux_goal_72_row3).
+0.8::goal_72 :- goal_62, resolve42, unless(snode_55).
+aux_goal_72_row5 :- snode_55.
+aux_goal_72_row5 :- resolve42.
+0.8::goal_72 :- goal_62, unless(aux_goal_72_row5).
+aux_goal_72_row6 :- snode_55.
+aux_goal_72_row6 :- goal_62.
+0.8::goal_72 :- resolve42, unless(aux_goal_72_row6).
+aux_goal_72_row7 :- snode_55.
+aux_goal_72_row7 :- goal_62.
+aux_goal_72_row7 :- resolve42.
+8e-05::goal_72 :- unless(aux_goal_72_row7).
+0.8::snode_64 :- goal_63, need36.
+0.8::snode_64 :- goal_63, unless(need36).
+0.8::snode_64 :- need36, unless(goal_63).
+aux_snode_64_row3 :- goal_63.
+aux_snode_64_row3 :- need36.
+8e-05::snode_64 :- unless(aux_snode_64_row3).
+0.8::snode_67 :- goal_66, need36.
+0.8::snode_67 :- goal_66, unless(need36).
+0.8::snode_67 :- need36, unless(goal_66).
+aux_snode_67_row3 :- goal_66.
+aux_snode_67_row3 :- need36.
+8e-05::snode_67 :- unless(aux_snode_67_row3).
+0.8::snode_70 :- goal_69, need36.
+0.8::snode_70 :- goal_69, unless(need36).
+0.8::snode_70 :- need36, unless(goal_69).
+aux_snode_70_row3 :- goal_69.
+aux_snode_70_row3 :- need36.
+8e-05::snode_70 :- unless(aux_snode_70_row3).
+0.8::snode_73 :- goal_72, need36.
+0.8::snode_73 :- goal_72, unless(need36).
+0.8::snode_73 :- need36, unless(goal_72).
+aux_snode_73_row3 :- goal_72.
+aux_snode_73_row3 :- need36.
+8e-05::snode_73 :- unless(aux_snode_73_row3).
+0.9::snode_65 :- snode_29, goal_63, snode_64, null48.
+0.9::snode_65 :- snode_29, goal_63, snode_64, unless(null48).
+0.9::snode_65 :- snode_29, goal_63, null48, unless(snode_64).
+aux_snode_65_row3 :- snode_64.
+aux_snode_65_row3 :- null48.
+0.9::snode_65 :- snode_29, goal_63, unless(aux_snode_65_row3).
+0.9::snode_65 :- snode_29, snode_64, null48, unless(goal_63).
+aux_snode_65_row5 :- goal_63.
+aux_snode_65_row5 :- null48.
+0.9::snode_65 :- snode_29, snode_64, unless(aux_snode_65_row5).
+aux_snode_65_row6 :- goal_63.
+aux_snode_65_row6 :- snode_64.
+0.9::snode_65 :- snode_29, null48, unless(aux_snode_65_row6).
+aux_snode_65_row7 :- goal_63.
+aux_snode_65_row7 :- snode_64.
+aux_snode_65_row7 :- null48.
+0.9::snode_65 :- snode_29, unless(aux_snode_65_row7).
+0.9::snode_65 :- goal_63, snode_64, null48, unless(snode_29).
+aux_snode_65_row9 :- snode_29.
+aux_snode_65_row9 :- null48.
+0.9::snode_65 :- goal_63, snode_64, unless(aux_snode_65_row9).
+aux_snode_65_row10 :- snode_29.
+aux_snode_65_row10 :- snode_64.
+0.9::snode_65 :- goal_63, null48, unless(aux_snode_65_row10).
+aux_snode_65_row11 :- snode_29.
+aux_snode_65_row11 :- snode_64.
+aux_snode_65_row11 :- null48.
+0.9::snode_65 :- goal_63, unless(aux_snode_65_row11).
+aux_snode_65_row12 :- snode_29.
+aux_snode_65_row12 :- goal_63.
+0.9::snode_65 :- snode_64, null48, unless(aux_snode_65_row12).
+aux_snode_65_row13 :- snode_29.
+aux_snode_65_row13 :- goal_63.
+aux_snode_65_row13 :- null48.
+0.9::snode_65 :- snode_64, unless(aux_snode_65_row13).
+aux_snode_65_row14 :- snode_29.
+aux_snode_65_row14 :- goal_63.
+aux_snode_65_row14 :- snode_64.
+0.9::snode_65 :- null48, unless(aux_snode_65_row14).
+aux_snode_65_row15 :- snode_29.
+aux_snode_65_row15 :- goal_63.
+aux_snode_65_row15 :- snode_64.
+aux_snode_65_row15 :- null48.
+9e-05::snode_65 :- unless(aux_snode_65_row15).
+0.9::snode_68 :- goal_66, snode_67, vector44.
+0.9::snode_68 :- goal_66, snode_67, unless(vector44).
+0.9::snode_68 :- goal_66, vector44, unless(snode_67).
+aux_snode_68_row3 :- snode_67.
+aux_snode_68_row3 :- vector44.
+0.9::snode_68 :- goal_66, unless(aux_snode_68_row3).
+0.9::snode_68 :- snode_67, vector44, unless(goal_66).
+aux_snode_68_row5 :- goal_66.
+aux_snode_68_row5 :- vector44.
+0.9::snode_68 :- snode_67, unless(aux_snode_68_row5).
+aux_snode_68_row6 :- goal_66.
+aux_snode_68_row6 :- snode_67.
+0.9::snode_68 :- vector44, unless(aux_snode_68_row6).
+aux_snode_68_row7 :- goal_66.
+aux_snode_68_row7 :- snode_67.
+aux_snode_68_row7 :- vector44.
+9e-05::snode_68 :- unless(aux_snode_68_row7).
+0.9::snode_71 :- goal_69, snode_70, vector44.
+0.9::snode_71 :- goal_69, snode_70, unless(vector44).
+0.9::snode_71 :- goal_69, vector44, unless(snode_70).
+aux_snode_71_row3 :- snode_70.
+aux_snode_71_row3 :- vector44.
+0.9::snode_71 :- goal_69, unless(aux_snode_71_row3).
+0.9::snode_71 :- snode_70, vector44, unless(goal_69).
+aux_snode_71_row5 :- goal_69.
+aux_snode_71_row5 :- vector44.
+0.9::snode_71 :- snode_70, unless(aux_snode_71_row5).
+aux_snode_71_row6 :- goal_69.
+aux_snode_71_row6 :- snode_70.
+0.9::snode_71 :- vector44, unless(aux_snode_71_row6).
+aux_snode_71_row7 :- goal_69.
+aux_snode_71_row7 :- snode_70.
+aux_snode_71_row7 :- vector44.
+9e-05::snode_71 :- unless(aux_snode_71_row7).
+0.9::snode_74 :- goal_62, snode_64, snode_67, snode_70, snode_73, kine29.
+0.9::snode_74 :- goal_62, snode_64, snode_67, snode_70, snode_73, unless(kine29).
+0.9::snode_74 :- goal_62, snode_64, snode_67, snode_70, kine29, unless(snode_73).
+aux_snode_74_row3 :- snode_73.
+aux_snode_74_row3 :- kine29.
+0.9::snode_74 :- goal_62, snode_64, snode_67, snode_70, unless(aux_snode_74_row3).
+0.9::snode_74 :- goal_62, snode_64, snode_67, snode_73, kine29, unless(snode_70).
+aux_snode_74_row5 :- snode_70.
+aux_snode_74_row5 :- kine29.
+0.9::snode_74 :- goal_62, snode_64, snode_67, snode_73, unless(aux_snode_74_row5).
+aux_snode_74_row6 :- snode_70.
+aux_snode_74_row6 :- snode_73.
+0.9::snode_74 :- goal_62, snode_64, snode_67, kine29, unless(aux_snode_74_row6).
+aux_snode_74_row7 :- snode_70.
+aux_snode_74_row7 :- snode_73.
+aux_snode_74_row7 :- kine29.
+0.9::snode_74 :- goal_62, snode_64, snode_67, unless(aux_snode_74_row7).
+0.9::snode_74 :- goal_62, snode_64, snode_70, snode_73, kine29, unless(snode_67).
+aux_snode_74_row9 :- snode_67.
+aux_snode_74_row9 :- kine29.
+0.9::snode_74 :- goal_62, snode_64, snode_70, snode_73, unless(aux_snode_74_row9).
+aux_snode_74_row10 :- snode_67.
+aux_snode_74_row10 :- snode_73.
+0.9::snode_74 :- goal_62, snode_64, snode_70, kine29, unless(aux_snode_74_row10).
+aux_snode_74_row11 :- snode_67.
+aux_snode_74_row11 :- snode_73.
+aux_snode_74_row11 :- kine29.
+0.9::snode_74 :- goal_62, snode_64, snode_70, unless(aux_snode_74_row11).
+aux_snode_74_row12 :- snode_67.
+aux_snode_74_row12 :- snode_70.
+0.9::snode_74 :- goal_62, snode_64, snode_73, kine29, unless(aux_snode_74_row12).
+aux_snode_74_row13 :- snode_67.
+aux_snode_74_row13 :- snode_70.
+aux_snode_74_row13 :- kine29.
+0.9::snode_74 :- goal_62, snode_64, snode_73, unless(aux_snode_74_row13).
+aux_snode_74_row14 :- snode_67.
+aux_snode_74_row14 :- snode_70.
+aux_snode_74_row14 :- snode_73.
+0.9::snode_74 :- goal_62, snode_64, kine29, unless(aux_snode_74_row14).
+aux_snode_74_row15 :- snode_67.
+aux_snode_74_row15 :- snode_70.
+aux_snode_74_row15 :- snode_73.
+aux_snode_74_row15 :- kine29.
+0.9::snode_74 :- goal_62, snode_64, unless(aux_snode_74_row15).
+0.9::snode_74 :- goal_62, snode_67, snode_70, snode_73, kine29, unless(snode_64).
+aux_snode_74_row17 :- snode_64.
+aux_snode_74_row17 :- kine29.
+0.9::snode_74 :- goal_62, snode_67, snode_70, snode_73, unless(aux_snode_74_row17).
+aux_snode_74_row18 :- snode_64.
+aux_snode_74_row18 :- snode_73.
+0.9::snode_74 :- goal_62, snode_67, snode_70, kine29, unless(aux_snode_74_row18).
+aux_snode_74_row19 :- snode_64.
+aux_snode_74_row19 :- snode_73.
+aux_snode_74_row19 :- kine29.
+0.9::snode_74 :- goal_62, snode_67, snode_70, unless(aux_snode_74_row19).
+aux_snode_74_row20 :- snode_64.
+aux_snode_74_row20 :- snode_70.
+0.9::snode_74 :- goal_62, snode_67, snode_73, kine29, unless(aux_snode_74_row20).
+aux_snode_74_row21 :- snode_64.
+aux_snode_74_row21 :- snode_70.
+aux_snode_74_row21 :- kine29.
+0.9::snode_74 :- goal_62, snode_67, snode_73, unless(aux_snode_74_row21).
+aux_snode_74_row22 :- snode_64.
+aux_snode_74_row22 :- snode_70.
+aux_snode_74_row22 :- snode_73.
+0.9::snode_74 :- goal_62, snode_67, kine29, unless(aux_snode_74_row22).
+aux_snode_74_row23 :- snode_64.
+aux_snode_74_row23 :- snode_70.
+aux_snode_74_row23 :- snode_73.
+aux_snode_74_row23 :- kine29.
+0.9::snode_74 :- goal_62, snode_67, unless(aux_snode_74_row23).
+aux_snode_74_row24 :- snode_64.
+aux_snode_74_row24 :- snode_67.
+0.9::snode_74 :- goal_62, snode_70, snode_73, kine29, unless(aux_snode_74_row24).
+aux_snode_74_row25 :- snode_64.
+aux_snode_74_row25 :- snode_67.
+aux_snode_74_row25 :- kine29.
+0.9::snode_74 :- goal_62, snode_70, snode_73, unless(aux_snode_74_row25).
+aux_snode_74_row26 :- snode_64.
+aux_snode_74_row26 :- snode_67.
+aux_snode_74_row26 :- snode_73.
+0.9::snode_74 :- goal_62, snode_70, kine29, unless(aux_snode_74_row26).
+aux_snode_74_row27 :- snode_64.
+aux_snode_74_row27 :- snode_67.
+aux_snode_74_row27 :- snode_73.
+aux_snode_74_row27 :- kine29.
+0.9::snode_74 :- goal_62, snode_70, unless(aux_snode_74_row27).
+aux_snode_74_row28 :- snode_64.
+aux_snode_74_row28 :- snode_67.
+aux_snode_74_row28 :- snode_70.
+0.9::snode_74 :- goal_62, snode_73, kine29, unless(aux_snode_74_row28).
+aux_snode_74_row29 :- snode_64.
+aux_snode_74_row29 :- snode_67.
+aux_snode_74_row29 :- snode_70.
+aux_snode_74_row29 :- kine29.
+0.9::snode_74 :- goal_62, snode_73, unless(aux_snode_74_row29).
+aux_snode_74_row30 :- snode_64.
+aux_snode_74_row30 :- snode_67.
+aux_snode_74_row30 :- snode_70.
+aux_snode_74_row30 :- snode_73.
+0.9::snode_74 :- goal_62, kine29, unless(aux_snode_74_row30).
+aux_snode_74_row31 :- snode_64.
+aux_snode_74_row31 :- snode_67.
+aux_snode_74_row31 :- snode_70.
+aux_snode_74_row31 :- snode_73.
+aux_snode_74_row31 :- kine29.
+0.9::snode_74 :- goal_62, unless(aux_snode_74_row31).
+0.9::snode_74 :- snode_64, snode_67, snode_70, snode_73, kine29, unless(goal_62).
+aux_snode_74_row33 :- goal_62.
+aux_snode_74_row33 :- kine29.
+0.9::snode_74 :- snode_64, snode_67, snode_70, snode_73, unless(aux_snode_74_row33).
+aux_snode_74_row34 :- goal_62.
+aux_snode_74_row34 :- snode_73.
+0.9::snode_74 :- snode_64, snode_67, snode_70, kine29, unless(aux_snode_74_row34).
+aux_snode_74_row35 :- goal_62.
+aux_snode_74_row35 :- snode_73.
+aux_snode_74_row35 :- kine29.
+0.9::snode_74 :- snode_64, snode_67, snode_70, unless(aux_snode_74_row35).
+aux_snode_74_row36 :- goal_62.
+aux_snode_74_row36 :- snode_70.
+0.9::snode_74 :- snode_64, snode_67, snode_73, kine29, unless(aux_snode_74_row36).
+aux_snode_74_row37 :- goal_62.
+aux_snode_74_row37 :- snode_70.
+aux_snode_74_row37 :- kine29.
+0.9::snode_74 :- snode_64, snode_67, snode_73, unless(aux_snode_74_row37).
+aux_snode_74_row38 :- goal_62.
+aux_snode_74_row38 :- snode_70.
+aux_snode_74_row38 :- snode_73.
+0.9::snode_74 :- snode_64, snode_67, kine29, unless(aux_snode_74_row38).
+aux_snode_74_row39 :- goal_62.
+aux_snode_74_row39 :- snode_70.
+aux_snode_74_row39 :- snode_73.
+aux_snode_74_row39 :- kine29.
+0.9::snode_74 :- snode_64, snode_67, unless(aux_snode_74_row39).
+aux_snode_74_row40 :- goal_62.
+aux_snode_74_row40 :- snode_67.
+0.9::snode_74 :- snode_64, snode_70, snode_73, kine29, unless(aux_snode_74_row40).
+aux_snode_74_row41 :- goal_62.
+aux_snode_74_row41 :- snode_67.
+aux_snode_74_row41 :- kine29.
+0.9::snode_74 :- snode_64, snode_70, snode_73, unless(aux_snode_74_row41).
+aux_snode_74_row42 :- goal_62.
+aux_snode_74_row42 :- snode_67.
+aux_snode_74_row42 :- snode_73.
+0.9::snode_74 :- snode_64, snode_70, kine29, unless(aux_snode_74_row42).
+aux_snode_74_row43 :- goal_62.
+aux_snode_74_row43 :- snode_67.
+aux_snode_74_row43 :- snode_73.
+aux_snode_74_row43 :- kine29.
+0.9::snode_74 :- snode_64, snode_70, unless(aux_snode_74_row43).
+aux_snode_74_row44 :- goal_62.
+aux_snode_74_row44 :- snode_67.
+aux_snode_74_row44 :- snode_70.
+0.9::snode_74 :- snode_64, snode_73, kine29, unless(aux_snode_74_row44).
+aux_snode_74_row45 :- goal_62.
+aux_snode_74_row45 :- snode_67.
+aux_snode_74_row45 :- snode_70.
+aux_snode_74_row45 :- kine29.
+0.9::snode_74 :- snode_64, snode_73, unless(aux_snode_74_row45).
+aux_snode_74_row46 :- goal_62.
+aux_snode_74_row46 :- snode_67.
+aux_snode_74_row46 :- snode_70.
+aux_snode_74_row46 :- snode_73.
+0.9::snode_74 :- snode_64, kine29, unless(aux_snode_74_row46).
+aux_snode_74_row47 :- goal_62.
+aux_snode_74_row47 :- snode_67.
+aux_snode_74_row47 :- snode_70.
+aux_snode_74_row47 :- snode_73.
+aux_snode_74_row47 :- kine29.
+0.9::snode_74 :- snode_64, unless(aux_snode_74_row47).
+aux_snode_74_row48 :- goal_62.
+aux_snode_74_row48 :- snode_64.
+0.9::snode_74 :- snode_67, snode_70, snode_73, kine29, unless(aux_snode_74_row48).
+aux_snode_74_row49 :- goal_62.
+aux_snode_74_row49 :- snode_64.
+aux_snode_74_row49 :- kine29.
+0.9::snode_74 :- snode_67, snode_70, snode_73, unless(aux_snode_74_row49).
+aux_snode_74_row50 :- goal_62.
+aux_snode_74_row50 :- snode_64.
+aux_snode_74_row50 :- snode_73.
+0.9::snode_74 :- snode_67, snode_70, kine29, unless(aux_snode_74_row50).
+aux_snode_74_row51 :- goal_62.
+aux_snode_74_row51 :- snode_64.
+aux_snode_74_row51 :- snode_73.
+aux_snode_74_row51 :- kine29.
+0.9::snode_74 :- snode_67, snode_70, unless(aux_snode_74_row51).
+aux_snode_74_row52 :- goal_62.
+aux_snode_74_row52 :- snode_64.
+aux_snode_74_row52 :- snode_70.
+0.9::snode_74 :- snode_67, snode_73, kine29, unless(aux_snode_74_row52).
+aux_snode_74_row53 :- goal_62.
+aux_snode_74_row53 :- snode_64.
+aux_snode_74_row53 :- snode_70.
+aux_snode_74_row53 :- kine29.
+0.9::snode_74 :- snode_67, snode_73, unless(aux_snode_74_row53).
+aux_snode_74_row54 :- goal_62.
+aux_snode_74_row54 :- snode_64.
+aux_snode_74_row54 :- snode_70.
+aux_snode_74_row54 :- snode_73.
+0.9::snode_74 :- snode_67, kine29, unless(aux_snode_74_row54).
+aux_snode_74_row55 :- goal_62.
+aux_snode_74_row55 :- snode_64.
+aux_snode_74_row55 :- snode_70.
+aux_snode_74_row55 :- snode_73.
+aux_snode_74_row55 :- kine29.
+0.9::snode_74 :- snode_67, unless(aux_snode_74_row55).
+aux_snode_74_row56 :- goal_62.
+aux_snode_74_row56 :- snode_64.
+aux_snode_74_row56 :- snode_67.
+0.9::snode_74 :- snode_70, snode_73, kine29, unless(aux_snode_74_row56).
+aux_snode_74_row57 :- goal_62.
+aux_snode_74_row57 :- snode_64.
+aux_snode_74_row57 :- snode_67.
+aux_snode_74_row57 :- kine29.
+0.9::snode_74 :- snode_70, snode_73, unless(aux_snode_74_row57).
+aux_snode_74_row58 :- goal_62.
+aux_snode_74_row58 :- snode_64.
+aux_snode_74_row58 :- snode_67.
+aux_snode_74_row58 :- snode_73.
+0.9::snode_74 :- snode_70, kine29, unless(aux_snode_74_row58).
+aux_snode_74_row59 :- goal_62.
+aux_snode_74_row59 :- snode_64.
+aux_snode_74_row59 :- snode_67.
+aux_snode_74_row59 :- snode_73.
+aux_snode_74_row59 :- kine29.
+0.9::snode_74 :- snode_70, unless(aux_snode_74_row59).
+aux_snode_74_row60 :- goal_62.
+aux_snode_74_row60 :- snode_64.
+aux_snode_74_row60 :- snode_67.
+aux_snode_74_row60 :- snode_70.
+0.9::snode_74 :- snode_73, kine29, unless(aux_snode_74_row60).
+aux_snode_74_row61 :- goal_62.
+aux_snode_74_row61 :- snode_64.
+aux_snode_74_row61 :- snode_67.
+aux_snode_74_row61 :- snode_70.
+aux_snode_74_row61 :- kine29.
+0.9::snode_74 :- snode_73, unless(aux_snode_74_row61).
+aux_snode_74_row62 :- goal_62.
+aux_snode_74_row62 :- snode_64.
+aux_snode_74_row62 :- snode_67.
+aux_snode_74_row62 :- snode_70.
+aux_snode_74_row62 :- snode_73.
+0.9::snode_74 :- kine29, unless(aux_snode_74_row62).
+aux_snode_74_row63 :- goal_62.
+aux_snode_74_row63 :- snode_64.
+aux_snode_74_row63 :- snode_67.
+aux_snode_74_row63 :- snode_70.
+aux_snode_74_row63 :- snode_73.
+aux_snode_74_row63 :- kine29.
+9e-05::snode_74 :- unless(aux_snode_74_row63).
+0.9::snode_75 :- snode_4, goal_72, snode_73, vector44.
+0.9::snode_75 :- snode_4, goal_72, snode_73, unless(vector44).
+0.9::snode_75 :- snode_4, goal_72, vector44, unless(snode_73).
+aux_snode_75_row3 :- snode_73.
+aux_snode_75_row3 :- vector44.
+0.9::snode_75 :- snode_4, goal_72, unless(aux_snode_75_row3).
+0.9::snode_75 :- snode_4, snode_73, vector44, unless(goal_72).
+aux_snode_75_row5 :- goal_72.
+aux_snode_75_row5 :- vector44.
+0.9::snode_75 :- snode_4, snode_73, unless(aux_snode_75_row5).
+aux_snode_75_row6 :- goal_72.
+aux_snode_75_row6 :- snode_73.
+0.9::snode_75 :- snode_4, vector44, unless(aux_snode_75_row6).
+aux_snode_75_row7 :- goal_72.
+aux_snode_75_row7 :- snode_73.
+aux_snode_75_row7 :- vector44.
+0.9::snode_75 :- snode_4, unless(aux_snode_75_row7).
+0.9::snode_75 :- goal_72, snode_73, vector44, unless(snode_4).
+aux_snode_75_row9 :- snode_4.
+aux_snode_75_row9 :- vector44.
+0.9::snode_75 :- goal_72, snode_73, unless(aux_snode_75_row9).
+aux_snode_75_row10 :- snode_4.
+aux_snode_75_row10 :- snode_73.
+0.9::snode_75 :- goal_72, vector44, unless(aux_snode_75_row10).
+aux_snode_75_row11 :- snode_4.
+aux_snode_75_row11 :- snode_73.
+aux_snode_75_row11 :- vector44.
+0.9::snode_75 :- goal_72, unless(aux_snode_75_row11).
+aux_snode_75_row12 :- snode_4.
+aux_snode_75_row12 :- goal_72.
+0.9::snode_75 :- snode_73, vector44, unless(aux_snode_75_row12).
+aux_snode_75_row13 :- snode_4.
+aux_snode_75_row13 :- goal_72.
+aux_snode_75_row13 :- vector44.
+0.9::snode_75 :- snode_73, unless(aux_snode_75_row13).
+aux_snode_75_row14 :- snode_4.
+aux_snode_75_row14 :- goal_72.
+aux_snode_75_row14 :- snode_73.
+0.9::snode_75 :- vector44, unless(aux_snode_75_row14).
+aux_snode_75_row15 :- snode_4.
+aux_snode_75_row15 :- goal_72.
+aux_snode_75_row15 :- snode_73.
+aux_snode_75_row15 :- vector44.
+9e-05::snode_75 :- unless(aux_snode_75_row15).
+0.8::goal_79 :- snode_74, snode_75, equation28.
+0.8::goal_79 :- snode_74, snode_75, unless(equation28).
+0.8::goal_79 :- snode_74, equation28, unless(snode_75).
+aux_goal_79_row3 :- snode_75.
+aux_goal_79_row3 :- equation28.
+0.8::goal_79 :- snode_74, unless(aux_goal_79_row3).
+0.8::goal_79 :- snode_75, equation28, unless(snode_74).
+aux_goal_79_row5 :- snode_74.
+aux_goal_79_row5 :- equation28.
+0.8::goal_79 :- snode_75, unless(aux_goal_79_row5).
+aux_goal_79_row6 :- snode_74.
+aux_goal_79_row6 :- snode_75.
+0.8::goal_79 :- equation28, unless(aux_goal_79_row6).
+aux_goal_79_row7 :- snode_74.
+aux_goal_79_row7 :- snode_75.
+aux_goal_79_row7 :- equation28.
+8e-05::goal_79 :- unless(aux_goal_79_row7).
+0.8::goal_80 :- snode_75, equation28.
+0.8::goal_80 :- snode_75, unless(equation28).
+0.8::goal_80 :- equation28, unless(snode_75).
+aux_goal_80_row3 :- snode_75.
+aux_goal_80_row3 :- equation28.
+8e-05::goal_80 :- unless(aux_goal_80_row3).
+rapp5 :- vector27, goal_79.
+rapp5 :- vector27, unless(goal_79).
+rapp5 :- goal_79, unless(vector27).
+aux_rapp5_row3 :- vector27.
+aux_rapp5_row3 :- goal_79.
+0.0001::rapp5 :- unless(aux_rapp5_row3).
+rapp6 :- compo16, goal_80.
+rapp6 :- compo16, unless(goal_80).
+rapp6 :- goal_80, unless(compo16).
+aux_rapp6_row3 :- compo16.
+aux_rapp6_row3 :- goal_80.
+0.0001::rapp6 :- unless(aux_rapp6_row3).
+0.8::goal_81 :- rapp5, rapp6.
+0.8::goal_83 :- goal_81, try24.
+0.8::goal_83 :- goal_81, unless(try24).
+0.8::goal_83 :- try24, unless(goal_81).
+aux_goal_83_row3 :- goal_81.
+aux_goal_83_row3 :- try24.
+8e-05::goal_83 :- unless(aux_goal_83_row3).
+0.8::goal_84 :- goal_83, choose47.
+0.8::goal_84 :- goal_83, unless(choose47).
+0.8::goal_84 :- choose47, unless(goal_83).
+aux_goal_84_row3 :- goal_83.
+aux_goal_84_row3 :- choose47.
+8e-05::goal_84 :- unless(aux_goal_84_row3).
+0.9::snode_86 :- goal_84, system46.
+0.9::snode_86 :- goal_84, unless(system46).
+0.9::snode_86 :- system46, unless(goal_84).
+aux_snode_86_row3 :- goal_84.
+aux_snode_86_row3 :- system46.
+9e-05::snode_86 :- unless(aux_snode_86_row3).
+0.8::snode_156 :- snode_86, newtons45.
+0.8::snode_156 :- snode_86, unless(newtons45).
+0.8::snode_156 :- newtons45, unless(snode_86).
+aux_snode_156_row3 :- snode_86.
+aux_snode_156_row3 :- newtons45.
+8e-05::snode_156 :- unless(aux_snode_156_row3).
+0.8::goal_98 :- goal_83, snode_156, define23.
+0.8::goal_98 :- goal_83, snode_156, unless(define23).
+0.8::goal_98 :- goal_83, define23, unless(snode_156).
+aux_goal_98_row3 :- snode_156.
+aux_goal_98_row3 :- define23.
+0.8::goal_98 :- goal_83, unless(aux_goal_98_row3).
+0.8::goal_98 :- snode_156, define23, unless(goal_83).
+aux_goal_98_row5 :- goal_83.
+aux_goal_98_row5 :- define23.
+0.8::goal_98 :- snode_156, unless(aux_goal_98_row5).
+aux_goal_98_row6 :- goal_83.
+aux_goal_98_row6 :- snode_156.
+0.8::goal_98 :- define23, unless(aux_goal_98_row6).
+aux_goal_98_row7 :- goal_83.
+aux_goal_98_row7 :- snode_156.
+aux_goal_98_row7 :- define23.
+8e-05::goal_98 :- unless(aux_goal_98_row7).
+0.7::goal_87 :- goal_83, snode_156, find49.
+0.7::goal_87 :- goal_83, snode_156, unless(find49).
+0.7::goal_87 :- goal_83, find49, unless(snode_156).
+aux_goal_87_row3 :- snode_156.
+aux_goal_87_row3 :- find49.
+0.7::goal_87 :- goal_83, unless(aux_goal_87_row3).
+0.7::goal_87 :- snode_156, find49, unless(goal_83).
+aux_goal_87_row5 :- goal_83.
+aux_goal_87_row5 :- find49.
+0.7::goal_87 :- snode_156, unless(aux_goal_87_row5).
+aux_goal_87_row6 :- goal_83.
+aux_goal_87_row6 :- snode_156.
+0.7::goal_87 :- find49, unless(aux_goal_87_row6).
+aux_goal_87_row7 :- goal_83.
+aux_goal_87_row7 :- snode_156.
+aux_goal_87_row7 :- find49.
+7e-05::goal_87 :- unless(aux_goal_87_row7).
+0.8::snode_37 :- goal_98, identify22.
+0.8::snode_37 :- goal_98, unless(identify22).
+0.8::snode_37 :- identify22, unless(goal_98).
+aux_snode_37_row3 :- goal_98.
+aux_snode_37_row3 :- identify22.
+8e-05::snode_37 :- unless(aux_snode_37_row3).
+0.8::goal_99 :- goal_98, find58.
+0.8::goal_99 :- goal_98, unless(find58).
+0.8::goal_99 :- find58, unless(goal_98).
+aux_goal_99_row3 :- goal_98.
+aux_goal_99_row3 :- find58.
+8e-05::goal_99 :- unless(aux_goal_99_row3).
+0.8::snode_100 :- goal_98, identify59.
+0.8::snode_100 :- goal_98, unless(identify59).
+0.8::snode_100 :- identify59, unless(goal_98).
+aux_snode_100_row3 :- goal_98.
+aux_snode_100_row3 :- identify59.
+8e-05::snode_100 :- unless(aux_snode_100_row3).
+0.9::snode_88 :- snode_25, goal_87, normal50.
+0.9::snode_88 :- snode_25, goal_87, unless(normal50).
+0.9::snode_88 :- snode_25, normal50, unless(goal_87).
+aux_snode_88_row3 :- goal_87.
+aux_snode_88_row3 :- normal50.
+0.9::snode_88 :- snode_25, unless(aux_snode_88_row3).
+0.9::snode_88 :- goal_87, normal50, unless(snode_25).
+aux_snode_88_row5 :- snode_25.
+aux_snode_88_row5 :- normal50.
+0.9::snode_88 :- goal_87, unless(aux_snode_88_row5).
+aux_snode_88_row6 :- snode_25.
+aux_snode_88_row6 :- goal_87.
+0.9::snode_88 :- normal50, unless(aux_snode_88_row6).
+aux_snode_88_row7 :- snode_25.
+aux_snode_88_row7 :- goal_87.
+aux_snode_88_row7 :- normal50.
+9e-05::snode_88 :- unless(aux_snode_88_row7).
+0.9::snode_94 :- snode_16, snode_33, goal_87, weight56.
+0.9::snode_94 :- snode_16, snode_33, goal_87, unless(weight56).
+0.9::snode_94 :- snode_16, snode_33, weight56, unless(goal_87).
+aux_snode_94_row3 :- goal_87.
+aux_snode_94_row3 :- weight56.
+0.9::snode_94 :- snode_16, snode_33, unless(aux_snode_94_row3).
+0.9::snode_94 :- snode_16, goal_87, weight56, unless(snode_33).
+aux_snode_94_row5 :- snode_33.
+aux_snode_94_row5 :- weight56.
+0.9::snode_94 :- snode_16, goal_87, unless(aux_snode_94_row5).
+aux_snode_94_row6 :- snode_33.
+aux_snode_94_row6 :- goal_87.
+0.9::snode_94 :- snode_16, weight56, unless(aux_snode_94_row6).
+aux_snode_94_row7 :- snode_33.
+aux_snode_94_row7 :- goal_87.
+aux_snode_94_row7 :- weight56.
+0.9::snode_94 :- snode_16, unless(aux_snode_94_row7).
+0.9::snode_94 :- snode_33, goal_87, weight56, unless(snode_16).
+aux_snode_94_row9 :- snode_16.
+aux_snode_94_row9 :- weight56.
+0.9::snode_94 :- snode_33, goal_87, unless(aux_snode_94_row9).
+aux_snode_94_row10 :- snode_16.
+aux_snode_94_row10 :- goal_87.
+0.9::snode_94 :- snode_33, weight56, unless(aux_snode_94_row10).
+aux_snode_94_row11 :- snode_16.
+aux_snode_94_row11 :- goal_87.
+aux_snode_94_row11 :- weight56.
+0.9::snode_94 :- snode_33, unless(aux_snode_94_row11).
+aux_snode_94_row12 :- snode_16.
+aux_snode_94_row12 :- snode_33.
+0.9::snode_94 :- goal_87, weight56, unless(aux_snode_94_row12).
+aux_snode_94_row13 :- snode_16.
+aux_snode_94_row13 :- snode_33.
+aux_snode_94_row13 :- weight56.
+0.9::snode_94 :- goal_87, unless(aux_snode_94_row13).
+aux_snode_94_row14 :- snode_16.
+aux_snode_94_row14 :- snode_33.
+aux_snode_94_row14 :- goal_87.
+0.9::snode_94 :- weight56, unless(aux_snode_94_row14).
+aux_snode_94_row15 :- snode_16.
+aux_snode_94_row15 :- snode_33.
+aux_snode_94_row15 :- goal_87.
+aux_snode_94_row15 :- weight56.
+9e-05::snode_94 :- unless(aux_snode_94_row15).
+0.8::snode_38 :- snode_37, var20.
+0.8::snode_38 :- snode_37, unless(var20).
+0.8::snode_38 :- var20, unless(snode_37).
+aux_snode_38_row3 :- snode_37.
+aux_snode_38_row3 :- var20.
+8e-05::snode_38 :- unless(aux_snode_38_row3).
+0.8::snode_91 :- snode_88, snode_12, snode_13, strat_90, incline51.
+0.8::snode_91 :- snode_88, snode_12, snode_13, strat_90, unless(incline51).
+0.8::snode_91 :- snode_88, snode_12, snode_13, incline51, unless(strat_90).
+aux_snode_91_row3 :- strat_90.
+aux_snode_91_row3 :- incline51.
+0.8::snode_91 :- snode_88, snode_12, snode_13, unless(aux_snode_91_row3).
+0.8::snode_91 :- snode_88, snode_12, strat_90, incline51, unless(snode_13).
+aux_snode_91_row5 :- snode_13.
+aux_snode_91_row5 :- incline51.
+0.8::snode_91 :- snode_88, snode_12, strat_90, unless(aux_snode_91_row5).
+aux_snode_91_row6 :- snode_13.
+aux_snode_91_row6 :- strat_90.
+0.8::snode_91 :- snode_88, snode_12, incline51, unless(aux_snode_91_row6).
+aux_snode_91_row7 :- snode_13.
+aux_snode_91_row7 :- strat_90.
+aux_snode_91_row7 :- incline51.
+0.8::snode_91 :- snode_88, snode_12, unless(aux_snode_91_row7).
+0.8::snode_91 :- snode_88, snode_13, strat_90, incline51, unless(snode_12).
+aux_snode_91_row9 :- snode_12.
+aux_snode_91_row9 :- incline51.
+0.8::snode_91 :- snode_88, snode_13, strat_90, unless(aux_snode_91_row9).
+aux_snode_91_row10 :- snode_12.
+aux_snode_91_row10 :- strat_90.
+0.8::snode_91 :- snode_88, snode_13, incline51, unless(aux_snode_91_row10).
+aux_snode_91_row11 :- snode_12.
+aux_snode_91_row11 :- strat_90.
+aux_snode_91_row11 :- incline51.
+0.8::snode_91 :- snode_88, snode_13, unless(aux_snode_91_row11).
+aux_snode_91_row12 :- snode_12.
+aux_snode_91_row12 :- snode_13.
+0.8::snode_91 :- snode_88, strat_90, incline51, unless(aux_snode_91_row12).
+aux_snode_91_row13 :- snode_12.
+aux_snode_91_row13 :- snode_13.
+aux_snode_91_row13 :- incline51.
+0.8::snode_91 :- snode_88, strat_90, unless(aux_snode_91_row13).
+aux_snode_91_row14 :- snode_12.
+aux_snode_91_row14 :- snode_13.
+aux_snode_91_row14 :- strat_90.
+0.8::snode_91 :- snode_88, incline51, unless(aux_snode_91_row14).
+aux_snode_91_row15 :- snode_12.
+aux_snode_91_row15 :- snode_13.
+aux_snode_91_row15 :- strat_90.
+aux_snode_91_row15 :- incline51.
+0.8::snode_91 :- snode_88, unless(aux_snode_91_row15).
+0.8::snode_91 :- snode_12, snode_13, strat_90, incline51, unless(snode_88).
+aux_snode_91_row17 :- snode_88.
+aux_snode_91_row17 :- incline51.
+0.8::snode_91 :- snode_12, snode_13, strat_90, unless(aux_snode_91_row17).
+aux_snode_91_row18 :- snode_88.
+aux_snode_91_row18 :- strat_90.
+0.8::snode_91 :- snode_12, snode_13, incline51, unless(aux_snode_91_row18).
+aux_snode_91_row19 :- snode_88.
+aux_snode_91_row19 :- strat_90.
+aux_snode_91_row19 :- incline51.
+0.8::snode_91 :- snode_12, snode_13, unless(aux_snode_91_row19).
+aux_snode_91_row20 :- snode_88.
+aux_snode_91_row20 :- snode_13.
+0.8::snode_91 :- snode_12, strat_90, incline51, unless(aux_snode_91_row20).
+aux_snode_91_row21 :- snode_88.
+aux_snode_91_row21 :- snode_13.
+aux_snode_91_row21 :- incline51.
+0.8::snode_91 :- snode_12, strat_90, unless(aux_snode_91_row21).
+aux_snode_91_row22 :- snode_88.
+aux_snode_91_row22 :- snode_13.
+aux_snode_91_row22 :- strat_90.
+0.8::snode_91 :- snode_12, incline51, unless(aux_snode_91_row22).
+aux_snode_91_row23 :- snode_88.
+aux_snode_91_row23 :- snode_13.
+aux_snode_91_row23 :- strat_90.
+aux_snode_91_row23 :- incline51.
+0.8::snode_91 :- snode_12, unless(aux_snode_91_row23).
+aux_snode_91_row24 :- snode_88.
+aux_snode_91_row24 :- snode_12.
+0.8::snode_91 :- snode_13, strat_90, incline51, unless(aux_snode_91_row24).
+aux_snode_91_row25 :- snode_88.
+aux_snode_91_row25 :- snode_12.
+aux_snode_91_row25 :- incline51.
+0.8::snode_91 :- snode_13, strat_90, unless(aux_snode_91_row25).
+aux_snode_91_row26 :- snode_88.
+aux_snode_91_row26 :- snode_12.
+aux_snode_91_row26 :- strat_90.
+0.8::snode_91 :- snode_13, incline51, unless(aux_snode_91_row26).
+aux_snode_91_row27 :- snode_88.
+aux_snode_91_row27 :- snode_12.
+aux_snode_91_row27 :- strat_90.
+aux_snode_91_row27 :- incline51.
+0.8::snode_91 :- snode_13, unless(aux_snode_91_row27).
+aux_snode_91_row28 :- snode_88.
+aux_snode_91_row28 :- snode_12.
+aux_snode_91_row28 :- snode_13.
+0.8::snode_91 :- strat_90, incline51, unless(aux_snode_91_row28).
+aux_snode_91_row29 :- snode_88.
+aux_snode_91_row29 :- snode_12.
+aux_snode_91_row29 :- snode_13.
+aux_snode_91_row29 :- incline51.
+0.8::snode_91 :- strat_90, unless(aux_snode_91_row29).
+aux_snode_91_row30 :- snode_88.
+aux_snode_91_row30 :- snode_12.
+aux_snode_91_row30 :- snode_13.
+aux_snode_91_row30 :- strat_90.
+0.8::snode_91 :- incline51, unless(aux_snode_91_row30).
+aux_snode_91_row31 :- snode_88.
+aux_snode_91_row31 :- snode_12.
+aux_snode_91_row31 :- snode_13.
+aux_snode_91_row31 :- strat_90.
+aux_snode_91_row31 :- incline51.
+8e-05::snode_91 :- unless(aux_snode_91_row31).
+0.8::snode_93 :- goal_87, snode_88, identify55.
+0.8::snode_93 :- goal_87, snode_88, unless(identify55).
+0.8::snode_93 :- goal_87, identify55, unless(snode_88).
+aux_snode_93_row3 :- snode_88.
+aux_snode_93_row3 :- identify55.
+0.8::snode_93 :- goal_87, unless(aux_snode_93_row3).
+0.8::snode_93 :- snode_88, identify55, unless(goal_87).
+aux_snode_93_row5 :- goal_87.
+aux_snode_93_row5 :- identify55.
+0.8::snode_93 :- snode_88, unless(aux_snode_93_row5).
+aux_snode_93_row6 :- goal_87.
+aux_snode_93_row6 :- snode_88.
+0.8::snode_93 :- identify55, unless(aux_snode_93_row6).
+aux_snode_93_row7 :- goal_87.
+aux_snode_93_row7 :- snode_88.
+aux_snode_93_row7 :- identify55.
+8e-05::snode_93 :- unless(aux_snode_93_row7).
+0.8::snode_95 :- snode_94, weight57.
+0.8::snode_95 :- snode_94, unless(weight57).
+0.8::snode_95 :- weight57, unless(snode_94).
+aux_snode_95_row3 :- snode_94.
+aux_snode_95_row3 :- weight57.
+8e-05::snode_95 :- unless(aux_snode_95_row3).
+0.8::snode_97 :- goal_87, snode_94, identify55.
+0.8::snode_97 :- goal_87, snode_94, unless(identify55).
+0.8::snode_97 :- goal_87, identify55, unless(snode_94).
+aux_snode_97_row3 :- snode_94.
+aux_snode_97_row3 :- identify55.
+0.8::snode_97 :- goal_87, unless(aux_snode_97_row3).
+0.8::snode_97 :- snode_94, identify55, unless(goal_87).
+aux_snode_97_row5 :- goal_87.
+aux_snode_97_row5 :- identify55.
+0.8::snode_97 :- snode_94, unless(aux_snode_97_row5).
+aux_snode_97_row6 :- goal_87.
+aux_snode_97_row6 :- snode_94.
+0.8::snode_97 :- identify55, unless(aux_snode_97_row6).
+aux_snode_97_row7 :- goal_87.
+aux_snode_97_row7 :- snode_94.
+aux_snode_97_row7 :- identify55.
+8e-05::snode_97 :- unless(aux_snode_97_row7).
+0.9::snode_102 :- goal_87, snode_88, snode_94, force60.
+0.9::snode_102 :- goal_87, snode_88, snode_94, unless(force60).
+0.9::snode_102 :- goal_87, snode_88, force60, unless(snode_94).
+aux_snode_102_row3 :- snode_94.
+aux_snode_102_row3 :- force60.
+0.9::snode_102 :- goal_87, snode_88, unless(aux_snode_102_row3).
+0.9::snode_102 :- goal_87, snode_94, force60, unless(snode_88).
+aux_snode_102_row5 :- snode_88.
+aux_snode_102_row5 :- force60.
+0.9::snode_102 :- goal_87, snode_94, unless(aux_snode_102_row5).
+aux_snode_102_row6 :- snode_88.
+aux_snode_102_row6 :- snode_94.
+0.9::snode_102 :- goal_87, force60, unless(aux_snode_102_row6).
+aux_snode_102_row7 :- snode_88.
+aux_snode_102_row7 :- snode_94.
+aux_snode_102_row7 :- force60.
+0.9::snode_102 :- goal_87, unless(aux_snode_102_row7).
+0.9::snode_102 :- snode_88, snode_94, force60, unless(goal_87).
+aux_snode_102_row9 :- goal_87.
+aux_snode_102_row9 :- force60.
+0.9::snode_102 :- snode_88, snode_94, unless(aux_snode_102_row9).
+aux_snode_102_row10 :- goal_87.
+aux_snode_102_row10 :- snode_94.
+0.9::snode_102 :- snode_88, force60, unless(aux_snode_102_row10).
+aux_snode_102_row11 :- goal_87.
+aux_snode_102_row11 :- snode_94.
+aux_snode_102_row11 :- force60.
+0.9::snode_102 :- snode_88, unless(aux_snode_102_row11).
+aux_snode_102_row12 :- goal_87.
+aux_snode_102_row12 :- snode_88.
+0.9::snode_102 :- snode_94, force60, unless(aux_snode_102_row12).
+aux_snode_102_row13 :- goal_87.
+aux_snode_102_row13 :- snode_88.
+aux_snode_102_row13 :- force60.
+0.9::snode_102 :- snode_94, unless(aux_snode_102_row13).
+aux_snode_102_row14 :- goal_87.
+aux_snode_102_row14 :- snode_88.
+aux_snode_102_row14 :- snode_94.
+0.9::snode_102 :- force60, unless(aux_snode_102_row14).
+aux_snode_102_row15 :- goal_87.
+aux_snode_102_row15 :- snode_88.
+aux_snode_102_row15 :- snode_94.
+aux_snode_102_row15 :- force60.
+9e-05::snode_102 :- unless(aux_snode_102_row15).
+0.9::snode_40 :- snode_38, value3.
+0.9::snode_40 :- snode_38, unless(value3).
+0.9::snode_40 :- value3, unless(snode_38).
+aux_snode_40_row3 :- snode_38.
+aux_snode_40_row3 :- value3.
+9e-05::snode_40 :- unless(aux_snode_40_row3).
+0.8::goal_103 :- goal_83, snode_102, apply61.
+0.8::goal_103 :- goal_83, snode_102, unless(apply61).
+0.8::goal_103 :- goal_83, apply61, unless(snode_102).
+aux_goal_103_row3 :- snode_102.
+aux_goal_103_row3 :- apply61.
+0.8::goal_103 :- goal_83, unless(aux_goal_103_row3).
+0.8::goal_103 :- snode_102, apply61, unless(goal_83).
+aux_goal_103_row5 :- goal_83.
+aux_goal_103_row5 :- apply61.
+0.8::goal_103 :- snode_102, unless(aux_goal_103_row5).
+aux_goal_103_row6 :- goal_83.
+aux_goal_103_row6 :- snode_102.
+0.8::goal_103 :- apply61, unless(aux_goal_103_row6).
+aux_goal_103_row7 :- goal_83.
+aux_goal_103_row7 :- snode_102.
+aux_goal_103_row7 :- apply61.
+8e-05::goal_103 :- unless(aux_goal_103_row7).
+0.8::goal_104 :- goal_103, choose62.
+0.8::goal_104 :- goal_103, unless(choose62).
+0.8::goal_104 :- choose62, unless(goal_103).
+aux_goal_104_row3 :- goal_103.
+aux_goal_104_row3 :- choose62.
+8e-05::goal_104 :- unless(aux_goal_104_row3).
+0.8::snode_106 :- goal_104, maximize34.
+0.8::snode_106 :- goal_104, unless(maximize34).
+0.8::snode_106 :- maximize34, unless(goal_104).
+aux_snode_106_row3 :- goal_104.
+aux_snode_106_row3 :- maximize34.
+8e-05::snode_106 :- unless(aux_snode_106_row3).
+0.8::snode_152 :- snode_106, axis33.
+0.8::snode_152 :- snode_106, unless(axis33).
+0.8::snode_152 :- axis33, unless(snode_106).
+aux_snode_152_row3 :- snode_106.
+aux_snode_152_row3 :- axis33.
+8e-05::snode_152 :- unless(aux_snode_152_row3).
+0.8::goal_107 :- goal_103, snode_152, write63.
+0.8::goal_107 :- goal_103, snode_152, unless(write63).
+0.8::goal_107 :- goal_103, write63, unless(snode_152).
+aux_goal_107_row3 :- snode_152.
+aux_goal_107_row3 :- write63.
+0.8::goal_107 :- goal_103, unless(aux_goal_107_row3).
+0.8::goal_107 :- snode_152, write63, unless(goal_103).
+aux_goal_107_row5 :- goal_103.
+aux_goal_107_row5 :- write63.
+0.8::goal_107 :- snode_152, unless(aux_goal_107_row5).
+aux_goal_107_row6 :- goal_103.
+aux_goal_107_row6 :- snode_152.
+0.8::goal_107 :- write63, unless(aux_goal_107_row6).
+aux_goal_107_row7 :- goal_103.
+aux_goal_107_row7 :- snode_152.
+aux_goal_107_row7 :- write63.
+8e-05::goal_107 :- unless(aux_goal_107_row7).
+0.8::goal_108 :- goal_107, write64.
+0.8::goal_108 :- goal_107, unless(write64).
+0.8::goal_108 :- write64, unless(goal_107).
+aux_goal_108_row3 :- goal_107.
+aux_goal_108_row3 :- write64.
+8e-05::goal_108 :- unless(aux_goal_108_row3).
+0.8::goal_109 :- goal_107, write64.
+0.8::goal_109 :- goal_107, unless(write64).
+0.8::goal_109 :- write64, unless(goal_107).
+aux_goal_109_row3 :- goal_107.
+aux_goal_109_row3 :- write64.
+8e-05::goal_109 :- unless(aux_goal_109_row3).
+0.8::goal_126 :- goal_108, goal65.
+0.8::goal_126 :- goal_108, unless(goal65).
+0.8::goal_126 :- goal65, unless(goal_108).
+aux_goal_126_row3 :- goal_108.
+aux_goal_126_row3 :- goal65.
+8e-05::goal_126 :- unless(aux_goal_126_row3).
+0.8::goal_127 :- goal_108, goal66.
+0.8::goal_127 :- goal_108, unless(goal66).
+0.8::goal_127 :- goal66, unless(goal_108).
+aux_goal_127_row3 :- goal_108.
+aux_goal_127_row3 :- goal66.
+8e-05::goal_127 :- unless(aux_goal_127_row3).
+rapp9 :- need67, goal_108.
+rapp9 :- need67, unless(goal_108).
+rapp9 :- goal_108, unless(need67).
+aux_rapp9_row3 :- need67.
+aux_rapp9_row3 :- goal_108.
+0.0001::rapp9 :- unless(aux_rapp9_row3).
+0.8::goal_153 :- goal_108, goal72.
+0.8::goal_153 :- goal_108, unless(goal72).
+0.8::goal_153 :- goal72, unless(goal_108).
+aux_goal_153_row3 :- goal_108.
+aux_goal_153_row3 :- goal72.
+8e-05::goal_153 :- unless(aux_goal_153_row3).
+0.8::goal_110 :- goal_109, goal65.
+0.8::goal_110 :- goal_109, unless(goal65).
+0.8::goal_110 :- goal65, unless(goal_109).
+aux_goal_110_row3 :- goal_109.
+aux_goal_110_row3 :- goal65.
+8e-05::goal_110 :- unless(aux_goal_110_row3).
+0.8::goal_111 :- goal_109, goal66.
+0.8::goal_111 :- goal_109, unless(goal66).
+0.8::goal_111 :- goal66, unless(goal_109).
+aux_goal_111_row3 :- goal_109.
+aux_goal_111_row3 :- goal66.
+8e-05::goal_111 :- unless(aux_goal_111_row3).
+rapp7 :- need67, goal_109.
+rapp7 :- need67, unless(goal_109).
+rapp7 :- goal_109, unless(need67).
+aux_rapp7_row3 :- need67.
+aux_rapp7_row3 :- goal_109.
+0.0001::rapp7 :- unless(aux_rapp7_row3).
+0.8::goal_121 :- goal_109, goal72.
+0.8::goal_121 :- goal_109, unless(goal72).
+0.8::goal_121 :- goal72, unless(goal_109).
+aux_goal_121_row3 :- goal_109.
+aux_goal_121_row3 :- goal72.
+8e-05::goal_121 :- unless(aux_goal_121_row3).
+0.8::goal_129 :- goal_126, goal68.
+0.8::goal_129 :- goal_126, unless(goal68).
+0.8::goal_129 :- goal68, unless(goal_126).
+aux_goal_129_row3 :- goal_126.
+aux_goal_129_row3 :- goal68.
+8e-05::goal_129 :- unless(aux_goal_129_row3).
+0.8::goal_130 :- goal_126, goal68.
+0.8::goal_130 :- goal_126, unless(goal68).
+0.8::goal_130 :- goal68, unless(goal_126).
+aux_goal_130_row3 :- goal_126.
+aux_goal_130_row3 :- goal68.
+8e-05::goal_130 :- unless(aux_goal_130_row3).
+rapp10 :- need36, goal_127.
+rapp10 :- need36, unless(goal_127).
+rapp10 :- goal_127, unless(need36).
+aux_rapp10_row3 :- need36.
+aux_rapp10_row3 :- goal_127.
+0.0001::rapp10 :- unless(aux_rapp10_row3).
+0.8::goal_113 :- goal_110, goal68.
+0.8::goal_113 :- goal_110, unless(goal68).
+0.8::goal_113 :- goal68, unless(goal_110).
+aux_goal_113_row3 :- goal_110.
+aux_goal_113_row3 :- goal68.
+8e-05::goal_113 :- unless(aux_goal_113_row3).
+0.8::goal_114 :- goal_110, goal68.
+0.8::goal_114 :- goal_110, unless(goal68).
+0.8::goal_114 :- goal68, unless(goal_110).
+aux_goal_114_row3 :- goal_110.
+aux_goal_114_row3 :- goal68.
+8e-05::goal_114 :- unless(aux_goal_114_row3).
+rapp8 :- need36, goal_111.
+rapp8 :- need36, unless(goal_111).
+rapp8 :- goal_111, unless(need36).
+aux_rapp8_row3 :- need36.
+aux_rapp8_row3 :- goal_111.
+0.0001::rapp8 :- unless(aux_rapp8_row3).
+0.8::snode_122 :- goal_121, need36.
+0.8::snode_122 :- goal_121, unless(need36).
+0.8::snode_122 :- need36, unless(goal_121).
+aux_snode_122_row3 :- goal_121.
+aux_snode_122_row3 :- need36.
+8e-05::snode_122 :- unless(aux_snode_122_row3).
+0.8::snode_154 :- goal_121, need36.
+0.8::snode_154 :- goal_121, unless(need36).
+0.8::snode_154 :- need36, unless(goal_121).
+aux_snode_154_row3 :- goal_121.
+aux_snode_154_row3 :- need36.
+8e-05::snode_154 :- unless(aux_snode_154_row3).
+0.8::snode_133 :- goal_129, need36.
+0.8::snode_133 :- goal_129, unless(need36).
+0.8::snode_133 :- need36, unless(goal_129).
+aux_snode_133_row3 :- goal_129.
+aux_snode_133_row3 :- need36.
+8e-05::snode_133 :- unless(aux_snode_133_row3).
+0.8::snode_131 :- goal_130, need36.
+0.8::snode_131 :- goal_130, unless(need36).
+0.8::snode_131 :- need36, unless(goal_130).
+aux_snode_131_row3 :- goal_130.
+aux_snode_131_row3 :- need36.
+8e-05::snode_131 :- unless(aux_snode_131_row3).
+0.8::snode_128 :- rapp9, rapp10.
+0.8::snode_117 :- goal_113, need36.
+0.8::snode_117 :- goal_113, unless(need36).
+0.8::snode_117 :- need36, unless(goal_113).
+aux_snode_117_row3 :- goal_113.
+aux_snode_117_row3 :- need36.
+8e-05::snode_117 :- unless(aux_snode_117_row3).
+0.8::snode_118 :- snode_91, goal_113, vector70.
+0.8::snode_118 :- snode_91, goal_113, unless(vector70).
+0.8::snode_118 :- snode_91, vector70, unless(goal_113).
+aux_snode_118_row3 :- goal_113.
+aux_snode_118_row3 :- vector70.
+0.8::snode_118 :- snode_91, unless(aux_snode_118_row3).
+0.8::snode_118 :- goal_113, vector70, unless(snode_91).
+aux_snode_118_row5 :- snode_91.
+aux_snode_118_row5 :- vector70.
+0.8::snode_118 :- goal_113, unless(aux_snode_118_row5).
+aux_snode_118_row6 :- snode_91.
+aux_snode_118_row6 :- goal_113.
+0.8::snode_118 :- vector70, unless(aux_snode_118_row6).
+aux_snode_118_row7 :- snode_91.
+aux_snode_118_row7 :- goal_113.
+aux_snode_118_row7 :- vector70.
+8e-05::snode_118 :- unless(aux_snode_118_row7).
+0.8::snode_115 :- goal_114, need36.
+0.8::snode_115 :- goal_114, unless(need36).
+0.8::snode_115 :- need36, unless(goal_114).
+aux_snode_115_row3 :- goal_114.
+aux_snode_115_row3 :- need36.
+8e-05::snode_115 :- unless(aux_snode_115_row3).
+0.8::snode_112 :- rapp7, rapp8.
+0.9::snode_123 :- snode_4, snode_100, goal_121, snode_122, vector73.
+0.9::snode_123 :- snode_4, snode_100, goal_121, snode_122, unless(vector73).
+0.9::snode_123 :- snode_4, snode_100, goal_121, vector73, unless(snode_122).
+aux_snode_123_row3 :- snode_122.
+aux_snode_123_row3 :- vector73.
+0.9::snode_123 :- snode_4, snode_100, goal_121, unless(aux_snode_123_row3).
+0.9::snode_123 :- snode_4, snode_100, snode_122, vector73, unless(goal_121).
+aux_snode_123_row5 :- goal_121.
+aux_snode_123_row5 :- vector73.
+0.9::snode_123 :- snode_4, snode_100, snode_122, unless(aux_snode_123_row5).
+aux_snode_123_row6 :- goal_121.
+aux_snode_123_row6 :- snode_122.
+0.9::snode_123 :- snode_4, snode_100, vector73, unless(aux_snode_123_row6).
+aux_snode_123_row7 :- goal_121.
+aux_snode_123_row7 :- snode_122.
+aux_snode_123_row7 :- vector73.
+0.9::snode_123 :- snode_4, snode_100, unless(aux_snode_123_row7).
+0.9::snode_123 :- snode_4, goal_121, snode_122, vector73, unless(snode_100).
+aux_snode_123_row9 :- snode_100.
+aux_snode_123_row9 :- vector73.
+0.9::snode_123 :- snode_4, goal_121, snode_122, unless(aux_snode_123_row9).
+aux_snode_123_row10 :- snode_100.
+aux_snode_123_row10 :- snode_122.
+0.9::snode_123 :- snode_4, goal_121, vector73, unless(aux_snode_123_row10).
+aux_snode_123_row11 :- snode_100.
+aux_snode_123_row11 :- snode_122.
+aux_snode_123_row11 :- vector73.
+0.9::snode_123 :- snode_4, goal_121, unless(aux_snode_123_row11).
+aux_snode_123_row12 :- snode_100.
+aux_snode_123_row12 :- goal_121.
+0.9::snode_123 :- snode_4, snode_122, vector73, unless(aux_snode_123_row12).
+aux_snode_123_row13 :- snode_100.
+aux_snode_123_row13 :- goal_121.
+aux_snode_123_row13 :- vector73.
+0.9::snode_123 :- snode_4, snode_122, unless(aux_snode_123_row13).
+aux_snode_123_row14 :- snode_100.
+aux_snode_123_row14 :- goal_121.
+aux_snode_123_row14 :- snode_122.
+0.9::snode_123 :- snode_4, vector73, unless(aux_snode_123_row14).
+aux_snode_123_row15 :- snode_100.
+aux_snode_123_row15 :- goal_121.
+aux_snode_123_row15 :- snode_122.
+aux_snode_123_row15 :- vector73.
+0.9::snode_123 :- snode_4, unless(aux_snode_123_row15).
+0.9::snode_123 :- snode_100, goal_121, snode_122, vector73, unless(snode_4).
+aux_snode_123_row17 :- snode_4.
+aux_snode_123_row17 :- vector73.
+0.9::snode_123 :- snode_100, goal_121, snode_122, unless(aux_snode_123_row17).
+aux_snode_123_row18 :- snode_4.
+aux_snode_123_row18 :- snode_122.
+0.9::snode_123 :- snode_100, goal_121, vector73, unless(aux_snode_123_row18).
+aux_snode_123_row19 :- snode_4.
+aux_snode_123_row19 :- snode_122.
+aux_snode_123_row19 :- vector73.
+0.9::snode_123 :- snode_100, goal_121, unless(aux_snode_123_row19).
+aux_snode_123_row20 :- snode_4.
+aux_snode_123_row20 :- goal_121.
+0.9::snode_123 :- snode_100, snode_122, vector73, unless(aux_snode_123_row20).
+aux_snode_123_row21 :- snode_4.
+aux_snode_123_row21 :- goal_121.
+aux_snode_123_row21 :- vector73.
+0.9::snode_123 :- snode_100, snode_122, unless(aux_snode_123_row21).
+aux_snode_123_row22 :- snode_4.
+aux_snode_123_row22 :- goal_121.
+aux_snode_123_row22 :- snode_122.
+0.9::snode_123 :- snode_100, vector73, unless(aux_snode_123_row22).
+aux_snode_123_row23 :- snode_4.
+aux_snode_123_row23 :- goal_121.
+aux_snode_123_row23 :- snode_122.
+aux_snode_123_row23 :- vector73.
+0.9::snode_123 :- snode_100, unless(aux_snode_123_row23).
+aux_snode_123_row24 :- snode_4.
+aux_snode_123_row24 :- snode_100.
+0.9::snode_123 :- goal_121, snode_122, vector73, unless(aux_snode_123_row24).
+aux_snode_123_row25 :- snode_4.
+aux_snode_123_row25 :- snode_100.
+aux_snode_123_row25 :- vector73.
+0.9::snode_123 :- goal_121, snode_122, unless(aux_snode_123_row25).
+aux_snode_123_row26 :- snode_4.
+aux_snode_123_row26 :- snode_100.
+aux_snode_123_row26 :- snode_122.
+0.9::snode_123 :- goal_121, vector73, unless(aux_snode_123_row26).
+aux_snode_123_row27 :- snode_4.
+aux_snode_123_row27 :- snode_100.
+aux_snode_123_row27 :- snode_122.
+aux_snode_123_row27 :- vector73.
+0.9::snode_123 :- goal_121, unless(aux_snode_123_row27).
+aux_snode_123_row28 :- snode_4.
+aux_snode_123_row28 :- snode_100.
+aux_snode_123_row28 :- goal_121.
+0.9::snode_123 :- snode_122, vector73, unless(aux_snode_123_row28).
+aux_snode_123_row29 :- snode_4.
+aux_snode_123_row29 :- snode_100.
+aux_snode_123_row29 :- goal_121.
+aux_snode_123_row29 :- vector73.
+0.9::snode_123 :- snode_122, unless(aux_snode_123_row29).
+aux_snode_123_row30 :- snode_4.
+aux_snode_123_row30 :- snode_100.
+aux_snode_123_row30 :- goal_121.
+aux_snode_123_row30 :- snode_122.
+0.9::snode_123 :- vector73, unless(aux_snode_123_row30).
+aux_snode_123_row31 :- snode_4.
+aux_snode_123_row31 :- snode_100.
+aux_snode_123_row31 :- goal_121.
+aux_snode_123_row31 :- snode_122.
+aux_snode_123_row31 :- vector73.
+9e-05::snode_123 :- unless(aux_snode_123_row31).
+0.9::snode_155 :- snode_4, snode_100, goal_153, snode_154, vector44.
+0.9::snode_155 :- snode_4, snode_100, goal_153, snode_154, unless(vector44).
+0.9::snode_155 :- snode_4, snode_100, goal_153, vector44, unless(snode_154).
+aux_snode_155_row3 :- snode_154.
+aux_snode_155_row3 :- vector44.
+0.9::snode_155 :- snode_4, snode_100, goal_153, unless(aux_snode_155_row3).
+0.9::snode_155 :- snode_4, snode_100, snode_154, vector44, unless(goal_153).
+aux_snode_155_row5 :- goal_153.
+aux_snode_155_row5 :- vector44.
+0.9::snode_155 :- snode_4, snode_100, snode_154, unless(aux_snode_155_row5).
+aux_snode_155_row6 :- goal_153.
+aux_snode_155_row6 :- snode_154.
+0.9::snode_155 :- snode_4, snode_100, vector44, unless(aux_snode_155_row6).
+aux_snode_155_row7 :- goal_153.
+aux_snode_155_row7 :- snode_154.
+aux_snode_155_row7 :- vector44.
+0.9::snode_155 :- snode_4, snode_100, unless(aux_snode_155_row7).
+0.9::snode_155 :- snode_4, goal_153, snode_154, vector44, unless(snode_100).
+aux_snode_155_row9 :- snode_100.
+aux_snode_155_row9 :- vector44.
+0.9::snode_155 :- snode_4, goal_153, snode_154, unless(aux_snode_155_row9).
+aux_snode_155_row10 :- snode_100.
+aux_snode_155_row10 :- snode_154.
+0.9::snode_155 :- snode_4, goal_153, vector44, unless(aux_snode_155_row10).
+aux_snode_155_row11 :- snode_100.
+aux_snode_155_row11 :- snode_154.
+aux_snode_155_row11 :- vector44.
+0.9::snode_155 :- snode_4, goal_153, unless(aux_snode_155_row11).
+aux_snode_155_row12 :- snode_100.
+aux_snode_155_row12 :- goal_153.
+0.9::snode_155 :- snode_4, snode_154, vector44, unless(aux_snode_155_row12).
+aux_snode_155_row13 :- snode_100.
+aux_snode_155_row13 :- goal_153.
+aux_snode_155_row13 :- vector44.
+0.9::snode_155 :- snode_4, snode_154, unless(aux_snode_155_row13).
+aux_snode_155_row14 :- snode_100.
+aux_snode_155_row14 :- goal_153.
+aux_snode_155_row14 :- snode_154.
+0.9::snode_155 :- snode_4, vector44, unless(aux_snode_155_row14).
+aux_snode_155_row15 :- snode_100.
+aux_snode_155_row15 :- goal_153.
+aux_snode_155_row15 :- snode_154.
+aux_snode_155_row15 :- vector44.
+0.9::snode_155 :- snode_4, unless(aux_snode_155_row15).
+0.9::snode_155 :- snode_100, goal_153, snode_154, vector44, unless(snode_4).
+aux_snode_155_row17 :- snode_4.
+aux_snode_155_row17 :- vector44.
+0.9::snode_155 :- snode_100, goal_153, snode_154, unless(aux_snode_155_row17).
+aux_snode_155_row18 :- snode_4.
+aux_snode_155_row18 :- snode_154.
+0.9::snode_155 :- snode_100, goal_153, vector44, unless(aux_snode_155_row18).
+aux_snode_155_row19 :- snode_4.
+aux_snode_155_row19 :- snode_154.
+aux_snode_155_row19 :- vector44.
+0.9::snode_155 :- snode_100, goal_153, unless(aux_snode_155_row19).
+aux_snode_155_row20 :- snode_4.
+aux_snode_155_row20 :- goal_153.
+0.9::snode_155 :- snode_100, snode_154, vector44, unless(aux_snode_155_row20).
+aux_snode_155_row21 :- snode_4.
+aux_snode_155_row21 :- goal_153.
+aux_snode_155_row21 :- vector44.
+0.9::snode_155 :- snode_100, snode_154, unless(aux_snode_155_row21).
+aux_snode_155_row22 :- snode_4.
+aux_snode_155_row22 :- goal_153.
+aux_snode_155_row22 :- snode_154.
+0.9::snode_155 :- snode_100, vector44, unless(aux_snode_155_row22).
+aux_snode_155_row23 :- snode_4.
+aux_snode_155_row23 :- goal_153.
+aux_snode_155_row23 :- snode_154.
+aux_snode_155_row23 :- vector44.
+0.9::snode_155 :- snode_100, unless(aux_snode_155_row23).
+aux_snode_155_row24 :- snode_4.
+aux_snode_155_row24 :- snode_100.
+0.9::snode_155 :- goal_153, snode_154, vector44, unless(aux_snode_155_row24).
+aux_snode_155_row25 :- snode_4.
+aux_snode_155_row25 :- snode_100.
+aux_snode_155_row25 :- vector44.
+0.9::snode_155 :- goal_153, snode_154, unless(aux_snode_155_row25).
+aux_snode_155_row26 :- snode_4.
+aux_snode_155_row26 :- snode_100.
+aux_snode_155_row26 :- snode_154.
+0.9::snode_155 :- goal_153, vector44, unless(aux_snode_155_row26).
+aux_snode_155_row27 :- snode_4.
+aux_snode_155_row27 :- snode_100.
+aux_snode_155_row27 :- snode_154.
+aux_snode_155_row27 :- vector44.
+0.9::snode_155 :- goal_153, unless(aux_snode_155_row27).
+aux_snode_155_row28 :- snode_4.
+aux_snode_155_row28 :- snode_100.
+aux_snode_155_row28 :- goal_153.
+0.9::snode_155 :- snode_154, vector44, unless(aux_snode_155_row28).
+aux_snode_155_row29 :- snode_4.
+aux_snode_155_row29 :- snode_100.
+aux_snode_155_row29 :- goal_153.
+aux_snode_155_row29 :- vector44.
+0.9::snode_155 :- snode_154, unless(aux_snode_155_row29).
+aux_snode_155_row30 :- snode_4.
+aux_snode_155_row30 :- snode_100.
+aux_snode_155_row30 :- goal_153.
+aux_snode_155_row30 :- snode_154.
+0.9::snode_155 :- vector44, unless(aux_snode_155_row30).
+aux_snode_155_row31 :- snode_4.
+aux_snode_155_row31 :- snode_100.
+aux_snode_155_row31 :- goal_153.
+aux_snode_155_row31 :- snode_154.
+aux_snode_155_row31 :- vector44.
+9e-05::snode_155 :- unless(aux_snode_155_row31).
+0.9::snode_134 :- snode_91, snode_93, goal_129, snode_133, vector73.
+0.9::snode_134 :- snode_91, snode_93, goal_129, snode_133, unless(vector73).
+0.9::snode_134 :- snode_91, snode_93, goal_129, vector73, unless(snode_133).
+aux_snode_134_row3 :- snode_133.
+aux_snode_134_row3 :- vector73.
+0.9::snode_134 :- snode_91, snode_93, goal_129, unless(aux_snode_134_row3).
+0.9::snode_134 :- snode_91, snode_93, snode_133, vector73, unless(goal_129).
+aux_snode_134_row5 :- goal_129.
+aux_snode_134_row5 :- vector73.
+0.9::snode_134 :- snode_91, snode_93, snode_133, unless(aux_snode_134_row5).
+aux_snode_134_row6 :- goal_129.
+aux_snode_134_row6 :- snode_133.
+0.9::snode_134 :- snode_91, snode_93, vector73, unless(aux_snode_134_row6).
+aux_snode_134_row7 :- goal_129.
+aux_snode_134_row7 :- snode_133.
+aux_snode_134_row7 :- vector73.
+0.9::snode_134 :- snode_91, snode_93, unless(aux_snode_134_row7).
+0.9::snode_134 :- snode_91, goal_129, snode_133, vector73, unless(snode_93).
+aux_snode_134_row9 :- snode_93.
+aux_snode_134_row9 :- vector73.
+0.9::snode_134 :- snode_91, goal_129, snode_133, unless(aux_snode_134_row9).
+aux_snode_134_row10 :- snode_93.
+aux_snode_134_row10 :- snode_133.
+0.9::snode_134 :- snode_91, goal_129, vector73, unless(aux_snode_134_row10).
+aux_snode_134_row11 :- snode_93.
+aux_snode_134_row11 :- snode_133.
+aux_snode_134_row11 :- vector73.
+0.9::snode_134 :- snode_91, goal_129, unless(aux_snode_134_row11).
+aux_snode_134_row12 :- snode_93.
+aux_snode_134_row12 :- goal_129.
+0.9::snode_134 :- snode_91, snode_133, vector73, unless(aux_snode_134_row12).
+aux_snode_134_row13 :- snode_93.
+aux_snode_134_row13 :- goal_129.
+aux_snode_134_row13 :- vector73.
+0.9::snode_134 :- snode_91, snode_133, unless(aux_snode_134_row13).
+aux_snode_134_row14 :- snode_93.
+aux_snode_134_row14 :- goal_129.
+aux_snode_134_row14 :- snode_133.
+0.9::snode_134 :- snode_91, vector73, unless(aux_snode_134_row14).
+aux_snode_134_row15 :- snode_93.
+aux_snode_134_row15 :- goal_129.
+aux_snode_134_row15 :- snode_133.
+aux_snode_134_row15 :- vector73.
+0.9::snode_134 :- snode_91, unless(aux_snode_134_row15).
+0.9::snode_134 :- snode_93, goal_129, snode_133, vector73, unless(snode_91).
+aux_snode_134_row17 :- snode_91.
+aux_snode_134_row17 :- vector73.
+0.9::snode_134 :- snode_93, goal_129, snode_133, unless(aux_snode_134_row17).
+aux_snode_134_row18 :- snode_91.
+aux_snode_134_row18 :- snode_133.
+0.9::snode_134 :- snode_93, goal_129, vector73, unless(aux_snode_134_row18).
+aux_snode_134_row19 :- snode_91.
+aux_snode_134_row19 :- snode_133.
+aux_snode_134_row19 :- vector73.
+0.9::snode_134 :- snode_93, goal_129, unless(aux_snode_134_row19).
+aux_snode_134_row20 :- snode_91.
+aux_snode_134_row20 :- goal_129.
+0.9::snode_134 :- snode_93, snode_133, vector73, unless(aux_snode_134_row20).
+aux_snode_134_row21 :- snode_91.
+aux_snode_134_row21 :- goal_129.
+aux_snode_134_row21 :- vector73.
+0.9::snode_134 :- snode_93, snode_133, unless(aux_snode_134_row21).
+aux_snode_134_row22 :- snode_91.
+aux_snode_134_row22 :- goal_129.
+aux_snode_134_row22 :- snode_133.
+0.9::snode_134 :- snode_93, vector73, unless(aux_snode_134_row22).
+aux_snode_134_row23 :- snode_91.
+aux_snode_134_row23 :- goal_129.
+aux_snode_134_row23 :- snode_133.
+aux_snode_134_row23 :- vector73.
+0.9::snode_134 :- snode_93, unless(aux_snode_134_row23).
+aux_snode_134_row24 :- snode_91.
+aux_snode_134_row24 :- snode_93.
+0.9::snode_134 :- goal_129, snode_133, vector73, unless(aux_snode_134_row24).
+aux_snode_134_row25 :- snode_91.
+aux_snode_134_row25 :- snode_93.
+aux_snode_134_row25 :- vector73.
+0.9::snode_134 :- goal_129, snode_133, unless(aux_snode_134_row25).
+aux_snode_134_row26 :- snode_91.
+aux_snode_134_row26 :- snode_93.
+aux_snode_134_row26 :- snode_133.
+0.9::snode_134 :- goal_129, vector73, unless(aux_snode_134_row26).
+aux_snode_134_row27 :- snode_91.
+aux_snode_134_row27 :- snode_93.
+aux_snode_134_row27 :- snode_133.
+aux_snode_134_row27 :- vector73.
+0.9::snode_134 :- goal_129, unless(aux_snode_134_row27).
+aux_snode_134_row28 :- snode_91.
+aux_snode_134_row28 :- snode_93.
+aux_snode_134_row28 :- goal_129.
+0.9::snode_134 :- snode_133, vector73, unless(aux_snode_134_row28).
+aux_snode_134_row29 :- snode_91.
+aux_snode_134_row29 :- snode_93.
+aux_snode_134_row29 :- goal_129.
+aux_snode_134_row29 :- vector73.
+0.9::snode_134 :- snode_133, unless(aux_snode_134_row29).
+aux_snode_134_row30 :- snode_91.
+aux_snode_134_row30 :- snode_93.
+aux_snode_134_row30 :- goal_129.
+aux_snode_134_row30 :- snode_133.
+0.9::snode_134 :- vector73, unless(aux_snode_134_row30).
+aux_snode_134_row31 :- snode_91.
+aux_snode_134_row31 :- snode_93.
+aux_snode_134_row31 :- goal_129.
+aux_snode_134_row31 :- snode_133.
+aux_snode_134_row31 :- vector73.
+9e-05::snode_134 :- unless(aux_snode_134_row31).
+0.9::snode_135 :- snode_92, snode_93, goal_129, snode_133, vector69.
+0.9::snode_135 :- snode_92, snode_93, goal_129, snode_133, unless(vector69).
+0.9::snode_135 :- snode_92, snode_93, goal_129, vector69, unless(snode_133).
+aux_snode_135_row3 :- snode_133.
+aux_snode_135_row3 :- vector69.
+0.9::snode_135 :- snode_92, snode_93, goal_129, unless(aux_snode_135_row3).
+0.9::snode_135 :- snode_92, snode_93, snode_133, vector69, unless(goal_129).
+aux_snode_135_row5 :- goal_129.
+aux_snode_135_row5 :- vector69.
+0.9::snode_135 :- snode_92, snode_93, snode_133, unless(aux_snode_135_row5).
+aux_snode_135_row6 :- goal_129.
+aux_snode_135_row6 :- snode_133.
+0.9::snode_135 :- snode_92, snode_93, vector69, unless(aux_snode_135_row6).
+aux_snode_135_row7 :- goal_129.
+aux_snode_135_row7 :- snode_133.
+aux_snode_135_row7 :- vector69.
+0.9::snode_135 :- snode_92, snode_93, unless(aux_snode_135_row7).
+0.9::snode_135 :- snode_92, goal_129, snode_133, vector69, unless(snode_93).
+aux_snode_135_row9 :- snode_93.
+aux_snode_135_row9 :- vector69.
+0.9::snode_135 :- snode_92, goal_129, snode_133, unless(aux_snode_135_row9).
+aux_snode_135_row10 :- snode_93.
+aux_snode_135_row10 :- snode_133.
+0.9::snode_135 :- snode_92, goal_129, vector69, unless(aux_snode_135_row10).
+aux_snode_135_row11 :- snode_93.
+aux_snode_135_row11 :- snode_133.
+aux_snode_135_row11 :- vector69.
+0.9::snode_135 :- snode_92, goal_129, unless(aux_snode_135_row11).
+aux_snode_135_row12 :- snode_93.
+aux_snode_135_row12 :- goal_129.
+0.9::snode_135 :- snode_92, snode_133, vector69, unless(aux_snode_135_row12).
+aux_snode_135_row13 :- snode_93.
+aux_snode_135_row13 :- goal_129.
+aux_snode_135_row13 :- vector69.
+0.9::snode_135 :- snode_92, snode_133, unless(aux_snode_135_row13).
+aux_snode_135_row14 :- snode_93.
+aux_snode_135_row14 :- goal_129.
+aux_snode_135_row14 :- snode_133.
+0.9::snode_135 :- snode_92, vector69, unless(aux_snode_135_row14).
+aux_snode_135_row15 :- snode_93.
+aux_snode_135_row15 :- goal_129.
+aux_snode_135_row15 :- snode_133.
+aux_snode_135_row15 :- vector69.
+0.9::snode_135 :- snode_92, unless(aux_snode_135_row15).
+0.9::snode_135 :- snode_93, goal_129, snode_133, vector69, unless(snode_92).
+aux_snode_135_row17 :- snode_92.
+aux_snode_135_row17 :- vector69.
+0.9::snode_135 :- snode_93, goal_129, snode_133, unless(aux_snode_135_row17).
+aux_snode_135_row18 :- snode_92.
+aux_snode_135_row18 :- snode_133.
+0.9::snode_135 :- snode_93, goal_129, vector69, unless(aux_snode_135_row18).
+aux_snode_135_row19 :- snode_92.
+aux_snode_135_row19 :- snode_133.
+aux_snode_135_row19 :- vector69.
+0.9::snode_135 :- snode_93, goal_129, unless(aux_snode_135_row19).
+aux_snode_135_row20 :- snode_92.
+aux_snode_135_row20 :- goal_129.
+0.9::snode_135 :- snode_93, snode_133, vector69, unless(aux_snode_135_row20).
+aux_snode_135_row21 :- snode_92.
+aux_snode_135_row21 :- goal_129.
+aux_snode_135_row21 :- vector69.
+0.9::snode_135 :- snode_93, snode_133, unless(aux_snode_135_row21).
+aux_snode_135_row22 :- snode_92.
+aux_snode_135_row22 :- goal_129.
+aux_snode_135_row22 :- snode_133.
+0.9::snode_135 :- snode_93, vector69, unless(aux_snode_135_row22).
+aux_snode_135_row23 :- snode_92.
+aux_snode_135_row23 :- goal_129.
+aux_snode_135_row23 :- snode_133.
+aux_snode_135_row23 :- vector69.
+0.9::snode_135 :- snode_93, unless(aux_snode_135_row23).
+aux_snode_135_row24 :- snode_92.
+aux_snode_135_row24 :- snode_93.
+0.9::snode_135 :- goal_129, snode_133, vector69, unless(aux_snode_135_row24).
+aux_snode_135_row25 :- snode_92.
+aux_snode_135_row25 :- snode_93.
+aux_snode_135_row25 :- vector69.
+0.9::snode_135 :- goal_129, snode_133, unless(aux_snode_135_row25).
+aux_snode_135_row26 :- snode_92.
+aux_snode_135_row26 :- snode_93.
+aux_snode_135_row26 :- snode_133.
+0.9::snode_135 :- goal_129, vector69, unless(aux_snode_135_row26).
+aux_snode_135_row27 :- snode_92.
+aux_snode_135_row27 :- snode_93.
+aux_snode_135_row27 :- snode_133.
+aux_snode_135_row27 :- vector69.
+0.9::snode_135 :- goal_129, unless(aux_snode_135_row27).
+aux_snode_135_row28 :- snode_92.
+aux_snode_135_row28 :- snode_93.
+aux_snode_135_row28 :- goal_129.
+0.9::snode_135 :- snode_133, vector69, unless(aux_snode_135_row28).
+aux_snode_135_row29 :- snode_92.
+aux_snode_135_row29 :- snode_93.
+aux_snode_135_row29 :- goal_129.
+aux_snode_135_row29 :- vector69.
+0.9::snode_135 :- snode_133, unless(aux_snode_135_row29).
+aux_snode_135_row30 :- snode_92.
+aux_snode_135_row30 :- snode_93.
+aux_snode_135_row30 :- goal_129.
+aux_snode_135_row30 :- snode_133.
+0.9::snode_135 :- vector69, unless(aux_snode_135_row30).
+aux_snode_135_row31 :- snode_92.
+aux_snode_135_row31 :- snode_93.
+aux_snode_135_row31 :- goal_129.
+aux_snode_135_row31 :- snode_133.
+aux_snode_135_row31 :- vector69.
+9e-05::snode_135 :- unless(aux_snode_135_row31).
+0.9::snode_132 :- snode_95, snode_97, goal_130, snode_131, vector69.
+0.9::snode_132 :- snode_95, snode_97, goal_130, snode_131, unless(vector69).
+0.9::snode_132 :- snode_95, snode_97, goal_130, vector69, unless(snode_131).
+aux_snode_132_row3 :- snode_131.
+aux_snode_132_row3 :- vector69.
+0.9::snode_132 :- snode_95, snode_97, goal_130, unless(aux_snode_132_row3).
+0.9::snode_132 :- snode_95, snode_97, snode_131, vector69, unless(goal_130).
+aux_snode_132_row5 :- goal_130.
+aux_snode_132_row5 :- vector69.
+0.9::snode_132 :- snode_95, snode_97, snode_131, unless(aux_snode_132_row5).
+aux_snode_132_row6 :- goal_130.
+aux_snode_132_row6 :- snode_131.
+0.9::snode_132 :- snode_95, snode_97, vector69, unless(aux_snode_132_row6).
+aux_snode_132_row7 :- goal_130.
+aux_snode_132_row7 :- snode_131.
+aux_snode_132_row7 :- vector69.
+0.9::snode_132 :- snode_95, snode_97, unless(aux_snode_132_row7).
+0.9::snode_132 :- snode_95, goal_130, snode_131, vector69, unless(snode_97).
+aux_snode_132_row9 :- snode_97.
+aux_snode_132_row9 :- vector69.
+0.9::snode_132 :- snode_95, goal_130, snode_131, unless(aux_snode_132_row9).
+aux_snode_132_row10 :- snode_97.
+aux_snode_132_row10 :- snode_131.
+0.9::snode_132 :- snode_95, goal_130, vector69, unless(aux_snode_132_row10).
+aux_snode_132_row11 :- snode_97.
+aux_snode_132_row11 :- snode_131.
+aux_snode_132_row11 :- vector69.
+0.9::snode_132 :- snode_95, goal_130, unless(aux_snode_132_row11).
+aux_snode_132_row12 :- snode_97.
+aux_snode_132_row12 :- goal_130.
+0.9::snode_132 :- snode_95, snode_131, vector69, unless(aux_snode_132_row12).
+aux_snode_132_row13 :- snode_97.
+aux_snode_132_row13 :- goal_130.
+aux_snode_132_row13 :- vector69.
+0.9::snode_132 :- snode_95, snode_131, unless(aux_snode_132_row13).
+aux_snode_132_row14 :- snode_97.
+aux_snode_132_row14 :- goal_130.
+aux_snode_132_row14 :- snode_131.
+0.9::snode_132 :- snode_95, vector69, unless(aux_snode_132_row14).
+aux_snode_132_row15 :- snode_97.
+aux_snode_132_row15 :- goal_130.
+aux_snode_132_row15 :- snode_131.
+aux_snode_132_row15 :- vector69.
+0.9::snode_132 :- snode_95, unless(aux_snode_132_row15).
+0.9::snode_132 :- snode_97, goal_130, snode_131, vector69, unless(snode_95).
+aux_snode_132_row17 :- snode_95.
+aux_snode_132_row17 :- vector69.
+0.9::snode_132 :- snode_97, goal_130, snode_131, unless(aux_snode_132_row17).
+aux_snode_132_row18 :- snode_95.
+aux_snode_132_row18 :- snode_131.
+0.9::snode_132 :- snode_97, goal_130, vector69, unless(aux_snode_132_row18).
+aux_snode_132_row19 :- snode_95.
+aux_snode_132_row19 :- snode_131.
+aux_snode_132_row19 :- vector69.
+0.9::snode_132 :- snode_97, goal_130, unless(aux_snode_132_row19).
+aux_snode_132_row20 :- snode_95.
+aux_snode_132_row20 :- goal_130.
+0.9::snode_132 :- snode_97, snode_131, vector69, unless(aux_snode_132_row20).
+aux_snode_132_row21 :- snode_95.
+aux_snode_132_row21 :- goal_130.
+aux_snode_132_row21 :- vector69.
+0.9::snode_132 :- snode_97, snode_131, unless(aux_snode_132_row21).
+aux_snode_132_row22 :- snode_95.
+aux_snode_132_row22 :- goal_130.
+aux_snode_132_row22 :- snode_131.
+0.9::snode_132 :- snode_97, vector69, unless(aux_snode_132_row22).
+aux_snode_132_row23 :- snode_95.
+aux_snode_132_row23 :- goal_130.
+aux_snode_132_row23 :- snode_131.
+aux_snode_132_row23 :- vector69.
+0.9::snode_132 :- snode_97, unless(aux_snode_132_row23).
+aux_snode_132_row24 :- snode_95.
+aux_snode_132_row24 :- snode_97.
+0.9::snode_132 :- goal_130, snode_131, vector69, unless(aux_snode_132_row24).
+aux_snode_132_row25 :- snode_95.
+aux_snode_132_row25 :- snode_97.
+aux_snode_132_row25 :- vector69.
+0.9::snode_132 :- goal_130, snode_131, unless(aux_snode_132_row25).
+aux_snode_132_row26 :- snode_95.
+aux_snode_132_row26 :- snode_97.
+aux_snode_132_row26 :- snode_131.
+0.9::snode_132 :- goal_130, vector69, unless(aux_snode_132_row26).
+aux_snode_132_row27 :- snode_95.
+aux_snode_132_row27 :- snode_97.
+aux_snode_132_row27 :- snode_131.
+aux_snode_132_row27 :- vector69.
+0.9::snode_132 :- goal_130, unless(aux_snode_132_row27).
+aux_snode_132_row28 :- snode_95.
+aux_snode_132_row28 :- snode_97.
+aux_snode_132_row28 :- goal_130.
+0.9::snode_132 :- snode_131, vector69, unless(aux_snode_132_row28).
+aux_snode_132_row29 :- snode_95.
+aux_snode_132_row29 :- snode_97.
+aux_snode_132_row29 :- goal_130.
+aux_snode_132_row29 :- vector69.
+0.9::snode_132 :- snode_131, unless(aux_snode_132_row29).
+aux_snode_132_row30 :- snode_95.
+aux_snode_132_row30 :- snode_97.
+aux_snode_132_row30 :- goal_130.
+aux_snode_132_row30 :- snode_131.
+0.9::snode_132 :- vector69, unless(aux_snode_132_row30).
+aux_snode_132_row31 :- snode_95.
+aux_snode_132_row31 :- snode_97.
+aux_snode_132_row31 :- goal_130.
+aux_snode_132_row31 :- snode_131.
+aux_snode_132_row31 :- vector69.
+9e-05::snode_132 :- unless(aux_snode_132_row31).
+0.9::snode_136 :- snode_37, goal_108, snode_128, snode_154, newtons74.
+0.9::snode_136 :- snode_37, goal_108, snode_128, snode_154, unless(newtons74).
+0.9::snode_136 :- snode_37, goal_108, snode_128, newtons74, unless(snode_154).
+aux_snode_136_row3 :- snode_154.
+aux_snode_136_row3 :- newtons74.
+0.9::snode_136 :- snode_37, goal_108, snode_128, unless(aux_snode_136_row3).
+0.9::snode_136 :- snode_37, goal_108, snode_154, newtons74, unless(snode_128).
+aux_snode_136_row5 :- snode_128.
+aux_snode_136_row5 :- newtons74.
+0.9::snode_136 :- snode_37, goal_108, snode_154, unless(aux_snode_136_row5).
+aux_snode_136_row6 :- snode_128.
+aux_snode_136_row6 :- snode_154.
+0.9::snode_136 :- snode_37, goal_108, newtons74, unless(aux_snode_136_row6).
+aux_snode_136_row7 :- snode_128.
+aux_snode_136_row7 :- snode_154.
+aux_snode_136_row7 :- newtons74.
+0.9::snode_136 :- snode_37, goal_108, unless(aux_snode_136_row7).
+0.9::snode_136 :- snode_37, snode_128, snode_154, newtons74, unless(goal_108).
+aux_snode_136_row9 :- goal_108.
+aux_snode_136_row9 :- newtons74.
+0.9::snode_136 :- snode_37, snode_128, snode_154, unless(aux_snode_136_row9).
+aux_snode_136_row10 :- goal_108.
+aux_snode_136_row10 :- snode_154.
+0.9::snode_136 :- snode_37, snode_128, newtons74, unless(aux_snode_136_row10).
+aux_snode_136_row11 :- goal_108.
+aux_snode_136_row11 :- snode_154.
+aux_snode_136_row11 :- newtons74.
+0.9::snode_136 :- snode_37, snode_128, unless(aux_snode_136_row11).
+aux_snode_136_row12 :- goal_108.
+aux_snode_136_row12 :- snode_128.
+0.9::snode_136 :- snode_37, snode_154, newtons74, unless(aux_snode_136_row12).
+aux_snode_136_row13 :- goal_108.
+aux_snode_136_row13 :- snode_128.
+aux_snode_136_row13 :- newtons74.
+0.9::snode_136 :- snode_37, snode_154, unless(aux_snode_136_row13).
+aux_snode_136_row14 :- goal_108.
+aux_snode_136_row14 :- snode_128.
+aux_snode_136_row14 :- snode_154.
+0.9::snode_136 :- snode_37, newtons74, unless(aux_snode_136_row14).
+aux_snode_136_row15 :- goal_108.
+aux_snode_136_row15 :- snode_128.
+aux_snode_136_row15 :- snode_154.
+aux_snode_136_row15 :- newtons74.
+0.9::snode_136 :- snode_37, unless(aux_snode_136_row15).
+0.9::snode_136 :- goal_108, snode_128, snode_154, newtons74, unless(snode_37).
+aux_snode_136_row17 :- snode_37.
+aux_snode_136_row17 :- newtons74.
+0.9::snode_136 :- goal_108, snode_128, snode_154, unless(aux_snode_136_row17).
+aux_snode_136_row18 :- snode_37.
+aux_snode_136_row18 :- snode_154.
+0.9::snode_136 :- goal_108, snode_128, newtons74, unless(aux_snode_136_row18).
+aux_snode_136_row19 :- snode_37.
+aux_snode_136_row19 :- snode_154.
+aux_snode_136_row19 :- newtons74.
+0.9::snode_136 :- goal_108, snode_128, unless(aux_snode_136_row19).
+aux_snode_136_row20 :- snode_37.
+aux_snode_136_row20 :- snode_128.
+0.9::snode_136 :- goal_108, snode_154, newtons74, unless(aux_snode_136_row20).
+aux_snode_136_row21 :- snode_37.
+aux_snode_136_row21 :- snode_128.
+aux_snode_136_row21 :- newtons74.
+0.9::snode_136 :- goal_108, snode_154, unless(aux_snode_136_row21).
+aux_snode_136_row22 :- snode_37.
+aux_snode_136_row22 :- snode_128.
+aux_snode_136_row22 :- snode_154.
+0.9::snode_136 :- goal_108, newtons74, unless(aux_snode_136_row22).
+aux_snode_136_row23 :- snode_37.
+aux_snode_136_row23 :- snode_128.
+aux_snode_136_row23 :- snode_154.
+aux_snode_136_row23 :- newtons74.
+0.9::snode_136 :- goal_108, unless(aux_snode_136_row23).
+aux_snode_136_row24 :- snode_37.
+aux_snode_136_row24 :- goal_108.
+0.9::snode_136 :- snode_128, snode_154, newtons74, unless(aux_snode_136_row24).
+aux_snode_136_row25 :- snode_37.
+aux_snode_136_row25 :- goal_108.
+aux_snode_136_row25 :- newtons74.
+0.9::snode_136 :- snode_128, snode_154, unless(aux_snode_136_row25).
+aux_snode_136_row26 :- snode_37.
+aux_snode_136_row26 :- goal_108.
+aux_snode_136_row26 :- snode_154.
+0.9::snode_136 :- snode_128, newtons74, unless(aux_snode_136_row26).
+aux_snode_136_row27 :- snode_37.
+aux_snode_136_row27 :- goal_108.
+aux_snode_136_row27 :- snode_154.
+aux_snode_136_row27 :- newtons74.
+0.9::snode_136 :- snode_128, unless(aux_snode_136_row27).
+aux_snode_136_row28 :- snode_37.
+aux_snode_136_row28 :- goal_108.
+aux_snode_136_row28 :- snode_128.
+0.9::snode_136 :- snode_154, newtons74, unless(aux_snode_136_row28).
+aux_snode_136_row29 :- snode_37.
+aux_snode_136_row29 :- goal_108.
+aux_snode_136_row29 :- snode_128.
+aux_snode_136_row29 :- newtons74.
+0.9::snode_136 :- snode_154, unless(aux_snode_136_row29).
+aux_snode_136_row30 :- snode_37.
+aux_snode_136_row30 :- goal_108.
+aux_snode_136_row30 :- snode_128.
+aux_snode_136_row30 :- snode_154.
+0.9::snode_136 :- newtons74, unless(aux_snode_136_row30).
+aux_snode_136_row31 :- snode_37.
+aux_snode_136_row31 :- goal_108.
+aux_snode_136_row31 :- snode_128.
+aux_snode_136_row31 :- snode_154.
+aux_snode_136_row31 :- newtons74.
+9e-05::snode_136 :- unless(aux_snode_136_row31).
+0.9::snode_137 :- goal_108, snode_128, sum75.
+0.9::snode_137 :- goal_108, snode_128, unless(sum75).
+0.9::snode_137 :- goal_108, sum75, unless(snode_128).
+aux_snode_137_row3 :- snode_128.
+aux_snode_137_row3 :- sum75.
+0.9::snode_137 :- goal_108, unless(aux_snode_137_row3).
+0.9::snode_137 :- snode_128, sum75, unless(goal_108).
+aux_snode_137_row5 :- goal_108.
+aux_snode_137_row5 :- sum75.
+0.9::snode_137 :- snode_128, unless(aux_snode_137_row5).
+aux_snode_137_row6 :- goal_108.
+aux_snode_137_row6 :- snode_128.
+0.9::snode_137 :- sum75, unless(aux_snode_137_row6).
+aux_snode_137_row7 :- goal_108.
+aux_snode_137_row7 :- snode_128.
+aux_snode_137_row7 :- sum75.
+9e-05::snode_137 :- unless(aux_snode_137_row7).
+0.9::snode_120 :- snode_92, snode_93, goal_113, snode_117, vector69.
+0.9::snode_120 :- snode_92, snode_93, goal_113, snode_117, unless(vector69).
+0.9::snode_120 :- snode_92, snode_93, goal_113, vector69, unless(snode_117).
+aux_snode_120_row3 :- snode_117.
+aux_snode_120_row3 :- vector69.
+0.9::snode_120 :- snode_92, snode_93, goal_113, unless(aux_snode_120_row3).
+0.9::snode_120 :- snode_92, snode_93, snode_117, vector69, unless(goal_113).
+aux_snode_120_row5 :- goal_113.
+aux_snode_120_row5 :- vector69.
+0.9::snode_120 :- snode_92, snode_93, snode_117, unless(aux_snode_120_row5).
+aux_snode_120_row6 :- goal_113.
+aux_snode_120_row6 :- snode_117.
+0.9::snode_120 :- snode_92, snode_93, vector69, unless(aux_snode_120_row6).
+aux_snode_120_row7 :- goal_113.
+aux_snode_120_row7 :- snode_117.
+aux_snode_120_row7 :- vector69.
+0.9::snode_120 :- snode_92, snode_93, unless(aux_snode_120_row7).
+0.9::snode_120 :- snode_92, goal_113, snode_117, vector69, unless(snode_93).
+aux_snode_120_row9 :- snode_93.
+aux_snode_120_row9 :- vector69.
+0.9::snode_120 :- snode_92, goal_113, snode_117, unless(aux_snode_120_row9).
+aux_snode_120_row10 :- snode_93.
+aux_snode_120_row10 :- snode_117.
+0.9::snode_120 :- snode_92, goal_113, vector69, unless(aux_snode_120_row10).
+aux_snode_120_row11 :- snode_93.
+aux_snode_120_row11 :- snode_117.
+aux_snode_120_row11 :- vector69.
+0.9::snode_120 :- snode_92, goal_113, unless(aux_snode_120_row11).
+aux_snode_120_row12 :- snode_93.
+aux_snode_120_row12 :- goal_113.
+0.9::snode_120 :- snode_92, snode_117, vector69, unless(aux_snode_120_row12).
+aux_snode_120_row13 :- snode_93.
+aux_snode_120_row13 :- goal_113.
+aux_snode_120_row13 :- vector69.
+0.9::snode_120 :- snode_92, snode_117, unless(aux_snode_120_row13).
+aux_snode_120_row14 :- snode_93.
+aux_snode_120_row14 :- goal_113.
+aux_snode_120_row14 :- snode_117.
+0.9::snode_120 :- snode_92, vector69, unless(aux_snode_120_row14).
+aux_snode_120_row15 :- snode_93.
+aux_snode_120_row15 :- goal_113.
+aux_snode_120_row15 :- snode_117.
+aux_snode_120_row15 :- vector69.
+0.9::snode_120 :- snode_92, unless(aux_snode_120_row15).
+0.9::snode_120 :- snode_93, goal_113, snode_117, vector69, unless(snode_92).
+aux_snode_120_row17 :- snode_92.
+aux_snode_120_row17 :- vector69.
+0.9::snode_120 :- snode_93, goal_113, snode_117, unless(aux_snode_120_row17).
+aux_snode_120_row18 :- snode_92.
+aux_snode_120_row18 :- snode_117.
+0.9::snode_120 :- snode_93, goal_113, vector69, unless(aux_snode_120_row18).
+aux_snode_120_row19 :- snode_92.
+aux_snode_120_row19 :- snode_117.
+aux_snode_120_row19 :- vector69.
+0.9::snode_120 :- snode_93, goal_113, unless(aux_snode_120_row19).
+aux_snode_120_row20 :- snode_92.
+aux_snode_120_row20 :- goal_113.
+0.9::snode_120 :- snode_93, snode_117, vector69, unless(aux_snode_120_row20).
+aux_snode_120_row21 :- snode_92.
+aux_snode_120_row21 :- goal_113.
+aux_snode_120_row21 :- vector69.
+0.9::snode_120 :- snode_93, snode_117, unless(aux_snode_120_row21).
+aux_snode_120_row22 :- snode_92.
+aux_snode_120_row22 :- goal_113.
+aux_snode_120_row22 :- snode_117.
+0.9::snode_120 :- snode_93, vector69, unless(aux_snode_120_row22).
+aux_snode_120_row23 :- snode_92.
+aux_snode_120_row23 :- goal_113.
+aux_snode_120_row23 :- snode_117.
+aux_snode_120_row23 :- vector69.
+0.9::snode_120 :- snode_93, unless(aux_snode_120_row23).
+aux_snode_120_row24 :- snode_92.
+aux_snode_120_row24 :- snode_93.
+0.9::snode_120 :- goal_113, snode_117, vector69, unless(aux_snode_120_row24).
+aux_snode_120_row25 :- snode_92.
+aux_snode_120_row25 :- snode_93.
+aux_snode_120_row25 :- vector69.
+0.9::snode_120 :- goal_113, snode_117, unless(aux_snode_120_row25).
+aux_snode_120_row26 :- snode_92.
+aux_snode_120_row26 :- snode_93.
+aux_snode_120_row26 :- snode_117.
+0.9::snode_120 :- goal_113, vector69, unless(aux_snode_120_row26).
+aux_snode_120_row27 :- snode_92.
+aux_snode_120_row27 :- snode_93.
+aux_snode_120_row27 :- snode_117.
+aux_snode_120_row27 :- vector69.
+0.9::snode_120 :- goal_113, unless(aux_snode_120_row27).
+aux_snode_120_row28 :- snode_92.
+aux_snode_120_row28 :- snode_93.
+aux_snode_120_row28 :- goal_113.
+0.9::snode_120 :- snode_117, vector69, unless(aux_snode_120_row28).
+aux_snode_120_row29 :- snode_92.
+aux_snode_120_row29 :- snode_93.
+aux_snode_120_row29 :- goal_113.
+aux_snode_120_row29 :- vector69.
+0.9::snode_120 :- snode_117, unless(aux_snode_120_row29).
+aux_snode_120_row30 :- snode_92.
+aux_snode_120_row30 :- snode_93.
+aux_snode_120_row30 :- goal_113.
+aux_snode_120_row30 :- snode_117.
+0.9::snode_120 :- vector69, unless(aux_snode_120_row30).
+aux_snode_120_row31 :- snode_92.
+aux_snode_120_row31 :- snode_93.
+aux_snode_120_row31 :- goal_113.
+aux_snode_120_row31 :- snode_117.
+aux_snode_120_row31 :- vector69.
+9e-05::snode_120 :- unless(aux_snode_120_row31).
+0.9::snode_119 :- snode_93, snode_117, snode_118, equal71.
+0.9::snode_119 :- snode_93, snode_117, snode_118, unless(equal71).
+0.9::snode_119 :- snode_93, snode_117, equal71, unless(snode_118).
+aux_snode_119_row3 :- snode_118.
+aux_snode_119_row3 :- equal71.
+0.9::snode_119 :- snode_93, snode_117, unless(aux_snode_119_row3).
+0.9::snode_119 :- snode_93, snode_118, equal71, unless(snode_117).
+aux_snode_119_row5 :- snode_117.
+aux_snode_119_row5 :- equal71.
+0.9::snode_119 :- snode_93, snode_118, unless(aux_snode_119_row5).
+aux_snode_119_row6 :- snode_117.
+aux_snode_119_row6 :- snode_118.
+0.9::snode_119 :- snode_93, equal71, unless(aux_snode_119_row6).
+aux_snode_119_row7 :- snode_117.
+aux_snode_119_row7 :- snode_118.
+aux_snode_119_row7 :- equal71.
+0.9::snode_119 :- snode_93, unless(aux_snode_119_row7).
+0.9::snode_119 :- snode_117, snode_118, equal71, unless(snode_93).
+aux_snode_119_row9 :- snode_93.
+aux_snode_119_row9 :- equal71.
+0.9::snode_119 :- snode_117, snode_118, unless(aux_snode_119_row9).
+aux_snode_119_row10 :- snode_93.
+aux_snode_119_row10 :- snode_118.
+0.9::snode_119 :- snode_117, equal71, unless(aux_snode_119_row10).
+aux_snode_119_row11 :- snode_93.
+aux_snode_119_row11 :- snode_118.
+aux_snode_119_row11 :- equal71.
+0.9::snode_119 :- snode_117, unless(aux_snode_119_row11).
+aux_snode_119_row12 :- snode_93.
+aux_snode_119_row12 :- snode_117.
+0.9::snode_119 :- snode_118, equal71, unless(aux_snode_119_row12).
+aux_snode_119_row13 :- snode_93.
+aux_snode_119_row13 :- snode_117.
+aux_snode_119_row13 :- equal71.
+0.9::snode_119 :- snode_118, unless(aux_snode_119_row13).
+aux_snode_119_row14 :- snode_93.
+aux_snode_119_row14 :- snode_117.
+aux_snode_119_row14 :- snode_118.
+0.9::snode_119 :- equal71, unless(aux_snode_119_row14).
+aux_snode_119_row15 :- snode_93.
+aux_snode_119_row15 :- snode_117.
+aux_snode_119_row15 :- snode_118.
+aux_snode_119_row15 :- equal71.
+9e-05::snode_119 :- unless(aux_snode_119_row15).
+0.9::snode_116 :- snode_95, snode_97, goal_114, snode_115, vector69.
+0.9::snode_116 :- snode_95, snode_97, goal_114, snode_115, unless(vector69).
+0.9::snode_116 :- snode_95, snode_97, goal_114, vector69, unless(snode_115).
+aux_snode_116_row3 :- snode_115.
+aux_snode_116_row3 :- vector69.
+0.9::snode_116 :- snode_95, snode_97, goal_114, unless(aux_snode_116_row3).
+0.9::snode_116 :- snode_95, snode_97, snode_115, vector69, unless(goal_114).
+aux_snode_116_row5 :- goal_114.
+aux_snode_116_row5 :- vector69.
+0.9::snode_116 :- snode_95, snode_97, snode_115, unless(aux_snode_116_row5).
+aux_snode_116_row6 :- goal_114.
+aux_snode_116_row6 :- snode_115.
+0.9::snode_116 :- snode_95, snode_97, vector69, unless(aux_snode_116_row6).
+aux_snode_116_row7 :- goal_114.
+aux_snode_116_row7 :- snode_115.
+aux_snode_116_row7 :- vector69.
+0.9::snode_116 :- snode_95, snode_97, unless(aux_snode_116_row7).
+0.9::snode_116 :- snode_95, goal_114, snode_115, vector69, unless(snode_97).
+aux_snode_116_row9 :- snode_97.
+aux_snode_116_row9 :- vector69.
+0.9::snode_116 :- snode_95, goal_114, snode_115, unless(aux_snode_116_row9).
+aux_snode_116_row10 :- snode_97.
+aux_snode_116_row10 :- snode_115.
+0.9::snode_116 :- snode_95, goal_114, vector69, unless(aux_snode_116_row10).
+aux_snode_116_row11 :- snode_97.
+aux_snode_116_row11 :- snode_115.
+aux_snode_116_row11 :- vector69.
+0.9::snode_116 :- snode_95, goal_114, unless(aux_snode_116_row11).
+aux_snode_116_row12 :- snode_97.
+aux_snode_116_row12 :- goal_114.
+0.9::snode_116 :- snode_95, snode_115, vector69, unless(aux_snode_116_row12).
+aux_snode_116_row13 :- snode_97.
+aux_snode_116_row13 :- goal_114.
+aux_snode_116_row13 :- vector69.
+0.9::snode_116 :- snode_95, snode_115, unless(aux_snode_116_row13).
+aux_snode_116_row14 :- snode_97.
+aux_snode_116_row14 :- goal_114.
+aux_snode_116_row14 :- snode_115.
+0.9::snode_116 :- snode_95, vector69, unless(aux_snode_116_row14).
+aux_snode_116_row15 :- snode_97.
+aux_snode_116_row15 :- goal_114.
+aux_snode_116_row15 :- snode_115.
+aux_snode_116_row15 :- vector69.
+0.9::snode_116 :- snode_95, unless(aux_snode_116_row15).
+0.9::snode_116 :- snode_97, goal_114, snode_115, vector69, unless(snode_95).
+aux_snode_116_row17 :- snode_95.
+aux_snode_116_row17 :- vector69.
+0.9::snode_116 :- snode_97, goal_114, snode_115, unless(aux_snode_116_row17).
+aux_snode_116_row18 :- snode_95.
+aux_snode_116_row18 :- snode_115.
+0.9::snode_116 :- snode_97, goal_114, vector69, unless(aux_snode_116_row18).
+aux_snode_116_row19 :- snode_95.
+aux_snode_116_row19 :- snode_115.
+aux_snode_116_row19 :- vector69.
+0.9::snode_116 :- snode_97, goal_114, unless(aux_snode_116_row19).
+aux_snode_116_row20 :- snode_95.
+aux_snode_116_row20 :- goal_114.
+0.9::snode_116 :- snode_97, snode_115, vector69, unless(aux_snode_116_row20).
+aux_snode_116_row21 :- snode_95.
+aux_snode_116_row21 :- goal_114.
+aux_snode_116_row21 :- vector69.
+0.9::snode_116 :- snode_97, snode_115, unless(aux_snode_116_row21).
+aux_snode_116_row22 :- snode_95.
+aux_snode_116_row22 :- goal_114.
+aux_snode_116_row22 :- snode_115.
+0.9::snode_116 :- snode_97, vector69, unless(aux_snode_116_row22).
+aux_snode_116_row23 :- snode_95.
+aux_snode_116_row23 :- goal_114.
+aux_snode_116_row23 :- snode_115.
+aux_snode_116_row23 :- vector69.
+0.9::snode_116 :- snode_97, unless(aux_snode_116_row23).
+aux_snode_116_row24 :- snode_95.
+aux_snode_116_row24 :- snode_97.
+0.9::snode_116 :- goal_114, snode_115, vector69, unless(aux_snode_116_row24).
+aux_snode_116_row25 :- snode_95.
+aux_snode_116_row25 :- snode_97.
+aux_snode_116_row25 :- vector69.
+0.9::snode_116 :- goal_114, snode_115, unless(aux_snode_116_row25).
+aux_snode_116_row26 :- snode_95.
+aux_snode_116_row26 :- snode_97.
+aux_snode_116_row26 :- snode_115.
+0.9::snode_116 :- goal_114, vector69, unless(aux_snode_116_row26).
+aux_snode_116_row27 :- snode_95.
+aux_snode_116_row27 :- snode_97.
+aux_snode_116_row27 :- snode_115.
+aux_snode_116_row27 :- vector69.
+0.9::snode_116 :- goal_114, unless(aux_snode_116_row27).
+aux_snode_116_row28 :- snode_95.
+aux_snode_116_row28 :- snode_97.
+aux_snode_116_row28 :- goal_114.
+0.9::snode_116 :- snode_115, vector69, unless(aux_snode_116_row28).
+aux_snode_116_row29 :- snode_95.
+aux_snode_116_row29 :- snode_97.
+aux_snode_116_row29 :- goal_114.
+aux_snode_116_row29 :- vector69.
+0.9::snode_116 :- snode_115, unless(aux_snode_116_row29).
+aux_snode_116_row30 :- snode_95.
+aux_snode_116_row30 :- snode_97.
+aux_snode_116_row30 :- goal_114.
+aux_snode_116_row30 :- snode_115.
+0.9::snode_116 :- vector69, unless(aux_snode_116_row30).
+aux_snode_116_row31 :- snode_95.
+aux_snode_116_row31 :- snode_97.
+aux_snode_116_row31 :- goal_114.
+aux_snode_116_row31 :- snode_115.
+aux_snode_116_row31 :- vector69.
+9e-05::snode_116 :- unless(aux_snode_116_row31).
+0.9::snode_124 :- snode_37, goal_109, snode_112, snode_122, newtons74.
+0.9::snode_124 :- snode_37, goal_109, snode_112, snode_122, unless(newtons74).
+0.9::snode_124 :- snode_37, goal_109, snode_112, newtons74, unless(snode_122).
+aux_snode_124_row3 :- snode_122.
+aux_snode_124_row3 :- newtons74.
+0.9::snode_124 :- snode_37, goal_109, snode_112, unless(aux_snode_124_row3).
+0.9::snode_124 :- snode_37, goal_109, snode_122, newtons74, unless(snode_112).
+aux_snode_124_row5 :- snode_112.
+aux_snode_124_row5 :- newtons74.
+0.9::snode_124 :- snode_37, goal_109, snode_122, unless(aux_snode_124_row5).
+aux_snode_124_row6 :- snode_112.
+aux_snode_124_row6 :- snode_122.
+0.9::snode_124 :- snode_37, goal_109, newtons74, unless(aux_snode_124_row6).
+aux_snode_124_row7 :- snode_112.
+aux_snode_124_row7 :- snode_122.
+aux_snode_124_row7 :- newtons74.
+0.9::snode_124 :- snode_37, goal_109, unless(aux_snode_124_row7).
+0.9::snode_124 :- snode_37, snode_112, snode_122, newtons74, unless(goal_109).
+aux_snode_124_row9 :- goal_109.
+aux_snode_124_row9 :- newtons74.
+0.9::snode_124 :- snode_37, snode_112, snode_122, unless(aux_snode_124_row9).
+aux_snode_124_row10 :- goal_109.
+aux_snode_124_row10 :- snode_122.
+0.9::snode_124 :- snode_37, snode_112, newtons74, unless(aux_snode_124_row10).
+aux_snode_124_row11 :- goal_109.
+aux_snode_124_row11 :- snode_122.
+aux_snode_124_row11 :- newtons74.
+0.9::snode_124 :- snode_37, snode_112, unless(aux_snode_124_row11).
+aux_snode_124_row12 :- goal_109.
+aux_snode_124_row12 :- snode_112.
+0.9::snode_124 :- snode_37, snode_122, newtons74, unless(aux_snode_124_row12).
+aux_snode_124_row13 :- goal_109.
+aux_snode_124_row13 :- snode_112.
+aux_snode_124_row13 :- newtons74.
+0.9::snode_124 :- snode_37, snode_122, unless(aux_snode_124_row13).
+aux_snode_124_row14 :- goal_109.
+aux_snode_124_row14 :- snode_112.
+aux_snode_124_row14 :- snode_122.
+0.9::snode_124 :- snode_37, newtons74, unless(aux_snode_124_row14).
+aux_snode_124_row15 :- goal_109.
+aux_snode_124_row15 :- snode_112.
+aux_snode_124_row15 :- snode_122.
+aux_snode_124_row15 :- newtons74.
+0.9::snode_124 :- snode_37, unless(aux_snode_124_row15).
+0.9::snode_124 :- goal_109, snode_112, snode_122, newtons74, unless(snode_37).
+aux_snode_124_row17 :- snode_37.
+aux_snode_124_row17 :- newtons74.
+0.9::snode_124 :- goal_109, snode_112, snode_122, unless(aux_snode_124_row17).
+aux_snode_124_row18 :- snode_37.
+aux_snode_124_row18 :- snode_122.
+0.9::snode_124 :- goal_109, snode_112, newtons74, unless(aux_snode_124_row18).
+aux_snode_124_row19 :- snode_37.
+aux_snode_124_row19 :- snode_122.
+aux_snode_124_row19 :- newtons74.
+0.9::snode_124 :- goal_109, snode_112, unless(aux_snode_124_row19).
+aux_snode_124_row20 :- snode_37.
+aux_snode_124_row20 :- snode_112.
+0.9::snode_124 :- goal_109, snode_122, newtons74, unless(aux_snode_124_row20).
+aux_snode_124_row21 :- snode_37.
+aux_snode_124_row21 :- snode_112.
+aux_snode_124_row21 :- newtons74.
+0.9::snode_124 :- goal_109, snode_122, unless(aux_snode_124_row21).
+aux_snode_124_row22 :- snode_37.
+aux_snode_124_row22 :- snode_112.
+aux_snode_124_row22 :- snode_122.
+0.9::snode_124 :- goal_109, newtons74, unless(aux_snode_124_row22).
+aux_snode_124_row23 :- snode_37.
+aux_snode_124_row23 :- snode_112.
+aux_snode_124_row23 :- snode_122.
+aux_snode_124_row23 :- newtons74.
+0.9::snode_124 :- goal_109, unless(aux_snode_124_row23).
+aux_snode_124_row24 :- snode_37.
+aux_snode_124_row24 :- goal_109.
+0.9::snode_124 :- snode_112, snode_122, newtons74, unless(aux_snode_124_row24).
+aux_snode_124_row25 :- snode_37.
+aux_snode_124_row25 :- goal_109.
+aux_snode_124_row25 :- newtons74.
+0.9::snode_124 :- snode_112, snode_122, unless(aux_snode_124_row25).
+aux_snode_124_row26 :- snode_37.
+aux_snode_124_row26 :- goal_109.
+aux_snode_124_row26 :- snode_122.
+0.9::snode_124 :- snode_112, newtons74, unless(aux_snode_124_row26).
+aux_snode_124_row27 :- snode_37.
+aux_snode_124_row27 :- goal_109.
+aux_snode_124_row27 :- snode_122.
+aux_snode_124_row27 :- newtons74.
+0.9::snode_124 :- snode_112, unless(aux_snode_124_row27).
+aux_snode_124_row28 :- snode_37.
+aux_snode_124_row28 :- goal_109.
+aux_snode_124_row28 :- snode_112.
+0.9::snode_124 :- snode_122, newtons74, unless(aux_snode_124_row28).
+aux_snode_124_row29 :- snode_37.
+aux_snode_124_row29 :- goal_109.
+aux_snode_124_row29 :- snode_112.
+aux_snode_124_row29 :- newtons74.
+0.9::snode_124 :- snode_122, unless(aux_snode_124_row29).
+aux_snode_124_row30 :- snode_37.
+aux_snode_124_row30 :- goal_109.
+aux_snode_124_row30 :- snode_112.
+aux_snode_124_row30 :- snode_122.
+0.9::snode_124 :- newtons74, unless(aux_snode_124_row30).
+aux_snode_124_row31 :- snode_37.
+aux_snode_124_row31 :- goal_109.
+aux_snode_124_row31 :- snode_112.
+aux_snode_124_row31 :- snode_122.
+aux_snode_124_row31 :- newtons74.
+9e-05::snode_124 :- unless(aux_snode_124_row31).
+0.9::snode_125 :- goal_109, snode_112, sum75.
+0.9::snode_125 :- goal_109, snode_112, unless(sum75).
+0.9::snode_125 :- goal_109, sum75, unless(snode_112).
+aux_snode_125_row3 :- snode_112.
+aux_snode_125_row3 :- sum75.
+0.9::snode_125 :- goal_109, unless(aux_snode_125_row3).
+0.9::snode_125 :- snode_112, sum75, unless(goal_109).
+aux_snode_125_row5 :- goal_109.
+aux_snode_125_row5 :- sum75.
+0.9::snode_125 :- snode_112, unless(aux_snode_125_row5).
+aux_snode_125_row6 :- goal_109.
+aux_snode_125_row6 :- snode_112.
+0.9::snode_125 :- sum75, unless(aux_snode_125_row6).
+aux_snode_125_row7 :- goal_109.
+aux_snode_125_row7 :- snode_112.
+aux_snode_125_row7 :- sum75.
+9e-05::snode_125 :- unless(aux_snode_125_row7).
+0.8::goal_146 :- snode_132, snode_137, equation28.
+0.8::goal_146 :- snode_132, snode_137, unless(equation28).
+0.8::goal_146 :- snode_132, equation28, unless(snode_137).
+aux_goal_146_row3 :- snode_137.
+aux_goal_146_row3 :- equation28.
+0.8::goal_146 :- snode_132, unless(aux_goal_146_row3).
+0.8::goal_146 :- snode_137, equation28, unless(snode_132).
+aux_goal_146_row5 :- snode_132.
+aux_goal_146_row5 :- equation28.
+0.8::goal_146 :- snode_137, unless(aux_goal_146_row5).
+aux_goal_146_row6 :- snode_132.
+aux_goal_146_row6 :- snode_137.
+0.8::goal_146 :- equation28, unless(aux_goal_146_row6).
+aux_goal_146_row7 :- snode_132.
+aux_goal_146_row7 :- snode_137.
+aux_goal_146_row7 :- equation28.
+8e-05::goal_146 :- unless(aux_goal_146_row7).
+0.8::goal_143 :- snode_116, snode_132, equation28.
+0.8::goal_143 :- snode_116, snode_132, unless(equation28).
+0.8::goal_143 :- snode_116, equation28, unless(snode_132).
+aux_goal_143_row3 :- snode_132.
+aux_goal_143_row3 :- equation28.
+0.8::goal_143 :- snode_116, unless(aux_goal_143_row3).
+0.8::goal_143 :- snode_132, equation28, unless(snode_116).
+aux_goal_143_row5 :- snode_116.
+aux_goal_143_row5 :- equation28.
+0.8::goal_143 :- snode_132, unless(aux_goal_143_row5).
+aux_goal_143_row6 :- snode_116.
+aux_goal_143_row6 :- snode_132.
+0.8::goal_143 :- equation28, unless(aux_goal_143_row6).
+aux_goal_143_row7 :- snode_116.
+aux_goal_143_row7 :- snode_132.
+aux_goal_143_row7 :- equation28.
+8e-05::goal_143 :- unless(aux_goal_143_row7).
+0.8::goal_142 :- snode_116, snode_125, equation28.
+0.8::goal_142 :- snode_116, snode_125, unless(equation28).
+0.8::goal_142 :- snode_116, equation28, unless(snode_125).
+aux_goal_142_row3 :- snode_125.
+aux_goal_142_row3 :- equation28.
+0.8::goal_142 :- snode_116, unless(aux_goal_142_row3).
+0.8::goal_142 :- snode_125, equation28, unless(snode_116).
+aux_goal_142_row5 :- snode_116.
+aux_goal_142_row5 :- equation28.
+0.8::goal_142 :- snode_125, unless(aux_goal_142_row5).
+aux_goal_142_row6 :- snode_116.
+aux_goal_142_row6 :- snode_125.
+0.8::goal_142 :- equation28, unless(aux_goal_142_row6).
+aux_goal_142_row7 :- snode_116.
+aux_goal_142_row7 :- snode_125.
+aux_goal_142_row7 :- equation28.
+8e-05::goal_142 :- unless(aux_goal_142_row7).
+rapp13 :- vector27, goal_146.
+rapp13 :- vector27, unless(goal_146).
+rapp13 :- goal_146, unless(vector27).
+aux_rapp13_row3 :- vector27.
+aux_rapp13_row3 :- goal_146.
+0.0001::rapp13 :- unless(aux_rapp13_row3).
+rapp12 :- compo16, goal_143.
+rapp12 :- compo16, unless(goal_143).
+rapp12 :- goal_143, unless(compo16).
+aux_rapp12_row3 :- compo16.
+aux_rapp12_row3 :- goal_143.
+0.0001::rapp12 :- unless(aux_rapp12_row3).
+rapp11 :- vector27, goal_142.
+rapp11 :- vector27, unless(goal_142).
+rapp11 :- goal_142, unless(vector27).
+aux_rapp11_row3 :- vector27.
+aux_rapp11_row3 :- goal_142.
+0.0001::rapp11 :- unless(aux_rapp11_row3).
+0.8::goal_147 :- rapp11, rapp12, rapp13.
+0.7::goal_149 :- goal_147, try76.
+0.7::goal_149 :- goal_147, unless(try76).
+0.7::goal_149 :- try76, unless(goal_147).
+aux_goal_149_row3 :- goal_147.
+aux_goal_149_row3 :- try76.
+7e-05::goal_149 :- unless(aux_goal_149_row3).
+0.8::goal_150 :- snode_20, snode_37, goal_149, apply77.
+0.8::goal_150 :- snode_20, snode_37, goal_149, unless(apply77).
+0.8::goal_150 :- snode_20, snode_37, apply77, unless(goal_149).
+aux_goal_150_row3 :- goal_149.
+aux_goal_150_row3 :- apply77.
+0.8::goal_150 :- snode_20, snode_37, unless(aux_goal_150_row3).
+0.8::goal_150 :- snode_20, goal_149, apply77, unless(snode_37).
+aux_goal_150_row5 :- snode_37.
+aux_goal_150_row5 :- apply77.
+0.8::goal_150 :- snode_20, goal_149, unless(aux_goal_150_row5).
+aux_goal_150_row6 :- snode_37.
+aux_goal_150_row6 :- goal_149.
+0.8::goal_150 :- snode_20, apply77, unless(aux_goal_150_row6).
+aux_goal_150_row7 :- snode_37.
+aux_goal_150_row7 :- goal_149.
+aux_goal_150_row7 :- apply77.
+0.8::goal_150 :- snode_20, unless(aux_goal_150_row7).
+0.8::goal_150 :- snode_37, goal_149, apply77, unless(snode_20).
+aux_goal_150_row9 :- snode_20.
+aux_goal_150_row9 :- apply77.
+0.8::goal_150 :- snode_37, goal_149, unless(aux_goal_150_row9).
+aux_goal_150_row10 :- snode_20.
+aux_goal_150_row10 :- goal_149.
+0.8::goal_150 :- snode_37, apply77, unless(aux_goal_150_row10).
+aux_goal_150_row11 :- snode_20.
+aux_goal_150_row11 :- goal_149.
+aux_goal_150_row11 :- apply77.
+0.8::goal_150 :- snode_37, unless(aux_goal_150_row11).
+aux_goal_150_row12 :- snode_20.
+aux_goal_150_row12 :- snode_37.
+0.8::goal_150 :- goal_149, apply77, unless(aux_goal_150_row12).
+aux_goal_150_row13 :- snode_20.
+aux_goal_150_row13 :- snode_37.
+aux_goal_150_row13 :- apply77.
+0.8::goal_150 :- goal_149, unless(aux_goal_150_row13).
+aux_goal_150_row14 :- snode_20.
+aux_goal_150_row14 :- snode_37.
+aux_goal_150_row14 :- goal_149.
+0.8::goal_150 :- apply77, unless(aux_goal_150_row14).
+aux_goal_150_row15 :- snode_20.
+aux_goal_150_row15 :- snode_37.
+aux_goal_150_row15 :- goal_149.
+aux_goal_150_row15 :- apply77.
+8e-05::goal_150 :- unless(aux_goal_150_row15).
+0.9::snode_151 :- goal_150, grav78.
+0.9::snode_151 :- goal_150, unless(grav78).
+0.9::snode_151 :- grav78, unless(goal_150).
+aux_snode_151_row3 :- goal_150.
+aux_snode_151_row3 :- grav78.
+9e-05::snode_151 :- unless(aux_snode_151_row3).
+query(rapp3).
