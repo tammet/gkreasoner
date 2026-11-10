@@ -561,8 +561,8 @@ proof was found under those limits.
 - A question without variables that gk cannot prove gets the value
   (0, 0, 0, 1): complete ignorance. For `bird(t). query(flies(t)).` the
   line has `"value":[0,0,0,1]`.
-- A question with variables without any proof gets `"value": null` and
-  no answers. The field `stop` says `the recursion did not run`, and
+- A question with variables without any proof gets no value and no
+  answers. The field `stop` says `the recursion did not run`, and
   `unfinished` names the reason.
 - The fields `stop` and `search` say why the nested searches stopped and
   what the last search of the question reported. The status facts of the

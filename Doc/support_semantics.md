@@ -81,20 +81,22 @@ order positive, negative, conflict, ignorance. For the opposed facts of
 Section 4 the line reads, shortened:
 
 ```json
-{"recursive":{"question":"flies(a)","value":[0.3,0,0.4,0.3],
-  "applications":2,"tasks":2,"tasks_cut":0,
+{"recursive":{"question":["flies","a"],"value":[0.3,0,0.4,0.3],
+  "signed_confidence":0.3,"applications":2,"tasks":2,"tasks_cut":0,
+  "proof":{"for":[...],"against":[...]},
   "stop":"no task can become runnable under a later allowance", ...}}
 ```
 
 `applications` counts the applications gk found, `tasks` the nested
 searches it ran, and `tasks_cut` how many of them a budget stopped. A
 cut task means that some evidence may be missing, and the dump names it.
-`stop` says why the search ended. A question with a variable gets
-`"value": null` and a list `answers`, one entry per instance found:
+`stop` says why the search ended. `proof` holds the resolution proofs for
+and against the answer. A question with a variable gets no `value` and a
+list `answers`, one entry per instance found:
 
 ```json
-"answers":[{"answer":"flies(t)","value":[0.9,0,0,0.1]},
-           {"answer":"flies(p)","value":[0,1,0,0]}]
+"answers":[{"answer":["flies","t"],"value":[0.9,0,0,0.1],...},
+           {"answer":["flies","p"],"value":[0,1,0,0],...}]
 ```
 
 When gk applied an approximation or a convention of the implementation
