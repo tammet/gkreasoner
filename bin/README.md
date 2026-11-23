@@ -1,6 +1,8 @@
 # Binaries
 
-Prebuilt GK executables, one per platform, all from the same source revision.
+Prebuilt GK executables, one per platform, all from the same source revision:
+gk 1.3.2 (2026-11-23), commit `34dacd3` of the gk source repository. The
+section *Checksums* below lists the SHA-256 of each file.
 
 | File | Platform |
 |---|---|
@@ -13,10 +15,12 @@ Every binary takes the same command-line arguments and produces the same
 answers. `-version` prints the build version, `-help` the option summary; the
 options themselves are in [`../Doc/cli_reference.md`](../Doc/cli_reference.md).
 
-By default a binary answers with the recursive method. It prints one line
-that starts with `{"recursive":`, then a dump of the evidence
+By default a binary runs Auto: the exact method within half of the time
+limit, then the general method when the exact method gives no answer.
+`-exact` and `-general` select one method. Every method prints one line
+that starts with `{"recursive":`; `-dwdump` adds a dump of the evidence
 ([`../Doc/recursive_output.md`](../Doc/recursive_output.md)). `-direct` runs
-the direct method of gk 1.1.2
+the legacy direct method of gk 1.1.2
 ([`../Doc/direct_method.md`](../Doc/direct_method.md)).
 
 ## Running
@@ -88,3 +92,16 @@ this distribution repository. Its build scripts are, per platform: `compile.sh`
 an x64 developer prompt), and `compile_wasm.sh` (WebAssembly, Emscripten). The
 macOS and Windows binaries here are produced by the GitHub Actions workflows of
 that repository and are checked in after their smoke tests pass.
+
+## Checksums
+
+| File | SHA-256 | Built by |
+|---|---|---|
+| `gk` | `f73e9f2e9aac47bb8aaa20fa37db6e79042c0ffff441ed1ed4f5e0b05a1fb642` | `make` (GCC, static), Linux x86-64 |
+| `gk-macos-arm64` | `46913031a9e01b31458eb835aace3370936dbf61c81400e9ce911b069a7b3dc4` | the workflow *macOS build*, run 45194740477 |
+| `gk-windows-x64.exe` | `8b17ef460225184462b0b3d3ccd260693f3f4417a06bd9144abff188516ea39c` | the workflow *Windows build (exploratory)*, run 45194740442 |
+| `gkjs.js` | `0c6dc538f868cd8013dc8c08fafce2d41def1bb9ff547f62aecb8d8c90b87118` | `compile_wasm.sh`, Emscripten 6.0.13 |
+| `gkjs.wasm` | `4dc293b274a0231906745a0c9689424a89ee14df38d91a91ed3946ce198f9819` | `compile_wasm.sh`, Emscripten 6.0.13 |
+
+Check a file on Linux with `sha256sum bin/gk`, on macOS with
+`shasum -a 256 bin/gk-macos-arm64`.
