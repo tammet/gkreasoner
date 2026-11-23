@@ -1,11 +1,12 @@
 # The direct method of gk 1.1.2 (`-direct`)
 
-This page describes the direct method, which `gk input -direct` runs. It
-was gk's method until version 1.1.2. Since 1.2.0 gk answers with the
-recursive method, described in [how_gk_works.md](how_gk_works.md). The
+This page describes the legacy direct method, which `gk input -direct` runs
+(the method of gk 1.1.2); the present methods (the exact method, the general
+method and Auto) are described in [how_gk_works.md](how_gk_works.md) and
+[support_semantics.md](support_semantics.md). The
 direct method's proof search is the one the recursive method uses; its
 evaluation and its output differ. The values below are the output of
-gk 1.2.5 with `-direct`. Options that only the direct method reads (for example `-detail`,
+gk 1.3.1 with `-direct`. Options that only the direct method reads (for example `-detail`,
 `-legacy <mode>` and `-outformat`) also select it; `recursive_output.md`
 Section 1 lists them.
 
@@ -183,7 +184,7 @@ shared-threshold semantics on its stated fragment. The two calculations
 need not be marginals of one global probability distribution; each report
 names the calculation that produced it.
 
-Since 1.1.2 gk prefers the dependency-aware calculation whenever its run-time
+gk prefers the dependency-aware calculation whenever its run-time
 check finds only rules of the finite directed core (core selection): ordinary
 rules and vetoes, normal defaults with integer ranks, and rules whose body
 has a variable outside the head, grounded instance by instance. Such a report
@@ -327,7 +328,7 @@ subsidiary proof search for the exception condition, with diminishing
 budgets for nested checks. The candidate survives when no blocking argument
 with sufficient priority is found. An exception proof must also reach
 confidence 0.5 to count; `-blockerconfidence` changes that threshold. The
-threshold decides only proof acceptance: since 1.1.2 a report flagged
+threshold decides only proof acceptance: a report flagged
 `DIRECTED_CORE` grades the exception by its support, at any threshold. The
 blocker literal is retained in the printed proof, so the defeasible
 assumption is visible.

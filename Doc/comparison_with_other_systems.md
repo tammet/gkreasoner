@@ -16,8 +16,9 @@ first-order reasoning, input confidences, explicit opposition, exceptions
 checked by recursive searches, priority ranks of defaults, proofs, and a
 report of four shares for each answer.
 
-The GK values below are those of gk 1.2.5 run without options, which is
-the recursive method ([`how_gk_works.md`](how_gk_works.md)). The four
+The GK values below are those of gk 1.3.1 with General, the recursive
+method ([`how_gk_works.md`](how_gk_works.md)), except where a passage names
+another method. The four
 shares (for, against, conflict, ignorance) are those of the support
 semantics ([`support_semantics.md`](support_semantics.md)).
 
@@ -38,7 +39,7 @@ A positive program has facts and rules without negated literals,
 disjunctions or exceptions. On finite positive programs the support
 semantics gives the same numbers as ProbLog: a query with ProbLog
 probability p gets the four shares (p, 0, 0, 1 - p)
-([`support_semantics.md`](support_semantics.md), Section 3). gk evaluates
+([`support_semantics.md`](support_semantics.md), Section 4). gk evaluates
 the evidence that its searches found. On such programs, when the
 evaluation completes without a resource limit or an approximation, gk's
 shares equal the semantics' value for that evidence
@@ -70,7 +71,7 @@ ignorance  0.3
 ```
 
 The evidence for and against `flies(a)` is tested against one number of
-the atom ([`support_semantics.md`](support_semantics.md), Section 4).
+the atom ([`support_semantics.md`](support_semantics.md), Section 5.2).
 This report is not a success probability; ProbLog has no counterpart of
 the conflict and ignorance shares. GK checks the exception of a default
 by a recursive proof search and compares defaults by their ranks;
@@ -126,7 +127,8 @@ clingo, DLV, and s(CASP) all reach the expected answer; ASP reaches it by stable
 failure, GK by a first-order proof and a recursive check of the exception.
 clingo and DLV ground non-ground rules before stable-model search; positive
 recursion through a function term needs infinitely many ground terms and
-does not ground (row F1 of [`../comparisons/`](../comparisons/README.md)).
+does not ground (the case F1, recursion over function terms, of
+[`../comparisons/`](../comparisons/README.md)).
 GK does not enumerate stable models and has no ASP optimization constructs.
 
 ## I-DLV
@@ -156,7 +158,7 @@ closure; clingo and DLV materialize it before answering; s(CASP) enters deep
 recursive search. GK proves `flies(b1)` from `bird(b1)` and the default,
 without the closure, and reports (1, 0, 0, 0). Its recursive searches for
 opposition, such as `-flies(b1)`, do not end before the time limit on this
-input: at 2,000 constants, gk 1.2.3 marks three searches as cut with
+input: at 2,000 constants, gk 1.3.1 marks three searches as cut with
 `-seconds 1` and with `-seconds 10`, and the value stays (1, 0, 0, 0).
 Generated inputs, commands, and measurements:
 [`../Examples/asp_comparison/`](../Examples/asp_comparison/README.md).
@@ -168,12 +170,13 @@ equality, disequality, and function terms:
 
 | Problem | Required features | GK result | Median wall time |
 |---|---|---:|---:|
-| NLP inconsistency | non-Horn clauses, equality and disequality, Skolem functions, cardinality axioms | theorem; 33 proof clauses | 0.03 s |
-| Dreadbury | non-Horn clauses, equality and disequality, nested Skolem functions | theorem; 35 proof clauses | 0.03 s |
-| set identity | non-Horn set axioms and four unrestricted witness functions | theorem; 74 proof clauses | 0.12 s |
+| NLP inconsistency | non-Horn clauses, equality and disequality, Skolem functions, cardinality axioms | theorem; 33 proof clauses | 0.04 s |
+| Dreadbury | non-Horn clauses, equality and disequality, nested Skolem functions | theorem; 35 proof clauses | 0.04 s |
+| set identity | non-Horn set axioms and four unrestricted witness functions | theorem; 74 proof clauses | 0.13 s |
 
 The runs use `-plain`, gk's classical proof search without confidences.
-The times are medians of five runs of gk 1.2.3, process start included.
+The times are medians of five runs of gk 1.3.1, process start included.
+Other test runs used the machine at the same time.
 
 NLP and Dreadbury need equality reasoning in non-Horn clauses and were not
 translated to the tested ASP languages. The set problem has an

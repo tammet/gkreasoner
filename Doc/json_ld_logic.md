@@ -47,8 +47,8 @@ Top-Level JSON Keys
 
     The question may be a single literal or a quantifier-free compound
     formula (conjunction, disjunction, implication, equivalence). A
-    compound question F is answered through an automatic definition
-    (2026-07-16, `implementation/records/MEMO_query_formulas.md`): gk adds the certain axiom
+    compound question F is answered through an automatic definition:
+    gk adds the certain axiom
     `$question(vars) <=> F` over F's free variables and asks
     `$question(vars)` — so the answer is exactly what an explicit
     hand-written definition of the same formula gives, the free variables
@@ -102,7 +102,7 @@ Top-Level JSON Keys
 ### Shared-threshold-worlds declaration keys (active in the DEFAULT mode)
 
 These load-time declarations are recognized whenever the shared-threshold-worlds
-mechanism is active — which, since 2026-07-12, is gk's DEFAULT (no flag
+mechanism is active — which is gk's DEFAULT (no flag
 needed; explicit `-defworlds` is accepted). They are silently ignored only
 in the modes that disable the mechanism: `-legacy olduncertainty`, `-plain`, and
 plain `-clausify`. Both are validated at load time — a violation is a load
@@ -304,6 +304,15 @@ Used in default (defeasible) rules to mark exception conditions:
 
 The `$block` literal says: this rule can be overridden if a stronger
 rule proves the blocked literal.
+
+A statement written as a plain list of literals has no written head. gk
+reads one from a `$block` literal: when exactly one `$block` literal names
+the opposite of exactly one ordinary literal of the list, that literal is
+the head. In the example above the exception names `-flies(X)`, so
+`flies(X)` is the head, as in the GKP rule
+`flies(X) :- bird(X), unless(-flies(X), strength)`. Exact and General then
+use the rule at that head only. The environment switch `GK_READHEAD=0`
+turns this reading off.
 
 **Strength** is the first argument of `$block`:
 
