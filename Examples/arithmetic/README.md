@@ -7,7 +7,10 @@ GK has two arithmetic mechanisms:
   arithmetic conditions.
 
 The automatic strategy does not enable useful instantiation for these open
-arithmetic queries. The commands below set the mode explicitly.
+arithmetic queries. The commands below set the mode explicitly. Every input
+of this folder has an equality or a built-in condition, which the exact
+method does not cover. gk's default, Auto, therefore sends each of them to
+the general method at once.
 
 ## Ground evaluation
 
@@ -41,7 +44,8 @@ query(johnhad(X)).
 gk answers `johnhad(8)` with (.8, 0, 0, .2). Resolution reduces the query to
 the condition `X + 2 = 10`; the `arithinst` inference tests bounded
 candidates and retains 8. The arithmetic step is not replayed as an
-application, so the line reports it among `pending_steps`.
+application: it enters as one proof application, and the line counts it in
+`steps_not_represented`.
 
 [`boundary_comparison.js`](boundary_comparison.js) asks for a value satisfying
 `X > 7`. Mode 1 returns the first candidate that satisfies the condition, 8,

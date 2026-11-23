@@ -1,0 +1,7 @@
+c.
+e.
+q :- m.
+m :- unless(q).
+-q :- unless(e).
+-c :- -m, unless(z).
+query(c).

@@ -3,10 +3,14 @@
 Strategy files are JSON configuration objects passed with `-strategy`. They
 contain no logic and cannot be run as proof problems.
 
-GK normally creates a strategy automatically:
+GK normally creates a strategy automatically, so an explicit strategy is
+needed only when the search configuration must stay fixed. A strategy
+configures the prover of the general method, so the commands below select
+it with `-general`. The exact method does not use a strategy, and Auto
+(bare `gk FILE`) uses it only when the general method answers:
 
 ```sh
-./bin/gk Examples/exceptions/penguin.gkp
+./bin/gk Examples/exceptions/penguin.gkp -general
 ```
 
 The supplied files demonstrate the two main explicit selection styles and a
@@ -29,7 +33,7 @@ sequence of runs.
 `query_focus` gives preference to the goal queue.
 
 ```sh
-./bin/gk Examples/exceptions/penguin.gkp \
+./bin/gk Examples/exceptions/penguin.gkp -general \
   -strategy Examples/strategy/query_focus.json
 ```
 
@@ -42,7 +46,7 @@ with the automatic strategy.
 literals. It is a useful baseline for small resolution problems:
 
 ```sh
-./bin/gk Examples/exceptions/penguin.gkp \
+./bin/gk Examples/exceptions/penguin.gkp -general \
   -strategy Examples/strategy/negative_pref.json
 ```
 
@@ -57,7 +61,7 @@ This strategy returns the same two answers with the same values.
 3. fifteen seconds of query-focused search with weak SINE filtering.
 
 ```sh
-./bin/gk Examples/exceptions/penguin.gkp \
+./bin/gk Examples/exceptions/penguin.gkp -general \
   -strategy Examples/strategy/runs.json
 ```
 
@@ -67,8 +71,8 @@ automatic strategy.
 ## Confidence combination
 
 The key `independence` controls how the direct method (`-direct`) combines
-alternative proofs. The recursive method, gk's default, combines the
-proofs it finds by the support semantics:
+alternative proofs. The exact method and the general method combine the
+proofs they find by the support semantics:
 [`../confidences/cumulate.gkp`](../confidences/cumulate.gkp) gives
 (.8, 0, 0, .2) also with `"independence": 0`.
 

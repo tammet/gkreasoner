@@ -1,0 +1,4 @@
+c :- unless(d).
+d :- unless(c).
+g :- unless(c).
+query(g).

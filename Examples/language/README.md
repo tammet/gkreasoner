@@ -42,8 +42,11 @@ line says `the recursion did not run`.
 
 ## Reading the answer
 
-gk 1.2.5 prints one line that starts with `{"recursive":`. Its `value`
+gk 1.3.2 prints one line that starts with `{"recursive":`. Its `value`
 holds the four shares in the order (for, against, conflict, ignorance).
+The translation writes each question as a formula, and some inputs have
+an equality, so gk's default, Auto, sends every example to the general
+method; the line's field `policy` gives the reason.
 An example asks either a yes/no question or a wh-question ("who", "which",
 "where").
 
@@ -80,7 +83,7 @@ animal cannot fly?" returns `$defq0($some_fox)` (1, 0, 0, 0): a fox.
 
 ## File index
 
-| File | Sentence | Expected | gk 1.2.5 |
+| File | Sentence | Expected | gk 1.3.2 |
 |---|---|---|---|
 | `taxonomy.js` | Elephants are animals. John is an elephant. John is an animal? | True | (1, 0, 0, 0) |
 | `disjunction.js` | Elephants have trunks or tails. John is an elephant. John has no trunk. John has a tail? | True | (0, 0, 0, 1): no proof found; see below |
@@ -105,7 +108,7 @@ animal cannot fly?" returns `$defq0($some_fox)` (1, 0, 0, 0): a fox.
 | `family_relations.js` | Father/child and grandfather rules over a small family. Who is a grandson of Luke? | Mike or Mickey | Mike and Mickey, (1, 0, 0, 0) each |
 | `probability.js` | Tallinn is hardly in Latvia. Tallinn is in Latvia? | False, .6 | (0, .6, 0, .4) |
 
-The recursive method of gk 1.2.5 finds no proof for `disjunction.js`, also
+The general method of gk 1.3.2 finds no proof for `disjunction.js`, also
 with `-seconds 10`; the direct method (`-direct`) answers it with true and
 confidence .9735. Every other example gives the expected answer.
 

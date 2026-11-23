@@ -7,14 +7,22 @@ Most introductory problems are supplied in GKP (`.gkp`) and native
 JSON-LD-LOGIC (`.js`) forms. The logic is the same; only the surface notation
 differs.
 
-gk 1.2.5 answers with the recursive method by default. It prints one line
-that starts with `{"recursive":`, then a dump of the evidence. The line's
-`value` holds the four shares in the order (for, against, conflict,
-ignorance). A question with a variable gets an `answers` list, one entry per
+gk has three ways to answer a question. `gk -exact FILE` runs the exact
+method: an exhaustive search whose answer, when it says `"complete":true`, is
+the value of the support semantics. `gk -general FILE` runs the general
+method: a budgeted search on the whole input language, whose answer is an
+estimate. `gk FILE` runs Auto, the default: the exact method first, then the
+general method when the exact method gives no answer. Every method prints
+one line that starts with `{"recursive":` (with `-dwdump` also a dump);
+under Auto the line's field `policy` names the method that answered. The
+line's `value` holds the four shares in the order (for, against, conflict,
+ignorance); a question with a variable gets an `answers` list, one entry per
 instance. [`../Doc/recursive_output.md`](../Doc/recursive_output.md)
 describes the output, and
 [`../Doc/support_semantics.md`](../Doc/support_semantics.md) the meaning of
-the four shares. The values below are gk 1.2.5's, shortened.
+the four shares. The values below are gk 1.3.2's, shortened; the general
+method gives the same values on these examples, except where a note says
+otherwise.
 
 ## 1. Defaults and answer substitutions
 
@@ -23,6 +31,7 @@ the four shares. The values below are gk 1.2.5's, shortened.
 ```prolog
 bird(b).
 penguin(p).
+object(o).
 bird(X)   :- penguin(X).
 object(X) :- bird(X).
 -flies(X) :- penguin(X).
@@ -35,18 +44,26 @@ query(flies(X)).
 ./bin/gk Examples/exceptions/penguin.gkp
 ```
 
-The ordinary bird default has rank 3 and the opposing object default has
-rank 2. The certain penguin rule supplies the exception:
+The bird default (a normal default: its exception is the opposite of its own
+head) has rank 3, and the opposing object default has rank 2. The certain
+penguin rule gives ordinary evidence against flying for `p`. Auto answers with
+the exact method, which lists every instance of the question, each with
+`"complete":true`:
 
 ```text
-"answers":[{"answer":["flies","b"],"value":[1,0,0,0],...},
-           {"answer":["flies","p"],"value":[0,1,0,0],...}]
+"answers":[{"answer":["flies","b"],"value":[1,0,0,0],"signed_confidence":1,...,"complete":true,...},
+           {"answer":["flies","p"],"value":[0,1,0,0],"signed_confidence":-1,...,"complete":true,...},
+           {"answer":["flies","o"],"value":[0,1,0,0],"signed_confidence":-1,...,"complete":true,...}]
 ```
+
+The object `o` is not a bird, so the object default makes `flies(o)` false.
+`./bin/gk -general Examples/exceptions/penguin.gkp` lists the answers that a
+proof of `flies(X)` found, `b` and `p`, with the same values.
 
 [`core/logic_chain.js`](core/logic_chain.js) shows a longer implication chain.
 [`core/algebra.js`](core/algebra.js) introduces equality reasoning. The
-recursive method finds no proof for either of them; see
-[`core/README.md`](core/README.md).
+default finds no proof for either of them, and the legacy direct method
+finds both; see [`core/README.md`](core/README.md).
 
 ## 2. Several proofs for one answer
 
@@ -126,8 +143,11 @@ taxonomy priorities:
   -taxonomy -datafolder data
 ```
 
-It answers `isa(b1,organism)` (.5731, .0179, .3821, .0269) and
-`isa(a1,organism)` (0, .4, .6, 0), with two `cycle cut` readings.
+Auto sends it to the general method (the exact method does not cover
+taxonomy priorities). It answers `isa(b1,organism)` (.5731, .0179, .3821,
+.0269) and `isa(a1,organism)` (0, 1, 0, 0), with the reading `narrowing`.
+With `-eval125`, the evaluation of gk 1.2.5, the cycle cut gives
+`isa(a1,organism)` (0, .4, .6, 0).
 
 ## 5. Search strategies
 
@@ -135,7 +155,7 @@ gk constructs a strategy automatically when none is supplied. An explicit
 strategy is useful for reproducing a search or changing clause selection:
 
 ```sh
-./bin/gk Examples/exceptions/penguin.gkp \
+./bin/gk Examples/exceptions/penguin.gkp -general \
   -strategy Examples/strategy/query_focus.json
 ```
 
@@ -143,11 +163,13 @@ A strategy may also contain a sequence of runs. gk tries the runs in order
 until one produces an answer or the total time limit is reached:
 
 ```sh
-./bin/gk Examples/exceptions/penguin.gkp \
+./bin/gk Examples/exceptions/penguin.gkp -general \
   -strategy Examples/strategy/runs.json
 ```
 
-Both give the answers of Section 1. See
+A strategy configures the prover of the general method, so these commands
+select it with `-general`; the exact method does not use a strategy. Both
+give the general method's answers of Section 1, for `b` and `p`. See
 [`../Doc/strategy_reference.md`](../Doc/strategy_reference.md) for the
 selection methods and limits.
 
@@ -163,8 +185,10 @@ variable inside an arithmetic condition requires bounded instantiation.
   -strategytext '{"strategy":["unit"],"query_preference":0,"arith_instantiation":1}'
 ```
 
-The answer is `johnhad(8)` with (.8, 0, 0, .2). The arithmetic step is not
-replayed as an application, so the line reports it among `pending_steps`.
+The input has an equality, so Auto sends it to the general method. The
+answer is `johnhad(8)` with (.8, 0, 0, .2). The arithmetic step is not
+replayed as an application: it enters as one proof application, and the
+line counts it in `steps_not_represented`.
 Mode `1` instantiates one arithmetic unknown from a bounded candidate range;
 mode `2` also considers selected two-variable cases. The mode is bounded
 enumeration; it does not solve general equations.
@@ -172,7 +196,8 @@ enumeration; it does not solve general equations.
 ## 7. Checking a value with the reference tool
 
 The reference tool [`mcref`](../mcref/README.md) computes the support
-semantics by sampling worlds. It shares no code with gk's proof search.
+semantics by exact evaluation, or by sampling worlds. It shares no code
+with gk's proof search.
 [`semantics/default_vs_fact.gkp`](semantics/default_vs_fact.gkp) has a
 default and a weaker fact against it:
 
@@ -183,18 +208,20 @@ bird(t).
 query(flies(t)).
 ```
 
-gk answers (.63, .3, 0, .07). The tool, with 20,000 samples:
+gk answers (.63, .3, 0, .07). The tool gives the same value by exact
+evaluation:
 
 ```sh
-python3 mcref/mcref.py Examples/semantics/default_vs_fact.gkp --samples 20000
+python3 mcref/mcref.py Examples/semantics/default_vs_fact.gkp
 ```
 
 ```text
-"value": [0.62695, 0.30225, 0.0, 0.0708]
+"mode": "exact", ... "value": [0.63, 0.30000000000000004, 0.0, 0.06999999999999998]
 ```
 
-Its sampling error is at most ±.0113 per share at 20,000 samples, so the
-two agree. [`semantics/`](semantics/README.md) holds all the inputs of the
+With `--mode sampling --samples 20000` it gives an estimate instead,
+(.62695, .30225, 0, .0708), with a sampling error of at most ±.0113 per
+share. [`semantics/`](semantics/README.md) holds all the inputs of the
 semantics page with their values.
 
 ## Categories
@@ -205,6 +232,7 @@ semantics page with their values.
 | [`confidences/`](confidences/README.md) | Uncertain facts and rules, several proofs, shared sources, evidence against, conflict, and ignorance |
 | [`exceptions/`](exceptions/README.md) | Defaults, exceptions, ranks, taxonomies, and persistence |
 | [`semantics/`](semantics/README.md) | The inputs of the support semantics page, one per example, with their values |
+| `tutorial/` | Inputs of [`../Doc/how_gk_works.md`](../Doc/how_gk_works.md) that no other folder has |
 | [`strategy/`](strategy/README.md) | Strategy files used with `-strategy` |
 | [`arithmetic/`](arithmetic/README.md) | Ground evaluation and bounded numeric instantiation |
 | [`language/`](language/README.md) | GK encodings of English reasoning problems, run against a shared knowledge base |

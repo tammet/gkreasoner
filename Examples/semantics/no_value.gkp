@@ -1,0 +1,4 @@
+on(a) :- unless(-on(a)).
+on(b) :- unless(-on(b)).
+-on(a) ; -on(b).
+query(on(a)).

@@ -1,0 +1,5 @@
+link(X,Z) :- link(X,Y), link(Y,Z).
+link(a,b).
+0.5::link(b,c).
+-link(a,c).
+query(link(b,c)).

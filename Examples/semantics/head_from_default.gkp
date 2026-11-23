@@ -1,0 +1,5 @@
+ostrich(os).
+-bird(X) ; object(X).
+flies(X) ; -bird(X) :- unless(-flies(X)).
+-flies(X) ; -object(X) :- unless(flies(X)).
+query(bird(os)).

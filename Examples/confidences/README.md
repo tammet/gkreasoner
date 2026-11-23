@@ -7,10 +7,13 @@ present with the probability of its confidence.
 [`../../Doc/support_semantics.md`](../../Doc/support_semantics.md) states
 the meaning of the four shares on examples.
 
-gk's default method, the recursive method, starts from the proofs it finds,
-searches recursively for further support, opposition and exceptions, and
-evaluates all the evidence in one calculation. Run commands from the
-repository root. The values below are gk 1.2.5's, shortened.
+gk's default, Auto, answers with the exact method where it applies: an
+exhaustive search whose complete answer is the value of the semantics. An
+input with function terms or an equality goes to the general method. It
+starts from the proofs it finds, searches recursively for further support,
+opposition and exceptions, and evaluates all the evidence in one
+calculation. Run commands from the repository root. The values below are
+gk 1.3.2's under the default, shortened.
 
 ## Product along a proof
 
@@ -31,8 +34,8 @@ rule. [`rules4.js`](rules4.js) and [`rules5.js`](rules5.js) use a rule with
 confidence `0.8` three times after a fact with confidence `0.9`, producing
 `0.9 * 0.8^3 = 0.4608` for `p(f(f(f(a))))`. `rules5.js` asks an open
 question and also gets the longer chains, for example `p(f(f(f(f(a)))))`
-with .3686. gk uses its whole time budget on these two inputs, about 7
-seconds.
+with .3686. The two inputs have function terms, so Auto sends them to the
+general method, which uses its whole time budget on them, about 7 seconds.
 
 ## Alternative proofs
 
@@ -60,9 +63,9 @@ The sources are independent, so noisy-or gives
 with shared premises. gk counts each shared source once. It answers .846
 and .959 for, respectively.
 
-gk combines the proofs it finds. A proof that it does not find adds
-nothing. In an input without evidence against, a search cut by the budget
-can therefore only lower the share for.
+The general method combines the proofs it finds. A proof that it does not
+find adds nothing. In an input without evidence against, a search cut by
+the budget can therefore only lower the share for.
 
 ## Positive and negative support
 
@@ -88,7 +91,7 @@ and above .7 neither passes (ignorance .3).
 
 The `net_*.js` files vary which side is stronger:
 
-| File | Evidence | gk 1.2.5 |
+| File | Evidence | gk 1.3.2 |
 |---|---|---|
 | `net_lone.js` | .5 for, nothing against | (.5, 0, 0, .5) |
 | `net_fought.js` | .9 for, .4 against | (.5, 0, .4, .1) |
@@ -107,26 +110,33 @@ with confidence `0.9`. One proof of the chain applies the rule eight times:
 `0.9^8 = 0.4305`. The chain has many proofs, one for each way to group its
 links, and each proof uses other ground instances of the rule.
 
-- `near.js` uses ten constants. gk finds several of these proofs within its
-  budget and answers (.7522, 0, 0, .2478), with 46 searches cut by their
-  allowances. The reference tool, which samples the semantics, gives
-  (1, 0, 0, 0): with so many routes, almost every world contains one.
-- `near2.js` builds the chain with a function symbol. gk answers
-  (.4305, 0, 0, .5695), the value of one proof, with 34 searches cut. The
-  reference tool does not accept function symbols.
+- `near.js` uses ten constants. Under the default, the exact method does
+  not end within its share of the time, and the general method answers
+  (.7304, 0, 0, .2696) in the time left, with 34 searches cut by their
+  allowances. `-general` gives the general method the whole budget:
+  (.7522, 0, 0, .2478), with 46 searches cut. The reference tool has too
+  many cells for exact evaluation here. It samples the semantics and gives
+  (1, 0, 0, 0) within ±.0050: with so many routes, almost every world
+  contains one.
+- `near2.js` builds the chain with a function symbol, so Auto sends it to
+  the general method. gk answers (.4305, 0, 0, .5695), the value of one
+  proof, with 34 searches cut. The reference tool does not accept function
+  symbols.
 
 [`smokes.gkp`](smokes.gkp) and [`smokes.js`](smokes.js) contain several
-proofs of `smokes(sam)`. gk answers (.3804, 0, 0, .6196); the reference tool
-gives .3716 for it, within its sampling error of ±.0113. The `alarm*.js` and
+proofs of `smokes(sam)`. gk answers (.37644, 0, 0, .62356) with the exact
+method, complete; the reference tool gives the same value by exact
+evaluation. `-general` gives (.38036, 0, 0, .61964). The `alarm*.js` and
 `socialsmoking*.js` files provide larger networks and keep comparison
 material in their comments.
 
 ## Small values
 
-The recursive method reports the four shares of every answer it finds, also
-small ones. [`n3.js`](n3.js) gives (.08, 0, 0, .92), and
-[`rules3.js`](rules3.js) and [`equality3.js`](equality3.js) give
-(.18, .08, .72, .02).
+gk reports the four shares of every answer it finds, also small ones.
+[`n3.js`](n3.js) gives (.08, 0, 0, .92), and [`equality3.js`](equality3.js),
+which has an equality, gives (.18, .08, .72, .02) from the general method.
+[`rules3.js`](rules3.js) gives (.1, 0, .8, .1), complete, from the exact
+method; `-general` gives (.18, .08, .72, .02) for it.
 
 ## File index
 

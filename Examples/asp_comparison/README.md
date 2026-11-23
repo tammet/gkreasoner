@@ -48,7 +48,7 @@ the strong-negated `-flies` predicate in the other ASP files.
 
 ## Systems and versions
 
-The measured implementations were gk 1.0.0 (and gk 1.2.5, below), clingo 5.6.2, DLV (the
+The measured implementations were gk 1.0.0 (and gk 1.2.5 and 1.3.2, below), clingo 5.6.2, DLV (the
 official x86-64 static release), I-DLV 1.1.6, and s(CASP) 1.1.4 on
 [SWI-Prolog](https://www.swi-prolog.org/) 9.2.9. On the basic
 bird/penguin input, gk, clingo, DLV, and s(CASP) all establish the
@@ -77,7 +77,7 @@ stack limit first. Further protocol detail is in [`results.md`](results.md).
 
 ### gk 1.2.5
 
-gk 1.2.5 answers with the recursive method by default. Single runs of the
+gk 1.2.5 answered with the recursive method by default. Single runs of the
 same gk commands on an AMD Ryzen 5 3600 (6 cores), with `/usr/bin/time`:
 
 | Constants | `-seconds` | gk 1.2.5 value of `flies(b1)` | Wall time | Maximum RSS | Searches cut |
@@ -91,6 +91,24 @@ recursive method also searches for opposition to the answer and its
 conditions; the cut searches are those that reached their time allowance.
 The machine differs from the one of the table above, so the times of the two
 tables are not comparable.
+
+### gk 1.3.2
+
+gk 1.3.2 answers with Auto by default: the exact method within half of the
+time limit, then the general method, the recursive method of gk 1.2.5. On
+this workload the exact method does not end, so the default needs more
+time than the general method alone. Single runs on an AMD Ryzen 5 3600
+that also ran other jobs:
+
+| Constants | `-seconds` | the default (`./bin/gk FILE`) | `-general` | Wall time with `-general` | Searches cut with `-general` |
+|---:|---:|---|---|---:|---:|
+| 1,000 | 1 | no answer: `{"result": "time limit, proof not found"}` | (1, 0, 0, 0) | 0.73 s | 3 |
+| 2,000 | 1 | no answer: `{"result": "time limit, proof not found"}` | (1, 0, 0, 0) | 0.77 s | 3 |
+| 100,000 | 10 | (0, 0, 0, 1): the exact method did not end within its share, and the general method's time ran out | (1, 0, 0, 0) | 7.17 s | 4 |
+
+With `-seconds 10`, the default answers `flies(b1)` (1, 0, 0, 0) for 1,000
+and 2,000 constants in about 7.3 s. The exact method stops there at its
+limit of ground statements, and the general method answers.
 
 ## Interpretation
 
@@ -130,11 +148,12 @@ python3 Examples/asp_comparison/make_constants.py 2000 --system gk \
 
 `--system` is one of `gk`, `clingo`, `dlv`, `idlv`, or `scasp`. Command
 forms used for the measurements, with `clingo`, `dlv`, `idlv`, and `scasp`
-standing for the installed executables:
+standing for the installed executables. For gk 1.3.2, `-general` selects
+the method that gk 1.2.5 ran by default:
 
 ```sh
 /usr/bin/time -f 'WALL_SECONDS=%e MAX_RSS_KB=%M' \
-  ./bin/gk gbirds_2000.js -seconds 1
+  ./bin/gk gbirds_2000.js -general -seconds 1
 /usr/bin/time -f 'WALL_SECONDS=%e MAX_RSS_KB=%M' \
   clingo clingo_birds_2000.lp --stats=2
 /usr/bin/time -f 'WALL_SECONDS=%e MAX_RSS_KB=%M' \

@@ -1,0 +1,5 @@
+bird(a).
+penguin(a).
+flies(X) :- bird(X), unless(penguin(X)).
+-penguin(X) :- flies(X).
+query(flies(a)).

@@ -2,15 +2,18 @@
 
 A default rule has an exception condition, written `unless(...)` in GKP and
 as a `$block` literal in JSON-LD-LOGIC. The default applies only where its
-exception does not hold. gk's default method, the recursive method, starts
-from a proof that uses the default. It then searches for the exception, and
-for evidence for and against it, in nested searches with smaller time
-allowances. All the evidence goes into one calculation of the four shares:
-for, against, conflict, and ignorance. Ranks, numeric or from a taxonomy,
-decide which defaults may defeat other defaults.
+exception does not hold. gk's default, Auto, answers with the exact method
+where it applies: an exhaustive search whose complete answer is the value
+of the semantics. Other inputs go to the general method, for example an
+input with taxonomy ranks. The general method starts from a proof that uses
+the default. It then searches for the exception, and for evidence for and
+against it, in nested searches with smaller time allowances. Both methods
+put all the evidence into one calculation of the four shares: for, against,
+conflict, and ignorance. Ranks, numeric or from a taxonomy, decide which
+defaults may defeat other defaults.
 
-Run commands from the repository root. The values below are gk 1.2.5's,
-shortened. [`../../Doc/support_semantics.md`](../../Doc/support_semantics.md)
+Run commands from the repository root. The values below are gk 1.3.2's
+under the default, shortened. [`../../Doc/support_semantics.md`](../../Doc/support_semantics.md)
 explains the four shares on examples.
 
 ## An unopposed default
@@ -84,8 +87,10 @@ confidence of .58 means that the premise is present in .58 of the worlds.
 There the certain rule derives `-injured(a)`, and the exception never holds
 alone. In the other .42 of the worlds, the exception holds with .6. The
 default is blocked in .42 × .6 = .252 of the worlds, so the share for is
-1 − .252 = .748. The line also has one `cycle cut` reading; the reference
-tool gives .7556 for, within its sampling error of ±.0113.
+1 − .252 = .748. The exact method does not cover this exception, which is
+not the opposite of its rule's head, so Auto sends the input to the general
+method. Its line has one `narrowing` reading. The reference tool gives the
+same value by exact evaluation.
 
 Evidence against an exception is itself checked: if its own derivation is
 blocked by a certain exception, it contributes nothing.
@@ -122,7 +127,9 @@ flying penguin, with opposing flight defaults at different ranks.
 ```
 
 Both answer `fly(b)` (1, 0, 0, 0), `fly(p)` (0, 1, 0, 0) and `fly(fp)`
-(1, 0, 0, 0). Here the taxonomy supplies the order: `penguin` is below
+(1, 0, 0, 0). For `penguin2.js` the default answers with the exact method,
+which also lists `fly(o)` (0, 1, 0, 0) for the object `o`. Auto sends
+`penguin3.js` to the general method. Here the taxonomy supplies the order: `penguin` is below
 `bird` and `organism` in the loaded hierarchy, so the penguin defaults
 defeat the bird and organism defaults without hand-assigned numbers.
 
@@ -143,7 +150,8 @@ It asks `bird(os)` for an ostrich, and no rule makes an ostrich a bird:
 [`penguin.gkp`](penguin.gkp) and [`penguin.js`](penguin.js) are compact cases
 with a certain penguin exception and two opposed defaults. The stronger
 flight default prevails for the ordinary bird, `flies(b)` (1, 0, 0, 0); the
-penguin gets `flies(p)` (0, 1, 0, 0).
+penguin gets `flies(p)` (0, 1, 0, 0). The exact method also lists
+`flies(o)` (0, 1, 0, 0) for the object `o`.
 
 ## Classification from parts
 
@@ -162,14 +170,16 @@ same class, while a certain engine rule supports `-isa(X, organism)`.
            {"answer":["isa","a1","organism"],"value":[0,0.4,0.6,0],...}]
 ```
 
+Auto sends this input to the general method, because of its taxonomy ranks.
 `b1` has a bird path for it and an opposed airplane path against it. The
-line has two `cycle cut` readings. With the default search, gk does not
-list `h1`. With the strategy file
+line has the reading `narrowing`. With `-eval125`, the evaluation of
+gk 1.2.5, the cycle cut gives `isa(a1,organism)` (0, .4, .6, 0). With the
+default search, gk does not list `h1`. With the strategy file
 [`../strategy/query_focus.json`](../strategy/query_focus.json) it lists
 `isa(h1,organism)` with (.44, 0, 0, .56): the human default .3 and the bird
 default .2 combine by noisy-or. That search does not list `a1`. Which
-answers the recursive method lists depends on the search: a measured limit
-of gk 1.2.5.
+answers the general method lists depends on the search: a measured limit
+of gk 1.3.2.
 
 ## Persistence across situations
 
@@ -182,9 +192,10 @@ unless an event changes them:
   -taxonomy -datafolder data
 ```
 
-gk answers `in(man1,room1,sit2)` (1, 0, 0, 0) and `in(man1,room1,sit3)`
-(0, 1, 0, 0). It uses its whole time budget, about 7 seconds, and reports
-8 nested searches cut by their allowances. The named markers in its frame
+Auto sends this input to the general method, because of its taxonomy
+ranks. gk answers `in(man1,room1,sit2)` (1, 0, 0, 0) and
+`in(man1,room1,sit3)` (0, 1, 0, 0). It uses its whole time budget, about 7
+seconds, and reports 9 nested searches cut by their allowances. The named markers in its frame
 rules are taxonomy-form ranks, so the tables must be loaded; they do not
 change this example's result.
 
@@ -204,21 +215,21 @@ flies(X) :- bird(X), unless(-flies(X), 2).
 query(-flies(X)).
 ```
 
-The notations differ in one respect that the recursive method uses. A GKP
-rule keeps its written head. The `.js` and `.p` files state flat clauses,
-which gk uses in every direction. The values therefore differ:
+The notations differ in one respect. A GKP rule keeps its written head.
+The `.js` and `.p` files state flat clauses. gk 1.3.2 gives the same value
+for every form:
 
-| File | gk 1.2.5 for `-flies(p)` |
-|---|---|
-| `bird_penguin.gkp` | (.72, .08, 0, .2) |
-| `bird_penguin.js`, `bird_penguin.p` | (.72, 0, 0, .28), with three `cycle cut` readings |
+| File | method under the default | `-flies(p)` |
+|---|---|---|
+| `bird_penguin.gkp`, `bird_penguin.js` | the exact method; it also lists `-flies(b)` (0, 1, 0, 0) | (.72, .08, 0, .2) |
+| `bird_penguin.p` | the general method (the exception has a rank and the statement no written head) | (.72, .08, 0, .2) |
 
-The reference tool gives (.722, .077, 0, .201) for both forms, within its
-sampling error. The GKP value is the semantics value. The penguin rule
-derives `-flies(p)` in .8 × .9 = .72 of the worlds: the share for. Where
-`penguin(p)` holds but that rule does not (.08), the bird default derives
-`flies(p)`: the share against. With the flat clauses gk cuts a cycle
-across signs, and the .08 against goes to ignorance.
+The reference tool gives (.72, .08, 0, .2) for every form, by exact
+evaluation. The penguin rule derives `-flies(p)` in .8 × .9 = .72 of the
+worlds: the share for. Where `penguin(p)` holds but that rule does not
+(.08), the bird default derives `flies(p)`: the share against. Up to gk
+1.2.5, the flat clauses gave (.72, 0, 0, .28) with three `cycle cut`
+readings: the cut sent the .08 against to ignorance.
 
 ## Additional cases
 

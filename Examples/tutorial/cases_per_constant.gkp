@@ -1,0 +1,5 @@
+0.6::q :- f(Y).
+0.7::q :- -f(Y).
+item(a).
+item(b).
+query(q).

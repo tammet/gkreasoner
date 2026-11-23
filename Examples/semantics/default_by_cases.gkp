@@ -1,0 +1,4 @@
+q :- a, unless(-q, 1).
+q :- -a.
+0.3::-q.
+query(q).

@@ -10,17 +10,19 @@ asks for `p(i(a,i(b,a)))`. [`algebra.js`](algebra.js) contains inverse,
 identity, and associativity axioms and asks for `m(e,c) = c`. Both inputs
 are classical: they have no confidences and no defaults.
 
-gk's default method, the recursive method, finds no proof for either of
-them. It reports (0, 0, 0, 1), also with `-seconds 30`. The direct method
-finds both classical proofs and answers `true` with confidence 1:
+`logic_chain.js` has function terms and `algebra.js` an equality, so gk's
+default, Auto, sends both to the general method. The general method finds
+no proof for either of them. It reports (0, 0, 0, 1), also with
+`-seconds 30`. The legacy direct method finds both classical proofs and
+answers `true` with confidence 1:
 
 ```sh
 ./bin/gk Examples/core/algebra.js -direct
 ./bin/gk Examples/core/logic_chain.js -direct
 ```
 
-The second command needs about 8 seconds. In gk 1.2.5 the recursive
-method does not find these proofs: they are measured limits of its search.
+Each command needs about 8 seconds. In gk 1.3.2 the general method does
+not find these proofs: they are measured limits of its search.
 
 ## Support for explicit negation
 
@@ -46,9 +48,9 @@ on `bird(a)` and propagates it through rules for `flies(a)`:
 it. Only where `bird(a)` holds without conflict, a share of .28, does the
 rule of confidence .9 support `flies(a)`: .28 × .9 = .252. The route
 against `flies(a)` goes through `-bird(a)`, which never holds alone, so the
-share against is 0. The line has one `cycle cut` reading: the two rules
-connect `bird(a)` and `flies(a)` in both signs, and gk cuts that cycle.
-The reference tool gives the same value within its sampling error.
+share against is 0. The default answers with the exact method, and the
+answer is complete. The reference tool gives the same value by exact
+evaluation.
 
 ## Selected files
 

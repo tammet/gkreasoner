@@ -1,0 +1,3 @@
+0.8::flies :- bird, unless(-flies).
+0.8::flies :- -bird, unless(-flies).
+query(flies).

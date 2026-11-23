@@ -5,10 +5,11 @@ These inputs were adapted from the
 first-order prover underneath gk's uncertainty and default machinery.
 
 The commands below use `-plain`, which prints a classical proof without
-confidences and runs gk's direct method. The recursive method, gk's
-default, does not find these proofs: without `-plain -nonegative` it
-reports (0, 0, 0, 1) for the three clause problems and no answer for the
-planning example.
+confidences and runs gk's direct method. The inputs have equality or
+function terms, so gk's default, Auto, sends them to the general method.
+The general method does not find these proofs: without `-plain
+-nonegative` gk 1.3.2 reports (0, 0, 0, 1) for the three clause problems
+and no answer for the planning example.
 
 ## Clause problems
 

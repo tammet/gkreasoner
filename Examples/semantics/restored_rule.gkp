@@ -1,0 +1,4 @@
+e.
+p :- unless(e).
+-e :- unless(z).
+query(p).
