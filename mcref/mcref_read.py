@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""mcref_read: the input side of mcref (step 16b of the gk 1.2 work,
-2026-10-30). It reads gk's JSON-LD-LOGIC input language, converts other
+"""mcref_read: the input side of mcref. It reads gk's JSON-LD-LOGIC
+input language, converts other
 inputs with `gk FILE -writejson -recursive` (gk's parser only), turns
 statements into clauses with a written head where gk sees one, and grounds
 the clauses over the constants of the input.
@@ -14,6 +14,10 @@ import itertools
 import json
 import os
 import subprocess
+
+# MCREF_B2 (on by default): two choices of constants for the ordinary variables of one statement are two ground
+# statements, also when they give the same clause; MCREF_B2=0 merges them (a test setting)
+B2 = os.environ.get("MCREF_B2", "1") != "0"
 
 # the repository's gk: ../bin/gk in the gkreasoner layout (this folder is mcref/),
 # ../../gk in the gk source layout (this folder is experiments/mc_reference);
@@ -29,6 +33,12 @@ def _default_gk():
 
 
 GK = os.environ.get("MCREF_GK", _default_gk())
+# The head read from a default. For a .gkp input gk's converter reads it, where it still sees the consequent,
+# and writes "@dirhead"; for a JSON statement the reader below reads it (statement_clauses()). READHEAD=0 turns
+# the reading of JSON statements off (a test setting); GK_READHEAD=0 does the same in the converter.
+READHEAD = os.environ.get("READHEAD", "1") != "0"
+READHEAD_LAST = []    # the statements of the last input whose head this reader read (their texts)
+CONVERTED = set()     # the ids of the statements that came from gk's converter (no reading here)
 CONNECTIVES = {"&", "|", "=>", "<=", "<=>", "and", "or", "not", "~", "forall", "exists", "xor", "nor", "nand",
                "<~>", "if", "then", "-"}
 BUILTIN_TESTS = {"$less", "$greater", "$lessorequal", "$greaterorequal", "$is_int", "$is_real", "$is_number"}
@@ -118,6 +128,8 @@ def read_statements(path, conv, files=None):
       out += read_statements(f, conv, files)
     else:
       out.append(item)
+      if ext not in (".js", ".json"):
+        CONVERTED.add(id(item))   # the converter has decided the head
   return out
 
 
@@ -370,10 +382,23 @@ def head_chain(a):
   return None
 
 
-def statement_clauses(logic, dirhead):
+def read_head(lits, blocks, cons_idx):
+  """the index of the consequent literal read as the head, or None. lits are (sign, pred, args), blocks
+  (strength, literal); exactly one exception literal must be the opposite of a consequent literal, and of exactly
+  one; compared as written (variables by name)"""
+  nmatch, found = 0, -1
+  for _st, e in blocks:
+    m = [i for i in cons_idx if lits[i][0] != e[0] and lits[i][1] == e[1] and lits[i][2] == e[2]]
+    if m:
+      nmatch += 1
+      found = m[0] if len(m) == 1 else -2
+  return found if nmatch == 1 and found >= 0 else None
+
+
+def statement_clauses(logic, dirhead, read=False):
   """proto-clauses of one statement: dicts with lits (sign, pred, args),
   blocks (strength, lit) and head (an index into lits, or None). The written
-  head follows gk's input rules (Builtparser/jsparse.c, the comment before
+  head follows gk's input rules (Builtparser/jsparse_dir.c, the comment before
   wr_js_dir_isconn): a literal list with "@dirhead", [body, "=>", head],
   [head, "<=", body] and ["if", .., "then", head] with a literal or
   conjunctive body; one ordinary literal is a fact; anything else a clause"""
@@ -408,7 +433,19 @@ def statement_clauses(logic, dirhead):
   for c in cls:
     lits = [e[1:] for e in c if e[0] == "lit"]
     blocks = [(e[1], e[2][1:]) for e in c if e[0] == "block"]
-    out.append({"lits": lits, "blocks": blocks, "head": 0 if len(lits) == 1 else None})
+    head = 0 if len(lits) == 1 else None
+    if read and READHEAD and len(cls) == 1 and blocks and len(lits) >= 2:
+      # the consequent is the right side of an implication, else the whole statement
+      if a[0] == "imp":
+        cons = {tuple(e[1:]) for e in cnf(nnf(a[2]))[0] if e[0] == "lit"} if len(cnf(nnf(a[2]))) == 1 else set()
+        cons_idx = [i for i, l in enumerate(lits) if tuple(l) in cons]
+      else:
+        cons_idx = list(range(len(lits)))
+      h = read_head(lits, blocks, cons_idx)
+      if h is not None:
+        head = h
+        READHEAD_LAST.append(json.dumps(logic)[:200])
+    out.append({"lits": lits, "blocks": blocks, "head": head})
   return out
 
 
@@ -495,7 +532,7 @@ def classify(stmts):
         raise Unsupported("compound question")
       questions.append(neg_lit(l)[1:])
       continue
-    pcs = statement_clauses(logic, dirhead)
+    pcs = statement_clauses(logic, dirhead, read=id(st) not in CONVERTED)
     if len(pcs) > 1 and conf < 1:
       raise Unsupported("uncertain formula with several clauses")
     for pc in pcs:
@@ -580,10 +617,10 @@ def clause_vars(pc):
 
 def ground(clauses, consts, max_ground):
   """ground clauses: (statement index, conf, lits, blocks, head) with the
-  built-in conditions computed (decision 66). A variable that occurs only in
-  exception literals is not grounded per clause: for each grounding of the
-  other variables its instances are all exceptions of one ground clause
-  (decision 67, the existential reading). A variable that occurs only in
+  built-in conditions computed. A variable that occurs only in exception
+  literals is not grounded per clause: for each grounding of the other
+  variables its instances are all exceptions of one ground clause (the
+  existential reading). A variable that occurs only in
   built-in literals is unsupported: the built-in ranges over an open domain."""
   total = 0
   for _si, _c, pc in clauses:
@@ -636,7 +673,7 @@ def ground(clauses, consts, max_ground):
       keep = [l for i, l in enumerate(keep) if l not in keep[:i]]
       nh = keep.index(hl) if hl is not None and hl in keep else None
       key = (tuple(keep), tuple(blocks), nh)
-      if key in seen:
+      if key in seen and not B2:
         continue
       seen.add(key)
       out.append((si, conf, keep, blocks, nh))
@@ -662,6 +699,8 @@ def read_input(path, max_ground, files=None):
     inp.files = files
   conv = []
   try:
+    CONVERTED.clear()
+    del READHEAD_LAST[:]
     stmts = read_statements(path, conv, inp.files)
   finally:
     inp.converted_by = conv[0] if conv else None
