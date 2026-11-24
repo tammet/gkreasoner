@@ -1,0 +1,28 @@
+0.9::link(n0,n1).
+0.9::link(n1,n2).
+reach(X,Y) :- link(X,Y).
+reach(X,Z) :- link(X,Y), reach(Y,Z).
+safe(X) ; guarded(X) :- reach(n0,X).
+ok(X) :- safe(X).
+ok(X) :- guarded(X).
+site(m1).
+site(m2).
+site(m3).
+site(m4).
+site(m5).
+site(m6).
+site(m7).
+site(m8).
+site(m9).
+site(m10).
+site(m11).
+site(m12).
+site(m13).
+site(m14).
+site(m15).
+site(m16).
+site(m17).
+site(m18).
+site(m19).
+site(m20).
+query(ok(n2)).

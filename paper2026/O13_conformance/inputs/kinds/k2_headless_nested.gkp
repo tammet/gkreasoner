@@ -1,0 +1,4 @@
+p ; -f :- unless(x).
+p ; f.
+x :- p.
+query(p).

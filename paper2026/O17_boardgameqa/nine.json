@@ -1,0 +1,238 @@
+[
+ {
+  "set": "d2",
+  "index": 95,
+  "theory": "Facts:\n\t(dugong, has, 76 dollars)\n\t(dugong, is watching a movie from, 1992)\n\t(dugong, trade, mermaid)\n\t(finch, has, 18 dollars)\n\t(fish, destroy, snake)\n\t(pelikan, has, 37 dollars)\n\t~(dugong, want, dragonfly)\nRules:\n\tRule1: (worm, unite, elk) => ~(elk, refuse, ant)\n\tRule2: (X, destroy, snake) => (X, dance, elk)\n\tRule3: (X, trade, mermaid)^~(X, want, dragonfly) => (X, trade, elk)\n\tRule4: (dugong, has, more money than the finch and the pelikan combined) => ~(dugong, trade, elk)\n\tRule5: (dugong, trade, elk)^(fish, dance, elk) => (elk, refuse, ant)\nPreferences:\n\tRule4 > Rule3\n\tRule5 > Rule1",
+  "goal": "(elk, refuse, ant)",
+  "label": "unknown",
+  "proof": "The provided information is not enough to prove or disprove the statement \"the elk refuses to help the ant\".",
+  "gk": "proved",
+  "gk_value": "[1.0, 0.0, 0.0, 0.0, 0.0]",
+  "rules_that_can_apply_by_literal_matching": [
+   "Rule2",
+   "Rule3",
+   "Rule5"
+  ],
+  "blocking_pairs": [
+   [
+    "Rule4",
+    "Rule3"
+   ]
+  ],
+  "spurious_pairs": []
+ },
+ {
+  "set": "d2",
+  "index": 116,
+  "theory": "Facts:\n\t(cobra, has, a card that is white in color)\n\t(coyote, swim, rhino)\n\t(elk, build, crow)\nRules:\n\tRule1: (cobra, has, a card whose color appears in the flag of Italy) => ~(cobra, take, ant)\n\tRule2: (elk, build, crow) => (crow, negotiate, ant)\n\tRule3: exists X (X, swim, rhino) => (cobra, take, ant)\n\tRule4: (cobra, has, a sharp object) => ~(cobra, take, ant)\n\tRule5: (cobra, take, ant)^(crow, negotiate, ant) => (ant, reveal, fangtooth)\nPreferences:\n\tRule1 > Rule3\n\tRule4 > Rule3",
+  "goal": "(ant, reveal, fangtooth)",
+  "label": "unknown",
+  "proof": "The provided information is not enough to prove or disprove the statement \"the ant reveals a secret to the fangtooth\".",
+  "gk": "proved",
+  "gk_value": "[1.0, 0.0, 0.0, 0.0, 0.0]",
+  "rules_that_can_apply_by_literal_matching": [
+   "Rule2",
+   "Rule3",
+   "Rule5"
+  ],
+  "blocking_pairs": [
+   [
+    "Rule1",
+    "Rule3"
+   ],
+   [
+    "Rule4",
+    "Rule3"
+   ]
+  ],
+  "spurious_pairs": []
+ },
+ {
+  "set": "d2",
+  "index": 407,
+  "theory": "Facts:\n\t(beetle, want, mannikin)\n\t(dugong, tear, mannikin)\n\t(mannikin, is, a farm worker)\n\t(mannikin, is, two years old)\n\t~(vampire, leave, mannikin)\nRules:\n\tRule1: (X, dance, coyote)^(X, dance, pelikan) => (X, negotiate, swan)\n\tRule2: (dugong, tear, mannikin) => (mannikin, dance, pelikan)\n\tRule3: (mannikin, is, less than five years old) => ~(mannikin, dance, coyote)\n\tRule4: ~(vampire, leave, mannikin)^(beetle, want, mannikin) => (mannikin, dance, coyote)\nPreferences:\n\tRule3 > Rule4",
+  "goal": "(mannikin, negotiate, swan)",
+  "label": "unknown",
+  "proof": "The provided information is not enough to prove or disprove the statement \"the mannikin negotiates a deal with the swan\".",
+  "gk": "proved",
+  "gk_value": "[1.0, 0.0, 0.0, 0.0, 0.0]",
+  "rules_that_can_apply_by_literal_matching": [
+   "Rule1",
+   "Rule2",
+   "Rule4"
+  ],
+  "blocking_pairs": [
+   [
+    "Rule3",
+    "Rule4"
+   ]
+  ],
+  "spurious_pairs": []
+ },
+ {
+  "set": "d2",
+  "index": 695,
+  "theory": "Facts:\n\t(bear, leave, otter)\n\t(bulldog, is named, Bella)\n\t(starling, is named, Beauty)\n\t(swallow, shout, bulldog)\nRules:\n\tRule1: (swallow, shout, bulldog) => (bulldog, capture, crab)\n\tRule2: (X, leave, otter) => (X, bring, llama)\n\tRule3: exists X (X, surrender, llama) => (bulldog, negotiate, liger)\n\tRule4: (bulldog, has a name whose first letter is the same as the first letter of the, starling's name) => ~(bulldog, capture, crab)\n\tRule5: (X, capture, crab) => ~(X, negotiate, liger)\n\tRule6: (bulldog, has, fewer than 7 friends) => ~(bulldog, capture, crab)\nPreferences:\n\tRule4 > Rule1\n\tRule5 > Rule3\n\tRule6 > Rule1",
+  "goal": "(bulldog, negotiate, liger)",
+  "label": "unknown",
+  "proof": "The provided information is not enough to prove or disprove the statement \"the bulldog negotiates a deal with the liger\".",
+  "gk": "disproved",
+  "gk_value": "[0.0, 1.0, 0.0, 0.0, 0.0]",
+  "rules_that_can_apply_by_literal_matching": [
+   "Rule1",
+   "Rule2",
+   "Rule5"
+  ],
+  "blocking_pairs": [
+   [
+    "Rule4",
+    "Rule1"
+   ],
+   [
+    "Rule6",
+    "Rule1"
+   ]
+  ],
+  "spurious_pairs": []
+ },
+ {
+  "set": "d2",
+  "index": 860,
+  "theory": "Facts:\n\t(camel, refuse, shark)\n\t(peafowl, is named, Beauty)\n\t(shark, will turn, 16 months old in a few minutes)\n\t(songbird, disarm, shark)\n\t(woodpecker, borrow, shark)\nRules:\n\tRule1: (X, borrow, basenji)^(X, tear, bee) => (X, swim, coyote)\n\tRule2: (woodpecker, borrow, shark)^(songbird, disarm, shark) => (shark, borrow, basenji)\n\tRule3: (shark, has a name whose first letter is the same as the first letter of the, peafowl's name) => ~(shark, borrow, basenji)\n\tRule4: (mermaid, dance, shark) => ~(shark, tear, bee)\n\tRule5: (camel, refuse, shark) => (shark, tear, bee)\n\tRule6: (shark, is, more than twelve months old) => ~(shark, borrow, basenji)\nPreferences:\n\tRule3 > Rule2\n\tRule4 > Rule5\n\tRule6 > Rule2",
+  "goal": "(shark, swim, coyote)",
+  "label": "unknown",
+  "proof": "The provided information is not enough to prove or disprove the statement \"the shark swims in the pool next to the house of the coyote\".",
+  "gk": "proved",
+  "gk_value": "[1.0, 0.0, 0.0, 0.0, 0.0]",
+  "rules_that_can_apply_by_literal_matching": [
+   "Rule1",
+   "Rule2",
+   "Rule5"
+  ],
+  "blocking_pairs": [
+   [
+    "Rule3",
+    "Rule2"
+   ],
+   [
+    "Rule4",
+    "Rule5"
+   ],
+   [
+    "Rule6",
+    "Rule2"
+   ]
+  ],
+  "spurious_pairs": []
+ },
+ {
+  "set": "d3",
+  "index": 161,
+  "theory": "Facts:\n\t(basenji, dreamed, of a luxury aircraft)\n\t(basenji, is, a grain elevator operator)\n\t(bee, has, 50 dollars)\n\t(crow, has, a couch)\n\t(crow, is watching a movie from, 1983)\n\t(flamingo, has, 44 dollars)\n\t(mule, has, a card that is green in color)\n\t(mule, has, a trumpet)\n\t(pelikan, has, 97 dollars)\n\t(poodle, create, pelikan)\n\t~(crab, hug, crow)\nRules:\n\tRule1: (poodle, create, pelikan) => (pelikan, swear, mule)\n\tRule2: (mule, has, a card with a primary color) => (mule, stop, crow)\n\tRule3: (crow, is watching a movie that was released before, Lionel Messi was born) => (crow, enjoy, seahorse)\n\tRule4: (mule, has, something to drink) => (mule, stop, crow)\n\tRule5: exists X (X, bring, elk) => ~(basenji, borrow, mermaid)\n\tRule6: (X, bring, husky) => (X, borrow, mermaid)\n\tRule7: exists X (X, take, shark) => (mermaid, manage, badger)\n\tRule8: (basenji, works, in agriculture) => (basenji, bring, husky)\n\tRule9: (basenji, owns, a luxury aircraft) => (basenji, bring, husky)\n\tRule10: (X, enjoy, seahorse) => ~(X, enjoy, mermaid)\n\tRule11: (pelikan, has, more money than the flamingo and the bee combined) => ~(pelikan, swear, mule)\n\tRule12: (pelikan, swear, mule) => (mule, take, shark)\n\tRule13: (crow, has, a sharp object) => (crow, enjoy, seahorse)\nPreferences:\n\tRule11 > Rule1\n\tRule5 > Rule6",
+  "goal": "(mermaid, manage, badger)",
+  "label": "unknown",
+  "proof": "The provided information is not enough to prove or disprove the statement \"the mermaid manages to convince the badger\".",
+  "gk": "proved",
+  "gk_value": "[1.0, 0.0, 0.0, 0.0, 0.0]",
+  "rules_that_can_apply_by_literal_matching": [
+   "Rule1",
+   "Rule12",
+   "Rule7"
+  ],
+  "blocking_pairs": [
+   [
+    "Rule11",
+    "Rule1"
+   ],
+   [
+    "Rule5",
+    "Rule6"
+   ]
+  ],
+  "spurious_pairs": []
+ },
+ {
+  "set": "d3",
+  "index": 287,
+  "theory": "Facts:\n\t(mannikin, take, monkey)\n\t(monkey, is, five years old)\n\t(swallow, reveal, monkey)\nRules:\n\tRule1: (swallow, reveal, monkey)^(mannikin, take, monkey) => (monkey, refuse, liger)\n\tRule2: (X, refuse, liger) => (X, manage, poodle)\n\tRule3: (monkey, is, more than two years old) => ~(monkey, refuse, liger)\n\tRule4: exists X (X, manage, poodle) => (crab, neglect, mermaid)\nPreferences:\n\tRule3 > Rule1",
+  "goal": "(crab, neglect, mermaid)",
+  "label": "unknown",
+  "proof": "The provided information is not enough to prove or disprove the statement \"the crab neglects the mermaid\".",
+  "gk": "proved",
+  "gk_value": "[1.0, 0.0, 0.0, 0.0, 0.0]",
+  "rules_that_can_apply_by_literal_matching": [
+   "Rule1",
+   "Rule2",
+   "Rule4"
+  ],
+  "blocking_pairs": [
+   [
+    "Rule3",
+    "Rule1"
+   ]
+  ],
+  "spurious_pairs": []
+ },
+ {
+  "set": "d3",
+  "index": 386,
+  "theory": "Facts:\n\t(bear, has, 64 dollars)\n\t(finch, reveal, rhino)\n\t(fish, has, 62 dollars)\n\t(gadwall, manage, chinchilla)\n\t~(bear, swim, dragon)\n\t~(frog, acquire, rhino)\nRules:\n\tRule1: exists X (X, pay, seal) => (crow, neglect, bee)\n\tRule2: (frog, acquire, rhino)^(finch, reveal, rhino) => (rhino, borrow, crow)\n\tRule3: exists X (X, manage, chinchilla) => (peafowl, pay, seal)\n\tRule4: (bear, has, more money than the fish) => ~(bear, acquire, dinosaur)\n\tRule5: exists X (X, acquire, dinosaur) => (crow, shout, chinchilla)\n\tRule6: (X, neglect, bee)^(X, shout, chinchilla) => (X, acquire, crab)\n\tRule7: ~(X, swim, dragon) => (X, acquire, dinosaur)\n\tRule8: (rhino, borrow, crow) => ~(crow, shout, chinchilla)\n\tRule9: ~(llama, create, crow) => ~(crow, acquire, crab)\nPreferences:\n\tRule4 > Rule7\n\tRule5 > Rule8\n\tRule9 > Rule6",
+  "goal": "(crow, acquire, crab)",
+  "label": "unknown",
+  "proof": "The provided information is not enough to prove or disprove the statement \"the crow acquires a photograph of the crab\".",
+  "gk": "proved",
+  "gk_value": "[1.0, 0.0, 0.0, 0.0, 0.0]",
+  "rules_that_can_apply_by_literal_matching": [
+   "Rule1",
+   "Rule3",
+   "Rule5",
+   "Rule6",
+   "Rule7"
+  ],
+  "blocking_pairs": [
+   [
+    "Rule4",
+    "Rule7"
+   ],
+   [
+    "Rule9",
+    "Rule6"
+   ]
+  ],
+  "spurious_pairs": []
+ },
+ {
+  "set": "d3",
+  "index": 938,
+  "theory": "Facts:\n\t(coyote, capture, gorilla)\n\t(frog, reveal, leopard)\n\t(peafowl, hide, gorilla)\n\t(seahorse, surrender, dalmatian)\n\t(zebra, build, beaver)\n\t~(bear, destroy, songbird)\n\t~(seahorse, neglect, swan)\nRules:\n\tRule1: (X, build, beaver) => ~(X, refuse, swallow)\n\tRule2: exists X (X, surrender, dragon) => ~(butterfly, acquire, lizard)\n\tRule3: (zebra, capture, butterfly)^(gorilla, unite, butterfly) => (butterfly, destroy, pelikan)\n\tRule4: ~(X, destroy, songbird) => ~(X, surrender, dragon)\n\tRule5: exists X (X, surrender, mouse) => ~(gorilla, unite, butterfly)\n\tRule6: ~(X, acquire, lizard) => ~(X, destroy, pelikan)\n\tRule7: (peafowl, hide, gorilla) => (gorilla, acquire, snake)\n\tRule8: (coyote, capture, gorilla) => ~(gorilla, acquire, snake)\n\tRule9: (X, surrender, dalmatian)^~(X, neglect, swan) => (X, fall, shark)\n\tRule10: (X, acquire, snake) => (X, unite, butterfly)\n\tRule11: exists X (X, fall, shark) => (zebra, capture, butterfly)\n\tRule12: (X, hug, pigeon) => (X, acquire, lizard)\n\tRule13: exists X (X, reveal, leopard) => (bear, surrender, dragon)\nPreferences:\n\tRule12 > Rule2\n\tRule13 > Rule4\n\tRule3 > Rule6\n\tRule5 > Rule10\n\tRule8 > Rule7",
+  "goal": "(butterfly, destroy, pelikan)",
+  "label": "unknown",
+  "proof": "The provided information is not enough to prove or disprove the statement \"the butterfly destroys the wall constructed by the pelikan\".",
+  "gk": "disproved",
+  "gk_value": "[0.0, 1.0, 0.0, 0.0, 0.0]",
+  "rules_that_can_apply_by_literal_matching": [
+   "Rule1",
+   "Rule10",
+   "Rule11",
+   "Rule13",
+   "Rule2",
+   "Rule3",
+   "Rule4",
+   "Rule6",
+   "Rule7",
+   "Rule8",
+   "Rule9"
+  ],
+  "blocking_pairs": [
+   [
+    "Rule12",
+    "Rule2"
+   ],
+   [
+    "Rule5",
+    "Rule10"
+   ]
+  ],
+  "spurious_pairs": []
+ }
+]

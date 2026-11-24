@@ -1,0 +1,237 @@
+run_id,system,method,input,question,value,unresolved,complete,answered_by,first_limit,ended_by_itself,time_s,target,target_kind,class,outcome,note,row,example
+a2_rec_default/table/c1.gkp.gk,gk 1.3.2,default,O2_record/inputs/table/c1.gkp,q,"(0.8, 0, 0, 0.2)",0,yes,exact,,yes,0.05,,,,,,C1,independent causes
+a2_rec_general/table/c1.gkp.gk,gk 1.3.2,general,O2_record/inputs/table/c1.gkp,q,"(0.8, 0, 0, 0.2)",0,,general,,yes,0.23,,,,,,C1,independent causes
+a2_rec_exact/table/c1.gkp.gk,gk 1.3.2,exact,O2_record/inputs/table/c1.gkp,q,"(0.8, 0, 0, 0.2)",0,yes,exact,,yes,0.06,,,,,,C1,independent causes
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/c1.gkp,mcref 1.3.1,,O2_record/inputs/table/c1.gkp,q,"(0.8, 0, 0, 0.2)",0,,,,yes,0.06,,,exact value of the tool,,,C1,independent causes
+a2_rec_default/table/c2.gkp.gk,gk 1.3.2,default,O2_record/inputs/table/c2.gkp,q,"(0.3, 0, 0, 0.7)",0,yes,exact,,yes,0.05,,,,,,C2,conjunctive causes
+a2_rec_general/table/c2.gkp.gk,gk 1.3.2,general,O2_record/inputs/table/c2.gkp,q,"(0.3, 0, 0, 0.7)",0,,general,,yes,0.23,,,,,,C2,conjunctive causes
+a2_rec_exact/table/c2.gkp.gk,gk 1.3.2,exact,O2_record/inputs/table/c2.gkp,q,"(0.3, 0, 0, 0.7)",0,yes,exact,,yes,0.06,,,,,,C2,conjunctive causes
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/c2.gkp,mcref 1.3.1,,O2_record/inputs/table/c2.gkp,q,"(0.3, 0, 0, 0.7)",0,,,,yes,0.06,,,exact value of the tool,,,C2,conjunctive causes
+a2_rec_default/table/d1.gkp.gk,gk 1.3.2,default,O2_record/inputs/table/d1.gkp,flies(a),"(0.1, 0.9, 0, 0)",0,yes,exact,,yes,0.05,,,,,,D1,uncertain contrary exception
+a2_rec_general/table/d1.gkp.gk,gk 1.3.2,general,O2_record/inputs/table/d1.gkp,flies(a),"(0.1, 0.9, 0, 0)",0,,general,,yes,0.18,,,,,,D1,uncertain contrary exception
+a2_rec_exact/table/d1.gkp.gk,gk 1.3.2,exact,O2_record/inputs/table/d1.gkp,flies(a),"(0.1, 0.9, 0, 0)",0,yes,exact,,yes,0.06,,,,,,D1,uncertain contrary exception
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/d1.gkp,mcref 1.3.1,,O2_record/inputs/table/d1.gkp,flies(a),"(0.1, 0.9, 0, 0)",0,,,,yes,0.06,,,exact value of the tool,,,D1,uncertain contrary exception
+a2_rec_default/table/d2.gkp.gk,gk 1.3.2,default,O2_record/inputs/table/d2.gkp,h,"(0.54, 0, 0, 0.46)",0,yes,exact,,yes,0.05,,,,,,D2,weighted facts and default
+a2_rec_general/table/d2.gkp.gk,gk 1.3.2,general,O2_record/inputs/table/d2.gkp,h,"(0.54, 0, 0, 0.46)",0,,general,,yes,0.20,,,,,,D2,weighted facts and default
+a2_rec_exact/table/d2.gkp.gk,gk 1.3.2,exact,O2_record/inputs/table/d2.gkp,h,"(0.54, 0, 0, 0.46)",0,yes,exact,,yes,0.06,,,,,,D2,weighted facts and default
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/d2.gkp,mcref 1.3.1,,O2_record/inputs/table/d2.gkp,h,"(0.54, 0, 0, 0.46)",0,,,,yes,0.06,,,exact value of the tool,,,D2,weighted facts and default
+a2_rec_default/table/d3.gkp.gk,gk 1.3.2,default,O2_record/inputs/table/d3.gkp,h,"(0, 0, 0, 1)",0,yes,exact,,yes,0.05,,,,,,D3,contested premise
+a2_rec_general/table/d3.gkp.gk,gk 1.3.2,general,O2_record/inputs/table/d3.gkp,h,"(0, 0, 0, 1)",0,,general,,yes,0.21,,,,,,D3,contested premise
+a2_rec_exact/table/d3.gkp.gk,gk 1.3.2,exact,O2_record/inputs/table/d3.gkp,h,"(0, 0, 0, 1)",0,yes,exact,,yes,0.05,,,,,,D3,contested premise
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/d3.gkp,mcref 1.3.1,,O2_record/inputs/table/d3.gkp,h,"(0, 0, 0, 1)",0,,,,yes,0.07,,,exact value of the tool,,,D3,contested premise
+a2_rec_default/table/d4.gkp.gk,gk 1.3.2,default,O2_record/inputs/table/d4.gkp,pacifist(n),"(0, 0, 0, 1)",0,yes,exact,,yes,0.06,,,,,,D4,Nixon defaults
+a2_rec_general/table/d4.gkp.gk,gk 1.3.2,general,O2_record/inputs/table/d4.gkp,pacifist(n),"(0, 0, 0, 1)",0,,general,,yes,0.27,,,,,,D4,Nixon defaults
+a2_rec_exact/table/d4.gkp.gk,gk 1.3.2,exact,O2_record/inputs/table/d4.gkp,pacifist(n),"(0, 0, 0, 1)",0,yes,exact,,yes,0.06,,,,,,D4,Nixon defaults
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/d4.gkp,mcref 1.3.1,,O2_record/inputs/table/d4.gkp,pacifist(n),"(0, 0, 0, 1)",0,,,,yes,0.06,,,exact value of the tool,,,D4,Nixon defaults
+a2_rec_default/table/d4sm_pos.gkp.gk,gk 1.3.2,default,O2_record/inputs/table/d4sm_pos.gkp,pacifist(n),"(0.32, 0.12, 0, 0.56)",0,yes,exact,,yes,0.06,,,,,,D4-P,probabilistic Nixon premises
+a2_rec_general/table/d4sm_pos.gkp.gk,gk 1.3.2,general,O2_record/inputs/table/d4sm_pos.gkp,pacifist(n),"(0.32, 0.12, 0, 0.56)",0,,general,,yes,0.26,,,,,,D4-P,probabilistic Nixon premises
+a2_rec_exact/table/d4sm_pos.gkp.gk,gk 1.3.2,exact,O2_record/inputs/table/d4sm_pos.gkp,pacifist(n),"(0.32, 0.12, 0, 0.56)",0,yes,exact,,yes,0.06,,,,,,D4-P,probabilistic Nixon premises
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/d4sm_pos.gkp,mcref 1.3.1,,O2_record/inputs/table/d4sm_pos.gkp,pacifist(n),"(0.32, 0.12, 0, 0.56)",0,,,,yes,0.06,,,exact value of the tool,,,D4-P,probabilistic Nixon premises
+a2_rec_default/table/d4sm_neg.gkp.gk,gk 1.3.2,default,O2_record/inputs/table/d4sm_neg.gkp,-pacifist(n),"(0.12, 0.32, 0, 0.56)",0,yes,exact,,yes,0.06,,,,,,D4-P,probabilistic Nixon premises
+a2_rec_general/table/d4sm_neg.gkp.gk,gk 1.3.2,general,O2_record/inputs/table/d4sm_neg.gkp,-pacifist(n),"(0.12, 0.32, 0, 0.56)",0,,general,,yes,0.26,,,,,,D4-P,probabilistic Nixon premises
+a2_rec_exact/table/d4sm_neg.gkp.gk,gk 1.3.2,exact,O2_record/inputs/table/d4sm_neg.gkp,-pacifist(n),"(0.12, 0.32, 0, 0.56)",0,yes,exact,,yes,0.06,,,,,,D4-P,probabilistic Nixon premises
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/d4sm_neg.gkp,mcref 1.3.1,,O2_record/inputs/table/d4sm_neg.gkp,-pacifist(n),"(0.12, 0.32, 0, 0.56)",0,,,,yes,0.06,,,exact value of the tool,,,D4-P,probabilistic Nixon premises
+a2_rec_default/table/d5.gkp.gk,gk 1.3.2,default,O2_record/inputs/table/d5.gkp,l,"(0.6, 0.3, 0, 0.1)",0,yes,exact,,yes,0.06,,,,,,D5,strict priority
+a2_rec_general/table/d5.gkp.gk,gk 1.3.2,general,O2_record/inputs/table/d5.gkp,l,"(0.6, 0.3, 0, 0.1)",0,,general,,yes,0.13,,,,,,D5,strict priority
+a2_rec_exact/table/d5.gkp.gk,gk 1.3.2,exact,O2_record/inputs/table/d5.gkp,l,"(0.6, 0.3, 0, 0.1)",0,yes,exact,,yes,0.06,,,,,,D5,strict priority
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/d5.gkp,mcref 1.3.1,,O2_record/inputs/table/d5.gkp,l,"(0.6, 0.3, 0, 0.1)",0,,,,yes,0.06,,,exact value of the tool,,,D5,strict priority
+a2_rec_default/table/d6_undercut.gkp.gk,gk 1.3.2,default,O2_record/inputs/table/d6_undercut.gkp,flies(a),"(1, 0, 0, 0)",0,yes,exact,,yes,0.05,,,,,,D6,undercut vs. rebut
+a2_rec_general/table/d6_undercut.gkp.gk,gk 1.3.2,general,O2_record/inputs/table/d6_undercut.gkp,flies(a),"(1, 0, 0, 0)",0,,general,,yes,0.15,,,,,,D6,undercut vs. rebut
+a2_rec_exact/table/d6_undercut.gkp.gk,gk 1.3.2,exact,O2_record/inputs/table/d6_undercut.gkp,flies(a),"(1, 0, 0, 0)",0,yes,exact,,yes,0.05,,,,,,D6,undercut vs. rebut
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/d6_undercut.gkp,mcref 1.3.1,,O2_record/inputs/table/d6_undercut.gkp,flies(a),"(1, 0, 0, 0)",0,,,,yes,0.06,,,exact value of the tool,,,D6,undercut vs. rebut
+a2_rec_default/table/d6_rebut.gkp.gk,gk 1.3.2,default,O2_record/inputs/table/d6_rebut.gkp,flies(a),"(1, 0, 0, 0)",0,yes,exact,,yes,0.06,,,,,,D6,undercut vs. rebut
+a2_rec_general/table/d6_rebut.gkp.gk,gk 1.3.2,general,O2_record/inputs/table/d6_rebut.gkp,flies(a),"(1, 0, 0, 0)",0,,general,,yes,0.11,,,,,,D6,undercut vs. rebut
+a2_rec_exact/table/d6_rebut.gkp.gk,gk 1.3.2,exact,O2_record/inputs/table/d6_rebut.gkp,flies(a),"(1, 0, 0, 0)",0,yes,exact,,yes,0.06,,,,,,D6,undercut vs. rebut
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/d6_rebut.gkp,mcref 1.3.1,,O2_record/inputs/table/d6_rebut.gkp,flies(a),"(1, 0, 0, 0)",0,,,,yes,0.06,,,exact value of the tool,,,D6,undercut vs. rebut
+a2_rec_default/table/d7.gkp.gk,gk 1.3.2,default,O2_record/inputs/table/d7.gkp,flies(a),"(0.36, 0.48, 0, 0.16)",0,yes,exact,,yes,0.05,,,,,,D7,paired exception
+a2_rec_general/table/d7.gkp.gk,gk 1.3.2,general,O2_record/inputs/table/d7.gkp,flies(a),"(0.36, 0.48, 0, 0.16)",0,,general,,yes,0.28,,,,,,D7,paired exception
+a2_rec_exact/table/d7.gkp.gk,gk 1.3.2,exact,O2_record/inputs/table/d7.gkp,flies(a),"(0.36, 0.48, 0, 0.16)",0,yes,exact,,yes,0.06,,,,,,D7,paired exception
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/d7.gkp,mcref 1.3.1,,O2_record/inputs/table/d7.gkp,flies(a),"(0.36, 0.48, 0, 0.16)",0,,,,yes,0.06,,,exact value of the tool,,,D7,paired exception
+a2_rec_default/table/n1_study4.gkp.gk,gk 1.3.2,default,O2_record/inputs/table/n1_study4.gkp,"twobirds(a,a)","(0.5, 0, 0, 0.5)",0,yes,exact,,yes,0.06,,,,,,N1,Study 4: open join query
+a2_rec_default/table/n1_study4.gkp.gk,gk 1.3.2,default,O2_record/inputs/table/n1_study4.gkp,"twobirds(b,a)","(0.3, 0, 0, 0.7)",0,yes,exact,,yes,0.06,,,,,,N1,Study 4: open join query
+a2_rec_default/table/n1_study4.gkp.gk,gk 1.3.2,default,O2_record/inputs/table/n1_study4.gkp,"twobirds(a,b)","(0.3, 0, 0, 0.7)",0,yes,exact,,yes,0.06,,,,,,N1,Study 4: open join query
+a2_rec_default/table/n1_study4.gkp.gk,gk 1.3.2,default,O2_record/inputs/table/n1_study4.gkp,"twobirds(b,b)","(0.6, 0, 0, 0.4)",0,yes,exact,,yes,0.06,,,,,,N1,Study 4: open join query
+a2_rec_general/table/n1_study4.gkp.gk,gk 1.3.2,general,O2_record/inputs/table/n1_study4.gkp,"twobirds(b,b)","(0.6, 0, 0, 0.4)",0,,general,,yes,0.35,,,,,,N1,Study 4: open join query
+a2_rec_general/table/n1_study4.gkp.gk,gk 1.3.2,general,O2_record/inputs/table/n1_study4.gkp,"twobirds(a,a)","(0.5, 0, 0, 0.5)",0,,general,,yes,0.35,,,,,,N1,Study 4: open join query
+a2_rec_general/table/n1_study4.gkp.gk,gk 1.3.2,general,O2_record/inputs/table/n1_study4.gkp,"twobirds(a,b)","(0.3, 0, 0, 0.7)",0,,general,,yes,0.35,,,,,,N1,Study 4: open join query
+a2_rec_general/table/n1_study4.gkp.gk,gk 1.3.2,general,O2_record/inputs/table/n1_study4.gkp,"twobirds(b,a)","(0.3, 0, 0, 0.7)",0,,general,,yes,0.35,,,,,,N1,Study 4: open join query
+a2_rec_exact/table/n1_study4.gkp.gk,gk 1.3.2,exact,O2_record/inputs/table/n1_study4.gkp,"twobirds(a,a)","(0.5, 0, 0, 0.5)",0,yes,exact,,yes,0.06,,,,,,N1,Study 4: open join query
+a2_rec_exact/table/n1_study4.gkp.gk,gk 1.3.2,exact,O2_record/inputs/table/n1_study4.gkp,"twobirds(b,a)","(0.3, 0, 0, 0.7)",0,yes,exact,,yes,0.06,,,,,,N1,Study 4: open join query
+a2_rec_exact/table/n1_study4.gkp.gk,gk 1.3.2,exact,O2_record/inputs/table/n1_study4.gkp,"twobirds(a,b)","(0.3, 0, 0, 0.7)",0,yes,exact,,yes,0.06,,,,,,N1,Study 4: open join query
+a2_rec_exact/table/n1_study4.gkp.gk,gk 1.3.2,exact,O2_record/inputs/table/n1_study4.gkp,"twobirds(b,b)","(0.6, 0, 0, 0.4)",0,yes,exact,,yes,0.06,,,,,,N1,Study 4: open join query
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/n1_study4.gkp,mcref 1.3.1,,O2_record/inputs/table/n1_study4.gkp,"twobirds(a,a)","(0.5, 0, 0, 0.5)",0,,,,yes,0.06,,,exact value of the tool,,,N1,Study 4: open join query
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/n1_study4.gkp,mcref 1.3.1,,O2_record/inputs/table/n1_study4.gkp,"twobirds(b,a)","(0.3, 0, 0, 0.7)",0,,,,yes,0.06,,,exact value of the tool,,,N1,Study 4: open join query
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/n1_study4.gkp,mcref 1.3.1,,O2_record/inputs/table/n1_study4.gkp,"twobirds(a,b)","(0.3, 0, 0, 0.7)",0,,,,yes,0.06,,,exact value of the tool,,,N1,Study 4: open join query
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/n1_study4.gkp,mcref 1.3.1,,O2_record/inputs/table/n1_study4.gkp,"twobirds(b,b)","(0.6, 0, 0, 0.4)",0,,,,yes,0.06,,,exact value of the tool,,,N1,Study 4: open join query
+a2_rec_default/table/n2_study10.gkp.gk,gk 1.3.2,default,O2_record/inputs/table/n2_study10.gkp,smokes(ann),"(0.8, 0, 0, 0.2)",0,yes,exact,,yes,0.06,,,,,,N2,Study 10: open recursive query
+a2_rec_default/table/n2_study10.gkp.gk,gk 1.3.2,default,O2_record/inputs/table/n2_study10.gkp,smokes(bob),"(0.688, 0, 0, 0.312)",0,yes,exact,,yes,0.06,,,,,,N2,Study 10: open recursive query
+a2_rec_default/table/n2_study10.gkp.gk,gk 1.3.2,default,O2_record/inputs/table/n2_study10.gkp,smokes(carl),"(0.1376, 0, 0, 0.8624)",0,yes,exact,,yes,0.06,,,,,,N2,Study 10: open recursive query
+a2_rec_general/table/n2_study10.gkp.gk,gk 1.3.2,general,O2_record/inputs/table/n2_study10.gkp,smokes(ann),"(0.8, 0, 0, 0.2)",0,,general,,yes,0.43,,,,,,N2,Study 10: open recursive query
+a2_rec_general/table/n2_study10.gkp.gk,gk 1.3.2,general,O2_record/inputs/table/n2_study10.gkp,smokes(bob),"(0.688, 0, 0, 0.312)",0,,general,,yes,0.43,,,,,,N2,Study 10: open recursive query
+a2_rec_general/table/n2_study10.gkp.gk,gk 1.3.2,general,O2_record/inputs/table/n2_study10.gkp,smokes(carl),"(0.1376, 0, 0, 0.8624)",0,,general,,yes,0.43,,,,,,N2,Study 10: open recursive query
+a2_rec_exact/table/n2_study10.gkp.gk,gk 1.3.2,exact,O2_record/inputs/table/n2_study10.gkp,smokes(ann),"(0.8, 0, 0, 0.2)",0,yes,exact,,yes,0.06,,,,,,N2,Study 10: open recursive query
+a2_rec_exact/table/n2_study10.gkp.gk,gk 1.3.2,exact,O2_record/inputs/table/n2_study10.gkp,smokes(bob),"(0.688, 0, 0, 0.312)",0,yes,exact,,yes,0.06,,,,,,N2,Study 10: open recursive query
+a2_rec_exact/table/n2_study10.gkp.gk,gk 1.3.2,exact,O2_record/inputs/table/n2_study10.gkp,smokes(carl),"(0.1376, 0, 0, 0.8624)",0,yes,exact,,yes,0.06,,,,,,N2,Study 10: open recursive query
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/n2_study10.gkp,mcref 1.3.1,,O2_record/inputs/table/n2_study10.gkp,smokes(ann),"(0.8, 0, 0, 0.2)",0,,,,yes,0.07,,,exact value of the tool,,,N2,Study 10: open recursive query
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/n2_study10.gkp,mcref 1.3.1,,O2_record/inputs/table/n2_study10.gkp,smokes(bob),"(0.688, 0, 0, 0.312)",0,,,,yes,0.07,,,exact value of the tool,,,N2,Study 10: open recursive query
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/n2_study10.gkp,mcref 1.3.1,,O2_record/inputs/table/n2_study10.gkp,smokes(carl),"(0.1376, 0, 0, 0.8624)",0,,,,yes,0.07,,,exact value of the tool,,,N2,Study 10: open recursive query
+a2_declined/../experiments/comparisons/table_extensions/inputs/gk/e1.gkp,gk 1.3.2,default,O2_record/inputs/declined/table/experiments/comparisons/table_extensions/inputs/gk/e1.gkp,p(a),"(0.396, 0.056, 0.504, 0.044)",0,,general,,yes,0.26,,,,,,EQ1,"uncertain equality, opposed evidence"
+c1_gk/e1.general,gk 1.3.2,general,O2_record/inputs/declined/table/experiments/comparisons/table_extensions/inputs/gk/e1.gkp,p(a),"(0.396, 0.056, 0.504, 0.044)",0,,general,,yes,0.24,,,,,,EQ1,"uncertain equality, opposed evidence"
+c1_gk/e1.exact,gk 1.3.2,exact,O2_record/inputs/declined/table/experiments/comparisons/table_extensions/inputs/gk/e1.gkp,p(a),,,no,exact,not covered: an equality between terms,no,,,,,,,EQ1,"uncertain equality, opposed evidence"
+tool_large/../experiments/comparisons/table_extensions/inputs/gk/e1.gkp,mcref 1.3.1,,O2_record/inputs/declined/table/experiments/comparisons/table_extensions/inputs/gk/e1.gkp,p(a),,,,,,yes,0.07,,,the tool declines the input,,declines: equality,EQ1,"uncertain equality, opposed evidence"
+a2_rec_default/table/x1.gkp.gk,gk 1.3.2,default,O2_record/inputs/table/x1.gkp,q(b),"(1, 0, 0, 0)",0,yes,exact,,yes,0.06,,,,,,X1,unrelated contradiction tolerance
+a2_rec_general/table/x1.gkp.gk,gk 1.3.2,general,O2_record/inputs/table/x1.gkp,q(b),"(1, 0, 0, 0)",0,,general,,yes,0.12,,,,,,X1,unrelated contradiction tolerance
+a2_rec_exact/table/x1.gkp.gk,gk 1.3.2,exact,O2_record/inputs/table/x1.gkp,q(b),"(1, 0, 0, 0)",0,yes,exact,,yes,0.06,,,,,,X1,unrelated contradiction tolerance
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/x1.gkp,mcref 1.3.1,,O2_record/inputs/table/x1.gkp,q(b),"(1, 0, 0, 0)",0,,,,yes,0.06,,,exact value of the tool,,,X1,unrelated contradiction tolerance
+a3_default/comparison/f1.gkp,gk 1.3.2,default,O5_comparisons/inputs/gk/f1.gkp,bird(f(f(a))),"(0.576, 0, 0, 0.424)",0,,general,,yes,0.24,,,,,,F1,recursion over function terms
+a3_general/comparison/f1.gkp,gk 1.3.2,general,O5_comparisons/inputs/gk/f1.gkp,bird(f(f(a))),"(0.576, 0, 0, 0.424)",0,,general,,yes,0.22,,,,,,F1,recursion over function terms
+a3_exact/comparison/f1.gkp,gk 1.3.2,exact,O5_comparisons/inputs/gk/f1.gkp,bird(f(f(a))),"(0.576, 0, 0, 0.424)",0,yes,exact,,yes,0.06,,,,,,F1,recursion over function terms
+tool_large/gk12_design/c_paper_runs_2026_11_17/comparisons/inputs/gk/f1.gkp,mcref 1.3.1,,O5_comparisons/inputs/gk/f1.gkp,bird(f(f(a))),,,,,,yes,0.07,,,the tool declines the input,,declines: function symbols,F1,recursion over function terms
+a2_rec_default/table/dj1.gkp.gk,gk 1.3.2,default,O2_record/inputs/table/dj1.gkp,q(a),"(0.72, 0, 0, 0.28)",0,yes,exact,,yes,0.06,,,,,,DJ1,uncertain classical disjunction
+a2_rec_general/table/dj1.gkp.gk,gk 1.3.2,general,O2_record/inputs/table/dj1.gkp,q(a),"(0.72, 0, 0, 0.28)",0,,general,,yes,0.17,,,,,,DJ1,uncertain classical disjunction
+a2_rec_exact/table/dj1.gkp.gk,gk 1.3.2,exact,O2_record/inputs/table/dj1.gkp,q(a),"(0.72, 0, 0, 0.28)",0,yes,exact,,yes,0.06,,,,,,DJ1,uncertain classical disjunction
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/dj1.gkp,mcref 1.3.1,,O2_record/inputs/table/dj1.gkp,q(a),"(0.72, 0, 0, 0.28)",0,,,,yes,0.06,,,exact value of the tool,,,DJ1,uncertain classical disjunction
+record/problog_cases,ProbLog 2.2.10,,O5_comparisons/inputs/problog/problog_cases.pl,c1_q,.80,,,,,,,,,,same value,.80,C1,independent causes
+record/pasta_c1_q,PASTA 1.0.1,,O5_comparisons/inputs/pasta/pasta_cases.lp,c1_q,"[.80,.80]",,,,,,,,,,same value,"[.80,.80]",C1,independent causes
+record/plingo_cases,plingo 1.1.0,,O5_comparisons/inputs/plingo/plingo_cases.lp,c1_q,.80,,,,,,,,,,same value,.80,C1,independent causes
+record/smproblog_cases,smProbLog 2.1.0.42,,O5_comparisons/inputs/smproblog/smproblog_cases.pl,c1_q,.80,,,,,,,,,,same value,.80,C1,independent causes
+,TweetyProject 1.31,,,,U,,,,,,,,,,no encoding,The selected system does not return the confidence object tested by this row.,C1,independent causes
+,clingo 5.6.2,,,,U,,,,,,,,,,no encoding,The selected system does not return the confidence object tested by this row.,C1,independent causes
+,DLV 2.1.1 / I-DLV 1.1.6,,,,U,,,,,,,,,,no encoding,The selected system does not return the confidence object tested by this row.,C1,independent causes
+,s(CASP) 1.1.4,,,,U,,,,,,,,,,no encoding,The selected system does not return the confidence object tested by this row.,C1,independent causes
+record/problog_cases,ProbLog 2.2.10,,O5_comparisons/inputs/problog/problog_cases.pl,c2_q,.30,,,,,,,,,,same value,.30,C2,conjunctive causes
+record/pasta_c2_q,PASTA 1.0.1,,O5_comparisons/inputs/pasta/pasta_cases.lp,c2_q,"[.30,.30]",,,,,,,,,,same value,"[.30,.30]",C2,conjunctive causes
+record/plingo_cases,plingo 1.1.0,,O5_comparisons/inputs/plingo/plingo_cases.lp,c2_q,.30,,,,,,,,,,same value,.30,C2,conjunctive causes
+record/smproblog_cases,smProbLog 2.1.0.42,,O5_comparisons/inputs/smproblog/smproblog_cases.pl,c2_q,.30,,,,,,,,,,same value,.30,C2,conjunctive causes
+,TweetyProject 1.31,,,,U,,,,,,,,,,no encoding,The selected system does not return the confidence object tested by this row.,C2,conjunctive causes
+,clingo 5.6.2,,,,U,,,,,,,,,,no encoding,The selected system does not return the confidence object tested by this row.,C2,conjunctive causes
+,DLV 2.1.1 / I-DLV 1.1.6,,,,U,,,,,,,,,,no encoding,The selected system does not return the confidence object tested by this row.,C2,conjunctive causes
+,s(CASP) 1.1.4,,,,U,,,,,,,,,,no encoding,The selected system does not return the confidence object tested by this row.,C2,conjunctive causes
+record/problog_cases,ProbLog 2.2.10,,O5_comparisons/inputs/problog/problog_cases.pl,d1_pos;d1_neg,.10/.90,,,,,,,,,,another quantity,a probability of the query atom: .10/.90,D1,uncertain contrary exception
+record/pasta_d1_pos;record/pasta_d1_neg,PASTA 1.0.1,,O5_comparisons/inputs/pasta/pasta_cases.lp,d1_pos;d1_neg,"[.10,.10]/[.90,.90]",,,,,,,,,,another quantity,"a credal interval [lower, upper] over answer sets: [.10,.10]/[.90,.90]",D1,uncertain contrary exception
+record/plingo_cases,plingo 1.1.0,,O5_comparisons/inputs/plingo/plingo_cases.lp,d1_pos;d1_neg,.10/.90,,,,,,,,,,another quantity,a probability normalized over weighted stable models: .10/.90,D1,uncertain contrary exception
+record/smproblog_cases,smProbLog 2.1.0.42,,O5_comparisons/inputs/smproblog/smproblog_cases.pl,d1_pos;d1_neg,.10/.90,,,,,,,,,,another quantity,a probability with a world's mass split equally among its stable models: .10/.90,D1,uncertain contrary exception
+,TweetyProject 1.31,,,,U,,,,,,,,,,no encoding,No faithful encoding of the row's GK construct is claimed.,D1,uncertain contrary exception
+record/clingo_cases,clingo 5.6.2,,O5_comparisons/inputs/asp/asp_cases.lp,d1_pos;d1_neg,no/yes,,,,,,,,,,another quantity,"stable models or a verdict, without a number: no/yes",D1,uncertain contrary exception
+record/dlv_cases,DLV 2.1.1 / I-DLV 1.1.6,,O5_comparisons/inputs/asp/asp_cases.lp,d1_pos;d1_neg,no/yes,,,,,,,,,,another quantity,"stable models or a verdict, without a number: no/yes",D1,uncertain contrary exception
+record/scasp_d1_pos;record/scasp_d1_neg,s(CASP) 1.1.4,,O5_comparisons/inputs/scasp/scasp_cases.pl,d1_pos;d1_neg,no/yes,,,,,,,,,,another quantity,"a verdict per query, without a number: no/yes",D1,uncertain contrary exception
+record/problog_cases,ProbLog 2.2.10,,O5_comparisons/inputs/problog/problog_cases.pl,d2_h,.27,,,,,,,,,,another quantity,a probability of the query atom: .27,D2,weighted facts and default
+record/pasta_d2_h,PASTA 1.0.1,,O5_comparisons/inputs/pasta/pasta_cases.lp,d2_h,"[.27,.27]",,,,,,,,,,another quantity,"a credal interval [lower, upper] over answer sets: [.27,.27]",D2,weighted facts and default
+record/plingo_cases,plingo 1.1.0,,O5_comparisons/inputs/plingo/plingo_cases.lp,d2_h,.27,,,,,,,,,,another quantity,a probability normalized over weighted stable models: .27,D2,weighted facts and default
+record/smproblog_cases,smProbLog 2.1.0.42,,O5_comparisons/inputs/smproblog/smproblog_cases.pl,d2_h,.27,,,,,,,,,,another quantity,a probability with a world's mass split equally among its stable models: .27,D2,weighted facts and default
+,TweetyProject 1.31,,,,U,,,,,,,,,,no encoding,No faithful encoding of the row's GK construct is claimed.,D2,weighted facts and default
+record/clingo_cases,clingo 5.6.2,,O5_comparisons/inputs/asp/asp_cases.lp,d2_h,no,,,,,,,,,,another quantity,"stable models or a verdict, without a number: no",D2,weighted facts and default
+record/dlv_cases,DLV 2.1.1 / I-DLV 1.1.6,,O5_comparisons/inputs/asp/asp_cases.lp,d2_h,no,,,,,,,,,,another quantity,"stable models or a verdict, without a number: no",D2,weighted facts and default
+record/scasp_d2_h,s(CASP) 1.1.4,,O5_comparisons/inputs/scasp/scasp_cases.pl,d2_h,no,,,,,,,,,,another quantity,"a verdict per query, without a number: no",D2,weighted facts and default
+record/problog_cases,ProbLog 2.2.10,,O5_comparisons/inputs/problog/problog_cases.pl,d3_h,.225,,,,,,,,,,another quantity,a probability of the query atom: .225,D3,contested premise
+record/pasta_d3_h,PASTA 1.0.1,,O5_comparisons/inputs/pasta/pasta_cases.lp,d3_h,"[.225,.225]",,,,,,,,,,another quantity,"a credal interval [lower, upper] over answer sets: [.225,.225]",D3,contested premise
+record/plingo_cases,plingo 1.1.0,,O5_comparisons/inputs/plingo/plingo_cases.lp,d3_h,.225,,,,,,,,,,another quantity,a probability normalized over weighted stable models: .225,D3,contested premise
+record/smproblog_cases,smProbLog 2.1.0.42,,O5_comparisons/inputs/smproblog/smproblog_cases.pl,d3_h,.225,,,,,,,,,,another quantity,a probability with a world's mass split equally among its stable models: .225,D3,contested premise
+,TweetyProject 1.31,,,,U,,,,,,,,,,no encoding,No faithful encoding of the row's GK construct is claimed.,D3,contested premise
+record/clingo_cases,clingo 5.6.2,,O5_comparisons/inputs/asp/asp_cases.lp,d3_h,no,,,,,,,,,,another quantity,"stable models or a verdict, without a number: no",D3,contested premise
+record/dlv_cases,DLV 2.1.1 / I-DLV 1.1.6,,O5_comparisons/inputs/asp/asp_cases.lp,d3_h,no,,,,,,,,,,another quantity,"stable models or a verdict, without a number: no",D3,contested premise
+record/scasp_d3_h,s(CASP) 1.1.4,,O5_comparisons/inputs/scasp/scasp_cases.pl,d3_h,no,,,,,,,,,,another quantity,"a verdict per query, without a number: no",D3,contested premise
+,ProbLog 2.2.10,,,,U,,,,,,,,,,no answer,"rejected: NegativeCycle (online appendix O4.1, row C4, two certain defaults of equal rank; the 16-case table: U)",D4,Nixon defaults
+record/pasta_d4_pos;record/pasta_d4_neg,PASTA 1.0.1,,O5_comparisons/inputs/pasta/pasta_cases.lp,d4_pos;d4_neg,"[0,1]/[0,1]",,,,,,,,,,another quantity,"a credal interval [lower, upper] over answer sets: [0,1]/[0,1]",D4,Nixon defaults
+record/plingo_cases,plingo 1.1.0,,O5_comparisons/inputs/plingo/plingo_cases.lp,d4_pos;d4_neg,.50/.50,,,,,,,,,,another quantity,a probability normalized over weighted stable models: .50/.50,D4,Nixon defaults
+record/smproblog_d4,smProbLog 2.1.0.42,,O5_comparisons/inputs/smproblog/smproblog_d4.pl,d4_pos;d4_neg,.50/.50,,,,,,,,,,another quantity,a probability with a world's mass split equally among its stable models: .50/.50,D4,Nixon defaults
+record/tweety_reference,TweetyProject 1.31,,O5_comparisons/inputs/tweety/d4_nixon.delp,pacifist(nixon);~pacifist(nixon),undec./undec.,,,,,,,,,,another quantity,a dialectical status without a number: undec./undec.,D4,Nixon defaults
+record/clingo_cases,clingo 5.6.2,,O5_comparisons/inputs/asp/asp_cases.lp,d4_pos;d4_neg,2 models,,,,,,,,,,another quantity,"stable models or a verdict, without a number: 2 models",D4,Nixon defaults
+record/dlv_cases;record/idlv_reference,DLV 2.1.1 / I-DLV 1.1.6,,O5_comparisons/inputs/asp/asp_cases.lp;O5_comparisons/inputs/idlv/d4_nixon.lp,d4_pos;d4_neg,2 models,,,,,,,,,,another quantity,"stable models or a verdict, without a number: 2 models",D4,Nixon defaults
+record/scasp_d4_pos;record/scasp_d4_neg,s(CASP) 1.1.4,,O5_comparisons/inputs/scasp/scasp_cases.pl,d4_pos;d4_neg,yes/yes,,,,,,,,,,another quantity,"a verdict per query, without a number: yes/yes",D4,Nixon defaults
+,ProbLog 2.2.10,,,,U,,,,,,,,,,no encoding,The selected semantics does not represent the row's stable-model choice.,D4-P,probabilistic Nixon premises
+record/pasta_d4sm_pacifist;record/pasta_d4sm_nonpacifist,PASTA 1.0.1,,O5_comparisons/inputs/pasta/pasta_d4sm.lp,pacifist;nonpacifist,"[.32,.80]/[.12,.60]",,,,,,,,,,another quantity,"a credal interval [lower, upper] over answer sets: [.32,.80]/[.12,.60]",D4-P,probabilistic Nixon premises
+record/plingo_d4sm,plingo 1.1.0,,O5_comparisons/inputs/plingo/plingo_d4sm.lp,pacifist;nonpacifist,.54054/.40540,,,,,,,,,,another quantity,a probability normalized over weighted stable models: .54054/.40540,D4-P,probabilistic Nixon premises
+record/smproblog_d4sm,smProbLog 2.1.0.42,,O5_comparisons/inputs/smproblog/smproblog_d4sm.pl,pacifist;nonpacifist,.56/.36,,,,,,,,,,another quantity,a probability with a world's mass split equally among its stable models: .56/.36,D4-P,probabilistic Nixon premises
+,TweetyProject 1.31,,,,U,,,,,,,,,,no encoding,The selected semantics does not represent the row's stable-model choice.,D4-P,probabilistic Nixon premises
+,clingo 5.6.2,,,,U,,,,,,,,,,no encoding,The selected semantics does not represent the row's stable-model choice.,D4-P,probabilistic Nixon premises
+,DLV 2.1.1 / I-DLV 1.1.6,,,,U,,,,,,,,,,no encoding,The selected semantics does not represent the row's stable-model choice.,D4-P,probabilistic Nixon premises
+,s(CASP) 1.1.4,,,,U,,,,,,,,,,no encoding,The selected semantics does not represent the row's stable-model choice.,D4-P,probabilistic Nixon premises
+,ProbLog 2.2.10,,,,U,,,,,,,,,,no encoding,The selected semantics does not represent the row's stable-model choice.,D4-P,probabilistic Nixon premises
+record/pasta_d4sm_pacifist;record/pasta_d4sm_nonpacifist,PASTA 1.0.1,,O5_comparisons/inputs/pasta/pasta_d4sm.lp,pacifist;nonpacifist,"[.32,.80]/[.12,.60]",,,,,,,,,,another quantity,"a credal interval [lower, upper] over answer sets: [.32,.80]/[.12,.60]",D4-P,probabilistic Nixon premises
+record/plingo_d4sm,plingo 1.1.0,,O5_comparisons/inputs/plingo/plingo_d4sm.lp,pacifist;nonpacifist,.54054/.40540,,,,,,,,,,another quantity,a probability normalized over weighted stable models: .54054/.40540,D4-P,probabilistic Nixon premises
+record/smproblog_d4sm,smProbLog 2.1.0.42,,O5_comparisons/inputs/smproblog/smproblog_d4sm.pl,pacifist;nonpacifist,.56/.36,,,,,,,,,,another quantity,a probability with a world's mass split equally among its stable models: .56/.36,D4-P,probabilistic Nixon premises
+,TweetyProject 1.31,,,,U,,,,,,,,,,no encoding,The selected semantics does not represent the row's stable-model choice.,D4-P,probabilistic Nixon premises
+,clingo 5.6.2,,,,U,,,,,,,,,,no encoding,The selected semantics does not represent the row's stable-model choice.,D4-P,probabilistic Nixon premises
+,DLV 2.1.1 / I-DLV 1.1.6,,,,U,,,,,,,,,,no encoding,The selected semantics does not represent the row's stable-model choice.,D4-P,probabilistic Nixon premises
+,s(CASP) 1.1.4,,,,U,,,,,,,,,,no encoding,The selected semantics does not represent the row's stable-model choice.,D4-P,probabilistic Nixon premises
+record/problog_cases,ProbLog 2.2.10,,O5_comparisons/inputs/problog/problog_cases.pl,d5_pos;d5_neg,.63/.30,,,,,,,,,,another quantity,a probability of the query atom: .63/.30,D5,strict priority
+record/pasta_d5_pos;record/pasta_d5_neg,PASTA 1.0.1,,O5_comparisons/inputs/pasta/pasta_cases.lp,d5_pos;d5_neg,"[.63,.63]/[.30,.30]",,,,,,,,,,another quantity,"a credal interval [lower, upper] over answer sets: [.63,.63]/[.30,.30]",D5,strict priority
+record/plingo_cases,plingo 1.1.0,,O5_comparisons/inputs/plingo/plingo_cases.lp,d5_pos;d5_neg,.63/.30,,,,,,,,,,another quantity,a probability normalized over weighted stable models: .63/.30,D5,strict priority
+record/smproblog_cases,smProbLog 2.1.0.42,,O5_comparisons/inputs/smproblog/smproblog_cases.pl,d5_pos;d5_neg,.63/.30,,,,,,,,,,another quantity,a probability with a world's mass split equally among its stable models: .63/.30,D5,strict priority
+record/tweety_reference,TweetyProject 1.31,,O5_comparisons/inputs/tweety/d5_specificity.delp,Flies(opus);~Flies(opus),no/yes,,,,,,,,,,another quantity,a dialectical status without a number: no/yes,D5,strict priority
+record/clingo_cases,clingo 5.6.2,,O5_comparisons/inputs/asp/asp_cases.lp,d5_pos;d5_neg,no/yes,,,,,,,,,,another quantity,"stable models or a verdict, without a number: no/yes",D5,strict priority
+record/dlv_cases,DLV 2.1.1 / I-DLV 1.1.6,,O5_comparisons/inputs/asp/asp_cases.lp,d5_pos;d5_neg,no/yes,,,,,,,,,,another quantity,"stable models or a verdict, without a number: no/yes",D5,strict priority
+record/scasp_d5_pos;record/scasp_d5_neg,s(CASP) 1.1.4,,O5_comparisons/inputs/scasp/scasp_cases.pl,d5_pos;d5_neg,no/yes,,,,,,,,,,another quantity,"a verdict per query, without a number: no/yes",D5,strict priority
+record/problog_cases,ProbLog 2.2.10,,O5_comparisons/inputs/problog/problog_cases.pl,d6_undercut;d6_rebut,1/1,,,,,,,,,,another quantity,a probability of the query atom: 1/1,D6,undercut vs. rebut
+record/pasta_d6_undercut;record/pasta_d6_rebut,PASTA 1.0.1,,O5_comparisons/inputs/pasta/pasta_cases.lp,d6_undercut;d6_rebut,"[1,1]/[1,1]",,,,,,,,,,another quantity,"a credal interval [lower, upper] over answer sets: [1,1]/[1,1]",D6,undercut vs. rebut
+record/plingo_cases,plingo 1.1.0,,O5_comparisons/inputs/plingo/plingo_cases.lp,d6_undercut;d6_rebut,1/1,,,,,,,,,,another quantity,a probability normalized over weighted stable models: 1/1,D6,undercut vs. rebut
+record/smproblog_cases,smProbLog 2.1.0.42,,O5_comparisons/inputs/smproblog/smproblog_cases.pl,d6_undercut;d6_rebut,1/1,,,,,,,,,,another quantity,a probability with a world's mass split equally among its stable models: 1/1,D6,undercut vs. rebut
+,TweetyProject 1.31,,,,U,,,,,,,,,,no encoding,No faithful encoding of the row's GK construct is claimed.,D6,undercut vs. rebut
+record/clingo_cases,clingo 5.6.2,,O5_comparisons/inputs/asp/asp_cases.lp,d6_undercut;d6_rebut,yes/yes,,,,,,,,,,another quantity,"stable models or a verdict, without a number: yes/yes",D6,undercut vs. rebut
+record/dlv_cases,DLV 2.1.1 / I-DLV 1.1.6,,O5_comparisons/inputs/asp/asp_cases.lp,d6_undercut;d6_rebut,yes/yes,,,,,,,,,,another quantity,"stable models or a verdict, without a number: yes/yes",D6,undercut vs. rebut
+record/scasp_d6_undercut;record/scasp_d6_rebut,s(CASP) 1.1.4,,O5_comparisons/inputs/scasp/scasp_cases.pl,d6_undercut;d6_rebut,yes/yes,,,,,,,,,,another quantity,"a verdict per query, without a number: yes/yes",D6,undercut vs. rebut
+record/problog_cases,ProbLog 2.2.10,,O5_comparisons/inputs/problog/problog_cases.pl,d6_undercut;d6_rebut,1/1,,,,,,,,,,another quantity,a probability of the query atom: 1/1,D6,undercut vs. rebut
+record/pasta_d6_undercut;record/pasta_d6_rebut,PASTA 1.0.1,,O5_comparisons/inputs/pasta/pasta_cases.lp,d6_undercut;d6_rebut,"[1,1]/[1,1]",,,,,,,,,,another quantity,"a credal interval [lower, upper] over answer sets: [1,1]/[1,1]",D6,undercut vs. rebut
+record/plingo_cases,plingo 1.1.0,,O5_comparisons/inputs/plingo/plingo_cases.lp,d6_undercut;d6_rebut,1/1,,,,,,,,,,another quantity,a probability normalized over weighted stable models: 1/1,D6,undercut vs. rebut
+record/smproblog_cases,smProbLog 2.1.0.42,,O5_comparisons/inputs/smproblog/smproblog_cases.pl,d6_undercut;d6_rebut,1/1,,,,,,,,,,another quantity,a probability with a world's mass split equally among its stable models: 1/1,D6,undercut vs. rebut
+,TweetyProject 1.31,,,,U,,,,,,,,,,no encoding,No faithful encoding of the row's GK construct is claimed.,D6,undercut vs. rebut
+record/clingo_cases,clingo 5.6.2,,O5_comparisons/inputs/asp/asp_cases.lp,d6_undercut;d6_rebut,yes/yes,,,,,,,,,,another quantity,"stable models or a verdict, without a number: yes/yes",D6,undercut vs. rebut
+record/dlv_cases,DLV 2.1.1 / I-DLV 1.1.6,,O5_comparisons/inputs/asp/asp_cases.lp,d6_undercut;d6_rebut,yes/yes,,,,,,,,,,another quantity,"stable models or a verdict, without a number: yes/yes",D6,undercut vs. rebut
+record/scasp_d6_undercut;record/scasp_d6_rebut,s(CASP) 1.1.4,,O5_comparisons/inputs/scasp/scasp_cases.pl,d6_undercut;d6_rebut,yes/yes,,,,,,,,,,another quantity,"a verdict per query, without a number: yes/yes",D6,undercut vs. rebut
+record/problog_cases,ProbLog 2.2.10,,O5_comparisons/inputs/problog/problog_cases.pl,d7_pos;d7_neg,.48/.48,,,,,,,,,,another quantity,a probability of the query atom: .48/.48,D7,paired exception
+record/pasta_d7_pos;record/pasta_d7_neg,PASTA 1.0.1,,O5_comparisons/inputs/pasta/pasta_cases.lp,d7_pos;d7_neg,"[.48,.48]/[.48,.48]",,,,,,,,,,another quantity,"a credal interval [lower, upper] over answer sets: [.48,.48]/[.48,.48]",D7,paired exception
+record/plingo_cases,plingo 1.1.0,,O5_comparisons/inputs/plingo/plingo_cases.lp,d7_pos;d7_neg,.48/.48,,,,,,,,,,another quantity,a probability normalized over weighted stable models: .48/.48,D7,paired exception
+record/smproblog_cases,smProbLog 2.1.0.42,,O5_comparisons/inputs/smproblog/smproblog_cases.pl,d7_pos;d7_neg,.48/.48,,,,,,,,,,another quantity,a probability with a world's mass split equally among its stable models: .48/.48,D7,paired exception
+,TweetyProject 1.31,,,,U,,,,,,,,,,no encoding,No faithful encoding of the paired reference-class construction is claimed.,D7,paired exception
+,clingo 5.6.2,,,,U,,,,,,,,,,no encoding,No faithful encoding of the paired reference-class construction is claimed.,D7,paired exception
+,DLV 2.1.1 / I-DLV 1.1.6,,,,U,,,,,,,,,,no encoding,No faithful encoding of the paired reference-class construction is claimed.,D7,paired exception
+,s(CASP) 1.1.4,,,,U,,,,,,,,,,no encoding,No faithful encoding of the paired reference-class construction is claimed.,D7,paired exception
+record/problog_nonground,ProbLog 2.2.10,,O5_comparisons/inputs/problog/problog_nonground.pl,"n1_twobirds(X,Y)","(.50,.30,.30,.60)",,,,,,,,,,same value,"(.50,.30,.30,.60)",N1,Study 4: open join query
+record/pasta_n1_aa;record/pasta_n1_ab;record/pasta_n1_ba;record/pasta_n1_bb,PASTA 1.0.1,,O5_comparisons/inputs/pasta/pasta_nonground.lp,"n1_twobirds(a,a);n1_twobirds(a,b);n1_twobirds(b,a);n1_twobirds(b,b)","([.50,.50],[.30,.30],[.30,.30],[.60,.60])",,,,,,,,,,same value,"([.50,.50],[.30,.30],[.30,.30],[.60,.60])",N1,Study 4: open join query
+record/plingo_nonground,plingo 1.1.0,,O5_comparisons/inputs/plingo/plingo_nonground.lp,"n1_twobirds(a,a);n1_twobirds(a,b);n1_twobirds(b,a);n1_twobirds(b,b)","(.50,.30,.30,.60)",,,,,,,,,,same value,"(.50,.30,.30,.60)",N1,Study 4: open join query
+record/smproblog_nonground,smProbLog 2.1.0.42,,O5_comparisons/inputs/smproblog/smproblog_nonground.pl,"n1_twobirds(X,Y)","(.50,.30,.30,.60)",,,,,,,,,,same value,"(.50,.30,.30,.60)",N1,Study 4: open join query
+,TweetyProject 1.31,,,,U,,,,,,,,,,no encoding,No faithful encoding of the row's GK construct is claimed.,N1,Study 4: open join query
+record/clingo_nonground,clingo 5.6.2,,O5_comparisons/inputs/asp/asp_nonground.lp,"n1_twobirds(X,Y)","{aa,ab,ba,bb}",,,,,,,,,,another quantity,"stable models or a verdict, without a number: {aa,ab,ba,bb}",N1,Study 4: open join query
+record/dlv_nonground,DLV 2.1.1 / I-DLV 1.1.6,,O5_comparisons/inputs/asp/asp_nonground.lp,"n1_twobirds(X,Y)","{aa,ab,ba,bb}",,,,,,,,,,another quantity,"stable models or a verdict, without a number: {aa,ab,ba,bb}",N1,Study 4: open join query
+record/scasp_n1,s(CASP) 1.1.4,,O5_comparisons/inputs/scasp/scasp_nonground.pl,"n1_twobirds(X,Y)","{aa,ab,ba,bb}",,,,,,,,,,another quantity,"a verdict per query, without a number: {aa,ab,ba,bb}",N1,Study 4: open join query
+record/problog_nonground,ProbLog 2.2.10,,O5_comparisons/inputs/problog/problog_nonground.pl,n2_smokes(X),"(.80,.688,.1376)",,,,,,,,,,same value,"(.80,.688,.1376)",N2,Study 10: open recursive query
+record/pasta_n2_ann;record/pasta_n2_bob;record/pasta_n2_carl,PASTA 1.0.1,,O5_comparisons/inputs/pasta/pasta_nonground.lp,n2_smokes(ann);n2_smokes(bob);n2_smokes(carl),"([.80,.80],[.688,.688],[.1376,.1376])",,,,,,,,,,same value,"([.80,.80],[.688,.688],[.1376,.1376])",N2,Study 10: open recursive query
+record/plingo_nonground,plingo 1.1.0,,O5_comparisons/inputs/plingo/plingo_nonground.lp,n2_smokes(ann);n2_smokes(bob);n2_smokes(carl),"(.80,.688,.1376)",,,,,,,,,,same value,"(.80,.688,.1376)",N2,Study 10: open recursive query
+record/smproblog_nonground,smProbLog 2.1.0.42,,O5_comparisons/inputs/smproblog/smproblog_nonground.pl,n2_smokes(X),"(.80,.688,.1376)",,,,,,,,,,same value,"(.80,.688,.1376)",N2,Study 10: open recursive query
+,TweetyProject 1.31,,,,U,,,,,,,,,,no encoding,No faithful encoding of the row's GK construct is claimed.,N2,Study 10: open recursive query
+record/clingo_nonground,clingo 5.6.2,,O5_comparisons/inputs/asp/asp_nonground.lp,n2_smokes(X),"{ann,bob,carl}",,,,,,,,,,another quantity,"stable models or a verdict, without a number: {ann,bob,carl}",N2,Study 10: open recursive query
+record/dlv_nonground,DLV 2.1.1 / I-DLV 1.1.6,,O5_comparisons/inputs/asp/asp_nonground.lp,n2_smokes(X),"{ann,bob,carl}",,,,,,,,,,another quantity,"stable models or a verdict, without a number: {ann,bob,carl}",N2,Study 10: open recursive query
+record/scasp_n2,s(CASP) 1.1.4,,O5_comparisons/inputs/scasp/scasp_nonground.pl,n2_smokes(X),"{ann,bob,carl}",,,,,,,,,,another quantity,"a verdict per query, without a number: {ann,bob,carl}",N2,Study 10: open recursive query
+,ProbLog 2.2.10,,,,U,,,,,,,,,,another quantity,.9 and .56 as two unrelated numbers: -p(b) is a fresh atom in the recorded file problog_e1.pl (the 16-case table: U),EQ1,"uncertain equality, opposed evidence"
+record/pasta_e1,PASTA 1.0.1,,O5_comparisons/inputs/pasta/pasta_e1.lp,p(a),error,,,,,,,,,,no answer,Error: Found 1 worlds without answer sets.,EQ1,"uncertain equality, opposed evidence"
+record/plingo_e1,plingo 1.1.0,,O5_comparisons/inputs/plingo/plingo_e1.lp,p(a),.79839,,,,,,,,,,another quantity,.79839 after renormalizing away the inconsistent mass .504,EQ1,"uncertain equality, opposed evidence"
+record/smproblog_e1,smProbLog 2.1.0.42,,O5_comparisons/inputs/smproblog/smproblog_e1.pl,p(a),".82, inc .504",,,,,,,,,,another quantity,"true .82, false -.32, inconsistent .504",EQ1,"uncertain equality, opposed evidence"
+,TweetyProject 1.31,,,,U,,,,,,,,,,no encoding,No faithful encoding of the row's GK construct is claimed.,EQ1,"uncertain equality, opposed evidence"
+record/clingo_e1,clingo 5.6.2,,O5_comparisons/inputs/asp/asp_e1.lp,,no models,,,,,,,,,,no answer,no model of the whole program,EQ1,"uncertain equality, opposed evidence"
+record/dlv_e1,DLV 2.1.1 / I-DLV 1.1.6,,O5_comparisons/inputs/asp/asp_e1.lp,,no models,,,,,,,,,,no answer,no model of the whole program,EQ1,"uncertain equality, opposed evidence"
+record/scasp_e1,s(CASP) 1.1.4,,O5_comparisons/inputs/scasp/scasp_e1.pl,p(a),no models,,,,,,,,,,no answer,no models with the acyclic substitution rules; with the symmetric rules the query does not terminate,EQ1,"uncertain equality, opposed evidence"
+,ProbLog 2.2.10,,,,U,,,,,,,,,,no encoding,"no classical negation (the 16-case table: U); the analogue of O4.1 row C6, a constraint, was not applied by ProbLog's parser (.6 is the value without it)",X1,unrelated contradiction tolerance
+record/pasta_x1,PASTA 1.0.1,,O5_comparisons/inputs/pasta/pasta_x1.lp,q(b),error,,,,,,,,,,no answer,Error: Found 1 worlds without answer sets.,X1,unrelated contradiction tolerance
+record/plingo_x1,plingo 1.1.0,,O5_comparisons/inputs/plingo/plingo_x1.lp,q(b),1.0,,,,,,,,,,another quantity,1.0 after renormalizing away the inconsistent mass .42,X1,unrelated contradiction tolerance
+record/smproblog_x1,smProbLog 2.1.0.42,,O5_comparisons/inputs/smproblog/smproblog_x1.pl,q(b),"1.0, inc .42",,,,,,,,,,another quantity,"true 1, false -.42, inconsistent .42",X1,unrelated contradiction tolerance
+,TweetyProject 1.31,,,,U,,,,,,,,,,no encoding,No faithful encoding of the row's GK construct is claimed.,X1,unrelated contradiction tolerance
+record/clingo_x1,clingo 5.6.2,,O5_comparisons/inputs/asp/asp_x1.lp,,no models,,,,,,,,,,no answer,no model of the whole program,X1,unrelated contradiction tolerance
+record/dlv_x1,DLV 2.1.1 / I-DLV 1.1.6,,O5_comparisons/inputs/asp/asp_x1.lp,,no models,,,,,,,,,,no answer,no model of the whole program,X1,unrelated contradiction tolerance
+record/scasp_x1,s(CASP) 1.1.4,,O5_comparisons/inputs/scasp/scasp_x1.pl,q(b),no models,,,,,,,,,,no answer,no model of the whole program,X1,unrelated contradiction tolerance
+record/problog_f1,ProbLog 2.2.10,,O5_comparisons/inputs/problog/problog_f1.pl,bird(f(f(a))),.576,,,,,,,,,,same value,.576,F1,recursion over function terms
+record/pasta_f1,PASTA 1.0.1,,O5_comparisons/inputs/pasta/pasta_f1.lp,bird(f(f(a))),does not ground,,,,,,,,,,did not end,"grounding stopped at the recorded limit of 10 s (timeout, exit 124)",F1,recursion over function terms
+record/plingo_f1,plingo 1.1.0,,O5_comparisons/inputs/plingo/plingo_f1.lp,bird(f(f(a))),does not ground,,,,,,,,,,did not end,"grounding stopped at the recorded limit of 10 s (timeout, exit 124)",F1,recursion over function terms
+record/smproblog_f1,smProbLog 2.1.0.42,,O5_comparisons/inputs/smproblog/smproblog_f1.pl,bird(f(f(a))),does not ground,,,,,,,,,,did not end,"grounding stopped at the recorded limit of 10 s (timeout, exit 124)",F1,recursion over function terms
+,TweetyProject 1.31,,,,U,,,,,,,,,,no encoding,No faithful encoding of the row's GK construct is claimed.,F1,recursion over function terms
+record/clingo_f1,clingo 5.6.2,,O5_comparisons/inputs/asp/asp_f1.lp,,does not ground,,,,,,,,,,did not end,"grounding stopped at the recorded limit of 10 s (timeout, exit 124)",F1,recursion over function terms
+record/dlv_f1,DLV 2.1.1 / I-DLV 1.1.6,,O5_comparisons/inputs/asp/asp_f1.lp,,does not ground,,,,,,,,,,did not end,"grounding stopped at the recorded limit of 10 s (timeout, exit 124)",F1,recursion over function terms
+record/scasp_f1,s(CASP) 1.1.4,,O5_comparisons/inputs/scasp/scasp_f1.pl,bird(f(f(a))),yes,,,,,,,,,,another quantity,"a verdict per query, without a number: yes",F1,recursion over function terms
+,ProbLog 2.2.10,,,,U,,,,,,,,,,no encoding,The selected syntax has no classical disjunction; an annotated disjunction distributes the probability among the disjuncts instead.,DJ1,uncertain classical disjunction
+record/pasta_dj1,PASTA 1.0.1,,O5_comparisons/inputs/pasta/pasta_dj1.lp,q(a),"[.72,.80]",,,,,,,,,,another quantity,"the credal interval [.72, .80]; its lower bound is gk's .72",DJ1,uncertain classical disjunction
+record/plingo_dj1,plingo 1.1.0,,O5_comparisons/inputs/plingo/plingo_dj1.lp,q(a),error,,,,,,,,,,no answer,"front-end failure on the disjunctive head (AttributeError: no attribute: atom), 0 models, exit 65",DJ1,uncertain classical disjunction
+record/smproblog_dj1,smProbLog 2.1.0.42,,O5_comparisons/inputs/smproblog/smproblog_dj1.pl,q(a),.76,,,,,,,,,,another quantity,.76: the undefended disjunction world's .08 split between two models,DJ1,uncertain classical disjunction
+,TweetyProject 1.31,,,,U,,,,,,,,,,no encoding,No faithful encoding of the row's GK construct is claimed.,DJ1,uncertain classical disjunction
+record/clingo_dj1,clingo 5.6.2,,O5_comparisons/inputs/asp/asp_dj1.lp,,yes,,,,,,,,,,another quantity,"stable models or a verdict, without a number: yes",DJ1,uncertain classical disjunction
+record/dlv_dj1,DLV 2.1.1 / I-DLV 1.1.6,,O5_comparisons/inputs/asp/asp_dj1.lp,,yes,,,,,,,,,,another quantity,"stable models or a verdict, without a number: yes",DJ1,uncertain classical disjunction
+record/scasp_dj1,s(CASP) 1.1.4,,O5_comparisons/inputs/scasp/scasp_dj1.pl,q(a),yes,,,,,,,,,,another quantity,"a verdict per query, without a number: yes",DJ1,uncertain classical disjunction

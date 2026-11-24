@@ -1,0 +1,44 @@
+{link(n0,n1)}.
+{link(n1,n2)}.
+{link(n2,n3)}.
+{link(n3,n4)}.
+{link(n4,n5)}.
+{link(n5,n6)}.
+{link(n6,n7)}.
+{link(n7,n8)}.
+{link(n8,n9)}.
+{link(n9,n10)}.
+{link(n10,n11)}.
+{link(n11,n12)}.
+{link(n12,n13)}.
+{link(n13,n14)}.
+{link(n14,n15)}.
+{link(n15,n16)}.
+{link(n16,n17)}.
+{link(n17,n18)}.
+{link(n18,n19)}.
+{link(n19,n20)}.
+{link(n20,n21)}.
+{link(n21,n22)}.
+{link(n22,n23)}.
+{link(n23,n24)}.
+{link(n24,n25)}.
+{link(n25,n26)}.
+{link(n26,n27)}.
+{link(n27,n28)}.
+{link(n28,n29)}.
+{link(n29,n30)}.
+{link(n30,n31)}.
+{link(n31,n32)}.
+{link(n32,n33)}.
+{link(n33,n34)}.
+{link(n34,n35)}.
+{link(n35,n36)}.
+{link(n36,n37)}.
+{link(n37,n38)}.
+{link(n38,n39)}.
+{link(n39,n40)}.
+reach(X,Y) :- link(X,Y).
+reach(X,Z) :- link(X,Y), reach(Y,Z).
+open(X) :- reach(n0,X), not closed(X).
+{closed(n40)}.

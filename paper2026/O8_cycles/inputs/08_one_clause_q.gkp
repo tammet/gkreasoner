@@ -1,4 +1,4 @@
-% Part O8, example 8: one clause at a time.
+% Part O8, example 8: a proof by cases.
 0.8::r.
 0.2::-p.
 p :- r.

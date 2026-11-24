@@ -11,7 +11,7 @@ folder, and indicate whether you made changes.
 Exceptions and third-party material:
 
 - The gk binary and the reference tool mcref are not part of this folder
-  in the gkreasoner repository. In the full dataset, bin/gk and mcref/
+  in the gkreasoner repository. In the full dataset, the binaries in bin/ and mcref/
   keep the GK licence of the gkreasoner repository, a copy of which is
   bin/LICENSE. The taxonomy data in data/, which parts O6 and O7 read, is
   derived from WordNet 3.0 and is used under the Princeton WordNet
@@ -22,12 +22,20 @@ Exceptions and third-party material:
   SHA-256 of each file. The gk inputs generated from them are included.
 - The university inputs of part O3 use the vocabulary of the Univ-Bench
   ontology of the Lehigh University Benchmark (LUBM). Their rules were
-  derived from that ontology by tools/extract_univ_bench_rules.py; their
+  derived from that ontology by O3_families/inputs/tools/extract_univ_bench_rules.py; their
   facts were generated for this paper. The ontology file is not included.
 - The inputs of the set "lit" of part O2 restate examples from the
   published literature, from the example programs of plingo, and from
   the public datasets BoardgameQA and defeasible NLI, in gk's input
-  language. O2_record/lit_sources.tsv names the source of each input.
+  language. O2_record/literature_sources.csv names the source of each input.
 - No code of an external system (ProbLog, plingo, clingo, PASTA,
-  smProbLog, pgmpy, SPINdle, DEFT, TweetyProject) is included. SYSTEMS.md
+  smProbLog, pgmpy, SPINdle, DEFT, TweetyProject, DLV, I-DLV,
+  s(CASP)) is included. SYSTEMS.md
   names each system, its version and its source.
+- The inputs of part O17 are converted from the BoardgameQA release (Kazemi, Yuan, Bhatia, Kim, Xu, Imbrasaite
+  and Ramachandran, "BoardgameQA: A Dataset for Natural Language Reasoning with Contradictory Information",
+  NeurIPS 2023), <https://storage.googleapis.com/gresearch/BoardgameQA/BoardgameQA.zip>, which is licensed
+  under CC BY. The converted inputs, `nine.json` and the release's texts quoted in part O17 are changed forms of
+  that material: a script converted the theories into gk's input language.
+- The inputs of part O18 restate the benchmark problems of V. Lifschitz, "Benchmark problems for formal
+  nonmonotonic reasoning" (1989), in gk's input language.

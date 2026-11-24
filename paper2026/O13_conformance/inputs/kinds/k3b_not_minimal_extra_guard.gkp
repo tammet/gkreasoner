@@ -1,0 +1,7 @@
+c :- -b, unless(-d).
+0.8::-c.
+-d :- -c.
+c :- b, unless(-d).
+d.
+c :- -b, unless(d).
+query(d).

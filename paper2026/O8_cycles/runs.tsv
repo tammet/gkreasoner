@@ -1,67 +1,67 @@
-run_id	tool	input	options	settings	alone	timeout_s
-01_chain_q.gk	gk	inputs/01_chain_q.gkp				180
-01_chain_q.mcref	mcref	inputs/01_chain_q.gkp		samples=100000 seed=1		900
-01_chain_p.gk	gk	inputs/01_chain_p.gkp				180
-01_chain_p.mcref	mcref	inputs/01_chain_p.gkp		samples=100000 seed=1		900
-01_chain_r.gk	gk	inputs/01_chain_r.gkp				180
-01_chain_r.mcref	mcref	inputs/01_chain_r.gkp		samples=100000 seed=1		900
-02_uncertain_bird_bird.gk	gk	inputs/02_uncertain_bird_bird.gkp				180
-02_uncertain_bird_bird.mcref	mcref	inputs/02_uncertain_bird_bird.gkp		samples=100000 seed=1		900
-02_uncertain_bird_flies.gk	gk	inputs/02_uncertain_bird_flies.gkp				180
-02_uncertain_bird_flies.mcref	mcref	inputs/02_uncertain_bird_flies.gkp		samples=100000 seed=1		900
-02_uncertain_bird_sings.gk	gk	inputs/02_uncertain_bird_sings.gkp				180
-02_uncertain_bird_sings.mcref	mcref	inputs/02_uncertain_bird_sings.gkp		samples=100000 seed=1		900
-03_chain_stop_q.gk	gk	inputs/03_chain_stop_q.gkp				180
-03_chain_stop_q.mcref	mcref	inputs/03_chain_stop_q.gkp		samples=100000 seed=1		900
-03_chain_stop_p.gk	gk	inputs/03_chain_stop_p.gkp				180
-03_chain_stop_p.mcref	mcref	inputs/03_chain_stop_p.gkp		samples=100000 seed=1		900
-03_chain_stop_certain_q.gk	gk	inputs/03_chain_stop_certain_q.gkp				180
-03_chain_stop_certain_q.mcref	mcref	inputs/03_chain_stop_certain_q.gkp		samples=100000 seed=1		900
-04_two_routes_q.gk	gk	inputs/04_two_routes_q.gkp				180
-04_two_routes_q.mcref	mcref	inputs/04_two_routes_q.gkp		samples=100000 seed=1		900
-04_two_routes_swapped_q.gk	gk	inputs/04_two_routes_swapped_q.gkp				180
-04_two_routes_swapped_q.mcref	mcref	inputs/04_two_routes_swapped_q.gkp		samples=100000 seed=1		900
-05_own_consequence_p.gk	gk	inputs/05_own_consequence_p.gkp				180
-05_own_consequence_p.mcref	mcref	inputs/05_own_consequence_p.gkp		samples=100000 seed=1		900
-05_own_consequence_q.gk	gk	inputs/05_own_consequence_q.gkp				180
-05_own_consequence_q.mcref	mcref	inputs/05_own_consequence_q.gkp		samples=100000 seed=1		900
-05_fact_against_fact_p.gk	gk	inputs/05_fact_against_fact_p.gkp				180
-05_fact_against_fact_p.mcref	mcref	inputs/05_fact_against_fact_p.gkp		samples=100000 seed=1		900
-05_own_consequence_default_p.gk	gk	inputs/05_own_consequence_default_p.gkp				180
-05_own_consequence_default_p.mcref	mcref	inputs/05_own_consequence_default_p.gkp		samples=100000 seed=1		900
-06_three_facts_p.gk	gk	inputs/06_three_facts_p.gkp				180
-06_three_facts_p.mcref	mcref	inputs/06_three_facts_p.gkp		samples=100000 seed=1		900
-06_three_facts_q.gk	gk	inputs/06_three_facts_q.gkp				180
-06_three_facts_q.mcref	mcref	inputs/06_three_facts_q.gkp		samples=100000 seed=1		900
-06_three_facts_r.gk	gk	inputs/06_three_facts_r.gkp				180
-06_three_facts_r.mcref	mcref	inputs/06_three_facts_r.gkp		samples=100000 seed=1		900
-07_disjunction_cycle_b.gk	gk	inputs/07_disjunction_cycle_b.gkp				180
-07_disjunction_cycle_b.mcref	mcref	inputs/07_disjunction_cycle_b.gkp		samples=100000 seed=1		900
-07_directed_rule_b.gk	gk	inputs/07_directed_rule_b.gkp				180
-07_directed_rule_b.mcref	mcref	inputs/07_directed_rule_b.gkp		samples=100000 seed=1		900
-08_one_clause_q.gk	gk	inputs/08_one_clause_q.gkp				180
-08_one_clause_q.mcref	mcref	inputs/08_one_clause_q.gkp		samples=100000 seed=1		900
-09_default_certain_rule_flies.gk	gk	inputs/09_default_certain_rule_flies.gkp				180
-09_default_certain_rule_flies.mcref	mcref	inputs/09_default_certain_rule_flies.gkp		samples=100000 seed=1		900
-10_fact_default_rule_r.gk	gk	inputs/10_fact_default_rule_r.gkp				180
-10_fact_default_rule_r.mcref	mcref	inputs/10_fact_default_rule_r.gkp		samples=100000 seed=1		900
-10_fact_default_rule_p.gk	gk	inputs/10_fact_default_rule_p.gkp				180
-10_fact_default_rule_p.mcref	mcref	inputs/10_fact_default_rule_p.gkp		samples=100000 seed=1		900
-11_ordinary_first_p.gk	gk	inputs/11_ordinary_first_p.gkp				180
-11_ordinary_first_p.mcref	mcref	inputs/11_ordinary_first_p.gkp		samples=100000 seed=1		900
-12_mutual_pair_p.gk	gk	inputs/12_mutual_pair_p.gkp				180
-12_mutual_pair_p.mcref	mcref	inputs/12_mutual_pair_p.gkp		samples=100000 seed=1		900
-12_mutual_pair_b.gk	gk	inputs/12_mutual_pair_b.gkp				180
-12_mutual_pair_b.mcref	mcref	inputs/12_mutual_pair_b.gkp		samples=100000 seed=1		900
-12_mutual_pair_half_p.gk	gk	inputs/12_mutual_pair_half_p.gkp				180
-12_mutual_pair_half_p.mcref	mcref	inputs/12_mutual_pair_half_p.gkp		samples=100000 seed=1		900
-13_yale_alive.gk	gk	inputs/13_yale_alive.gkp				180
-13_yale_alive.mcref	mcref	inputs/13_yale_alive.gkp		samples=100000 seed=1		900
-13_yale_099_alive.gk	gk	inputs/13_yale_099_alive.gkp				180
-13_yale_099_alive.mcref	mcref	inputs/13_yale_099_alive.gkp		samples=100000 seed=1		900
-13_yale_q.gk	gk	inputs/13_yale_q.gkp				180
-13_yale_q.mcref	mcref	inputs/13_yale_q.gkp		samples=100000 seed=1		900
-13_yale_walks.gk	gk	inputs/13_yale_walks.gkp				180
-13_yale_walks.mcref	mcref	inputs/13_yale_walks.gkp		samples=100000 seed=1		900
-13_yale_buried.gk	gk	inputs/13_yale_buried.gkp				180
-13_yale_buried.mcref	mcref	inputs/13_yale_buried.gkp		samples=100000 seed=1		900
+run_id	system	method	input	cwd	command	limit_s	timed_alone	memory_cap	time_cap_s	exit	peak_mb	raw
+r51_gk/O8_cycles/01_chain_p.gkp	gk 1.3.2	default	O8_cycles/inputs/01_chain_p.gkp	O8_cycles/inputs	$GK 01_chain_p.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O8_cycles_01_chain_p.gkp.out
+r51_gk/O8_cycles/01_chain_q.gkp	gk 1.3.2	default	O8_cycles/inputs/01_chain_q.gkp	O8_cycles/inputs	$GK 01_chain_q.gkp	10	no	4G	40	0	99	raw/r51_gk.tar.xz:r51_gk/O8_cycles_01_chain_q.gkp.out
+r51_gk/O8_cycles/01_chain_r.gkp	gk 1.3.2	default	O8_cycles/inputs/01_chain_r.gkp	O8_cycles/inputs	$GK 01_chain_r.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O8_cycles_01_chain_r.gkp.out
+r51_gk/O8_cycles/02_uncertain_bird_bird.gkp	gk 1.3.2	default	O8_cycles/inputs/02_uncertain_bird_bird.gkp	O8_cycles/inputs	$GK 02_uncertain_bird_bird.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O8_cycles_02_uncertain_bird_bird.gkp.out
+r51_gk/O8_cycles/02_uncertain_bird_flies.gkp	gk 1.3.2	default	O8_cycles/inputs/02_uncertain_bird_flies.gkp	O8_cycles/inputs	$GK 02_uncertain_bird_flies.gkp	10	no	4G	40	0	99	raw/r51_gk.tar.xz:r51_gk/O8_cycles_02_uncertain_bird_flies.gkp.out
+r51_gk/O8_cycles/02_uncertain_bird_sings.gkp	gk 1.3.2	default	O8_cycles/inputs/02_uncertain_bird_sings.gkp	O8_cycles/inputs	$GK 02_uncertain_bird_sings.gkp	10	no	4G	40	0	99	raw/r51_gk.tar.xz:r51_gk/O8_cycles_02_uncertain_bird_sings.gkp.out
+r51_gk/O8_cycles/03_chain_stop_certain_q.gkp	gk 1.3.2	default	O8_cycles/inputs/03_chain_stop_certain_q.gkp	O8_cycles/inputs	$GK 03_chain_stop_certain_q.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O8_cycles_03_chain_stop_certain_q.gkp.out
+r51_gk/O8_cycles/03_chain_stop_p.gkp	gk 1.3.2	default	O8_cycles/inputs/03_chain_stop_p.gkp	O8_cycles/inputs	$GK 03_chain_stop_p.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O8_cycles_03_chain_stop_p.gkp.out
+r51_gk/O8_cycles/03_chain_stop_q.gkp	gk 1.3.2	default	O8_cycles/inputs/03_chain_stop_q.gkp	O8_cycles/inputs	$GK 03_chain_stop_q.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O8_cycles_03_chain_stop_q.gkp.out
+r51_gk/O8_cycles/04_two_routes_q.gkp	gk 1.3.2	default	O8_cycles/inputs/04_two_routes_q.gkp	O8_cycles/inputs	$GK 04_two_routes_q.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O8_cycles_04_two_routes_q.gkp.out
+r51_gk/O8_cycles/04_two_routes_swapped_q.gkp	gk 1.3.2	default	O8_cycles/inputs/04_two_routes_swapped_q.gkp	O8_cycles/inputs	$GK 04_two_routes_swapped_q.gkp	10	no	4G	40	0	99	raw/r51_gk.tar.xz:r51_gk/O8_cycles_04_two_routes_swapped_q.gkp.out
+r51_gk/O8_cycles/05_fact_against_fact_p.gkp	gk 1.3.2	default	O8_cycles/inputs/05_fact_against_fact_p.gkp	O8_cycles/inputs	$GK 05_fact_against_fact_p.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O8_cycles_05_fact_against_fact_p.gkp.out
+r51_gk/O8_cycles/05_own_consequence_default_p.gkp	gk 1.3.2	default	O8_cycles/inputs/05_own_consequence_default_p.gkp	O8_cycles/inputs	$GK 05_own_consequence_default_p.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O8_cycles_05_own_consequence_default_p.gkp.out
+r51_gk/O8_cycles/05_own_consequence_p.gkp	gk 1.3.2	default	O8_cycles/inputs/05_own_consequence_p.gkp	O8_cycles/inputs	$GK 05_own_consequence_p.gkp	10	no	4G	40	0	99	raw/r51_gk.tar.xz:r51_gk/O8_cycles_05_own_consequence_p.gkp.out
+r51_gk/O8_cycles/05_own_consequence_q.gkp	gk 1.3.2	default	O8_cycles/inputs/05_own_consequence_q.gkp	O8_cycles/inputs	$GK 05_own_consequence_q.gkp	10	no	4G	40	0	99	raw/r51_gk.tar.xz:r51_gk/O8_cycles_05_own_consequence_q.gkp.out
+r51_gk/O8_cycles/06_three_facts_p.gkp	gk 1.3.2	default	O8_cycles/inputs/06_three_facts_p.gkp	O8_cycles/inputs	$GK 06_three_facts_p.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O8_cycles_06_three_facts_p.gkp.out
+r51_gk/O8_cycles/06_three_facts_q.gkp	gk 1.3.2	default	O8_cycles/inputs/06_three_facts_q.gkp	O8_cycles/inputs	$GK 06_three_facts_q.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O8_cycles_06_three_facts_q.gkp.out
+r51_gk/O8_cycles/06_three_facts_r.gkp	gk 1.3.2	default	O8_cycles/inputs/06_three_facts_r.gkp	O8_cycles/inputs	$GK 06_three_facts_r.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O8_cycles_06_three_facts_r.gkp.out
+r51_gk/O8_cycles/07_directed_rule_b.gkp	gk 1.3.2	default	O8_cycles/inputs/07_directed_rule_b.gkp	O8_cycles/inputs	$GK 07_directed_rule_b.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O8_cycles_07_directed_rule_b.gkp.out
+r51_gk/O8_cycles/07_disjunction_cycle_b.gkp	gk 1.3.2	default	O8_cycles/inputs/07_disjunction_cycle_b.gkp	O8_cycles/inputs	$GK 07_disjunction_cycle_b.gkp	10	no	4G	40	0	99	raw/r51_gk.tar.xz:r51_gk/O8_cycles_07_disjunction_cycle_b.gkp.out
+r51_gk/O8_cycles/08_one_clause_q.gkp	gk 1.3.2	default	O8_cycles/inputs/08_one_clause_q.gkp	O8_cycles/inputs	$GK 08_one_clause_q.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O8_cycles_08_one_clause_q.gkp.out
+r51_gk/O8_cycles/09_default_certain_rule_flies.gkp	gk 1.3.2	default	O8_cycles/inputs/09_default_certain_rule_flies.gkp	O8_cycles/inputs	$GK 09_default_certain_rule_flies.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O8_cycles_09_default_certain_rule_flies.gkp.out
+r51_gk/O8_cycles/10_fact_default_rule_p.gkp	gk 1.3.2	default	O8_cycles/inputs/10_fact_default_rule_p.gkp	O8_cycles/inputs	$GK 10_fact_default_rule_p.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O8_cycles_10_fact_default_rule_p.gkp.out
+r51_gk/O8_cycles/10_fact_default_rule_r.gkp	gk 1.3.2	default	O8_cycles/inputs/10_fact_default_rule_r.gkp	O8_cycles/inputs	$GK 10_fact_default_rule_r.gkp	10	no	4G	40	0	99	raw/r51_gk.tar.xz:r51_gk/O8_cycles_10_fact_default_rule_r.gkp.out
+r51_gk/O8_cycles/11_ordinary_first_p.gkp	gk 1.3.2	default	O8_cycles/inputs/11_ordinary_first_p.gkp	O8_cycles/inputs	$GK 11_ordinary_first_p.gkp	10	no	4G	40	0	99	raw/r51_gk.tar.xz:r51_gk/O8_cycles_11_ordinary_first_p.gkp.out
+r51_gk/O8_cycles/12_mutual_pair_b.gkp	gk 1.3.2	default	O8_cycles/inputs/12_mutual_pair_b.gkp	O8_cycles/inputs	$GK 12_mutual_pair_b.gkp	10	no	4G	40	0	99	raw/r51_gk.tar.xz:r51_gk/O8_cycles_12_mutual_pair_b.gkp.out
+r51_gk/O8_cycles/12_mutual_pair_half_p.gkp	gk 1.3.2	default	O8_cycles/inputs/12_mutual_pair_half_p.gkp	O8_cycles/inputs	$GK 12_mutual_pair_half_p.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O8_cycles_12_mutual_pair_half_p.gkp.out
+r51_gk/O8_cycles/12_mutual_pair_p.gkp	gk 1.3.2	default	O8_cycles/inputs/12_mutual_pair_p.gkp	O8_cycles/inputs	$GK 12_mutual_pair_p.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O8_cycles_12_mutual_pair_p.gkp.out
+r51_gk/O8_cycles/13_yale_099_alive.gkp	gk 1.3.2	default	O8_cycles/inputs/13_yale_099_alive.gkp	O8_cycles/inputs	$GK 13_yale_099_alive.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O8_cycles_13_yale_099_alive.gkp.out
+r51_gk/O8_cycles/13_yale_alive.gkp	gk 1.3.2	default	O8_cycles/inputs/13_yale_alive.gkp	O8_cycles/inputs	$GK 13_yale_alive.gkp	10	no	4G	40	0	99	raw/r51_gk.tar.xz:r51_gk/O8_cycles_13_yale_alive.gkp.out
+r51_gk/O8_cycles/13_yale_buried.gkp	gk 1.3.2	default	O8_cycles/inputs/13_yale_buried.gkp	O8_cycles/inputs	$GK 13_yale_buried.gkp	10	no	4G	40	0	99	raw/r51_gk.tar.xz:r51_gk/O8_cycles_13_yale_buried.gkp.out
+r51_gk/O8_cycles/13_yale_q.gkp	gk 1.3.2	default	O8_cycles/inputs/13_yale_q.gkp	O8_cycles/inputs	$GK 13_yale_q.gkp	10	no	4G	40	0	99	raw/r51_gk.tar.xz:r51_gk/O8_cycles_13_yale_q.gkp.out
+r51_gk/O8_cycles/13_yale_walks.gkp	gk 1.3.2	default	O8_cycles/inputs/13_yale_walks.gkp	O8_cycles/inputs	$GK 13_yale_walks.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O8_cycles_13_yale_walks.gkp.out
+r51_tool/O8_cycles/01_chain_p.gkp	mcref 1.3.1		O8_cycles/inputs/01_chain_p.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 01_chain_p.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_01_chain_p.gkp.out
+r51_tool/O8_cycles/01_chain_q.gkp	mcref 1.3.1		O8_cycles/inputs/01_chain_q.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 01_chain_q.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_01_chain_q.gkp.out
+r51_tool/O8_cycles/01_chain_r.gkp	mcref 1.3.1		O8_cycles/inputs/01_chain_r.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 01_chain_r.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_01_chain_r.gkp.out
+r51_tool/O8_cycles/02_uncertain_bird_bird.gkp	mcref 1.3.1		O8_cycles/inputs/02_uncertain_bird_bird.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 02_uncertain_bird_bird.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_02_uncertain_bird_bird.gkp.out
+r51_tool/O8_cycles/02_uncertain_bird_flies.gkp	mcref 1.3.1		O8_cycles/inputs/02_uncertain_bird_flies.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 02_uncertain_bird_flies.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_02_uncertain_bird_flies.gkp.out
+r51_tool/O8_cycles/02_uncertain_bird_sings.gkp	mcref 1.3.1		O8_cycles/inputs/02_uncertain_bird_sings.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 02_uncertain_bird_sings.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_02_uncertain_bird_sings.gkp.out
+r51_tool/O8_cycles/03_chain_stop_certain_q.gkp	mcref 1.3.1		O8_cycles/inputs/03_chain_stop_certain_q.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 03_chain_stop_certain_q.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_03_chain_stop_certain_q.gkp.out
+r51_tool/O8_cycles/03_chain_stop_p.gkp	mcref 1.3.1		O8_cycles/inputs/03_chain_stop_p.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 03_chain_stop_p.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_03_chain_stop_p.gkp.out
+r51_tool/O8_cycles/03_chain_stop_q.gkp	mcref 1.3.1		O8_cycles/inputs/03_chain_stop_q.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 03_chain_stop_q.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_03_chain_stop_q.gkp.out
+r51_tool/O8_cycles/04_two_routes_q.gkp	mcref 1.3.1		O8_cycles/inputs/04_two_routes_q.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 04_two_routes_q.gkp	900	no	4G	900	0	29	raw/r51_tool.tar.xz:r51_tool/O8_cycles_04_two_routes_q.gkp.out
+r51_tool/O8_cycles/04_two_routes_swapped_q.gkp	mcref 1.3.1		O8_cycles/inputs/04_two_routes_swapped_q.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 04_two_routes_swapped_q.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_04_two_routes_swapped_q.gkp.out
+r51_tool/O8_cycles/05_fact_against_fact_p.gkp	mcref 1.3.1		O8_cycles/inputs/05_fact_against_fact_p.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 05_fact_against_fact_p.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_05_fact_against_fact_p.gkp.out
+r51_tool/O8_cycles/05_own_consequence_default_p.gkp	mcref 1.3.1		O8_cycles/inputs/05_own_consequence_default_p.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 05_own_consequence_default_p.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_05_own_consequence_default_p.gkp.out
+r51_tool/O8_cycles/05_own_consequence_p.gkp	mcref 1.3.1		O8_cycles/inputs/05_own_consequence_p.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 05_own_consequence_p.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_05_own_consequence_p.gkp.out
+r51_tool/O8_cycles/05_own_consequence_q.gkp	mcref 1.3.1		O8_cycles/inputs/05_own_consequence_q.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 05_own_consequence_q.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_05_own_consequence_q.gkp.out
+r51_tool/O8_cycles/06_three_facts_p.gkp	mcref 1.3.1		O8_cycles/inputs/06_three_facts_p.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 06_three_facts_p.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_06_three_facts_p.gkp.out
+r51_tool/O8_cycles/06_three_facts_q.gkp	mcref 1.3.1		O8_cycles/inputs/06_three_facts_q.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 06_three_facts_q.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_06_three_facts_q.gkp.out
+r51_tool/O8_cycles/06_three_facts_r.gkp	mcref 1.3.1		O8_cycles/inputs/06_three_facts_r.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 06_three_facts_r.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_06_three_facts_r.gkp.out
+r51_tool/O8_cycles/07_directed_rule_b.gkp	mcref 1.3.1		O8_cycles/inputs/07_directed_rule_b.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 07_directed_rule_b.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_07_directed_rule_b.gkp.out
+r51_tool/O8_cycles/07_disjunction_cycle_b.gkp	mcref 1.3.1		O8_cycles/inputs/07_disjunction_cycle_b.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 07_disjunction_cycle_b.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_07_disjunction_cycle_b.gkp.out
+r51_tool/O8_cycles/08_one_clause_q.gkp	mcref 1.3.1		O8_cycles/inputs/08_one_clause_q.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 08_one_clause_q.gkp	900	no	4G	900	0	29	raw/r51_tool.tar.xz:r51_tool/O8_cycles_08_one_clause_q.gkp.out
+r51_tool/O8_cycles/09_default_certain_rule_flies.gkp	mcref 1.3.1		O8_cycles/inputs/09_default_certain_rule_flies.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 09_default_certain_rule_flies.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_09_default_certain_rule_flies.gkp.out
+r51_tool/O8_cycles/10_fact_default_rule_p.gkp	mcref 1.3.1		O8_cycles/inputs/10_fact_default_rule_p.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 10_fact_default_rule_p.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_10_fact_default_rule_p.gkp.out
+r51_tool/O8_cycles/10_fact_default_rule_r.gkp	mcref 1.3.1		O8_cycles/inputs/10_fact_default_rule_r.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 10_fact_default_rule_r.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_10_fact_default_rule_r.gkp.out
+r51_tool/O8_cycles/11_ordinary_first_p.gkp	mcref 1.3.1		O8_cycles/inputs/11_ordinary_first_p.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 11_ordinary_first_p.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_11_ordinary_first_p.gkp.out
+r51_tool/O8_cycles/12_mutual_pair_b.gkp	mcref 1.3.1		O8_cycles/inputs/12_mutual_pair_b.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 12_mutual_pair_b.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_12_mutual_pair_b.gkp.out
+r51_tool/O8_cycles/12_mutual_pair_half_p.gkp	mcref 1.3.1		O8_cycles/inputs/12_mutual_pair_half_p.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 12_mutual_pair_half_p.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_12_mutual_pair_half_p.gkp.out
+r51_tool/O8_cycles/12_mutual_pair_p.gkp	mcref 1.3.1		O8_cycles/inputs/12_mutual_pair_p.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 12_mutual_pair_p.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_12_mutual_pair_p.gkp.out
+r51_tool/O8_cycles/13_yale_099_alive.gkp	mcref 1.3.1		O8_cycles/inputs/13_yale_099_alive.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 13_yale_099_alive.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_13_yale_099_alive.gkp.out
+r51_tool/O8_cycles/13_yale_alive.gkp	mcref 1.3.1		O8_cycles/inputs/13_yale_alive.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 13_yale_alive.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_13_yale_alive.gkp.out
+r51_tool/O8_cycles/13_yale_buried.gkp	mcref 1.3.1		O8_cycles/inputs/13_yale_buried.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 13_yale_buried.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_13_yale_buried.gkp.out
+r51_tool/O8_cycles/13_yale_q.gkp	mcref 1.3.1		O8_cycles/inputs/13_yale_q.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 13_yale_q.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_13_yale_q.gkp.out
+r51_tool/O8_cycles/13_yale_walks.gkp	mcref 1.3.1		O8_cycles/inputs/13_yale_walks.gkp	O8_cycles/inputs	MCREF_GK=$GK python3 $MCREF 13_yale_walks.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O8_cycles_13_yale_walks.gkp.out

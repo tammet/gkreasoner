@@ -1,0 +1,1226 @@
+[
+ {
+  "atom": "a",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/mix/ex002.gkp",
+  "gk": [
+   0.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0
+  ],
+  "gk_only": [],
+  "input": "ex002.gkp",
+  "readings": [
+   "no self-support"
+  ],
+  "set": "mix",
+  "singles_gk_only": [
+   "a <- b [unless c]",
+   "b <- -a, -c",
+   "b <- -a, c",
+   "c <- -a"
+  ],
+  "singles_tool_only": [],
+  "statements": 7,
+  "tool": [
+   0.3,
+   0.0,
+   0.0,
+   0.7,
+   0.0
+  ],
+  "tool_only": [
+   "a [unless c]"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "c",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/mix/ex061.gkp",
+  "gk": [
+   0.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0
+  ],
+  "gk_only": [],
+  "input": "ex061.gkp",
+  "readings": [
+   "no self-support"
+  ],
+  "set": "mix",
+  "singles_gk_only": [
+   "a <- -b, -c",
+   "a <- -c, b",
+   "c <- a [unless -b]"
+  ],
+  "singles_tool_only": [],
+  "statements": 5,
+  "tool": [
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "tool_only": [
+   "c [unless -b]"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "b",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/mix/ex145.gkp",
+  "gk": [
+   0.6,
+   0.0,
+   0.4,
+   0.0,
+   0.0
+  ],
+  "gk_only": [
+   "c <- -a, -b [clauses: -b ; a]"
+  ],
+  "input": "ex145.gkp",
+  "readings": [
+   "narrowing",
+   "no self-support",
+   "search again"
+  ],
+  "set": "mix",
+  "singles_gk_only": [
+   "-a <- -c [unless b]"
+  ],
+  "singles_tool_only": [],
+  "statements": 7,
+  "tool": [
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "tool_only": [
+   "a <- -c",
+   "a [clauses: -c ; b]"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "c",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/mix/ex145.gkp",
+  "gk": [
+   0.6,
+   0.0,
+   0.4,
+   0.0,
+   0.0
+  ],
+  "gk_only": [
+   "c <- -a, -b [clauses: -b ; a]"
+  ],
+  "input": "ex145.gkp",
+  "readings": [
+   "narrowing",
+   "no self-support",
+   "search again"
+  ],
+  "set": "mix",
+  "singles_gk_only": [
+   "-a <- -c [unless b]"
+  ],
+  "singles_tool_only": [],
+  "statements": 7,
+  "tool": [
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "tool_only": [
+   "a <- -c",
+   "a [clauses: -c ; b]"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "c",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/mix/ex154.gkp",
+  "gk": [
+   0.0,
+   0.3,
+   0.7,
+   0.0,
+   0.0
+  ],
+  "gk_only": [],
+  "input": "ex154.gkp",
+  "readings": [
+   "narrowing",
+   "search again"
+  ],
+  "set": "mix",
+  "singles_gk_only": [],
+  "singles_tool_only": [],
+  "statements": 9,
+  "tool": [
+   0.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0
+  ],
+  "tool_only": [
+   "c <- -b"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "a",
+  "cause": "single application differs",
+  "file": "O13_conformance/inputs/evaluator/mix/ly033.gkp",
+  "gk": [
+   0.0,
+   0.2,
+   0.8,
+   0.0,
+   0.0
+  ],
+  "gk_only": [],
+  "input": "ly033.gkp",
+  "readings": [],
+  "set": "mix",
+  "singles_gk_only": [],
+  "singles_tool_only": [
+   "-f",
+   "a <- d [unless -b]",
+   "c <- a",
+   "d <- e [unless b]",
+   "e <- -a"
+  ],
+  "statements": 8,
+  "tool": [
+   0.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0
+  ],
+  "tool_only": [],
+  "within_.002": false
+ },
+ {
+  "atom": "d",
+  "cause": "single application differs",
+  "file": "O13_conformance/inputs/evaluator/mix/ly033.gkp",
+  "gk": [
+   0.2,
+   0.0,
+   0.0,
+   0.8,
+   0.0
+  ],
+  "gk_only": [],
+  "input": "ly033.gkp",
+  "readings": [],
+  "set": "mix",
+  "singles_gk_only": [],
+  "singles_tool_only": [
+   "-f",
+   "a <- d [unless -b]",
+   "c <- a"
+  ],
+  "statements": 8,
+  "tool": [
+   0.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0
+  ],
+  "tool_only": [],
+  "within_.002": false
+ },
+ {
+  "atom": "e",
+  "cause": "single application differs",
+  "file": "O13_conformance/inputs/evaluator/mix/ly033.gkp",
+  "gk": [
+   0.2,
+   0.0,
+   0.0,
+   0.8,
+   0.0
+  ],
+  "gk_only": [],
+  "input": "ly033.gkp",
+  "readings": [],
+  "set": "mix",
+  "singles_gk_only": [],
+  "singles_tool_only": [
+   "-f",
+   "a <- d [unless -b]",
+   "c <- a",
+   "d <- e [unless b]"
+  ],
+  "statements": 8,
+  "tool": [
+   0.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0
+  ],
+  "tool_only": [],
+  "within_.002": false
+ },
+ {
+  "atom": "b",
+  "cause": "single application differs",
+  "file": "O13_conformance/inputs/evaluator/mix/ly051.gkp",
+  "gk": [
+   0.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0
+  ],
+  "gk_only": [],
+  "input": "ly051.gkp",
+  "readings": [
+   "narrowing"
+  ],
+  "set": "mix",
+  "singles_gk_only": [],
+  "singles_tool_only": [
+   "-a <- b [unless -c]",
+   "-d",
+   "-d <- b"
+  ],
+  "statements": 10,
+  "tool": [
+   0.0,
+   0.0,
+   0.9,
+   0.1,
+   0.0
+  ],
+  "tool_only": [],
+  "within_.002": false
+ },
+ {
+  "atom": "a",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/mix/ly062.gkp",
+  "gk": [
+   0.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0
+  ],
+  "gk_only": [
+   "-d <- -a, -c"
+  ],
+  "input": "ly062.gkp",
+  "readings": [
+   "no self-support"
+  ],
+  "set": "mix",
+  "singles_gk_only": [
+   "-a <- d [unless b]",
+   "-c <- d [unless a]",
+   "a <- -c, d",
+   "d <- -b, a"
+  ],
+  "singles_tool_only": [],
+  "statements": 6,
+  "tool": [
+   0.0,
+   0.8,
+   0.0,
+   0.2,
+   0.0
+  ],
+  "tool_only": [
+   "-a <- -b [unless b]"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "b",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/mix/ly093.gkp",
+  "gk": [
+   0.0,
+   0.0,
+   0.0,
+   0.5,
+   0.5
+  ],
+  "gk_only": [],
+  "input": "ly093.gkp",
+  "readings": [
+   "backbone",
+   "blocked-rule repair",
+   "narrowing",
+   "no self-support"
+  ],
+  "set": "mix",
+  "singles_gk_only": [
+   "a <- -d"
+  ],
+  "singles_tool_only": [],
+  "statements": 8,
+  "tool": [
+   0.0,
+   0.0,
+   0.0,
+   0.05,
+   0.95
+  ],
+  "tool_only": [
+   "-b [unless a, d] [clauses: a ; d]"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "d",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/mix/ly093.gkp",
+  "gk": [
+   0.0,
+   0.0,
+   0.0,
+   0.5,
+   0.5
+  ],
+  "gk_only": [],
+  "input": "ly093.gkp",
+  "readings": [
+   "backbone",
+   "blocked-rule repair",
+   "narrowing",
+   "no self-support"
+  ],
+  "set": "mix",
+  "singles_gk_only": [
+   "a <- -d"
+  ],
+  "singles_tool_only": [],
+  "statements": 8,
+  "tool": [
+   0.0,
+   0.0,
+   0.0,
+   0.05,
+   0.95
+  ],
+  "tool_only": [
+   "-b [unless a, d] [clauses: a ; d]"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "d",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/mix/ly123.gkp",
+  "gk": [
+   0.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0
+  ],
+  "gk_only": [
+   "c [unless -d, d]"
+  ],
+  "input": "ly123.gkp",
+  "readings": [
+   "narrowing"
+  ],
+  "set": "mix",
+  "singles_gk_only": [
+   "c <- -b [unless -d]",
+   "c <- -b [unless d]",
+   "c <- b [unless -d]"
+  ],
+  "singles_tool_only": [
+   "-a"
+  ],
+  "statements": 8,
+  "tool": [
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "tool_only": [
+   "c [unless -d]"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "a",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/mix/ly154.gkp",
+  "gk": [
+   0.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0
+  ],
+  "gk_only": [],
+  "input": "ly154.gkp",
+  "readings": [
+   "no self-support"
+  ],
+  "set": "mix",
+  "singles_gk_only": [
+   "a <- d [unless c]",
+   "d <- -a, -c"
+  ],
+  "singles_tool_only": [
+   "b"
+  ],
+  "statements": 9,
+  "tool": [
+   0.72,
+   0.0,
+   0.0,
+   0.28,
+   0.0
+  ],
+  "tool_only": [
+   "a <- -c [unless c]"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "a",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/mix/ly164.gkp",
+  "gk": [
+   0.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0
+  ],
+  "gk_only": [
+   "a <- -b, -c, d [clauses: -b ; c]",
+   "a <- -b, d"
+  ],
+  "input": "ly164.gkp",
+  "readings": [
+   "no self-support"
+  ],
+  "set": "mix",
+  "singles_gk_only": [
+   "a <- b [unless d]",
+   "b <- -a, -c",
+   "b <- -a, d",
+   "b <- d [unless a]",
+   "c <- -a, -b",
+   "c <- b"
+  ],
+  "singles_tool_only": [],
+  "statements": 11,
+  "tool": [
+   0.9,
+   0.0,
+   0.0,
+   0.1,
+   0.0
+  ],
+  "tool_only": [
+   "a <- -b [unless b]",
+   "a <- -c [unless d]",
+   "a [unless b, d]",
+   "a [unless b] [clauses: -b ; c]"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "a",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/mix/ur018.gkp",
+  "gk": [
+   0.0,
+   0.1,
+   0.9,
+   0.0,
+   0.0
+  ],
+  "gk_only": [
+   "-a <- -c, -d [clauses: -d ; c]",
+   "-d <- -c",
+   "a <- c, d [clauses: -d ; c]",
+   "c <- d"
+  ],
+  "input": "ur018.gkp",
+  "readings": [
+   "backbone",
+   "blocked-rule repair",
+   "narrowing",
+   "no self-support"
+  ],
+  "set": "mix",
+  "singles_gk_only": [
+   "d <- a"
+  ],
+  "singles_tool_only": [
+   "-a <- -b, -c",
+   "-b <- -d, c",
+   "b <- -c, a"
+  ],
+  "statements": 8,
+  "tool": [
+   0.0,
+   0.91,
+   0.09,
+   0.0,
+   0.0
+  ],
+  "tool_only": [
+   "-c [unless a] [clauses: -a ; d]"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "a",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/mix/ur053.gkp",
+  "gk": [
+   0.0,
+   0.2,
+   0.8,
+   0.0,
+   0.0
+  ],
+  "gk_only": [
+   "-a <- -c, b"
+  ],
+  "input": "ur053.gkp",
+  "readings": [
+   "blocked-rule repair",
+   "narrowing",
+   "no self-support",
+   "search again"
+  ],
+  "set": "mix",
+  "singles_gk_only": [
+   "-b <- -c, a"
+  ],
+  "singles_tool_only": [
+   "-a <- -c, b"
+  ],
+  "statements": 9,
+  "tool": [
+   0.0,
+   0.5,
+   0.5,
+   0.0,
+   0.0
+  ],
+  "tool_only": [
+   "a <- -b",
+   "b [unless c]"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "c",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/mix/ur053.gkp",
+  "gk": [
+   0.0,
+   0.12,
+   0.8,
+   0.08,
+   0.0
+  ],
+  "gk_only": [
+   "-a <- -c, b"
+  ],
+  "input": "ur053.gkp",
+  "readings": [
+   "blocked-rule repair",
+   "narrowing",
+   "no self-support",
+   "search again"
+  ],
+  "set": "mix",
+  "singles_gk_only": [
+   "-b <- -c, a"
+  ],
+  "singles_tool_only": [
+   "-a <- -c, b"
+  ],
+  "statements": 9,
+  "tool": [
+   0.0,
+   0.42,
+   0.5,
+   0.08,
+   0.0
+  ],
+  "tool_only": [
+   "a <- -b",
+   "b [unless c]"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "b",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/mix/ur062.gkp",
+  "gk": [
+   0.14,
+   0.0,
+   0.0,
+   0.86,
+   0.0
+  ],
+  "gk_only": [
+   "-c <- -e",
+   "a <- -e",
+   "b <- -c, -e [clauses: -c ; e]",
+   "d <- -c, -e, b [clauses: b ; c; -c ; e]"
+  ],
+  "input": "ur062.gkp",
+  "readings": [
+   "backbone",
+   "blocked-rule repair",
+   "narrowing",
+   "no self-support"
+  ],
+  "set": "mix",
+  "singles_gk_only": [
+   "-a <- -d [unless b]",
+   "-a <- c",
+   "-b <- -d",
+   "c <- -b"
+  ],
+  "singles_tool_only": [],
+  "statements": 11,
+  "tool": [
+   0.14,
+   0.0,
+   0.0,
+   0.645,
+   0.215
+  ],
+  "tool_only": [
+   "-e [unless b] [clauses: -b ; d; -a ; -c; b ; c]"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "c",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/mix/ur062.gkp",
+  "gk": [
+   0.0,
+   0.14,
+   0.0,
+   0.86,
+   0.0
+  ],
+  "gk_only": [
+   "-c <- -e",
+   "-c <- -e, a [clauses: a ; e]",
+   "a <- -e",
+   "b <- -c, -e [clauses: -c ; e]",
+   "d <- -c, -e, b [clauses: b ; c; -c ; e]"
+  ],
+  "input": "ur062.gkp",
+  "readings": [
+   "backbone",
+   "blocked-rule repair",
+   "narrowing",
+   "no self-support",
+   "search again"
+  ],
+  "set": "mix",
+  "singles_gk_only": [
+   "-a <- -d [unless b]",
+   "-a <- c",
+   "-b <- -d",
+   "c <- -b"
+  ],
+  "singles_tool_only": [],
+  "statements": 11,
+  "tool": [
+   0.0,
+   0.14,
+   0.0,
+   0.645,
+   0.215
+  ],
+  "tool_only": [
+   "-e [unless b] [clauses: -b ; d; -a ; -c; b ; c]"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "d",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/mix/ur062.gkp",
+  "gk": [
+   0.14,
+   0.0,
+   0.0,
+   0.86,
+   0.0
+  ],
+  "gk_only": [
+   "-c <- -e",
+   "a <- -e",
+   "b <- -c, -e [clauses: -c ; e]",
+   "d <- -c, -e, b [clauses: b ; c; -c ; e]"
+  ],
+  "input": "ur062.gkp",
+  "readings": [
+   "backbone",
+   "blocked-rule repair",
+   "narrowing",
+   "no self-support",
+   "search again"
+  ],
+  "set": "mix",
+  "singles_gk_only": [
+   "-a <- -d [unless b]",
+   "-a <- c",
+   "-b <- -d",
+   "c <- -b"
+  ],
+  "singles_tool_only": [],
+  "statements": 11,
+  "tool": [
+   0.14,
+   0.0,
+   0.0,
+   0.645,
+   0.215
+  ],
+  "tool_only": [
+   "-e [unless b] [clauses: -b ; d; -a ; -c; b ; c]"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "e",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/mix/ur062.gkp",
+  "gk": [
+   0.0,
+   0.07,
+   0.0,
+   0.93,
+   0.0
+  ],
+  "gk_only": [
+   "-c <- -e",
+   "a <- -e",
+   "b <- -c, -e [clauses: -c ; e]",
+   "d <- -c, -e, b [clauses: b ; c; -c ; e]"
+  ],
+  "input": "ur062.gkp",
+  "readings": [
+   "backbone",
+   "blocked-rule repair",
+   "narrowing",
+   "no self-support",
+   "search again"
+  ],
+  "set": "mix",
+  "singles_gk_only": [
+   "-a <- -d [unless b]",
+   "-a <- c",
+   "-b <- -d",
+   "c <- -b"
+  ],
+  "singles_tool_only": [],
+  "statements": 11,
+  "tool": [
+   0.0,
+   0.07,
+   0.0,
+   0.715,
+   0.215
+  ],
+  "tool_only": [
+   "-e [unless b] [clauses: -b ; d; -a ; -c; b ; c]"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "b",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/mix/ur163.gkp",
+  "gk": [
+   0.0,
+   0.0,
+   0.91,
+   0.09,
+   0.0
+  ],
+  "gk_only": [],
+  "input": "ur163.gkp",
+  "readings": [
+   "narrowing",
+   "search again"
+  ],
+  "set": "mix",
+  "singles_gk_only": [],
+  "singles_tool_only": [],
+  "statements": 10,
+  "tool": [
+   0.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0
+  ],
+  "tool_only": [
+   "a"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "d",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/mix/ur163.gkp",
+  "gk": [
+   0.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0
+  ],
+  "gk_only": [],
+  "input": "ur163.gkp",
+  "readings": [
+   "narrowing",
+   "search again"
+  ],
+  "set": "mix",
+  "singles_gk_only": [],
+  "singles_tool_only": [],
+  "statements": 10,
+  "tool": [
+   0.0,
+   0.1,
+   0.9,
+   0.0,
+   0.0
+  ],
+  "tool_only": [
+   "a"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "a",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/mix/ur172.gkp",
+  "gk": [
+   0.0,
+   0.05,
+   0.95,
+   0.0,
+   0.0
+  ],
+  "gk_only": [],
+  "input": "ur172.gkp",
+  "readings": [
+   "backbone",
+   "narrowing",
+   "search again"
+  ],
+  "set": "mix",
+  "singles_gk_only": [],
+  "singles_tool_only": [
+   "b",
+   "b <- -a, -c",
+   "b <- -c"
+  ],
+  "statements": 11,
+  "tool": [
+   0.0,
+   0.025,
+   0.975,
+   0.0,
+   0.0
+  ],
+  "tool_only": [
+   "a [unless d] [clauses: -c ; d]"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "d",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/mix/ur172.gkp",
+  "gk": [
+   0.45,
+   0.05,
+   0.05,
+   0.45,
+   0.0
+  ],
+  "gk_only": [],
+  "input": "ur172.gkp",
+  "readings": [
+   "backbone",
+   "narrowing",
+   "search again"
+  ],
+  "set": "mix",
+  "singles_gk_only": [],
+  "singles_tool_only": [
+   "b",
+   "b <- -a, -c",
+   "b <- -c"
+  ],
+  "statements": 11,
+  "tool": [
+   0.45,
+   0.025,
+   0.05,
+   0.475,
+   0.0
+  ],
+  "tool_only": [
+   "a [unless d] [clauses: -c ; d]"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "a",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/mix/ur221.gkp",
+  "gk": [
+   0.0,
+   0.53,
+   0.15,
+   0.32,
+   0.0
+  ],
+  "gk_only": [],
+  "input": "ur221.gkp",
+  "readings": [
+   "narrowing"
+  ],
+  "set": "mix",
+  "singles_gk_only": [],
+  "singles_tool_only": [
+   "-d <- -a",
+   "-d <- c",
+   "e <- -c, a"
+  ],
+  "statements": 10,
+  "tool": [
+   0.0,
+   0.38,
+   0.3,
+   0.32,
+   0.0
+  ],
+  "tool_only": [
+   "-d <- -e [clauses: -a ; c ; e]",
+   "e <- a"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "d",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/mix/ur221.gkp",
+  "gk": [
+   0.0,
+   0.8,
+   0.0,
+   0.2,
+   0.0
+  ],
+  "gk_only": [],
+  "input": "ur221.gkp",
+  "readings": [
+   "narrowing"
+  ],
+  "set": "mix",
+  "singles_gk_only": [],
+  "singles_tool_only": [
+   "e <- -c, a"
+  ],
+  "statements": 10,
+  "tool": [
+   0.0,
+   0.65,
+   0.0,
+   0.35,
+   0.0
+  ],
+  "tool_only": [
+   "e <- a"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "a",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/uc/uc053.gkp",
+  "gk": [
+   0.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0
+  ],
+  "gk_only": [],
+  "input": "uc053.gkp",
+  "readings": [],
+  "set": "uc",
+  "singles_gk_only": [],
+  "singles_tool_only": [
+   "-a <- -d (event)",
+   "-d <- c [unless -a]",
+   "b"
+  ],
+  "statements": 7,
+  "tool": [
+   0.0,
+   0.0,
+   0.0,
+   0.2,
+   0.8
+  ],
+  "tool_only": [
+   "c [unless a]"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "d",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/uc/uc053.gkp",
+  "gk": [
+   0.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0
+  ],
+  "gk_only": [],
+  "input": "uc053.gkp",
+  "readings": [],
+  "set": "uc",
+  "singles_gk_only": [],
+  "singles_tool_only": [
+   "-a <- -d (event)",
+   "-d <- c [unless -a]",
+   "b"
+  ],
+  "statements": 7,
+  "tool": [
+   0.0,
+   0.2,
+   0.0,
+   0.0,
+   0.8
+  ],
+  "tool_only": [
+   "c [unless a]"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "d",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/uc/uc109.gkp",
+  "gk": [
+   0.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0
+  ],
+  "gk_only": [],
+  "input": "uc109.gkp",
+  "readings": [
+   "no self-support"
+  ],
+  "set": "uc",
+  "singles_gk_only": [
+   "a <- c (event)",
+   "c <- -d",
+   "d <- a [unless c]"
+  ],
+  "singles_tool_only": [
+   "b"
+  ],
+  "statements": 4,
+  "tool": [
+   0.8,
+   0.0,
+   0.0,
+   0.2,
+   0.0
+  ],
+  "tool_only": [
+   "d [unless c] [clauses: -c ; a] (event)"
+  ],
+  "within_.002": false
+ },
+ {
+  "atom": "d",
+  "cause": "proof application gk lacks",
+  "file": "O13_conformance/inputs/evaluator/uc/uc145.gkp",
+  "gk": [
+   0.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0
+  ],
+  "gk_only": [
+   "-b (event)",
+   "-d <- -b [clauses: -b ; c; -b ; -c] (event)"
+  ],
+  "input": "uc145.gkp",
+  "readings": [
+   "narrowing",
+   "no self-support",
+   "search again"
+  ],
+  "set": "uc",
+  "singles_gk_only": [
+   "b <- d (event)"
+  ],
+  "singles_tool_only": [],
+  "statements": 7,
+  "tool": [
+   0.0,
+   0.54,
+   0.0,
+   0.46,
+   0.0
+  ],
+  "tool_only": [
+   "-d [unless b] [clauses: -b ; -c] (event)"
+  ],
+  "within_.002": false
+ }
+]

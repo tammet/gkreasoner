@@ -1,4 +1,4 @@
-% Part O8, example 4: two routes from both sides of a conflict (nothing from conflict).
+% Part O8, example 4: two routes from both sides of a conflict, and a proof by cases.
 0.8::r.
 0.2::-p.
 p :- r.

@@ -1,0 +1,15 @@
+0.9::link(n0,n1).
+0.9::link(n1,n2).
+0.9::link(n2,n3).
+0.9::link(n3,n4).
+0.9::link(n4,n5).
+0.9::link(n5,n6).
+0.9::link(n6,n7).
+0.9::link(n7,n8).
+0.9::link(n8,n9).
+0.9::link(n9,n10).
+reach(X,Y) :- link(X,Y).
+reach(X,Z) :- link(X,Y), reach(Y,Z).
+0.8::open(X) :- reach(n0,X), \+ closed(X).
+0.5::closed(n10).
+query(open(n10)).

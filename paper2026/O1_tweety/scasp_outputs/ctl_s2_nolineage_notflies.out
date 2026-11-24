@@ -1,0 +1,13 @@
+% Query
+?- not flies(tweety).
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+%                         Answer 1 (0.001 sec)                          
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+% Model
+{ bird(tweety),                  ¬ gull(tweety),
+  not flies(tweety),             penguin(tweety),
+  not ¬ gull(_ | {_ ∉ [tweety]}),seabird(tweety)
+}
+% No bindings
+true ? 
+

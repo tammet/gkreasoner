@@ -1,0 +1,29 @@
+run_id	system	method	input	cwd	command	limit_s	timed_alone	memory_cap	time_cap_s	exit	peak_mb	raw
+e1_gk/A1.default	gk 1.3.2	default	O18_lifschitz/inputs/a1_basic.js	O18_lifschitz/inputs	$GK a1_basic.js	10	no	12G	30	0	98	raw/e1_gk.tar.xz:e1_gk/A1.default.out
+e1_gk/A1.exact	gk 1.3.2	exact	O18_lifschitz/inputs/a1_basic.js	O18_lifschitz/inputs	$GK a1_basic.js -exact	10	no	12G	30	0	98	raw/e1_gk.tar.xz:e1_gk/A1.exact.out
+e1_gk/A1.general	gk 1.3.2	general	O18_lifschitz/inputs/a1_basic.js	O18_lifschitz/inputs	$GK a1_basic.js -general	10	no	12G	30	0	127	raw/e1_gk.tar.xz:e1_gk/A1.general.out
+e1_gk/A2.default	gk 1.3.2	default	O18_lifschitz/inputs/a2_irrelevant.js	O18_lifschitz/inputs	$GK a2_irrelevant.js	10	no	12G	30	0	98	raw/e1_gk.tar.xz:e1_gk/A2.default.out
+e1_gk/A2.exact	gk 1.3.2	exact	O18_lifschitz/inputs/a2_irrelevant.js	O18_lifschitz/inputs	$GK a2_irrelevant.js -exact	10	no	12G	30	0	98	raw/e1_gk.tar.xz:e1_gk/A2.exact.out
+e1_gk/A2.general	gk 1.3.2	general	O18_lifschitz/inputs/a2_irrelevant.js	O18_lifschitz/inputs	$GK a2_irrelevant.js -general	10	no	12G	30	0	126	raw/e1_gk.tar.xz:e1_gk/A2.general.out
+e1_gk/A3.default	gk 1.3.2	default	O18_lifschitz/inputs/a3_several.js	O18_lifschitz/inputs	$GK a3_several.js	10	no	12G	30	0	128	raw/e1_gk.tar.xz:e1_gk/A3.default.out
+e1_gk/A3.exact	gk 1.3.2	exact	O18_lifschitz/inputs/a3_several.js	O18_lifschitz/inputs	$GK a3_several.js -exact	10	no	12G	30	0	98	raw/e1_gk.tar.xz:e1_gk/A3.exact.out
+e1_gk/A3.general	gk 1.3.2	general	O18_lifschitz/inputs/a3_several.js	O18_lifschitz/inputs	$GK a3_several.js -general	10	no	12G	30	0	128	raw/e1_gk.tar.xz:e1_gk/A3.general.out
+e1_gk/A4.default	gk 1.3.2	default	O18_lifschitz/inputs/a4_disabled.js	O18_lifschitz/inputs	$GK a4_disabled.js	10	no	12G	30	0	103	raw/e1_gk.tar.xz:e1_gk/A4.default.out
+e1_gk/A4.exact	gk 1.3.2	exact	O18_lifschitz/inputs/a4_disabled.js	O18_lifschitz/inputs	$GK a4_disabled.js -exact	10	no	12G	30	0	98	raw/e1_gk.tar.xz:e1_gk/A4.exact.out
+e1_gk/A4.general	gk 1.3.2	general	O18_lifschitz/inputs/a4_disabled.js	O18_lifschitz/inputs	$GK a4_disabled.js -general	10	no	12G	30	0	127	raw/e1_gk.tar.xz:e1_gk/A4.general.out
+e1_gk/A5.default	gk 1.3.2	default	O18_lifschitz/inputs/a5_open_domain.js	O18_lifschitz/inputs	$GK a5_open_domain.js	10	no	12G	30	0	129	raw/e1_gk.tar.xz:e1_gk/A5.default.out
+e1_gk/A5.exact	gk 1.3.2	exact	O18_lifschitz/inputs/a5_open_domain.js	O18_lifschitz/inputs	$GK a5_open_domain.js -exact	10	no	12G	30	0	98	raw/e1_gk.tar.xz:e1_gk/A5.exact.out
+e1_gk/A5.general	gk 1.3.2	general	O18_lifschitz/inputs/a5_open_domain.js	O18_lifschitz/inputs	$GK a5_open_domain.js -general	10	no	12G	30	0	129	raw/e1_gk.tar.xz:e1_gk/A5.general.out
+e1_gk/A6a.default	gk 1.3.2	default	O18_lifschitz/inputs/a6_c_on_table.js	O18_lifschitz/inputs	$GK a6_c_on_table.js	10	no	12G	30	0	98	raw/e1_gk.tar.xz:e1_gk/A6a.default.out
+e1_gk/A6a.exact	gk 1.3.2	exact	O18_lifschitz/inputs/a6_c_on_table.js	O18_lifschitz/inputs	$GK a6_c_on_table.js -exact	10	no	12G	30	0	98	raw/e1_gk.tar.xz:e1_gk/A6a.exact.out
+e1_gk/A6a.general	gk 1.3.2	general	O18_lifschitz/inputs/a6_c_on_table.js	O18_lifschitz/inputs	$GK a6_c_on_table.js -general	10	no	12G	30	0	127	raw/e1_gk.tar.xz:e1_gk/A6a.general.out
+e1_gk/A6b.default	gk 1.3.2	default	O18_lifschitz/inputs/a6_exactly_one.js	O18_lifschitz/inputs	$GK a6_exactly_one.js	10	no	12G	30	0	98	raw/e1_gk.tar.xz:e1_gk/A6b.default.out
+e1_gk/A6b.exact	gk 1.3.2	exact	O18_lifschitz/inputs/a6_exactly_one.js	O18_lifschitz/inputs	$GK a6_exactly_one.js -exact	10	no	12G	30	0	98	raw/e1_gk.tar.xz:e1_gk/A6b.exact.out
+e1_gk/A6b.general	gk 1.3.2	general	O18_lifschitz/inputs/a6_exactly_one.js	O18_lifschitz/inputs	$GK a6_exactly_one.js -general	10	no	12G	30	0	142	raw/e1_gk.tar.xz:e1_gk/A6b.general.out
+e1_tool/A1	mcref 1.3.1		O18_lifschitz/inputs/a1_basic.js	O18_lifschitz/inputs	MCREF_GK=$GK python3 $MCREF a1_basic.js	300	no	2G	300	0	25	raw/e1_tool.tar.xz:e1_tool/A1.out
+e1_tool/A2	mcref 1.3.1		O18_lifschitz/inputs/a2_irrelevant.js	O18_lifschitz/inputs	MCREF_GK=$GK python3 $MCREF a2_irrelevant.js	300	no	2G	300	0	26	raw/e1_tool.tar.xz:e1_tool/A2.out
+e1_tool/A3	mcref 1.3.1		O18_lifschitz/inputs/a3_several.js	O18_lifschitz/inputs	MCREF_GK=$GK python3 $MCREF a3_several.js	300	no	2G	300	0	26	raw/e1_tool.tar.xz:e1_tool/A3.out
+e1_tool/A4	mcref 1.3.1		O18_lifschitz/inputs/a4_disabled.js	O18_lifschitz/inputs	MCREF_GK=$GK python3 $MCREF a4_disabled.js	300	no	2G	300	0	26	raw/e1_tool.tar.xz:e1_tool/A4.out
+e1_tool/A5	mcref 1.3.1		O18_lifschitz/inputs/a5_open_domain.js	O18_lifschitz/inputs	MCREF_GK=$GK python3 $MCREF a5_open_domain.js	300	no	2G	300	0	26	raw/e1_tool.tar.xz:e1_tool/A5.out
+e1_tool/A6a	mcref 1.3.1		O18_lifschitz/inputs/a6_c_on_table.js	O18_lifschitz/inputs	MCREF_GK=$GK python3 $MCREF a6_c_on_table.js	300	no	2G	300	0	26	raw/e1_tool.tar.xz:e1_tool/A6a.out
+e1_tool/A6b	mcref 1.3.1		O18_lifschitz/inputs/a6_exactly_one.js	O18_lifschitz/inputs	MCREF_GK=$GK python3 $MCREF a6_exactly_one.js	300	no	2G	300	0	26	raw/e1_tool.tar.xz:e1_tool/A6b.out

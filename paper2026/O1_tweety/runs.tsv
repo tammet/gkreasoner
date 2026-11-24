@@ -1,28 +1,73 @@
-run_id	tool	input	options	settings	alone	timeout_s
-s1.gk	gk	stage1/gk.gkp				180
-s2.gk	gk	stage2/gk.gkp				180
-s3a.gk	gk	stage3a/gk.gkp				180
-s3b.gk	gk	stage3b/gk.gkp				180
-s4.gk.2	gk	stage4/gk_stage2.gkp			yes	180
-s4.gk.3a	gk	stage4/gk_stage3a.gkp			yes	180
-s4.gk.3b	gk	stage4/gk_stage3b.gkp			yes	180
-s4.gk.2.s30	gk	stage4/gk_stage2.gkp	-seconds 30		yes	180
-s4.gk.3b.s1	gk	stage4/gk_stage3b.gkp	-seconds 1		yes	180
-parent.gk	gk	stage4/one_rule/gk_parent_rule.gkp				180
-child.gk	gk	stage4/one_rule/gk_child_rule.gkp				180
-s1.mcref	mcref	stage1/gk.gkp		samples=20000 seed=1		900
-s2.mcref	mcref	stage2/gk.gkp		samples=20000 seed=1		900
-s3a.mcref	mcref	stage3a/gk.gkp		samples=20000 seed=1		900
-s3b.mcref	mcref	stage3b/gk.gkp		samples=20000 seed=1		900
-s4.mcref	mcref	stage4/gk_stage2.gkp		samples=20000 seed=1		900
-s4.mcref.ground.2	mcref	stage4/mcref_ground_stage2.gkp		samples=20000 seed=1		900
-s4.mcref.ground.3a	mcref	stage4/mcref_ground_stage3a.gkp		samples=20000 seed=1		900
-s4.mcref.ground.3b	mcref	stage4/mcref_ground_stage3b.gkp		samples=20000 seed=1		900
-parent.mcref.ground	mcref	stage4/one_rule/mcref_ground_parent_rule.gkp		samples=20000 seed=1		900
-child.mcref.ground	mcref	stage4/one_rule/mcref_ground_child_rule.gkp		samples=20000 seed=1		900
-s4.problog	problog	stage4/problog_analogue.pl		version=2.3.0	yes	60
-s4.clingo	clingo	stage4/clingo_skeleton.lp	0	version=5.8.3	yes	10
-child.problog	problog	stage4/one_rule/problog_child_rule.pl		version=2.3.0	yes	60
-s1.pasta.flies	pasta	stage1/pasta.lp	{input} --query=flies(tweety)	version=1.0.1		60
-s1.pasta.nflies	pasta	stage1/pasta.lp	{input} --query=nflies(tweety)	version=1.0.1		60
-s3a.gk.fullproof	gk	stage3a/gk.gkp	-fullproof			180
+run_id	system	method	input	cwd	command	limit_s	timed_alone	memory_cap	time_cap_s	exit	peak_mb	raw
+c5_gk/gk_stage2@2s	gk 1.3.2	default	O1_tweety/inputs/stage4/gk_stage2.gkp	O1_tweety/inputs/stage4	$GK gk_stage2.gkp -seconds 2	2	no	12G	22	0	208	raw/c5_gk.tar.xz:c5_gk/gk_stage2_2s.out
+c5_gk/gk_stage2@60s	gk 1.3.2	default	O1_tweety/inputs/stage4/gk_stage2.gkp	O1_tweety/inputs/stage4	$GK gk_stage2.gkp -seconds 60	60	no	12G	80	0	1984	raw/c5_gk.tar.xz:c5_gk/gk_stage2_60s.out
+c5_gk/gk_stage3a@2s	gk 1.3.2	default	O1_tweety/inputs/stage4/gk_stage3a.gkp	O1_tweety/inputs/stage4	$GK gk_stage3a.gkp -seconds 2	2	no	12G	22	0	201	raw/c5_gk.tar.xz:c5_gk/gk_stage3a_2s.out
+c5_gk/gk_stage3a@60s	gk 1.3.2	default	O1_tweety/inputs/stage4/gk_stage3a.gkp	O1_tweety/inputs/stage4	$GK gk_stage3a.gkp -seconds 60	60	no	12G	80	0	1970	raw/c5_gk.tar.xz:c5_gk/gk_stage3a_60s.out
+c5_gk/gk_stage3b@2s	gk 1.3.2	default	O1_tweety/inputs/stage4/gk_stage3b.gkp	O1_tweety/inputs/stage4	$GK gk_stage3b.gkp -seconds 2	2	no	12G	22	0	205	raw/c5_gk.tar.xz:c5_gk/gk_stage3b_2s.out
+c5_gk/gk_stage3b@60s	gk 1.3.2	default	O1_tweety/inputs/stage4/gk_stage3b.gkp	O1_tweety/inputs/stage4	$GK gk_stage3b.gkp -seconds 60	60	no	12G	80	0	2013	raw/c5_gk.tar.xz:c5_gk/gk_stage3b_60s.out
+record/1.pasta	PASTA 1.0.1		O1_tweety/inputs/stage1/pasta.lp	O1_tweety/inputs/stage1	"pastasolver pasta.lp --query=""flies(tweety)"""							
+record/1.plingo	plingo 1.1.0		O1_tweety/inputs/stage1/plingo.plp	O1_tweety/inputs/stage1	plingo --frontend=problog plingo.plp 0							
+record/1.problog	ProbLog 2.3.0		O1_tweety/inputs/stage1/problog.pl	O1_tweety/inputs/stage1	problog problog.pl							
+record/2.pasta	PASTA 1.0.1		O1_tweety/inputs/stage2/pasta.lp	O1_tweety/inputs/stage2	"pastasolver pasta.lp --query=""flies(tweety)"""							
+record/2.plingo	plingo 1.1.0		O1_tweety/inputs/stage2/plingo.plp	O1_tweety/inputs/stage2	plingo --frontend=problog plingo.plp 0							
+record/2.smproblog	smProbLog 2.1.0.42		O1_tweety/inputs/stage2/smproblog.pl	O1_tweety/inputs/stage2	pypy3 ../../../tools/run_smproblog.py -k ddnnf smproblog.pl							
+record/3a.pasta	PASTA 1.0.1		O1_tweety/inputs/stage3a/pasta.lp	O1_tweety/inputs/stage3a	"pastasolver pasta.lp --query=""flies(tweety)"" --normalize"							
+record/3b.pasta	PASTA 1.0.1		O1_tweety/inputs/stage3b/pasta.lp	O1_tweety/inputs/stage3b	"pastasolver pasta.lp --query=""flies(tweety)"" --normalize"							
+record/3b.plingo	plingo 1.1.0		O1_tweety/inputs/stage3b/plingo.plp	O1_tweety/inputs/stage3b	plingo --frontend=problog plingo.plp 0							
+record/3b.smproblog	smProbLog 2.1.0.42		O1_tweety/inputs/stage3b/smproblog.pl	O1_tweety/inputs/stage3b	pypy3 ../../../tools/run_smproblog.py -k ddnnf smproblog.pl							
+record/4.child.pasta	PASTA 1.0.1		O1_tweety/inputs/stage4/one_rule/pasta_child_rule.lp	O1_tweety/inputs/stage4/one_rule	"pastasolver pasta_child_rule.lp --query=""flies(tweety)"""							
+record/4.child.problog	ProbLog 2.3.0		O1_tweety/inputs/stage4/one_rule/problog_child_rule.pl	O1_tweety/inputs/stage4/one_rule	problog problog_child_rule.pl							
+record/4.clingo	clingo 5.8.3		O1_tweety/inputs/stage4/clingo_skeleton.lp	O1_tweety/inputs/stage4	clingo clingo_skeleton.lp 0							
+record/4.parent.problog	ProbLog 2.3.0		O1_tweety/inputs/stage4/one_rule/problog_parent_rule.pl	O1_tweety/inputs/stage4/one_rule	problog problog_parent_rule.pl							
+record/4.pasta.2	PASTA 1.0.1		O1_tweety/inputs/stage4/pasta_stage2.lp	O1_tweety/inputs/stage4	"pastasolver pasta_stage2.lp --query=""flies(tweety)"""							
+record/4.pasta.3b	PASTA 1.0.1		O1_tweety/inputs/stage4/pasta_stage3b.lp	O1_tweety/inputs/stage4	"pastasolver pasta_stage3b.lp --query=""flies(tweety)"" --normalize"							
+record/4.plingo	plingo 1.1.0		O1_tweety/inputs/stage4/plingo_analogue.plp	O1_tweety/inputs/stage4	plingo --frontend=problog plingo_analogue.plp 0							
+record/4.problog	ProbLog 2.3.0		O1_tweety/inputs/stage4/problog_analogue.pl	O1_tweety/inputs/stage4	problog problog_analogue.pl							
+record/4.smproblog.2	smProbLog 2.1.0.42		O1_tweety/inputs/stage4/smproblog_stage2.pl	O1_tweety/inputs/stage4	pypy3 ../../../tools/run_smproblog.py -k ddnnf smproblog_stage2.pl							
+record/4.smproblog.3b	smProbLog 2.1.0.42		O1_tweety/inputs/stage4/smproblog_stage3b.pl	O1_tweety/inputs/stage4	pypy3 ../../../tools/run_smproblog.py -k ddnnf smproblog_stage3b.pl							
+scasp/ctl2_lboth_factlast_bird	s(CASP) 1.1.4		O1_tweety/inputs/stage4/scasp/controls/l_both_factlast.pl	O1_tweety/inputs/stage4/scasp/controls	scasp --query='bird(tweety)' l_both_factlast.pl < /dev/null	60	no	2G	60	124		O1_tweety/scasp_outputs/ctl2_lboth_factlast_bird.out
+scasp/ctl2_skeleton_factfirst_flies	s(CASP) 1.1.4		O1_tweety/inputs/stage4/scasp/controls/clingo_skeleton_scasp_factfirst.pl	O1_tweety/inputs/stage4/scasp/controls	scasp --query='flies(tweety)' clingo_skeleton_scasp_factfirst.pl < /dev/null	60	no	2G	60	0	29	O1_tweety/scasp_outputs/ctl2_skeleton_factfirst_flies.out
+scasp/ctl2_skeleton_flies	s(CASP) 1.1.4		O1_tweety/inputs/stage4/scasp/controls/clingo_skeleton_scasp.pl	O1_tweety/inputs/stage4/scasp/controls	scasp --query='flies(tweety)' clingo_skeleton_scasp.pl < /dev/null	60	no	2G	60	124		O1_tweety/scasp_outputs/ctl2_skeleton_flies.out
+scasp/ctl_lboth_factlast_bird	s(CASP) 1.1.4		O1_tweety/inputs/stage4/scasp/controls/l_both_factlast.pl	O1_tweety/inputs/stage4/scasp/controls	scasp --query='bird(tweety)' l_both_factlast.pl	60	no	2G	60	124		O1_tweety/scasp_outputs/ctl_lboth_factlast_bird.out
+scasp/ctl_s2_nolineage_flies	s(CASP) 1.1.4		O1_tweety/inputs/stage4/scasp/controls/s2_nolineage.pl	O1_tweety/inputs/stage4/scasp/controls	scasp --query='flies(tweety)' s2_nolineage.pl	60	no	2G	60	0	29	O1_tweety/scasp_outputs/ctl_s2_nolineage_flies.out
+scasp/ctl_s2_nolineage_notflies	s(CASP) 1.1.4		O1_tweety/inputs/stage4/scasp/controls/s2_nolineage.pl	O1_tweety/inputs/stage4/scasp/controls	scasp --query='not flies(tweety)' s2_nolineage.pl	60	no	2G	60	0	29	O1_tweety/scasp_outputs/ctl_s2_nolineage_notflies.out
+scasp/ctl_s3b_nolineage_flies	s(CASP) 1.1.4		O1_tweety/inputs/stage4/scasp/controls/s3b_nolineage.pl	O1_tweety/inputs/stage4/scasp/controls	scasp --query='flies(tweety)' s3b_nolineage.pl	60	no	2G	60	0	29	O1_tweety/scasp_outputs/ctl_s3b_nolineage_flies.out
+scasp/ctl_s3b_nolineage_notflies	s(CASP) 1.1.4		O1_tweety/inputs/stage4/scasp/controls/s3b_nolineage.pl	O1_tweety/inputs/stage4/scasp/controls	scasp --query='not flies(tweety)' s3b_nolineage.pl	60	no	2G	60	0	29	O1_tweety/scasp_outputs/ctl_s3b_nolineage_notflies.out
+scasp/ctl_skeleton_factfirst_flies	s(CASP) 1.1.4		O1_tweety/inputs/stage4/scasp/controls/clingo_skeleton_scasp_factfirst.pl	O1_tweety/inputs/stage4/scasp/controls	scasp --query='flies(tweety)' clingo_skeleton_scasp_factfirst.pl	60	no	2G	60	124		O1_tweety/scasp_outputs/ctl_skeleton_factfirst_flies.out
+scasp/ctl_skeleton_flies	s(CASP) 1.1.4		O1_tweety/inputs/stage4/scasp/controls/clingo_skeleton_scasp.pl	O1_tweety/inputs/stage4/scasp/controls	scasp --query='flies(tweety)' clingo_skeleton_scasp.pl	60	no	2G	60	124		O1_tweety/scasp_outputs/ctl_skeleton_flies.out
+scasp/ctl_skeleton_nolineage_flies	s(CASP) 1.1.4		O1_tweety/inputs/stage4/scasp/controls/clingo_skeleton_scasp_nolineage.pl	O1_tweety/inputs/stage4/scasp/controls	scasp --query='flies(tweety)' clingo_skeleton_scasp_nolineage.pl	60	no	2G	60	0	29	O1_tweety/scasp_outputs/ctl_skeleton_nolineage_flies.out
+scasp/l_both	s(CASP) 1.1.4		O1_tweety/inputs/stage4/scasp/l_both.pl	O1_tweety/inputs/stage4/scasp	scasp --query='bird(tweety)' l_both.pl	120	no	2G	120	0	29	O1_tweety/scasp_outputs/l_both.out
+scasp/l_down	s(CASP) 1.1.4		O1_tweety/inputs/stage4/scasp/l_down.pl	O1_tweety/inputs/stage4/scasp	scasp --query='bird(tweety)' l_down.pl	120	no	2G	120	0	29	O1_tweety/scasp_outputs/l_down.out
+scasp/l_up	s(CASP) 1.1.4		O1_tweety/inputs/stage4/scasp/l_up.pl	O1_tweety/inputs/stage4/scasp	scasp --query='bird(tweety)' l_up.pl	120	no	2G	120	0	29	O1_tweety/scasp_outputs/l_up.out
+scasp/s2_flies	s(CASP) 1.1.4		O1_tweety/inputs/stage4/scasp/stage4_s2.pl	O1_tweety/inputs/stage4/scasp	scasp --query='flies(tweety)' stage4_s2.pl	120	no	2G	120			O1_tweety/scasp_outputs/s2_flies.out
+scasp/s2_flies_3600	s(CASP) 1.1.4		O1_tweety/inputs/stage4/scasp/stage4_s2.pl	O1_tweety/inputs/stage4/scasp	scasp --query='flies(tweety)' stage4_s2.pl	3600	no	16G	3600	124	29	O1_tweety/scasp_outputs/s2_flies_3600.out
+scasp/s2_notflies	s(CASP) 1.1.4		O1_tweety/inputs/stage4/scasp/stage4_s2.pl	O1_tweety/inputs/stage4/scasp	scasp -n 0 --query='not flies(tweety)' stage4_s2.pl	120	no	2G	120			O1_tweety/scasp_outputs/s2_notflies.out
+scasp/s3b_flies	s(CASP) 1.1.4		O1_tweety/inputs/stage4/scasp/stage4_s3b.pl	O1_tweety/inputs/stage4/scasp	scasp --query='flies(tweety)' stage4_s3b.pl	120	no	2G	120			O1_tweety/scasp_outputs/s3b_flies.out
+scasp/s3b_flies_3600	s(CASP) 1.1.4		O1_tweety/inputs/stage4/scasp/stage4_s3b.pl	O1_tweety/inputs/stage4/scasp	scasp --query='flies(tweety)' stage4_s3b.pl	3600	no	16G	3600	124	29	O1_tweety/scasp_outputs/s3b_flies_3600.out
+scasp/s3b_notflies	s(CASP) 1.1.4		O1_tweety/inputs/stage4/scasp/stage4_s3b.pl	O1_tweety/inputs/stage4/scasp	scasp --query='not flies(tweety)' stage4_s3b.pl	120	no	2G	120			O1_tweety/scasp_outputs/s3b_notflies.out
+scasp/s3b_notflies_3600	s(CASP) 1.1.4		O1_tweety/inputs/stage4/scasp/stage4_s3b.pl	O1_tweety/inputs/stage4/scasp	scasp --query='not flies(tweety)' stage4_s3b.pl	3600	no	16G	3600	124	29	O1_tweety/scasp_outputs/s3b_notflies_3600.out
+tool_small/gk12_design/c_paper_runs_2026_11_17/paper2026/O1_tweety/stage1/gk.gkp	mcref 1.3.1		O1_tweety/inputs/stage1/gk.gkp	O1_tweety/inputs/stage1	MCREF_GK=$GK python3 $MCREF gk.gkp --all-atoms	300	no	2G	300	0	29	raw/tool_small.tar.xz:tool_small/gk12_design_c_paper_runs_2026_11_17_paper2026_O1_tweety_stage1_gk.gkp.out
+tool_small/gk12_design/c_paper_runs_2026_11_17/paper2026/O1_tweety/stage2/gk.gkp	mcref 1.3.1		O1_tweety/inputs/stage2/gk.gkp	O1_tweety/inputs/stage2	MCREF_GK=$GK python3 $MCREF gk.gkp --all-atoms	300	no	2G	300	0	29	raw/tool_small.tar.xz:tool_small/gk12_design_c_paper_runs_2026_11_17_paper2026_O1_tweety_stage2_gk.gkp.out
+tool_small/gk12_design/c_paper_runs_2026_11_17/paper2026/O1_tweety/stage3a/gk.gkp	mcref 1.3.1		O1_tweety/inputs/stage3a/gk.gkp	O1_tweety/inputs/stage3a	MCREF_GK=$GK python3 $MCREF gk.gkp --all-atoms	300	no	2G	300	0	29	raw/tool_small.tar.xz:tool_small/gk12_design_c_paper_runs_2026_11_17_paper2026_O1_tweety_stage3a_gk.gkp.out
+tool_small/gk12_design/c_paper_runs_2026_11_17/paper2026/O1_tweety/stage3b/gk.gkp	mcref 1.3.1		O1_tweety/inputs/stage3b/gk.gkp	O1_tweety/inputs/stage3b	MCREF_GK=$GK python3 $MCREF gk.gkp --all-atoms	300	no	2G	300	0	29	raw/tool_small.tar.xz:tool_small/gk12_design_c_paper_runs_2026_11_17_paper2026_O1_tweety_stage3b_gk.gkp.out
+tweety/s1.default	gk 1.3.2	default	O1_tweety/inputs/stage1/gk.gkp	O1_tweety/inputs/stage1	$GK gk.gkp	10	no	12G	30	0	98	raw/tweety.tar.xz:tweety/s1.default.out
+tweety/s1.exact	gk 1.3.2	exact	O1_tweety/inputs/stage1/gk.gkp	O1_tweety/inputs/stage1	$GK gk.gkp -exact	10	no	12G	30	0	98	raw/tweety.tar.xz:tweety/s1.exact.out
+tweety/s1.general	gk 1.3.2	general	O1_tweety/inputs/stage1/gk.gkp	O1_tweety/inputs/stage1	$GK gk.gkp -general	10	no	12G	30	0	103	raw/tweety.tar.xz:tweety/s1.general.out
+tweety/s2.default	gk 1.3.2	default	O1_tweety/inputs/stage2/gk.gkp	O1_tweety/inputs/stage2	$GK gk.gkp	10	no	12G	30	0	98	raw/tweety.tar.xz:tweety/s2.default.out
+tweety/s2.exact	gk 1.3.2	exact	O1_tweety/inputs/stage2/gk.gkp	O1_tweety/inputs/stage2	$GK gk.gkp -exact	10	no	12G	30	0	98	raw/tweety.tar.xz:tweety/s2.exact.out
+tweety/s2.general	gk 1.3.2	general	O1_tweety/inputs/stage2/gk.gkp	O1_tweety/inputs/stage2	$GK gk.gkp -general	10	no	12G	30	0	127	raw/tweety.tar.xz:tweety/s2.general.out
+tweety/s3a.default	gk 1.3.2	default	O1_tweety/inputs/stage3a/gk.gkp	O1_tweety/inputs/stage3a	$GK gk.gkp	10	no	12G	30	0	98	raw/tweety.tar.xz:tweety/s3a.default.out
+tweety/s3a.exact	gk 1.3.2	exact	O1_tweety/inputs/stage3a/gk.gkp	O1_tweety/inputs/stage3a	$GK gk.gkp -exact	10	no	12G	30	0	98	raw/tweety.tar.xz:tweety/s3a.exact.out
+tweety/s3a.general	gk 1.3.2	general	O1_tweety/inputs/stage3a/gk.gkp	O1_tweety/inputs/stage3a	$GK gk.gkp -general	10	no	12G	30	0	127	raw/tweety.tar.xz:tweety/s3a.general.out
+tweety/s3b.default	gk 1.3.2	default	O1_tweety/inputs/stage3b/gk.gkp	O1_tweety/inputs/stage3b	$GK gk.gkp	10	no	12G	30	0	98	raw/tweety.tar.xz:tweety/s3b.default.out
+tweety/s3b.exact	gk 1.3.2	exact	O1_tweety/inputs/stage3b/gk.gkp	O1_tweety/inputs/stage3b	$GK gk.gkp -exact	10	no	12G	30	0	98	raw/tweety.tar.xz:tweety/s3b.exact.out
+tweety/s3b.general	gk 1.3.2	general	O1_tweety/inputs/stage3b/gk.gkp	O1_tweety/inputs/stage3b	$GK gk.gkp -general	10	no	12G	30	0	127	raw/tweety.tar.xz:tweety/s3b.general.out
+tweety/s4.2.default	gk 1.3.2	default	O1_tweety/inputs/stage4/gk_stage2.gkp	O1_tweety/inputs/stage4	$GK gk_stage2.gkp	10	no	12G	30	0	608	raw/tweety.tar.xz:tweety/s4.2.default.out
+tweety/s4.2.exact	gk 1.3.2	exact	O1_tweety/inputs/stage4/gk_stage2.gkp	O1_tweety/inputs/stage4	$GK gk_stage2.gkp -exact	10	no	12G	30	0	99	raw/tweety.tar.xz:tweety/s4.2.exact.out
+tweety/s4.2.general	gk 1.3.2	general	O1_tweety/inputs/stage4/gk_stage2.gkp	O1_tweety/inputs/stage4	$GK gk_stage2.gkp -general	10	no	12G	30	0	610	raw/tweety.tar.xz:tweety/s4.2.general.out
+tweety/s4.3a.default	gk 1.3.2	default	O1_tweety/inputs/stage4/gk_stage3a.gkp	O1_tweety/inputs/stage4	$GK gk_stage3a.gkp	10	no	12G	30	0	608	raw/tweety.tar.xz:tweety/s4.3a.default.out
+tweety/s4.3a.exact	gk 1.3.2	exact	O1_tweety/inputs/stage4/gk_stage3a.gkp	O1_tweety/inputs/stage4	$GK gk_stage3a.gkp -exact	10	no	12G	30	0	99	raw/tweety.tar.xz:tweety/s4.3a.exact.out
+tweety/s4.3a.general	gk 1.3.2	general	O1_tweety/inputs/stage4/gk_stage3a.gkp	O1_tweety/inputs/stage4	$GK gk_stage3a.gkp -general	10	no	12G	30	0	617	raw/tweety.tar.xz:tweety/s4.3a.general.out
+tweety/s4.3b.default	gk 1.3.2	default	O1_tweety/inputs/stage4/gk_stage3b.gkp	O1_tweety/inputs/stage4	$GK gk_stage3b.gkp	10	no	12G	30	0	610	raw/tweety.tar.xz:tweety/s4.3b.default.out
+tweety/s4.3b.exact	gk 1.3.2	exact	O1_tweety/inputs/stage4/gk_stage3b.gkp	O1_tweety/inputs/stage4	$GK gk_stage3b.gkp -exact	10	no	12G	30	0	99	raw/tweety.tar.xz:tweety/s4.3b.exact.out
+tweety/s4.3b.general	gk 1.3.2	general	O1_tweety/inputs/stage4/gk_stage3b.gkp	O1_tweety/inputs/stage4	$GK gk_stage3b.gkp -general	10	no	12G	30	0	605	raw/tweety.tar.xz:tweety/s4.3b.general.out

@@ -1,0 +1,5 @@
+d :- e, unless(b).
+-a.
+e :- -a.
+a :- d, unless(-b).
+query(a).

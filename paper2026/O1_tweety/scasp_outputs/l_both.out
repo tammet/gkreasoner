@@ -1,0 +1,12 @@
+% Query
+?- bird(tweety).
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+%                         Answer 1 (0.000 sec)                          
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+% Model
+{ bird(tweety),                  bird(parent(parent(tweety))),
+  bird(parent(tweety))
+}
+% No bindings
+true ? 
+

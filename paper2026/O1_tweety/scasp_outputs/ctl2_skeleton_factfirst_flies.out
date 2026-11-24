@@ -1,0 +1,14 @@
+% Query
+?- flies(tweety).
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+%                         Answer 1 (0.000 sec)                          
+% ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+% Model
+{ bird(tweety),                  gull(tweety),
+  bird(parent(tweety)),          not penguin(tweety),
+  bird(parent(parent(tweety))),  seabird(tweety),
+  flies(tweety)
+}
+% No bindings
+true ? 
+

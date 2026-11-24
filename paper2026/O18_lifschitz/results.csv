@@ -1,0 +1,29 @@
+run_id,system,method,input,question,value,unresolved,complete,answered_by,first_limit,ended_by_itself,time_s,target,target_kind,class,outcome,note,problem,conclusion,published
+e1_gk/A1.exact,gk 1.3.2,exact,O18_lifschitz/inputs/a1_basic.js,"located_on(B,table)","(1, 0, 0, 0)",0,yes,exact,,yes,0.05,,,the published conclusion holds,,,A1,B is on the table,entailed
+e1_gk/A1.general,gk 1.3.2,general,O18_lifschitz/inputs/a1_basic.js,"located_on(B,table)","(1, 0, 0, 0)",0,,general,,yes,0.16,,,the published conclusion holds,,,A1,B is on the table,entailed
+e1_gk/A1.default,gk 1.3.2,default,O18_lifschitz/inputs/a1_basic.js,"located_on(B,table)","(1, 0, 0, 0)",0,yes,exact,,yes,0.05,,,the published conclusion holds,,,A1,B is on the table,entailed
+e1_tool/A1,mcref 1.3.1,,O18_lifschitz/inputs/a1_basic.js,"located_on(B,table)","(1, 0, 0, 0)",0,,,,yes,0.06,,,the published conclusion holds,,,A1,B is on the table,entailed
+e1_gk/A2.exact,gk 1.3.2,exact,O18_lifschitz/inputs/a2_irrelevant.js,"located_on(B,table)","(1, 0, 0, 0)",0,yes,exact,,yes,0.05,,,the published conclusion holds,,,A2,B is on the table,entailed
+e1_gk/A2.general,gk 1.3.2,general,O18_lifschitz/inputs/a2_irrelevant.js,"located_on(B,table)","(1, 0, 0, 0)",0,,general,,yes,0.18,,,the published conclusion holds,,,A2,B is on the table,entailed
+e1_gk/A2.default,gk 1.3.2,default,O18_lifschitz/inputs/a2_irrelevant.js,"located_on(B,table)","(1, 0, 0, 0)",0,yes,exact,,yes,0.06,,,the published conclusion holds,,,A2,B is on the table,entailed
+e1_tool/A2,mcref 1.3.1,,O18_lifschitz/inputs/a2_irrelevant.js,"located_on(B,table)","(1, 0, 0, 0)",0,,,,yes,0.07,,,the published conclusion holds,,,A2,B is on the table,entailed
+e1_gk/A3.exact,gk 1.3.2,exact,O18_lifschitz/inputs/a3_several.js,$pr($question),,,no,exact,not covered: a compound question,no,,,,no value,,,A3,B is on the table and A is red,entailed
+e1_gk/A3.general,gk 1.3.2,general,O18_lifschitz/inputs/a3_several.js,$question,"(1, 0, 0, 0)",0,,general,,yes,0.33,,,the published conclusion holds,,,A3,B is on the table and A is red,entailed
+e1_gk/A3.default,gk 1.3.2,default,O18_lifschitz/inputs/a3_several.js,$question,"(1, 0, 0, 0)",0,,general,,yes,0.33,,,the published conclusion holds,,,A3,B is on the table and A is red,entailed
+e1_tool/A3,mcref 1.3.1,,O18_lifschitz/inputs/a3_several.js,$question,,,,,,yes,0.06,,,no value,,declines: compound question,A3,B is on the table and A is red,entailed
+e1_gk/A4.exact,gk 1.3.2,exact,O18_lifschitz/inputs/a4_disabled.js,"located_on(B,table)",,,no,exact,not covered: an equality between terms,no,,,,no value,,,A4,B is on the table,entailed
+e1_gk/A4.general,gk 1.3.2,general,O18_lifschitz/inputs/a4_disabled.js,"located_on(B,table)","(1, 0, 0, 0)",0,,general,,yes,0.20,,,the published conclusion holds,,,A4,B is on the table,entailed
+e1_gk/A4.default,gk 1.3.2,default,O18_lifschitz/inputs/a4_disabled.js,"located_on(B,table)","(1, 0, 0, 0)",0,,general,,yes,0.17,,,the published conclusion holds,,,A4,B is on the table,entailed
+e1_tool/A4,mcref 1.3.1,,O18_lifschitz/inputs/a4_disabled.js,"located_on(B,table)",,,,,,yes,0.05,,,no value,,declines: equality,A4,B is on the table,entailed
+e1_gk/A5.exact,gk 1.3.2,exact,O18_lifschitz/inputs/a5_open_domain.js,Q,,,no,exact,not covered: an equality between terms,no,,,,no value,,,A5,all heavy blocks other than A are on the table,entailed
+e1_gk/A5.general,gk 1.3.2,general,O18_lifschitz/inputs/a5_open_domain.js,Q,"(0, 0, 0, 1)",0,,general,,yes,0.26,,,does not hold,,,A5,all heavy blocks other than A are on the table,entailed
+e1_gk/A5.default,gk 1.3.2,default,O18_lifschitz/inputs/a5_open_domain.js,Q,"(0, 0, 0, 1)",0,,general,,yes,0.23,,,does not hold,,,A5,all heavy blocks other than A are on the table,entailed
+e1_tool/A5,mcref 1.3.1,,O18_lifschitz/inputs/a5_open_domain.js,Q,,,,,,yes,0.07,,,no value,,declines: equality,A5,all heavy blocks other than A are on the table,entailed
+e1_gk/A6a.exact,gk 1.3.2,exact,O18_lifschitz/inputs/a6_c_on_table.js,"located_on(C,table)","(1, 0, 0, 0)",0,yes,exact,,yes,0.06,,,the published conclusion holds,,,A6a,C is on the table,entailed
+e1_gk/A6a.general,gk 1.3.2,general,O18_lifschitz/inputs/a6_c_on_table.js,"located_on(C,table)","(1, 0, 0, 0)",0,,general,,yes,0.18,,,the published conclusion holds,,,A6a,C is on the table,entailed
+e1_gk/A6a.default,gk 1.3.2,default,O18_lifschitz/inputs/a6_c_on_table.js,"located_on(C,table)","(1, 0, 0, 0)",0,yes,exact,,yes,0.05,,,the published conclusion holds,,,A6a,C is on the table,entailed
+e1_tool/A6a,mcref 1.3.1,,O18_lifschitz/inputs/a6_c_on_table.js,"located_on(C,table)","(1, 0, 0, 0)",0,,,,yes,0.06,,,the published conclusion holds,,,A6a,C is on the table,entailed
+e1_gk/A6b.exact,gk 1.3.2,exact,O18_lifschitz/inputs/a6_exactly_one.js,Q,"(0, 0, 1, 0)",0,yes,exact,,yes,0.06,,,does not hold,,,A6b,exactly one of A and B is not on the table,entailed
+e1_gk/A6b.general,gk 1.3.2,general,O18_lifschitz/inputs/a6_exactly_one.js,Q,"(0, 0, 1, 0)",0,,general,,yes,0.55,,,does not hold,,,A6b,exactly one of A and B is not on the table,entailed
+e1_gk/A6b.default,gk 1.3.2,default,O18_lifschitz/inputs/a6_exactly_one.js,Q,"(0, 0, 1, 0)",0,yes,exact,,yes,0.05,,,does not hold,,,A6b,exactly one of A and B is not on the table,entailed
+e1_tool/A6b,mcref 1.3.1,,O18_lifschitz/inputs/a6_exactly_one.js,Q,"(0, 0, 1, 0)",0,,,,yes,0.06,,,does not hold,,,A6b,exactly one of A and B is not on the table,entailed

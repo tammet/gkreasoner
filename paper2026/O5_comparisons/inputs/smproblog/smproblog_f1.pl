@@ -1,0 +1,5 @@
+% F1: probabilistic recursion over a function term, stated verbatim.
+0.9::bird(a).
+0.8::bird(f(X)) :- bird(X).
+
+query(bird(f(f(a)))).

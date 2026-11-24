@@ -1,0 +1,32 @@
+bring(basenji, bison).
+is_named(beetle, milo).
+capture(cobra, dolphin).
+has(dolphin, a_card_that_is_red_in_color).
+is(dolphin, three_years_old).
+has(duck, n10_friends).
+has(duck, n66_dollars).
+reduced(duck, her_work_hours_recently).
+has(frog, n7_dollars).
+neglect(goose, snake).
+shout(liger, gadwall).
+fall(shark, goat).
+has(swan, n87_dollars).
+is_named(zebra, max).
+surrender(beetle, rhino) :- shout(X, gadwall), unless(-surrender(beetle, rhino), 2).
+-surrender(beetle, rhino) :- has_a_name_whose_first_letter_is_the_same_as_the_first_letter_of_the(beetle, zebra_s_name), unless(surrender(beetle, rhino), 1).
+surrender(poodle, butterfly) :- bring(X, bison), unless(-surrender(poodle, butterfly), 1).
+-swim(dolphin, poodle) :- has(dolphin, a_card_whose_color_appears_in_the_flag_of_netherlands), unless(swim(dolphin, poodle), 1).
+-want(X, peafowl) :- hug(X, worm), unless(want(X, peafowl), 1).
+-take(duck, otter) :- is_watching_a_movie_that_was_released_before(duck, spacex_was_founded), unless(take(duck, otter), 2).
+take(duck, otter) :- has(duck, more_than_three_friends), unless(-take(duck, otter), 1).
+-manage(otter, cougar) :- surrender(X, rhino), unless(manage(otter, cougar), 2).
+take(duck, otter) :- works(duck, more_hours_than_before), unless(-take(duck, otter), 1).
+hug(X, worm) :- acquire(X, badger), unless(-hug(X, worm), 1).
+manage(X, cougar) :- surrender(X, butterfly), hide(X, mouse), unless(-manage(X, cougar), 2).
+-manage(poodle, cougar) :- -swim(dolphin, poodle), unless(manage(poodle, cougar), 1).
+-swim(dolphin, poodle) :- is(dolphin, less_than_twenty_months_old), unless(swim(dolphin, poodle), 1).
+-take(duck, otter) :- has(duck, more_money_than_the_frog_and_the_swan_combined), unless(take(duck, otter), 2).
+hide(poodle, mouse) :- neglect(X, snake), unless(-hide(poodle, mouse), 1).
+manage(otter, cougar) :- take(duck, otter), unless(-manage(otter, cougar), 3).
+acquire(cougar, badger) :- fall(X, goat), unless(-acquire(cougar, badger), 1).
+query(want(cougar, peafowl)).

@@ -1,0 +1,4 @@
+0.9::l :- unless(-l, 2).
+0.3::-l :- unless(l, 3).
+
+query(l).

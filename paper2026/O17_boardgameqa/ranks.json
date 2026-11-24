@@ -1,0 +1,303 @@
+{
+ "d2/e920": {
+  "label": "unknown",
+  "gk": "unknown",
+  "needs_knowledge": "False",
+  "pairs": [
+   [
+    "Rule2",
+    "Rule5",
+    2,
+    1
+   ]
+  ],
+  "pairs_not_stated": [
+   [
+    "Rule2",
+    "Rule5"
+   ]
+  ],
+  "pairs_both_can_apply": [],
+  "prefs": [
+   "Rule2 > Rule1",
+   "Rule3 > Rule4"
+  ],
+  "one_rank_without_the_extra_order": true
+ },
+ "d3/e51": {
+  "label": "proved",
+  "gk": "unknown",
+  "needs_knowledge": "True",
+  "pairs": [
+   [
+    "Rule1",
+    "Rule8",
+    2,
+    1
+   ]
+  ],
+  "pairs_not_stated": [
+   [
+    "Rule1",
+    "Rule8"
+   ]
+  ],
+  "pairs_both_can_apply": [],
+  "prefs": [
+   "Rule1 > Rule2",
+   "Rule10 > Rule6",
+   "Rule13 > Rule9"
+  ],
+  "one_rank_without_the_extra_order": true
+ },
+ "d3/e165": {
+  "label": "proved",
+  "gk": "unknown",
+  "needs_knowledge": "True",
+  "pairs": [
+   [
+    "Rule11",
+    "Rule12",
+    1,
+    2
+   ]
+  ],
+  "pairs_not_stated": [
+   [
+    "Rule11",
+    "Rule12"
+   ]
+  ],
+  "pairs_both_can_apply": [],
+  "prefs": [
+   "Rule12 > Rule6",
+   "Rule4 > Rule5",
+   "Rule7 > Rule1",
+   "Rule8 > Rule10"
+  ],
+  "one_rank_without_the_extra_order": true
+ },
+ "d3/e261": {
+  "label": "proved",
+  "gk": "disproved",
+  "needs_knowledge": "True",
+  "pairs": [
+   [
+    "Rule2",
+    "Rule9",
+    1,
+    2
+   ]
+  ],
+  "pairs_not_stated": [
+   [
+    "Rule2",
+    "Rule9"
+   ]
+  ],
+  "pairs_both_can_apply": [],
+  "prefs": [
+   "Rule13 > Rule1",
+   "Rule13 > Rule14",
+   "Rule16 > Rule15",
+   "Rule16 > Rule3",
+   "Rule4 > Rule1",
+   "Rule4 > Rule14",
+   "Rule5 > Rule8",
+   "Rule6 > Rule15",
+   "Rule6 > Rule3",
+   "Rule9 > Rule7"
+  ],
+  "one_rank_without_the_extra_order": true
+ },
+ "d3/e355": {
+  "label": "disproved",
+  "gk": "disproved",
+  "needs_knowledge": "False",
+  "pairs": [
+   [
+    "Rule11",
+    "Rule8",
+    2,
+    1
+   ],
+   [
+    "Rule11",
+    "Rule9",
+    2,
+    1
+   ]
+  ],
+  "pairs_not_stated": [
+   [
+    "Rule11",
+    "Rule8"
+   ],
+   [
+    "Rule11",
+    "Rule9"
+   ]
+  ],
+  "pairs_both_can_apply": [],
+  "prefs": [
+   "Rule11 > Rule1",
+   "Rule12 > Rule8",
+   "Rule12 > Rule9",
+   "Rule5 > Rule2"
+  ],
+  "one_rank_without_the_extra_order": true
+ },
+ "d3/e396": {
+  "label": "proved",
+  "gk": "unknown",
+  "needs_knowledge": "True",
+  "pairs": [
+   [
+    "Rule1",
+    "Rule13",
+    2,
+    1
+   ],
+   [
+    "Rule2",
+    "Rule4",
+    1,
+    2
+   ],
+   [
+    "Rule3",
+    "Rule4",
+    1,
+    2
+   ]
+  ],
+  "pairs_not_stated": [
+   [
+    "Rule1",
+    "Rule13"
+   ],
+   [
+    "Rule2",
+    "Rule4"
+   ],
+   [
+    "Rule3",
+    "Rule4"
+   ]
+  ],
+  "pairs_both_can_apply": [],
+  "prefs": [
+   "Rule1 > Rule2",
+   "Rule1 > Rule3",
+   "Rule4 > Rule13",
+   "Rule5 > Rule14",
+   "Rule6 > Rule12",
+   "Rule9 > Rule7"
+  ],
+  "one_rank_without_the_extra_order": false
+ },
+ "d3/e625": {
+  "label": "disproved",
+  "gk": "unknown",
+  "needs_knowledge": "True",
+  "pairs": [
+   [
+    "Rule11",
+    "Rule4",
+    2,
+    1
+   ],
+   [
+    "Rule13",
+    "Rule6",
+    2,
+    1
+   ]
+  ],
+  "pairs_not_stated": [
+   [
+    "Rule11",
+    "Rule4"
+   ],
+   [
+    "Rule13",
+    "Rule6"
+   ]
+  ],
+  "pairs_both_can_apply": [],
+  "prefs": [
+   "Rule11 > Rule6",
+   "Rule13 > Rule4",
+   "Rule15 > Rule10",
+   "Rule15 > Rule12",
+   "Rule5 > Rule2",
+   "Rule7 > Rule14",
+   "Rule9 > Rule3"
+  ],
+  "one_rank_without_the_extra_order": false
+ },
+ "d3/e628": {
+  "label": "disproved",
+  "gk": "disproved",
+  "needs_knowledge": "True",
+  "pairs": [
+   [
+    "Rule11",
+    "Rule8",
+    2,
+    1
+   ]
+  ],
+  "pairs_not_stated": [
+   [
+    "Rule11",
+    "Rule8"
+   ]
+  ],
+  "pairs_both_can_apply": [
+   [
+    "Rule11",
+    "Rule8"
+   ]
+  ],
+  "prefs": [
+   "Rule1 > Rule2",
+   "Rule11 > Rule12",
+   "Rule14 > Rule7",
+   "Rule14 > Rule9",
+   "Rule16 > Rule8",
+   "Rule6 > Rule7",
+   "Rule6 > Rule9"
+  ],
+  "one_rank_without_the_extra_order": true
+ },
+ "d3/e791": {
+  "label": "unknown",
+  "gk": "unknown",
+  "needs_knowledge": "False",
+  "pairs": [
+   [
+    "Rule14",
+    "Rule8",
+    1,
+    2
+   ]
+  ],
+  "pairs_not_stated": [
+   [
+    "Rule14",
+    "Rule8"
+   ]
+  ],
+  "pairs_both_can_apply": [],
+  "prefs": [
+   "Rule12 > Rule1",
+   "Rule5 > Rule14",
+   "Rule6 > Rule10",
+   "Rule6 > Rule2",
+   "Rule8 > Rule13",
+   "Rule9 > Rule3"
+  ],
+  "one_rank_without_the_extra_order": true
+ }
+}

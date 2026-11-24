@@ -1,0 +1,30 @@
+{
+ "k1_case_literal": {
+  "file": "O13_conformance/inputs/kinds/k1_case_literal.gkp",
+  "what": "the paper's example: a proof by cases whose exception is one of its case literals"
+ },
+ "k2_headless_nested": {
+  "file": "O13_conformance/inputs/kinds/k2_headless_nested.gkp",
+  "what": "a clause with an exception and no written head, in a nested search (DESCRIPTION_gk_v2x_2026_11_17.md, D1.5, H6)"
+ },
+ "k3a_not_minimal_rejected": {
+  "file": "O13_conformance/inputs/kinds/k3a_not_minimal_rejected.gkp",
+  "what": "a source set that is not inclusion-minimal: the derivation is rejected (ex145 of the property tests, D1.5)"
+ },
+ "k3b_not_minimal_extra_guard": {
+  "file": "O13_conformance/inputs/kinds/k3b_not_minimal_extra_guard.gkp",
+  "what": "a source set that is not inclusion-minimal: an extra exception guard (D1.5, one exception too many)"
+ },
+ "k4_further_proofs_excluded": {
+  "file": "O13_conformance/inputs/kinds/k4_further_proofs_excluded.gkp",
+  "what": "a proof by cases through clauses that already produced the literal singly (D1.5)"
+ },
+ "k5_paper_chain": {
+  "file": "O13_conformance/inputs/kinds/k5_paper_chain.gkp",
+  "what": "the paper's example of a chain from the question's opposite back to the question"
+ },
+ "k5b_chain_with_exceptions": {
+  "file": "O13_conformance/inputs/kinds/k5b_chain_with_exceptions.gkp",
+  "what": "the smallest input of the chain kind in DESCRIPTION_gk_v2x_2026_11_17.md, D1.5"
+ }
+}

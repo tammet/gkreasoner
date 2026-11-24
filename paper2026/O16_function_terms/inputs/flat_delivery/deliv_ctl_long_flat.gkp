@@ -1,0 +1,16 @@
+0.9::cold(p1, s0).
+parcel(p1).
+succ(s0, short_leg, s_short).
+succ(s0, sheltered_leg1, s_l1).
+succ(s_l1, sheltered_leg2, s_long).
+plan_step(p1, short_leg, s0).
+plan_step(p1, sheltered_leg1, s0).
+plan_step(p1, sheltered_leg2, s_l1).
+0.3::warmed(p1, short_leg, s0).
+0.1::warmed(p1, sheltered_leg1, s0).
+0.1::warmed(p1, sheltered_leg2, s_l1).
+0.95::handover_ok(p1, s_short).
+0.95::handover_ok(p1, s_long).
+cold(P, S2) :- cold(P, S), plan_step(P, A, S), succ(S, A, S2), unless(warmed(P, A, S)).
+delivered_cold(P, S) :- cold(P, S), handover_ok(P, S).
+query(delivered_cold(p1, s_long)).

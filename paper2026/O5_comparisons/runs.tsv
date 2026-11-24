@@ -1,47 +1,148 @@
-run_id	tool	input	options	settings	alone	timeout_s
-c1.gk	gk	../../comparisons/inputs/gk/c1.gkp				180
-c1.mcref	mcref	../../comparisons/inputs/gk/c1.gkp		samples=100000 seed=1		900
-c2.gk	gk	../../comparisons/inputs/gk/c2.gkp				180
-c2.mcref	mcref	../../comparisons/inputs/gk/c2.gkp		samples=100000 seed=1		900
-d1.gk	gk	../../comparisons/inputs/gk/d1.gkp				180
-d1.mcref	mcref	../../comparisons/inputs/gk/d1.gkp		samples=100000 seed=1		900
-d2.gk	gk	../../comparisons/inputs/gk/d2.gkp				180
-d2.mcref	mcref	../../comparisons/inputs/gk/d2.gkp		samples=100000 seed=1		900
-d3.gk	gk	../../comparisons/inputs/gk/d3.gkp				180
-d3.mcref	mcref	../../comparisons/inputs/gk/d3.gkp		samples=100000 seed=1		900
-d4.gk	gk	../../comparisons/inputs/gk/d4.gkp				180
-d4.mcref	mcref	../../comparisons/inputs/gk/d4.gkp		samples=100000 seed=1		900
-d4-p.pos.gk	gk	../../comparisons/inputs/gk/d4sm_pos.gkp				180
-d4-p.pos.mcref	mcref	../../comparisons/inputs/gk/d4sm_pos.gkp		samples=100000 seed=1		900
-d4-p.neg.gk	gk	../../comparisons/inputs/gk/d4sm_neg.gkp				180
-d4-p.neg.mcref	mcref	../../comparisons/inputs/gk/d4sm_neg.gkp		samples=100000 seed=1		900
-d5.gk	gk	../../comparisons/inputs/gk/d5.gkp				180
-d5.mcref	mcref	../../comparisons/inputs/gk/d5.gkp		samples=100000 seed=1		900
-d6.undercut.gk	gk	../../comparisons/inputs/gk/d6_undercut.gkp				180
-d6.undercut.mcref	mcref	../../comparisons/inputs/gk/d6_undercut.gkp		samples=100000 seed=1		900
-d6.rebut.gk	gk	../../comparisons/inputs/gk/d6_rebut.gkp				180
-d6.rebut.mcref	mcref	../../comparisons/inputs/gk/d6_rebut.gkp		samples=100000 seed=1		900
-d7.gk	gk	../../comparisons/inputs/gk/d7.gkp				180
-d7.mcref	mcref	../../comparisons/inputs/gk/d7.gkp		samples=100000 seed=1		900
-n1.gk	gk	../../comparisons/inputs/gk/n1_study4.gkp				180
-n1.mcref	mcref	../../comparisons/inputs/gk/n1_study4.gkp		samples=100000 seed=1		900
-n2.gk	gk	../../comparisons/inputs/gk/n2_study10.gkp				180
-n2.mcref	mcref	../../comparisons/inputs/gk/n2_study10.gkp		samples=100000 seed=1		900
-eq1.gk	gk	../../comparisons/inputs/gk/e1.gkp				180
-eq1.mcref	mcref	../../comparisons/inputs/gk/e1.gkp		samples=100000 seed=1		900
-x1.gk	gk	../../comparisons/inputs/gk/x1.gkp				180
-x1.mcref	mcref	../../comparisons/inputs/gk/x1.gkp		samples=100000 seed=1		900
-f1.gk	gk	../../comparisons/inputs/gk/f1.gkp				180
-f1.mcref	mcref	../../comparisons/inputs/gk/f1.gkp		samples=100000 seed=1		900
-dj1.gk	gk	../../comparisons/inputs/gk/dj1.gkp				180
-dj1.mcref	mcref	../../comparisons/inputs/gk/dj1.gkp		samples=100000 seed=1		900
-c1.gk.hyper	gk	../../comparisons/inputs/gk/c1.gkp	-strategy ../../../paper2026/O5_comparisons/strategies/hyper.json			180
-c1.gk.query_focus	gk	../../comparisons/inputs/gk/c1.gkp	-strategy ../../../paper2026/O5_comparisons/strategies/query_focus.json			180
-dj1.gk.hyper	gk	../../comparisons/inputs/gk/dj1.gkp	-strategy ../../../paper2026/O5_comparisons/strategies/hyper.json			180
-dj1.gk.query_focus	gk	../../comparisons/inputs/gk/dj1.gkp	-strategy ../../../paper2026/O5_comparisons/strategies/query_focus.json			180
-n1.gk.hyper	gk	../../comparisons/inputs/gk/n1_study4.gkp	-strategy ../../../paper2026/O5_comparisons/strategies/hyper.json			180
-n1.gk.query_focus	gk	../../comparisons/inputs/gk/n1_study4.gkp	-strategy ../../../paper2026/O5_comparisons/strategies/query_focus.json			180
-n2.gk.hyper	gk	../../comparisons/inputs/gk/n2_study10.gkp	-strategy ../../../paper2026/O5_comparisons/strategies/hyper.json			180
-n2.gk.query_focus	gk	../../comparisons/inputs/gk/n2_study10.gkp	-strategy ../../../paper2026/O5_comparisons/strategies/query_focus.json			180
-f1.gk.hyper	gk	../../comparisons/inputs/gk/f1.gkp	-strategy ../../../paper2026/O5_comparisons/strategies/hyper.json			180
-f1.gk.query_focus	gk	../../comparisons/inputs/gk/f1.gkp	-strategy ../../../paper2026/O5_comparisons/strategies/query_focus.json			180
+run_id	system	method	input	cwd	command	limit_s	timed_alone	memory_cap	time_cap_s	exit	peak_mb	raw
+a2_declined/../experiments/comparisons/table_extensions/inputs/gk/e1.gkp	gk 1.3.2	default	O2_record/inputs/declined/table/experiments/comparisons/table_extensions/inputs/gk/e1.gkp	O2_record/inputs/declined/table/experiments/comparisons/table_extensions/inputs/gk	$GK e1.gkp	10	no	12G	25	0	126	raw/a2_declined.tar.xz:a2_declined/.._experiments_comparisons_table_extensions_inputs_gk_e1.gkp.out
+a2_rec_default/table/c1.gkp.gk	gk 1.3.2	default	O2_record/inputs/table/c1.gkp	O2_record/inputs/table	$GK c1.gkp	10	no	12G	30	0	98	raw/a2_rec_default.tar.xz:a2_rec_default/table_c1.gkp.gk.out
+a2_rec_default/table/c2.gkp.gk	gk 1.3.2	default	O2_record/inputs/table/c2.gkp	O2_record/inputs/table	$GK c2.gkp	10	no	12G	30	0	98	raw/a2_rec_default.tar.xz:a2_rec_default/table_c2.gkp.gk.out
+a2_rec_default/table/d1.gkp.gk	gk 1.3.2	default	O2_record/inputs/table/d1.gkp	O2_record/inputs/table	$GK d1.gkp	10	no	12G	30	0	98	raw/a2_rec_default.tar.xz:a2_rec_default/table_d1.gkp.gk.out
+a2_rec_default/table/d2.gkp.gk	gk 1.3.2	default	O2_record/inputs/table/d2.gkp	O2_record/inputs/table	$GK d2.gkp	10	no	12G	30	0	99	raw/a2_rec_default.tar.xz:a2_rec_default/table_d2.gkp.gk.out
+a2_rec_default/table/d3.gkp.gk	gk 1.3.2	default	O2_record/inputs/table/d3.gkp	O2_record/inputs/table	$GK d3.gkp	10	no	12G	30	0	98	raw/a2_rec_default.tar.xz:a2_rec_default/table_d3.gkp.gk.out
+a2_rec_default/table/d4.gkp.gk	gk 1.3.2	default	O2_record/inputs/table/d4.gkp	O2_record/inputs/table	$GK d4.gkp	10	no	12G	30	0	99	raw/a2_rec_default.tar.xz:a2_rec_default/table_d4.gkp.gk.out
+a2_rec_default/table/d4sm_neg.gkp.gk	gk 1.3.2	default	O2_record/inputs/table/d4sm_neg.gkp	O2_record/inputs/table	$GK d4sm_neg.gkp	10	no	12G	30	0	98	raw/a2_rec_default.tar.xz:a2_rec_default/table_d4sm_neg.gkp.gk.out
+a2_rec_default/table/d4sm_pos.gkp.gk	gk 1.3.2	default	O2_record/inputs/table/d4sm_pos.gkp	O2_record/inputs/table	$GK d4sm_pos.gkp	10	no	12G	30	0	98	raw/a2_rec_default.tar.xz:a2_rec_default/table_d4sm_pos.gkp.gk.out
+a2_rec_default/table/d5.gkp.gk	gk 1.3.2	default	O2_record/inputs/table/d5.gkp	O2_record/inputs/table	$GK d5.gkp	10	no	12G	30	0	98	raw/a2_rec_default.tar.xz:a2_rec_default/table_d5.gkp.gk.out
+a2_rec_default/table/d6_rebut.gkp.gk	gk 1.3.2	default	O2_record/inputs/table/d6_rebut.gkp	O2_record/inputs/table	$GK d6_rebut.gkp	10	no	12G	30	0	98	raw/a2_rec_default.tar.xz:a2_rec_default/table_d6_rebut.gkp.gk.out
+a2_rec_default/table/d6_undercut.gkp.gk	gk 1.3.2	default	O2_record/inputs/table/d6_undercut.gkp	O2_record/inputs/table	$GK d6_undercut.gkp	10	no	12G	30	0	99	raw/a2_rec_default.tar.xz:a2_rec_default/table_d6_undercut.gkp.gk.out
+a2_rec_default/table/d7.gkp.gk	gk 1.3.2	default	O2_record/inputs/table/d7.gkp	O2_record/inputs/table	$GK d7.gkp	10	no	12G	30	0	99	raw/a2_rec_default.tar.xz:a2_rec_default/table_d7.gkp.gk.out
+a2_rec_default/table/dj1.gkp.gk	gk 1.3.2	default	O2_record/inputs/table/dj1.gkp	O2_record/inputs/table	$GK dj1.gkp	10	no	12G	30	0	98	raw/a2_rec_default.tar.xz:a2_rec_default/table_dj1.gkp.gk.out
+a2_rec_default/table/n1_study4.gkp.gk	gk 1.3.2	default	O2_record/inputs/table/n1_study4.gkp	O2_record/inputs/table	$GK n1_study4.gkp	10	no	12G	30	0	99	raw/a2_rec_default.tar.xz:a2_rec_default/table_n1_study4.gkp.gk.out
+a2_rec_default/table/n2_study10.gkp.gk	gk 1.3.2	default	O2_record/inputs/table/n2_study10.gkp	O2_record/inputs/table	$GK n2_study10.gkp	10	no	12G	30	0	99	raw/a2_rec_default.tar.xz:a2_rec_default/table_n2_study10.gkp.gk.out
+a2_rec_default/table/x1.gkp.gk	gk 1.3.2	default	O2_record/inputs/table/x1.gkp	O2_record/inputs/table	$GK x1.gkp	10	no	12G	30	0	99	raw/a2_rec_default.tar.xz:a2_rec_default/table_x1.gkp.gk.out
+a2_rec_exact/table/c1.gkp.gk	gk 1.3.2	exact	O2_record/inputs/table/c1.gkp	O2_record/inputs/table	$GK c1.gkp -exact	10	no	12G	30	0	99	raw/a2_rec_exact.tar.xz:a2_rec_exact/table_c1.gkp.gk.out
+a2_rec_exact/table/c2.gkp.gk	gk 1.3.2	exact	O2_record/inputs/table/c2.gkp	O2_record/inputs/table	$GK c2.gkp -exact	10	no	12G	30	0	99	raw/a2_rec_exact.tar.xz:a2_rec_exact/table_c2.gkp.gk.out
+a2_rec_exact/table/d1.gkp.gk	gk 1.3.2	exact	O2_record/inputs/table/d1.gkp	O2_record/inputs/table	$GK d1.gkp -exact	10	no	12G	30	0	98	raw/a2_rec_exact.tar.xz:a2_rec_exact/table_d1.gkp.gk.out
+a2_rec_exact/table/d2.gkp.gk	gk 1.3.2	exact	O2_record/inputs/table/d2.gkp	O2_record/inputs/table	$GK d2.gkp -exact	10	no	12G	30	0	98	raw/a2_rec_exact.tar.xz:a2_rec_exact/table_d2.gkp.gk.out
+a2_rec_exact/table/d3.gkp.gk	gk 1.3.2	exact	O2_record/inputs/table/d3.gkp	O2_record/inputs/table	$GK d3.gkp -exact	10	no	12G	30	0	99	raw/a2_rec_exact.tar.xz:a2_rec_exact/table_d3.gkp.gk.out
+a2_rec_exact/table/d4.gkp.gk	gk 1.3.2	exact	O2_record/inputs/table/d4.gkp	O2_record/inputs/table	$GK d4.gkp -exact	10	no	12G	30	0	98	raw/a2_rec_exact.tar.xz:a2_rec_exact/table_d4.gkp.gk.out
+a2_rec_exact/table/d4sm_neg.gkp.gk	gk 1.3.2	exact	O2_record/inputs/table/d4sm_neg.gkp	O2_record/inputs/table	$GK d4sm_neg.gkp -exact	10	no	12G	30	0	98	raw/a2_rec_exact.tar.xz:a2_rec_exact/table_d4sm_neg.gkp.gk.out
+a2_rec_exact/table/d4sm_pos.gkp.gk	gk 1.3.2	exact	O2_record/inputs/table/d4sm_pos.gkp	O2_record/inputs/table	$GK d4sm_pos.gkp -exact	10	no	12G	30	0	98	raw/a2_rec_exact.tar.xz:a2_rec_exact/table_d4sm_pos.gkp.gk.out
+a2_rec_exact/table/d5.gkp.gk	gk 1.3.2	exact	O2_record/inputs/table/d5.gkp	O2_record/inputs/table	$GK d5.gkp -exact	10	no	12G	30	0	98	raw/a2_rec_exact.tar.xz:a2_rec_exact/table_d5.gkp.gk.out
+a2_rec_exact/table/d6_rebut.gkp.gk	gk 1.3.2	exact	O2_record/inputs/table/d6_rebut.gkp	O2_record/inputs/table	$GK d6_rebut.gkp -exact	10	no	12G	30	0	99	raw/a2_rec_exact.tar.xz:a2_rec_exact/table_d6_rebut.gkp.gk.out
+a2_rec_exact/table/d6_undercut.gkp.gk	gk 1.3.2	exact	O2_record/inputs/table/d6_undercut.gkp	O2_record/inputs/table	$GK d6_undercut.gkp -exact	10	no	12G	30	0	99	raw/a2_rec_exact.tar.xz:a2_rec_exact/table_d6_undercut.gkp.gk.out
+a2_rec_exact/table/d7.gkp.gk	gk 1.3.2	exact	O2_record/inputs/table/d7.gkp	O2_record/inputs/table	$GK d7.gkp -exact	10	no	12G	30	0	98	raw/a2_rec_exact.tar.xz:a2_rec_exact/table_d7.gkp.gk.out
+a2_rec_exact/table/dj1.gkp.gk	gk 1.3.2	exact	O2_record/inputs/table/dj1.gkp	O2_record/inputs/table	$GK dj1.gkp -exact	10	no	12G	30	0	98	raw/a2_rec_exact.tar.xz:a2_rec_exact/table_dj1.gkp.gk.out
+a2_rec_exact/table/n1_study4.gkp.gk	gk 1.3.2	exact	O2_record/inputs/table/n1_study4.gkp	O2_record/inputs/table	$GK n1_study4.gkp -exact	10	no	12G	30	0	98	raw/a2_rec_exact.tar.xz:a2_rec_exact/table_n1_study4.gkp.gk.out
+a2_rec_exact/table/n2_study10.gkp.gk	gk 1.3.2	exact	O2_record/inputs/table/n2_study10.gkp	O2_record/inputs/table	$GK n2_study10.gkp -exact	10	no	12G	30	0	99	raw/a2_rec_exact.tar.xz:a2_rec_exact/table_n2_study10.gkp.gk.out
+a2_rec_exact/table/x1.gkp.gk	gk 1.3.2	exact	O2_record/inputs/table/x1.gkp	O2_record/inputs/table	$GK x1.gkp -exact	10	no	12G	30	0	98	raw/a2_rec_exact.tar.xz:a2_rec_exact/table_x1.gkp.gk.out
+a2_rec_general/table/c1.gkp.gk	gk 1.3.2	general	O2_record/inputs/table/c1.gkp	O2_record/inputs/table	$GK c1.gkp -general	10	no	12G	30	0	127	raw/a2_rec_general.tar.xz:a2_rec_general/table_c1.gkp.gk.out
+a2_rec_general/table/c2.gkp.gk	gk 1.3.2	general	O2_record/inputs/table/c2.gkp	O2_record/inputs/table	$GK c2.gkp -general	10	no	12G	30	0	127	raw/a2_rec_general.tar.xz:a2_rec_general/table_c2.gkp.gk.out
+a2_rec_general/table/d1.gkp.gk	gk 1.3.2	general	O2_record/inputs/table/d1.gkp	O2_record/inputs/table	$GK d1.gkp -general	10	no	12G	30	0	103	raw/a2_rec_general.tar.xz:a2_rec_general/table_d1.gkp.gk.out
+a2_rec_general/table/d2.gkp.gk	gk 1.3.2	general	O2_record/inputs/table/d2.gkp	O2_record/inputs/table	$GK d2.gkp -general	10	no	12G	30	0	127	raw/a2_rec_general.tar.xz:a2_rec_general/table_d2.gkp.gk.out
+a2_rec_general/table/d3.gkp.gk	gk 1.3.2	general	O2_record/inputs/table/d3.gkp	O2_record/inputs/table	$GK d3.gkp -general	10	no	12G	30	0	126	raw/a2_rec_general.tar.xz:a2_rec_general/table_d3.gkp.gk.out
+a2_rec_general/table/d4.gkp.gk	gk 1.3.2	general	O2_record/inputs/table/d4.gkp	O2_record/inputs/table	$GK d4.gkp -general	10	no	12G	30	0	127	raw/a2_rec_general.tar.xz:a2_rec_general/table_d4.gkp.gk.out
+a2_rec_general/table/d4sm_neg.gkp.gk	gk 1.3.2	general	O2_record/inputs/table/d4sm_neg.gkp	O2_record/inputs/table	$GK d4sm_neg.gkp -general	10	no	12G	30	0	127	raw/a2_rec_general.tar.xz:a2_rec_general/table_d4sm_neg.gkp.gk.out
+a2_rec_general/table/d4sm_pos.gkp.gk	gk 1.3.2	general	O2_record/inputs/table/d4sm_pos.gkp	O2_record/inputs/table	$GK d4sm_pos.gkp -general	10	no	12G	30	0	127	raw/a2_rec_general.tar.xz:a2_rec_general/table_d4sm_pos.gkp.gk.out
+a2_rec_general/table/d5.gkp.gk	gk 1.3.2	general	O2_record/inputs/table/d5.gkp	O2_record/inputs/table	$GK d5.gkp -general	10	no	12G	30	0	102	raw/a2_rec_general.tar.xz:a2_rec_general/table_d5.gkp.gk.out
+a2_rec_general/table/d6_rebut.gkp.gk	gk 1.3.2	general	O2_record/inputs/table/d6_rebut.gkp	O2_record/inputs/table	$GK d6_rebut.gkp -general	10	no	12G	30	0	103	raw/a2_rec_general.tar.xz:a2_rec_general/table_d6_rebut.gkp.gk.out
+a2_rec_general/table/d6_undercut.gkp.gk	gk 1.3.2	general	O2_record/inputs/table/d6_undercut.gkp	O2_record/inputs/table	$GK d6_undercut.gkp -general	10	no	12G	30	0	103	raw/a2_rec_general.tar.xz:a2_rec_general/table_d6_undercut.gkp.gk.out
+a2_rec_general/table/d7.gkp.gk	gk 1.3.2	general	O2_record/inputs/table/d7.gkp	O2_record/inputs/table	$GK d7.gkp -general	10	no	12G	30	0	103	raw/a2_rec_general.tar.xz:a2_rec_general/table_d7.gkp.gk.out
+a2_rec_general/table/dj1.gkp.gk	gk 1.3.2	general	O2_record/inputs/table/dj1.gkp	O2_record/inputs/table	$GK dj1.gkp -general	10	no	12G	30	0	103	raw/a2_rec_general.tar.xz:a2_rec_general/table_dj1.gkp.gk.out
+a2_rec_general/table/n1_study4.gkp.gk	gk 1.3.2	general	O2_record/inputs/table/n1_study4.gkp	O2_record/inputs/table	$GK n1_study4.gkp -general	10	no	12G	30	0	127	raw/a2_rec_general.tar.xz:a2_rec_general/table_n1_study4.gkp.gk.out
+a2_rec_general/table/n2_study10.gkp.gk	gk 1.3.2	general	O2_record/inputs/table/n2_study10.gkp	O2_record/inputs/table	$GK n2_study10.gkp -general	10	no	12G	30	0	134	raw/a2_rec_general.tar.xz:a2_rec_general/table_n2_study10.gkp.gk.out
+a2_rec_general/table/x1.gkp.gk	gk 1.3.2	general	O2_record/inputs/table/x1.gkp	O2_record/inputs/table	$GK x1.gkp -general	10	no	12G	30	0	103	raw/a2_rec_general.tar.xz:a2_rec_general/table_x1.gkp.gk.out
+a3_default/comparison/f1.gkp	gk 1.3.2	default	O5_comparisons/inputs/gk/f1.gkp	O5_comparisons/inputs/gk	$GK f1.gkp	10	no	12G	30	0	103	raw/a3_default.tar.xz:a3_default/comparison_f1.gkp.out
+a3_exact/comparison/f1.gkp	gk 1.3.2	exact	O5_comparisons/inputs/gk/f1.gkp	O5_comparisons/inputs/gk	$GK f1.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/comparison_f1.gkp.out
+a3_general/comparison/f1.gkp	gk 1.3.2	general	O5_comparisons/inputs/gk/f1.gkp	O5_comparisons/inputs/gk	$GK f1.gkp -general	10	no	12G	30	0	127	raw/a3_general.tar.xz:a3_general/comparison_f1.gkp.out
+c1_gk/e1.exact	gk 1.3.2	exact	O2_record/inputs/declined/table/experiments/comparisons/table_extensions/inputs/gk/e1.gkp	O2_record/inputs/declined/table/experiments/comparisons/table_extensions/inputs/gk	$GK e1.gkp -exact	10	no	12G	30	0	98	raw/c1_gk.tar.xz:c1_gk/e1.exact.out
+c1_gk/e1.general	gk 1.3.2	general	O2_record/inputs/declined/table/experiments/comparisons/table_extensions/inputs/gk/e1.gkp	O2_record/inputs/declined/table/experiments/comparisons/table_extensions/inputs/gk	$GK e1.gkp -general	10	no	12G	30	0	127	raw/c1_gk.tar.xz:c1_gk/e1.general.out
+record/clingo_cases	clingo			O5_comparisons/inputs	clingo asp/asp_cases.lp 0					30		record/O5_comparisons/results/raw/clingo_cases.txt
+record/clingo_dj1	clingo			O5_comparisons/inputs	clingo asp/asp_dj1.lp 0					30		record/O5_comparisons/results/raw/clingo_dj1.txt
+record/clingo_e1	clingo			O5_comparisons/inputs	clingo asp/asp_e1.lp 0					20		record/O5_comparisons/results/raw/clingo_e1.txt
+record/clingo_f1	clingo			O5_comparisons/inputs	timeout 10 /usr/bin/clingo asp/asp_f1.lp 0					124		record/O5_comparisons/results/raw/clingo_f1.txt
+record/clingo_nonground	clingo			O5_comparisons/inputs	clingo asp/asp_nonground.lp 0					30		record/O5_comparisons/results/raw/clingo_nonground.txt
+record/clingo_x1	clingo			O5_comparisons/inputs	clingo asp/asp_x1.lp 0					20		record/O5_comparisons/results/raw/clingo_x1.txt
+record/dlv_cases	DLV			O5_comparisons/inputs	dlv-2.1.1-linux-x86_64 --silent -n=0 asp/asp_cases.lp					0		record/O5_comparisons/results/raw/dlv_cases.txt
+record/dlv_dj1	DLV			O5_comparisons/inputs	dlv-2.1.1-linux-x86_64 --silent -n=0 asp/asp_dj1.lp					0		record/O5_comparisons/results/raw/dlv_dj1.txt
+record/dlv_e1	DLV			O5_comparisons/inputs	dlv-2.1.1-linux-x86_64 --silent -n=0 asp/asp_e1.lp					0		record/O5_comparisons/results/raw/dlv_e1.txt
+record/dlv_f1	DLV			O5_comparisons/inputs	timeout 10 dlv-2.1.1-linux-x86_64 --silent -n=0 asp/asp_f1.lp					124		record/O5_comparisons/results/raw/dlv_f1.txt
+record/dlv_nonground	DLV			O5_comparisons/inputs	dlv-2.1.1-linux-x86_64 --silent -n=0 asp/asp_nonground.lp					0		record/O5_comparisons/results/raw/dlv_nonground.txt
+record/dlv_x1	DLV			O5_comparisons/inputs	dlv-2.1.1-linux-x86_64 --silent -n=0 asp/asp_x1.lp					0		record/O5_comparisons/results/raw/dlv_x1.txt
+record/idlv_reference	I-DLV			O5_comparisons/inputs	'(Set IDLV to the I-DLV 1.1.6 executable and rerun this script.)' idlv/d4_nixon.lp							record/O5_comparisons/results/raw/idlv_reference.txt
+record/pasta_c1_q	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_cases.lp --query=c1_q					0		record/O5_comparisons/results/raw/pasta_c1_q.txt
+record/pasta_c2_q	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_cases.lp --query=c2_q					0		record/O5_comparisons/results/raw/pasta_c2_q.txt
+record/pasta_d1_neg	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_cases.lp --query=d1_neg					0		record/O5_comparisons/results/raw/pasta_d1_neg.txt
+record/pasta_d1_pos	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_cases.lp --query=d1_pos					0		record/O5_comparisons/results/raw/pasta_d1_pos.txt
+record/pasta_d2_h	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_cases.lp --query=d2_h					0		record/O5_comparisons/results/raw/pasta_d2_h.txt
+record/pasta_d3_h	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_cases.lp --query=d3_h					0		record/O5_comparisons/results/raw/pasta_d3_h.txt
+record/pasta_d4_neg	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_cases.lp --query=d4_neg					0		record/O5_comparisons/results/raw/pasta_d4_neg.txt
+record/pasta_d4_pos	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_cases.lp --query=d4_pos					0		record/O5_comparisons/results/raw/pasta_d4_pos.txt
+record/pasta_d4sm_nonpacifist	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_d4sm.lp --query=nonpacifist					0		record/O5_comparisons/results/raw/pasta_d4sm_nonpacifist.txt
+record/pasta_d4sm_pacifist	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_d4sm.lp --query=pacifist					0		record/O5_comparisons/results/raw/pasta_d4sm_pacifist.txt
+record/pasta_d5_neg	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_cases.lp --query=d5_neg					0		record/O5_comparisons/results/raw/pasta_d5_neg.txt
+record/pasta_d5_pos	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_cases.lp --query=d5_pos					0		record/O5_comparisons/results/raw/pasta_d5_pos.txt
+record/pasta_d6_rebut	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_cases.lp --query=d6_rebut					0		record/O5_comparisons/results/raw/pasta_d6_rebut.txt
+record/pasta_d6_undercut	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_cases.lp --query=d6_undercut					0		record/O5_comparisons/results/raw/pasta_d6_undercut.txt
+record/pasta_d7_neg	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_cases.lp --query=d7_neg					0		record/O5_comparisons/results/raw/pasta_d7_neg.txt
+record/pasta_d7_pos	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_cases.lp --query=d7_pos					0		record/O5_comparisons/results/raw/pasta_d7_pos.txt
+record/pasta_dj1	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_dj1.lp '--query=q(a)'					0		record/O5_comparisons/results/raw/pasta_dj1.txt
+record/pasta_e1	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_e1.lp '--query=p(a)'					255		record/O5_comparisons/results/raw/pasta_e1.txt
+record/pasta_f1	PASTA			O5_comparisons/inputs	timeout 10 pastasolver pasta/pasta_f1.lp '--query=bird(f(f(a)))'					124		record/O5_comparisons/results/raw/pasta_f1.txt
+record/pasta_n1_aa	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_nonground.lp '--query=n1_twobirds(a,a)'					0		record/O5_comparisons/results/raw/pasta_n1_aa.txt
+record/pasta_n1_ab	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_nonground.lp '--query=n1_twobirds(a,b)'					0		record/O5_comparisons/results/raw/pasta_n1_ab.txt
+record/pasta_n1_ba	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_nonground.lp '--query=n1_twobirds(b,a)'					0		record/O5_comparisons/results/raw/pasta_n1_ba.txt
+record/pasta_n1_bb	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_nonground.lp '--query=n1_twobirds(b,b)'					0		record/O5_comparisons/results/raw/pasta_n1_bb.txt
+record/pasta_n2_ann	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_nonground.lp '--query=n2_smokes(ann)'					0		record/O5_comparisons/results/raw/pasta_n2_ann.txt
+record/pasta_n2_bob	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_nonground.lp '--query=n2_smokes(bob)'					0		record/O5_comparisons/results/raw/pasta_n2_bob.txt
+record/pasta_n2_carl	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_nonground.lp '--query=n2_smokes(carl)'					0		record/O5_comparisons/results/raw/pasta_n2_carl.txt
+record/pasta_x1	PASTA			O5_comparisons/inputs	pastasolver pasta/pasta_x1.lp '--query=q(b)'					255		record/O5_comparisons/results/raw/pasta_x1.txt
+record/plingo_cases	plingo			O5_comparisons/inputs	plingo plingo/plingo_cases.lp --frontend=problog --quiet=2					30		record/O5_comparisons/results/raw/plingo_cases.txt
+record/plingo_d4sm	plingo			O5_comparisons/inputs	plingo plingo/plingo_d4sm.lp --frontend=problog --quiet=2					30		record/O5_comparisons/results/raw/plingo_d4sm.txt
+record/plingo_dj1	plingo			O5_comparisons/inputs	plingo plingo/plingo_dj1.lp --frontend=problog --quiet=2					65		record/O5_comparisons/results/raw/plingo_dj1.txt
+record/plingo_e1	plingo			O5_comparisons/inputs	plingo plingo/plingo_e1.lp --frontend=problog --quiet=2					30		record/O5_comparisons/results/raw/plingo_e1.txt
+record/plingo_f1	plingo			O5_comparisons/inputs	timeout 10 plingo plingo/plingo_f1.lp --frontend=problog --quiet=2					124		record/O5_comparisons/results/raw/plingo_f1.txt
+record/plingo_nonground	plingo			O5_comparisons/inputs	plingo plingo/plingo_nonground.lp --frontend=problog --quiet=2					30		record/O5_comparisons/results/raw/plingo_nonground.txt
+record/plingo_x1	plingo			O5_comparisons/inputs	plingo plingo/plingo_x1.lp --frontend=problog --quiet=2					30		record/O5_comparisons/results/raw/plingo_x1.txt
+record/problog_cases	ProbLog			O5_comparisons/inputs	problog problog/problog_cases.pl					0		record/O5_comparisons/results/raw/problog_cases.txt
+record/problog_f1	ProbLog			O5_comparisons/inputs	problog problog/problog_f1.pl					0		record/O5_comparisons/results/raw/problog_f1.txt
+record/problog_nonground	ProbLog			O5_comparisons/inputs	problog problog/problog_nonground.pl					0		record/O5_comparisons/results/raw/problog_nonground.txt
+record/scasp_d1_neg	s(CASP)			O5_comparisons/inputs	scasp --query=d1_neg scasp/scasp_cases.pl					0		record/O5_comparisons/results/raw/scasp_d1_neg.txt
+record/scasp_d1_pos	s(CASP)			O5_comparisons/inputs	scasp --query=d1_pos scasp/scasp_cases.pl					0		record/O5_comparisons/results/raw/scasp_d1_pos.txt
+record/scasp_d2_h	s(CASP)			O5_comparisons/inputs	scasp --query=d2_h scasp/scasp_cases.pl					0		record/O5_comparisons/results/raw/scasp_d2_h.txt
+record/scasp_d3_h	s(CASP)			O5_comparisons/inputs	scasp --query=d3_h scasp/scasp_cases.pl					0		record/O5_comparisons/results/raw/scasp_d3_h.txt
+record/scasp_d4_neg	s(CASP)			O5_comparisons/inputs	scasp --query=d4_neg scasp/scasp_cases.pl					0		record/O5_comparisons/results/raw/scasp_d4_neg.txt
+record/scasp_d4_pos	s(CASP)			O5_comparisons/inputs	scasp --query=d4_pos scasp/scasp_cases.pl					0		record/O5_comparisons/results/raw/scasp_d4_pos.txt
+record/scasp_d5_neg	s(CASP)			O5_comparisons/inputs	scasp --query=d5_neg scasp/scasp_cases.pl					0		record/O5_comparisons/results/raw/scasp_d5_neg.txt
+record/scasp_d5_pos	s(CASP)			O5_comparisons/inputs	scasp --query=d5_pos scasp/scasp_cases.pl					0		record/O5_comparisons/results/raw/scasp_d5_pos.txt
+record/scasp_d6_rebut	s(CASP)			O5_comparisons/inputs	scasp --query=d6_rebut scasp/scasp_cases.pl					0		record/O5_comparisons/results/raw/scasp_d6_rebut.txt
+record/scasp_d6_undercut	s(CASP)			O5_comparisons/inputs	scasp --query=d6_undercut scasp/scasp_cases.pl					0		record/O5_comparisons/results/raw/scasp_d6_undercut.txt
+record/scasp_dj1	s(CASP)			O5_comparisons/inputs	scasp '--query=q(a)' scasp/scasp_dj1.pl					0		record/O5_comparisons/results/raw/scasp_dj1.txt
+record/scasp_e1	s(CASP)			O5_comparisons/inputs	scasp '--query=p(a)' scasp/scasp_e1.pl					0		record/O5_comparisons/results/raw/scasp_e1.txt
+record/scasp_f1	s(CASP)			O5_comparisons/inputs	scasp '--query=bird(f(f(a)))' scasp/scasp_f1.pl					0		record/O5_comparisons/results/raw/scasp_f1.txt
+record/scasp_n1	s(CASP)			O5_comparisons/inputs	scasp -n 0 '--query=n1_twobirds(X,Y)' scasp/scasp_nonground.pl					0		record/O5_comparisons/results/raw/scasp_n1.txt
+record/scasp_n2	s(CASP)			O5_comparisons/inputs	scasp -n 0 '--query=n2_smokes(X)' scasp/scasp_nonground.pl					0		record/O5_comparisons/results/raw/scasp_n2.txt
+record/scasp_x1	s(CASP)			O5_comparisons/inputs	scasp '--query=q(b)' scasp/scasp_x1.pl					0		record/O5_comparisons/results/raw/scasp_x1.txt
+record/smproblog_cases	smProbLog			O5_comparisons/inputs	problog -k ddnnf smproblog/smproblog_cases.pl					0		record/O5_comparisons/results/raw/smproblog_cases.txt
+record/smproblog_d4	smProbLog			O5_comparisons/inputs	problog -k ddnnf smproblog/smproblog_d4.pl					0		record/O5_comparisons/results/raw/smproblog_d4.txt
+record/smproblog_d4sm	smProbLog			O5_comparisons/inputs	problog -k ddnnf smproblog/smproblog_d4sm.pl					0		record/O5_comparisons/results/raw/smproblog_d4sm.txt
+record/smproblog_dj1	smProbLog			O5_comparisons/inputs	env PATH=$SMPROBLOG_BIN:/usr/bin:/bin $SMPROBLOG_BIN/problog -k ddnnf smproblog/smproblog_dj1.pl					0		record/O5_comparisons/results/raw/smproblog_dj1.txt
+record/smproblog_e1	smProbLog			O5_comparisons/inputs	env PATH=$SMPROBLOG_BIN:/usr/bin:/bin $SMPROBLOG_BIN/problog -k ddnnf smproblog/smproblog_e1.pl					0		record/O5_comparisons/results/raw/smproblog_e1.txt
+record/smproblog_f1	smProbLog			O5_comparisons/inputs	timeout 10 env PATH=$SMPROBLOG_BIN:/usr/bin:/bin $SMPROBLOG_BIN/problog -k ddnnf smproblog/smproblog_f1.pl					124		record/O5_comparisons/results/raw/smproblog_f1.txt
+record/smproblog_nonground	smProbLog			O5_comparisons/inputs	problog -k ddnnf smproblog/smproblog_nonground.pl					0		record/O5_comparisons/results/raw/smproblog_nonground.txt
+record/smproblog_x1	smProbLog			O5_comparisons/inputs	env PATH=$SMPROBLOG_BIN:/usr/bin:/bin $SMPROBLOG_BIN/problog -k ddnnf smproblog/smproblog_x1.pl					0		record/O5_comparisons/results/raw/smproblog_x1.txt
+record/tweety_reference	Tweety			O5_comparisons/inputs	'(Set TWEETY_CLASSPATH to the TweetyProject 1.31 classpath and rerun this script.)' tweety/d5_specificity.delp tweety/d4_nixon.delp							record/O5_comparisons/results/raw/tweety_reference.txt
+tool_large/../experiments/comparisons/table_extensions/inputs/gk/e1.gkp	mcref 1.3.1		O2_record/inputs/declined/table/experiments/comparisons/table_extensions/inputs/gk/e1.gkp	O2_record/inputs/declined/table/experiments/comparisons/table_extensions/inputs/gk	MCREF_GK=$GK python3 $MCREF e1.gkp	900	no	6G	900	0	29	raw/tool_large.tar.xz:tool_large/.._experiments_comparisons_table_extensions_inputs_gk_e1.gkp.out
+tool_large/gk12_design/c_paper_runs_2026_11_17/comparisons/inputs/gk/f1.gkp	mcref 1.3.1		O5_comparisons/inputs/gk/f1.gkp	O5_comparisons/inputs/gk	MCREF_GK=$GK python3 $MCREF f1.gkp	900	no	6G	900	0	29	raw/tool_large.tar.xz:tool_large/gk12_design_c_paper_runs_2026_11_17_comparisons_inputs_gk_f1.gkp.out
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/c1.gkp	mcref 1.3.1		O2_record/inputs/table/c1.gkp	O2_record/inputs/table	MCREF_GK=$GK python3 $MCREF c1.gkp	900	no	6G	900	0	29	raw/tool_large.tar.xz:tool_large/gk12_design_c_paper_runs_2026_11_17_paper2026_O2_record_inputs_table_c1.gkp.out
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/c2.gkp	mcref 1.3.1		O2_record/inputs/table/c2.gkp	O2_record/inputs/table	MCREF_GK=$GK python3 $MCREF c2.gkp	900	no	6G	900	0	29	raw/tool_large.tar.xz:tool_large/gk12_design_c_paper_runs_2026_11_17_paper2026_O2_record_inputs_table_c2.gkp.out
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/d1.gkp	mcref 1.3.1		O2_record/inputs/table/d1.gkp	O2_record/inputs/table	MCREF_GK=$GK python3 $MCREF d1.gkp	900	no	6G	900	0	29	raw/tool_large.tar.xz:tool_large/gk12_design_c_paper_runs_2026_11_17_paper2026_O2_record_inputs_table_d1.gkp.out
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/d2.gkp	mcref 1.3.1		O2_record/inputs/table/d2.gkp	O2_record/inputs/table	MCREF_GK=$GK python3 $MCREF d2.gkp	900	no	6G	900	0	29	raw/tool_large.tar.xz:tool_large/gk12_design_c_paper_runs_2026_11_17_paper2026_O2_record_inputs_table_d2.gkp.out
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/d3.gkp	mcref 1.3.1		O2_record/inputs/table/d3.gkp	O2_record/inputs/table	MCREF_GK=$GK python3 $MCREF d3.gkp	900	no	6G	900	0	28	raw/tool_large.tar.xz:tool_large/gk12_design_c_paper_runs_2026_11_17_paper2026_O2_record_inputs_table_d3.gkp.out
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/d4.gkp	mcref 1.3.1		O2_record/inputs/table/d4.gkp	O2_record/inputs/table	MCREF_GK=$GK python3 $MCREF d4.gkp	900	no	6G	900	0	29	raw/tool_large.tar.xz:tool_large/gk12_design_c_paper_runs_2026_11_17_paper2026_O2_record_inputs_table_d4.gkp.out
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/d4sm_neg.gkp	mcref 1.3.1		O2_record/inputs/table/d4sm_neg.gkp	O2_record/inputs/table	MCREF_GK=$GK python3 $MCREF d4sm_neg.gkp	900	no	6G	900	0	29	raw/tool_large.tar.xz:tool_large/gk12_design_c_paper_runs_2026_11_17_paper2026_O2_record_inputs_table_d4sm_neg.gkp.out
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/d4sm_pos.gkp	mcref 1.3.1		O2_record/inputs/table/d4sm_pos.gkp	O2_record/inputs/table	MCREF_GK=$GK python3 $MCREF d4sm_pos.gkp	900	no	6G	900	0	29	raw/tool_large.tar.xz:tool_large/gk12_design_c_paper_runs_2026_11_17_paper2026_O2_record_inputs_table_d4sm_pos.gkp.out
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/d5.gkp	mcref 1.3.1		O2_record/inputs/table/d5.gkp	O2_record/inputs/table	MCREF_GK=$GK python3 $MCREF d5.gkp	900	no	6G	900	0	29	raw/tool_large.tar.xz:tool_large/gk12_design_c_paper_runs_2026_11_17_paper2026_O2_record_inputs_table_d5.gkp.out
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/d6_rebut.gkp	mcref 1.3.1		O2_record/inputs/table/d6_rebut.gkp	O2_record/inputs/table	MCREF_GK=$GK python3 $MCREF d6_rebut.gkp	900	no	6G	900	0	29	raw/tool_large.tar.xz:tool_large/gk12_design_c_paper_runs_2026_11_17_paper2026_O2_record_inputs_table_d6_rebut.gkp.out
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/d6_undercut.gkp	mcref 1.3.1		O2_record/inputs/table/d6_undercut.gkp	O2_record/inputs/table	MCREF_GK=$GK python3 $MCREF d6_undercut.gkp	900	no	6G	900	0	29	raw/tool_large.tar.xz:tool_large/gk12_design_c_paper_runs_2026_11_17_paper2026_O2_record_inputs_table_d6_undercut.gkp.out
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/d7.gkp	mcref 1.3.1		O2_record/inputs/table/d7.gkp	O2_record/inputs/table	MCREF_GK=$GK python3 $MCREF d7.gkp	900	no	6G	900	0	29	raw/tool_large.tar.xz:tool_large/gk12_design_c_paper_runs_2026_11_17_paper2026_O2_record_inputs_table_d7.gkp.out
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/dj1.gkp	mcref 1.3.1		O2_record/inputs/table/dj1.gkp	O2_record/inputs/table	MCREF_GK=$GK python3 $MCREF dj1.gkp	900	no	6G	900	0	29	raw/tool_large.tar.xz:tool_large/gk12_design_c_paper_runs_2026_11_17_paper2026_O2_record_inputs_table_dj1.gkp.out
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/n1_study4.gkp	mcref 1.3.1		O2_record/inputs/table/n1_study4.gkp	O2_record/inputs/table	MCREF_GK=$GK python3 $MCREF n1_study4.gkp	900	no	6G	900	0	29	raw/tool_large.tar.xz:tool_large/gk12_design_c_paper_runs_2026_11_17_paper2026_O2_record_inputs_table_n1_study4.gkp.out
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/n2_study10.gkp	mcref 1.3.1		O2_record/inputs/table/n2_study10.gkp	O2_record/inputs/table	MCREF_GK=$GK python3 $MCREF n2_study10.gkp	900	no	6G	900	0	28	raw/tool_large.tar.xz:tool_large/gk12_design_c_paper_runs_2026_11_17_paper2026_O2_record_inputs_table_n2_study10.gkp.out
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O2_record/inputs/table/x1.gkp	mcref 1.3.1		O2_record/inputs/table/x1.gkp	O2_record/inputs/table	MCREF_GK=$GK python3 $MCREF x1.gkp	900	no	6G	900	0	29	raw/tool_large.tar.xz:tool_large/gk12_design_c_paper_runs_2026_11_17_paper2026_O2_record_inputs_table_x1.gkp.out

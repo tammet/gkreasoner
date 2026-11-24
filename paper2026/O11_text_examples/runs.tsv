@@ -1,40 +1,41 @@
-run_id	tool	input	options	settings	alone	timeout_s
-s1_bird_conflict.gk	gk	inputs/s1_bird_conflict.gkp				180
-s1_bird_conflict.mcref	mcref	inputs/s1_bird_conflict.gkp		samples=100000 seed=1		900
-s4_1_penguin.gk	gk	inputs/s4_1_penguin.gkp				180
-s4_1_penguin.mcref	mcref	inputs/s4_1_penguin.gkp		samples=100000 seed=1		900
-s4_2_certain_rule_bird.gk	gk	inputs/s4_2_certain_rule_bird.gkp				180
-s4_2_certain_rule_bird.mcref	mcref	inputs/s4_2_certain_rule_bird.gkp		samples=100000 seed=1		900
-s4_2_rule_099_bird.gk	gk	inputs/s4_2_rule_099_bird.gkp				180
-s4_2_rule_099_bird.mcref	mcref	inputs/s4_2_rule_099_bird.gkp		samples=100000 seed=1		900
-s4_2_rule_08_bird.gk	gk	inputs/s4_2_rule_08_bird.gkp				180
-s4_2_rule_08_bird.mcref	mcref	inputs/s4_2_rule_08_bird.gkp		samples=100000 seed=1		900
-s5_case_split_q.gk	gk	inputs/s5_case_split_q.gkp				180
-s5_case_split_q.mcref	mcref	inputs/s5_case_split_q.gkp		samples=100000 seed=1		900
-s6_1_combined_b.gk	gk	inputs/s6_1_combined_b.gkp				180
-s6_1_combined_b.mcref	mcref	inputs/s6_1_combined_b.gkp		samples=100000 seed=1		900
-s6_4_shared_premise_q.gk	gk	inputs/s6_4_shared_premise_q.gkp				180
-s6_4_shared_premise_q.mcref	mcref	inputs/s6_4_shared_premise_q.gkp		samples=100000 seed=1		900
-a2_1_one_sign_a.gk	gk	inputs/a2_1_one_sign_a.gkp				180
-a2_1_one_sign_a.mcref	mcref	inputs/a2_1_one_sign_a.gkp		samples=100000 seed=1		900
-a2_1_one_sign_b.gk	gk	inputs/a2_1_one_sign_b.gkp				180
-a2_1_one_sign_b.mcref	mcref	inputs/a2_1_one_sign_b.gkp		samples=100000 seed=1		900
-a2_1_exception_cycle_p.gk	gk	inputs/a2_1_exception_cycle_p.gkp				180
-a2_1_exception_cycle_p.mcref	mcref	inputs/a2_1_exception_cycle_p.gkp		samples=100000 seed=1		900
-a2_1_exception_cycle_q.gk	gk	inputs/a2_1_exception_cycle_q.gkp				180
-a2_1_exception_cycle_q.mcref	mcref	inputs/a2_1_exception_cycle_q.gkp		samples=100000 seed=1		900
-a2_1_exception_cycle_r.gk	gk	inputs/a2_1_exception_cycle_r.gkp				180
-a2_1_exception_cycle_r.mcref	mcref	inputs/a2_1_exception_cycle_r.gkp		samples=100000 seed=1		900
-a2_5_selection_p.gk	gk	inputs/a2_5_selection_p.gkp				180
-a2_5_selection_p.mcref	mcref	inputs/a2_5_selection_p.gkp		samples=100000 seed=1		900
-a2_5_selection_r.gk	gk	inputs/a2_5_selection_r.gkp				180
-a2_5_selection_r.mcref	mcref	inputs/a2_5_selection_r.gkp		samples=100000 seed=1		900
-t4.stage3a.checkpoints	gk	../O1_tweety/stage3a/gk.gkp	-checkpoints {outdir}			180
-s4_3_default_vs_fact.gk	gk	inputs/s4_3_default_vs_fact.gkp				180
-s4_3_default_vs_fact.mcref	mcref	inputs/s4_3_default_vs_fact.gkp		samples=100000 seed=1		900
-s4_3_rule_vs_fact.gk	gk	inputs/s4_3_rule_vs_fact.gkp				180
-s4_3_rule_vs_fact.mcref	mcref	inputs/s4_3_rule_vs_fact.gkp		samples=100000 seed=1		900
-s4_3_nixon.gk	gk	inputs/s4_3_nixon.gkp				180
-s4_3_nixon.mcref	mcref	inputs/s4_3_nixon.gkp		samples=100000 seed=1		900
-s4_3_nixon_uncertain.gk	gk	inputs/s4_3_nixon_uncertain.gkp				180
-s4_3_nixon_uncertain.mcref	mcref	inputs/s4_3_nixon_uncertain.gkp		samples=100000 seed=1		900
+run_id	system	method	input	cwd	command	limit_s	timed_alone	memory_cap	time_cap_s	exit	peak_mb	raw
+a1_sets_default/defex.q73	gk 1.3.2	default	O13_conformance/questions/sets/defex/q73.gkp	O13_conformance/questions/sets/defex	$GK q73.gkp	10	no	2G	25	0	99	raw/a1_sets_default.tar.xz:a1_sets_default/defex.q73.out
+a1_sets_default/defex.q75	gk 1.3.2	default	O13_conformance/questions/sets/defex/q75.gkp	O13_conformance/questions/sets/defex	$GK q75.gkp	10	no	2G	25	0	99	raw/a1_sets_default.tar.xz:a1_sets_default/defex.q75.out
+a1_sets_exact/defex.q73	gk 1.3.2	exact	O13_conformance/questions/sets/defex/q73.gkp	O13_conformance/questions/sets/defex	$GK q73.gkp -exact	10	no	2G	25	0	99	raw/a1_sets_exact.tar.xz:a1_sets_exact/defex.q73.out
+a1_sets_exact/defex.q75	gk 1.3.2	exact	O13_conformance/questions/sets/defex/q75.gkp	O13_conformance/questions/sets/defex	$GK q75.gkp -exact	10	no	2G	25	0	98	raw/a1_sets_exact.tar.xz:a1_sets_exact/defex.q75.out
+r51_gk/O11_text_examples/a2_1_exception_cycle_p.gkp	gk 1.3.2	default	O11_text_examples/inputs/a2_1_exception_cycle_p.gkp	O11_text_examples/inputs	$GK a2_1_exception_cycle_p.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O11_text_examples_a2_1_exception_cycle_p.gkp.out
+r51_gk/O11_text_examples/a2_1_exception_cycle_q.gkp	gk 1.3.2	default	O11_text_examples/inputs/a2_1_exception_cycle_q.gkp	O11_text_examples/inputs	$GK a2_1_exception_cycle_q.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O11_text_examples_a2_1_exception_cycle_q.gkp.out
+r51_gk/O11_text_examples/a2_1_exception_cycle_r.gkp	gk 1.3.2	default	O11_text_examples/inputs/a2_1_exception_cycle_r.gkp	O11_text_examples/inputs	$GK a2_1_exception_cycle_r.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O11_text_examples_a2_1_exception_cycle_r.gkp.out
+r51_gk/O11_text_examples/a2_1_one_sign_a.gkp	gk 1.3.2	default	O11_text_examples/inputs/a2_1_one_sign_a.gkp	O11_text_examples/inputs	$GK a2_1_one_sign_a.gkp	10	no	4G	40	0	99	raw/r51_gk.tar.xz:r51_gk/O11_text_examples_a2_1_one_sign_a.gkp.out
+r51_gk/O11_text_examples/a2_1_one_sign_b.gkp	gk 1.3.2	default	O11_text_examples/inputs/a2_1_one_sign_b.gkp	O11_text_examples/inputs	$GK a2_1_one_sign_b.gkp	10	no	4G	40	0	99	raw/r51_gk.tar.xz:r51_gk/O11_text_examples_a2_1_one_sign_b.gkp.out
+r51_gk/O11_text_examples/a2_5_selection_p.gkp	gk 1.3.2	default	O11_text_examples/inputs/a2_5_selection_p.gkp	O11_text_examples/inputs	$GK a2_5_selection_p.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O11_text_examples_a2_5_selection_p.gkp.out
+r51_gk/O11_text_examples/a2_5_selection_r.gkp	gk 1.3.2	default	O11_text_examples/inputs/a2_5_selection_r.gkp	O11_text_examples/inputs	$GK a2_5_selection_r.gkp	10	no	4G	40	0	99	raw/r51_gk.tar.xz:r51_gk/O11_text_examples_a2_5_selection_r.gkp.out
+r51_gk/O11_text_examples/s1_bird_conflict.gkp	gk 1.3.2	default	O11_text_examples/inputs/s1_bird_conflict.gkp	O11_text_examples/inputs	$GK s1_bird_conflict.gkp	10	no	4G	40	0	99	raw/r51_gk.tar.xz:r51_gk/O11_text_examples_s1_bird_conflict.gkp.out
+r51_gk/O11_text_examples/s4_1_penguin.gkp	gk 1.3.2	default	O11_text_examples/inputs/s4_1_penguin.gkp	O11_text_examples/inputs	$GK s4_1_penguin.gkp	10	no	4G	40	0	99	raw/r51_gk.tar.xz:r51_gk/O11_text_examples_s4_1_penguin.gkp.out
+r51_gk/O11_text_examples/s4_2_certain_rule_bird.gkp	gk 1.3.2	default	O11_text_examples/inputs/s4_2_certain_rule_bird.gkp	O11_text_examples/inputs	$GK s4_2_certain_rule_bird.gkp	10	no	4G	40	0	99	raw/r51_gk.tar.xz:r51_gk/O11_text_examples_s4_2_certain_rule_bird.gkp.out
+r51_gk/O11_text_examples/s4_2_rule_08_bird.gkp	gk 1.3.2	default	O11_text_examples/inputs/s4_2_rule_08_bird.gkp	O11_text_examples/inputs	$GK s4_2_rule_08_bird.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O11_text_examples_s4_2_rule_08_bird.gkp.out
+r51_gk/O11_text_examples/s4_2_rule_099_bird.gkp	gk 1.3.2	default	O11_text_examples/inputs/s4_2_rule_099_bird.gkp	O11_text_examples/inputs	$GK s4_2_rule_099_bird.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O11_text_examples_s4_2_rule_099_bird.gkp.out
+r51_gk/O11_text_examples/s4_3_nixon.gkp	gk 1.3.2	default	O11_text_examples/inputs/s4_3_nixon.gkp	O11_text_examples/inputs	$GK s4_3_nixon.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O11_text_examples_s4_3_nixon.gkp.out
+r51_gk/O11_text_examples/s4_3_rule_vs_fact.gkp	gk 1.3.2	default	O11_text_examples/inputs/s4_3_rule_vs_fact.gkp	O11_text_examples/inputs	$GK s4_3_rule_vs_fact.gkp	10	no	4G	40	0	99	raw/r51_gk.tar.xz:r51_gk/O11_text_examples_s4_3_rule_vs_fact.gkp.out
+r51_gk/O11_text_examples/s5_case_split_q.gkp	gk 1.3.2	default	O11_text_examples/inputs/s5_case_split_q.gkp	O11_text_examples/inputs	$GK s5_case_split_q.gkp	10	no	4G	40	0	99	raw/r51_gk.tar.xz:r51_gk/O11_text_examples_s5_case_split_q.gkp.out
+r51_gk/O11_text_examples/s6_1_combined_b.gkp	gk 1.3.2	default	O11_text_examples/inputs/s6_1_combined_b.gkp	O11_text_examples/inputs	$GK s6_1_combined_b.gkp	10	no	4G	40	0	99	raw/r51_gk.tar.xz:r51_gk/O11_text_examples_s6_1_combined_b.gkp.out
+r51_gk/O11_text_examples/s6_4_shared_premise_q.gkp	gk 1.3.2	default	O11_text_examples/inputs/s6_4_shared_premise_q.gkp	O11_text_examples/inputs	$GK s6_4_shared_premise_q.gkp	10	no	4G	40	0	99	raw/r51_gk.tar.xz:r51_gk/O11_text_examples_s6_4_shared_premise_q.gkp.out
+r51_tool/O11_text_examples/a2_1_exception_cycle_p.gkp	mcref 1.3.1		O11_text_examples/inputs/a2_1_exception_cycle_p.gkp	O11_text_examples/inputs	MCREF_GK=$GK python3 $MCREF a2_1_exception_cycle_p.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O11_text_examples_a2_1_exception_cycle_p.gkp.out
+r51_tool/O11_text_examples/a2_1_exception_cycle_q.gkp	mcref 1.3.1		O11_text_examples/inputs/a2_1_exception_cycle_q.gkp	O11_text_examples/inputs	MCREF_GK=$GK python3 $MCREF a2_1_exception_cycle_q.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O11_text_examples_a2_1_exception_cycle_q.gkp.out
+r51_tool/O11_text_examples/a2_1_exception_cycle_r.gkp	mcref 1.3.1		O11_text_examples/inputs/a2_1_exception_cycle_r.gkp	O11_text_examples/inputs	MCREF_GK=$GK python3 $MCREF a2_1_exception_cycle_r.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O11_text_examples_a2_1_exception_cycle_r.gkp.out
+r51_tool/O11_text_examples/a2_1_one_sign_a.gkp	mcref 1.3.1		O11_text_examples/inputs/a2_1_one_sign_a.gkp	O11_text_examples/inputs	MCREF_GK=$GK python3 $MCREF a2_1_one_sign_a.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O11_text_examples_a2_1_one_sign_a.gkp.out
+r51_tool/O11_text_examples/a2_1_one_sign_b.gkp	mcref 1.3.1		O11_text_examples/inputs/a2_1_one_sign_b.gkp	O11_text_examples/inputs	MCREF_GK=$GK python3 $MCREF a2_1_one_sign_b.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O11_text_examples_a2_1_one_sign_b.gkp.out
+r51_tool/O11_text_examples/a2_5_selection_p.gkp	mcref 1.3.1		O11_text_examples/inputs/a2_5_selection_p.gkp	O11_text_examples/inputs	MCREF_GK=$GK python3 $MCREF a2_5_selection_p.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O11_text_examples_a2_5_selection_p.gkp.out
+r51_tool/O11_text_examples/a2_5_selection_r.gkp	mcref 1.3.1		O11_text_examples/inputs/a2_5_selection_r.gkp	O11_text_examples/inputs	MCREF_GK=$GK python3 $MCREF a2_5_selection_r.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O11_text_examples_a2_5_selection_r.gkp.out
+r51_tool/O11_text_examples/s1_bird_conflict.gkp	mcref 1.3.1		O11_text_examples/inputs/s1_bird_conflict.gkp	O11_text_examples/inputs	MCREF_GK=$GK python3 $MCREF s1_bird_conflict.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O11_text_examples_s1_bird_conflict.gkp.out
+r51_tool/O11_text_examples/s4_1_penguin.gkp	mcref 1.3.1		O11_text_examples/inputs/s4_1_penguin.gkp	O11_text_examples/inputs	MCREF_GK=$GK python3 $MCREF s4_1_penguin.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O11_text_examples_s4_1_penguin.gkp.out
+r51_tool/O11_text_examples/s4_2_certain_rule_bird.gkp	mcref 1.3.1		O11_text_examples/inputs/s4_2_certain_rule_bird.gkp	O11_text_examples/inputs	MCREF_GK=$GK python3 $MCREF s4_2_certain_rule_bird.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O11_text_examples_s4_2_certain_rule_bird.gkp.out
+r51_tool/O11_text_examples/s4_2_rule_08_bird.gkp	mcref 1.3.1		O11_text_examples/inputs/s4_2_rule_08_bird.gkp	O11_text_examples/inputs	MCREF_GK=$GK python3 $MCREF s4_2_rule_08_bird.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O11_text_examples_s4_2_rule_08_bird.gkp.out
+r51_tool/O11_text_examples/s4_2_rule_099_bird.gkp	mcref 1.3.1		O11_text_examples/inputs/s4_2_rule_099_bird.gkp	O11_text_examples/inputs	MCREF_GK=$GK python3 $MCREF s4_2_rule_099_bird.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O11_text_examples_s4_2_rule_099_bird.gkp.out
+r51_tool/O11_text_examples/s4_3_default_vs_fact.gkp	mcref 1.3.1		O11_text_examples/inputs/s4_3_default_vs_fact.gkp	O11_text_examples/inputs	MCREF_GK=$GK python3 $MCREF s4_3_default_vs_fact.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O11_text_examples_s4_3_default_vs_fact.gkp.out
+r51_tool/O11_text_examples/s4_3_nixon.gkp	mcref 1.3.1		O11_text_examples/inputs/s4_3_nixon.gkp	O11_text_examples/inputs	MCREF_GK=$GK python3 $MCREF s4_3_nixon.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O11_text_examples_s4_3_nixon.gkp.out
+r51_tool/O11_text_examples/s4_3_nixon_uncertain.gkp	mcref 1.3.1		O11_text_examples/inputs/s4_3_nixon_uncertain.gkp	O11_text_examples/inputs	MCREF_GK=$GK python3 $MCREF s4_3_nixon_uncertain.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O11_text_examples_s4_3_nixon_uncertain.gkp.out
+r51_tool/O11_text_examples/s4_3_rule_vs_fact.gkp	mcref 1.3.1		O11_text_examples/inputs/s4_3_rule_vs_fact.gkp	O11_text_examples/inputs	MCREF_GK=$GK python3 $MCREF s4_3_rule_vs_fact.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O11_text_examples_s4_3_rule_vs_fact.gkp.out
+r51_tool/O11_text_examples/s5_case_split_q.gkp	mcref 1.3.1		O11_text_examples/inputs/s5_case_split_q.gkp	O11_text_examples/inputs	MCREF_GK=$GK python3 $MCREF s5_case_split_q.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O11_text_examples_s5_case_split_q.gkp.out
+r51_tool/O11_text_examples/s6_1_combined_b.gkp	mcref 1.3.1		O11_text_examples/inputs/s6_1_combined_b.gkp	O11_text_examples/inputs	MCREF_GK=$GK python3 $MCREF s6_1_combined_b.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O11_text_examples_s6_1_combined_b.gkp.out
+r51_tool/O11_text_examples/s6_4_shared_premise_q.gkp	mcref 1.3.1		O11_text_examples/inputs/s6_4_shared_premise_q.gkp	O11_text_examples/inputs	MCREF_GK=$GK python3 $MCREF s6_4_shared_premise_q.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O11_text_examples_s6_4_shared_premise_q.gkp.out

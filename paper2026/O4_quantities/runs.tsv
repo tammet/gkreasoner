@@ -1,21 +1,52 @@
-run_id	tool	input	options	settings	alone	timeout_s
-c1.gk	gk	c1_shared/gk.gkp				180
-c1b.gk	gk	c1b_positive_cycle/gk.gkp				180
-c2.gk	gk	c2_exception/gk.gkp				180
-c2b.gk	gk	c2b_opposed_exception/gk.gkp				180
-c3.gk	gk	c3_contested/gk.gkp				180
-c4.gk	gk	c4_equal_rank/gk.gkp				180
-c4b.gk	gk	c4b_priority/gk.gkp				180
-c5.gk	gk	c5_mutual_half/gk.gkp				180
-c5b.gk	gk	c5b_common_consequence/gk.gkp				180
-c6.gk	gk	c6_locality/gk.gkp				180
-c1.mcref	mcref	c1_shared/gk.gkp	--all-atoms	samples=200000 seed=1		900
-c1b.mcref	mcref	c1b_positive_cycle/gk.gkp	--all-atoms	samples=200000 seed=1		900
-c2.mcref	mcref	c2_exception/gk.gkp	--all-atoms	samples=200000 seed=1		900
-c2b.mcref	mcref	c2b_opposed_exception/gk.gkp	--all-atoms	samples=200000 seed=1		900
-c3.mcref	mcref	c3_contested/gk.gkp	--all-atoms	samples=200000 seed=1		900
-c4.mcref	mcref	c4_equal_rank/gk.gkp	--all-atoms	samples=200000 seed=1		900
-c4b.mcref	mcref	c4b_priority/gk.gkp	--all-atoms	samples=200000 seed=1		900
-c5.mcref	mcref	c5_mutual_half/gk.gkp	--all-atoms	samples=200000 seed=1		900
-c5b.mcref	mcref	c5b_common_consequence/gk.gkp	--all-atoms	samples=200000 seed=1		900
-c6.mcref	mcref	c6_locality/gk.gkp	--all-atoms	samples=200000 seed=1		900
+run_id	system	method	input	cwd	command	limit_s	timed_alone	memory_cap	time_cap_s	exit	peak_mb	raw
+a5_five/c1_shared	gk 1.3.2	default	O4_quantities/inputs/c1_shared/gk.gkp	O4_quantities/inputs/c1_shared	$GK gk.gkp	10	no	12G	30	0	98	raw/a5_five.tar.xz:a5_five/c1_shared.out
+a5_five/c2b_opposed_exception	gk 1.3.2	default	O4_quantities/inputs/c2b_opposed_exception/gk.gkp	O4_quantities/inputs/c2b_opposed_exception	$GK gk.gkp	10	no	12G	30	0	98	raw/a5_five.tar.xz:a5_five/c2b_opposed_exception.out
+a5_five/c4b_priority	gk 1.3.2	default	O4_quantities/inputs/c4b_priority/gk.gkp	O4_quantities/inputs/c4b_priority	$GK gk.gkp	10	no	12G	30	0	98	raw/a5_five.tar.xz:a5_five/c4b_priority.out
+a5_five/c5b_common_consequence	gk 1.3.2	default	O4_quantities/inputs/c5b_common_consequence/gk.gkp	O4_quantities/inputs/c5b_common_consequence	$GK gk.gkp	10	no	12G	30	0	98	raw/a5_five.tar.xz:a5_five/c5b_common_consequence.out
+a5_five/c6_locality	gk 1.3.2	default	O4_quantities/inputs/c6_locality/gk.gkp	O4_quantities/inputs/c6_locality	$GK gk.gkp	10	no	12G	30	0	98	raw/a5_five.tar.xz:a5_five/c6_locality.out
+r51_gk/O4_quantities/c1b_positive_cycle/gk.gkp	gk 1.3.2	default	O4_quantities/inputs/c1b_positive_cycle/gk.gkp	O4_quantities/inputs/c1b_positive_cycle	$GK gk.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O4_quantities_c1b_positive_cycle_gk.gkp.out
+r51_gk/O4_quantities/c2_exception/gk.gkp	gk 1.3.2	default	O4_quantities/inputs/c2_exception/gk.gkp	O4_quantities/inputs/c2_exception	$GK gk.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O4_quantities_c2_exception_gk.gkp.out
+r51_gk/O4_quantities/c3_contested/gk.gkp	gk 1.3.2	default	O4_quantities/inputs/c3_contested/gk.gkp	O4_quantities/inputs/c3_contested	$GK gk.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O4_quantities_c3_contested_gk.gkp.out
+r51_gk/O4_quantities/c4_equal_rank/gk.gkp	gk 1.3.2	default	O4_quantities/inputs/c4_equal_rank/gk.gkp	O4_quantities/inputs/c4_equal_rank	$GK gk.gkp	10	no	4G	40	0	99	raw/r51_gk.tar.xz:r51_gk/O4_quantities_c4_equal_rank_gk.gkp.out
+r51_gk/O4_quantities/c5_mutual_half/gk.gkp	gk 1.3.2	default	O4_quantities/inputs/c5_mutual_half/gk.gkp	O4_quantities/inputs/c5_mutual_half	$GK gk.gkp	10	no	4G	40	0	98	raw/r51_gk.tar.xz:r51_gk/O4_quantities_c5_mutual_half_gk.gkp.out
+r51_tool/O4_quantities/c1b_positive_cycle/gk.gkp	mcref 1.3.1		O4_quantities/inputs/c1b_positive_cycle/gk.gkp	O4_quantities/inputs/c1b_positive_cycle	MCREF_GK=$GK python3 $MCREF gk.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O4_quantities_c1b_positive_cycle_gk.gkp.out
+r51_tool/O4_quantities/c2_exception/gk.gkp	mcref 1.3.1		O4_quantities/inputs/c2_exception/gk.gkp	O4_quantities/inputs/c2_exception	MCREF_GK=$GK python3 $MCREF gk.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O4_quantities_c2_exception_gk.gkp.out
+r51_tool/O4_quantities/c3_contested/gk.gkp	mcref 1.3.1		O4_quantities/inputs/c3_contested/gk.gkp	O4_quantities/inputs/c3_contested	MCREF_GK=$GK python3 $MCREF gk.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O4_quantities_c3_contested_gk.gkp.out
+r51_tool/O4_quantities/c4_equal_rank/gk.gkp	mcref 1.3.1		O4_quantities/inputs/c4_equal_rank/gk.gkp	O4_quantities/inputs/c4_equal_rank	MCREF_GK=$GK python3 $MCREF gk.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O4_quantities_c4_equal_rank_gk.gkp.out
+r51_tool/O4_quantities/c5_mutual_half/gk.gkp	mcref 1.3.1		O4_quantities/inputs/c5_mutual_half/gk.gkp	O4_quantities/inputs/c5_mutual_half	MCREF_GK=$GK python3 $MCREF gk.gkp	900	no	4G	900	0	35	raw/r51_tool.tar.xz:r51_tool/O4_quantities_c5_mutual_half_gk.gkp.out
+record/c1.plingo	plingo 1.1.0		O4_quantities/inputs/c1_shared/plingo.plp	O4_quantities/inputs/c1_shared	plingo --frontend=problog plingo.plp 0							
+record/c1.problog	ProbLog 2.3.0		O4_quantities/inputs/c1_shared/problog.pl	O4_quantities/inputs/c1_shared	problog problog.pl							
+record/c1b.plingo	plingo 1.1.0		O4_quantities/inputs/c1b_positive_cycle/plingo.plp	O4_quantities/inputs/c1b_positive_cycle	plingo --frontend=problog plingo.plp 0							
+record/c1b.problog	ProbLog 2.3.0		O4_quantities/inputs/c1b_positive_cycle/problog.pl	O4_quantities/inputs/c1b_positive_cycle	problog problog.pl							
+record/c2.plingo	plingo 1.1.0		O4_quantities/inputs/c2_exception/plingo.plp	O4_quantities/inputs/c2_exception	plingo --frontend=problog plingo.plp 0							
+record/c2.problog	ProbLog 2.3.0		O4_quantities/inputs/c2_exception/problog.pl	O4_quantities/inputs/c2_exception	problog problog.pl							
+record/c2b.plingo.raw	plingo 1.1.0		O4_quantities/inputs/c2b_opposed_exception/plingo_raw.plp	O4_quantities/inputs/c2b_opposed_exception	plingo --frontend=problog plingo_raw.plp 0							
+record/c2b.plingo.usable	plingo 1.1.0		O4_quantities/inputs/c2b_opposed_exception/plingo_usable.plp	O4_quantities/inputs/c2b_opposed_exception	plingo --frontend=problog plingo_usable.plp 0							
+record/c2b.problog.raw	ProbLog 2.3.0		O4_quantities/inputs/c2b_opposed_exception/problog_raw.pl	O4_quantities/inputs/c2b_opposed_exception	problog problog_raw.pl							
+record/c2b.problog.usable	ProbLog 2.3.0		O4_quantities/inputs/c2b_opposed_exception/problog_usable.pl	O4_quantities/inputs/c2b_opposed_exception	problog problog_usable.pl							
+record/c3.plingo.guarded	plingo 1.1.0		O4_quantities/inputs/c3_contested/plingo_guarded.plp	O4_quantities/inputs/c3_contested	plingo --frontend=problog plingo_guarded.plp 0							
+record/c3.plingo.matched	plingo 1.1.0		O4_quantities/inputs/c3_contested/plingo_matched.plp	O4_quantities/inputs/c3_contested	plingo --frontend=problog plingo_matched.plp 0							
+record/c3.plingo.raw	plingo 1.1.0		O4_quantities/inputs/c3_contested/plingo_raw.plp	O4_quantities/inputs/c3_contested	plingo --frontend=problog plingo_raw.plp 0							
+record/c3.problog.guarded	ProbLog 2.3.0		O4_quantities/inputs/c3_contested/problog_guarded.pl	O4_quantities/inputs/c3_contested	problog problog_guarded.pl							
+record/c3.problog.matched	ProbLog 2.3.0		O4_quantities/inputs/c3_contested/problog_matched.pl	O4_quantities/inputs/c3_contested	problog problog_matched.pl							
+record/c3.problog.raw	ProbLog 2.3.0		O4_quantities/inputs/c3_contested/problog_raw.pl	O4_quantities/inputs/c3_contested	problog problog_raw.pl							
+record/c4.plingo	plingo 1.1.0		O4_quantities/inputs/c4_equal_rank/plingo.plp	O4_quantities/inputs/c4_equal_rank	plingo --frontend=problog plingo.plp 0							
+record/c4.plingo.dummy	plingo 1.1.0		O4_quantities/inputs/c4_equal_rank/plingo_dummy.plp	O4_quantities/inputs/c4_equal_rank	plingo --frontend=problog plingo_dummy.plp 0							
+record/c4.problog	ProbLog 2.3.0		O4_quantities/inputs/c4_equal_rank/problog.pl	O4_quantities/inputs/c4_equal_rank	problog problog.pl							
+record/c4b.plingo	plingo 1.1.0		O4_quantities/inputs/c4b_priority/plingo.plp	O4_quantities/inputs/c4b_priority	plingo --frontend=problog plingo.plp 0							
+record/c4b.problog	ProbLog 2.3.0		O4_quantities/inputs/c4b_priority/problog.pl	O4_quantities/inputs/c4b_priority	problog problog.pl							
+record/c5.plingo	plingo 1.1.0		O4_quantities/inputs/c5_mutual_half/plingo.plp	O4_quantities/inputs/c5_mutual_half	plingo --frontend=problog plingo.plp 0							
+record/c5.problog	ProbLog 2.3.0		O4_quantities/inputs/c5_mutual_half/problog.pl	O4_quantities/inputs/c5_mutual_half	problog problog.pl							
+record/c5b.plingo	plingo 1.1.0		O4_quantities/inputs/c5b_common_consequence/plingo.plp	O4_quantities/inputs/c5b_common_consequence	plingo --frontend=problog plingo.plp 0							
+record/c5b.plingo.dummy	plingo 1.1.0		O4_quantities/inputs/c5b_common_consequence/plingo_dummy.plp	O4_quantities/inputs/c5b_common_consequence	plingo --frontend=problog plingo_dummy.plp 0							
+record/c5b.problog	ProbLog 2.3.0		O4_quantities/inputs/c5b_common_consequence/problog.pl	O4_quantities/inputs/c5b_common_consequence	problog problog.pl							
+record/c6.plingo	plingo 1.1.0		O4_quantities/inputs/c6_locality/plingo.plp	O4_quantities/inputs/c6_locality	plingo --frontend=problog plingo.plp 0							
+record/c6.plingo.unconstrained	plingo 1.1.0		O4_quantities/inputs/c6_locality/plingo_unconstrained.plp	O4_quantities/inputs/c6_locality	plingo --frontend=problog plingo_unconstrained.plp 0							
+record/c6.problog	ProbLog 2.3.0		O4_quantities/inputs/c6_locality/constrained.lp	O4_quantities/inputs/c6_locality	problog constrained.lp							
+record/c6.problog.unconstrained	ProbLog 2.3.0		O4_quantities/inputs/c6_locality/problog_unconstrained.pl	O4_quantities/inputs/c6_locality	problog problog_unconstrained.pl							
+record/plingo.unrendered	plingo 1.1.0		O4_quantities/inputs/c1_shared/problog.pl	O4_quantities/inputs/c1_shared	plingo --frontend=problog problog.pl 0							
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O4_quantities/c1_shared/gk.gkp	mcref 1.3.1		O4_quantities/inputs/c1_shared/gk.gkp	O4_quantities/inputs/c1_shared	MCREF_GK=$GK python3 $MCREF gk.gkp	900	no	6G	900	0	29	raw/tool_large.tar.xz:tool_large/gk12_design_c_paper_runs_2026_11_17_paper2026_O4_quantities_c1_shared_gk.gkp.out
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O4_quantities/c2b_opposed_exception/gk.gkp	mcref 1.3.1		O4_quantities/inputs/c2b_opposed_exception/gk.gkp	O4_quantities/inputs/c2b_opposed_exception	MCREF_GK=$GK python3 $MCREF gk.gkp	900	no	6G	900	0	29	raw/tool_large.tar.xz:tool_large/gk12_design_c_paper_runs_2026_11_17_paper2026_O4_quantities_c2b_opposed_exception_gk.gkp.out
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O4_quantities/c4b_priority/gk.gkp	mcref 1.3.1		O4_quantities/inputs/c4b_priority/gk.gkp	O4_quantities/inputs/c4b_priority	MCREF_GK=$GK python3 $MCREF gk.gkp	900	no	6G	900	0	29	raw/tool_large.tar.xz:tool_large/gk12_design_c_paper_runs_2026_11_17_paper2026_O4_quantities_c4b_priority_gk.gkp.out
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O4_quantities/c5b_common_consequence/gk.gkp	mcref 1.3.1		O4_quantities/inputs/c5b_common_consequence/gk.gkp	O4_quantities/inputs/c5b_common_consequence	MCREF_GK=$GK python3 $MCREF gk.gkp	900	no	6G	900	0	28	raw/tool_large.tar.xz:tool_large/gk12_design_c_paper_runs_2026_11_17_paper2026_O4_quantities_c5b_common_consequence_gk.gkp.out
+tool_large/gk12_design/c_paper_runs_2026_11_17/paper2026/O4_quantities/c6_locality/gk.gkp	mcref 1.3.1		O4_quantities/inputs/c6_locality/gk.gkp	O4_quantities/inputs/c6_locality	MCREF_GK=$GK python3 $MCREF gk.gkp	900	no	6G	900	0	29	raw/tool_large.tar.xz:tool_large/gk12_design_c_paper_runs_2026_11_17_paper2026_O4_quantities_c6_locality_gk.gkp.out

@@ -1,699 +1,431 @@
-run_id	tool	input	options	settings	alone	timeout_s
-bn.asia_xray.gk	gk	bn/gk_asia_xray.gkp				180
-bn.asia_xray.mcref	mcref	bn/gk_asia_xray.gkp		samples=20000 seed=1		900
-bn.asia_bronc.gk	gk	bn/gk_asia_bronc.gkp				180
-bn.asia_bronc.mcref	mcref	bn/gk_asia_bronc.gkp		samples=20000 seed=1		900
-bn.asia_either.gk	gk	bn/gk_asia_either.gkp				180
-bn.asia_either.mcref	mcref	bn/gk_asia_either.gkp		samples=20000 seed=1		900
-bn.earthquake_johncalls.gk	gk	bn/gk_earthquake_johncalls.gkp				180
-bn.earthquake_johncalls.mcref	mcref	bn/gk_earthquake_johncalls.gkp		samples=20000 seed=1		900
-bn.earthquake_alarm.gk	gk	bn/gk_earthquake_alarm.gkp				180
-bn.earthquake_alarm.mcref	mcref	bn/gk_earthquake_alarm.gkp		samples=20000 seed=1		900
-bn.cancer_xray.gk	gk	bn/gk_cancer_xray.gkp				180
-bn.cancer_xray.mcref	mcref	bn/gk_cancer_xray.gkp		samples=20000 seed=1		900
-bn.cancer_cancer.gk	gk	bn/gk_cancer_cancer.gkp				180
-bn.cancer_cancer.mcref	mcref	bn/gk_cancer_cancer.gkp		samples=20000 seed=1		900
-bn.win95pts_prtstatpaper.gk	gk	bn/gk_win95pts_prtstatpaper.gkp				180
-bn.win95pts_prtstatpaper.gk.60s	gk	bn/gk_win95pts_prtstatpaper.gkp	-seconds 60		yes	180
-bn.win95pts_prtstatpaper.mcref	mcref	bn/gk_win95pts_prtstatpaper.gkp		samples=20000 seed=1		900
-bn.andes_rapp3.gk	gk	bn/gk_andes_rapp3.gkp			yes	180
-bn.andes_rapp3.gk.60s	gk	bn/gk_andes_rapp3.gkp	-seconds 60		yes	180
-bn.win95pts_problem1.gk	gk	bn/gk_win95pts_problem1.gkp			yes	180
-bn.win95pts_problem1.gk.60s	gk	bn/gk_win95pts_problem1.gkp	-seconds 60		yes	180
-bn.win95pts_problem1.mcref	mcref	bn/gk_win95pts_problem1.gkp		samples=20000 seed=1		900
-bn.win95pts_pc2prt.gk	gk	bn/gk_win95pts_pc2prt.gkp			yes	180
-bn.win95pts_pc2prt.gk.60s	gk	bn/gk_win95pts_pc2prt.gkp	-seconds 60		yes	180
-bn.win95pts_pc2prt.mcref	mcref	bn/gk_win95pts_pc2prt.gkp		samples=20000 seed=1		900
-bn.andes_snode_151.gk	gk	bn/gk_andes_snode_151.gkp			yes	180
-bn.andes_snode_151.gk.60s	gk	bn/gk_andes_snode_151.gkp	-seconds 60		yes	180
-bn.andes_snode_74.gk	gk	bn/gk_andes_snode_74.gkp			yes	180
-bn.andes_snode_74.gk.60s	gk	bn/gk_andes_snode_74.gkp	-seconds 60		yes	180
-univ.dept1_scale0.25_person.gk	gk	university/gk_dept1_scale0.25_person.gkp				180
-univ.dept1_scale0.25_person.gk.hyper	gk	university/gk_dept1_scale0.25_person.gkp	-strategy hyper.json			180
-univ.dept1_scale0.25_employee.gk	gk	university/gk_dept1_scale0.25_employee.gkp				180
-univ.dept1_scale0.25_employee.gk.hyper	gk	university/gk_dept1_scale0.25_employee.gkp	-strategy hyper.json			180
-univ.dept1_scale0.25_organization.gk	gk	university/gk_dept1_scale0.25_organization.gkp			yes	180
-univ.dept1_scale0.25_organization.gk.hyper	gk	university/gk_dept1_scale0.25_organization.gkp	-strategy hyper.json		yes	180
-univ.dept1_scale0.25_memberOf.gk	gk	university/gk_dept1_scale0.25_memberOf.gkp				180
-univ.dept1_scale0.25_memberOf.gk.hyper	gk	university/gk_dept1_scale0.25_memberOf.gkp	-strategy hyper.json			180
-univ.dept1_scale1_person.gk	gk	university/gk_dept1_scale1_person.gkp				180
-univ.dept1_scale1_person.gk.hyper	gk	university/gk_dept1_scale1_person.gkp	-strategy hyper.json			180
-univ.dept1_scale1_employee.gk	gk	university/gk_dept1_scale1_employee.gkp				180
-univ.dept1_scale1_employee.gk.hyper	gk	university/gk_dept1_scale1_employee.gkp	-strategy hyper.json			180
-univ.dept1_scale1_organization.gk	gk	university/gk_dept1_scale1_organization.gkp			yes	180
-univ.dept1_scale1_organization.gk.hyper	gk	university/gk_dept1_scale1_organization.gkp	-strategy hyper.json		yes	180
-univ.dept1_scale1_memberOf.gk	gk	university/gk_dept1_scale1_memberOf.gkp				180
-univ.dept1_scale1_memberOf.gk.hyper	gk	university/gk_dept1_scale1_memberOf.gkp	-strategy hyper.json			180
-univ.dept3_scale1_person.gk	gk	university/gk_dept3_scale1_person.gkp				180
-univ.dept3_scale1_person.gk.hyper	gk	university/gk_dept3_scale1_person.gkp	-strategy hyper.json			180
-univ.dept3_scale1_person.gk.60s	gk	university/gk_dept3_scale1_person.gkp	-seconds 60		yes	180
-univ.dept3_scale1_employee.gk	gk	university/gk_dept3_scale1_employee.gkp				180
-univ.dept3_scale1_employee.gk.hyper	gk	university/gk_dept3_scale1_employee.gkp	-strategy hyper.json			180
-univ.dept3_scale1_employee.gk.60s	gk	university/gk_dept3_scale1_employee.gkp	-seconds 60		yes	180
-univ.dept3_scale1_organization.gk	gk	university/gk_dept3_scale1_organization.gkp			yes	180
-univ.dept3_scale1_organization.gk.hyper	gk	university/gk_dept3_scale1_organization.gkp	-strategy hyper.json		yes	180
-univ.dept3_scale1_organization.gk.60s	gk	university/gk_dept3_scale1_organization.gkp	-seconds 60		yes	180
-univ.dept3_scale1_memberOf.gk	gk	university/gk_dept3_scale1_memberOf.gkp				180
-univ.dept3_scale1_memberOf.gk.hyper	gk	university/gk_dept3_scale1_memberOf.gkp	-strategy hyper.json			180
-univ.dept3_scale1_memberOf.gk.60s	gk	university/gk_dept3_scale1_memberOf.gkp	-seconds 60		yes	180
-univ.dept1_scale0.25_person.mcref	mcref	university/gk_dept1_scale0.25_person.gkp		samples=20000 seed=1		900
-deliv.legs2_control.gk.2s	gk	delivery/gk_legs2_control.gkp	-seconds 2		yes	180
-deliv.legs2_control.gk.qf.2s	gk	delivery/gk_legs2_control.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-deliv.legs2_control.gk	gk	delivery/gk_legs2_control.gkp				180
-deliv.legs2_control.gk.qf	gk	delivery/gk_legs2_control.gkp	-strategy query_focus_equality.json			180
-deliv.legs2_control.gk.30s	gk	delivery/gk_legs2_control.gkp	-seconds 30		yes	150
-deliv.legs2_control.gk.qf.30s	gk	delivery/gk_legs2_control.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-deliv.legs2_control_flat.gk	gk	delivery/gk_legs2_control_flat.gkp				180
-deliv.legs2_control_flat.gk.qf	gk	delivery/gk_legs2_control_flat.gkp	-strategy query_focus_equality.json			180
-deliv.legs2_control_flat.mcref	mcref	delivery/gk_legs2_control_flat.gkp		samples=100000 seed=1		900
-deliv.legs2_opposed.gk.2s	gk	delivery/gk_legs2_opposed.gkp	-seconds 2		yes	180
-deliv.legs2_opposed.gk.qf.2s	gk	delivery/gk_legs2_opposed.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-deliv.legs2_opposed.gk	gk	delivery/gk_legs2_opposed.gkp				180
-deliv.legs2_opposed.gk.qf	gk	delivery/gk_legs2_opposed.gkp	-strategy query_focus_equality.json			180
-deliv.legs2_opposed.gk.30s	gk	delivery/gk_legs2_opposed.gkp	-seconds 30		yes	150
-deliv.legs2_opposed.gk.qf.30s	gk	delivery/gk_legs2_opposed.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-deliv.legs2_opposed_flat.gk	gk	delivery/gk_legs2_opposed_flat.gkp				180
-deliv.legs2_opposed_flat.gk.qf	gk	delivery/gk_legs2_opposed_flat.gkp	-strategy query_focus_equality.json			180
-deliv.legs2_opposed_flat.mcref	mcref	delivery/gk_legs2_opposed_flat.gkp		samples=100000 seed=1		900
-deliv.legs4_control.gk.2s	gk	delivery/gk_legs4_control.gkp	-seconds 2		yes	180
-deliv.legs4_control.gk.qf.2s	gk	delivery/gk_legs4_control.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-deliv.legs4_control.gk	gk	delivery/gk_legs4_control.gkp				180
-deliv.legs4_control.gk.qf	gk	delivery/gk_legs4_control.gkp	-strategy query_focus_equality.json			180
-deliv.legs4_control.gk.30s	gk	delivery/gk_legs4_control.gkp	-seconds 30		yes	150
-deliv.legs4_control.gk.qf.30s	gk	delivery/gk_legs4_control.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-deliv.legs4_control_flat.gk	gk	delivery/gk_legs4_control_flat.gkp			yes	180
-deliv.legs4_control_flat.gk.qf	gk	delivery/gk_legs4_control_flat.gkp	-strategy query_focus_equality.json			180
-deliv.legs4_control_flat.mcref	mcref	delivery/gk_legs4_control_flat.gkp		samples=100000 seed=1		900
-deliv.legs4_opposed.gk.2s	gk	delivery/gk_legs4_opposed.gkp	-seconds 2		yes	180
-deliv.legs4_opposed.gk.qf.2s	gk	delivery/gk_legs4_opposed.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-deliv.legs4_opposed.gk	gk	delivery/gk_legs4_opposed.gkp				180
-deliv.legs4_opposed.gk.qf	gk	delivery/gk_legs4_opposed.gkp	-strategy query_focus_equality.json			180
-deliv.legs4_opposed.gk.30s	gk	delivery/gk_legs4_opposed.gkp	-seconds 30		yes	150
-deliv.legs4_opposed.gk.qf.30s	gk	delivery/gk_legs4_opposed.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-deliv.legs4_opposed_flat.gk	gk	delivery/gk_legs4_opposed_flat.gkp			yes	180
-deliv.legs4_opposed_flat.gk.qf	gk	delivery/gk_legs4_opposed_flat.gkp	-strategy query_focus_equality.json			180
-deliv.legs4_opposed_flat.mcref	mcref	delivery/gk_legs4_opposed_flat.gkp		samples=100000 seed=1		900
-deliv.legs8_control.gk.2s	gk	delivery/gk_legs8_control.gkp	-seconds 2		yes	180
-deliv.legs8_control.gk.qf.2s	gk	delivery/gk_legs8_control.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-deliv.legs8_control.gk	gk	delivery/gk_legs8_control.gkp				180
-deliv.legs8_control.gk.qf	gk	delivery/gk_legs8_control.gkp	-strategy query_focus_equality.json			180
-deliv.legs8_control.gk.30s	gk	delivery/gk_legs8_control.gkp	-seconds 30		yes	150
-deliv.legs8_control.gk.qf.30s	gk	delivery/gk_legs8_control.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-deliv.legs8_opposed.gk.2s	gk	delivery/gk_legs8_opposed.gkp	-seconds 2		yes	180
-deliv.legs8_opposed.gk.qf.2s	gk	delivery/gk_legs8_opposed.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-deliv.legs8_opposed.gk	gk	delivery/gk_legs8_opposed.gkp				180
-deliv.legs8_opposed.gk.qf	gk	delivery/gk_legs8_opposed.gkp	-strategy query_focus_equality.json			180
-deliv.legs8_opposed.gk.30s	gk	delivery/gk_legs8_opposed.gkp	-seconds 30		yes	150
-deliv.legs8_opposed.gk.qf.30s	gk	delivery/gk_legs8_opposed.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-deliv.legs16_control.gk.2s	gk	delivery/gk_legs16_control.gkp	-seconds 2		yes	180
-deliv.legs16_control.gk.qf.2s	gk	delivery/gk_legs16_control.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-deliv.legs16_control.gk	gk	delivery/gk_legs16_control.gkp			yes	180
-deliv.legs16_control.gk.qf	gk	delivery/gk_legs16_control.gkp	-strategy query_focus_equality.json			180
-deliv.legs16_control.gk.30s	gk	delivery/gk_legs16_control.gkp	-seconds 30		yes	150
-deliv.legs16_control.gk.qf.30s	gk	delivery/gk_legs16_control.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-deliv.legs16_opposed.gk.2s	gk	delivery/gk_legs16_opposed.gkp	-seconds 2		yes	180
-deliv.legs16_opposed.gk.qf.2s	gk	delivery/gk_legs16_opposed.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-deliv.legs16_opposed.gk	gk	delivery/gk_legs16_opposed.gkp			yes	180
-deliv.legs16_opposed.gk.qf	gk	delivery/gk_legs16_opposed.gkp	-strategy query_focus_equality.json			180
-deliv.legs16_opposed.gk.30s	gk	delivery/gk_legs16_opposed.gkp	-seconds 30		yes	150
-deliv.legs16_opposed.gk.qf.30s	gk	delivery/gk_legs16_opposed.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-deliv.legs32_control.gk.2s	gk	delivery/gk_legs32_control.gkp	-seconds 2		yes	180
-deliv.legs32_control.gk.qf.2s	gk	delivery/gk_legs32_control.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-deliv.legs32_control.gk	gk	delivery/gk_legs32_control.gkp			yes	180
-deliv.legs32_control.gk.qf	gk	delivery/gk_legs32_control.gkp	-strategy query_focus_equality.json			180
-deliv.legs32_control.gk.30s	gk	delivery/gk_legs32_control.gkp	-seconds 30		yes	150
-deliv.legs32_control.gk.qf.30s	gk	delivery/gk_legs32_control.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-deliv.legs32_opposed.gk.2s	gk	delivery/gk_legs32_opposed.gkp	-seconds 2		yes	180
-deliv.legs32_opposed.gk.qf.2s	gk	delivery/gk_legs32_opposed.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-deliv.legs32_opposed.gk	gk	delivery/gk_legs32_opposed.gkp			yes	180
-deliv.legs32_opposed.gk.qf	gk	delivery/gk_legs32_opposed.gkp	-strategy query_focus_equality.json			180
-deliv.legs32_opposed.gk.30s	gk	delivery/gk_legs32_opposed.gkp	-seconds 30		yes	150
-deliv.legs32_opposed.gk.qf.30s	gk	delivery/gk_legs32_opposed.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-deliv.exception_chain1.gk.2s	gk	delivery/gk_exception_chain1.gkp	-seconds 2		yes	180
-deliv.exception_chain1.gk.qf.2s	gk	delivery/gk_exception_chain1.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-deliv.exception_chain1.gk	gk	delivery/gk_exception_chain1.gkp				180
-deliv.exception_chain1.gk.qf	gk	delivery/gk_exception_chain1.gkp	-strategy query_focus_equality.json			180
-deliv.exception_chain1.gk.30s	gk	delivery/gk_exception_chain1.gkp	-seconds 30		yes	150
-deliv.exception_chain1.gk.qf.30s	gk	delivery/gk_exception_chain1.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-deliv.exception_chain5.gk.2s	gk	delivery/gk_exception_chain5.gkp	-seconds 2		yes	180
-deliv.exception_chain5.gk.qf.2s	gk	delivery/gk_exception_chain5.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-deliv.exception_chain5.gk	gk	delivery/gk_exception_chain5.gkp				180
-deliv.exception_chain5.gk.qf	gk	delivery/gk_exception_chain5.gkp	-strategy query_focus_equality.json			180
-deliv.exception_chain5.gk.30s	gk	delivery/gk_exception_chain5.gkp	-seconds 30		yes	150
-deliv.exception_chain5.gk.qf.30s	gk	delivery/gk_exception_chain5.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-deliv.exception_chain20.gk.2s	gk	delivery/gk_exception_chain20.gkp	-seconds 2		yes	180
-deliv.exception_chain20.gk.qf.2s	gk	delivery/gk_exception_chain20.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-deliv.exception_chain20.gk	gk	delivery/gk_exception_chain20.gkp				180
-deliv.exception_chain20.gk.qf	gk	delivery/gk_exception_chain20.gkp	-strategy query_focus_equality.json			180
-deliv.exception_chain20.gk.30s	gk	delivery/gk_exception_chain20.gkp	-seconds 30		yes	150
-deliv.exception_chain20.gk.qf.30s	gk	delivery/gk_exception_chain20.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-deliv.exception_chain50.gk.2s	gk	delivery/gk_exception_chain50.gkp	-seconds 2		yes	180
-deliv.exception_chain50.gk.qf.2s	gk	delivery/gk_exception_chain50.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-deliv.exception_chain50.gk	gk	delivery/gk_exception_chain50.gkp				180
-deliv.exception_chain50.gk.qf	gk	delivery/gk_exception_chain50.gkp	-strategy query_focus_equality.json			180
-deliv.exception_chain50.gk.30s	gk	delivery/gk_exception_chain50.gkp	-seconds 30		yes	150
-deliv.exception_chain50.gk.qf.30s	gk	delivery/gk_exception_chain50.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-deliv.background10.gk.2s	gk	delivery/gk_background10.gkp	-seconds 2		yes	180
-deliv.background10.gk.qf.2s	gk	delivery/gk_background10.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-deliv.background10.gk	gk	delivery/gk_background10.gkp				180
-deliv.background10.gk.qf	gk	delivery/gk_background10.gkp	-strategy query_focus_equality.json			180
-deliv.background10.gk.30s	gk	delivery/gk_background10.gkp	-seconds 30		yes	150
-deliv.background10.gk.qf.30s	gk	delivery/gk_background10.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-deliv.background50.gk.2s	gk	delivery/gk_background50.gkp	-seconds 2		yes	180
-deliv.background50.gk.qf.2s	gk	delivery/gk_background50.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-deliv.background50.gk	gk	delivery/gk_background50.gkp				180
-deliv.background50.gk.qf	gk	delivery/gk_background50.gkp	-strategy query_focus_equality.json			180
-deliv.background50.gk.30s	gk	delivery/gk_background50.gkp	-seconds 30		yes	150
-deliv.background50.gk.qf.30s	gk	delivery/gk_background50.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-deliv.background200.gk.2s	gk	delivery/gk_background200.gkp	-seconds 2		yes	180
-deliv.background200.gk.qf.2s	gk	delivery/gk_background200.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-deliv.background200.gk	gk	delivery/gk_background200.gkp				180
-deliv.background200.gk.qf	gk	delivery/gk_background200.gkp	-strategy query_focus_equality.json			180
-deliv.background200.gk.30s	gk	delivery/gk_background200.gkp	-seconds 30		yes	150
-deliv.background200.gk.qf.30s	gk	delivery/gk_background200.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-equip.equality_chain1.gk.2s	gk	equipment/gk_equality_chain1.gkp	-seconds 2		yes	180
-equip.equality_chain1.gk.qf.2s	gk	equipment/gk_equality_chain1.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-equip.equality_chain1.gk	gk	equipment/gk_equality_chain1.gkp				180
-equip.equality_chain1.gk.qf	gk	equipment/gk_equality_chain1.gkp	-strategy query_focus_equality.json			180
-equip.equality_chain1.gk.30s	gk	equipment/gk_equality_chain1.gkp	-seconds 30		yes	150
-equip.equality_chain1.gk.qf.30s	gk	equipment/gk_equality_chain1.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-equip.equality_chain3.gk.2s	gk	equipment/gk_equality_chain3.gkp	-seconds 2		yes	180
-equip.equality_chain3.gk.qf.2s	gk	equipment/gk_equality_chain3.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-equip.equality_chain3.gk	gk	equipment/gk_equality_chain3.gkp				180
-equip.equality_chain3.gk.qf	gk	equipment/gk_equality_chain3.gkp	-strategy query_focus_equality.json			180
-equip.equality_chain3.gk.30s	gk	equipment/gk_equality_chain3.gkp	-seconds 30		yes	150
-equip.equality_chain3.gk.qf.30s	gk	equipment/gk_equality_chain3.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-equip.equality_chain6.gk.2s	gk	equipment/gk_equality_chain6.gkp	-seconds 2		yes	180
-equip.equality_chain6.gk.qf.2s	gk	equipment/gk_equality_chain6.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-equip.equality_chain6.gk	gk	equipment/gk_equality_chain6.gkp				180
-equip.equality_chain6.gk.qf	gk	equipment/gk_equality_chain6.gkp	-strategy query_focus_equality.json			180
-equip.equality_chain6.gk.30s	gk	equipment/gk_equality_chain6.gkp	-seconds 30		yes	150
-equip.equality_chain6.gk.qf.30s	gk	equipment/gk_equality_chain6.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-equip.equality_chain10.gk.2s	gk	equipment/gk_equality_chain10.gkp	-seconds 2		yes	180
-equip.equality_chain10.gk.qf.2s	gk	equipment/gk_equality_chain10.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-equip.equality_chain10.gk	gk	equipment/gk_equality_chain10.gkp				180
-equip.equality_chain10.gk.qf	gk	equipment/gk_equality_chain10.gkp	-strategy query_focus_equality.json		yes	180
-equip.equality_chain10.gk.30s	gk	equipment/gk_equality_chain10.gkp	-seconds 30		yes	150
-equip.equality_chain10.gk.qf.30s	gk	equipment/gk_equality_chain10.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-equip.equality_chain20.gk.2s	gk	equipment/gk_equality_chain20.gkp	-seconds 2		yes	180
-equip.equality_chain20.gk.qf.2s	gk	equipment/gk_equality_chain20.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-equip.equality_chain20.gk	gk	equipment/gk_equality_chain20.gkp				180
-equip.equality_chain20.gk.qf	gk	equipment/gk_equality_chain20.gkp	-strategy query_focus_equality.json		yes	180
-equip.equality_chain20.gk.30s	gk	equipment/gk_equality_chain20.gkp	-seconds 30		yes	150
-equip.equality_chain20.gk.qf.30s	gk	equipment/gk_equality_chain20.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-equip.components2.gk.2s	gk	equipment/gk_components2.gkp	-seconds 2		yes	180
-equip.components2.gk.qf.2s	gk	equipment/gk_components2.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-equip.components2.gk	gk	equipment/gk_components2.gkp				180
-equip.components2.gk.qf	gk	equipment/gk_components2.gkp	-strategy query_focus_equality.json			180
-equip.components2.gk.30s	gk	equipment/gk_components2.gkp	-seconds 30		yes	150
-equip.components2.gk.qf.30s	gk	equipment/gk_components2.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-equip.components4.gk.2s	gk	equipment/gk_components4.gkp	-seconds 2		yes	180
-equip.components4.gk.qf.2s	gk	equipment/gk_components4.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-equip.components4.gk	gk	equipment/gk_components4.gkp				180
-equip.components4.gk.qf	gk	equipment/gk_components4.gkp	-strategy query_focus_equality.json			180
-equip.components4.gk.30s	gk	equipment/gk_components4.gkp	-seconds 30		yes	150
-equip.components4.gk.qf.30s	gk	equipment/gk_components4.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-equip.components8.gk.2s	gk	equipment/gk_components8.gkp	-seconds 2		yes	180
-equip.components8.gk.qf.2s	gk	equipment/gk_components8.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-equip.components8.gk	gk	equipment/gk_components8.gkp				180
-equip.components8.gk.qf	gk	equipment/gk_components8.gkp	-strategy query_focus_equality.json		yes	180
-equip.components8.gk.30s	gk	equipment/gk_components8.gkp	-seconds 30		yes	150
-equip.components8.gk.qf.30s	gk	equipment/gk_components8.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-equip.components16.gk.2s	gk	equipment/gk_components16.gkp	-seconds 2		yes	180
-equip.components16.gk.qf.2s	gk	equipment/gk_components16.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-equip.components16.gk	gk	equipment/gk_components16.gkp				180
-equip.components16.gk.qf	gk	equipment/gk_components16.gkp	-strategy query_focus_equality.json		yes	180
-equip.components16.gk.30s	gk	equipment/gk_components16.gkp	-seconds 30		yes	150
-equip.components16.gk.qf.30s	gk	equipment/gk_components16.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-equip.second_supply.gk.2s	gk	equipment/gk_second_supply.gkp	-seconds 2		yes	180
-equip.second_supply.gk.qf.2s	gk	equipment/gk_second_supply.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-equip.second_supply.gk	gk	equipment/gk_second_supply.gkp				180
-equip.second_supply.gk.qf	gk	equipment/gk_second_supply.gkp	-strategy query_focus_equality.json			180
-equip.second_supply.gk.30s	gk	equipment/gk_second_supply.gkp	-seconds 30		yes	150
-equip.second_supply.gk.qf.30s	gk	equipment/gk_second_supply.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-equip.background10.gk.2s	gk	equipment/gk_background10.gkp	-seconds 2		yes	180
-equip.background10.gk.qf.2s	gk	equipment/gk_background10.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-equip.background10.gk	gk	equipment/gk_background10.gkp				180
-equip.background10.gk.qf	gk	equipment/gk_background10.gkp	-strategy query_focus_equality.json			180
-equip.background10.gk.30s	gk	equipment/gk_background10.gkp	-seconds 30		yes	150
-equip.background10.gk.qf.30s	gk	equipment/gk_background10.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-equip.background50.gk.2s	gk	equipment/gk_background50.gkp	-seconds 2		yes	180
-equip.background50.gk.qf.2s	gk	equipment/gk_background50.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-equip.background50.gk	gk	equipment/gk_background50.gkp				180
-equip.background50.gk.qf	gk	equipment/gk_background50.gkp	-strategy query_focus_equality.json			180
-equip.background50.gk.30s	gk	equipment/gk_background50.gkp	-seconds 30		yes	150
-equip.background50.gk.qf.30s	gk	equipment/gk_background50.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-equip.background200.gk.2s	gk	equipment/gk_background200.gkp	-seconds 2		yes	180
-equip.background200.gk.qf.2s	gk	equipment/gk_background200.gkp	-seconds 2 -strategy query_focus_equality.json		yes	180
-equip.background200.gk	gk	equipment/gk_background200.gkp				180
-equip.background200.gk.qf	gk	equipment/gk_background200.gkp	-strategy query_focus_equality.json			180
-equip.background200.gk.30s	gk	equipment/gk_background200.gkp	-seconds 30		yes	150
-equip.background200.gk.qf.30s	gk	equipment/gk_background200.gkp	-seconds 30 -strategy query_focus_equality.json		yes	150
-equip.flat_reference.gk	gk	equipment/gk_flat_reference.gkp				180
-equip.flat_reference.mcref	mcref	equipment/gk_flat_reference.gkp		samples=100000 seed=1		900
-equip.contrary_report_on_b7.gk	gk	equipment/gk_contrary_report_on_b7.gkp				180
-equip.equality_chain1.mcref	mcref	equipment/gk_equality_chain1.gkp		samples=20000 seed=1		900
-equip.chain3_contrary_question.gk	gk	equipment/gk_equality_chain3_contrary_question.gkp			yes	180
-equip.equality_chain3.gk.allowance_L0_400	gk	equipment/gk_equality_chain3.gkp	-strategy strategies/allowance_L0_400.json			180
-equip.equality_chain3.gk.allowance_L0_2000	gk	equipment/gk_equality_chain3.gkp	-strategy strategies/allowance_L0_2000.json			180
-equip.equality_chain3.gk.allowance_r1	gk	equipment/gk_equality_chain3.gkp	-strategy strategies/allowance_r1.json			180
-equip.derived_identity.gk	gk	equipment/gk_derived_identity.gkp			yes	180
-equip.derived_identity.gk.query_focus_equality	gk	equipment/gk_derived_identity.gkp	-strategy query_focus_equality.json			180
-equip.derived_identity.gk.knuthbendix_pref_equality	gk	equipment/gk_derived_identity.gkp	-strategy strategies/knuthbendix_pref_equality.json			180
-equip.derived_identity.gk.negative_pref_equality	gk	equipment/gk_derived_identity.gkp	-strategy strategies/negative_pref_equality.json			180
-equip.derived_identity.gk.hyper_equality	gk	equipment/gk_derived_identity.gkp	-strategy strategies/hyper_equality.json			180
-equip.derived_identity.gk.unit_equality	gk	equipment/gk_derived_identity.gkp	-strategy strategies/unit_equality.json			180
-equip.derived_identity.gk.hardness_pref_equality	gk	equipment/gk_derived_identity.gkp	-strategy strategies/hardness_pref_equality.json			180
-equip.derived_identity_function.gk	gk	equipment/gk_derived_identity_function.gkp				180
-equip.probe.head_ground.gk	gk	equipment/probes/gk_head_ground.gkp				180
-equip.probe.head_two_variables.gk	gk	equipment/probes/gk_head_two_variables.gkp				180
-equip.probe.head_serial_numbers.gk	gk	equipment/probes/gk_head_serial_numbers.gkp				180
-equip.probe.head_serial_numbers_function_term.gk	gk	equipment/probes/gk_head_serial_numbers_function_term.gkp				180
-equip.probe.head_one_variable.gk	gk	equipment/probes/gk_head_one_variable.gkp				180
-equip.probe.head_one_variable_under_function.gk	gk	equipment/probes/gk_head_one_variable_under_function.gkp				180
-equip.probe.head_two_variables_relation.gk	gk	equipment/probes/gk_head_two_variables_relation.gkp				180
-equip.probe.head_two_variables_uncertain.gk	gk	equipment/probes/gk_head_two_variables_uncertain.gkp				180
-equip.probe.head_two_variables_flat_clause.gk	gk	equipment/probes/gk_head_two_variables_flat_clause.gkp				180
-equip.probe.head_two_variables_relation_guard.gk	gk	equipment/probes/gk_head_two_variables_relation_guard.gkp				180
-equip.probe.head_two_variables_disequality.gk	gk	equipment/probes/gk_head_two_variables_disequality.gkp				180
-smokers.smokers5.gk	gk	smokers/gk_smokers5.gkp				180
-smokers.smokers5.mcref	mcref	smokers/gk_smokers5.gkp		samples=20000 seed=1		900
-smokers.smokers8.gk	gk	smokers/gk_smokers8.gkp				180
-smokers.smokers8.gk.hyper	gk	smokers/gk_smokers8.gkp	-strategy hyper.json		yes	180
-smokers.smokers8.gk.hyper.60s	gk	smokers/gk_smokers8.gkp	-seconds 60 -strategy hyper.json		yes	180
-smokers.smokers8.mcref	mcref	smokers/gk_smokers8.gkp		samples=20000 seed=1		900
-smokers.smokers12.gk	gk	smokers/gk_smokers12.gkp				180
-smokers.smokers12.gk.60s	gk	smokers/gk_smokers12.gkp	-seconds 60		yes	180
-smokers.smokers12.gk.hyper	gk	smokers/gk_smokers12.gkp	-strategy hyper.json		yes	180
-smokers.smokers12.gk.hyper.60s	gk	smokers/gk_smokers12.gkp	-seconds 60 -strategy hyper.json		yes	180
-smokers.smokers16.gk	gk	smokers/gk_smokers16.gkp			yes	180
-smokers.smokers16.gk.60s	gk	smokers/gk_smokers16.gkp	-seconds 60		yes	180
-smokers.smokers20.gk	gk	smokers/gk_smokers20.gkp			yes	180
-smokers.smokers20.gk.60s	gk	smokers/gk_smokers20.gkp	-seconds 60		yes	180
-smokers.stratified5.gk	gk	smokers/gk_stratified5.gkp				180
-smokers.stratified5.gk.hyper	gk	smokers/gk_stratified5.gkp	-strategy hyper.json		yes	180
-smokers.stratified5.mcref	mcref	smokers/gk_stratified5.gkp		samples=20000 seed=1		900
-smokers.stratified8.gk	gk	smokers/gk_stratified8.gkp				180
-smokers.stratified8.gk.hyper	gk	smokers/gk_stratified8.gkp	-strategy hyper.json		yes	180
-smokers.stratified8.gk.hyper.60s	gk	smokers/gk_stratified8.gkp	-seconds 60 -strategy hyper.json		yes	180
-smokers.stratified8.mcref	mcref	smokers/gk_stratified8.gkp		samples=20000 seed=1		900
-smokers.stratified12.gk	gk	smokers/gk_stratified12.gkp				180
-smokers.stratified12.gk.hyper	gk	smokers/gk_stratified12.gkp	-strategy hyper.json		yes	180
-smokers.stratified12.gk.hyper.60s	gk	smokers/gk_stratified12.gkp	-seconds 60 -strategy hyper.json		yes	180
-smokers.stratified12.mcref	mcref	smokers/gk_stratified12.gkp		samples=20000 seed=1		900
-smokers.ranked5.gk	gk	smokers/gk_ranked5.gkp				180
-smokers.ranked5.mcref	mcref	smokers/gk_ranked5.gkp		samples=20000 seed=1		900
-smokers.ranked8.gk	gk	smokers/gk_ranked8.gkp				180
-smokers.ranked8.mcref	mcref	smokers/gk_ranked8.gkp		samples=20000 seed=1		900
-smokers.ranked12.gk	gk	smokers/gk_ranked12.gkp				180
-smokers.ranked12.mcref	mcref	smokers/gk_ranked12.gkp		samples=20000 seed=1		900
-grids.corner16.gk	gk	grids/gk_corner16.gkp			yes	180
-grids.corner16.gk.60s	gk	grids/gk_corner16.gkp	-seconds 60		yes	180
-grids.corner16.gk.hyper	gk	grids/gk_corner16.gkp	-strategy hyper.json		yes	180
-grids.corner16.gk.maxproofs100	gk	grids/gk_corner16.gkp	-maxproofs 100		yes	180
-grids.corner16.gk.explore	gk	grids/gk_corner16.gkp	-explore		yes	180
-grids.corner16.mcref	mcref	grids/gk_corner16.gkp		samples=20000 seed=1		900
-grids.corner33.gk	gk	grids/gk_corner33.gkp			yes	180
-grids.corner33.gk.60s	gk	grids/gk_corner33.gkp	-seconds 60		yes	180
-grids.corner33.gk.hyper	gk	grids/gk_corner33.gkp	-strategy hyper.json		yes	180
-grids.corner33.gk.hyper.60s	gk	grids/gk_corner33.gkp	-seconds 60 -strategy hyper.json		yes	180
-grids.corner33.mcref	mcref	grids/gk_corner33.gkp		samples=20000 seed=1		900
-grids.corner56.gk	gk	grids/gk_corner56.gkp			yes	180
-grids.corner56.gk.60s	gk	grids/gk_corner56.gkp	-seconds 60		yes	180
-grids.corner56.gk.hyper	gk	grids/gk_corner56.gkp	-strategy hyper.json		yes	180
-grids.corner56.gk.hyper.60s	gk	grids/gk_corner56.gkp	-seconds 60 -strategy hyper.json		yes	180
-grids.corner56.mcref	mcref	grids/gk_corner56.gkp		samples=20000 seed=1		900
-grids.full_d1.gk	gk	grids/gk_full_d1.gkp			yes	180
-grids.full_d1.mcref	mcref	grids/gk_full_d1.gkp		samples=20000 seed=1		900
-grids.full_d2.gk	gk	grids/gk_full_d2.gkp			yes	180
-grids.full_d2.gk.hyper	gk	grids/gk_full_d2.gkp	-strategy hyper.json		yes	180
-grids.full_d2.gk.hyper.60s	gk	grids/gk_full_d2.gkp	-seconds 60 -strategy hyper.json		yes	180
-grids.full_d2.mcref	mcref	grids/gk_full_d2.gkp		samples=20000 seed=1		900
-grids.full_d3.gk	gk	grids/gk_full_d3.gkp			yes	180
-grids.full_d3.gk.hyper	gk	grids/gk_full_d3.gkp	-strategy hyper.json		yes	180
-grids.full_d3.gk.hyper.60s	gk	grids/gk_full_d3.gkp	-seconds 60 -strategy hyper.json		yes	180
-grids.full_d3.mcref	mcref	grids/gk_full_d3.gkp		samples=20000 seed=1		900
-grids.full_d4.gk	gk	grids/gk_full_d4.gkp			yes	180
-grids.full_d4.gk.60s	gk	grids/gk_full_d4.gkp	-seconds 60		yes	180
-grids.full_d4.gk.hyper	gk	grids/gk_full_d4.gkp	-strategy hyper.json		yes	180
-grids.full_d4.gk.hyper.60s	gk	grids/gk_full_d4.gkp	-seconds 60 -strategy hyper.json		yes	180
-grids.full_d5.gk	gk	grids/gk_full_d5.gkp			yes	180
-grids.full_d5.gk.60s	gk	grids/gk_full_d5.gkp	-seconds 60		yes	180
-grids.full_d5.gk.hyper	gk	grids/gk_full_d5.gkp	-strategy hyper.json		yes	180
-grids.full_d5.gk.hyper.60s	gk	grids/gk_full_d5.gkp	-seconds 60 -strategy hyper.json		yes	180
-grids.full_d6.gk	gk	grids/gk_full_d6.gkp			yes	180
-grids.full_d6.gk.60s	gk	grids/gk_full_d6.gkp	-seconds 60		yes	180
-grids.full_d8.gk	gk	grids/gk_full_d8.gkp			yes	180
-grids.full_d8.gk.60s	gk	grids/gk_full_d8.gkp	-seconds 60		yes	180
-chains.chain100.gk	gk	chains_trees/gk_chain100.gkp			yes	180
-chains.chain100.mcref	mcref	chains_trees/gk_chain100.gkp		samples=20000 seed=1		900
-chains.strict_chain1000.gk	gk	chains_trees/gk_strict_chain1000.gkp			yes	180
-chains.chain500.gk	gk	chains_trees/gk_chain500.gkp			yes	180
-chains.chain500.gk.query_focus	gk	chains_trees/gk_chain500.gkp	-strategy query_focus.json		yes	180
-chains.chain1000.gk	gk	chains_trees/gk_chain1000.gkp			yes	180
-chains.chain1000.gk.60s	gk	chains_trees/gk_chain1000.gkp	-seconds 60		yes	180
-chains.chain1000.gk.query_focus	gk	chains_trees/gk_chain1000.gkp	-strategy strategies/query_focus.json		yes	180
-chains.chain1000.gk.negative_pref	gk	chains_trees/gk_chain1000.gkp	-strategy strategies/negative_pref.json		yes	180
-chains.chain1000.gk.positive_pref	gk	chains_trees/gk_chain1000.gkp	-strategy strategies/positive_pref.json		yes	180
-chains.chain1000.gk.unit	gk	chains_trees/gk_chain1000.gkp	-strategy strategies/unit.json		yes	180
-chains.chain1000.gk.hardness_pref	gk	chains_trees/gk_chain1000.gkp	-strategy strategies/hardness_pref.json		yes	180
-chains.chain1000.gk.negpref_posunitpara_qp	gk	chains_trees/gk_chain1000.gkp	-strategy strategies/negpref_posunitpara_qp.json		yes	180
-chains.chain1000.gk.query_focus_hardness	gk	chains_trees/gk_chain1000.gkp	-strategy strategies/query_focus_hardness.json		yes	180
-chains.chain1000.gk.double	gk	chains_trees/gk_chain1000.gkp	-strategy strategies/double.json		yes	180
-chains.chain1000.gk.triple	gk	chains_trees/gk_chain1000.gkp	-strategy strategies/triple.json		yes	180
-chains.chain1000.gk.hyper	gk	chains_trees/gk_chain1000.gkp	-strategy strategies/hyper.json		yes	180
-chains.chain1000.gk.all_negative_pref	gk	chains_trees/gk_chain1000.gkp	-strategy strategies/all_negative_pref.json		yes	180
-chains.chain1000.gk.knuthbendix_pref	gk	chains_trees/gk_chain1000.gkp	-strategy strategies/knuthbendix_pref.json		yes	180
-chains.chain1000.gk.unit_qp1	gk	chains_trees/gk_chain1000.gkp	-strategy strategies/unit_qp1.json		yes	180
-chains.chain1000.mcref	mcref	chains_trees/gk_chain1000.gkp		samples=20000 seed=1		900
-chains.tree63.gk	gk	chains_trees/gk_tree63.gkp			yes	180
-chains.tree63.mcref	mcref	chains_trees/gk_tree63.gkp		samples=20000 seed=1		900
-chains.tree364.gk	gk	chains_trees/gk_tree364.gkp			yes	180
-chains.tree364.gk.60s	gk	chains_trees/gk_tree364.gkp	-seconds 60		yes	180
-chains.tree364.gk.query_focus	gk	chains_trees/gk_tree364.gkp	-strategy query_focus.json		yes	180
-chains.tree364.mcref	mcref	chains_trees/gk_tree364.gkp		samples=20000 seed=1		900
-chains.tree2047.gk	gk	chains_trees/gk_tree2047.gkp			yes	180
-chains.tree2047.gk.query_focus	gk	chains_trees/gk_tree2047.gkp	-strategy strategies/query_focus.json		yes	180
-chains.tree2047.gk.negative_pref	gk	chains_trees/gk_tree2047.gkp	-strategy strategies/negative_pref.json		yes	180
-chains.tree2047.gk.positive_pref	gk	chains_trees/gk_tree2047.gkp	-strategy strategies/positive_pref.json		yes	180
-chains.tree2047.gk.unit	gk	chains_trees/gk_tree2047.gkp	-strategy strategies/unit.json		yes	180
-chains.tree2047.gk.hardness_pref	gk	chains_trees/gk_tree2047.gkp	-strategy strategies/hardness_pref.json		yes	180
-chains.tree2047.gk.negpref_posunitpara_qp	gk	chains_trees/gk_tree2047.gkp	-strategy strategies/negpref_posunitpara_qp.json		yes	180
-chains.tree2047.gk.query_focus_hardness	gk	chains_trees/gk_tree2047.gkp	-strategy strategies/query_focus_hardness.json		yes	180
-chains.tree2047.gk.double	gk	chains_trees/gk_tree2047.gkp	-strategy strategies/double.json		yes	180
-chains.tree2047.gk.triple	gk	chains_trees/gk_tree2047.gkp	-strategy strategies/triple.json		yes	180
-chains.tree2047.gk.hyper	gk	chains_trees/gk_tree2047.gkp	-strategy strategies/hyper.json		yes	180
-chains.tree2047.gk.all_negative_pref	gk	chains_trees/gk_tree2047.gkp	-strategy strategies/all_negative_pref.json		yes	180
-chains.tree2047.gk.knuthbendix_pref	gk	chains_trees/gk_tree2047.gkp	-strategy strategies/knuthbendix_pref.json		yes	180
-chains.tree2047.gk.unit_qp1	gk	chains_trees/gk_tree2047.gkp	-strategy strategies/unit_qp1.json		yes	180
-chains.tree2047.mcref	mcref	chains_trees/gk_tree2047.gkp		samples=20000 seed=1		900
-cascades.cascade4_priorities.gk	gk	cascades/gk_cascade4_priorities.gkp				180
-cascades.cascade4_priorities.mcref	mcref	cascades/gk_cascade4_priorities.gkp		samples=20000 seed=1		900
-cascades.cascade4_equal.gk	gk	cascades/gk_cascade4_equal.gkp				180
-cascades.cascade4_equal.mcref	mcref	cascades/gk_cascade4_equal.gkp		samples=20000 seed=1		900
-cascades.cascade5_priorities.gk	gk	cascades/gk_cascade5_priorities.gkp				180
-cascades.cascade5_priorities.mcref	mcref	cascades/gk_cascade5_priorities.gkp		samples=20000 seed=1		900
-cascades.cascade5_equal.gk	gk	cascades/gk_cascade5_equal.gkp				180
-cascades.cascade5_equal.mcref	mcref	cascades/gk_cascade5_equal.gkp		samples=20000 seed=1		900
-cascades.cascade10_priorities.gk	gk	cascades/gk_cascade10_priorities.gkp				180
-cascades.cascade10_priorities.mcref	mcref	cascades/gk_cascade10_priorities.gkp		samples=20000 seed=1		900
-cascades.cascade10_equal.gk	gk	cascades/gk_cascade10_equal.gkp				180
-cascades.cascade10_equal.mcref	mcref	cascades/gk_cascade10_equal.gkp		samples=20000 seed=1		900
-cascades.cascade50_priorities.gk	gk	cascades/gk_cascade50_priorities.gkp			yes	180
-cascades.cascade50_priorities.gk.r2	gk	cascades/gk_cascade50_priorities.gkp		repeat=2	yes	180
-cascades.cascade50_priorities.gk.r3	gk	cascades/gk_cascade50_priorities.gkp		repeat=3	yes	180
-cascades.cascade50_priorities.mcref	mcref	cascades/gk_cascade50_priorities.gkp		samples=20000 seed=1		900
-cascades.cascade50_equal.gk	gk	cascades/gk_cascade50_equal.gkp			yes	180
-cascades.cascade50_equal.mcref	mcref	cascades/gk_cascade50_equal.gkp		samples=20000 seed=1		900
-cascades.cascade200_priorities.gk	gk	cascades/gk_cascade200_priorities.gkp			yes	180
-cascades.cascade200_priorities.gk.r2	gk	cascades/gk_cascade200_priorities.gkp		repeat=2	yes	180
-cascades.cascade200_priorities.gk.r3	gk	cascades/gk_cascade200_priorities.gkp		repeat=3	yes	180
-cascades.cascade200_equal.gk	gk	cascades/gk_cascade200_equal.gkp			yes	180
-cascades.cascade200_equal.gk.r2	gk	cascades/gk_cascade200_equal.gkp		repeat=2	yes	180
-cascades.cascade200_equal.gk.r3	gk	cascades/gk_cascade200_equal.gkp		repeat=3	yes	180
-cyclic.program4.gk	gk	cyclic/gk_program4.gkp				180
-cyclic.program4.mcref	mcref	cyclic/gk_program4.gkp		samples=20000 seed=1		900
-cyclic.program6.gk	gk	cyclic/gk_program6.gkp				180
-cyclic.program6.mcref	mcref	cyclic/gk_program6.gkp		samples=20000 seed=1		900
-cyclic.program8.gk	gk	cyclic/gk_program8.gkp				180
-cyclic.program8.mcref	mcref	cyclic/gk_program8.gkp		samples=20000 seed=1		900
-cyclic.program12.gk	gk	cyclic/gk_program12.gkp				180
-cyclic.program12.mcref	mcref	cyclic/gk_program12.gkp		samples=20000 seed=1		900
-cyclic.program20.gk	gk	cyclic/gk_program20.gkp				180
-cyclic.program20.mcref	mcref	cyclic/gk_program20.gkp		samples=20000 seed=1		900
-cyclic.program40.gk	gk	cyclic/gk_program40.gkp			yes	180
-cyclic.program40.gk.60s	gk	cyclic/gk_program40.gkp	-seconds 60		yes	180
-cyclic.program40.mcref	mcref	cyclic/gk_program40.gkp		samples=20000 seed=1		900
-cyclic.ring3.gk	gk	cyclic/gk_ring3.gkp				180
-cyclic.ring3.mcref	mcref	cyclic/gk_ring3.gkp		samples=20000 seed=1		900
-cyclic.ring4.gk	gk	cyclic/gk_ring4.gkp				180
-cyclic.ring4.mcref	mcref	cyclic/gk_ring4.gkp		samples=20000 seed=1		900
-cyclic.ring5.gk	gk	cyclic/gk_ring5.gkp				180
-cyclic.ring5.mcref	mcref	cyclic/gk_ring5.gkp		samples=20000 seed=1		900
-cyclic.ring8.gk	gk	cyclic/gk_ring8.gkp				180
-cyclic.ring8.mcref	mcref	cyclic/gk_ring8.gkp		samples=20000 seed=1		900
-cyclic.ring15.gk	gk	cyclic/gk_ring15.gkp				180
-cyclic.ring15.mcref	mcref	cyclic/gk_ring15.gkp		samples=20000 seed=1		900
-cyclic.ring30.gk	gk	cyclic/gk_ring30.gkp				180
-cyclic.ring30.mcref	mcref	cyclic/gk_ring30.gkp		samples=20000 seed=1		900
-cyclic.af6_in_x2.gk	gk	cyclic/gk_af6_in_x2.gkp				180
-cyclic.af6_in_x2.mcref	mcref	cyclic/gk_af6_in_x2.gkp		samples=20000 seed=1		900
-cyclic.af6_out_x0.gk	gk	cyclic/gk_af6_out_x0.gkp				180
-cyclic.af6_out_x0.mcref	mcref	cyclic/gk_af6_out_x0.gkp		samples=20000 seed=1		900
-cyclic.af6_undec_x1.gk	gk	cyclic/gk_af6_undec_x1.gkp				180
-cyclic.af6_undec_x1.mcref	mcref	cyclic/gk_af6_undec_x1.gkp		samples=20000 seed=1		900
-cyclic.af10_in_x3.gk	gk	cyclic/gk_af10_in_x3.gkp			yes	180
-cyclic.af10_in_x3.mcref	mcref	cyclic/gk_af10_in_x3.gkp		samples=20000 seed=1		900
-cyclic.af10_out_x0.gk	gk	cyclic/gk_af10_out_x0.gkp			yes	180
-cyclic.af10_out_x0.mcref	mcref	cyclic/gk_af10_out_x0.gkp		samples=20000 seed=1		900
-cyclic.af10_undec_x6.gk	gk	cyclic/gk_af10_undec_x6.gkp			yes	180
-cyclic.af10_undec_x6.mcref	mcref	cyclic/gk_af10_undec_x6.gkp		samples=20000 seed=1		900
-cyclic.af10_undec_x6_att.gk	gk	cyclic/gk_af10_undec_x6_att.gkp			yes	180
-cyclic.af10_undec_x6_att.mcref	mcref	cyclic/gk_af10_undec_x6_att.gkp		samples=20000 seed=1		900
-cyclic.af20_undec_x0.gk	gk	cyclic/gk_af20_undec_x0.gkp			yes	180
-cyclic.af20_undec_x0.mcref	mcref	cyclic/gk_af20_undec_x0.gkp		samples=20000 seed=1		900
-cyclic.af20_undec_x0_att.gk	gk	cyclic/gk_af20_undec_x0_att.gkp			yes	180
-cyclic.af20_undec_x0_att.mcref	mcref	cyclic/gk_af20_undec_x0_att.gkp		samples=20000 seed=1		900
-cyclic.af40_in_x12.gk	gk	cyclic/gk_af40_in_x12.gkp			yes	180
-cyclic.af40_in_x12.mcref	mcref	cyclic/gk_af40_in_x12.gkp		samples=20000 seed=1		900
-cyclic.af40_out_x9.gk	gk	cyclic/gk_af40_out_x9.gkp			yes	180
-cyclic.af40_out_x9.mcref	mcref	cyclic/gk_af40_out_x9.gkp		samples=20000 seed=1		900
-cyclic.af40_out_x9_att.gk	gk	cyclic/gk_af40_out_x9_att.gkp			yes	180
-cyclic.af40_out_x9_att.mcref	mcref	cyclic/gk_af40_out_x9_att.gkp		samples=20000 seed=1		900
-cyclic.af40_undec_x0.gk	gk	cyclic/gk_af40_undec_x0.gkp			yes	180
-cyclic.af40_undec_x0.mcref	mcref	cyclic/gk_af40_undec_x0.gkp		samples=20000 seed=1		900
-cyclic.af40_undec_x0_att.gk	gk	cyclic/gk_af40_undec_x0_att.gkp			yes	180
-cyclic.af40_undec_x0_att.mcref	mcref	cyclic/gk_af40_undec_x0_att.gkp		samples=20000 seed=1		900
-cyclic.af80_in_x1.gk	gk	cyclic/gk_af80_in_x1.gkp			yes	180
-cyclic.af80_out_x4.gk	gk	cyclic/gk_af80_out_x4.gkp			yes	180
-cyclic.af80_out_x4_att.gk	gk	cyclic/gk_af80_out_x4_att.gkp			yes	180
-cyclic.af80_undec_x0.gk	gk	cyclic/gk_af80_undec_x0.gkp			yes	180
-cyclic.af80_undec_x0_att.gk	gk	cyclic/gk_af80_undec_x0_att.gkp			yes	180
-bn.asia_xray.gk.hyper	gk	bn/gk_asia_xray.gkp	-strategy hyper.json			180
-bn.asia_xray.gk.query_focus	gk	bn/gk_asia_xray.gkp	-strategy query_focus.json			180
-bn.asia_bronc.gk.hyper	gk	bn/gk_asia_bronc.gkp	-strategy hyper.json			180
-bn.asia_bronc.gk.query_focus	gk	bn/gk_asia_bronc.gkp	-strategy query_focus.json			180
-bn.asia_either.gk.hyper	gk	bn/gk_asia_either.gkp	-strategy hyper.json			180
-bn.asia_either.gk.query_focus	gk	bn/gk_asia_either.gkp	-strategy query_focus.json			180
-bn.earthquake_johncalls.gk.hyper	gk	bn/gk_earthquake_johncalls.gkp	-strategy hyper.json			180
-bn.earthquake_johncalls.gk.query_focus	gk	bn/gk_earthquake_johncalls.gkp	-strategy query_focus.json			180
-bn.earthquake_alarm.gk.hyper	gk	bn/gk_earthquake_alarm.gkp	-strategy hyper.json			180
-bn.earthquake_alarm.gk.query_focus	gk	bn/gk_earthquake_alarm.gkp	-strategy query_focus.json			180
-bn.cancer_xray.gk.hyper	gk	bn/gk_cancer_xray.gkp	-strategy hyper.json			180
-bn.cancer_xray.gk.query_focus	gk	bn/gk_cancer_xray.gkp	-strategy query_focus.json			180
-bn.cancer_cancer.gk.hyper	gk	bn/gk_cancer_cancer.gkp	-strategy hyper.json			180
-bn.cancer_cancer.gk.query_focus	gk	bn/gk_cancer_cancer.gkp	-strategy query_focus.json			180
-bn.win95pts_prtstatpaper.gk.hyper	gk	bn/gk_win95pts_prtstatpaper.gkp	-strategy hyper.json			180
-bn.win95pts_prtstatpaper.gk.query_focus	gk	bn/gk_win95pts_prtstatpaper.gkp	-strategy query_focus.json			180
-bn.andes_rapp3.gk.hyper	gk	bn/gk_andes_rapp3.gkp	-strategy hyper.json		yes	180
-bn.andes_rapp3.gk.query_focus	gk	bn/gk_andes_rapp3.gkp	-strategy query_focus.json		yes	180
-bn.win95pts_problem1.gk.hyper	gk	bn/gk_win95pts_problem1.gkp	-strategy hyper.json		yes	180
-bn.win95pts_problem1.gk.query_focus	gk	bn/gk_win95pts_problem1.gkp	-strategy query_focus.json		yes	180
-bn.win95pts_pc2prt.gk.hyper	gk	bn/gk_win95pts_pc2prt.gkp	-strategy hyper.json		yes	180
-bn.win95pts_pc2prt.gk.query_focus	gk	bn/gk_win95pts_pc2prt.gkp	-strategy query_focus.json		yes	180
-bn.andes_snode_151.gk.hyper	gk	bn/gk_andes_snode_151.gkp	-strategy hyper.json		yes	180
-bn.andes_snode_151.gk.query_focus	gk	bn/gk_andes_snode_151.gkp	-strategy query_focus.json		yes	180
-bn.andes_snode_74.gk.hyper	gk	bn/gk_andes_snode_74.gkp	-strategy hyper.json		yes	180
-bn.andes_snode_74.gk.query_focus	gk	bn/gk_andes_snode_74.gkp	-strategy query_focus.json		yes	180
-univ.dept1_scale0.25_person.gk.query_focus	gk	university/gk_dept1_scale0.25_person.gkp	-strategy query_focus.json			180
-univ.dept1_scale0.25_employee.gk.query_focus	gk	university/gk_dept1_scale0.25_employee.gkp	-strategy query_focus.json			180
-univ.dept1_scale0.25_organization.gk.query_focus	gk	university/gk_dept1_scale0.25_organization.gkp	-strategy query_focus.json		yes	180
-univ.dept1_scale0.25_memberOf.gk.query_focus	gk	university/gk_dept1_scale0.25_memberOf.gkp	-strategy query_focus.json			180
-univ.dept1_scale1_person.gk.query_focus	gk	university/gk_dept1_scale1_person.gkp	-strategy query_focus.json			180
-univ.dept1_scale1_employee.gk.query_focus	gk	university/gk_dept1_scale1_employee.gkp	-strategy query_focus.json			180
-univ.dept1_scale1_organization.gk.query_focus	gk	university/gk_dept1_scale1_organization.gkp	-strategy query_focus.json		yes	180
-univ.dept1_scale1_memberOf.gk.query_focus	gk	university/gk_dept1_scale1_memberOf.gkp	-strategy query_focus.json			180
-univ.dept3_scale1_person.gk.query_focus	gk	university/gk_dept3_scale1_person.gkp	-strategy query_focus.json			180
-univ.dept3_scale1_employee.gk.query_focus	gk	university/gk_dept3_scale1_employee.gkp	-strategy query_focus.json			180
-univ.dept3_scale1_organization.gk.query_focus	gk	university/gk_dept3_scale1_organization.gkp	-strategy query_focus.json		yes	180
-univ.dept3_scale1_memberOf.gk.query_focus	gk	university/gk_dept3_scale1_memberOf.gkp	-strategy query_focus.json			180
-deliv.legs2_control.gk.hyper	gk	delivery/gk_legs2_control.gkp	-strategy hyper.json			180
-deliv.legs2_control.gk.query_focus	gk	delivery/gk_legs2_control.gkp	-strategy query_focus.json			180
-deliv.legs2_control_flat.gk.hyper	gk	delivery/gk_legs2_control_flat.gkp	-strategy hyper.json			180
-deliv.legs2_control_flat.gk.query_focus	gk	delivery/gk_legs2_control_flat.gkp	-strategy query_focus.json			180
-deliv.legs2_opposed.gk.hyper	gk	delivery/gk_legs2_opposed.gkp	-strategy hyper.json			180
-deliv.legs2_opposed.gk.query_focus	gk	delivery/gk_legs2_opposed.gkp	-strategy query_focus.json			180
-deliv.legs2_opposed_flat.gk.hyper	gk	delivery/gk_legs2_opposed_flat.gkp	-strategy hyper.json			180
-deliv.legs2_opposed_flat.gk.query_focus	gk	delivery/gk_legs2_opposed_flat.gkp	-strategy query_focus.json			180
-deliv.legs4_control.gk.hyper	gk	delivery/gk_legs4_control.gkp	-strategy hyper.json			180
-deliv.legs4_control.gk.query_focus	gk	delivery/gk_legs4_control.gkp	-strategy query_focus.json			180
-deliv.legs4_control_flat.gk.hyper	gk	delivery/gk_legs4_control_flat.gkp	-strategy hyper.json		yes	180
-deliv.legs4_control_flat.gk.query_focus	gk	delivery/gk_legs4_control_flat.gkp	-strategy query_focus.json		yes	180
-deliv.legs4_opposed.gk.hyper	gk	delivery/gk_legs4_opposed.gkp	-strategy hyper.json			180
-deliv.legs4_opposed.gk.query_focus	gk	delivery/gk_legs4_opposed.gkp	-strategy query_focus.json			180
-deliv.legs4_opposed_flat.gk.hyper	gk	delivery/gk_legs4_opposed_flat.gkp	-strategy hyper.json		yes	180
-deliv.legs4_opposed_flat.gk.query_focus	gk	delivery/gk_legs4_opposed_flat.gkp	-strategy query_focus.json		yes	180
-deliv.legs8_control.gk.hyper	gk	delivery/gk_legs8_control.gkp	-strategy hyper.json			180
-deliv.legs8_control.gk.query_focus	gk	delivery/gk_legs8_control.gkp	-strategy query_focus.json			180
-deliv.legs8_opposed.gk.hyper	gk	delivery/gk_legs8_opposed.gkp	-strategy hyper.json			180
-deliv.legs8_opposed.gk.query_focus	gk	delivery/gk_legs8_opposed.gkp	-strategy query_focus.json			180
-deliv.legs16_control.gk.hyper	gk	delivery/gk_legs16_control.gkp	-strategy hyper.json		yes	180
-deliv.legs16_control.gk.query_focus	gk	delivery/gk_legs16_control.gkp	-strategy query_focus.json		yes	180
-deliv.legs16_opposed.gk.hyper	gk	delivery/gk_legs16_opposed.gkp	-strategy hyper.json		yes	180
-deliv.legs16_opposed.gk.query_focus	gk	delivery/gk_legs16_opposed.gkp	-strategy query_focus.json		yes	180
-deliv.legs32_control.gk.hyper	gk	delivery/gk_legs32_control.gkp	-strategy hyper.json		yes	180
-deliv.legs32_control.gk.query_focus	gk	delivery/gk_legs32_control.gkp	-strategy query_focus.json		yes	180
-deliv.legs32_opposed.gk.hyper	gk	delivery/gk_legs32_opposed.gkp	-strategy hyper.json		yes	180
-deliv.legs32_opposed.gk.query_focus	gk	delivery/gk_legs32_opposed.gkp	-strategy query_focus.json		yes	180
-deliv.exception_chain1.gk.hyper	gk	delivery/gk_exception_chain1.gkp	-strategy hyper.json			180
-deliv.exception_chain1.gk.query_focus	gk	delivery/gk_exception_chain1.gkp	-strategy query_focus.json			180
-deliv.exception_chain5.gk.hyper	gk	delivery/gk_exception_chain5.gkp	-strategy hyper.json			180
-deliv.exception_chain5.gk.query_focus	gk	delivery/gk_exception_chain5.gkp	-strategy query_focus.json			180
-deliv.exception_chain20.gk.hyper	gk	delivery/gk_exception_chain20.gkp	-strategy hyper.json			180
-deliv.exception_chain20.gk.query_focus	gk	delivery/gk_exception_chain20.gkp	-strategy query_focus.json			180
-deliv.exception_chain50.gk.hyper	gk	delivery/gk_exception_chain50.gkp	-strategy hyper.json			180
-deliv.exception_chain50.gk.query_focus	gk	delivery/gk_exception_chain50.gkp	-strategy query_focus.json			180
-deliv.background10.gk.hyper	gk	delivery/gk_background10.gkp	-strategy hyper.json			180
-deliv.background10.gk.query_focus	gk	delivery/gk_background10.gkp	-strategy query_focus.json			180
-deliv.background50.gk.hyper	gk	delivery/gk_background50.gkp	-strategy hyper.json			180
-deliv.background50.gk.query_focus	gk	delivery/gk_background50.gkp	-strategy query_focus.json			180
-deliv.background200.gk.hyper	gk	delivery/gk_background200.gkp	-strategy hyper.json			180
-deliv.background200.gk.query_focus	gk	delivery/gk_background200.gkp	-strategy query_focus.json			180
-equip.equality_chain1.gk.hyper	gk	equipment/gk_equality_chain1.gkp	-strategy hyper.json			180
-equip.equality_chain1.gk.query_focus	gk	equipment/gk_equality_chain1.gkp	-strategy query_focus.json			180
-equip.equality_chain3.gk.hyper	gk	equipment/gk_equality_chain3.gkp	-strategy hyper.json			180
-equip.equality_chain3.gk.query_focus	gk	equipment/gk_equality_chain3.gkp	-strategy query_focus.json			180
-equip.equality_chain6.gk.hyper	gk	equipment/gk_equality_chain6.gkp	-strategy hyper.json			180
-equip.equality_chain6.gk.query_focus	gk	equipment/gk_equality_chain6.gkp	-strategy query_focus.json			180
-equip.equality_chain10.gk.hyper	gk	equipment/gk_equality_chain10.gkp	-strategy hyper.json			180
-equip.equality_chain10.gk.query_focus	gk	equipment/gk_equality_chain10.gkp	-strategy query_focus.json			180
-equip.equality_chain20.gk.hyper	gk	equipment/gk_equality_chain20.gkp	-strategy hyper.json			180
-equip.equality_chain20.gk.query_focus	gk	equipment/gk_equality_chain20.gkp	-strategy query_focus.json			180
-equip.components2.gk.hyper	gk	equipment/gk_components2.gkp	-strategy hyper.json			180
-equip.components2.gk.query_focus	gk	equipment/gk_components2.gkp	-strategy query_focus.json			180
-equip.components4.gk.hyper	gk	equipment/gk_components4.gkp	-strategy hyper.json			180
-equip.components4.gk.query_focus	gk	equipment/gk_components4.gkp	-strategy query_focus.json			180
-equip.components8.gk.hyper	gk	equipment/gk_components8.gkp	-strategy hyper.json			180
-equip.components8.gk.query_focus	gk	equipment/gk_components8.gkp	-strategy query_focus.json			180
-equip.components16.gk.hyper	gk	equipment/gk_components16.gkp	-strategy hyper.json			180
-equip.components16.gk.query_focus	gk	equipment/gk_components16.gkp	-strategy query_focus.json			180
-equip.second_supply.gk.hyper	gk	equipment/gk_second_supply.gkp	-strategy hyper.json			180
-equip.second_supply.gk.query_focus	gk	equipment/gk_second_supply.gkp	-strategy query_focus.json			180
-equip.background10.gk.hyper	gk	equipment/gk_background10.gkp	-strategy hyper.json			180
-equip.background10.gk.query_focus	gk	equipment/gk_background10.gkp	-strategy query_focus.json			180
-equip.background50.gk.hyper	gk	equipment/gk_background50.gkp	-strategy hyper.json			180
-equip.background50.gk.query_focus	gk	equipment/gk_background50.gkp	-strategy query_focus.json			180
-equip.background200.gk.hyper	gk	equipment/gk_background200.gkp	-strategy hyper.json			180
-equip.background200.gk.query_focus	gk	equipment/gk_background200.gkp	-strategy query_focus.json			180
-equip.derived_identity.gk.hyper	gk	equipment/gk_derived_identity.gkp	-strategy hyper.json		yes	180
-equip.derived_identity.gk.query_focus	gk	equipment/gk_derived_identity.gkp	-strategy query_focus.json		yes	180
-smokers.smokers5.gk.hyper	gk	smokers/gk_smokers5.gkp	-strategy hyper.json			180
-smokers.smokers5.gk.query_focus	gk	smokers/gk_smokers5.gkp	-strategy query_focus.json			180
-smokers.smokers8.gk.query_focus	gk	smokers/gk_smokers8.gkp	-strategy query_focus.json			180
-smokers.smokers12.gk.query_focus	gk	smokers/gk_smokers12.gkp	-strategy query_focus.json			180
-smokers.stratified5.gk.query_focus	gk	smokers/gk_stratified5.gkp	-strategy query_focus.json			180
-smokers.stratified8.gk.query_focus	gk	smokers/gk_stratified8.gkp	-strategy query_focus.json			180
-smokers.stratified12.gk.query_focus	gk	smokers/gk_stratified12.gkp	-strategy query_focus.json			180
-grids.corner16.gk.query_focus	gk	grids/gk_corner16.gkp	-strategy query_focus.json		yes	180
-grids.corner33.gk.query_focus	gk	grids/gk_corner33.gkp	-strategy query_focus.json		yes	180
-grids.corner56.gk.query_focus	gk	grids/gk_corner56.gkp	-strategy query_focus.json		yes	180
-chains.tree364.gk.hyper	gk	chains_trees/gk_tree364.gkp	-strategy hyper.json		yes	180
-cascades.cascade50_priorities.gk.hyper	gk	cascades/gk_cascade50_priorities.gkp	-strategy hyper.json		yes	180
-cascades.cascade50_priorities.gk.query_focus	gk	cascades/gk_cascade50_priorities.gkp	-strategy query_focus.json		yes	180
-cascades.cascade50_equal.gk.hyper	gk	cascades/gk_cascade50_equal.gkp	-strategy hyper.json		yes	180
-cascades.cascade50_equal.gk.query_focus	gk	cascades/gk_cascade50_equal.gkp	-strategy query_focus.json		yes	180
-cascades.cascade200_priorities.gk.hyper	gk	cascades/gk_cascade200_priorities.gkp	-strategy hyper.json		yes	180
-cascades.cascade200_priorities.gk.query_focus	gk	cascades/gk_cascade200_priorities.gkp	-strategy query_focus.json		yes	180
-cascades.cascade200_equal.gk.hyper	gk	cascades/gk_cascade200_equal.gkp	-strategy hyper.json		yes	180
-cascades.cascade200_equal.gk.query_focus	gk	cascades/gk_cascade200_equal.gkp	-strategy query_focus.json		yes	180
-cyclic.af10_in_x3.gk.hyper	gk	cyclic/gk_af10_in_x3.gkp	-strategy hyper.json		yes	180
-cyclic.af10_in_x3.gk.query_focus	gk	cyclic/gk_af10_in_x3.gkp	-strategy query_focus.json		yes	180
-cyclic.af10_out_x0.gk.hyper	gk	cyclic/gk_af10_out_x0.gkp	-strategy hyper.json		yes	180
-cyclic.af10_out_x0.gk.query_focus	gk	cyclic/gk_af10_out_x0.gkp	-strategy query_focus.json		yes	180
-cyclic.af10_undec_x6.gk.hyper	gk	cyclic/gk_af10_undec_x6.gkp	-strategy hyper.json		yes	180
-cyclic.af10_undec_x6.gk.query_focus	gk	cyclic/gk_af10_undec_x6.gkp	-strategy query_focus.json		yes	180
-cyclic.af10_undec_x6_att.gk.hyper	gk	cyclic/gk_af10_undec_x6_att.gkp	-strategy hyper.json		yes	180
-cyclic.af10_undec_x6_att.gk.query_focus	gk	cyclic/gk_af10_undec_x6_att.gkp	-strategy query_focus.json		yes	180
-cyclic.af20_undec_x0.gk.hyper	gk	cyclic/gk_af20_undec_x0.gkp	-strategy hyper.json		yes	180
-cyclic.af20_undec_x0.gk.query_focus	gk	cyclic/gk_af20_undec_x0.gkp	-strategy query_focus.json		yes	180
-cyclic.af20_undec_x0_att.gk.hyper	gk	cyclic/gk_af20_undec_x0_att.gkp	-strategy hyper.json		yes	180
-cyclic.af20_undec_x0_att.gk.query_focus	gk	cyclic/gk_af20_undec_x0_att.gkp	-strategy query_focus.json		yes	180
-cyclic.af40_in_x12.gk.hyper	gk	cyclic/gk_af40_in_x12.gkp	-strategy hyper.json		yes	180
-cyclic.af40_in_x12.gk.query_focus	gk	cyclic/gk_af40_in_x12.gkp	-strategy query_focus.json		yes	180
-cyclic.af40_out_x9.gk.hyper	gk	cyclic/gk_af40_out_x9.gkp	-strategy hyper.json		yes	180
-cyclic.af40_out_x9.gk.query_focus	gk	cyclic/gk_af40_out_x9.gkp	-strategy query_focus.json		yes	180
-cyclic.af40_out_x9_att.gk.hyper	gk	cyclic/gk_af40_out_x9_att.gkp	-strategy hyper.json		yes	180
-cyclic.af40_out_x9_att.gk.query_focus	gk	cyclic/gk_af40_out_x9_att.gkp	-strategy query_focus.json		yes	180
-cyclic.af40_undec_x0.gk.hyper	gk	cyclic/gk_af40_undec_x0.gkp	-strategy hyper.json		yes	180
-cyclic.af40_undec_x0.gk.query_focus	gk	cyclic/gk_af40_undec_x0.gkp	-strategy query_focus.json		yes	180
-cyclic.af40_undec_x0_att.gk.hyper	gk	cyclic/gk_af40_undec_x0_att.gkp	-strategy hyper.json		yes	180
-cyclic.af40_undec_x0_att.gk.query_focus	gk	cyclic/gk_af40_undec_x0_att.gkp	-strategy query_focus.json		yes	180
-cyclic.af6_in_x2.gk.hyper	gk	cyclic/gk_af6_in_x2.gkp	-strategy hyper.json			180
-cyclic.af6_in_x2.gk.query_focus	gk	cyclic/gk_af6_in_x2.gkp	-strategy query_focus.json			180
-cyclic.af6_out_x0.gk.hyper	gk	cyclic/gk_af6_out_x0.gkp	-strategy hyper.json			180
-cyclic.af6_out_x0.gk.query_focus	gk	cyclic/gk_af6_out_x0.gkp	-strategy query_focus.json			180
-cyclic.af6_undec_x1.gk.hyper	gk	cyclic/gk_af6_undec_x1.gkp	-strategy hyper.json			180
-cyclic.af6_undec_x1.gk.query_focus	gk	cyclic/gk_af6_undec_x1.gkp	-strategy query_focus.json			180
-cyclic.af80_in_x1.gk.hyper	gk	cyclic/gk_af80_in_x1.gkp	-strategy hyper.json		yes	180
-cyclic.af80_in_x1.gk.query_focus	gk	cyclic/gk_af80_in_x1.gkp	-strategy query_focus.json		yes	180
-cyclic.af80_out_x4.gk.hyper	gk	cyclic/gk_af80_out_x4.gkp	-strategy hyper.json		yes	180
-cyclic.af80_out_x4.gk.query_focus	gk	cyclic/gk_af80_out_x4.gkp	-strategy query_focus.json		yes	180
-cyclic.af80_out_x4_att.gk.hyper	gk	cyclic/gk_af80_out_x4_att.gkp	-strategy hyper.json		yes	180
-cyclic.af80_out_x4_att.gk.query_focus	gk	cyclic/gk_af80_out_x4_att.gkp	-strategy query_focus.json		yes	180
-cyclic.af80_undec_x0.gk.hyper	gk	cyclic/gk_af80_undec_x0.gkp	-strategy hyper.json		yes	180
-cyclic.af80_undec_x0.gk.query_focus	gk	cyclic/gk_af80_undec_x0.gkp	-strategy query_focus.json		yes	180
-cyclic.af80_undec_x0_att.gk.hyper	gk	cyclic/gk_af80_undec_x0_att.gkp	-strategy hyper.json		yes	180
-cyclic.af80_undec_x0_att.gk.query_focus	gk	cyclic/gk_af80_undec_x0_att.gkp	-strategy query_focus.json		yes	180
-cyclic.program12.gk.hyper	gk	cyclic/gk_program12.gkp	-strategy hyper.json			180
-cyclic.program12.gk.query_focus	gk	cyclic/gk_program12.gkp	-strategy query_focus.json			180
-cyclic.program20.gk.hyper	gk	cyclic/gk_program20.gkp	-strategy hyper.json			180
-cyclic.program20.gk.query_focus	gk	cyclic/gk_program20.gkp	-strategy query_focus.json			180
-cyclic.program4.gk.hyper	gk	cyclic/gk_program4.gkp	-strategy hyper.json			180
-cyclic.program4.gk.query_focus	gk	cyclic/gk_program4.gkp	-strategy query_focus.json			180
-cyclic.program40.gk.hyper	gk	cyclic/gk_program40.gkp	-strategy hyper.json		yes	180
-cyclic.program40.gk.query_focus	gk	cyclic/gk_program40.gkp	-strategy query_focus.json		yes	180
-cyclic.program6.gk.hyper	gk	cyclic/gk_program6.gkp	-strategy hyper.json			180
-cyclic.program6.gk.query_focus	gk	cyclic/gk_program6.gkp	-strategy query_focus.json			180
-cyclic.program8.gk.hyper	gk	cyclic/gk_program8.gkp	-strategy hyper.json			180
-cyclic.program8.gk.query_focus	gk	cyclic/gk_program8.gkp	-strategy query_focus.json			180
-cyclic.ring15.gk.hyper	gk	cyclic/gk_ring15.gkp	-strategy hyper.json			180
-cyclic.ring15.gk.query_focus	gk	cyclic/gk_ring15.gkp	-strategy query_focus.json			180
-cyclic.ring3.gk.hyper	gk	cyclic/gk_ring3.gkp	-strategy hyper.json			180
-cyclic.ring3.gk.query_focus	gk	cyclic/gk_ring3.gkp	-strategy query_focus.json			180
-cyclic.ring30.gk.hyper	gk	cyclic/gk_ring30.gkp	-strategy hyper.json			180
-cyclic.ring30.gk.query_focus	gk	cyclic/gk_ring30.gkp	-strategy query_focus.json			180
-cyclic.ring4.gk.hyper	gk	cyclic/gk_ring4.gkp	-strategy hyper.json			180
-cyclic.ring4.gk.query_focus	gk	cyclic/gk_ring4.gkp	-strategy query_focus.json			180
-cyclic.ring5.gk.hyper	gk	cyclic/gk_ring5.gkp	-strategy hyper.json			180
-cyclic.ring5.gk.query_focus	gk	cyclic/gk_ring5.gkp	-strategy query_focus.json			180
-cyclic.ring8.gk.hyper	gk	cyclic/gk_ring8.gkp	-strategy hyper.json			180
-cyclic.ring8.gk.query_focus	gk	cyclic/gk_ring8.gkp	-strategy query_focus.json			180
-univ.dept1_scale0.25_person.gk.timing	gk	university/gk_dept1_scale0.25_person.gkp		repeat=timing	yes	180
-univ.dept1_scale0.25_person.problog.timing	problog	university/gk_dept1_scale0.25_person.gkp		version=2.3.0 repeat=timing	yes	600
-univ.dept1_scale0.25_employee.gk.timing	gk	university/gk_dept1_scale0.25_employee.gkp		repeat=timing	yes	180
-univ.dept1_scale0.25_employee.problog.timing	problog	university/gk_dept1_scale0.25_employee.gkp		version=2.3.0 repeat=timing	yes	600
-univ.dept1_scale0.25_organization.gk.timing	gk	university/gk_dept1_scale0.25_organization.gkp		repeat=timing	yes	180
-univ.dept1_scale0.25_organization.problog.timing	problog	university/gk_dept1_scale0.25_organization.gkp		version=2.3.0 repeat=timing	yes	600
-univ.dept1_scale0.25_memberOf.gk.timing	gk	university/gk_dept1_scale0.25_memberOf.gkp		repeat=timing	yes	180
-univ.dept1_scale0.25_memberOf.problog.timing	problog	university/gk_dept1_scale0.25_memberOf.gkp		version=2.3.0 repeat=timing	yes	600
-univ.dept1_scale1_person.gk.timing	gk	university/gk_dept1_scale1_person.gkp		repeat=timing	yes	180
-univ.dept1_scale1_person.problog.timing	problog	university/gk_dept1_scale1_person.gkp		version=2.3.0 repeat=timing	yes	600
-univ.dept1_scale1_employee.gk.timing	gk	university/gk_dept1_scale1_employee.gkp		repeat=timing	yes	180
-univ.dept1_scale1_employee.problog.timing	problog	university/gk_dept1_scale1_employee.gkp		version=2.3.0 repeat=timing	yes	600
-univ.dept1_scale1_organization.gk.timing	gk	university/gk_dept1_scale1_organization.gkp		repeat=timing	yes	180
-univ.dept1_scale1_organization.problog.timing	problog	university/gk_dept1_scale1_organization.gkp		version=2.3.0 repeat=timing	yes	600
-univ.dept1_scale1_memberOf.gk.timing	gk	university/gk_dept1_scale1_memberOf.gkp		repeat=timing	yes	180
-univ.dept1_scale1_memberOf.problog.timing	problog	university/gk_dept1_scale1_memberOf.gkp		version=2.3.0 repeat=timing	yes	600
-univ.dept3_scale1_person.gk.timing	gk	university/gk_dept3_scale1_person.gkp		repeat=timing	yes	180
-univ.dept3_scale1_person.problog.timing	problog	university/gk_dept3_scale1_person.gkp		version=2.3.0 repeat=timing	yes	600
-univ.dept3_scale1_employee.gk.timing	gk	university/gk_dept3_scale1_employee.gkp		repeat=timing	yes	180
-univ.dept3_scale1_employee.problog.timing	problog	university/gk_dept3_scale1_employee.gkp		version=2.3.0 repeat=timing	yes	600
-univ.dept3_scale1_organization.gk.timing	gk	university/gk_dept3_scale1_organization.gkp		repeat=timing	yes	180
-univ.dept3_scale1_organization.problog.timing	problog	university/gk_dept3_scale1_organization.gkp		version=2.3.0 repeat=timing	yes	600
-univ.dept3_scale1_memberOf.gk.timing	gk	university/gk_dept3_scale1_memberOf.gkp		repeat=timing	yes	180
-univ.dept3_scale1_memberOf.problog.timing	problog	university/gk_dept3_scale1_memberOf.gkp		version=2.3.0 repeat=timing	yes	600
-deliv.legs2_control.gk.timing	gk	delivery/gk_legs2_control.gkp		repeat=timing	yes	180
-deliv.legs2_opposed.gk.timing	gk	delivery/gk_legs2_opposed.gkp		repeat=timing	yes	180
-deliv.legs2_control.problog.timing	problog	delivery/problog_legs2_control.pl		version=2.3.0 repeat=timing	yes	600
-deliv.legs4_control.gk.timing	gk	delivery/gk_legs4_control.gkp		repeat=timing	yes	180
-deliv.legs4_opposed.gk.timing	gk	delivery/gk_legs4_opposed.gkp		repeat=timing	yes	180
-deliv.legs4_control.problog.timing	problog	delivery/problog_legs4_control.pl		version=2.3.0 repeat=timing	yes	600
-deliv.legs8_control.gk.timing	gk	delivery/gk_legs8_control.gkp		repeat=timing	yes	180
-deliv.legs8_opposed.gk.timing	gk	delivery/gk_legs8_opposed.gkp		repeat=timing	yes	180
-deliv.legs8_control.problog.timing	problog	delivery/problog_legs8_control.pl		version=2.3.0 repeat=timing	yes	600
-deliv.legs16_control.gk.timing	gk	delivery/gk_legs16_control.gkp		repeat=timing	yes	180
-deliv.legs16_opposed.gk.timing	gk	delivery/gk_legs16_opposed.gkp		repeat=timing	yes	180
-deliv.legs16_control.problog.timing	problog	delivery/problog_legs16_control.pl		version=2.3.0 repeat=timing	yes	600
-deliv.legs32_control.gk.timing	gk	delivery/gk_legs32_control.gkp		repeat=timing	yes	180
-deliv.legs32_opposed.gk.timing	gk	delivery/gk_legs32_opposed.gkp		repeat=timing	yes	180
-deliv.legs32_control.problog.timing	problog	delivery/problog_legs32_control.pl		version=2.3.0 repeat=timing	yes	600
+run_id	system	method	input	cwd	command	limit_s	timed_alone	memory_cap	time_cap_s	exit	peak_mb	raw
+a3_default/bn/gk_andes_rapp3.gkp	gk 1.3.2	default	O3_families/inputs/bn/gk_andes_rapp3.gkp	O3_families/inputs/bn	$GK gk_andes_rapp3.gkp	10	no	12G	30	0	105	raw/a3_default.tar.xz:a3_default/bn_gk_andes_rapp3.gkp.out
+a3_default/bn/gk_andes_snode_151.gkp	gk 1.3.2	default	O3_families/inputs/bn/gk_andes_snode_151.gkp	O3_families/inputs/bn	$GK gk_andes_snode_151.gkp	10	no	12G	30	0	5994	raw/a3_default.tar.xz:a3_default/bn_gk_andes_snode_151.gkp.out
+a3_default/bn/gk_andes_snode_74.gkp	gk 1.3.2	default	O3_families/inputs/bn/gk_andes_snode_74.gkp	O3_families/inputs/bn	$GK gk_andes_snode_74.gkp	10	no	12G	30	0	1681	raw/a3_default.tar.xz:a3_default/bn_gk_andes_snode_74.gkp.out
+a3_default/bn/gk_asia_bronc.gkp	gk 1.3.2	default	O3_families/inputs/bn/gk_asia_bronc.gkp	O3_families/inputs/bn	$GK gk_asia_bronc.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/bn_gk_asia_bronc.gkp.out
+a3_default/bn/gk_asia_either.gkp	gk 1.3.2	default	O3_families/inputs/bn/gk_asia_either.gkp	O3_families/inputs/bn	$GK gk_asia_either.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/bn_gk_asia_either.gkp.out
+a3_default/bn/gk_asia_xray.gkp	gk 1.3.2	default	O3_families/inputs/bn/gk_asia_xray.gkp	O3_families/inputs/bn	$GK gk_asia_xray.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/bn_gk_asia_xray.gkp.out
+a3_default/bn/gk_cancer_cancer.gkp	gk 1.3.2	default	O3_families/inputs/bn/gk_cancer_cancer.gkp	O3_families/inputs/bn	$GK gk_cancer_cancer.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/bn_gk_cancer_cancer.gkp.out
+a3_default/bn/gk_cancer_xray.gkp	gk 1.3.2	default	O3_families/inputs/bn/gk_cancer_xray.gkp	O3_families/inputs/bn	$GK gk_cancer_xray.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/bn_gk_cancer_xray.gkp.out
+a3_default/bn/gk_earthquake_alarm.gkp	gk 1.3.2	default	O3_families/inputs/bn/gk_earthquake_alarm.gkp	O3_families/inputs/bn	$GK gk_earthquake_alarm.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/bn_gk_earthquake_alarm.gkp.out
+a3_default/bn/gk_earthquake_johncalls.gkp	gk 1.3.2	default	O3_families/inputs/bn/gk_earthquake_johncalls.gkp	O3_families/inputs/bn	$GK gk_earthquake_johncalls.gkp	10	no	12G	30	0	99	raw/a3_default.tar.xz:a3_default/bn_gk_earthquake_johncalls.gkp.out
+a3_default/bn/gk_win95pts_pc2prt.gkp	gk 1.3.2	default	O3_families/inputs/bn/gk_win95pts_pc2prt.gkp	O3_families/inputs/bn	$GK gk_win95pts_pc2prt.gkp	10	no	12G	30	0	134	raw/a3_default.tar.xz:a3_default/bn_gk_win95pts_pc2prt.gkp.out
+a3_default/bn/gk_win95pts_problem1.gkp	gk 1.3.2	default	O3_families/inputs/bn/gk_win95pts_problem1.gkp	O3_families/inputs/bn	$GK gk_win95pts_problem1.gkp	10	no	12G	30	0	191	raw/a3_default.tar.xz:a3_default/bn_gk_win95pts_problem1.gkp.out
+a3_default/bn/gk_win95pts_prtstatpaper.gkp	gk 1.3.2	default	O3_families/inputs/bn/gk_win95pts_prtstatpaper.gkp	O3_families/inputs/bn	$GK gk_win95pts_prtstatpaper.gkp	10	no	12G	30	0	102	raw/a3_default.tar.xz:a3_default/bn_gk_win95pts_prtstatpaper.gkp.out
+a3_default/cascades/gk_cascade200_equal.gkp	gk 1.3.2	default	O3_families/inputs/cascades/gk_cascade200_equal.gkp	O3_families/inputs/cascades	$GK gk_cascade200_equal.gkp	10	no	12G	30	0	100	raw/a3_default.tar.xz:a3_default/cascades_gk_cascade200_equal.gkp.out
+a3_default/cascades/gk_cascade200_priorities.gkp	gk 1.3.2	default	O3_families/inputs/cascades/gk_cascade200_priorities.gkp	O3_families/inputs/cascades	$GK gk_cascade200_priorities.gkp	10	no	12G	30	0	100	raw/a3_default.tar.xz:a3_default/cascades_gk_cascade200_priorities.gkp.out
+a3_default/chains_trees/gk_chain1000.gkp	gk 1.3.2	default	O3_families/inputs/chains_trees/gk_chain1000.gkp	O3_families/inputs/chains_trees	$GK gk_chain1000.gkp	10	no	12G	30	0	105	raw/a3_default.tar.xz:a3_default/chains_trees_gk_chain1000.gkp.out
+a3_default/chains_trees/gk_tree2047.gkp	gk 1.3.2	default	O3_families/inputs/chains_trees/gk_tree2047.gkp	O3_families/inputs/chains_trees	$GK gk_tree2047.gkp	10	no	12G	30	0	114	raw/a3_default.tar.xz:a3_default/chains_trees_gk_tree2047.gkp.out
+a3_default/chains_trees/gk_tree364.gkp	gk 1.3.2	default	O3_families/inputs/chains_trees/gk_tree364.gkp	O3_families/inputs/chains_trees	$GK gk_tree364.gkp	10	no	12G	30	0	103	raw/a3_default.tar.xz:a3_default/chains_trees_gk_tree364.gkp.out
+a3_default/comparison/c1.gkp	gk 1.3.2	default	O5_comparisons/inputs/gk/c1.gkp	O5_comparisons/inputs/gk	$GK c1.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/comparison_c1.gkp.out
+a3_default/comparison/c2.gkp	gk 1.3.2	default	O5_comparisons/inputs/gk/c2.gkp	O5_comparisons/inputs/gk	$GK c2.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/comparison_c2.gkp.out
+a3_default/comparison/f1.gkp	gk 1.3.2	default	O5_comparisons/inputs/gk/f1.gkp	O5_comparisons/inputs/gk	$GK f1.gkp	10	no	12G	30	0	103	raw/a3_default.tar.xz:a3_default/comparison_f1.gkp.out
+a3_default/comparison/n1_study4.gkp	gk 1.3.2	default	O5_comparisons/inputs/gk/n1_study4.gkp	O5_comparisons/inputs/gk	$GK n1_study4.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/comparison_n1_study4.gkp.out
+a3_default/comparison/n2_study10.gkp	gk 1.3.2	default	O5_comparisons/inputs/gk/n2_study10.gkp	O5_comparisons/inputs/gk	$GK n2_study10.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/comparison_n2_study10.gkp.out
+a3_default/cyclic/gk_af10_in_x3.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_af10_in_x3.gkp	O3_families/inputs/cyclic	$GK gk_af10_in_x3.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/cyclic_gk_af10_in_x3.gkp.out
+a3_default/cyclic/gk_af10_out_x0.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_af10_out_x0.gkp	O3_families/inputs/cyclic	$GK gk_af10_out_x0.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/cyclic_gk_af10_out_x0.gkp.out
+a3_default/cyclic/gk_af10_undec_x6.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_af10_undec_x6.gkp	O3_families/inputs/cyclic	$GK gk_af10_undec_x6.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/cyclic_gk_af10_undec_x6.gkp.out
+a3_default/cyclic/gk_af10_undec_x6_att.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_af10_undec_x6_att.gkp	O3_families/inputs/cyclic	$GK gk_af10_undec_x6_att.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/cyclic_gk_af10_undec_x6_att.gkp.out
+a3_default/cyclic/gk_af20_undec_x0.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_af20_undec_x0.gkp	O3_families/inputs/cyclic	$GK gk_af20_undec_x0.gkp	10	no	12G	30	0	134	raw/a3_default.tar.xz:a3_default/cyclic_gk_af20_undec_x0.gkp.out
+a3_default/cyclic/gk_af20_undec_x0_att.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_af20_undec_x0_att.gkp	O3_families/inputs/cyclic	$GK gk_af20_undec_x0_att.gkp	10	no	12G	30	0	133	raw/a3_default.tar.xz:a3_default/cyclic_gk_af20_undec_x0_att.gkp.out
+a3_default/cyclic/gk_af40_in_x12.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_af40_in_x12.gkp	O3_families/inputs/cyclic	$GK gk_af40_in_x12.gkp	10	no	12G	30	0	198	raw/a3_default.tar.xz:a3_default/cyclic_gk_af40_in_x12.gkp.out
+a3_default/cyclic/gk_af40_out_x9.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_af40_out_x9.gkp	O3_families/inputs/cyclic	$GK gk_af40_out_x9.gkp	10	no	12G	30	0	228	raw/a3_default.tar.xz:a3_default/cyclic_gk_af40_out_x9.gkp.out
+a3_default/cyclic/gk_af40_out_x9_att.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_af40_out_x9_att.gkp	O3_families/inputs/cyclic	$GK gk_af40_out_x9_att.gkp	10	no	12G	30	0	154	raw/a3_default.tar.xz:a3_default/cyclic_gk_af40_out_x9_att.gkp.out
+a3_default/cyclic/gk_af40_undec_x0.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_af40_undec_x0.gkp	O3_families/inputs/cyclic	$GK gk_af40_undec_x0.gkp	10	no	12G	30	0	168	raw/a3_default.tar.xz:a3_default/cyclic_gk_af40_undec_x0.gkp.out
+a3_default/cyclic/gk_af40_undec_x0_att.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_af40_undec_x0_att.gkp	O3_families/inputs/cyclic	$GK gk_af40_undec_x0_att.gkp	10	no	12G	30	0	153	raw/a3_default.tar.xz:a3_default/cyclic_gk_af40_undec_x0_att.gkp.out
+a3_default/cyclic/gk_af6_in_x2.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_af6_in_x2.gkp	O3_families/inputs/cyclic	$GK gk_af6_in_x2.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/cyclic_gk_af6_in_x2.gkp.out
+a3_default/cyclic/gk_af6_out_x0.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_af6_out_x0.gkp	O3_families/inputs/cyclic	$GK gk_af6_out_x0.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/cyclic_gk_af6_out_x0.gkp.out
+a3_default/cyclic/gk_af6_undec_x1.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_af6_undec_x1.gkp	O3_families/inputs/cyclic	$GK gk_af6_undec_x1.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/cyclic_gk_af6_undec_x1.gkp.out
+a3_default/cyclic/gk_program12.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_program12.gkp	O3_families/inputs/cyclic	$GK gk_program12.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/cyclic_gk_program12.gkp.out
+a3_default/cyclic/gk_program20.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_program20.gkp	O3_families/inputs/cyclic	$GK gk_program20.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/cyclic_gk_program20.gkp.out
+a3_default/cyclic/gk_program4.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_program4.gkp	O3_families/inputs/cyclic	$GK gk_program4.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/cyclic_gk_program4.gkp.out
+a3_default/cyclic/gk_program40.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_program40.gkp	O3_families/inputs/cyclic	$GK gk_program40.gkp	10	no	12G	30	0	99	raw/a3_default.tar.xz:a3_default/cyclic_gk_program40.gkp.out
+a3_default/cyclic/gk_program6.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_program6.gkp	O3_families/inputs/cyclic	$GK gk_program6.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/cyclic_gk_program6.gkp.out
+a3_default/cyclic/gk_program8.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_program8.gkp	O3_families/inputs/cyclic	$GK gk_program8.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/cyclic_gk_program8.gkp.out
+a3_default/cyclic/gk_ring15.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_ring15.gkp	O3_families/inputs/cyclic	$GK gk_ring15.gkp	10	no	12G	30	0	100	raw/a3_default.tar.xz:a3_default/cyclic_gk_ring15.gkp.out
+a3_default/cyclic/gk_ring3.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_ring3.gkp	O3_families/inputs/cyclic	$GK gk_ring3.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/cyclic_gk_ring3.gkp.out
+a3_default/cyclic/gk_ring30.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_ring30.gkp	O3_families/inputs/cyclic	$GK gk_ring30.gkp	10	no	12G	30	0	130	raw/a3_default.tar.xz:a3_default/cyclic_gk_ring30.gkp.out
+a3_default/cyclic/gk_ring4.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_ring4.gkp	O3_families/inputs/cyclic	$GK gk_ring4.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/cyclic_gk_ring4.gkp.out
+a3_default/cyclic/gk_ring5.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_ring5.gkp	O3_families/inputs/cyclic	$GK gk_ring5.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/cyclic_gk_ring5.gkp.out
+a3_default/cyclic/gk_ring8.gkp	gk 1.3.2	default	O3_families/inputs/cyclic/gk_ring8.gkp	O3_families/inputs/cyclic	$GK gk_ring8.gkp	10	no	12G	30	0	98	raw/a3_default.tar.xz:a3_default/cyclic_gk_ring8.gkp.out
+a3_default/delivery/gk_background10.gkp	gk 1.3.2	default	O3_families/inputs/delivery/gk_background10.gkp	O3_families/inputs/delivery	$GK gk_background10.gkp	10	no	12G	30	0	129	raw/a3_default.tar.xz:a3_default/delivery_gk_background10.gkp.out
+a3_default/delivery/gk_background200.gkp	gk 1.3.2	default	O3_families/inputs/delivery/gk_background200.gkp	O3_families/inputs/delivery	$GK gk_background200.gkp	10	no	12G	30	0	171	raw/a3_default.tar.xz:a3_default/delivery_gk_background200.gkp.out
+a3_default/delivery/gk_background50.gkp	gk 1.3.2	default	O3_families/inputs/delivery/gk_background50.gkp	O3_families/inputs/delivery	$GK gk_background50.gkp	10	no	12G	30	0	159	raw/a3_default.tar.xz:a3_default/delivery_gk_background50.gkp.out
+a3_default/delivery/gk_exception_chain1.gkp	gk 1.3.2	default	O3_families/inputs/delivery/gk_exception_chain1.gkp	O3_families/inputs/delivery	$GK gk_exception_chain1.gkp	10	no	12G	30	0	127	raw/a3_default.tar.xz:a3_default/delivery_gk_exception_chain1.gkp.out
+a3_default/delivery/gk_exception_chain20.gkp	gk 1.3.2	default	O3_families/inputs/delivery/gk_exception_chain20.gkp	O3_families/inputs/delivery	$GK gk_exception_chain20.gkp	10	no	12G	30	0	130	raw/a3_default.tar.xz:a3_default/delivery_gk_exception_chain20.gkp.out
+a3_default/delivery/gk_exception_chain5.gkp	gk 1.3.2	default	O3_families/inputs/delivery/gk_exception_chain5.gkp	O3_families/inputs/delivery	$GK gk_exception_chain5.gkp	10	no	12G	30	0	128	raw/a3_default.tar.xz:a3_default/delivery_gk_exception_chain5.gkp.out
+a3_default/delivery/gk_exception_chain50.gkp	gk 1.3.2	default	O3_families/inputs/delivery/gk_exception_chain50.gkp	O3_families/inputs/delivery	$GK gk_exception_chain50.gkp	10	no	12G	30	0	142	raw/a3_default.tar.xz:a3_default/delivery_gk_exception_chain50.gkp.out
+a3_default/delivery/gk_legs16_control.gkp	gk 1.3.2	default	O3_families/inputs/delivery/gk_legs16_control.gkp	O3_families/inputs/delivery	$GK gk_legs16_control.gkp	10	no	12G	30	0	237	raw/a3_default.tar.xz:a3_default/delivery_gk_legs16_control.gkp.out
+a3_default/delivery/gk_legs16_opposed.gkp	gk 1.3.2	default	O3_families/inputs/delivery/gk_legs16_opposed.gkp	O3_families/inputs/delivery	$GK gk_legs16_opposed.gkp	10	no	12G	30	0	214	raw/a3_default.tar.xz:a3_default/delivery_gk_legs16_opposed.gkp.out
+a3_default/delivery/gk_legs2_control.gkp	gk 1.3.2	default	O3_families/inputs/delivery/gk_legs2_control.gkp	O3_families/inputs/delivery	$GK gk_legs2_control.gkp	10	no	12G	30	0	127	raw/a3_default.tar.xz:a3_default/delivery_gk_legs2_control.gkp.out
+a3_default/delivery/gk_legs2_control_flat.gkp	gk 1.3.2	default	O3_families/inputs/delivery/gk_legs2_control_flat.gkp	O3_families/inputs/delivery	$GK gk_legs2_control_flat.gkp	10	no	12G	30	0	99	raw/a3_default.tar.xz:a3_default/delivery_gk_legs2_control_flat.gkp.out
+a3_default/delivery/gk_legs2_opposed.gkp	gk 1.3.2	default	O3_families/inputs/delivery/gk_legs2_opposed.gkp	O3_families/inputs/delivery	$GK gk_legs2_opposed.gkp	10	no	12G	30	0	127	raw/a3_default.tar.xz:a3_default/delivery_gk_legs2_opposed.gkp.out
+a3_default/delivery/gk_legs2_opposed_flat.gkp	gk 1.3.2	default	O3_families/inputs/delivery/gk_legs2_opposed_flat.gkp	O3_families/inputs/delivery	$GK gk_legs2_opposed_flat.gkp	10	no	12G	30	0	99	raw/a3_default.tar.xz:a3_default/delivery_gk_legs2_opposed_flat.gkp.out
+a3_default/delivery/gk_legs32_control.gkp	gk 1.3.2	default	O3_families/inputs/delivery/gk_legs32_control.gkp	O3_families/inputs/delivery	$GK gk_legs32_control.gkp	10	no	12G	30	0	387	raw/a3_default.tar.xz:a3_default/delivery_gk_legs32_control.gkp.out
+a3_default/delivery/gk_legs32_opposed.gkp	gk 1.3.2	default	O3_families/inputs/delivery/gk_legs32_opposed.gkp	O3_families/inputs/delivery	$GK gk_legs32_opposed.gkp	10	no	12G	30	0	397	raw/a3_default.tar.xz:a3_default/delivery_gk_legs32_opposed.gkp.out
+a3_default/delivery/gk_legs4_control.gkp	gk 1.3.2	default	O3_families/inputs/delivery/gk_legs4_control.gkp	O3_families/inputs/delivery	$GK gk_legs4_control.gkp	10	no	12G	30	0	140	raw/a3_default.tar.xz:a3_default/delivery_gk_legs4_control.gkp.out
+a3_default/delivery/gk_legs4_control_flat.gkp	gk 1.3.2	default	O3_families/inputs/delivery/gk_legs4_control_flat.gkp	O3_families/inputs/delivery	$GK gk_legs4_control_flat.gkp	10	no	12G	30	0	101	raw/a3_default.tar.xz:a3_default/delivery_gk_legs4_control_flat.gkp.out
+a3_default/delivery/gk_legs4_opposed.gkp	gk 1.3.2	default	O3_families/inputs/delivery/gk_legs4_opposed.gkp	O3_families/inputs/delivery	$GK gk_legs4_opposed.gkp	10	no	12G	30	0	141	raw/a3_default.tar.xz:a3_default/delivery_gk_legs4_opposed.gkp.out
+a3_default/delivery/gk_legs4_opposed_flat.gkp	gk 1.3.2	default	O3_families/inputs/delivery/gk_legs4_opposed_flat.gkp	O3_families/inputs/delivery	$GK gk_legs4_opposed_flat.gkp	10	no	12G	30	0	101	raw/a3_default.tar.xz:a3_default/delivery_gk_legs4_opposed_flat.gkp.out
+a3_default/delivery/gk_legs8_control.gkp	gk 1.3.2	default	O3_families/inputs/delivery/gk_legs8_control.gkp	O3_families/inputs/delivery	$GK gk_legs8_control.gkp	10	no	12G	30	0	484	raw/a3_default.tar.xz:a3_default/delivery_gk_legs8_control.gkp.out
+a3_default/delivery/gk_legs8_opposed.gkp	gk 1.3.2	default	O3_families/inputs/delivery/gk_legs8_opposed.gkp	O3_families/inputs/delivery	$GK gk_legs8_opposed.gkp	10	no	12G	30	0	517	raw/a3_default.tar.xz:a3_default/delivery_gk_legs8_opposed.gkp.out
+a3_default/equipment/gk_background10.gkp	gk 1.3.2	default	O3_families/inputs/equipment/gk_background10.gkp	O3_families/inputs/equipment	$GK gk_background10.gkp	10	no	12G	30	0	144	raw/a3_default.tar.xz:a3_default/equipment_gk_background10.gkp.out
+a3_default/equipment/gk_background200.gkp	gk 1.3.2	default	O3_families/inputs/equipment/gk_background200.gkp	O3_families/inputs/equipment	$GK gk_background200.gkp	10	no	12G	30	0	208	raw/a3_default.tar.xz:a3_default/equipment_gk_background200.gkp.out
+a3_default/equipment/gk_background50.gkp	gk 1.3.2	default	O3_families/inputs/equipment/gk_background50.gkp	O3_families/inputs/equipment	$GK gk_background50.gkp	10	no	12G	30	0	151	raw/a3_default.tar.xz:a3_default/equipment_gk_background50.gkp.out
+a3_default/equipment/gk_components16.gkp	gk 1.3.2	default	O3_families/inputs/equipment/gk_components16.gkp	O3_families/inputs/equipment	$GK gk_components16.gkp	10	no	12G	30	0	129	raw/a3_default.tar.xz:a3_default/equipment_gk_components16.gkp.out
+a3_default/equipment/gk_components2.gkp	gk 1.3.2	default	O3_families/inputs/equipment/gk_components2.gkp	O3_families/inputs/equipment	$GK gk_components2.gkp	10	no	12G	30	0	121	raw/a3_default.tar.xz:a3_default/equipment_gk_components2.gkp.out
+a3_default/equipment/gk_components4.gkp	gk 1.3.2	default	O3_families/inputs/equipment/gk_components4.gkp	O3_families/inputs/equipment	$GK gk_components4.gkp	10	no	12G	30	0	123	raw/a3_default.tar.xz:a3_default/equipment_gk_components4.gkp.out
+a3_default/equipment/gk_components8.gkp	gk 1.3.2	default	O3_families/inputs/equipment/gk_components8.gkp	O3_families/inputs/equipment	$GK gk_components8.gkp	10	no	12G	30	0	130	raw/a3_default.tar.xz:a3_default/equipment_gk_components8.gkp.out
+a3_default/equipment/gk_equality_chain1.gkp	gk 1.3.2	default	O3_families/inputs/equipment/gk_equality_chain1.gkp	O3_families/inputs/equipment	$GK gk_equality_chain1.gkp	10	no	12G	30	0	120	raw/a3_default.tar.xz:a3_default/equipment_gk_equality_chain1.gkp.out
+a3_default/equipment/gk_equality_chain10.gkp	gk 1.3.2	default	O3_families/inputs/equipment/gk_equality_chain10.gkp	O3_families/inputs/equipment	$GK gk_equality_chain10.gkp	10	no	12G	30	0	121	raw/a3_default.tar.xz:a3_default/equipment_gk_equality_chain10.gkp.out
+a3_default/equipment/gk_equality_chain20.gkp	gk 1.3.2	default	O3_families/inputs/equipment/gk_equality_chain20.gkp	O3_families/inputs/equipment	$GK gk_equality_chain20.gkp	10	no	12G	30	0	121	raw/a3_default.tar.xz:a3_default/equipment_gk_equality_chain20.gkp.out
+a3_default/equipment/gk_equality_chain3.gkp	gk 1.3.2	default	O3_families/inputs/equipment/gk_equality_chain3.gkp	O3_families/inputs/equipment	$GK gk_equality_chain3.gkp	10	no	12G	30	0	120	raw/a3_default.tar.xz:a3_default/equipment_gk_equality_chain3.gkp.out
+a3_default/equipment/gk_equality_chain6.gkp	gk 1.3.2	default	O3_families/inputs/equipment/gk_equality_chain6.gkp	O3_families/inputs/equipment	$GK gk_equality_chain6.gkp	10	no	12G	30	0	120	raw/a3_default.tar.xz:a3_default/equipment_gk_equality_chain6.gkp.out
+a3_default/equipment/gk_second_supply.gkp	gk 1.3.2	default	O3_families/inputs/equipment/gk_second_supply.gkp	O3_families/inputs/equipment	$GK gk_second_supply.gkp	10	no	12G	30	0	121	raw/a3_default.tar.xz:a3_default/equipment_gk_second_supply.gkp.out
+a3_default/grids/gk_corner16.gkp	gk 1.3.2	default	O3_families/inputs/grids/gk_corner16.gkp	O3_families/inputs/grids	$GK gk_corner16.gkp	10	no	12G	30	0	99	raw/a3_default.tar.xz:a3_default/grids_gk_corner16.gkp.out
+a3_default/grids/gk_corner33.gkp	gk 1.3.2	default	O3_families/inputs/grids/gk_corner33.gkp	O3_families/inputs/grids	$GK gk_corner33.gkp	10	no	12G	30	0	99	raw/a3_default.tar.xz:a3_default/grids_gk_corner33.gkp.out
+a3_default/grids/gk_corner56.gkp	gk 1.3.2	default	O3_families/inputs/grids/gk_corner56.gkp	O3_families/inputs/grids	$GK gk_corner56.gkp	10	no	12G	30	0	121	raw/a3_default.tar.xz:a3_default/grids_gk_corner56.gkp.out
+a3_default/grids/gk_full_d1.gkp	gk 1.3.2	default	O3_families/inputs/grids/gk_full_d1.gkp	O3_families/inputs/grids	$GK gk_full_d1.gkp	10	no	12G	30	0	197	raw/a3_default.tar.xz:a3_default/grids_gk_full_d1.gkp.out
+a3_default/grids/gk_full_d2.gkp	gk 1.3.2	default	O3_families/inputs/grids/gk_full_d2.gkp	O3_families/inputs/grids	$GK gk_full_d2.gkp	10	no	12G	30	0	198	raw/a3_default.tar.xz:a3_default/grids_gk_full_d2.gkp.out
+a3_default/grids/gk_full_d3.gkp	gk 1.3.2	default	O3_families/inputs/grids/gk_full_d3.gkp	O3_families/inputs/grids	$GK gk_full_d3.gkp	10	no	12G	30	0	198	raw/a3_default.tar.xz:a3_default/grids_gk_full_d3.gkp.out
+a3_default/grids/gk_full_d4.gkp	gk 1.3.2	default	O3_families/inputs/grids/gk_full_d4.gkp	O3_families/inputs/grids	$GK gk_full_d4.gkp	10	no	12G	30	0	220	raw/a3_default.tar.xz:a3_default/grids_gk_full_d4.gkp.out
+a3_default/grids/gk_full_d5.gkp	gk 1.3.2	default	O3_families/inputs/grids/gk_full_d5.gkp	O3_families/inputs/grids	$GK gk_full_d5.gkp	10	no	12G	30	0	2731	raw/a3_default.tar.xz:a3_default/grids_gk_full_d5.gkp.out
+a3_default/grids/gk_full_d6.gkp	gk 1.3.2	default	O3_families/inputs/grids/gk_full_d6.gkp	O3_families/inputs/grids	$GK gk_full_d6.gkp	10	no	12G	30	0	3736	raw/a3_default.tar.xz:a3_default/grids_gk_full_d6.gkp.out
+a3_default/grids/gk_full_d8.gkp	gk 1.3.2	default	O3_families/inputs/grids/gk_full_d8.gkp	O3_families/inputs/grids	$GK gk_full_d8.gkp	10	no	12G	30	0	5409	raw/a3_default.tar.xz:a3_default/grids_gk_full_d8.gkp.out
+a3_default/smokers/gk_smokers12.gkp	gk 1.3.2	default	O3_families/inputs/smokers/gk_smokers12.gkp	O3_families/inputs/smokers	$GK gk_smokers12.gkp	10	no	12G	30	0	381	raw/a3_default.tar.xz:a3_default/smokers_gk_smokers12.gkp.out
+a3_default/smokers/gk_smokers5.gkp	gk 1.3.2	default	O3_families/inputs/smokers/gk_smokers5.gkp	O3_families/inputs/smokers	$GK gk_smokers5.gkp	10	no	12G	30	0	118	raw/a3_default.tar.xz:a3_default/smokers_gk_smokers5.gkp.out
+a3_default/smokers/gk_smokers8.gkp	gk 1.3.2	default	O3_families/inputs/smokers/gk_smokers8.gkp	O3_families/inputs/smokers	$GK gk_smokers8.gkp	10	no	12G	30	0	197	raw/a3_default.tar.xz:a3_default/smokers_gk_smokers8.gkp.out
+a3_default/university/gk_dept1_scale0.25_employee.gkp	gk 1.3.2	default	O3_families/inputs/university/gk_dept1_scale0.25_employee.gkp	O3_families/inputs/university	$GK gk_dept1_scale0.25_employee.gkp	10	no	12G	30	0	100	raw/a3_default.tar.xz:a3_default/university_gk_dept1_scale0.25_employee.gkp.out
+a3_default/university/gk_dept1_scale0.25_memberOf.gkp	gk 1.3.2	default	O3_families/inputs/university/gk_dept1_scale0.25_memberOf.gkp	O3_families/inputs/university	$GK gk_dept1_scale0.25_memberOf.gkp	10	no	12G	30	0	100	raw/a3_default.tar.xz:a3_default/university_gk_dept1_scale0.25_memberOf.gkp.out
+a3_default/university/gk_dept1_scale0.25_organization.gkp	gk 1.3.2	default	O3_families/inputs/university/gk_dept1_scale0.25_organization.gkp	O3_families/inputs/university	$GK gk_dept1_scale0.25_organization.gkp	10	no	12G	30	0	100	raw/a3_default.tar.xz:a3_default/university_gk_dept1_scale0.25_organization.gkp.out
+a3_default/university/gk_dept1_scale0.25_person.gkp	gk 1.3.2	default	O3_families/inputs/university/gk_dept1_scale0.25_person.gkp	O3_families/inputs/university	$GK gk_dept1_scale0.25_person.gkp	10	no	12G	30	0	100	raw/a3_default.tar.xz:a3_default/university_gk_dept1_scale0.25_person.gkp.out
+a3_default/university/gk_dept1_scale1_employee.gkp	gk 1.3.2	default	O3_families/inputs/university/gk_dept1_scale1_employee.gkp	O3_families/inputs/university	$GK gk_dept1_scale1_employee.gkp	10	no	12G	30	0	105	raw/a3_default.tar.xz:a3_default/university_gk_dept1_scale1_employee.gkp.out
+a3_default/university/gk_dept1_scale1_memberOf.gkp	gk 1.3.2	default	O3_families/inputs/university/gk_dept1_scale1_memberOf.gkp	O3_families/inputs/university	$GK gk_dept1_scale1_memberOf.gkp	10	no	12G	30	0	105	raw/a3_default.tar.xz:a3_default/university_gk_dept1_scale1_memberOf.gkp.out
+a3_default/university/gk_dept1_scale1_organization.gkp	gk 1.3.2	default	O3_families/inputs/university/gk_dept1_scale1_organization.gkp	O3_families/inputs/university	$GK gk_dept1_scale1_organization.gkp	10	no	12G	30	0	107	raw/a3_default.tar.xz:a3_default/university_gk_dept1_scale1_organization.gkp.out
+a3_default/university/gk_dept1_scale1_person.gkp	gk 1.3.2	default	O3_families/inputs/university/gk_dept1_scale1_person.gkp	O3_families/inputs/university	$GK gk_dept1_scale1_person.gkp	10	no	12G	30	0	105	raw/a3_default.tar.xz:a3_default/university_gk_dept1_scale1_person.gkp.out
+a3_default/university/gk_dept3_scale1_employee.gkp	gk 1.3.2	default	O3_families/inputs/university/gk_dept3_scale1_employee.gkp	O3_families/inputs/university	$GK gk_dept3_scale1_employee.gkp	10	no	12G	30	0	118	raw/a3_default.tar.xz:a3_default/university_gk_dept3_scale1_employee.gkp.out
+a3_default/university/gk_dept3_scale1_memberOf.gkp	gk 1.3.2	default	O3_families/inputs/university/gk_dept3_scale1_memberOf.gkp	O3_families/inputs/university	$GK gk_dept3_scale1_memberOf.gkp	10	no	12G	30	0	118	raw/a3_default.tar.xz:a3_default/university_gk_dept3_scale1_memberOf.gkp.out
+a3_default/university/gk_dept3_scale1_organization.gkp	gk 1.3.2	default	O3_families/inputs/university/gk_dept3_scale1_organization.gkp	O3_families/inputs/university	$GK gk_dept3_scale1_organization.gkp	10	no	12G	30	0	121	raw/a3_default.tar.xz:a3_default/university_gk_dept3_scale1_organization.gkp.out
+a3_default/university/gk_dept3_scale1_person.gkp	gk 1.3.2	default	O3_families/inputs/university/gk_dept3_scale1_person.gkp	O3_families/inputs/university	$GK gk_dept3_scale1_person.gkp	10	no	12G	30	0	119	raw/a3_default.tar.xz:a3_default/university_gk_dept3_scale1_person.gkp.out
+a3_exact/bn/gk_andes_rapp3.gkp	gk 1.3.2	exact	O3_families/inputs/bn/gk_andes_rapp3.gkp	O3_families/inputs/bn	$GK gk_andes_rapp3.gkp -exact	10	no	12G	30	0	105	raw/a3_exact.tar.xz:a3_exact/bn_gk_andes_rapp3.gkp.out
+a3_exact/bn/gk_andes_snode_151.gkp	gk 1.3.2	exact	O3_families/inputs/bn/gk_andes_snode_151.gkp	O3_families/inputs/bn	$GK gk_andes_snode_151.gkp -exact	10	no	12G	30	0	8290	raw/a3_exact.tar.xz:a3_exact/bn_gk_andes_snode_151.gkp.out
+a3_exact/bn/gk_andes_snode_74.gkp	gk 1.3.2	exact	O3_families/inputs/bn/gk_andes_snode_74.gkp	O3_families/inputs/bn	$GK gk_andes_snode_74.gkp -exact	10	no	12G	30	0	1681	raw/a3_exact.tar.xz:a3_exact/bn_gk_andes_snode_74.gkp.out
+a3_exact/bn/gk_asia_bronc.gkp	gk 1.3.2	exact	O3_families/inputs/bn/gk_asia_bronc.gkp	O3_families/inputs/bn	$GK gk_asia_bronc.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/bn_gk_asia_bronc.gkp.out
+a3_exact/bn/gk_asia_either.gkp	gk 1.3.2	exact	O3_families/inputs/bn/gk_asia_either.gkp	O3_families/inputs/bn	$GK gk_asia_either.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/bn_gk_asia_either.gkp.out
+a3_exact/bn/gk_asia_xray.gkp	gk 1.3.2	exact	O3_families/inputs/bn/gk_asia_xray.gkp	O3_families/inputs/bn	$GK gk_asia_xray.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/bn_gk_asia_xray.gkp.out
+a3_exact/bn/gk_cancer_cancer.gkp	gk 1.3.2	exact	O3_families/inputs/bn/gk_cancer_cancer.gkp	O3_families/inputs/bn	$GK gk_cancer_cancer.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/bn_gk_cancer_cancer.gkp.out
+a3_exact/bn/gk_cancer_xray.gkp	gk 1.3.2	exact	O3_families/inputs/bn/gk_cancer_xray.gkp	O3_families/inputs/bn	$GK gk_cancer_xray.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/bn_gk_cancer_xray.gkp.out
+a3_exact/bn/gk_earthquake_alarm.gkp	gk 1.3.2	exact	O3_families/inputs/bn/gk_earthquake_alarm.gkp	O3_families/inputs/bn	$GK gk_earthquake_alarm.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/bn_gk_earthquake_alarm.gkp.out
+a3_exact/bn/gk_earthquake_johncalls.gkp	gk 1.3.2	exact	O3_families/inputs/bn/gk_earthquake_johncalls.gkp	O3_families/inputs/bn	$GK gk_earthquake_johncalls.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/bn_gk_earthquake_johncalls.gkp.out
+a3_exact/bn/gk_win95pts_pc2prt.gkp	gk 1.3.2	exact	O3_families/inputs/bn/gk_win95pts_pc2prt.gkp	O3_families/inputs/bn	$GK gk_win95pts_pc2prt.gkp -exact	10	no	12G	30	0	134	raw/a3_exact.tar.xz:a3_exact/bn_gk_win95pts_pc2prt.gkp.out
+a3_exact/bn/gk_win95pts_problem1.gkp	gk 1.3.2	exact	O3_families/inputs/bn/gk_win95pts_problem1.gkp	O3_families/inputs/bn	$GK gk_win95pts_problem1.gkp -exact	10	no	12G	30	0	191	raw/a3_exact.tar.xz:a3_exact/bn_gk_win95pts_problem1.gkp.out
+a3_exact/bn/gk_win95pts_prtstatpaper.gkp	gk 1.3.2	exact	O3_families/inputs/bn/gk_win95pts_prtstatpaper.gkp	O3_families/inputs/bn	$GK gk_win95pts_prtstatpaper.gkp -exact	10	no	12G	30	0	102	raw/a3_exact.tar.xz:a3_exact/bn_gk_win95pts_prtstatpaper.gkp.out
+a3_exact/cascades/gk_cascade200_equal.gkp	gk 1.3.2	exact	O3_families/inputs/cascades/gk_cascade200_equal.gkp	O3_families/inputs/cascades	$GK gk_cascade200_equal.gkp -exact	10	no	12G	30	0	100	raw/a3_exact.tar.xz:a3_exact/cascades_gk_cascade200_equal.gkp.out
+a3_exact/cascades/gk_cascade200_priorities.gkp	gk 1.3.2	exact	O3_families/inputs/cascades/gk_cascade200_priorities.gkp	O3_families/inputs/cascades	$GK gk_cascade200_priorities.gkp -exact	10	no	12G	30	0	100	raw/a3_exact.tar.xz:a3_exact/cascades_gk_cascade200_priorities.gkp.out
+a3_exact/chains_trees/gk_chain1000.gkp	gk 1.3.2	exact	O3_families/inputs/chains_trees/gk_chain1000.gkp	O3_families/inputs/chains_trees	$GK gk_chain1000.gkp -exact	10	no	12G	30	0	105	raw/a3_exact.tar.xz:a3_exact/chains_trees_gk_chain1000.gkp.out
+a3_exact/chains_trees/gk_tree2047.gkp	gk 1.3.2	exact	O3_families/inputs/chains_trees/gk_tree2047.gkp	O3_families/inputs/chains_trees	$GK gk_tree2047.gkp -exact	10	no	12G	30	0	113	raw/a3_exact.tar.xz:a3_exact/chains_trees_gk_tree2047.gkp.out
+a3_exact/chains_trees/gk_tree364.gkp	gk 1.3.2	exact	O3_families/inputs/chains_trees/gk_tree364.gkp	O3_families/inputs/chains_trees	$GK gk_tree364.gkp -exact	10	no	12G	30	0	103	raw/a3_exact.tar.xz:a3_exact/chains_trees_gk_tree364.gkp.out
+a3_exact/comparison/c1.gkp	gk 1.3.2	exact	O5_comparisons/inputs/gk/c1.gkp	O5_comparisons/inputs/gk	$GK c1.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/comparison_c1.gkp.out
+a3_exact/comparison/c2.gkp	gk 1.3.2	exact	O5_comparisons/inputs/gk/c2.gkp	O5_comparisons/inputs/gk	$GK c2.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/comparison_c2.gkp.out
+a3_exact/comparison/f1.gkp	gk 1.3.2	exact	O5_comparisons/inputs/gk/f1.gkp	O5_comparisons/inputs/gk	$GK f1.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/comparison_f1.gkp.out
+a3_exact/comparison/n1_study4.gkp	gk 1.3.2	exact	O5_comparisons/inputs/gk/n1_study4.gkp	O5_comparisons/inputs/gk	$GK n1_study4.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/comparison_n1_study4.gkp.out
+a3_exact/comparison/n2_study10.gkp	gk 1.3.2	exact	O5_comparisons/inputs/gk/n2_study10.gkp	O5_comparisons/inputs/gk	$GK n2_study10.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/comparison_n2_study10.gkp.out
+a3_exact/cyclic/gk_af10_in_x3.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_af10_in_x3.gkp	O3_families/inputs/cyclic	$GK gk_af10_in_x3.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_af10_in_x3.gkp.out
+a3_exact/cyclic/gk_af10_out_x0.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_af10_out_x0.gkp	O3_families/inputs/cyclic	$GK gk_af10_out_x0.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_af10_out_x0.gkp.out
+a3_exact/cyclic/gk_af10_undec_x6.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_af10_undec_x6.gkp	O3_families/inputs/cyclic	$GK gk_af10_undec_x6.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_af10_undec_x6.gkp.out
+a3_exact/cyclic/gk_af10_undec_x6_att.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_af10_undec_x6_att.gkp	O3_families/inputs/cyclic	$GK gk_af10_undec_x6_att.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_af10_undec_x6_att.gkp.out
+a3_exact/cyclic/gk_af20_undec_x0.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_af20_undec_x0.gkp	O3_families/inputs/cyclic	$GK gk_af20_undec_x0.gkp -exact	10	no	12G	30	0	99	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_af20_undec_x0.gkp.out
+a3_exact/cyclic/gk_af20_undec_x0_att.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_af20_undec_x0_att.gkp	O3_families/inputs/cyclic	$GK gk_af20_undec_x0_att.gkp -exact	10	no	12G	30	0	99	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_af20_undec_x0_att.gkp.out
+a3_exact/cyclic/gk_af40_in_x12.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_af40_in_x12.gkp	O3_families/inputs/cyclic	$GK gk_af40_in_x12.gkp -exact	10	no	12G	30	0	99	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_af40_in_x12.gkp.out
+a3_exact/cyclic/gk_af40_out_x9.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_af40_out_x9.gkp	O3_families/inputs/cyclic	$GK gk_af40_out_x9.gkp -exact	10	no	12G	30	0	99	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_af40_out_x9.gkp.out
+a3_exact/cyclic/gk_af40_out_x9_att.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_af40_out_x9_att.gkp	O3_families/inputs/cyclic	$GK gk_af40_out_x9_att.gkp -exact	10	no	12G	30	0	99	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_af40_out_x9_att.gkp.out
+a3_exact/cyclic/gk_af40_undec_x0.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_af40_undec_x0.gkp	O3_families/inputs/cyclic	$GK gk_af40_undec_x0.gkp -exact	10	no	12G	30	0	99	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_af40_undec_x0.gkp.out
+a3_exact/cyclic/gk_af40_undec_x0_att.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_af40_undec_x0_att.gkp	O3_families/inputs/cyclic	$GK gk_af40_undec_x0_att.gkp -exact	10	no	12G	30	0	99	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_af40_undec_x0_att.gkp.out
+a3_exact/cyclic/gk_af6_in_x2.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_af6_in_x2.gkp	O3_families/inputs/cyclic	$GK gk_af6_in_x2.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_af6_in_x2.gkp.out
+a3_exact/cyclic/gk_af6_out_x0.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_af6_out_x0.gkp	O3_families/inputs/cyclic	$GK gk_af6_out_x0.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_af6_out_x0.gkp.out
+a3_exact/cyclic/gk_af6_undec_x1.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_af6_undec_x1.gkp	O3_families/inputs/cyclic	$GK gk_af6_undec_x1.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_af6_undec_x1.gkp.out
+a3_exact/cyclic/gk_program12.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_program12.gkp	O3_families/inputs/cyclic	$GK gk_program12.gkp -exact	10	no	12G	30	0	99	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_program12.gkp.out
+a3_exact/cyclic/gk_program20.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_program20.gkp	O3_families/inputs/cyclic	$GK gk_program20.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_program20.gkp.out
+a3_exact/cyclic/gk_program4.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_program4.gkp	O3_families/inputs/cyclic	$GK gk_program4.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_program4.gkp.out
+a3_exact/cyclic/gk_program40.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_program40.gkp	O3_families/inputs/cyclic	$GK gk_program40.gkp -exact	10	no	12G	30	0	99	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_program40.gkp.out
+a3_exact/cyclic/gk_program6.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_program6.gkp	O3_families/inputs/cyclic	$GK gk_program6.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_program6.gkp.out
+a3_exact/cyclic/gk_program8.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_program8.gkp	O3_families/inputs/cyclic	$GK gk_program8.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_program8.gkp.out
+a3_exact/cyclic/gk_ring15.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_ring15.gkp	O3_families/inputs/cyclic	$GK gk_ring15.gkp -exact	10	no	12G	30	0	100	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_ring15.gkp.out
+a3_exact/cyclic/gk_ring3.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_ring3.gkp	O3_families/inputs/cyclic	$GK gk_ring3.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_ring3.gkp.out
+a3_exact/cyclic/gk_ring30.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_ring30.gkp	O3_families/inputs/cyclic	$GK gk_ring30.gkp -exact	10	no	12G	30	0	99	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_ring30.gkp.out
+a3_exact/cyclic/gk_ring4.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_ring4.gkp	O3_families/inputs/cyclic	$GK gk_ring4.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_ring4.gkp.out
+a3_exact/cyclic/gk_ring5.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_ring5.gkp	O3_families/inputs/cyclic	$GK gk_ring5.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_ring5.gkp.out
+a3_exact/cyclic/gk_ring8.gkp	gk 1.3.2	exact	O3_families/inputs/cyclic/gk_ring8.gkp	O3_families/inputs/cyclic	$GK gk_ring8.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/cyclic_gk_ring8.gkp.out
+a3_exact/delivery/gk_background10.gkp	gk 1.3.2	exact	O3_families/inputs/delivery/gk_background10.gkp	O3_families/inputs/delivery	$GK gk_background10.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/delivery_gk_background10.gkp.out
+a3_exact/delivery/gk_background200.gkp	gk 1.3.2	exact	O3_families/inputs/delivery/gk_background200.gkp	O3_families/inputs/delivery	$GK gk_background200.gkp -exact	10	no	12G	30	0	100	raw/a3_exact.tar.xz:a3_exact/delivery_gk_background200.gkp.out
+a3_exact/delivery/gk_background50.gkp	gk 1.3.2	exact	O3_families/inputs/delivery/gk_background50.gkp	O3_families/inputs/delivery	$GK gk_background50.gkp -exact	10	no	12G	30	0	99	raw/a3_exact.tar.xz:a3_exact/delivery_gk_background50.gkp.out
+a3_exact/delivery/gk_exception_chain1.gkp	gk 1.3.2	exact	O3_families/inputs/delivery/gk_exception_chain1.gkp	O3_families/inputs/delivery	$GK gk_exception_chain1.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/delivery_gk_exception_chain1.gkp.out
+a3_exact/delivery/gk_exception_chain20.gkp	gk 1.3.2	exact	O3_families/inputs/delivery/gk_exception_chain20.gkp	O3_families/inputs/delivery	$GK gk_exception_chain20.gkp -exact	10	no	12G	30	0	99	raw/a3_exact.tar.xz:a3_exact/delivery_gk_exception_chain20.gkp.out
+a3_exact/delivery/gk_exception_chain5.gkp	gk 1.3.2	exact	O3_families/inputs/delivery/gk_exception_chain5.gkp	O3_families/inputs/delivery	$GK gk_exception_chain5.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/delivery_gk_exception_chain5.gkp.out
+a3_exact/delivery/gk_exception_chain50.gkp	gk 1.3.2	exact	O3_families/inputs/delivery/gk_exception_chain50.gkp	O3_families/inputs/delivery	$GK gk_exception_chain50.gkp -exact	10	no	12G	30	0	99	raw/a3_exact.tar.xz:a3_exact/delivery_gk_exception_chain50.gkp.out
+a3_exact/delivery/gk_legs16_control.gkp	gk 1.3.2	exact	O3_families/inputs/delivery/gk_legs16_control.gkp	O3_families/inputs/delivery	$GK gk_legs16_control.gkp -exact	10	no	12G	30	0	99	raw/a3_exact.tar.xz:a3_exact/delivery_gk_legs16_control.gkp.out
+a3_exact/delivery/gk_legs16_opposed.gkp	gk 1.3.2	exact	O3_families/inputs/delivery/gk_legs16_opposed.gkp	O3_families/inputs/delivery	$GK gk_legs16_opposed.gkp -exact	10	no	12G	30	0	99	raw/a3_exact.tar.xz:a3_exact/delivery_gk_legs16_opposed.gkp.out
+a3_exact/delivery/gk_legs2_control.gkp	gk 1.3.2	exact	O3_families/inputs/delivery/gk_legs2_control.gkp	O3_families/inputs/delivery	$GK gk_legs2_control.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/delivery_gk_legs2_control.gkp.out
+a3_exact/delivery/gk_legs2_control_flat.gkp	gk 1.3.2	exact	O3_families/inputs/delivery/gk_legs2_control_flat.gkp	O3_families/inputs/delivery	$GK gk_legs2_control_flat.gkp -exact	10	no	12G	30	0	99	raw/a3_exact.tar.xz:a3_exact/delivery_gk_legs2_control_flat.gkp.out
+a3_exact/delivery/gk_legs2_opposed.gkp	gk 1.3.2	exact	O3_families/inputs/delivery/gk_legs2_opposed.gkp	O3_families/inputs/delivery	$GK gk_legs2_opposed.gkp -exact	10	no	12G	30	0	99	raw/a3_exact.tar.xz:a3_exact/delivery_gk_legs2_opposed.gkp.out
+a3_exact/delivery/gk_legs2_opposed_flat.gkp	gk 1.3.2	exact	O3_families/inputs/delivery/gk_legs2_opposed_flat.gkp	O3_families/inputs/delivery	$GK gk_legs2_opposed_flat.gkp -exact	10	no	12G	30	0	99	raw/a3_exact.tar.xz:a3_exact/delivery_gk_legs2_opposed_flat.gkp.out
+a3_exact/delivery/gk_legs32_control.gkp	gk 1.3.2	exact	O3_families/inputs/delivery/gk_legs32_control.gkp	O3_families/inputs/delivery	$GK gk_legs32_control.gkp -exact	10	no	12G	30	0	99	raw/a3_exact.tar.xz:a3_exact/delivery_gk_legs32_control.gkp.out
+a3_exact/delivery/gk_legs32_opposed.gkp	gk 1.3.2	exact	O3_families/inputs/delivery/gk_legs32_opposed.gkp	O3_families/inputs/delivery	$GK gk_legs32_opposed.gkp -exact	10	no	12G	30	0	100	raw/a3_exact.tar.xz:a3_exact/delivery_gk_legs32_opposed.gkp.out
+a3_exact/delivery/gk_legs4_control.gkp	gk 1.3.2	exact	O3_families/inputs/delivery/gk_legs4_control.gkp	O3_families/inputs/delivery	$GK gk_legs4_control.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/delivery_gk_legs4_control.gkp.out
+a3_exact/delivery/gk_legs4_control_flat.gkp	gk 1.3.2	exact	O3_families/inputs/delivery/gk_legs4_control_flat.gkp	O3_families/inputs/delivery	$GK gk_legs4_control_flat.gkp -exact	10	no	12G	30	0	101	raw/a3_exact.tar.xz:a3_exact/delivery_gk_legs4_control_flat.gkp.out
+a3_exact/delivery/gk_legs4_opposed.gkp	gk 1.3.2	exact	O3_families/inputs/delivery/gk_legs4_opposed.gkp	O3_families/inputs/delivery	$GK gk_legs4_opposed.gkp -exact	10	no	12G	30	0	99	raw/a3_exact.tar.xz:a3_exact/delivery_gk_legs4_opposed.gkp.out
+a3_exact/delivery/gk_legs4_opposed_flat.gkp	gk 1.3.2	exact	O3_families/inputs/delivery/gk_legs4_opposed_flat.gkp	O3_families/inputs/delivery	$GK gk_legs4_opposed_flat.gkp -exact	10	no	12G	30	0	101	raw/a3_exact.tar.xz:a3_exact/delivery_gk_legs4_opposed_flat.gkp.out
+a3_exact/delivery/gk_legs8_control.gkp	gk 1.3.2	exact	O3_families/inputs/delivery/gk_legs8_control.gkp	O3_families/inputs/delivery	$GK gk_legs8_control.gkp -exact	10	no	12G	30	0	99	raw/a3_exact.tar.xz:a3_exact/delivery_gk_legs8_control.gkp.out
+a3_exact/delivery/gk_legs8_opposed.gkp	gk 1.3.2	exact	O3_families/inputs/delivery/gk_legs8_opposed.gkp	O3_families/inputs/delivery	$GK gk_legs8_opposed.gkp -exact	10	no	12G	30	0	99	raw/a3_exact.tar.xz:a3_exact/delivery_gk_legs8_opposed.gkp.out
+a3_exact/equipment/gk_background10.gkp	gk 1.3.2	exact	O3_families/inputs/equipment/gk_background10.gkp	O3_families/inputs/equipment	$GK gk_background10.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/equipment_gk_background10.gkp.out
+a3_exact/equipment/gk_background200.gkp	gk 1.3.2	exact	O3_families/inputs/equipment/gk_background200.gkp	O3_families/inputs/equipment	$GK gk_background200.gkp -exact	10	no	12G	30	0	102	raw/a3_exact.tar.xz:a3_exact/equipment_gk_background200.gkp.out
+a3_exact/equipment/gk_background50.gkp	gk 1.3.2	exact	O3_families/inputs/equipment/gk_background50.gkp	O3_families/inputs/equipment	$GK gk_background50.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/equipment_gk_background50.gkp.out
+a3_exact/equipment/gk_components16.gkp	gk 1.3.2	exact	O3_families/inputs/equipment/gk_components16.gkp	O3_families/inputs/equipment	$GK gk_components16.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/equipment_gk_components16.gkp.out
+a3_exact/equipment/gk_components2.gkp	gk 1.3.2	exact	O3_families/inputs/equipment/gk_components2.gkp	O3_families/inputs/equipment	$GK gk_components2.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/equipment_gk_components2.gkp.out
+a3_exact/equipment/gk_components4.gkp	gk 1.3.2	exact	O3_families/inputs/equipment/gk_components4.gkp	O3_families/inputs/equipment	$GK gk_components4.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/equipment_gk_components4.gkp.out
+a3_exact/equipment/gk_components8.gkp	gk 1.3.2	exact	O3_families/inputs/equipment/gk_components8.gkp	O3_families/inputs/equipment	$GK gk_components8.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/equipment_gk_components8.gkp.out
+a3_exact/equipment/gk_equality_chain1.gkp	gk 1.3.2	exact	O3_families/inputs/equipment/gk_equality_chain1.gkp	O3_families/inputs/equipment	$GK gk_equality_chain1.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/equipment_gk_equality_chain1.gkp.out
+a3_exact/equipment/gk_equality_chain10.gkp	gk 1.3.2	exact	O3_families/inputs/equipment/gk_equality_chain10.gkp	O3_families/inputs/equipment	$GK gk_equality_chain10.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/equipment_gk_equality_chain10.gkp.out
+a3_exact/equipment/gk_equality_chain20.gkp	gk 1.3.2	exact	O3_families/inputs/equipment/gk_equality_chain20.gkp	O3_families/inputs/equipment	$GK gk_equality_chain20.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/equipment_gk_equality_chain20.gkp.out
+a3_exact/equipment/gk_equality_chain3.gkp	gk 1.3.2	exact	O3_families/inputs/equipment/gk_equality_chain3.gkp	O3_families/inputs/equipment	$GK gk_equality_chain3.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/equipment_gk_equality_chain3.gkp.out
+a3_exact/equipment/gk_equality_chain6.gkp	gk 1.3.2	exact	O3_families/inputs/equipment/gk_equality_chain6.gkp	O3_families/inputs/equipment	$GK gk_equality_chain6.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/equipment_gk_equality_chain6.gkp.out
+a3_exact/equipment/gk_second_supply.gkp	gk 1.3.2	exact	O3_families/inputs/equipment/gk_second_supply.gkp	O3_families/inputs/equipment	$GK gk_second_supply.gkp -exact	10	no	12G	30	0	98	raw/a3_exact.tar.xz:a3_exact/equipment_gk_second_supply.gkp.out
+a3_exact/grids/gk_corner16.gkp	gk 1.3.2	exact	O3_families/inputs/grids/gk_corner16.gkp	O3_families/inputs/grids	$GK gk_corner16.gkp -exact	10	no	12G	30	0	99	raw/a3_exact.tar.xz:a3_exact/grids_gk_corner16.gkp.out
+a3_exact/grids/gk_corner33.gkp	gk 1.3.2	exact	O3_families/inputs/grids/gk_corner33.gkp	O3_families/inputs/grids	$GK gk_corner33.gkp -exact	10	no	12G	30	0	99	raw/a3_exact.tar.xz:a3_exact/grids_gk_corner33.gkp.out
+a3_exact/grids/gk_corner56.gkp	gk 1.3.2	exact	O3_families/inputs/grids/gk_corner56.gkp	O3_families/inputs/grids	$GK gk_corner56.gkp -exact	10	no	12G	30	0	121	raw/a3_exact.tar.xz:a3_exact/grids_gk_corner56.gkp.out
+a3_exact/grids/gk_full_d1.gkp	gk 1.3.2	exact	O3_families/inputs/grids/gk_full_d1.gkp	O3_families/inputs/grids	$GK gk_full_d1.gkp -exact	10	no	12G	30	0	197	raw/a3_exact.tar.xz:a3_exact/grids_gk_full_d1.gkp.out
+a3_exact/grids/gk_full_d2.gkp	gk 1.3.2	exact	O3_families/inputs/grids/gk_full_d2.gkp	O3_families/inputs/grids	$GK gk_full_d2.gkp -exact	10	no	12G	30	0	197	raw/a3_exact.tar.xz:a3_exact/grids_gk_full_d2.gkp.out
+a3_exact/grids/gk_full_d3.gkp	gk 1.3.2	exact	O3_families/inputs/grids/gk_full_d3.gkp	O3_families/inputs/grids	$GK gk_full_d3.gkp -exact	10	no	12G	30	0	198	raw/a3_exact.tar.xz:a3_exact/grids_gk_full_d3.gkp.out
+a3_exact/grids/gk_full_d4.gkp	gk 1.3.2	exact	O3_families/inputs/grids/gk_full_d4.gkp	O3_families/inputs/grids	$GK gk_full_d4.gkp -exact	10	no	12G	30	0	220	raw/a3_exact.tar.xz:a3_exact/grids_gk_full_d4.gkp.out
+a3_exact/grids/gk_full_d5.gkp	gk 1.3.2	exact	O3_families/inputs/grids/gk_full_d5.gkp	O3_families/inputs/grids	$GK gk_full_d5.gkp -exact	10	no	12G	30	0	2731	raw/a3_exact.tar.xz:a3_exact/grids_gk_full_d5.gkp.out
+a3_exact/grids/gk_full_d6.gkp	gk 1.3.2	exact	O3_families/inputs/grids/gk_full_d6.gkp	O3_families/inputs/grids	$GK gk_full_d6.gkp -exact	10	no	12G	30	0	6461	raw/a3_exact.tar.xz:a3_exact/grids_gk_full_d6.gkp.out
+a3_exact/grids/gk_full_d8.gkp	gk 1.3.2	exact	O3_families/inputs/grids/gk_full_d8.gkp	O3_families/inputs/grids	$GK gk_full_d8.gkp -exact	10	no	12G	30	0	8372	raw/a3_exact.tar.xz:a3_exact/grids_gk_full_d8.gkp.out
+a3_exact/smokers/gk_smokers12.gkp	gk 1.3.2	exact	O3_families/inputs/smokers/gk_smokers12.gkp	O3_families/inputs/smokers	$GK gk_smokers12.gkp -exact	10	no	12G	30	0	485	raw/a3_exact.tar.xz:a3_exact/smokers_gk_smokers12.gkp.out
+a3_exact/smokers/gk_smokers5.gkp	gk 1.3.2	exact	O3_families/inputs/smokers/gk_smokers5.gkp	O3_families/inputs/smokers	$GK gk_smokers5.gkp -exact	10	no	12G	30	0	116	raw/a3_exact.tar.xz:a3_exact/smokers_gk_smokers5.gkp.out
+a3_exact/smokers/gk_smokers8.gkp	gk 1.3.2	exact	O3_families/inputs/smokers/gk_smokers8.gkp	O3_families/inputs/smokers	$GK gk_smokers8.gkp -exact	10	no	12G	30	0	259	raw/a3_exact.tar.xz:a3_exact/smokers_gk_smokers8.gkp.out
+a3_exact/university/gk_dept1_scale0.25_employee.gkp	gk 1.3.2	exact	O3_families/inputs/university/gk_dept1_scale0.25_employee.gkp	O3_families/inputs/university	$GK gk_dept1_scale0.25_employee.gkp -exact	10	no	12G	30	0	100	raw/a3_exact.tar.xz:a3_exact/university_gk_dept1_scale0.25_employee.gkp.out
+a3_exact/university/gk_dept1_scale0.25_memberOf.gkp	gk 1.3.2	exact	O3_families/inputs/university/gk_dept1_scale0.25_memberOf.gkp	O3_families/inputs/university	$GK gk_dept1_scale0.25_memberOf.gkp -exact	10	no	12G	30	0	100	raw/a3_exact.tar.xz:a3_exact/university_gk_dept1_scale0.25_memberOf.gkp.out
+a3_exact/university/gk_dept1_scale0.25_organization.gkp	gk 1.3.2	exact	O3_families/inputs/university/gk_dept1_scale0.25_organization.gkp	O3_families/inputs/university	$GK gk_dept1_scale0.25_organization.gkp -exact	10	no	12G	30	0	100	raw/a3_exact.tar.xz:a3_exact/university_gk_dept1_scale0.25_organization.gkp.out
+a3_exact/university/gk_dept1_scale0.25_person.gkp	gk 1.3.2	exact	O3_families/inputs/university/gk_dept1_scale0.25_person.gkp	O3_families/inputs/university	$GK gk_dept1_scale0.25_person.gkp -exact	10	no	12G	30	0	100	raw/a3_exact.tar.xz:a3_exact/university_gk_dept1_scale0.25_person.gkp.out
+a3_exact/university/gk_dept1_scale1_employee.gkp	gk 1.3.2	exact	O3_families/inputs/university/gk_dept1_scale1_employee.gkp	O3_families/inputs/university	$GK gk_dept1_scale1_employee.gkp -exact	10	no	12G	30	0	105	raw/a3_exact.tar.xz:a3_exact/university_gk_dept1_scale1_employee.gkp.out
+a3_exact/university/gk_dept1_scale1_memberOf.gkp	gk 1.3.2	exact	O3_families/inputs/university/gk_dept1_scale1_memberOf.gkp	O3_families/inputs/university	$GK gk_dept1_scale1_memberOf.gkp -exact	10	no	12G	30	0	105	raw/a3_exact.tar.xz:a3_exact/university_gk_dept1_scale1_memberOf.gkp.out
+a3_exact/university/gk_dept1_scale1_organization.gkp	gk 1.3.2	exact	O3_families/inputs/university/gk_dept1_scale1_organization.gkp	O3_families/inputs/university	$GK gk_dept1_scale1_organization.gkp -exact	10	no	12G	30	0	106	raw/a3_exact.tar.xz:a3_exact/university_gk_dept1_scale1_organization.gkp.out
+a3_exact/university/gk_dept1_scale1_person.gkp	gk 1.3.2	exact	O3_families/inputs/university/gk_dept1_scale1_person.gkp	O3_families/inputs/university	$GK gk_dept1_scale1_person.gkp -exact	10	no	12G	30	0	105	raw/a3_exact.tar.xz:a3_exact/university_gk_dept1_scale1_person.gkp.out
+a3_exact/university/gk_dept3_scale1_employee.gkp	gk 1.3.2	exact	O3_families/inputs/university/gk_dept3_scale1_employee.gkp	O3_families/inputs/university	$GK gk_dept3_scale1_employee.gkp -exact	10	no	12G	30	0	118	raw/a3_exact.tar.xz:a3_exact/university_gk_dept3_scale1_employee.gkp.out
+a3_exact/university/gk_dept3_scale1_memberOf.gkp	gk 1.3.2	exact	O3_families/inputs/university/gk_dept3_scale1_memberOf.gkp	O3_families/inputs/university	$GK gk_dept3_scale1_memberOf.gkp -exact	10	no	12G	30	0	118	raw/a3_exact.tar.xz:a3_exact/university_gk_dept3_scale1_memberOf.gkp.out
+a3_exact/university/gk_dept3_scale1_organization.gkp	gk 1.3.2	exact	O3_families/inputs/university/gk_dept3_scale1_organization.gkp	O3_families/inputs/university	$GK gk_dept3_scale1_organization.gkp -exact	10	no	12G	30	0	121	raw/a3_exact.tar.xz:a3_exact/university_gk_dept3_scale1_organization.gkp.out
+a3_exact/university/gk_dept3_scale1_person.gkp	gk 1.3.2	exact	O3_families/inputs/university/gk_dept3_scale1_person.gkp	O3_families/inputs/university	$GK gk_dept3_scale1_person.gkp -exact	10	no	12G	30	0	118	raw/a3_exact.tar.xz:a3_exact/university_gk_dept3_scale1_person.gkp.out
+a3_general/bn/gk_andes_rapp3.gkp	gk 1.3.2	general	O3_families/inputs/bn/gk_andes_rapp3.gkp	O3_families/inputs/bn	$GK gk_andes_rapp3.gkp -general	10	no	12G	30	0	196	raw/a3_general.tar.xz:a3_general/bn_gk_andes_rapp3.gkp.out
+a3_general/bn/gk_andes_snode_151.gkp	gk 1.3.2	general	O3_families/inputs/bn/gk_andes_snode_151.gkp	O3_families/inputs/bn	$GK gk_andes_snode_151.gkp -general	10	no	12G	30	0	1736	raw/a3_general.tar.xz:a3_general/bn_gk_andes_snode_151.gkp.out
+a3_general/bn/gk_andes_snode_74.gkp	gk 1.3.2	general	O3_families/inputs/bn/gk_andes_snode_74.gkp	O3_families/inputs/bn	$GK gk_andes_snode_74.gkp -general	10	no	12G	30	0	2577	raw/a3_general.tar.xz:a3_general/bn_gk_andes_snode_74.gkp.out
+a3_general/bn/gk_asia_bronc.gkp	gk 1.3.2	general	O3_families/inputs/bn/gk_asia_bronc.gkp	O3_families/inputs/bn	$GK gk_asia_bronc.gkp -general	10	no	12G	30	0	128	raw/a3_general.tar.xz:a3_general/bn_gk_asia_bronc.gkp.out
+a3_general/bn/gk_asia_either.gkp	gk 1.3.2	general	O3_families/inputs/bn/gk_asia_either.gkp	O3_families/inputs/bn	$GK gk_asia_either.gkp -general	10	no	12G	30	0	128	raw/a3_general.tar.xz:a3_general/bn_gk_asia_either.gkp.out
+a3_general/bn/gk_asia_xray.gkp	gk 1.3.2	general	O3_families/inputs/bn/gk_asia_xray.gkp	O3_families/inputs/bn	$GK gk_asia_xray.gkp -general	10	no	12G	30	0	127	raw/a3_general.tar.xz:a3_general/bn_gk_asia_xray.gkp.out
+a3_general/bn/gk_cancer_cancer.gkp	gk 1.3.2	general	O3_families/inputs/bn/gk_cancer_cancer.gkp	O3_families/inputs/bn	$GK gk_cancer_cancer.gkp -general	10	no	12G	30	0	127	raw/a3_general.tar.xz:a3_general/bn_gk_cancer_cancer.gkp.out
+a3_general/bn/gk_cancer_xray.gkp	gk 1.3.2	general	O3_families/inputs/bn/gk_cancer_xray.gkp	O3_families/inputs/bn	$GK gk_cancer_xray.gkp -general	10	no	12G	30	0	103	raw/a3_general.tar.xz:a3_general/bn_gk_cancer_xray.gkp.out
+a3_general/bn/gk_earthquake_alarm.gkp	gk 1.3.2	general	O3_families/inputs/bn/gk_earthquake_alarm.gkp	O3_families/inputs/bn	$GK gk_earthquake_alarm.gkp -general	10	no	12G	30	0	127	raw/a3_general.tar.xz:a3_general/bn_gk_earthquake_alarm.gkp.out
+a3_general/bn/gk_earthquake_johncalls.gkp	gk 1.3.2	general	O3_families/inputs/bn/gk_earthquake_johncalls.gkp	O3_families/inputs/bn	$GK gk_earthquake_johncalls.gkp -general	10	no	12G	30	0	127	raw/a3_general.tar.xz:a3_general/bn_gk_earthquake_johncalls.gkp.out
+a3_general/bn/gk_win95pts_pc2prt.gkp	gk 1.3.2	general	O3_families/inputs/bn/gk_win95pts_pc2prt.gkp	O3_families/inputs/bn	$GK gk_win95pts_pc2prt.gkp -general	10	no	12G	30	0	1793	raw/a3_general.tar.xz:a3_general/bn_gk_win95pts_pc2prt.gkp.out
+a3_general/bn/gk_win95pts_problem1.gkp	gk 1.3.2	general	O3_families/inputs/bn/gk_win95pts_problem1.gkp	O3_families/inputs/bn	$GK gk_win95pts_problem1.gkp -general	10	no	12G	30	0	1400	raw/a3_general.tar.xz:a3_general/bn_gk_win95pts_problem1.gkp.out
+a3_general/bn/gk_win95pts_prtstatpaper.gkp	gk 1.3.2	general	O3_families/inputs/bn/gk_win95pts_prtstatpaper.gkp	O3_families/inputs/bn	$GK gk_win95pts_prtstatpaper.gkp -general	10	no	12G	30	0	199	raw/a3_general.tar.xz:a3_general/bn_gk_win95pts_prtstatpaper.gkp.out
+a3_general/cascades/gk_cascade200_equal.gkp	gk 1.3.2	general	O3_families/inputs/cascades/gk_cascade200_equal.gkp	O3_families/inputs/cascades	$GK gk_cascade200_equal.gkp -general	10	yes	12G	30	0	157	raw/a3_general.tar.xz:a3_general/cascades_gk_cascade200_equal.gkp.out
+a3_general/cascades/gk_cascade200_priorities.gkp	gk 1.3.2	general	O3_families/inputs/cascades/gk_cascade200_priorities.gkp	O3_families/inputs/cascades	$GK gk_cascade200_priorities.gkp -general	10	yes	12G	30	0	157	raw/a3_general.tar.xz:a3_general/cascades_gk_cascade200_priorities.gkp.out
+a3_general/chains_trees/gk_chain1000.gkp	gk 1.3.2	general	O3_families/inputs/chains_trees/gk_chain1000.gkp	O3_families/inputs/chains_trees	$GK gk_chain1000.gkp -general	10	no	12G	30	0	174	raw/a3_general.tar.xz:a3_general/chains_trees_gk_chain1000.gkp.out
+a3_general/chains_trees/gk_tree2047.gkp	gk 1.3.2	general	O3_families/inputs/chains_trees/gk_tree2047.gkp	O3_families/inputs/chains_trees	$GK gk_tree2047.gkp -general	10	no	12G	30	0	154	raw/a3_general.tar.xz:a3_general/chains_trees_gk_tree2047.gkp.out
+a3_general/chains_trees/gk_tree364.gkp	gk 1.3.2	general	O3_families/inputs/chains_trees/gk_tree364.gkp	O3_families/inputs/chains_trees	$GK gk_tree364.gkp -general	10	no	12G	30	0	164	raw/a3_general.tar.xz:a3_general/chains_trees_gk_tree364.gkp.out
+a3_general/comparison/c1.gkp	gk 1.3.2	general	O5_comparisons/inputs/gk/c1.gkp	O5_comparisons/inputs/gk	$GK c1.gkp -general	10	no	12G	30	0	127	raw/a3_general.tar.xz:a3_general/comparison_c1.gkp.out
+a3_general/comparison/c2.gkp	gk 1.3.2	general	O5_comparisons/inputs/gk/c2.gkp	O5_comparisons/inputs/gk	$GK c2.gkp -general	10	no	12G	30	0	127	raw/a3_general.tar.xz:a3_general/comparison_c2.gkp.out
+a3_general/comparison/f1.gkp	gk 1.3.2	general	O5_comparisons/inputs/gk/f1.gkp	O5_comparisons/inputs/gk	$GK f1.gkp -general	10	no	12G	30	0	127	raw/a3_general.tar.xz:a3_general/comparison_f1.gkp.out
+a3_general/comparison/n1_study4.gkp	gk 1.3.2	general	O5_comparisons/inputs/gk/n1_study4.gkp	O5_comparisons/inputs/gk	$GK n1_study4.gkp -general	10	no	12G	30	0	127	raw/a3_general.tar.xz:a3_general/comparison_n1_study4.gkp.out
+a3_general/comparison/n2_study10.gkp	gk 1.3.2	general	O5_comparisons/inputs/gk/n2_study10.gkp	O5_comparisons/inputs/gk	$GK n2_study10.gkp -general	10	no	12G	30	0	134	raw/a3_general.tar.xz:a3_general/comparison_n2_study10.gkp.out
+a3_general/cyclic/gk_af10_in_x3.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af10_in_x3.gkp	O3_families/inputs/cyclic	$GK gk_af10_in_x3.gkp -general	10	no	12G	30	0	131	raw/a3_general.tar.xz:a3_general/cyclic_gk_af10_in_x3.gkp.out
+a3_general/cyclic/gk_af10_out_x0.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af10_out_x0.gkp	O3_families/inputs/cyclic	$GK gk_af10_out_x0.gkp -general	10	no	12G	30	0	131	raw/a3_general.tar.xz:a3_general/cyclic_gk_af10_out_x0.gkp.out
+a3_general/cyclic/gk_af10_undec_x6.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af10_undec_x6.gkp	O3_families/inputs/cyclic	$GK gk_af10_undec_x6.gkp -general	10	no	12G	30	0	189	raw/a3_general.tar.xz:a3_general/cyclic_gk_af10_undec_x6.gkp.out
+a3_general/cyclic/gk_af10_undec_x6_att.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af10_undec_x6_att.gkp	O3_families/inputs/cyclic	$GK gk_af10_undec_x6_att.gkp -general	10	no	12G	30	0	132	raw/a3_general.tar.xz:a3_general/cyclic_gk_af10_undec_x6_att.gkp.out
+a3_general/cyclic/gk_af20_undec_x0.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af20_undec_x0.gkp	O3_families/inputs/cyclic	$GK gk_af20_undec_x0.gkp -general	10	no	12G	30	0	136	raw/a3_general.tar.xz:a3_general/cyclic_gk_af20_undec_x0.gkp.out
+a3_general/cyclic/gk_af20_undec_x0_att.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af20_undec_x0_att.gkp	O3_families/inputs/cyclic	$GK gk_af20_undec_x0_att.gkp -general	10	no	12G	30	0	185	raw/a3_general.tar.xz:a3_general/cyclic_gk_af20_undec_x0_att.gkp.out
+a3_general/cyclic/gk_af40_in_x12.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af40_in_x12.gkp	O3_families/inputs/cyclic	$GK gk_af40_in_x12.gkp -general	10	no	12G	30	0	153	raw/a3_general.tar.xz:a3_general/cyclic_gk_af40_in_x12.gkp.out
+a3_general/cyclic/gk_af40_out_x9.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af40_out_x9.gkp	O3_families/inputs/cyclic	$GK gk_af40_out_x9.gkp -general	10	no	12G	30	0	232	raw/a3_general.tar.xz:a3_general/cyclic_gk_af40_out_x9.gkp.out
+a3_general/cyclic/gk_af40_out_x9_att.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af40_out_x9_att.gkp	O3_families/inputs/cyclic	$GK gk_af40_out_x9_att.gkp -general	10	no	12G	30	0	169	raw/a3_general.tar.xz:a3_general/cyclic_gk_af40_out_x9_att.gkp.out
+a3_general/cyclic/gk_af40_undec_x0.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af40_undec_x0.gkp	O3_families/inputs/cyclic	$GK gk_af40_undec_x0.gkp -general	10	no	12G	30	0	153	raw/a3_general.tar.xz:a3_general/cyclic_gk_af40_undec_x0.gkp.out
+a3_general/cyclic/gk_af40_undec_x0_att.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af40_undec_x0_att.gkp	O3_families/inputs/cyclic	$GK gk_af40_undec_x0_att.gkp -general	10	no	12G	30	0	153	raw/a3_general.tar.xz:a3_general/cyclic_gk_af40_undec_x0_att.gkp.out
+a3_general/cyclic/gk_af6_in_x2.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af6_in_x2.gkp	O3_families/inputs/cyclic	$GK gk_af6_in_x2.gkp -general	10	no	12G	30	0	102	raw/a3_general.tar.xz:a3_general/cyclic_gk_af6_in_x2.gkp.out
+a3_general/cyclic/gk_af6_out_x0.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af6_out_x0.gkp	O3_families/inputs/cyclic	$GK gk_af6_out_x0.gkp -general	10	no	12G	30	0	103	raw/a3_general.tar.xz:a3_general/cyclic_gk_af6_out_x0.gkp.out
+a3_general/cyclic/gk_af6_undec_x1.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af6_undec_x1.gkp	O3_families/inputs/cyclic	$GK gk_af6_undec_x1.gkp -general	10	no	12G	30	0	127	raw/a3_general.tar.xz:a3_general/cyclic_gk_af6_undec_x1.gkp.out
+a3_general/cyclic/gk_program12.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_program12.gkp	O3_families/inputs/cyclic	$GK gk_program12.gkp -general	10	no	12G	30	0	104	raw/a3_general.tar.xz:a3_general/cyclic_gk_program12.gkp.out
+a3_general/cyclic/gk_program20.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_program20.gkp	O3_families/inputs/cyclic	$GK gk_program20.gkp -general	10	no	12G	30	0	134	raw/a3_general.tar.xz:a3_general/cyclic_gk_program20.gkp.out
+a3_general/cyclic/gk_program4.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_program4.gkp	O3_families/inputs/cyclic	$GK gk_program4.gkp -general	10	no	12G	30	0	127	raw/a3_general.tar.xz:a3_general/cyclic_gk_program4.gkp.out
+a3_general/cyclic/gk_program40.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_program40.gkp	O3_families/inputs/cyclic	$GK gk_program40.gkp -general	10	no	12G	30	0	133	raw/a3_general.tar.xz:a3_general/cyclic_gk_program40.gkp.out
+a3_general/cyclic/gk_program6.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_program6.gkp	O3_families/inputs/cyclic	$GK gk_program6.gkp -general	10	no	12G	30	0	127	raw/a3_general.tar.xz:a3_general/cyclic_gk_program6.gkp.out
+a3_general/cyclic/gk_program8.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_program8.gkp	O3_families/inputs/cyclic	$GK gk_program8.gkp -general	10	no	12G	30	0	127	raw/a3_general.tar.xz:a3_general/cyclic_gk_program8.gkp.out
+a3_general/cyclic/gk_ring15.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_ring15.gkp	O3_families/inputs/cyclic	$GK gk_ring15.gkp -general	10	no	12G	30	0	106	raw/a3_general.tar.xz:a3_general/cyclic_gk_ring15.gkp.out
+a3_general/cyclic/gk_ring3.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_ring3.gkp	O3_families/inputs/cyclic	$GK gk_ring3.gkp -general	10	no	12G	30	0	127	raw/a3_general.tar.xz:a3_general/cyclic_gk_ring3.gkp.out
+a3_general/cyclic/gk_ring30.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_ring30.gkp	O3_families/inputs/cyclic	$GK gk_ring30.gkp -general	10	no	12G	30	0	130	raw/a3_general.tar.xz:a3_general/cyclic_gk_ring30.gkp.out
+a3_general/cyclic/gk_ring4.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_ring4.gkp	O3_families/inputs/cyclic	$GK gk_ring4.gkp -general	10	no	12G	30	0	127	raw/a3_general.tar.xz:a3_general/cyclic_gk_ring4.gkp.out
+a3_general/cyclic/gk_ring5.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_ring5.gkp	O3_families/inputs/cyclic	$GK gk_ring5.gkp -general	10	no	12G	30	0	127	raw/a3_general.tar.xz:a3_general/cyclic_gk_ring5.gkp.out
+a3_general/cyclic/gk_ring8.gkp	gk 1.3.2	general	O3_families/inputs/cyclic/gk_ring8.gkp	O3_families/inputs/cyclic	$GK gk_ring8.gkp -general	10	no	12G	30	0	128	raw/a3_general.tar.xz:a3_general/cyclic_gk_ring8.gkp.out
+a3_general/delivery/gk_background10.gkp	gk 1.3.2	general	O3_families/inputs/delivery/gk_background10.gkp	O3_families/inputs/delivery	$GK gk_background10.gkp -general	10	no	12G	30	0	128	raw/a3_general.tar.xz:a3_general/delivery_gk_background10.gkp.out
+a3_general/delivery/gk_background200.gkp	gk 1.3.2	general	O3_families/inputs/delivery/gk_background200.gkp	O3_families/inputs/delivery	$GK gk_background200.gkp -general	10	no	12G	30	0	170	raw/a3_general.tar.xz:a3_general/delivery_gk_background200.gkp.out
+a3_general/delivery/gk_background50.gkp	gk 1.3.2	general	O3_families/inputs/delivery/gk_background50.gkp	O3_families/inputs/delivery	$GK gk_background50.gkp -general	10	no	12G	30	0	158	raw/a3_general.tar.xz:a3_general/delivery_gk_background50.gkp.out
+a3_general/delivery/gk_exception_chain1.gkp	gk 1.3.2	general	O3_families/inputs/delivery/gk_exception_chain1.gkp	O3_families/inputs/delivery	$GK gk_exception_chain1.gkp -general	10	no	12G	30	0	129	raw/a3_general.tar.xz:a3_general/delivery_gk_exception_chain1.gkp.out
+a3_general/delivery/gk_exception_chain20.gkp	gk 1.3.2	general	O3_families/inputs/delivery/gk_exception_chain20.gkp	O3_families/inputs/delivery	$GK gk_exception_chain20.gkp -general	10	no	12G	30	0	130	raw/a3_general.tar.xz:a3_general/delivery_gk_exception_chain20.gkp.out
+a3_general/delivery/gk_exception_chain5.gkp	gk 1.3.2	general	O3_families/inputs/delivery/gk_exception_chain5.gkp	O3_families/inputs/delivery	$GK gk_exception_chain5.gkp -general	10	no	12G	30	0	128	raw/a3_general.tar.xz:a3_general/delivery_gk_exception_chain5.gkp.out
+a3_general/delivery/gk_exception_chain50.gkp	gk 1.3.2	general	O3_families/inputs/delivery/gk_exception_chain50.gkp	O3_families/inputs/delivery	$GK gk_exception_chain50.gkp -general	10	no	12G	30	0	142	raw/a3_general.tar.xz:a3_general/delivery_gk_exception_chain50.gkp.out
+a3_general/delivery/gk_legs16_control.gkp	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs16_control.gkp	O3_families/inputs/delivery	$GK gk_legs16_control.gkp -general	10	no	12G	30	0	238	raw/a3_general.tar.xz:a3_general/delivery_gk_legs16_control.gkp.out
+a3_general/delivery/gk_legs16_opposed.gkp	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs16_opposed.gkp	O3_families/inputs/delivery	$GK gk_legs16_opposed.gkp -general	10	no	12G	30	0	213	raw/a3_general.tar.xz:a3_general/delivery_gk_legs16_opposed.gkp.out
+a3_general/delivery/gk_legs2_control.gkp	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs2_control.gkp	O3_families/inputs/delivery	$GK gk_legs2_control.gkp -general	10	no	12G	30	0	127	raw/a3_general.tar.xz:a3_general/delivery_gk_legs2_control.gkp.out
+a3_general/delivery/gk_legs2_control_flat.gkp	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs2_control_flat.gkp	O3_families/inputs/delivery	$GK gk_legs2_control_flat.gkp -general	10	no	12G	30	0	146	raw/a3_general.tar.xz:a3_general/delivery_gk_legs2_control_flat.gkp.out
+a3_general/delivery/gk_legs2_opposed.gkp	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs2_opposed.gkp	O3_families/inputs/delivery	$GK gk_legs2_opposed.gkp -general	10	no	12G	30	0	127	raw/a3_general.tar.xz:a3_general/delivery_gk_legs2_opposed.gkp.out
+a3_general/delivery/gk_legs2_opposed_flat.gkp	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs2_opposed_flat.gkp	O3_families/inputs/delivery	$GK gk_legs2_opposed_flat.gkp -general	10	no	12G	30	0	146	raw/a3_general.tar.xz:a3_general/delivery_gk_legs2_opposed_flat.gkp.out
+a3_general/delivery/gk_legs32_control.gkp	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs32_control.gkp	O3_families/inputs/delivery	$GK gk_legs32_control.gkp -general	10	no	12G	30	0	387	raw/a3_general.tar.xz:a3_general/delivery_gk_legs32_control.gkp.out
+a3_general/delivery/gk_legs32_opposed.gkp	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs32_opposed.gkp	O3_families/inputs/delivery	$GK gk_legs32_opposed.gkp -general	10	no	12G	30	0	465	raw/a3_general.tar.xz:a3_general/delivery_gk_legs32_opposed.gkp.out
+a3_general/delivery/gk_legs4_control.gkp	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs4_control.gkp	O3_families/inputs/delivery	$GK gk_legs4_control.gkp -general	10	no	12G	30	0	141	raw/a3_general.tar.xz:a3_general/delivery_gk_legs4_control.gkp.out
+a3_general/delivery/gk_legs4_control_flat.gkp	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs4_control_flat.gkp	O3_families/inputs/delivery	$GK gk_legs4_control_flat.gkp -general	10	no	12G	30	0	659	raw/a3_general.tar.xz:a3_general/delivery_gk_legs4_control_flat.gkp.out
+a3_general/delivery/gk_legs4_opposed.gkp	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs4_opposed.gkp	O3_families/inputs/delivery	$GK gk_legs4_opposed.gkp -general	10	no	12G	30	0	141	raw/a3_general.tar.xz:a3_general/delivery_gk_legs4_opposed.gkp.out
+a3_general/delivery/gk_legs4_opposed_flat.gkp	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs4_opposed_flat.gkp	O3_families/inputs/delivery	$GK gk_legs4_opposed_flat.gkp -general	10	no	12G	30	0	660	raw/a3_general.tar.xz:a3_general/delivery_gk_legs4_opposed_flat.gkp.out
+a3_general/delivery/gk_legs8_control.gkp	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs8_control.gkp	O3_families/inputs/delivery	$GK gk_legs8_control.gkp -general	10	no	12G	30	0	518	raw/a3_general.tar.xz:a3_general/delivery_gk_legs8_control.gkp.out
+a3_general/delivery/gk_legs8_opposed.gkp	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs8_opposed.gkp	O3_families/inputs/delivery	$GK gk_legs8_opposed.gkp -general	10	no	12G	30	0	520	raw/a3_general.tar.xz:a3_general/delivery_gk_legs8_opposed.gkp.out
+a3_general/equipment/gk_background10.gkp	gk 1.3.2	general	O3_families/inputs/equipment/gk_background10.gkp	O3_families/inputs/equipment	$GK gk_background10.gkp -general	10	no	12G	30	0	144	raw/a3_general.tar.xz:a3_general/equipment_gk_background10.gkp.out
+a3_general/equipment/gk_background200.gkp	gk 1.3.2	general	O3_families/inputs/equipment/gk_background200.gkp	O3_families/inputs/equipment	$GK gk_background200.gkp -general	10	no	12G	30	0	232	raw/a3_general.tar.xz:a3_general/equipment_gk_background200.gkp.out
+a3_general/equipment/gk_background50.gkp	gk 1.3.2	general	O3_families/inputs/equipment/gk_background50.gkp	O3_families/inputs/equipment	$GK gk_background50.gkp -general	10	no	12G	30	0	150	raw/a3_general.tar.xz:a3_general/equipment_gk_background50.gkp.out
+a3_general/equipment/gk_components16.gkp	gk 1.3.2	general	O3_families/inputs/equipment/gk_components16.gkp	O3_families/inputs/equipment	$GK gk_components16.gkp -general	10	no	12G	30	0	129	raw/a3_general.tar.xz:a3_general/equipment_gk_components16.gkp.out
+a3_general/equipment/gk_components2.gkp	gk 1.3.2	general	O3_families/inputs/equipment/gk_components2.gkp	O3_families/inputs/equipment	$GK gk_components2.gkp -general	10	no	12G	30	0	123	raw/a3_general.tar.xz:a3_general/equipment_gk_components2.gkp.out
+a3_general/equipment/gk_components4.gkp	gk 1.3.2	general	O3_families/inputs/equipment/gk_components4.gkp	O3_families/inputs/equipment	$GK gk_components4.gkp -general	10	no	12G	30	0	123	raw/a3_general.tar.xz:a3_general/equipment_gk_components4.gkp.out
+a3_general/equipment/gk_components8.gkp	gk 1.3.2	general	O3_families/inputs/equipment/gk_components8.gkp	O3_families/inputs/equipment	$GK gk_components8.gkp -general	10	no	12G	30	0	130	raw/a3_general.tar.xz:a3_general/equipment_gk_components8.gkp.out
+a3_general/equipment/gk_equality_chain1.gkp	gk 1.3.2	general	O3_families/inputs/equipment/gk_equality_chain1.gkp	O3_families/inputs/equipment	$GK gk_equality_chain1.gkp -general	10	no	12G	30	0	121	raw/a3_general.tar.xz:a3_general/equipment_gk_equality_chain1.gkp.out
+a3_general/equipment/gk_equality_chain10.gkp	gk 1.3.2	general	O3_families/inputs/equipment/gk_equality_chain10.gkp	O3_families/inputs/equipment	$GK gk_equality_chain10.gkp -general	10	no	12G	30	0	123	raw/a3_general.tar.xz:a3_general/equipment_gk_equality_chain10.gkp.out
+a3_general/equipment/gk_equality_chain20.gkp	gk 1.3.2	general	O3_families/inputs/equipment/gk_equality_chain20.gkp	O3_families/inputs/equipment	$GK gk_equality_chain20.gkp -general	10	no	12G	30	0	123	raw/a3_general.tar.xz:a3_general/equipment_gk_equality_chain20.gkp.out
+a3_general/equipment/gk_equality_chain3.gkp	gk 1.3.2	general	O3_families/inputs/equipment/gk_equality_chain3.gkp	O3_families/inputs/equipment	$GK gk_equality_chain3.gkp -general	10	no	12G	30	0	120	raw/a3_general.tar.xz:a3_general/equipment_gk_equality_chain3.gkp.out
+a3_general/equipment/gk_equality_chain6.gkp	gk 1.3.2	general	O3_families/inputs/equipment/gk_equality_chain6.gkp	O3_families/inputs/equipment	$GK gk_equality_chain6.gkp -general	10	no	12G	30	0	122	raw/a3_general.tar.xz:a3_general/equipment_gk_equality_chain6.gkp.out
+a3_general/equipment/gk_second_supply.gkp	gk 1.3.2	general	O3_families/inputs/equipment/gk_second_supply.gkp	O3_families/inputs/equipment	$GK gk_second_supply.gkp -general	10	no	12G	30	0	120	raw/a3_general.tar.xz:a3_general/equipment_gk_second_supply.gkp.out
+a3_general/grids/gk_corner16.gkp	gk 1.3.2	general	O3_families/inputs/grids/gk_corner16.gkp	O3_families/inputs/grids	$GK gk_corner16.gkp -general	10	no	12G	30	0	183	raw/a3_general.tar.xz:a3_general/grids_gk_corner16.gkp.out
+a3_general/grids/gk_corner33.gkp	gk 1.3.2	general	O3_families/inputs/grids/gk_corner33.gkp	O3_families/inputs/grids	$GK gk_corner33.gkp -general	10	no	12G	30	0	350	raw/a3_general.tar.xz:a3_general/grids_gk_corner33.gkp.out
+a3_general/grids/gk_corner56.gkp	gk 1.3.2	general	O3_families/inputs/grids/gk_corner56.gkp	O3_families/inputs/grids	$GK gk_corner56.gkp -general	10	no	12G	30	0	153	raw/a3_general.tar.xz:a3_general/grids_gk_corner56.gkp.out
+a3_general/grids/gk_full_d1.gkp	gk 1.3.2	general	O3_families/inputs/grids/gk_full_d1.gkp	O3_families/inputs/grids	$GK gk_full_d1.gkp -general	10	no	12G	30	0	236	raw/a3_general.tar.xz:a3_general/grids_gk_full_d1.gkp.out
+a3_general/grids/gk_full_d2.gkp	gk 1.3.2	general	O3_families/inputs/grids/gk_full_d2.gkp	O3_families/inputs/grids	$GK gk_full_d2.gkp -general	10	no	12G	30	0	164	raw/a3_general.tar.xz:a3_general/grids_gk_full_d2.gkp.out
+a3_general/grids/gk_full_d3.gkp	gk 1.3.2	general	O3_families/inputs/grids/gk_full_d3.gkp	O3_families/inputs/grids	$GK gk_full_d3.gkp -general	10	no	12G	30	0	342	raw/a3_general.tar.xz:a3_general/grids_gk_full_d3.gkp.out
+a3_general/grids/gk_full_d4.gkp	gk 1.3.2	general	O3_families/inputs/grids/gk_full_d4.gkp	O3_families/inputs/grids	$GK gk_full_d4.gkp -general	10	no	12G	30	0	149	raw/a3_general.tar.xz:a3_general/grids_gk_full_d4.gkp.out
+a3_general/grids/gk_full_d5.gkp	gk 1.3.2	general	O3_families/inputs/grids/gk_full_d5.gkp	O3_families/inputs/grids	$GK gk_full_d5.gkp -general	10	no	12G	30	0	187	raw/a3_general.tar.xz:a3_general/grids_gk_full_d5.gkp.out
+a3_general/grids/gk_full_d6.gkp	gk 1.3.2	general	O3_families/inputs/grids/gk_full_d6.gkp	O3_families/inputs/grids	$GK gk_full_d6.gkp -general	10	no	12G	30	0	186	raw/a3_general.tar.xz:a3_general/grids_gk_full_d6.gkp.out
+a3_general/grids/gk_full_d8.gkp	gk 1.3.2	general	O3_families/inputs/grids/gk_full_d8.gkp	O3_families/inputs/grids	$GK gk_full_d8.gkp -general	10	no	12G	30	0	196	raw/a3_general.tar.xz:a3_general/grids_gk_full_d8.gkp.out
+a3_general/smokers/gk_smokers12.gkp	gk 1.3.2	general	O3_families/inputs/smokers/gk_smokers12.gkp	O3_families/inputs/smokers	$GK gk_smokers12.gkp -general	10	no	12G	30	0	137	raw/a3_general.tar.xz:a3_general/smokers_gk_smokers12.gkp.out
+a3_general/smokers/gk_smokers5.gkp	gk 1.3.2	general	O3_families/inputs/smokers/gk_smokers5.gkp	O3_families/inputs/smokers	$GK gk_smokers5.gkp -general	10	no	12G	30	0	130	raw/a3_general.tar.xz:a3_general/smokers_gk_smokers5.gkp.out
+a3_general/smokers/gk_smokers8.gkp	gk 1.3.2	general	O3_families/inputs/smokers/gk_smokers8.gkp	O3_families/inputs/smokers	$GK gk_smokers8.gkp -general	10	no	12G	30	0	132	raw/a3_general.tar.xz:a3_general/smokers_gk_smokers8.gkp.out
+a3_general/university/gk_dept1_scale0.25_employee.gkp	gk 1.3.2	general	O3_families/inputs/university/gk_dept1_scale0.25_employee.gkp	O3_families/inputs/university	$GK gk_dept1_scale0.25_employee.gkp -general	10	no	12G	30	0	161	raw/a3_general.tar.xz:a3_general/university_gk_dept1_scale0.25_employee.gkp.out
+a3_general/university/gk_dept1_scale0.25_memberOf.gkp	gk 1.3.2	general	O3_families/inputs/university/gk_dept1_scale0.25_memberOf.gkp	O3_families/inputs/university	$GK gk_dept1_scale0.25_memberOf.gkp -general	10	no	12G	30	0	159	raw/a3_general.tar.xz:a3_general/university_gk_dept1_scale0.25_memberOf.gkp.out
+a3_general/university/gk_dept1_scale0.25_organization.gkp	gk 1.3.2	general	O3_families/inputs/university/gk_dept1_scale0.25_organization.gkp	O3_families/inputs/university	$GK gk_dept1_scale0.25_organization.gkp -general	10	no	12G	30	0	163	raw/a3_general.tar.xz:a3_general/university_gk_dept1_scale0.25_organization.gkp.out
+a3_general/university/gk_dept1_scale0.25_person.gkp	gk 1.3.2	general	O3_families/inputs/university/gk_dept1_scale0.25_person.gkp	O3_families/inputs/university	$GK gk_dept1_scale0.25_person.gkp -general	10	no	12G	30	0	161	raw/a3_general.tar.xz:a3_general/university_gk_dept1_scale0.25_person.gkp.out
+a3_general/university/gk_dept1_scale1_employee.gkp	gk 1.3.2	general	O3_families/inputs/university/gk_dept1_scale1_employee.gkp	O3_families/inputs/university	$GK gk_dept1_scale1_employee.gkp -general	10	no	12G	30	0	177	raw/a3_general.tar.xz:a3_general/university_gk_dept1_scale1_employee.gkp.out
+a3_general/university/gk_dept1_scale1_memberOf.gkp	gk 1.3.2	general	O3_families/inputs/university/gk_dept1_scale1_memberOf.gkp	O3_families/inputs/university	$GK gk_dept1_scale1_memberOf.gkp -general	10	no	12G	30	0	202	raw/a3_general.tar.xz:a3_general/university_gk_dept1_scale1_memberOf.gkp.out
+a3_general/university/gk_dept1_scale1_organization.gkp	gk 1.3.2	general	O3_families/inputs/university/gk_dept1_scale1_organization.gkp	O3_families/inputs/university	$GK gk_dept1_scale1_organization.gkp -general	10	no	12G	30	0	186	raw/a3_general.tar.xz:a3_general/university_gk_dept1_scale1_organization.gkp.out
+a3_general/university/gk_dept1_scale1_person.gkp	gk 1.3.2	general	O3_families/inputs/university/gk_dept1_scale1_person.gkp	O3_families/inputs/university	$GK gk_dept1_scale1_person.gkp -general	10	no	12G	30	0	248	raw/a3_general.tar.xz:a3_general/university_gk_dept1_scale1_person.gkp.out
+a3_general/university/gk_dept3_scale1_employee.gkp	gk 1.3.2	general	O3_families/inputs/university/gk_dept3_scale1_employee.gkp	O3_families/inputs/university	$GK gk_dept3_scale1_employee.gkp -general	10	no	12G	30	0	301	raw/a3_general.tar.xz:a3_general/university_gk_dept3_scale1_employee.gkp.out
+a3_general/university/gk_dept3_scale1_memberOf.gkp	gk 1.3.2	general	O3_families/inputs/university/gk_dept3_scale1_memberOf.gkp	O3_families/inputs/university	$GK gk_dept3_scale1_memberOf.gkp -general	10	no	12G	30	0	153	raw/a3_general.tar.xz:a3_general/university_gk_dept3_scale1_memberOf.gkp.out
+a3_general/university/gk_dept3_scale1_organization.gkp	gk 1.3.2	general	O3_families/inputs/university/gk_dept3_scale1_organization.gkp	O3_families/inputs/university	$GK gk_dept3_scale1_organization.gkp -general	10	no	12G	30	0	247	raw/a3_general.tar.xz:a3_general/university_gk_dept3_scale1_organization.gkp.out
+a3_general/university/gk_dept3_scale1_person.gkp	gk 1.3.2	general	O3_families/inputs/university/gk_dept3_scale1_person.gkp	O3_families/inputs/university	$GK gk_dept3_scale1_person.gkp -general	10	no	12G	30	0	283	raw/a3_general.tar.xz:a3_general/university_gk_dept3_scale1_person.gkp.out
+a3_strategy/bn/gk_andes_snode_151.gkp+hyper	gk 1.3.2	general	O3_families/inputs/bn/gk_andes_snode_151.gkp	O3_families/inputs/bn	$GK gk_andes_snode_151.gkp -general -strategy hyper.json	10	no	12G	30	0	860	raw/a3_strategy.tar.xz:a3_strategy/bn_gk_andes_snode_151.gkp_hyper.out
+a3_strategy/bn/gk_andes_snode_151.gkp+query_focus	gk 1.3.2	general	O3_families/inputs/bn/gk_andes_snode_151.gkp	O3_families/inputs/bn	$GK gk_andes_snode_151.gkp -general -strategy query_focus.json	10	no	12G	30	0	1761	raw/a3_strategy.tar.xz:a3_strategy/bn_gk_andes_snode_151.gkp_query_focus.out
+a3_strategy/bn/gk_andes_snode_74.gkp+hyper	gk 1.3.2	general	O3_families/inputs/bn/gk_andes_snode_74.gkp	O3_families/inputs/bn	$GK gk_andes_snode_74.gkp -general -strategy hyper.json	10	no	12G	30	0	1731	raw/a3_strategy.tar.xz:a3_strategy/bn_gk_andes_snode_74.gkp_hyper.out
+a3_strategy/bn/gk_andes_snode_74.gkp+query_focus	gk 1.3.2	general	O3_families/inputs/bn/gk_andes_snode_74.gkp	O3_families/inputs/bn	$GK gk_andes_snode_74.gkp -general -strategy query_focus.json	10	no	12G	30	0	2363	raw/a3_strategy.tar.xz:a3_strategy/bn_gk_andes_snode_74.gkp_query_focus.out
+a3_strategy/bn/gk_win95pts_pc2prt.gkp+hyper	gk 1.3.2	general	O3_families/inputs/bn/gk_win95pts_pc2prt.gkp	O3_families/inputs/bn	$GK gk_win95pts_pc2prt.gkp -general -strategy hyper.json	10	no	12G	30	0	1394	raw/a3_strategy.tar.xz:a3_strategy/bn_gk_win95pts_pc2prt.gkp_hyper.out
+a3_strategy/bn/gk_win95pts_pc2prt.gkp+query_focus	gk 1.3.2	general	O3_families/inputs/bn/gk_win95pts_pc2prt.gkp	O3_families/inputs/bn	$GK gk_win95pts_pc2prt.gkp -general -strategy query_focus.json	10	no	12G	30	0	1877	raw/a3_strategy.tar.xz:a3_strategy/bn_gk_win95pts_pc2prt.gkp_query_focus.out
+a3_strategy/bn/gk_win95pts_problem1.gkp+hyper	gk 1.3.2	general	O3_families/inputs/bn/gk_win95pts_problem1.gkp	O3_families/inputs/bn	$GK gk_win95pts_problem1.gkp -general -strategy hyper.json	10	no	12G	30	0	1316	raw/a3_strategy.tar.xz:a3_strategy/bn_gk_win95pts_problem1.gkp_hyper.out
+a3_strategy/bn/gk_win95pts_problem1.gkp+query_focus	gk 1.3.2	general	O3_families/inputs/bn/gk_win95pts_problem1.gkp	O3_families/inputs/bn	$GK gk_win95pts_problem1.gkp -general -strategy query_focus.json	10	no	12G	30	0	1394	raw/a3_strategy.tar.xz:a3_strategy/bn_gk_win95pts_problem1.gkp_query_focus.out
+a3_strategy/cascades/gk_cascade200_equal.gkp+hyper	gk 1.3.2	general	O3_families/inputs/cascades/gk_cascade200_equal.gkp	O3_families/inputs/cascades	$GK gk_cascade200_equal.gkp -general -strategy hyper.json	10	yes	12G	30	0	157	raw/a3_strategy.tar.xz:a3_strategy/cascades_gk_cascade200_equal.gkp_hyper.out
+a3_strategy/cascades/gk_cascade200_equal.gkp+query_focus	gk 1.3.2	general	O3_families/inputs/cascades/gk_cascade200_equal.gkp	O3_families/inputs/cascades	$GK gk_cascade200_equal.gkp -general -strategy query_focus.json	10	no	12G	30	0	158	raw/a3_strategy.tar.xz:a3_strategy/cascades_gk_cascade200_equal.gkp_query_focus.out
+a3_strategy/cascades/gk_cascade200_priorities.gkp+hyper	gk 1.3.2	general	O3_families/inputs/cascades/gk_cascade200_priorities.gkp	O3_families/inputs/cascades	$GK gk_cascade200_priorities.gkp -general -strategy hyper.json	10	no	12G	30	0	157	raw/a3_strategy.tar.xz:a3_strategy/cascades_gk_cascade200_priorities.gkp_hyper.out
+a3_strategy/cascades/gk_cascade200_priorities.gkp+query_focus	gk 1.3.2	general	O3_families/inputs/cascades/gk_cascade200_priorities.gkp	O3_families/inputs/cascades	$GK gk_cascade200_priorities.gkp -general -strategy query_focus.json	10	no	12G	30	0	158	raw/a3_strategy.tar.xz:a3_strategy/cascades_gk_cascade200_priorities.gkp_query_focus.out
+a3_strategy/chains_trees/gk_chain1000.gkp+query_focus	gk 1.3.2	general	O3_families/inputs/chains_trees/gk_chain1000.gkp	O3_families/inputs/chains_trees	$GK gk_chain1000.gkp -general -strategy query_focus.json	10	no	12G	30	0	236	raw/a3_strategy.tar.xz:a3_strategy/chains_trees_gk_chain1000.gkp_query_focus.out
+a3_strategy/chains_trees/gk_tree2047.gkp+query_focus	gk 1.3.2	general	O3_families/inputs/chains_trees/gk_tree2047.gkp	O3_families/inputs/chains_trees	$GK gk_tree2047.gkp -general -strategy query_focus.json	10	no	12G	30	0	203	raw/a3_strategy.tar.xz:a3_strategy/chains_trees_gk_tree2047.gkp_query_focus.out
+a3_strategy/chains_trees/gk_tree364.gkp+query_focus	gk 1.3.2	general	O3_families/inputs/chains_trees/gk_tree364.gkp	O3_families/inputs/chains_trees	$GK gk_tree364.gkp -general -strategy query_focus.json	10	no	12G	30	0	178	raw/a3_strategy.tar.xz:a3_strategy/chains_trees_gk_tree364.gkp_query_focus.out
+a3_strategy/cyclic/gk_af10_in_x3.gkp+query_focus	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af10_in_x3.gkp	O3_families/inputs/cyclic	$GK gk_af10_in_x3.gkp -general -strategy query_focus.json	10	no	12G	30	0	132	raw/a3_strategy.tar.xz:a3_strategy/cyclic_gk_af10_in_x3.gkp_query_focus.out
+a3_strategy/cyclic/gk_af10_out_x0.gkp+query_focus	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af10_out_x0.gkp	O3_families/inputs/cyclic	$GK gk_af10_out_x0.gkp -general -strategy query_focus.json	10	no	12G	30	0	132	raw/a3_strategy.tar.xz:a3_strategy/cyclic_gk_af10_out_x0.gkp_query_focus.out
+a3_strategy/cyclic/gk_af10_undec_x6.gkp+query_focus	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af10_undec_x6.gkp	O3_families/inputs/cyclic	$GK gk_af10_undec_x6.gkp -general -strategy query_focus.json	10	no	12G	30	0	140	raw/a3_strategy.tar.xz:a3_strategy/cyclic_gk_af10_undec_x6.gkp_query_focus.out
+a3_strategy/cyclic/gk_af10_undec_x6_att.gkp+query_focus	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af10_undec_x6_att.gkp	O3_families/inputs/cyclic	$GK gk_af10_undec_x6_att.gkp -general -strategy query_focus.json	10	no	12G	30	0	130	raw/a3_strategy.tar.xz:a3_strategy/cyclic_gk_af10_undec_x6_att.gkp_query_focus.out
+a3_strategy/cyclic/gk_af20_undec_x0.gkp+query_focus	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af20_undec_x0.gkp	O3_families/inputs/cyclic	$GK gk_af20_undec_x0.gkp -general -strategy query_focus.json	10	no	12G	30	0	152	raw/a3_strategy.tar.xz:a3_strategy/cyclic_gk_af20_undec_x0.gkp_query_focus.out
+a3_strategy/cyclic/gk_af20_undec_x0_att.gkp+query_focus	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af20_undec_x0_att.gkp	O3_families/inputs/cyclic	$GK gk_af20_undec_x0_att.gkp -general -strategy query_focus.json	10	no	12G	30	0	145	raw/a3_strategy.tar.xz:a3_strategy/cyclic_gk_af20_undec_x0_att.gkp_query_focus.out
+a3_strategy/cyclic/gk_af40_in_x12.gkp+query_focus	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af40_in_x12.gkp	O3_families/inputs/cyclic	$GK gk_af40_in_x12.gkp -general -strategy query_focus.json	10	no	12G	30	0	272	raw/a3_strategy.tar.xz:a3_strategy/cyclic_gk_af40_in_x12.gkp_query_focus.out
+a3_strategy/cyclic/gk_af40_out_x9.gkp+query_focus	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af40_out_x9.gkp	O3_families/inputs/cyclic	$GK gk_af40_out_x9.gkp -general -strategy query_focus.json	10	no	12G	30	0	169	raw/a3_strategy.tar.xz:a3_strategy/cyclic_gk_af40_out_x9.gkp_query_focus.out
+a3_strategy/cyclic/gk_af40_out_x9_att.gkp+query_focus	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af40_out_x9_att.gkp	O3_families/inputs/cyclic	$GK gk_af40_out_x9_att.gkp -general -strategy query_focus.json	10	no	12G	30	0	152	raw/a3_strategy.tar.xz:a3_strategy/cyclic_gk_af40_out_x9_att.gkp_query_focus.out
+a3_strategy/cyclic/gk_af40_undec_x0.gkp+query_focus	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af40_undec_x0.gkp	O3_families/inputs/cyclic	$GK gk_af40_undec_x0.gkp -general -strategy query_focus.json	10	no	12G	30	0	194	raw/a3_strategy.tar.xz:a3_strategy/cyclic_gk_af40_undec_x0.gkp_query_focus.out
+a3_strategy/cyclic/gk_af40_undec_x0_att.gkp+query_focus	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af40_undec_x0_att.gkp	O3_families/inputs/cyclic	$GK gk_af40_undec_x0_att.gkp -general -strategy query_focus.json	10	no	12G	30	0	190	raw/a3_strategy.tar.xz:a3_strategy/cyclic_gk_af40_undec_x0_att.gkp_query_focus.out
+a3_strategy/cyclic/gk_af6_in_x2.gkp+query_focus	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af6_in_x2.gkp	O3_families/inputs/cyclic	$GK gk_af6_in_x2.gkp -general -strategy query_focus.json	10	no	12G	30	0	103	raw/a3_strategy.tar.xz:a3_strategy/cyclic_gk_af6_in_x2.gkp_query_focus.out
+a3_strategy/cyclic/gk_af6_out_x0.gkp+query_focus	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af6_out_x0.gkp	O3_families/inputs/cyclic	$GK gk_af6_out_x0.gkp -general -strategy query_focus.json	10	no	12G	30	0	103	raw/a3_strategy.tar.xz:a3_strategy/cyclic_gk_af6_out_x0.gkp_query_focus.out
+a3_strategy/cyclic/gk_af6_undec_x1.gkp+query_focus	gk 1.3.2	general	O3_families/inputs/cyclic/gk_af6_undec_x1.gkp	O3_families/inputs/cyclic	$GK gk_af6_undec_x1.gkp -general -strategy query_focus.json	10	no	12G	30	0	103	raw/a3_strategy.tar.xz:a3_strategy/cyclic_gk_af6_undec_x1.gkp_query_focus.out
+a3_strategy/delivery/gk_background10.gkp+hyper	gk 1.3.2	general	O3_families/inputs/delivery/gk_background10.gkp	O3_families/inputs/delivery	$GK gk_background10.gkp -general -strategy hyper.json	10	no	12G	30	0	131	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_background10.gkp_hyper.out
+a3_strategy/delivery/gk_background10.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/delivery/gk_background10.gkp	O3_families/inputs/delivery	$GK gk_background10.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	128	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_background10.gkp_query_focus_equality.out
+a3_strategy/delivery/gk_background200.gkp+hyper	gk 1.3.2	general	O3_families/inputs/delivery/gk_background200.gkp	O3_families/inputs/delivery	$GK gk_background200.gkp -general -strategy hyper.json	10	no	12G	30	0	173	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_background200.gkp_hyper.out
+a3_strategy/delivery/gk_background200.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/delivery/gk_background200.gkp	O3_families/inputs/delivery	$GK gk_background200.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	170	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_background200.gkp_query_focus_equality.out
+a3_strategy/delivery/gk_background50.gkp+hyper	gk 1.3.2	general	O3_families/inputs/delivery/gk_background50.gkp	O3_families/inputs/delivery	$GK gk_background50.gkp -general -strategy hyper.json	10	no	12G	30	0	160	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_background50.gkp_hyper.out
+a3_strategy/delivery/gk_background50.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/delivery/gk_background50.gkp	O3_families/inputs/delivery	$GK gk_background50.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	157	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_background50.gkp_query_focus_equality.out
+a3_strategy/delivery/gk_exception_chain1.gkp+hyper	gk 1.3.2	general	O3_families/inputs/delivery/gk_exception_chain1.gkp	O3_families/inputs/delivery	$GK gk_exception_chain1.gkp -general -strategy hyper.json	10	no	12G	30	0	130	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_exception_chain1.gkp_hyper.out
+a3_strategy/delivery/gk_exception_chain1.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/delivery/gk_exception_chain1.gkp	O3_families/inputs/delivery	$GK gk_exception_chain1.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	104	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_exception_chain1.gkp_query_focus_equality.out
+a3_strategy/delivery/gk_exception_chain20.gkp+hyper	gk 1.3.2	general	O3_families/inputs/delivery/gk_exception_chain20.gkp	O3_families/inputs/delivery	$GK gk_exception_chain20.gkp -general -strategy hyper.json	10	no	12G	30	0	131	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_exception_chain20.gkp_hyper.out
+a3_strategy/delivery/gk_exception_chain20.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/delivery/gk_exception_chain20.gkp	O3_families/inputs/delivery	$GK gk_exception_chain20.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	104	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_exception_chain20.gkp_query_focus_equality.out
+a3_strategy/delivery/gk_exception_chain5.gkp+hyper	gk 1.3.2	general	O3_families/inputs/delivery/gk_exception_chain5.gkp	O3_families/inputs/delivery	$GK gk_exception_chain5.gkp -general -strategy hyper.json	10	no	12G	30	0	131	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_exception_chain5.gkp_hyper.out
+a3_strategy/delivery/gk_exception_chain5.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/delivery/gk_exception_chain5.gkp	O3_families/inputs/delivery	$GK gk_exception_chain5.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	104	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_exception_chain5.gkp_query_focus_equality.out
+a3_strategy/delivery/gk_exception_chain50.gkp+hyper	gk 1.3.2	general	O3_families/inputs/delivery/gk_exception_chain50.gkp	O3_families/inputs/delivery	$GK gk_exception_chain50.gkp -general -strategy hyper.json	10	no	12G	30	0	146	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_exception_chain50.gkp_hyper.out
+a3_strategy/delivery/gk_exception_chain50.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/delivery/gk_exception_chain50.gkp	O3_families/inputs/delivery	$GK gk_exception_chain50.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	153	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_exception_chain50.gkp_query_focus_equality.out
+a3_strategy/delivery/gk_legs16_control.gkp+hyper	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs16_control.gkp	O3_families/inputs/delivery	$GK gk_legs16_control.gkp -general -strategy hyper.json	10	no	12G	30	0	303	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs16_control.gkp_hyper.out
+a3_strategy/delivery/gk_legs16_control.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs16_control.gkp	O3_families/inputs/delivery	$GK gk_legs16_control.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	142	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs16_control.gkp_query_focus_equality.out
+a3_strategy/delivery/gk_legs16_opposed.gkp+hyper	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs16_opposed.gkp	O3_families/inputs/delivery	$GK gk_legs16_opposed.gkp -general -strategy hyper.json	10	no	12G	30	0	302	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs16_opposed.gkp_hyper.out
+a3_strategy/delivery/gk_legs16_opposed.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs16_opposed.gkp	O3_families/inputs/delivery	$GK gk_legs16_opposed.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	141	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs16_opposed.gkp_query_focus_equality.out
+a3_strategy/delivery/gk_legs2_control.gkp+hyper	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs2_control.gkp	O3_families/inputs/delivery	$GK gk_legs2_control.gkp -general -strategy hyper.json	10	no	12G	30	0	137	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs2_control.gkp_hyper.out
+a3_strategy/delivery/gk_legs2_control.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs2_control.gkp	O3_families/inputs/delivery	$GK gk_legs2_control.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	103	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs2_control.gkp_query_focus_equality.out
+a3_strategy/delivery/gk_legs2_control_flat.gkp+hyper	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs2_control_flat.gkp	O3_families/inputs/delivery	$GK gk_legs2_control_flat.gkp -general -strategy hyper.json	10	no	12G	30	0	319	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs2_control_flat.gkp_hyper.out
+a3_strategy/delivery/gk_legs2_control_flat.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs2_control_flat.gkp	O3_families/inputs/delivery	$GK gk_legs2_control_flat.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	104	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs2_control_flat.gkp_query_focus_equality.out
+a3_strategy/delivery/gk_legs2_opposed.gkp+hyper	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs2_opposed.gkp	O3_families/inputs/delivery	$GK gk_legs2_opposed.gkp -general -strategy hyper.json	10	no	12G	30	0	137	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs2_opposed.gkp_hyper.out
+a3_strategy/delivery/gk_legs2_opposed.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs2_opposed.gkp	O3_families/inputs/delivery	$GK gk_legs2_opposed.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	104	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs2_opposed.gkp_query_focus_equality.out
+a3_strategy/delivery/gk_legs2_opposed_flat.gkp+hyper	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs2_opposed_flat.gkp	O3_families/inputs/delivery	$GK gk_legs2_opposed_flat.gkp -general -strategy hyper.json	10	no	12G	30	0	304	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs2_opposed_flat.gkp_hyper.out
+a3_strategy/delivery/gk_legs2_opposed_flat.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs2_opposed_flat.gkp	O3_families/inputs/delivery	$GK gk_legs2_opposed_flat.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	104	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs2_opposed_flat.gkp_query_focus_equality.out
+a3_strategy/delivery/gk_legs32_control.gkp+hyper	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs32_control.gkp	O3_families/inputs/delivery	$GK gk_legs32_control.gkp -general -strategy hyper.json	10	no	12G	30	0	510	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs32_control.gkp_hyper.out
+a3_strategy/delivery/gk_legs32_control.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs32_control.gkp	O3_families/inputs/delivery	$GK gk_legs32_control.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	245	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs32_control.gkp_query_focus_equality.out
+a3_strategy/delivery/gk_legs32_opposed.gkp+hyper	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs32_opposed.gkp	O3_families/inputs/delivery	$GK gk_legs32_opposed.gkp -general -strategy hyper.json	10	no	12G	30	0	486	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs32_opposed.gkp_hyper.out
+a3_strategy/delivery/gk_legs32_opposed.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs32_opposed.gkp	O3_families/inputs/delivery	$GK gk_legs32_opposed.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	245	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs32_opposed.gkp_query_focus_equality.out
+a3_strategy/delivery/gk_legs4_control.gkp+hyper	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs4_control.gkp	O3_families/inputs/delivery	$GK gk_legs4_control.gkp -general -strategy hyper.json	10	no	12G	30	0	209	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs4_control.gkp_hyper.out
+a3_strategy/delivery/gk_legs4_control.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs4_control.gkp	O3_families/inputs/delivery	$GK gk_legs4_control.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	104	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs4_control.gkp_query_focus_equality.out
+a3_strategy/delivery/gk_legs4_control_flat.gkp+hyper	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs4_control_flat.gkp	O3_families/inputs/delivery	$GK gk_legs4_control_flat.gkp -general -strategy hyper.json	10	no	12G	30	0	258	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs4_control_flat.gkp_hyper.out
+a3_strategy/delivery/gk_legs4_control_flat.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs4_control_flat.gkp	O3_families/inputs/delivery	$GK gk_legs4_control_flat.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	107	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs4_control_flat.gkp_query_focus_equality.out
+a3_strategy/delivery/gk_legs4_opposed.gkp+hyper	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs4_opposed.gkp	O3_families/inputs/delivery	$GK gk_legs4_opposed.gkp -general -strategy hyper.json	10	no	12G	30	0	210	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs4_opposed.gkp_hyper.out
+a3_strategy/delivery/gk_legs4_opposed.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs4_opposed.gkp	O3_families/inputs/delivery	$GK gk_legs4_opposed.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	104	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs4_opposed.gkp_query_focus_equality.out
+a3_strategy/delivery/gk_legs4_opposed_flat.gkp+hyper	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs4_opposed_flat.gkp	O3_families/inputs/delivery	$GK gk_legs4_opposed_flat.gkp -general -strategy hyper.json	10	no	12G	30	0	268	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs4_opposed_flat.gkp_hyper.out
+a3_strategy/delivery/gk_legs4_opposed_flat.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs4_opposed_flat.gkp	O3_families/inputs/delivery	$GK gk_legs4_opposed_flat.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	107	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs4_opposed_flat.gkp_query_focus_equality.out
+a3_strategy/delivery/gk_legs8_control.gkp+hyper	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs8_control.gkp	O3_families/inputs/delivery	$GK gk_legs8_control.gkp -general -strategy hyper.json	10	no	12G	30	0	545	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs8_control.gkp_hyper.out
+a3_strategy/delivery/gk_legs8_control.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs8_control.gkp	O3_families/inputs/delivery	$GK gk_legs8_control.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	130	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs8_control.gkp_query_focus_equality.out
+a3_strategy/delivery/gk_legs8_opposed.gkp+hyper	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs8_opposed.gkp	O3_families/inputs/delivery	$GK gk_legs8_opposed.gkp -general -strategy hyper.json	10	no	12G	30	0	544	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs8_opposed.gkp_hyper.out
+a3_strategy/delivery/gk_legs8_opposed.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/delivery/gk_legs8_opposed.gkp	O3_families/inputs/delivery	$GK gk_legs8_opposed.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	130	raw/a3_strategy.tar.xz:a3_strategy/delivery_gk_legs8_opposed.gkp_query_focus_equality.out
+a3_strategy/equipment/gk_background10.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/equipment/gk_background10.gkp	O3_families/inputs/equipment	$GK gk_background10.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	169	raw/a3_strategy.tar.xz:a3_strategy/equipment_gk_background10.gkp_query_focus_equality.out
+a3_strategy/equipment/gk_background200.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/equipment/gk_background200.gkp	O3_families/inputs/equipment	$GK gk_background200.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	217	raw/a3_strategy.tar.xz:a3_strategy/equipment_gk_background200.gkp_query_focus_equality.out
+a3_strategy/equipment/gk_background50.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/equipment/gk_background50.gkp	O3_families/inputs/equipment	$GK gk_background50.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	160	raw/a3_strategy.tar.xz:a3_strategy/equipment_gk_background50.gkp_query_focus_equality.out
+a3_strategy/equipment/gk_components16.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/equipment/gk_components16.gkp	O3_families/inputs/equipment	$GK gk_components16.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	162	raw/a3_strategy.tar.xz:a3_strategy/equipment_gk_components16.gkp_query_focus_equality.out
+a3_strategy/equipment/gk_components2.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/equipment/gk_components2.gkp	O3_families/inputs/equipment	$GK gk_components2.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	138	raw/a3_strategy.tar.xz:a3_strategy/equipment_gk_components2.gkp_query_focus_equality.out
+a3_strategy/equipment/gk_components4.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/equipment/gk_components4.gkp	O3_families/inputs/equipment	$GK gk_components4.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	157	raw/a3_strategy.tar.xz:a3_strategy/equipment_gk_components4.gkp_query_focus_equality.out
+a3_strategy/equipment/gk_components8.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/equipment/gk_components8.gkp	O3_families/inputs/equipment	$GK gk_components8.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	158	raw/a3_strategy.tar.xz:a3_strategy/equipment_gk_components8.gkp_query_focus_equality.out
+a3_strategy/equipment/gk_equality_chain1.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/equipment/gk_equality_chain1.gkp	O3_families/inputs/equipment	$GK gk_equality_chain1.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	130	raw/a3_strategy.tar.xz:a3_strategy/equipment_gk_equality_chain1.gkp_query_focus_equality.out
+a3_strategy/equipment/gk_equality_chain10.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/equipment/gk_equality_chain10.gkp	O3_families/inputs/equipment	$GK gk_equality_chain10.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	343	raw/a3_strategy.tar.xz:a3_strategy/equipment_gk_equality_chain10.gkp_query_focus_equality.out
+a3_strategy/equipment/gk_equality_chain20.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/equipment/gk_equality_chain20.gkp	O3_families/inputs/equipment	$GK gk_equality_chain20.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	151	raw/a3_strategy.tar.xz:a3_strategy/equipment_gk_equality_chain20.gkp_query_focus_equality.out
+a3_strategy/equipment/gk_equality_chain3.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/equipment/gk_equality_chain3.gkp	O3_families/inputs/equipment	$GK gk_equality_chain3.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	139	raw/a3_strategy.tar.xz:a3_strategy/equipment_gk_equality_chain3.gkp_query_focus_equality.out
+a3_strategy/equipment/gk_equality_chain6.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/equipment/gk_equality_chain6.gkp	O3_families/inputs/equipment	$GK gk_equality_chain6.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	179	raw/a3_strategy.tar.xz:a3_strategy/equipment_gk_equality_chain6.gkp_query_focus_equality.out
+a3_strategy/equipment/gk_second_supply.gkp+query_focus_equality	gk 1.3.2	general	O3_families/inputs/equipment/gk_second_supply.gkp	O3_families/inputs/equipment	$GK gk_second_supply.gkp -general -strategy query_focus_equality.json	10	no	12G	30	0	129	raw/a3_strategy.tar.xz:a3_strategy/equipment_gk_second_supply.gkp_query_focus_equality.out
+a3_strategy/grids/gk_corner16.gkp+hyper	gk 1.3.2	general	O3_families/inputs/grids/gk_corner16.gkp	O3_families/inputs/grids	$GK gk_corner16.gkp -general -strategy hyper.json	10	no	12G	30	0	149	raw/a3_strategy.tar.xz:a3_strategy/grids_gk_corner16.gkp_hyper.out
+a3_strategy/grids/gk_corner33.gkp+hyper	gk 1.3.2	general	O3_families/inputs/grids/gk_corner33.gkp	O3_families/inputs/grids	$GK gk_corner33.gkp -general -strategy hyper.json	10	no	12G	30	0	846	raw/a3_strategy.tar.xz:a3_strategy/grids_gk_corner33.gkp_hyper.out
+a3_strategy/grids/gk_corner56.gkp+hyper	gk 1.3.2	general	O3_families/inputs/grids/gk_corner56.gkp	O3_families/inputs/grids	$GK gk_corner56.gkp -general -strategy hyper.json	10	no	12G	30	0	1013	raw/a3_strategy.tar.xz:a3_strategy/grids_gk_corner56.gkp_hyper.out
+a3_strategy/grids/gk_full_d2.gkp+hyper	gk 1.3.2	general	O3_families/inputs/grids/gk_full_d2.gkp	O3_families/inputs/grids	$GK gk_full_d2.gkp -general -strategy hyper.json	10	no	12G	30	0	191	raw/a3_strategy.tar.xz:a3_strategy/grids_gk_full_d2.gkp_hyper.out
+a3_strategy/grids/gk_full_d3.gkp+hyper	gk 1.3.2	general	O3_families/inputs/grids/gk_full_d3.gkp	O3_families/inputs/grids	$GK gk_full_d3.gkp -general -strategy hyper.json	10	no	12G	30	0	812	raw/a3_strategy.tar.xz:a3_strategy/grids_gk_full_d3.gkp_hyper.out
+a3_strategy/grids/gk_full_d4.gkp+hyper	gk 1.3.2	general	O3_families/inputs/grids/gk_full_d4.gkp	O3_families/inputs/grids	$GK gk_full_d4.gkp -general -strategy hyper.json	10	no	12G	30	0	1153	raw/a3_strategy.tar.xz:a3_strategy/grids_gk_full_d4.gkp_hyper.out
+a3_strategy/grids/gk_full_d5.gkp+hyper	gk 1.3.2	general	O3_families/inputs/grids/gk_full_d5.gkp	O3_families/inputs/grids	$GK gk_full_d5.gkp -general -strategy hyper.json	10	no	12G	30	0	1132	raw/a3_strategy.tar.xz:a3_strategy/grids_gk_full_d5.gkp_hyper.out
+a3_strategy/smokers/gk_smokers12.gkp+hyper	gk 1.3.2	general	O3_families/inputs/smokers/gk_smokers12.gkp	O3_families/inputs/smokers	$GK gk_smokers12.gkp -general -strategy hyper.json	10	no	12G	30	0	262	raw/a3_strategy.tar.xz:a3_strategy/smokers_gk_smokers12.gkp_hyper.out
+a3_strategy/smokers/gk_smokers5.gkp+hyper	gk 1.3.2	general	O3_families/inputs/smokers/gk_smokers5.gkp	O3_families/inputs/smokers	$GK gk_smokers5.gkp -general -strategy hyper.json	10	no	12G	30	0	234	raw/a3_strategy.tar.xz:a3_strategy/smokers_gk_smokers5.gkp_hyper.out
+a3_strategy/smokers/gk_smokers8.gkp+hyper	gk 1.3.2	general	O3_families/inputs/smokers/gk_smokers8.gkp	O3_families/inputs/smokers	$GK gk_smokers8.gkp -general -strategy hyper.json	10	no	12G	30	0	240	raw/a3_strategy.tar.xz:a3_strategy/smokers_gk_smokers8.gkp_hyper.out
+a7_problog/gk_dept1_scale0.25_employee.gkp	ProbLog 2.3.0		O3_families/inputs/university/gk_dept1_scale0.25_employee.gkp	O3_families/inputs/university	problog gk_dept1_scale0.25_employee.gkp	600	yes	4G	600	0	25	raw/a7_problog.tar.xz:a7_problog/gk_dept1_scale0.25_employee.gkp.out
+a7_problog/gk_dept1_scale0.25_memberOf.gkp	ProbLog 2.3.0		O3_families/inputs/university/gk_dept1_scale0.25_memberOf.gkp	O3_families/inputs/university	problog gk_dept1_scale0.25_memberOf.gkp	600	yes	4G	600	0	25	raw/a7_problog.tar.xz:a7_problog/gk_dept1_scale0.25_memberOf.gkp.out
+a7_problog/gk_dept1_scale0.25_organization.gkp	ProbLog 2.3.0		O3_families/inputs/university/gk_dept1_scale0.25_organization.gkp	O3_families/inputs/university	problog gk_dept1_scale0.25_organization.gkp	600	yes	4G	600	0	26	raw/a7_problog.tar.xz:a7_problog/gk_dept1_scale0.25_organization.gkp.out
+a7_problog/gk_dept1_scale0.25_person.gkp	ProbLog 2.3.0		O3_families/inputs/university/gk_dept1_scale0.25_person.gkp	O3_families/inputs/university	problog gk_dept1_scale0.25_person.gkp	600	yes	4G	600	0	25	raw/a7_problog.tar.xz:a7_problog/gk_dept1_scale0.25_person.gkp.out
+a7_problog/gk_dept1_scale1_employee.gkp	ProbLog 2.3.0		O3_families/inputs/university/gk_dept1_scale1_employee.gkp	O3_families/inputs/university	problog gk_dept1_scale1_employee.gkp	600	yes	4G	600	0	27	raw/a7_problog.tar.xz:a7_problog/gk_dept1_scale1_employee.gkp.out
+a7_problog/gk_dept1_scale1_memberOf.gkp	ProbLog 2.3.0		O3_families/inputs/university/gk_dept1_scale1_memberOf.gkp	O3_families/inputs/university	problog gk_dept1_scale1_memberOf.gkp	600	yes	4G	600	0	27	raw/a7_problog.tar.xz:a7_problog/gk_dept1_scale1_memberOf.gkp.out
+a7_problog/gk_dept1_scale1_organization.gkp	ProbLog 2.3.0		O3_families/inputs/university/gk_dept1_scale1_organization.gkp	O3_families/inputs/university	problog gk_dept1_scale1_organization.gkp	600	yes	4G	600	0	38	raw/a7_problog.tar.xz:a7_problog/gk_dept1_scale1_organization.gkp.out
+a7_problog/gk_dept1_scale1_person.gkp	ProbLog 2.3.0		O3_families/inputs/university/gk_dept1_scale1_person.gkp	O3_families/inputs/university	problog gk_dept1_scale1_person.gkp	600	yes	4G	600	0	27	raw/a7_problog.tar.xz:a7_problog/gk_dept1_scale1_person.gkp.out
+a7_problog/gk_dept3_scale1_employee.gkp	ProbLog 2.3.0		O3_families/inputs/university/gk_dept3_scale1_employee.gkp	O3_families/inputs/university	problog gk_dept3_scale1_employee.gkp	600	yes	4G	600	0	33	raw/a7_problog.tar.xz:a7_problog/gk_dept3_scale1_employee.gkp.out
+a7_problog/gk_dept3_scale1_memberOf.gkp	ProbLog 2.3.0		O3_families/inputs/university/gk_dept3_scale1_memberOf.gkp	O3_families/inputs/university	problog gk_dept3_scale1_memberOf.gkp	600	yes	4G	600	0	33	raw/a7_problog.tar.xz:a7_problog/gk_dept3_scale1_memberOf.gkp.out
+a7_problog/gk_dept3_scale1_organization.gkp	ProbLog 2.3.0		O3_families/inputs/university/gk_dept3_scale1_organization.gkp	O3_families/inputs/university	problog gk_dept3_scale1_organization.gkp	600	yes	4G	600	0	43	raw/a7_problog.tar.xz:a7_problog/gk_dept3_scale1_organization.gkp.out
+a7_problog/gk_dept3_scale1_person.gkp	ProbLog 2.3.0		O3_families/inputs/university/gk_dept3_scale1_person.gkp	O3_families/inputs/university	problog gk_dept3_scale1_person.gkp	600	yes	4G	600	0	33	raw/a7_problog.tar.xz:a7_problog/gk_dept3_scale1_person.gkp.out

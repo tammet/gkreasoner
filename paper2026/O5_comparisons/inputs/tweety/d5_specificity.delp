@@ -1,0 +1,5 @@
+Bird(X) <- Penguin(X).
+Penguin(opus).
+
+Flies(X) -< Bird(X).
+~Flies(X) -< Penguin(X).
