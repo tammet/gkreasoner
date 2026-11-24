@@ -2,9 +2,9 @@
 
 This folder lets a reader rerun the examples and experiments of the paper
 
-> Tanel Tammet. Reasoning with Uncertain Evidence, Opposition and
-> Exceptions: Support Semantics in Three Layers and a First-Order Inference
-> Method. Submitted to the Journal of Artificial Intelligence Research, 2026.
+> Tanel Tammet, Dirk Draheim and Priit Järv. Reasoning with Uncertain
+> Evidence, Opposition and Exceptions: Support Semantics in Three Layers and
+> a First-Order Inference Method. Submitted, 2026.
 
 It holds the input of every run, the encodings for the other systems, the
 commands, the list of runs, and the results in brief: one row per result,
