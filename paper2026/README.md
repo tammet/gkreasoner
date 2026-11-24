@@ -22,7 +22,7 @@ one row per run and answer. Every gk value comes from gk 1.3.2 and every value o
 | the tool (mcref) | 1.3.1 | `mcref/mcref.py` of the repository, with its modules | `e7489ee3ef14ebcc506099236ec4dd6962ff8880faa7ab7f09a2a6653179ec13` |
 
 The address of this folder is <https://github.com/tammet/gkreasoner/tree/master/paper2026>. The full dataset is
-archived at Zenodo: <https://doi.org/10.5281/zenodo.XXXXXXX>.
+archived at Zenodo: <https://doi.org/10.5281/zenodo.24496966>.
 
 The online appendix, which the paper cites by part (O1 to O20), is the file
 [`ONLINE_APPENDIX.md`](ONLINE_APPENDIX.md) of this folder.
